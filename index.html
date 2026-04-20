@@ -2141,6 +2141,14 @@ function renderFormCriarCenario() {
           <div id="ag-materiais-list" style="margin-bottom:12px"></div>
           <button type="button" onclick="adicionarMaterialAgendamento()" class="btn-secondary" style="width:100%;padding:8px">+ Adicionar Material</button>
         </div>
+
+        <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (AGENDAMENTO) -->
+        <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência neste agendamento. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
+          <div id="ag-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
+          <input type="hidden" id="ag-competencias" value="">
+        </div>
         ` : tipoSelecionado === 'Caso Clínico' ? `
         <!-- SEÇÃO: NÚMERO DE PASSOS (CASO CLÍNICO) -->
         <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:16px;margin-bottom:20px">
@@ -2167,6 +2175,14 @@ function renderFormCriarCenario() {
           <div id="mat-opcoes-list" style="margin-bottom:12px"></div>
           <button type="button" onclick="adicionarOpcaoMaterial()" class="btn-secondary" style="width:100%;padding:8px">+ Adicionar Opção de Material</button>
         </div>
+
+        <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (MATERIAIS) -->
+        <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência nesta seleção de materiais. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
+          <div id="mat-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
+          <input type="hidden" id="mat-competencias" value="">
+        </div>
         ` : ''}
 
         <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px;border-left:4px solid #3b82f6">
@@ -2187,10 +2203,12 @@ function renderFormCriarCenario() {
     atualizarListaHorariosAgendamento();
     atualizarListaSalasAgendamento();
     atualizarListaMaterialesAgendamento();
+    renderizarSliderCompetenciasAgendamento();
   } else if (tipoSelecionado === 'Caso Clínico') {
     renderizarPassosCasoClinico();
   } else if (tipoSelecionado === 'Materiais') {
     atualizarListaOpcoesMateriais();
+    renderizarSliderCompetenciasMateriais();
   }
 }
 
@@ -2205,7 +2223,8 @@ if (!state.agendamentoFormData) {
     dias: [],
     horarios: [],
     salas: [],
-    materiais: []
+    materiais: [],
+    competencias: [5, 5, 5, 5, 5, 5, 5, 5]  // Peso padrão para cada competência
   };
 }
 
@@ -2220,7 +2239,8 @@ if (!state.casoClinicoFormData) {
 // State para dados de materiais
 if (!state.materiaisFormData) {
   state.materiaisFormData = {
-    opcoes: []
+    opcoes: [],
+    competencias: [5, 5, 5, 5, 5, 5, 5, 5]  // Peso padrão para cada competência
   };
 }
 
@@ -2352,6 +2372,26 @@ function atualizarListaMaterialesAgendamento() {
 function removerMaterialAgendamento(idx) {
   state.agendamentoFormData.materiais.splice(idx, 1);
   atualizarListaMaterialesAgendamento();
+}
+
+function renderizarSliderCompetenciasAgendamento() {
+  const container = document.getElementById('ag-competencias-sliders');
+  if (!container) return;
+
+  container.innerHTML = competenciasLabels.map((label, i) => `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #e5e7eb">
+      <span style="min-width:140px;font-size:13px;font-weight:600;color:#374151">${label}</span>
+      <input type="range" min="0" max="10" value="${state.agendamentoFormData.competencias[i]}" onchange="atualizarCompetenciaAgendamento(${i}, parseInt(this.value))" style="flex:1;height:6px;cursor:pointer">
+      <span style="min-width:30px;text-align:right;font-weight:700;color:#059669;font-size:14px">${state.agendamentoFormData.competencias[i]}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('ag-competencias').value = JSON.stringify(state.agendamentoFormData.competencias);
+}
+
+function atualizarCompetenciaAgendamento(idx, valor) {
+  state.agendamentoFormData.competencias[idx] = valor;
+  renderizarSliderCompetenciasAgendamento();
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -2524,6 +2564,26 @@ function removerOpcaoMaterial(idx) {
   atualizarListaOpcoesMateriais();
 }
 
+function renderizarSliderCompetenciasMateriais() {
+  const container = document.getElementById('mat-competencias-sliders');
+  if (!container) return;
+
+  container.innerHTML = competenciasLabels.map((label, i) => `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #e5e7eb">
+      <span style="min-width:140px;font-size:13px;font-weight:600;color:#374151">${label}</span>
+      <input type="range" min="0" max="10" value="${state.materiaisFormData.competencias[i]}" onchange="atualizarCompetenciaMaterial(${i}, parseInt(this.value))" style="flex:1;height:6px;cursor:pointer">
+      <span style="min-width:30px;text-align:right;font-weight:700;color:#059669;font-size:14px">${state.materiaisFormData.competencias[i]}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('mat-competencias').value = JSON.stringify(state.materiaisFormData.competencias);
+}
+
+function atualizarCompetenciaMaterial(idx, valor) {
+  state.materiaisFormData.competencias[idx] = valor;
+  renderizarSliderCompetenciasMateriais();
+}
+
 // ═══════════════════════════════════════════════════════════════════
 // FUNÇÕES PARA UPLOAD DE IMAGEM
 // ═══════════════════════════════════════════════════════════════════
@@ -2675,6 +2735,8 @@ function salvarNovoCenario(e, isRascunho = false) {
       opcoes: state.agendamentoFormData.materiais,
       corretos: state.agendamentoFormData.materiais.filter(m => m.eCorreto).map(m => m.id)
     };
+    // Adicionar competências para agendamento
+    novoCenario.competenciasRelevantes = state.agendamentoFormData.competencias;
   } else if (tipo === 'Caso Clínico') {
     // Converter passos para formato esperado
     novoCenario.passos = state.casoClinicoFormData.passos.map(p => ({
@@ -2695,6 +2757,8 @@ function salvarNovoCenario(e, isRascunho = false) {
       opcoes: state.materiaisFormData.opcoes,
       corretos: state.materiaisFormData.opcoes.filter(m => m.eCorreto).map(m => m.id)
     };
+    // Adicionar competências para materiais
+    novoCenario.competenciasRelevantes = state.materiaisFormData.competencias;
   }
 
   // Mostrar mensagem
@@ -2715,14 +2779,16 @@ function salvarNovoCenario(e, isRascunho = false) {
       dias: [],
       horarios: [],
       salas: [],
-      materiais: []
+      materiais: [],
+      competencias: [5, 5, 5, 5, 5, 5, 5, 5]
     };
     state.casoClinicoFormData = {
       numPassos: 1,
       passos: []
     };
     state.materiaisFormData = {
-      opcoes: []
+      opcoes: [],
+      competencias: [5, 5, 5, 5, 5, 5, 5, 5]
     };
     state.cenarioImagem = null;
     // Limpar preview de imagem
