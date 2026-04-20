@@ -85,6 +85,7 @@
     display: flex; align-items: center; padding: 0 28px; height: 60px;
     position: sticky; top: 0; z-index: 100; }
   .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
+  .nav-brand .brand-text { background: linear-gradient(135deg, #ff8c42 0%, #1b3a8a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .nav-brand .dot { color: var(--accent); }
   .nav-center { flex: 1; display: flex; justify-content: center; gap: 4px; flex-wrap: wrap; }
   .nav-btn { padding: 6px 16px; border: none; background: transparent;
@@ -201,11 +202,11 @@
   .filter-select:focus { border-color: var(--accent); color: var(--text); }
 
   /* Filtro de complexidade customizado */
-  #f-complex { appearance: none; padding: 8px 14px; padding-right: 30px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center; background-size: 12px; }
+  #f-complex { appearance: none; padding: 8px 14px; padding-right: 30px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center; background-size: 12px; font-size: 13px; }
   #f-complex option:checked { background: linear-gradient(#ff8c42, #ff8c42); color: #fff; }
-  #f-complex option[value="1"] { background: linear-gradient(to right, #fff 0%, #fff 18px, #10b981 18px, #10b981 26px, #fff 26px, #fff 100%); }
-  #f-complex option[value="2"] { background: linear-gradient(to right, #fff 0%, #fff 18px, #f59e0b 18px, #f59e0b 26px, #fff 26px, #fff 100%); }
-  #f-complex option[value="3"] { background: linear-gradient(to right, #fff 0%, #fff 18px, #ef4444 18px, #ef4444 26px, #fff 26px, #fff 100%); }
+  #f-complex option[value="1"] { background: #ffffff; color: #10b981; }
+  #f-complex option[value="2"] { background: #ffffff; color: #f59e0b; }
+  #f-complex option[value="3"] { background: #ffffff; color: #ef4444; }
 
   .filter-count { margin-left: auto; font-size: 12px; color: var(--text3); }
 
@@ -601,7 +602,7 @@
           </linearGradient>
         </defs>
       </svg>
-      Simu<span class="dot">Care</span>
+      <span class="brand-text">SimuCare</span>
     </div>
     <div class="nav-center" id="nav-center"></div>
     <div class="nav-right">
@@ -664,9 +665,9 @@
         </select>
         <select class="filter-select" id="f-complex" onchange="renderScenarios()">
           <option value="">✓ Todas as complexidades</option>
-          <option value="1">■ Fácil</option>
-          <option value="2">■ Médio</option>
-          <option value="3">■ Difícil</option>
+          <option value="1">● Fácil</option>
+          <option value="2">● Médio</option>
+          <option value="3">● Difícil</option>
         </select>
         <span class="filter-count" id="filter-count">—</span>
       </div>
