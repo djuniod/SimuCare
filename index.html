@@ -1903,29 +1903,9 @@ function openAlunoDetail(alunoId) {
       const data = new Date(r.data);
       const refl = (r.reflexoes||[]).filter(x=>x&&x.trim());
       const agHtml = r.modalidade==='agendamento' ? renderAgRegistro(r) : '';
-      // Renderizar detalhamento de respostas se disponível
-      let respostasDetalhes = [];
-      try {
-        if (r.respostas_detalhes) {
-          respostasDetalhes = typeof r.respostas_detalhes === 'string'
-            ? JSON.parse(r.respostas_detalhes)
-            : Array.isArray(r.respostas_detalhes) ? r.respostas_detalhes : [];
-          console.log('Respostas detalhes carregadas:', respostasDetalhes);
-        }
-      } catch (e) {
-        console.error('Erro ao parsear respostas_detalhes:', e);
-        respostasDetalhes = [];
-      }
-      const respostasHtml = respostasDetalhes && respostasDetalhes.length ? `<div style="width:100%;margin-top:10px;background:var(--bg2);border-radius:6px;padding:10px 12px">
-        <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:6px">📝 Detalhamento de Respostas</div>
-        ${respostasDetalhes.map((rd, i) => {
-          const icon = rd.qualidade === 'good' ? '✅' : rd.qualidade === 'ok' ? '⚠️' : '❌';
-          const qualText = rd.qualidade === 'good' ? 'Excelente' : rd.qualidade === 'ok' ? 'Aceitável' : 'Incorreta';
-          return `<div style="margin-bottom:6px;font-size:12px">
-            ${icon} <strong>${rd.fase}</strong> — ${qualText} (${rd.tentativas||1} tentativa, ${rd.pontuacao||0} pts)
-          </div>`;
-        }).join('')}
-      </div>` : '';
+      // Mostrar indicador se há detalhamento (dados estão sendo salvos no banco)
+      const temDetalhamento = r.respostas_detalhes ? '✓ Detalhes salvos' : '';
+      const respostasHtml = temDetalhamento ? `<div style="width:100%;margin-top:8px;font-size:11px;color:var(--accent);font-weight:600">${temDetalhamento}</div>` : '';
 
       return `<div class="activity-item" style="border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:12px 14px;flex-direction:column;align-items:flex-start">
         <div style="display:flex;width:100%;gap:12px;align-items:center">
