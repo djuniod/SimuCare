@@ -37,8 +37,8 @@
     border-radius: 16px; display: inline-flex; align-items: center; justify-content: center;
     font-size: 30px; margin-bottom: 14px;
     box-shadow: none; }
-  .brand h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
-  .brand h1 span { color: var(--accent); }
+  .brand h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #ff8c42 0%, #9e5c8a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .brand h1 span { background: linear-gradient(135deg, #ff8c42 0%, #9e5c8a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .brand p { color: var(--text2); font-size: 12px; margin-top: 4px; }
 
   .tab-switch { display: flex; background: var(--bg2); border-radius: 10px; padding: 4px; margin-bottom: 24px; }
@@ -91,7 +91,7 @@
     color: var(--text2); font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 500;
     border-radius: 8px; cursor: pointer; transition: all 0.2s; }
   .nav-btn:hover { background: var(--surface); color: var(--text); }
-  .nav-btn.active { background: var(--surface); color: var(--accent); }
+  .nav-btn.active { background: linear-gradient(135deg, #ff8c42, #9e5c8a); color: #fff; font-weight: 600; }
   .nav-right { display: flex; align-items: center; gap: 12px; }
   .user-chip { display: flex; align-items: center; gap: 8px; }
   .user-avatar { width: 32px; height: 32px; border-radius: 50%;
@@ -151,6 +151,20 @@
   .activity-info { flex: 1; }
   .activity-title { font-size: 13px; font-weight: 600; }
   .activity-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+  /* GAMIFICAÇÃO */
+  .gamification-card { background: linear-gradient(135deg, #ff8c42 0%, #9e5c8a 100%);
+    border-radius: var(--radius); padding: 24px; color: #fff; margin: 24px 0;
+    box-shadow: 0 8px 32px rgba(255,140,66,0.2); }
+  .gamif-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .gamif-level { display: flex; align-items: center; gap: 12px; }
+  .gamif-badge { font-size: 48px; }
+  .gamif-info { }
+  .gamif-level-name { font-size: 20px; font-weight: 800; }
+  .gamif-points { font-size: 12px; opacity: 0.9; }
+  .gamif-next { font-size: 11px; opacity: 0.8; text-align: right; }
+  .gamif-bar { background: rgba(255,255,255,0.2); border-radius: 12px; height: 12px; overflow: hidden; margin-top: 8px; }
+  .gamif-fill { height: 100%; background: rgba(255,255,255,0.8); border-radius: 12px; transition: width 0.6s ease; }
   .activity-score { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px; }
   .score-good { color: var(--success); }
   .score-ok { color: var(--warning); }
@@ -456,8 +470,8 @@
       <p>Simulador de atendimento odontológico</p>
     </div>
     <div class="tab-switch">
-      <button class="tab-btn active" onclick="setLoginTab('aluno')">👨‍🎓 Aluno</button>
-      <button class="tab-btn" onclick="setLoginTab('professor')">👩‍🏫 Professor</button>
+      <button class="tab-btn active" onclick="setLoginTab('aluno')">Aluno</button>
+      <button class="tab-btn" onclick="setLoginTab('professor')">Professor</button>
     </div>
     <div id="login-err" class="err-msg"></div>
 
@@ -567,7 +581,7 @@
           <span class="badge-role" id="nav-role">—</span>
         </div>
       </div>
-      <button class="btn-refresh" id="btn-refresh" onclick="refreshData()" title="Atualizar dados">🔄 Atualizar</button>
+      <button class="btn-refresh" id="btn-refresh" onclick="refreshData()" title="Atualizar dados">Atualizar</button>
       <button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
   </nav>
@@ -576,7 +590,7 @@
     <!-- DASHBOARD ALUNO -->
     <div id="page-dashboard" class="page fade-in">
       <div class="dash-header">
-        <h2>Olá, <span id="dash-name">Aluno</span> 👋</h2>
+        <h2>Olá, <span id="dash-name">Aluno</span></h2>
         <p id="dash-subtitle">Bem-vindo ao SimuCare. Escolha um cenário para começar.</p>
       </div>
       <div class="stats-grid">
@@ -585,6 +599,7 @@
         <div class="stat-card"><div class="stat-label">Melhor nota</div><div class="stat-value blue" id="st-best">—</div></div>
         <div class="stat-card"><div class="stat-label">Reflexões registradas</div><div class="stat-value orange" id="st-refl">0</div></div>
       </div>
+      <div class="gamification-card" id="gamification-card"></div>
       <div class="competency-section">
         <div class="radar-wrap">
           <h4 style="font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3);font-weight:700;margin-bottom:16px">Mapa de Competências</h4>
@@ -630,7 +645,7 @@
     <!-- PAINEL PROFESSOR -->
     <div id="page-professor" class="page fade-in">
       <div class="dash-header">
-        <h2>Painel do Professor 👩‍🏫</h2>
+        <h2>Painel do Professor</h2>
         <p>Visão geral da turma, desempenho e reflexões dos alunos.</p>
       </div>
       <div class="stats-grid">
@@ -662,10 +677,10 @@
         <span>Ferramentas</span>
       </div>
       <div class="action-btns">
-        <button class="btn-sm primary-sm" onclick="showPage('page-turmas')">📋 Gerenciar Turmas</button>
-        <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">👥 Gerenciar Alunos</button>
-        <button class="btn-sm" onclick="showPage('page-reflexoes')">✍️ Ver Reflexões</button>
-        <button class="btn-sm" onclick="exportarCSV()">📊 Exportar CSV</button>
+        <button class="btn-sm primary-sm" onclick="showPage('page-turmas')">Gerenciar Turmas</button>
+        <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">Gerenciar Alunos</button>
+        <button class="btn-sm" onclick="showPage('page-reflexoes')">Ver Reflexões</button>
+        <button class="btn-sm" onclick="exportarCSV()">Exportar CSV</button>
       </div>
     </div>
 
@@ -1099,6 +1114,17 @@ function getTurmaNome(turmaId) {
 }
 
 // -- DASHBOARD ALUNO ------------------------------------------------
+function calculateLevel(totalPoints) {
+  const levels = [
+    { name: 'Bronze', badge: '🥉', minPoints: 0, maxPoints: 50 },
+    { name: 'Prata', badge: '🥈', minPoints: 51, maxPoints: 150 },
+    { name: 'Ouro', badge: '🥇', minPoints: 151, maxPoints: Infinity }
+  ];
+  const currentLevel = levels.find(l => totalPoints >= l.minPoints && totalPoints <= l.maxPoints);
+  const nextLevel = levels.find(l => l.minPoints > totalPoints);
+  return { current: currentLevel, next: nextLevel, total: totalPoints };
+}
+
 function renderDashboard() {
   const u = state.user;
   document.getElementById('dash-name').textContent = u.primeiro || u.nome.split(' ')[0];
@@ -1113,6 +1139,27 @@ function renderDashboard() {
   document.getElementById('st-best').textContent = rs.length ? Math.max(...rs.map(r=>r.pontuacao)).toFixed(1) : '—';
   const totalReflexoes = rs.reduce((a,r)=>a + ((r.reflexoes||[]).filter(x=>x && x.trim()).length), 0);
   document.getElementById('st-refl').textContent = totalReflexoes;
+
+  // Gamificação
+  const totalPoints = rs.reduce((a,r)=>a+r.pontuacao,0);
+  const levelData = calculateLevel(totalPoints);
+  const progressPercent = Math.min(100, ((totalPoints - levelData.current.minPoints) / (levelData.current.maxPoints - levelData.current.minPoints)) * 100);
+  const nextLevelText = levelData.next ? `Próximo nível: ${levelData.next.name} em ${levelData.next.minPoints} pontos` : 'Máximo nível atingido!';
+  document.getElementById('gamification-card').innerHTML = `
+    <div class="gamif-header">
+      <div class="gamif-level">
+        <div class="gamif-badge">${levelData.current.badge}</div>
+        <div class="gamif-info">
+          <div class="gamif-level-name">${levelData.current.name}</div>
+          <div class="gamif-points">${totalPoints} pontos</div>
+        </div>
+      </div>
+      <div class="gamif-next">${nextLevelText}</div>
+    </div>
+    <div class="gamif-bar">
+      <div class="gamif-fill" style="width:${progressPercent}%"></div>
+    </div>
+  `;
   // comps
   const compAvg = COMPETENCIAS.map((_,i) => {
     const vals = rs.map(r => r.comps && r.comps[i]).filter(v => v !== undefined);
