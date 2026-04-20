@@ -3007,9 +3007,6 @@ function renderProfDashboard() {
   if (semAtividade.length) items.push(`${semAtividade.length} aluno(s) ainda não fez nenhum cenário`);
   if (baixoDesempenho.length) items.push(`${baixoDesempenho.length} aluno(s) com média < 6: ${baixoDesempenho.map(a=>a.primeiro).join(', ')}`);
   alerts.innerHTML = items.length ? items.map(i=>`<div class="alert-item">${i}</div>`).join('') : '<div class="muted">Nenhum alerta no momento.</div>';
-    <div class="comp-bar-row"><div class="comp-name">${AREA_EMOJI[a]||'📌'} ${a}</div>
-      <div class="comp-track"><div class="comp-fill" style="width:${Math.min(100, c*10)}%"></div></div>
-      <div class="comp-score">${c}</div></div>`).join('') : '<div class="muted">Sem sessões ainda.</div>';
 }
 
 // Calcula pontos totais e nível do aluno
