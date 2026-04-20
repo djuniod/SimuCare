@@ -3130,15 +3130,16 @@ function renderGamificacao(pontosELevel) {
 }
 
 function openAlunoDetail(alunoId) {
-  const al = state.alunos.find(a => a.id === alunoId);
-  if (!al) return;
-  const rs = getResultsForUser(alunoId);
-  const turma = al.turma ? getTurmaNome(al.turma) : null;
-  const avg = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length).toFixed(1) : '—';
+  try {
+    const al = state.alunos.find(a => a.id === alunoId);
+    if (!al) { console.error('Aluno não encontrado:', alunoId); return; }
+    const rs = getResultsForUser(alunoId);
+    const turma = al.turma ? getTurmaNome(al.turma) : null;
+    const avg = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length).toFixed(1) : '—';
 
-  // Calcular competências e gamificação
-  const competencias = calcularCompetencias(alunoId);
-  const pontosELevel = calcularPontosELevel(alunoId);
+    // Calcular competências e gamificação
+    const competencias = calcularCompetencias(alunoId);
+    const pontosELevel = calcularPontosELevel(alunoId);
 
   const body = `
     <div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap">
@@ -3184,7 +3185,11 @@ function openAlunoDetail(alunoId) {
       </div>`;
     }).join('') : '<div class="empty-state">Aluno ainda não realizou cenários.</div>'}
   `;
-  openModal(`${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}`, body, '');
+    openModal(`${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}`, body, '');
+  } catch (e) {
+    console.error('Erro ao abrir detalhes do aluno:', e);
+    alert('Erro ao carregar detalhes do aluno. Verifique o console (F12) para mais informações.');
+  }
 }
 
 // Renderiza o REGISTRO COMPLETO de uma atividade de agendamento (visível ao professor e ao aluno)
