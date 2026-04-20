@@ -1350,7 +1350,7 @@ function renderScenarios() {
       <div class="card-area">${AREA_EMOJI[s.area]||'📌'} ${s.area}</div>
       <div class="card-meta">
         <span class="tag ${tipoCls}">${isAg ? 'Agendamento' : s.tipo}</span>
-        ${s.tempo ? `<span class="tag time">${s.tempo}</span>` : ''}
+        ${s.tempo ? `<span class="tag time">${s.tempo} min</span>` : ''}
       </div>
     </div>`;
   }).join('');
@@ -1415,7 +1415,7 @@ function renderSimStep(showRetryBanner) {
           <div class="char-detail">${s.personagem?.detalhe || ''}</div></div>
       </div>
       <hr class="divider">
-      <div class="question-label">❓ ${step.pergunta}</div>
+      <div class="question-label">${step.pergunta}</div>
       <div id="options-area">${renderOptionsButtons(shuffleOptionsForStep(step.opcoes))}</div>
       <div id="feedback-area"></div>
     </div>
@@ -1425,7 +1425,7 @@ function renderSimStep(showRetryBanner) {
         <div class="area-badge" style="background:${color}20;color:${color};border:1px solid ${color}40">${AREA_EMOJI[s.area]||'📌'} ${s.area}</div>
         <div class="info-item"><span class="info-key">Tipo</span><span class="info-val">${s.tipo}</span></div>
         <div class="info-item"><span class="info-key">Complexidade</span><span class="info-val">${renderComplexityBar(s.complexidade)}</span></div>
-        <div class="info-item"><span class="info-key">Tempo est.</span><span class="info-val">${s.tempo||'—'}</span></div>
+        <div class="info-item"><span class="info-key">Tempo est.</span><span class="info-val">${s.tempo||'—'} min</span></div>
       </div>
       <div class="sidebar-card"><h4>Competências acumuladas</h4>${compsHtml}</div>
     </div>`;
