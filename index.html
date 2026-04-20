@@ -941,6 +941,7 @@ async function saveResultados() { await loadAllFromSupabase(); }
 
 function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
 function norm(s) { return (s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
+function capitalize(s) { return (s||"").trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' '); }
 
 // -- COMPLEXIDADE BARRA DE CORES
 function renderComplexityBar(level) {
@@ -1005,7 +1006,7 @@ async function doLoginAluno() {
   const aluno = state.alunos.find(a => norm(a.primeiro)===pri && norm(a.sobrenome)===sob);
   if (!aluno) return showErr('login-err', 'Aluno não encontrado. Verifique o cadastro.');
   if (aluno.senha !== pass) return showErr('login-err', 'Senha incorreta.');
-  state.user = { tipo: 'aluno', id: aluno.id, nome: aluno.primeiro + ' ' + aluno.sobrenome, primeiro: aluno.primeiro, sobrenome: aluno.sobrenome, turmaId: aluno.turma };
+  state.user = { tipo: 'aluno', id: aluno.id, nome: capitalize(aluno.primeiro) + ' ' + capitalize(aluno.sobrenome), primeiro: aluno.primeiro, sobrenome: aluno.sobrenome, turmaId: aluno.turma };
   enterApp();
 }
 function doLoginProf() {
@@ -2006,7 +2007,7 @@ function renderProfDashboard() {
       const avg = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length) : null;
       const turma = al.turma ? getTurmaNome(al.turma) : null;
       return `<tr>
-        <td class="td-name">${al.primeiro} ${al.sobrenome}</td>
+        <td class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}</td>
         <td>${turma ? `<span class="pill pill-turma">${turma}</span>` : '<span class="pill pill-sem-turma">sem turma</span>'}</td>
         <td class="td-score">${rs.length}</td>
         <td class="td-score">${avg !== null ? avg.toFixed(1) : '—'}</td>
@@ -2189,7 +2190,7 @@ function openAlunoDetail(alunoId) {
       </div>`;
     }).join('') : '<div class="empty-state">Aluno ainda não realizou cenários.</div>'}
   `;
-  openModal(`${al.primeiro} ${al.sobrenome}`, body, '');
+  openModal(`${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}`, body, '');
 }
 
 // Renderiza o REGISTRO COMPLETO de uma atividade de agendamento (visível ao professor e ao aluno)
@@ -2346,7 +2347,7 @@ function renderAlunosAdmin() {
     ).join('');
     const highlight = !al.turma ? ' style="background:rgba(245,158,11,0.05)"' : '';
     return `<tr${highlight}>
-      <td class="td-name">${al.primeiro} ${al.sobrenome}</td>
+      <td class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}</td>
       <td>${new Date(al.createdAt).toLocaleDateString('pt-BR')}</td>
       <td><select class="inline-select" onchange="atribuirTurma('${al.id}', this.value)">${options}</select></td>
       <td class="td-score">${rs.length}</td>
@@ -2367,7 +2368,7 @@ async function atribuirTurma(alunoId, turmaId) {
 }
 async function excluirAluno(alunoId) {
   const al = state.alunos.find(a => a.id === alunoId); if (!al) return;
-  if (!confirm(`Excluir o aluno ${al.primeiro} ${al.sobrenome} e todo seu histórico?`)) return;
+  if (!confirm(`Excluir o aluno ${capitalize(al.primeiro)} ${capitalize(al.sobrenome)} e todo seu histórico?`)) return;
   // ON DELETE CASCADE em resultados já remove o histórico
   const { error } = await sb.from('alunos').delete().eq('id', alunoId);
   if (error) { console.error(error); return alert('Erro ao excluir aluno.'); }
@@ -2381,7 +2382,7 @@ function renderReflexoes() {
   turmaSel.innerHTML = '<option value="">Todas as turmas</option>' + state.turmas.map(t => `<option value="${t.id}">${t.nome}</option>`).join('') + '<option value="__none__">Sem turma</option>';
   turmaSel.onchange = updateReflFilters;
   const alunoSel = document.getElementById('ref-filtro-aluno');
-  alunoSel.innerHTML = '<option value="">Todos os alunos</option>' + state.alunos.map(a => `<option value="${a.id}">${a.primeiro} ${a.sobrenome}</option>`).join('');
+  alunoSel.innerHTML = '<option value="">Todos os alunos</option>' + state.alunos.map(a => `<option value="${a.id}">${capitalize(a.primeiro)} ${capitalize(a.sobrenome)}</option>`).join('');
   alunoSel.onchange = updateReflFilters;
   updateReflFilters();
 }
@@ -2427,7 +2428,7 @@ function exportarCSV() {
     const t = al.turma ? getTurmaNome(al.turma) : '';
     rs.forEach(r => {
       const refl = (r.reflexoes||[]).filter(x=>x&&x.trim()).join(' | ').replace(/"/g,"'");
-      csv += `"${al.primeiro} ${al.sobrenome}","${t}","${r.cenarioId}","${(r.titulo||'').replace(/"/g,"'")}","${r.area||''}","${r.modalidade||''}",${r.pontuacao},"${new Date(r.data).toLocaleDateString('pt-BR')}",${(r.comps||[]).join(',')},"${refl}"\n`;
+      csv += `"${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}","${t}","${r.cenarioId}","${(r.titulo||'').replace(/"/g,"'")}","${r.area||''}","${r.modalidade||''}",${r.pontuacao},"${new Date(r.data).toLocaleDateString('pt-BR')}",${(r.comps||[]).join(',')},"${refl}"\n`;
     });
   });
   const blob = new Blob([csv], {type:'text/csv'});
