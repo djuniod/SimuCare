@@ -3009,18 +3009,18 @@ function renderProfDashboard() {
   alerts.innerHTML = items.length ? items.map(i=>`<div class="alert-item">${i}</div>`).join('') : '<div class="muted">Nenhum alerta no momento.</div>';
 }
 
-// Calcula pontos totais e nível do aluno
+// Calcula pontos totais e nível do aluno (IGUAL ao calculateLevel do aluno)
 function calcularPontosELevel(alunoId) {
   const rs = getResultsForUser(alunoId);
   const totalPontos = rs.reduce((sum, r) => sum + (r.pontuacao || 0), 0);
 
   let level = 'Bronze', levelNum = 1, emoji = '🥉';
-  if (totalPontos >= 300) { level = 'Diamante'; levelNum = 4; emoji = '💎'; }
-  else if (totalPontos >= 150) { level = 'Ouro'; levelNum = 3; emoji = '🏆'; }
-  else if (totalPontos >= 60) { level = 'Prata'; levelNum = 2; emoji = '🥈'; }
+  if (totalPontos >= 351) { level = 'Diamante'; levelNum = 4; emoji = '💎'; }
+  else if (totalPontos >= 201) { level = 'Ouro'; levelNum = 3; emoji = '🏆'; }
+  else if (totalPontos >= 101) { level = 'Prata'; levelNum = 2; emoji = '🥈'; }
 
-  const proximoLevel = [60, 150, 300, 999999][levelNum];
-  const nivelAnterior = [0, 60, 150, 300][levelNum - 1];
+  const proximoLevel = [101, 201, 351, 999999][levelNum];
+  const nivelAnterior = [0, 101, 201, 351][levelNum - 1];
   const progressoNivel = ((totalPontos - nivelAnterior) / (proximoLevel - nivelAnterior)) * 100;
 
   return { totalPontos, level, levelNum, emoji, progressoNivel: Math.min(100, progressoNivel) };
