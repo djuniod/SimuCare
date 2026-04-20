@@ -1921,6 +1921,1386 @@ window.CENARIOS = [
     ok:{ titulo:'Parcial', texto:'Sem imagem não se confirma se foi deglutido ou aspirado.', consequencia:'Risco pulmonar oculto.', positivos:['Início correto'], negativos:['Sem RX'] },
     bad:{ titulo:'Erro grave', texto:'Água ou dispensa podem matar.', consequencia:'Parada respiratória.', positivos:[], negativos:['Risco de morte'] }
   }}]
+}{
+  id:'MP-01', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Dor pós-RCT',
+  contexto:'Paciente com dor após tratamento endodôntico.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Apreensivo' },
+  passos:[{
+    fase:'Avaliação',
+    pergunta:'Como investigar a causa?',
+    opcoes:[
+      { texto:'Questionar localização, intensidade; testar vitalidade; fazer RX para descartar fratura', qualidade:'good', pontos:10, comps:[8,9,8,9,7,8,7,9] },
+      { texto:'Prescrever analgésico mais forte', qualidade:'ok', pontos:6, comps:[4,5,5,5,4,5,4,6] },
+      { texto:'Dizer que é normal', qualidade:'bad', pontos:2, comps:[2,2,2,3,3,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Diagnóstico preciso', texto:'Investigou causas.', consequencia:'Tratamento adequado.', positivos:['Técnico'], negativos:[] },
+      ok:{ titulo:'Parcial', texto:'Sem investigação.', consequencia:'Risco.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Grave.', consequencia:'Complicação.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Conduta',
+    pergunta:'Se fratura confirmada, qual abordagem?',
+    opcoes:[
+      { texto:'Informar paciente, documentar, considerar extração ou retratamento', qualidade:'good', pontos:10, comps:[9,9,8,9,7,8,7,10] },
+      { texto:'Tentar refazer RCT', qualidade:'ok', pontos:5, comps:[5,5,5,5,5,5,5,5] },
+      { texto:'Ignorar', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Ético', texto:'Comunicação honesta.', consequencia:'Confiança.', positivos:['Honesto'], negativos:[] },
+      ok:{ titulo:'Tentativa', texto:'Prognóstico pobre.', consequencia:'Risco de falha.', positivos:[], negativos:[] },
+      bad:{ titulo:'Omissão', texto:'Grave problema.', consequencia:'Processo.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-02', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Sangramento excessivo diabético',
+  contexto:'Paciente sangra muito durante limpeza. É diabético tipo 2.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Diabético' },
+  passos:[{
+    fase:'Reconhecimento',
+    pergunta:'Como ajustar o plano?',
+    opcoes:[
+      { texto:'Parar, registrar, encaminhar para médico avaliar hemostasia', qualidade:'good', pontos:10, comps:[8,9,8,8,8,8,7,9] },
+      { texto:'Continuar com antibiótico preventivo', qualidade:'ok', pontos:6, comps:[4,5,5,5,6,6,4,6] },
+      { texto:'Culpabilizar o paciente', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,1,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Manejo', texto:'Reconheceu impacto.', consequencia:'Seguro.', positivos:['Interdisciplinar'], negativos:[] },
+      ok:{ titulo:'Risco', texto:'Sem investigação.', consequencia:'Negligência.', positivos:[], negativos:[] },
+      bad:{ titulo:'Culpa', texto:'Quebra vínculo.', consequencia:'Perde paciente.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Acompanhamento',
+    pergunta:'Frequência de limpeza ideal?',
+    opcoes:[
+      { texto:'A cada 3 meses + higiene intensiva + coordenar com médico', qualidade:'good', pontos:10, comps:[8,9,8,8,8,8,7,9] },
+      { texto:'Semestral como pacientes normais', qualidade:'ok', pontos:5, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Remarcar se houver queixa', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Apropriado', texto:'Vigilância frequente.', consequencia:'Melhor prognóstico.', positivos:['Preventiva'], negativos:[] },
+      ok:{ titulo:'Insuficiente', texto:'Progressão mais rápida.', consequencia:'Perda dentária.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Agravamento certo.', consequencia:'Culpa profissional.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-03', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Discrepância oclusal',
+  contexto:'Contato prematuro após restauração confirmado com carbono.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Atento' },
+  passos:[{
+    fase:'Ajuste',
+    pergunta:'Como garantir harmonia?',
+    opcoes:[
+      { texto:'Baixar ponto, testar, refinar até harmonia em oclusão cêntrica e excursões', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Normal, vai se ajustar em semanas', qualidade:'ok', pontos:5, comps:[3,3,4,4,3,3,3,4] },
+      { texto:'Culpar o paciente pela mordida', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Preciso', texto:'Corrigiu imediatamente.', consequencia:'Satisfação.', positivos:['Qualidade'], negativos:[] },
+      ok:{ titulo:'Espera', texto:'Pode funcionar.', consequencia:'Desconforto temporário.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Unprofessional.', consequencia:'Muda de dentista.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Finalização',
+    pergunta:'O que fazer após ajuste?',
+    opcoes:[
+      { texto:'Refazer testes finais em carbono, orientar, marcar revisão em 1 semana', qualidade:'good', pontos:10, comps:[8,8,8,9,8,8,8,9] },
+      { texto:'Apenas polir', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Nada', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Total', texto:'Garantiu longevidade.', consequencia:'Duradoura.', positivos:['Profissional'], negativos:[] },
+      ok:{ titulo:'Parcial', texto:'Funcional sem garantia.', consequencia:'Reajuste depois.', positivos:[], negativos:[] },
+      bad:{ titulo:'Irresponsável', texto:'Negligência.', consequencia:'Fracasso rápido.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-04', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Mobilidade dentária',
+  contexto:'Paciente com mobilidade anormal nos dentes 36 e 37.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Fumante' },
+  passos:[{
+    fase:'Diagnóstico',
+    pergunta:'Qual conduta diagnóstica?',
+    opcoes:[
+      { texto:'RX periapical, testar vitalidade, registrar, avaliar apertamento, investigar trauma oclusal', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,7,9] },
+      { texto:'Só observar e remarcar em 3 meses', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Extrair imediatamente', qualidade:'bad', pontos:1, comps:[1,2,1,2,2,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Investigação', texto:'Investigou causas.', consequencia:'Diagnóstico preciso.', positivos:['Sistemático'], negativos:[] },
+      ok:{ titulo:'Espera', texto:'Sem investigação.', consequencia:'Progressão silenciosa.', positivos:[], negativos:[] },
+      bad:{ titulo:'Mutilação', texto:'Desnecessária.', consequencia:'Perda do dente.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Se trauma oclusal + periodontite, qual abordagem?',
+    opcoes:[
+      { texto:'Ajuste oclusal, higiene intensiva, placa noturna, antibiótico se necessário, reavaliação', qualidade:'good', pontos:10, comps:[8,9,8,9,9,8,8,9] },
+      { texto:'Apenas profilaxia e esperar', qualidade:'ok', pontos:5, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Extração preventiva', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Multifatorial', texto:'Atacou as causas.', consequencia:'Melhor estabilização.', positivos:['Holístico'], negativos:[] },
+      ok:{ titulo:'Incompleto', texto:'Sem controle oclusal.', consequencia:'Progressão contínua.', positivos:[], negativos:[] },
+      bad:{ titulo:'Destrutivo', texto:'Remove o que pode salvar.', consequencia:'Dano permanente.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-05', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Lesão erosiva com sensibilidade',
+  contexto:'Paciente com erosão cervical severa. Dentes muito sensíveis. Refere vômitos frequentes.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Bulímico' },
+  passos:[{
+    fase:'Identificação causa',
+    pergunta:'Como abordar a causa raiz?',
+    opcoes:[
+      { texto:'Questionar sobre hábitos, vômitos, bebidas ácidas; encaminhar para nutricionista/psicólogo se necessário', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Prescrever dessensibilizante apenas', qualidade:'ok', pontos:5, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Ignorar a causa', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Holístico', texto:'Atacou origem.', consequencia:'Solução duradoura.', positivos:['Interdisciplinar'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Sem causa.', consequencia:'Piora progressiva.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Dano contínuo.', consequencia:'Destruição progressiva.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Qual abordagem para erosão avançada?',
+    opcoes:[
+      { texto:'Fluoretos tópicos, adesivos resinosos nas lesões, protetor bucal noturno se bruxismo, reavaliação periódica', qualidade:'good', pontos:10, comps:[9,9,9,9,8,8,8,9] },
+      { texto:'Apenas fluoreto gel caseiro', qualidade:'ok', pontos:6, comps:[5,5,5,5,5,5,5,5] },
+      { texto:'Restauração agressiva', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Conservador', texto:'Preservou estrutura.', consequencia:'Estável.', positivos:['Prudente'], negativos:[] },
+      ok:{ titulo:'Limitado', texto:'Pode ajudar.', consequencia:'Resultado incerto.', positivos:[], negativos:[] },
+      bad:{ titulo:'Destrutivo', texto:'Removeu saudável.', consequencia:'Dano irreversível.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-06', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Inflamação pós-implante',
+  contexto:'Paciente 3 meses pós-cirurgia de implante. Inchaço localizado e dor no sítio.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Pós-cirurgia' },
+  passos:[{
+    fase:'Avaliação',
+    pergunta:'O que deve ser feito primeiro?',
+    opcoes:[
+      { texto:'RX do sítio, examinar, verificar estabilidade do implante, verificar higiene, testar vitalidade dos dentes adjacentes', qualidade:'good', pontos:10, comps:[9,9,8,9,8,8,8,9] },
+      { texto:'Prescrever antibiótico preventivo', qualidade:'ok', pontos:5, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Reindicando que é normal', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Investigativo', texto:'Investigou complicações.', consequencia:'Diagnóstico preciso.', positivos:['Completo'], negativos:[] },
+      ok:{ titulo:'Prescrição prematura', texto:'Sem investigação.', consequencia:'Pode mascarar problema.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Grave.', consequencia:'Perda de implante.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Conduta',
+    pergunta:'Se periimplantite confirmada, qual tratamento?',
+    opcoes:[
+      { texto:'Higienização mecânica, instruções rigorosas, antimicrobianos tópicos, desbridamento se necessário, acompanhamento próximo', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Apenas enxaguante bucal', qualidade:'ok', pontos:5, comps:[3,3,3,3,3,3,3,3] },
+      { texto:'Remover implante imediatamente', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Conservador', texto:'Tentou preservar.', consequencia:'Chance de sucesso.', positivos:['Prudente'], negativos:[] },
+      ok:{ titulo:'Insuficiente', texto:'Sem ação mecânica.', consequencia:'Progressão.', positivos:[], negativos:[] },
+      bad:{ titulo:'Precipitado', texto:'Destruiu solução.', consequencia:'Dano permanente.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-07', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Halitose crônica',
+  contexto:'Paciente com halitose persistente apesar de boa higiene.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Constrangido' },
+  passos:[{
+    fase:'Diagnóstico',
+    pergunta:'Como investigar a origem?',
+    opcoes:[
+      { texto:'Questionar medicações, doenças sistêmicas, avaliação periodontal completa, dorso de língua, orofaringe', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,7,9] },
+      { texto:'Prescrever enxaguante bucal', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Dizer que é normal', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Detalhado', texto:'Investigação completa.', consequencia:'Causa identificada.', positivos:['Sistemático'], negativos:[] },
+      ok:{ titulo:'Superficial', texto:'Sem investigação.', consequencia:'Risco de falha.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Impacto emocional grave.', consequencia:'Perda de confiança.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Se origem periodontal confirmada, qual estratégia?',
+    opcoes:[
+      { texto:'Desbridamento, limpeza periodontal, higiene intensiva, instrução de língua, reavaliação em 2 semanas', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Só enxaguante', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Encaminhar sem intervir', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Completo', texto:'Múltiplas estratégias.', consequencia:'Melhora significativa.', positivos:['Efetivo'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Mascara sem resolver.', consequencia:'Recorrência.', positivos:[], negativos:[] },
+      bad:{ titulo:'Adiamento', texto:'Sem ação imediata.', consequencia:'Frustração do paciente.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-08', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Fratura de raiz residual',
+  contexto:'Paciente com sintoma de dor crônica. RX mostra fragmento radicular retido.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Dor crônica' },
+  passos:[{
+    fase:'Decisão cirúrgica',
+    pergunta:'Como proceder com raiz retida?',
+    opcoes:[
+      { texto:'Avaliar sintomatologia, RX periapical/oclusal, se assintomática documentar e acompanhar, se sintomática remover sob rigor asséptico', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Remover imediatamente', qualidade:'ok', pontos:5, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Ignorar e medicar', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Prudente', texto:'Respeitou evidência.', consequencia:'Menos trauma.', positivos:['Baseado em evidência'], negativos:[] },
+      ok:{ titulo:'Agressivo', texto:'Desnecessário em caso assintomático.', consequencia:'Trauma adicional.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Inflamação contínua.', consequencia:'Complicação progressiva.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Técnica',
+    pergunta:'Se decisão for remover, qual técnica?',
+    opcoes:[
+      { texto:'Anestesia suficiente, incisão criterioso, elevação delicada, preservação de estrutura, suturas, pós-op adequado', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Remoção pela força com instrumento único', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem protocolo asséptico', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Profissional', texto:'Técnica refinada.', consequencia:'Cicatrização adequada.', positivos:['Atraumático'], negativos:[] },
+      ok:{ titulo:'Rústico', texto:'Funciona mas lesivo.', consequencia:'Cicatrização lenta.', positivos:[], negativos:[] },
+      bad:{ titulo:'Perigoso', texto:'Risco de infecção.', consequencia:'Abscessos secundários.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-09', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Alergia a anestésico',
+  contexto:'Paciente relata reação alérgica a anestésicos locais em passado.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Alérgico' },
+  passos:[{
+    fase:'Avaliação de alergia',
+    pergunta:'Como proceder com suspeita de alergia?',
+    opcoes:[
+      { texto:'Questionar tipo de anestésico, sintomas, quando aconteceu, documentar detalhadamente, considerar teste de contato', qualidade:'good', pontos:10, comps:[9,9,8,9,8,8,8,9] },
+      { texto:'Usar anestésico diferente sem investigação', qualidade:'ok', pontos:5, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Negar atendimento', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Investigativo', texto:'Diferenciou reação.', consequencia:'Segurança confirmada.', positivos:['Cuidadoso'], negativos:[] },
+      ok:{ titulo:'Prático mas incompleto', texto:'Pode funcionar.', consequencia:'Risco futuro.', positivos:[], negativos:[] },
+      bad:{ titulo:'Discriminação', texto:'Abandono injustificado.', consequencia:'Perda de paciente.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Alternativa segura',
+    pergunta:'Se alergia confirmada, qual anestésico usar?',
+    opcoes:[
+      { texto:'Prilocaína sem vasoconstritor ou articaína, teste intradérmico antes, dosajar com cuidado', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Qualquer anestésico de classe diferente', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Trabalhar sem anestesia', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Seguro', texto:'Evidência de segurança.', consequencia:'Tratamento sem risco.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Tenta de novo', texto:'Sem certeza de segurança.', consequencia:'Risco de reação.', positivos:[], negativos:[] },
+      bad:{ titulo:'Impossível', texto:'Paciente sofre.', consequencia:'Abandono de caso.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-10', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Manchamento dentário por tetraciclina',
+  contexto:'Paciente jovem com descoloração azul-cinzenta generalizada por uso de tetraciclina na infância.',
+  personagem:{ emoji:'🦷', nome:'Paciente jovem', detalhe:'Constrangido' },
+  passos:[{
+    fase:'Educação',
+    pergunta:'Como explicar o problema?',
+    opcoes:[
+      { texto:'Explicar origem medicamentosa, informar sobre opções de tratamento, estabelecer expectativas realistas', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Oferecer clareamento imediato', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Dizer que é grave e não tem solução', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Educativo', texto:'Informou e incluiu.', consequencia:'Confiança.', positivos:['Transparente'], negativos:[] },
+      ok:{ titulo:'Promessa rápida', texto:'Pode não funcionar bem.', consequencia:'Decepção.', positivos:[], negativos:[] },
+      bad:{ titulo:'Desestimulador', texto:'Sem opções.', consequencia:'Perda de confiança.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Qual opção para mancha por tetraciclina?',
+    opcoes:[
+      { texto:'Clareamento interno + externo prolongado, microabrasão, ou restauração/laminado se não responder', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Clareamento simples', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Apenas restauração protética', qualidade:'bad', pontos:3, comps:[3,3,3,3,3,3,3,3] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Multimodal', texto:'Opções progressivas.', consequencia:'Melhor resultado.', positivos:['Sofisticado'], negativos:[] },
+      ok:{ titulo:'Limitado', texto:'Pode não resolver.', consequencia:'Necessidade de restauração.', positivos:[], negativos:[] },
+      bad:{ titulo:'Destruidor', texto:'Remove estrutura.', consequencia:'Dependência futura.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-11', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Síndrome de ardência bucal',
+  contexto:'Paciente com dor crônica em boca mas sem lesão visível. Múltiplas especialidades já avaliaram.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Frustrado' },
+  passos:[{
+    fase:'Diagnóstico diferencial',
+    pergunta:'Como abordagem a queixa?',
+    opcoes:[
+      { texto:'Analisar medicações, deficiências nutricionais, ansiedade, fazer testes de vitalidade, biópsia se necessário', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Concordar que é psicológico', qualidade:'ok', pontos:5, comps:[3,3,3,3,3,3,3,3] },
+      { texto:'Dizer que é fantasia', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Integrado', texto:'Avaliação multifatorial.', consequencia:'Diagnóstico preciso.', positivos:['Holístico'], negativos:[] },
+      ok:{ titulo:'Simplificação', texto:'Parcialmente correto.', consequencia:'Perda de outras causas.', positivos:[], negativos:[] },
+      bad:{ titulo:'Invalidação', texto:'Quebra confiança.', consequencia:'Paciente abandona.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Manejo',
+    pergunta:'Se síndrome de ardência confirmada, qual tratamento?',
+    opcoes:[
+      { texto:'Substituir medicações se possível, suplementar deficiências, considerar antidepressivos tópicos/sistêmicos, acompanhamento psicológico', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Prescrever anestésico tópico permanente', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Nenhum tratamento disponível', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Multidisciplinar', texto:'Abordagem integrada.', consequencia:'Melhora significativa.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Limitado', texto:'Paliativa apenas.', consequencia:'Dependência de anestésico.', positivos:[], negativos:[] },
+      bad:{ titulo:'Abandono', texto:'Sem esperança.', consequencia:'Depressão do paciente.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-12', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Rejeição a aparelho ortodôntico',
+  contexto:'Paciente com aparelho há 2 meses. Queixa-se de desconforto persistente e quer remover.',
+  personagem:{ emoji:'🦷', nome:'Paciente adolescente', detalhe:'Impaciente' },
+  passos:[{
+    fase:'Aconselhamento',
+    pergunta:'Como motivar a continuidade?',
+    opcoes:[
+      { texto:'Ouvir, validar desconforto, explicar timeline, mostrar progresso, ajustar aperturas, propor metas intermediárias', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Insistir que é normal sofrer', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Permitir remoção imediatamente', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Empático', texto:'Envolveu paciente.', consequencia:'Adesão melhorada.', positivos:['Motivador'], negativos:[] },
+      ok:{ titulo:'Resistente', texto:'Minimizou queixa.', consequencia:'Risco de abandono.', positivos:[], negativos:[] },
+      bad:{ titulo:'Capitulação', texto:'Sem resistência.', consequencia:'Falha do tratamento.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Ajuste técnico',
+    pergunta:'Se dor persistente apesar de motivação, qual ação?',
+    opcoes:[
+      { texto:'Verificar fios soltos, brackets desalinhados, reduzir força, usar analgésicos por dias, considerar pausa estratégica', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Manter mesmo protocolo', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Intensificar a força', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Adaptável', texto:'Ajustou conforme necessário.', consequencia:'Conforto e progresso.', positivos:['Flexível'], negativos:[] },
+      ok:{ titulo:'Inflexível', texto:'Sem mudança.', consequencia:'Dor contínua.', positivos:[], negativos:[] },
+      bad:{ titulo:'Prejudicial', texto:'Piorou situação.', consequencia:'Dano dentário.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-13', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Gengivite por aparelho de prótese',
+  contexto:'Paciente com prótese total. Gengiva inflamada, eritematosa, edemaciada sob placa de prótese.',
+  personagem:{ emoji:'🦷', nome:'Paciente idoso', detalhe:'Prótese' },
+  passos:[{
+    fase:'Diagnóstico',
+    pergunta:'Como investigar a inflamação?',
+    opcoes:[
+      { texto:'Avaliar higiene da prótese, ajuste, frequência de remoção, presença de fungos, biópsia se ulceração', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Prescrever antifúngico genérico', qualidade:'ok', pontos:5, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Remover a prótese definitivamente', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Completo', texto:'Investigou causas.', consequencia:'Diagnóstico preciso.', positivos:['Sistemático'], negativos:[] },
+      ok:{ titulo:'Presuntivo', texto:'Sem investigação.', consequencia:'Risco de falha.', positivos:[], negativos:[] },
+      bad:{ titulo:'Destrutivo', texto:'Remove solução.', consequencia:'Dano permanente.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Se candidíase confirmada, qual protocolo?',
+    opcoes:[
+      { texto:'Higiene intensiva da prótese + antifúngico tópico + remoção noturna da prótese + possivelmente sistêmico', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Apenas colutório antifúngico', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Remover placa com alta velocidade', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Multimodal', texto:'Múltiplas estratégias.', consequencia:'Remissão duradoura.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Sem eliminar causa.', consequencia:'Recorrência.', positivos:[], negativos:[] },
+      bad:{ titulo:'Lesivo', texto:'Danifica prótese.', consequencia:'Substituição necessária.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-14', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Bruxismo severo com desgaste',
+  contexto:'Paciente jovem com desgaste oclusal severo, DTM sintomática, bruxismo noturno comprovado.',
+  personagem:{ emoji:'🦷', nome:'Paciente jovem', detalhe:'Estressado' },
+  passos:[{
+    fase:'Investigação',
+    pergunta:'Como abordar as múltiplas causas?',
+    opcoes:[
+      { texto:'Histórico de estresse, sono, hábitos, RX, DTM avaliação, possivelmente sleep study', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Prescrever placa oclusal imediatamente', qualidade:'ok', pontos:5, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Culpabilizar o paciente', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Multifatorial', texto:'Investigação integrada.', consequencia:'Diagnóstico completo.', positivos:['Profundo'], negativos:[] },
+      ok:{ titulo:'Protetor apenas', texto:'Sem causa.', consequencia:'Sintoma escondido.', positivos:[], negativos:[] },
+      bad:{ titulo:'Hostil', texto:'Sem empatia.', consequencia:'Perda de paciente.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento integrado',
+    pergunta:'Qual estratégia multidisciplinar?',
+    opcoes:[
+      { texto:'Placa oclusal + terapia comportamental + possível CPAP se apneia + restauração futura se desgaste extremo', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Apenas placa', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Restauração agressiva dos dentes', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Integrado', texto:'Atacou origem e proteção.', consequencia:'Melhora DTM e desgaste.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Protetor', texto:'Sem causa raiz.', consequencia:'Sintomas contínuos.', positivos:[], negativos:[] },
+      bad:{ titulo:'Prejudicial', texto:'Restaurações falham rapidamente.', consequencia:'Gasto desnecessário.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-15', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Cárie severa em bebê',
+  contexto:'Criança 3 anos com cárie rampante nos incisivos superiores.',
+  personagem:{ emoji:'🦷', nome:'Criança', detalhe:'Bebê' },
+  passos:[{
+    fase:'Educação familiar',
+    pergunta:'Como orientar os pais?',
+    opcoes:[
+      { texto:'Explicar ECC, causa (mamadeiras açucaradas), mudar hábitos, higiene desde agora, fluorose prevenção', qualidade:'good', pontos:10, comps:[9,9,8,9,8,8,8,9] },
+      { texto:'Simplesmente restaurar', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Dizer que dentes de leite caem de qualquer forma', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Preventivo', texto:'Educar pais.', consequencia:'Mudança comportamental.', positivos:['Futuro'], negativos:[] },
+      ok:{ titulo:'Reativo', texto:'Sem mudança.', consequencia:'Novo episódio.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Prejudicial ao desenvolvimento.', consequencia:'Sequelas permanentes.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Qual abordagem pediátrica?',
+    opcoes:[
+      { texto:'Dessensibilização, restaurações atraumáticas se possível, fluoretos, acompanhamento próximo, evitar sedação se possível', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Sedação profunda e restauração agressiva', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Extrair todos os dentes afetados', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Gentil', texto:'Respeitou desenvolvimento.', consequencia:'Criança cooperativa.', positivos:['Humano'], negativos:[] },
+      ok:{ titulo:'Invasivo', texto:'Funciona mas traumatiza.', consequencia:'Fobia futura.', positivos:[], negativos:[] },
+      bad:{ titulo:'Mutilador', texto:'Remove permanentes.', consequencia:'Dano irreversível.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-16', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'Atipia epitelial premalign',
+  contexto:'RX ou clínica revela lesão potencialmente maligna. Margem indefinida, cor anormal.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Fumante/etilista' },
+  passos:[{
+    fase:'Avaliação',
+    pergunta:'Como proceder com suspeita oncológica?',
+    opcoes:[
+      { texto:'Foto documentação, dimensões, palpação, biópsia incisional, encaminhar para oncologista, não excisionar intacto', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,9,10] },
+      { texto:'Observar por 3 meses', qualidade:'ok', pontos:3, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Excisionar completo', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Correto', texto:'Protocolo oncológico.', consequencia:'Diagnóstico e estadiamento adequado.', positivos:['Seguro'], negativos:[] },
+      ok:{ titulo:'Perigoso', texto:'Atraso diagnóstico.', consequencia:'Progressão.', positivos:[], negativos:[] },
+      bad:{ titulo:'Prejudicial', texto:'Rompe integridade.', consequencia:'Classificação inadequada.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Conduta',
+    pergunta:'Após biópsia com atipia, qual próximo passo?',
+    opcoes:[
+      { texto:'Encaminhar imediatamente para cirurgião de cabeça/pescoço, informar paciente, documentar tudo, acompanhar encaminhamento', qualidade:'good', pontos:10, comps:[10,10,9,10,9,9,9,10] },
+      { texto:'Apenas acompanhar clinicamente', qualidade:'ok', pontos:3, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Prescrever antifúngico para resolver', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Responsável', texto:'Garantiu especialista.', consequencia:'Sobrevida melhorada.', positivos:['Crítico'], negativos:[] },
+      ok:{ titulo:'Negligência', texto:'Sem encaminhamento rápido.', consequencia:'Pior prognóstico.', positivos:[], negativos:[] },
+      bad:{ titulo:'Criminoso', texto:'Negação de cuidado.', consequencia:'Morte evitável.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-17', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Infecção pós-exodontia',
+  contexto:'Paciente 5 dias pós-exodontia. Dor, inchaço progressivo, febre baixa.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Pós-operatório' },
+  passos:[{
+    fase:'Diagnóstico',
+    pergunta:'Como investigar infecção?',
+    opcoes:[
+      { texto:'Anamnese completa, inspeção, palpação, drenagem purulenta?, RX se possível, temperatura, antibióticos se positivo', qualidade:'good', pontos:10, comps:[9,9,8,9,8,8,8,9] },
+      { texto:'Prescrever antibiótico preventivo', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Dizer que é normal', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Investigativo', texto:'Confirmou infecção.', consequencia:'Tratamento adequado.', positivos:['Direto'], negativos:[] },
+      ok:{ titulo:'Presunção', texto:'Sem evidência.', consequencia:'Antib desnecessário.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Sem ação.', consequencia:'Progressão para severa.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Manejo',
+    pergunta:'Se infecção localizada confirmada, qual protocolo?',
+    opcoes:[
+      { texto:'Drenagem se flutuante, desbridamento, antibiótico, analgesia, reavaliação em 48h, pós-op reforçado', qualidade:'good', pontos:10, comps:[9,9,8,9,8,8,8,9] },
+      { texto:'Apenas antibiótico sistêmico', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Reoperação', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Completo', texto:'Drenagem + antib.', consequencia:'Resolução rápida.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Sem drenagem mecânica.', consequencia:'Demora resolução.', positivos:[], negativos:[] },
+      bad:{ titulo:'Agressivo', texto:'Trauma desnecessário.', consequencia:'Complicação pior.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-18', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Recessão gengival progressiva',
+  contexto:'Paciente jovem com recessão gengival bilateral simétrica. Queixa sensibilidade.',
+  personagem:{ emoji:'🦷', nome:'Paciente jovem', detalhe:'Higiene agressiva' },
+  passos:[{
+    fase:'Causa',
+    pergunta:'Como identificar a causa?',
+    opcoes:[
+      { texto:'Observar técnica de escovação, avaliação periodontal, frenulo, trauma oclusal, hábitos (piercings), tabagismo', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Prescrever enxaguante', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Restaurar agressivamente', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Investigativo', texto:'Causa identificada.', consequencia:'Prevenção possível.', positivos:['Preventivo'], negativos:[] },
+      ok:{ titulo:'Simplista', texto:'Sem causa.', consequencia:'Progressão.', positivos:[], negativos:[] },
+      bad:{ titulo:'Prejudicial', texto:'Piora com restauração.', consequencia:'Recessão + dano.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Qual estratégia de recuperação?',
+    opcoes:[
+      { texto:'Modificar técnica, dessensibilizante tópico, adesivo resinoso conservador, enxerto gengival se profundo e sintomático', qualidade:'good', pontos:10, comps:[8,9,8,9,8,8,8,9] },
+      { texto:'Apenas enxerto', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Nada fazer', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Progressivo', texto:'Múltiplas opções.', consequencia:'Melhora progressiva.', positivos:['Inteligente'], negativos:[] },
+      ok:{ titulo:'Agressivo', texto:'Sem tentar conservador.', consequencia:'Dano desnecessário.', positivos:[], negativos:[] },
+      bad:{ titulo:'Pessimista', texto:'Sem esperança.', consequencia:'Progressão contínua.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-19', area:'Clínica', complexidade:3, tipo:'Caso Clínico', tempo:15,
+  titulo:'DTM severa com travamento',
+  contexto:'Paciente com dor articular severa, clicks, limitação de abertura, impossibilidade de comer.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Incapacitado' },
+  passos:[{
+    fase:'Avaliação',
+    pergunta:'Como investigar DTM?',
+    opcoes:[
+      { texto:'Questionário DTM, palpação, RDC/TMD, testes específicos, RX/RM articular, avaliar oclusão', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Prescrever antalgésico', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Prescrever repouso absoluto', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Integrado', texto:'Avaliação multifatorial.', consequencia:'Diagnóstico preciso.', positivos:['Profundo'], negativos:[] },
+      ok:{ titulo:'Superficial', texto:'Sem investigação.', consequencia:'Diagnóstico incerto.', positivos:[], negativos:[] },
+      bad:{ titulo:'Prejudicial', texto:'Imobilidade causa rigidez.', consequencia:'Piora do quadro.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Tratamento',
+    pergunta:'Se deslocamento discal com travamento, qual ação?',
+    opcoes:[
+      { texto:'Fisioterapia ativa, relaxantes musculares, possível injeção articular, placa oclusal, raramente cirurgia', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Cirurgia imediata', qualidade:'ok', pontos:3, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Nada fazer', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Conservador primeiro', texto:'Prognóstico cirurgia pior.', consequencia:'Melhor desfecho.', positivos:['Sábio'], negativos:[] },
+      ok:{ titulo:'Agressivo', texto:'Sem tentar conservador.', consequencia:'Risco de pior resultado.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Sofrimento desnecessário.', consequencia:'Incapacidade permanente.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MP-20', area:'Clínica', complexidade:2, tipo:'Caso Clínico', tempo:12,
+  titulo:'Xerostomia medicamentosa',
+  contexto:'Paciente idoso com múltiplas medicações. Queixa seca bucal, dificuldade mastigação, cáries rápidas.',
+  personagem:{ emoji:'🦷', nome:'Paciente idoso', detalhe:'Polifarmacêutico' },
+  passos:[{
+    fase:'Diagnóstico',
+    pergunta:'Como abordar xerostomia?',
+    opcoes:[
+      { texto:'Revisar todas as medicações com farmacêutico/médico, teste de fluxo salivar, avaliar possibilidade de substituição', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Prescrever estimulante salivar', qualidade:'ok', pontos:6, comps:[4,4,4,5,4,4,4,5] },
+      { texto:'Aceitar como normal da idade', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Interdisciplinar', texto:'Coordenou com médico.', consequencia:'Possível melhora.', positivos:['Integrado'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Sem causa.', consequencia:'Sintoma contínuo.', positivos:[], negativos:[] },
+      bad:{ titulo:'Resignação', texto:'Sem ação.', consequencia:'Cáries rampantes.', positivos:[], negativos:[] }
+    }
+  },{
+    fase:'Manejo',
+    pergunta:'Qual protocolo para prevenir complicações?',
+    opcoes:[
+      { texto:'Estimuladores salivares, fluoreto diário concentrado, higiene intensiva, recall cada 3 meses, avaliar candidíase regularmente', qualidade:'good', pontos:10, comps:[9,9,8,9,9,8,8,9] },
+      { texto:'Apenas instruir higiene', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Restauração agressiva preventiva', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Preventivo', texto:'Múltiplas estratégias.', consequencia:'Preserva dentes.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Incompleto', texto:'Sem fluoreto ou recall.', consequencia:'Cáries irão ocorrer.', positivos:[], negativos:[] },
+      bad:{ titulo:'Destrutivo', texto:'Danos futuros.', consequencia:'Perda dentária.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-01', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Restauração em dente posterior',
+  contexto:'Paciente necessita restauração em dente 36 com grande carga mastigatória.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Carga posterior' },
+  passos:[{
+    fase:'Seleção material',
+    pergunta:'Qual material para dente posterior?',
+    opcoes:[
+      { texto:'Resina composta bulk-fill - durável, estético, resiste à carga', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Ionômero de vidro - frágil para posterior', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Amálgama - robusto mas sem adesão', qualidade:'ok', pontos:6, comps:[6,6,6,6,6,6,6,6] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Excelente', texto:'Bulk-fill ideal para carga.', consequencia:'Duradoura.', positivos:['Moderno','Durável'], negativos:[] },
+      bad:{ titulo:'Inadequado', texto:'Ionômero fraco.', consequencia:'Fracasso rápido.', positivos:[], negativos:['Fraco'] },
+      ok:{ titulo:'Aceitável', texto:'Amálgama funciona.', consequencia:'Obra.', positivos:['Durável'], negativos:['Sem adesão'] }
+    }
+  }]
+},{
+  id:'MT-02', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Selante de fissura em criança',
+  contexto:'Criança 8 anos, dente 16 sem cárie mas com fissuras profundas.',
+  personagem:{ emoji:'🦷', nome:'Criança 8 anos', detalhe:'Prevenção' },
+  passos:[{
+    fase:'Seleção selante',
+    pergunta:'Qual tipo de selante é apropriado?',
+    opcoes:[
+      { texto:'Resinoso fotopolimerizável visível - fácil remoção, reavaliação possível', qualidade:'good', pontos:10, comps:[8,8,9,8,8,9,8,9] },
+      { texto:'Ionômero convencional - libera flúor mas difícil remover', qualidade:'ok', pontos:6, comps:[6,6,6,7,7,6,6,7] },
+      { texto:'Sem selante - risco de cárie', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Ideal pediátrico', texto:'Resinoso padrão ouro.', consequencia:'Proteção duradoura.', positivos:['Prático','Removível'], negativos:[] },
+      ok:{ titulo:'Funcional', texto:'Oferece flúor.', consequencia:'Difícil remover se falhar.', positivos:['Flúor'], negativos:['Fixo'] },
+      bad:{ titulo:'Negligência', texto:'Risco de cárie.', consequencia:'Cárie rápida.', positivos:[], negativos:['Alto risco'] }
+    }
+  }]
+},{
+  id:'MT-03', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Cimento para coroa permanente',
+  contexto:'Cimentação de coroa totalmente cerâmica em dente anterior.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Anterior' },
+  passos:[{
+    fase:'Seleção cimento',
+    pergunta:'Qual cimento é mais apropriado?',
+    opcoes:[
+      { texto:'Cimento resinoso autoadesivo - melhor retenção, pode remover excessos, adequado para cerâmica', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Cimento óxido de zinco - fraco para anterior', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Cimento à base de fosfato - trabalhoso', qualidade:'ok', pontos:6, comps:[4,4,4,4,4,4,4,4] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Moderno', texto:'Resinoso ideal.', consequencia:'Retenção superior.', positivos:['Estético','Durável'], negativos:[] },
+      bad:{ titulo:'Fraco', texto:'Óxido de zinco inadequado.', consequencia:'Descolagem rápida.', positivos:[], negativos:['Fraco'] },
+      ok:{ titulo:'Aceitável', texto:'Fosfato funciona.', consequencia:'Retenção aceitável.', positivos:[], negativos:['Trabalhoso'] }
+    }
+  }]
+},{
+  id:'MT-04', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Base cavitária em cárie profunda',
+  contexto:'Preparo próximo à polpa, necessário isolamento e proteção.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Cárie profunda' },
+  passos:[{
+    fase:'Seleção base',
+    pergunta:'Qual material de proteção?',
+    opcoes:[
+      { texto:'Hidróxido de cálcio ou cimento de ionômero - biocompatível, estimula dentina, previne inflamação', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Resina diretamente - sem barreira', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] },
+      { texto:'Guta-percha - inadequada', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Protetor', texto:'Barreira biológica.', consequencia:'Menor sensibilidade.', positivos:['Conservador'], negativos:[] },
+      bad:{ titulo:'Nocivo', texto:'Sem proteção.', consequencia:'Inflamação.', positivos:[], negativos:['Risco'] },
+      bad:{ titulo:'Errado', texto:'Material inadequado.', consequencia:'Falha.', positivos:[], negativos:['Inadequado'] }
+    }
+  }]
+},{
+  id:'MT-05', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Clareador para tratamento caseiro',
+  contexto:'Paciente deseja clarear dentes usando moldeira individualizada.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Estético' },
+  passos:[{
+    fase:'Seleção clareador',
+    pergunta:'Qual concentração é segura?',
+    opcoes:[
+      { texto:'Peróxido de carbamida 10% - eficaz, seguro para uso caseiro, menor irritação', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Peróxido de hidrogênio 30% - irritação e sensibilidade', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Gel sem conhecimento - risco de dano', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Seguro', texto:'Concentração apropriada.', consequencia:'Clareamento eficaz sem dano.', positivos:['Equilibrado'], negativos:[] },
+      ok:{ titulo:'Forte', texto:'Pode irritar gengiva.', consequencia:'Sensibilidade temporária.', positivos:[], negativos:[] },
+      bad:{ titulo:'Perigoso', texto:'Sem supervisão.', consequencia:'Dano pulpar.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-06', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Placa de bruxismo noturno',
+  contexto:'Paciente com bruxismo. Necessário protetor para evitar desgaste.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Bruxista' },
+  passos:[{
+    fase:'Tipo de placa',
+    pergunta:'Qual tipo de placa é ideal?',
+    opcoes:[
+      { texto:'Placa rígida superior com guia molar - distribui forças, fácil limpeza, durável', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Placa flexível - confortável mas desgasta rápido', qualidade:'ok', pontos:6, comps:[5,5,5,5,5,5,5,5] },
+      { texto:'Sem placa - deixar desgastar naturalmente', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Profissional', texto:'Rígida com guia.', consequencia:'Proteção duradoura.', positivos:['Durável'], negativos:[] },
+      ok:{ titulo:'Confortável', texto:'Menos durável.', consequencia:'Reposição frequente.', positivos:['Conforto'], negativos:['Frágil'] },
+      bad:{ titulo:'Negligência', texto:'Sem proteção.', consequencia:'Desgaste severo.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-07', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Adesivo dentinário para restauração',
+  contexto:'Restauração em dente com dentina exposta. Necessário selamento adequado.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Dentina exposta' },
+  passos:[{
+    fase:'Seleção adesivo',
+    pergunta:'Qual adesivo garante melhor selamento?',
+    opcoes:[
+      { texto:'Adesivo universal automorfologicamente à umidade - etch-and-rinse ou autogravante, todas gerações', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Adesivo older generation - técnica sensível à umidade', qualidade:'ok', pontos:5, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Sem adesivo - usar selador', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Moderno', texto:'Adesivo universal.', consequencia:'Selamento superior.', positivos:['Versátil'], negativos:[] },
+      ok:{ titulo:'Antigo', texto:'Funciona com cuidado.', consequencia:'Risco de falha.', positivos:[], negativos:[] },
+      bad:{ titulo:'Inadequado', texto:'Sem ligação.', consequencia:'Microinfiltração.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-08', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Verniz de flúor tópico',
+  contexto:'Criança com alto risco de cárie. Precisa proteção com flúor tópico.',
+  personagem:{ emoji:'🦷', nome:'Criança', detalhe:'Alto risco' },
+  passos:[{
+    fase:'Seleção produto',
+    pergunta:'Qual forma de flúor tópico?',
+    opcoes:[
+      { texto:'Verniz fluoretado (22000ppm) - aplicação profissional, aderência prolongada, seguro pediátrico', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Gel fluoretado 1000ppm - risco de ingestão em criança', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem flúor profissional', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Seguro pediátrico', texto:'Verniz apropriado.', consequencia:'Proteção sem risco.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Risco ingestão', texto:'Gel para adulto.', consequencia:'Possível fluorose.', positivos:[], negativos:[] },
+      bad:{ titulo:'Sem proteção', texto:'Sem aplicação.', consequencia:'Cáries progressivas.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-09', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Porta implante para prótese',
+  contexto:'Planejamento de prótese sobre implante. Escolha de conexão critério.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Implante' },
+  passos:[{
+    fase:'Tipo de conexão',
+    pergunta:'Qual tipo de conexão é vantajoso?',
+    opcoes:[
+      { texto:'Cone Morse - melhor retenção, menor afrouxamento, preserva crista', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Hexágono externo - mais comum mas com micro gaps', qualidade:'ok', pontos:6, comps:[5,5,5,5,5,5,5,5] },
+      { texto:'Hexágono interno - intermediário', qualidade:'ok', pontos:6, comps:[5,5,5,5,5,5,5,5] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Avançado', texto:'Cone Morse.', consequencia:'Menos complicações.', positivos:['Superior'], negativos:[] },
+      ok:{ titulo:'Comum', texto:'Hexágono externo.', consequencia:'Funcional.', positivos:['Acessível'], negativos:['Micro gaps'] },
+      ok:{ titulo:'Intermediário', texto:'Hexágono interno.', consequencia:'Bom compromisso.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-10', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Cápsula de polimento final',
+  contexto:'Acabamento final de restauração direta. Que sistema usar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Estético' },
+  passos:[{
+    fase:'Sistema de polimento',
+    pergunta:'Qual sistema garante melhor polimento?',
+    opcoes:[
+      { texto:'Disco de polimento progressivo + pasta de polimento - mantém cor, brilho, margem controlada', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Taça de borracha apenas - rápido mas menos refinado', qualidade:'ok', pontos:6, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Sem polimento', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Profissional', texto:'Sistema progressivo.', consequencia:'Restauração brilhante.', positivos:['Estético'], negativos:[] },
+      ok:{ titulo:'Básico', texto:'Taça apenas.', consequencia:'Aceitável mas menos brilho.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Sem acabamento.', consequencia:'Aspecto opaco.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-11', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Material de endodontia',
+  contexto:'Obturação de canal radicular. Escolha de material obturador.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'RCT' },
+  passos:[{
+    fase:'Material obturador',
+    pergunta:'Qual é o padrão ouro?',
+    opcoes:[
+      { texto:'Guta-percha com cimento resinoso - biocompatível, selamento apical superior, removível', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Guta-percha com cimento à base de óxido de zinco - menos retentivo', qualidade:'ok', pontos:6, comps:[4,4,4,4,4,4,4,4] },
+      { texto:'Apenas cimento', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Padrão ouro', texto:'Guta + resinoso.', consequencia:'Melhor prognóstico.', positivos:['Comprovado'], negativos:[] },
+      ok:{ titulo:'Menos ideal', texto:'Óxido de zinco.', consequencia:'Aceitável.', positivos:[], negativos:[] },
+      bad:{ titulo:'Inadequado', texto:'Sem guta.', consequencia:'Falha previsível.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-12', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Resina de preenchimento',
+  contexto:'Restauração grande em dente posterior. Técnica incrementada.',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Restauração grande' },
+  passos:[{
+    fase:'Tipo de resina',
+    pergunta:'Qual resina para increments grandes?',
+    opcoes:[
+      { texto:'Resina bulk-fill nanoparticulada - polimeriza profundamente, reduz tempo, menor contração', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Resina convencional microhíbrida - mais controle mas técnica sensível', qualidade:'ok', pontos:6, comps:[5,5,5,5,5,5,5,5] },
+      { texto:'Compômero - fraco para posterior', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Ideal', texto:'Bulk-fill.', consequencia:'Restauração duradoura.', positivos:['Eficiente'], negativos:[] },
+      ok:{ titulo:'Sensível', texto:'Convencional.', consequencia:'Risco de falha.', positivos:[], negativos:[] },
+      bad:{ titulo:'Fraco', texto:'Compômero.', consequencia:'Falha rápida.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-13', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Dessensibilizante dentinário',
+  contexto:'Paciente com sensibilidade cervical. Que produto usar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Sensível' },
+  passos:[{
+    fase:'Tipo dessensibilizante',
+    pergunta:'Qual é mais eficaz?',
+    opcoes:[
+      { texto:'Adesivo dessensibilizante ou nitrato de potássio - oclusão tubular, reduz transmissão', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Enxaguante fluoretado - menos eficaz', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem tratamento', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Eficaz', texto:'Adesivo ou nitrato.', consequencia:'Alívio rápido.', positivos:['Comprovado'], negativos:[] },
+      ok:{ titulo:'Paliativo', texto:'Fluoreto limitado.', consequencia:'Melhora leve.', positivos:[], negativos:[] },
+      bad:{ titulo:'Sem ajuda', texto:'Sem intervenção.', consequencia:'Sensibilidade crônica.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-14', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Fio para limpeza interproximal',
+  contexto:'Paciente com dificuldade interproximal. Qual fio recomendar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Higiene' },
+  passos:[{
+    fase:'Tipo de fio',
+    pergunta:'Qual fio é mais efetivo?',
+    opcoes:[
+      { texto:'Fio dental expandível ou Superfloss - adapta a espaços variáveis, mais eficiente', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Fio convencional - pode não alcançar', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Palito de dente apenas', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Adaptável', texto:'Expandível.', consequencia:'Limpeza completa.', positivos:['Versátil'], negativos:[] },
+      ok:{ titulo:'Limitado', texto:'Convencional.', consequencia:'Pode deixar resíduos.', positivos:[], negativos:[] },
+      bad:{ titulo:'Inadequado', texto:'Palito.', consequencia:'Lesão gengival.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-15', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Matriz de contorno para restauração classe II',
+  contexto:'Restauração posterior com cárie interproximal. Que matriz usar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Classe II' },
+  passos:[{
+    fase:'Sistema de matriz',
+    pergunta:'Qual sistema permite melhor contato?',
+    opcoes:[
+      { texto:'Sistema de matriz automatizado (Tofflemire ou Sectional) - contato proximal seguro, anatomia correta', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Matriz simples de tira - menos controle', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem matriz', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Profissional', texto:'Matriz automática.', consequencia:'Contato perfeito.', positivos:['Preciso'], negativos:[] },
+      ok:{ titulo:'Básico', texto:'Tira simples.', consequencia:'Contato incerto.', positivos:[], negativos:[] },
+      bad:{ titulo:'Impossível', texto:'Sem matriz.', consequencia:'Sem contato proximal.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-16', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Corante para identificação de cárie',
+  contexto:'Detecção de cárie em lesão escura. Qual corante usar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Cárie' },
+  passos:[{
+    fase:'Tipo de corante',
+    pergunta:'Qual corante diferencia cárie ativa?',
+    opcoes:[
+      { texto:'Corante específico para cárie (formalina-fucsina) - específico para colágeno desnaturado', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Azul de metileno simples - menos específico', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem corante - visual apenas', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Específico', texto:'Corante especial.', consequencia:'Diagnóstico seguro.', positivos:['Eficaz'], negativos:[] },
+      ok:{ titulo:'Genérico', texto:'Azul comum.', consequencia:'Menos preciso.', positivos:[], negativos:[] },
+      bad:{ titulo:'Visual', texto:'Sem ajuda.', consequencia:'Risco de deixar cárie.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-17', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Abrasivo para desgaste dental seletivo',
+  contexto:'Ajuste oclusal fino. Qual abrasivo usar?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Oclusão' },
+  passos:[{
+    fase:'Granulação',
+    pergunta:'Qual granulação para acabamento fino?',
+    opcoes:[
+      { texto:'Disco de granulação fina (220-400) progressiva - controle fino, bom acabamento', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Disco grosso (80-120) - remove muito rápido', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Lixa manual - lento demais', qualidade:'bad', pontos:2, comps:[2,2,2,2,2,2,2,2] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Preciso', texto:'Granulação fina.', consequencia:'Ajuste perfeito.', positivos:['Controle'], negativos:[] },
+      ok:{ titulo:'Rápido', texto:'Disco grosso.', consequencia:'Risco excesso.', positivos:[], negativos:[] },
+      bad:{ titulo:'Impraticável', texto:'Lixa manual.', consequencia:'Tempo excessivo.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-18', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Material para impressão dentada',
+  contexto:'Impressão para prótese dentada. Material apropriado?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Prótese' },
+  passos:[{
+    fase:'Material impressão',
+    pergunta:'Qual material oferece melhor precisão?',
+    opcoes:[
+      { texto:'Alginato ou elastômero (silicone) - estável, detalhado, fácil manejo', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Pasta à base de óxido de zinco - menos detalhada', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Gesso - duro demais', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Moderno', texto:'Alginato/elastômero.', consequencia:'Prótese precisa.', positivos:['Detalhe'], negativos:[] },
+      ok:{ titulo:'Antigo', texto:'Pasta ZnO.', consequencia:'Menos preciso.', positivos:[], negativos:[] },
+      bad:{ titulo:'Inadequado', texto:'Gesso.', consequencia:'Impressão quebra.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-19', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Agente clareador para clareamento vital',
+  contexto:'Clareamento de dente vital. Qual agente?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Clareamento' },
+  passos:[{
+    fase:'Clareador vital',
+    pergunta:'Qual agente para clareamento consultório?',
+    opcoes:[
+      { texto:'Peróxido de hidrogênio 35-40% - rápido, controlado, proteção gengival com barreira', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Concentração caseira em consultório - menos eficaz', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem barreira gengival', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Profissional', texto:'Concentração alta + barreira.', consequencia:'Clareamento rápido.', positivos:['Seguro'], negativos:[] },
+      ok:{ titulo:'Fraco', texto:'Concentração baixa.', consequencia:'Resultado lento.', positivos:[], negativos:[] },
+      bad:{ titulo:'Perigoso', texto:'Sem barreira.', consequencia:'Queimadura gengival.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'MT-20', area:'Materiais', complexidade:2, tipo:'Seleção Material', tempo:10,
+  titulo:'Vedante de fenda de implante',
+  contexto:'Vedação de implante após pré-fabricado. Qual selador?',
+  personagem:{ emoji:'🦷', nome:'Paciente', detalhe:'Implante' },
+  passos:[{
+    fase:'Material vedante',
+    pergunta:'Qual vedante é mais duradouro?',
+    opcoes:[
+      { texto:'Vedante de ouro ou resiliente específico - estável, reutilizável, fácil remoção', qualidade:'good', pontos:10, comps:[8,8,9,9,8,8,8,9] },
+      { texto:'Cimento genérico - pode aderir permanentemente', qualidade:'ok', pontos:5, comps:[3,3,3,4,3,3,3,4] },
+      { texto:'Sem vedante', qualidade:'bad', pontos:1, comps:[1,1,1,1,1,1,1,1] }
+    ],
+    feedbacks:{
+      good:{ titulo:'Apropriado', texto:'Vedante específico.', consequencia:'Proteção duradoura.', positivos:['Removível'], negativos:[] },
+      ok:{ titulo:'Improviso', texto:'Cimento genérico.', consequencia:'Pode prender.', positivos:[], negativos:[] },
+      bad:{ titulo:'Negligência', texto:'Sem vedação.', consequencia:'Contaminação.', positivos:[], negativos:[] }
+    }
+  }]
+},{
+  id:'AG-21', titulo:'Agendamento: Limpeza com orientação',
+  tipo:'agendamento', modalidade:'agendamento', tempo:30,
+  descricao:'Limpeza + orientação personalizada de higiene.',
+  contexto:'Paciente com acúmulo de biofilme.',
+  dadosPaciente:{ campos:[
+    { chave:'queixa', label:'Queixa principal', obrigatorio:true },
+    { chave:'freq_escova', label:'Frequência escovação (vezes/dia)', obrigatorio:true },
+    { chave:'usa_fio', label:'Usa fio dental?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Escova de dentes macia' },
+    { id:'m2', nome:'Fio dental 50m' },
+    { id:'m3', nome:'Clorexidina 0.12%' },
+    { id:'m4', nome:'Pasta de dente com flúor' },
+    { id:'m5', nome:'Raspador de língua' }
+  ], corretos:['m1','m2','m4'] }
+},{
+  id:'AG-22', titulo:'Agendamento: Avaliação estética',
+  tipo:'agendamento', modalidade:'agendamento', tempo:40,
+  descricao:'Avaliação para tratamento estético do sorriso.',
+  contexto:'Paciente insatisfeito com estética.',
+  dadosPaciente:{ campos:[
+    { chave:'insatisfacao', label:'O que deseja melhorar?', obrigatorio:true },
+    { chave:'expectativa', label:'Expectativa realista?', obrigatorio:true },
+    { chave:'orcamento', label:'Orçamento definido?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório B', dias:['terça','quarta','quinta','sexta'], horarios:['10:00','11:00','14:00','15:00','16:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Guia de cor VITA' },
+    { id:'m2', nome:'Espelho intraoral' },
+    { id:'m3', nome:'Paquímetro digital' },
+    { id:'m4', nome:'Câmera fotográfica' },
+    { id:'m5', nome:'Tomografia digital' }
+  ], corretos:['m1','m2','m4'] }
+},{
+  id:'AG-23', titulo:'Agendamento: Tratamento de cárie',
+  tipo:'agendamento', modalidade:'agendamento', tempo:45,
+  descricao:'Restauração de cárie simples em dente posterior.',
+  contexto:'Paciente com cárie interproximal confirmada.',
+  dadosPaciente:{ campos:[
+    { chave:'localizacao', label:'Qual dente afetado?', obrigatorio:true },
+    { chave:'sensibilidade', label:'Tem sensibilidade?', obrigatorio:true },
+    { chave:'ultima_limpeza', label:'Última limpeza quando?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:30','09:30','14:30','15:30'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Dique de borracha' },
+    { id:'m2', nome:'Resina composta bulk-fill' },
+    { id:'m3', nome:'Adesivo universal' },
+    { id:'m4', nome:'Matriz de contorno' },
+    { id:'m5', nome:'Bisturi carbide' }
+  ], corretos:['m1','m2','m3','m4'] }
+},{
+  id:'AG-24', titulo:'Agendamento: Profilaxia e flúor',
+  tipo:'agendamento', modalidade:'agendamento', tempo:20,
+  descricao:'Limpeza simples + aplicação de flúor tópico.',
+  contexto:'Manutenção periódica de paciente baixo risco.',
+  dadosPaciente:{ campos:[
+    { chave:'ultima_profilaxia', label:'Última profilaxia quando?', obrigatorio:true },
+    { chave:'medicacoes', label:'Tem medicações especiais?', obrigatorio:false },
+    { chave:'alergias', label:'Alergias conhecidas?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório C', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','11:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Taça de borracha' },
+    { id:'m2', nome:'Pasta de polimento' },
+    { id:'m3', nome:'Verniz de flúor 22000ppm' },
+    { id:'m4', nome:'Fio dental' },
+    { id:'m5', nome:'Gel fluoretado' }
+  ], corretos:['m1','m2','m3'] }
+},{
+  id:'AG-25', titulo:'Agendamento: Extração dentária',
+  tipo:'agendamento', modalidade:'agendamento', tempo:60,
+  descricao:'Extração de dente incluso ou com indicação clara.',
+  contexto:'Paciente com dente irrecuperável ou impactado.',
+  dadosPaciente:{ campos:[
+    { chave:'qual_dente', label:'Qual dente será extraído?', obrigatorio:true },
+    { chave:'motivo', label:'Motivo da extração?', obrigatorio:true },
+    { chave:'ansiedade', label:'Nível de ansiedade?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório Cirúrgico', dias:['segunda','quarta','quinta','sexta'], horarios:['08:00','09:00','14:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Fórceps para extração' },
+    { id:'m2', nome:'Elevador dentário' },
+    { id:'m3', nome:'Gaze estéril' },
+    { id:'m4', nome:'Sutura reabsorvível' },
+    { id:'m5', nome:'Anestésico potente' }
+  ], corretos:['m1','m2','m3','m4'] }
+},{
+  id:'AG-26', titulo:'Agendamento: Avalição de DTM',
+  tipo:'agendamento', modalidade:'agendamento', tempo:50,
+  descricao:'Avaliação completa de disfunção temporomandibular.',
+  contexto:'Paciente com sintomas de DTM.',
+  dadosPaciente:{ campos:[
+    { chave:'dor_articular', label:'Onde sente dor?', obrigatorio:true },
+    { chave:'clicks', label:'Tem estalos ou clicks?', obrigatorio:true },
+    { chave:'mordida', label:'Dificuldade ao abrir boca?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório B', dias:['terça','quarta','quinta'], horarios:['09:00','10:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Eletromiografia' },
+    { id:'m2', nome:'Arco facial' },
+    { id:'m3', nome:'Palpador de articulação' },
+    { id:'m4', nome:'Tomografia articular' },
+    { id:'m5', nome:'Ressonância magnética' }
+  ], corretos:['m2','m3','m4'] }
+},{
+  id:'AG-27', titulo:'Agendamento: Clareamento de consultório',
+  tipo:'agendamento', modalidade:'agendamento', tempo:60,
+  descricao:'Clareamento profissional com peróxido concentrado.',
+  contexto:'Paciente deseja clarear dentes vitais.',
+  dadosPaciente:{ campos:[
+    { chave:'sensibilidade_atual', label:'Tem sensibilidade atual?', obrigatorio:true },
+    { chave:'tonalidade_atual', label:'Tonalidade atual (estimada)?', obrigatorio:false },
+    { chave:'expectativa_cor', label:'Cor final desejada?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório Estético', dias:['terça','quinta','sexta'], horarios:['10:00','11:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Peróxido de hidrogênio 35%' },
+    { id:'m2', nome:'Barreira gengival' },
+    { id:'m3', nome:'Escala de cor VITA' },
+    { id:'m4', nome:'Gel dessensibilizante' },
+    { id:'m5', nome:'Bandeja de moldagem' }
+  ], corretos:['m1','m2','m3'] }
+},{
+  id:'AG-28', titulo:'Agendamento: Periodontia básica',
+  tipo:'agendamento', modalidade:'agendamento', tempo:40,
+  descricao:'Raspagem supragengival + instrumentação cuidadosa.',
+  contexto:'Paciente com gengivite ou periodontite inicial.',
+  dadosPaciente:{ campos:[
+    { chave:'sangramento', label:'Sangra durante escovação?', obrigatorio:true },
+    { chave:'mobilidade', label:'Dentes soltos?', obrigatorio:false },
+    { chave:'halitose', label:'Presença de halitose?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:30','09:30','14:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Ultrassom periodontal' },
+    { id:'m2', nome:'Curetas de Gracey' },
+    { id:'m3', nome:'Clorexidina 0.12%' },
+    { id:'m4', nome:'Sonda periodontal' },
+    { id:'m5', nome:'Espelho de boca' }
+  ], corretos:['m1','m2','m4'] }
+},{
+  id:'AG-29', titulo:'Agendamento: Endodontia diagnóstica',
+  tipo:'agendamento', modalidade:'agendamento', tempo:30,
+  descricao:'Avaliação de vitalidade pulpar e diagnóstico de endodoncia.',
+  contexto:'Paciente com suspeita de envolvimento pulpar.',
+  dadosPaciente:{ campos:[
+    { chave:'tipo_dor', label:'Tipo de dor (espontânea/provocada)?', obrigatorio:true },
+    { chave:'duracao', label:'Quanto tempo dura a dor?', obrigatorio:true },
+    { chave:'localizacao_exata', label:'Dente específico confirmado?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Teste de vitalidade térmica' },
+    { id:'m2', nome:'Teste elétrico de vitalidade' },
+    { id:'m3', nome:'Radiografia periapical' },
+    { id:'m4', nome:'Teste de percussão' },
+    { id:'m5', nome:'Teste de mobilidade' }
+  ], corretos:['m1','m2','m3','m4'] }
+},{
+  id:'AG-30', titulo:'Agendamento: Ajuste oclusal simples',
+  tipo:'agendamento', modalidade:'agendamento', tempo:25,
+  descricao:'Ajuste de contatos prematuros pós-restauração.',
+  contexto:'Paciente com desconforto oclusal após tratamento.',
+  dadosPaciente:{ campos:[
+    { chave:'qual_restauracao', label:'Qual restauração foi feita?', obrigatorio:true },
+    { chave:'quando_feita', label:'Quando foi feita?', obrigatorio:true },
+    { chave:'tipo_desconforto', label:'Como se manifesta o desconforto?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','quarta','quinta','sexta'], horarios:['08:30','09:30','14:30','15:30'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Papel carbono' },
+    { id:'m2', nome:'Disco de desgaste fino' },
+    { id:'m3', nome:'Disco de polimento' },
+    { id:'m4', nome:'Pasta de polimento' },
+    { id:'m5', nome:'Espelho intraoral' }
+  ], corretos:['m1','m2','m3','m4'] }
+},{
+  id:'AG-31', titulo:'Agendamento: Restauração de emergência',
+  tipo:'agendamento', modalidade:'agendamento', tempo:45,
+  descricao:'Restauração temporária para alívio de sintomas agudos.',
+  contexto:'Paciente com dor ou dente fraturado necessitando alívio imediato.',
+  dadosPaciente:{ campos:[
+    { chave:'tipo_emergencia', label:'Qual é a emergência?', obrigatorio:true },
+    { chave:'duracao_dor', label:'Quanto tempo tem dor?', obrigatorio:false },
+    { chave:'tomou_medicacao', label:'Tomou medicação?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','11:00','14:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Resina acrílica autopolimerizável' },
+    { id:'m2', nome:'Cimento de óxido de zinco' },
+    { id:'m3', nome:'Analgésicos' },
+    { id:'m4', nome:'Gaze estéril' },
+    { id:'m5', nome:'Algodão' }
+  ], corretos:['m1','m2','m4'] }
+},{
+  id:'AG-32', titulo:'Agendamento: Moldagem para prótese',
+  tipo:'agendamento', modalidade:'agendamento', tempo:40,
+  descricao:'Moldagem preliminar e final para confecção de prótese dentária.',
+  contexto:'Paciente edêntulo necessitando de prótese completa ou parcial.',
+  dadosPaciente:{ campos:[
+    { chave:'tipo_prótese', label:'Que tipo de prótese?', obrigatorio:true },
+    { chave:'anterio_uso', label:'Tem experiência com prótese?', obrigatorio:false },
+    { chave:'expectativa', label:'Qual sua expectativa?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório Protético', dias:['terça','quinta'], horarios:['10:00','11:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Alginato' },
+    { id:'m2', nome:'Espátula de moldagem' },
+    { id:'m3', nome:'Bandeja de moldagem' },
+    { id:'m4', nome:'Gesso tipo III' },
+    { id:'m5', nome:'Elastômero' }
+  ], corretos:['m1','m2','m3','m4'] }
+},{
+  id:'AG-33', titulo:'Agendamento: Instalação de implante',
+  tipo:'agendamento', modalidade:'agendamento', tempo:90,
+  descricao:'Cirurgia de colocação de implante osseointegrado.',
+  contexto:'Paciente com planejamento completo para implante.',
+  dadosPaciente:{ campos:[
+    { chave:'qual_regiao', label:'Qual região do implante?', obrigatorio:true },
+    { chave:'densidade_ossea', label:'Densidade óssea adequada?', obrigatorio:true },
+    { chave:'motivo_perda', label:'Por que perdeu o dente?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Bloco Cirúrgico', dias:['segunda','quarta','sexta'], horarios:['08:00','09:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Implante dentário' },
+    { id:'m2', nome:'Abutment' },
+    { id:'m3', nome:'Guia cirúrgico' },
+    { id:'m4', nome:'Sutura reabsorvível' },
+    { id:'m5', nome:'Enzimas hemostáticas' }
+  ], corretos:['m1','m3','m4'] }
+},{
+  id:'AG-34', titulo:'Agendamento: Cimentação de coroa',
+  tipo:'agendamento', modalidade:'agendamento', tempo:30,
+  descricao:'Cimentação de coroa protética sobre dente preparado.',
+  contexto:'Paciente com coroa pronta para ser instalada.',
+  dadosPaciente:{ campos:[
+    { chave:'qual_coroa', label:'Qual dente receberá coroa?', obrigatorio:true },
+    { chave:'tipo_coroa', label:'Tipo de coroa (cerâmica/ouro)?', obrigatorio:true },
+    { chave:'dor_preparacao', label:'Teve sensibilidade após prep?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório Protético', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['09:00','10:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Cimento resinoso dual' },
+    { id:'m2', nome:'Fio de retração gengival' },
+    { id:'m3', nome:'Papel de carbono' },
+    { id:'m4', nome:'Escova de dentes macia' },
+    { id:'m5', nome:'Pedra de ar' }
+  ], corretos:['m1','m2','m3'] }
+},{
+  id:'AG-35', titulo:'Agendamento: Remoção de aparelho ortodôntico',
+  tipo:'agendamento', modalidade:'agendamento', tempo:45,
+  descricao:'Remoção de aparelho fixo + limpeza profissional + planejamento de contenção.',
+  contexto:'Paciente finalizando tratamento ortodôntico.',
+  dadosPaciente:{ campos:[
+    { chave:'tempo_uso', label:'Por quanto tempo usou aparelho?', obrigatorio:true },
+    { chave:'satisfacao', label:'Satisfeito com o resultado?', obrigatorio:true },
+    { chave:'consentir_conten', label:'Concorda com contenção?', obrigatorio:true }
+  ]},
+  agenda:{ correto:{ sala:'Consultório Ortho', dias:['segunda','quarta','quinta'], horarios:['09:00','10:00','14:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Alicate para remoção de bracket' },
+    { id:'m2', nome:'Pasta de remoção de flúor' },
+    { id:'m3', nome:'Escova de remoção' },
+    { id:'m4', nome:'Retentor fixo de fio' },
+    { id:'m5', nome:'Contentor removível' }
+  ], corretos:['m1','m3','m4'] }
+},{
+  id:'AG-36', titulo:'Agendamento: Tratamento de afta',
+  tipo:'agendamento', modalidade:'agendamento', tempo:20,
+  descricao:'Diagnóstico e tratamento de úlcera aftosa.',
+  contexto:'Paciente com afta dolorosa.',
+  dadosPaciente:{ campos:[
+    { chave:'localizacao_afta', label:'Onde está a afta?', obrigatorio:true },
+    { chave:'duracao', label:'Há quanto tempo tem afta?', obrigatorio:true },
+    { chave:'frequencia', label:'É frequente?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Cauterizador de afta' },
+    { id:'m2', nome:'Gel anestésico tópico' },
+    { id:'m3', nome:'Enxaguante bucal' },
+    { id:'m4', nome:'Protetor oral' },
+    { id:'m5', nome:'Prescrição de antiviral' }
+  ], corretos:['m2','m3','m4'] }
+},{
+  id:'AG-37', titulo:'Agendamento: Avaliação de bruxismo',
+  tipo:'agendamento', modalidade:'agendamento', tempo:35,
+  descricao:'Avaliação de bruxismo e indicação de placa oclusal.',
+  contexto:'Paciente com suspeita de bruxismo noturno.',
+  dadosPaciente:{ campos:[
+    { chave:'quem_refere', label:'Quem notou (você/familiar)?', obrigatorio:true },
+    { chave:'desgaste_nota', label:'Nota desgaste dentário?', obrigatorio:true },
+    { chave:'dor_morning', label:'Acorda com dor na mandíbula?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','quarta','quinta','sexta'], horarios:['09:00','10:00','14:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Arco facial' },
+    { id:'m2', nome:'Papel carbono' },
+    { id:'m3', nome:'Moldeira de bruxismo' },
+    { id:'m4', nome:'Elastômero para moldagem' },
+    { id:'m5', nome:'Resina acrílica' }
+  ], corretos:['m2','m3','m4'] }
+},{
+  id:'AG-38', titulo:'Agendamento: Sondagem periodontal',
+  tipo:'agendamento', modalidade:'agendamento', tempo:40,
+  descricao:'Sondagem periodontal completa + documentação de bolsas.',
+  contexto:'Paciente com suspeita de periodontite.',
+  dadosPaciente:{ campos:[
+    { chave:'sangramento', label:'Sangramento durante sondagem?', obrigatorio:true },
+    { chave:'mobilidade', label:'Algum dente com mobilidade?', obrigatorio:false },
+    { chave:'ultimo_RX', label:'Último RX panorâmico quando?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:30','09:30','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Sonda periodontal milimetrada' },
+    { id:'m2', nome:'Explorador duplo' },
+    { id:'m3', nome:'Espelho intraoral' },
+    { id:'m4', nome:'Papel carbono' },
+    { id:'m5', nome:'Gaze' }
+  ], corretos:['m1','m2','m3'] }
+},{
+  id:'AG-39', titulo:'Agendamento: Consulta de follow-up',
+  tipo:'agendamento', modalidade:'agendamento', tempo:20,
+  descricao:'Reavaliação pós-tratamento e orientações de manutenção.',
+  contexto:'Paciente em acompanhamento de caso finalizado.',
+  dadosPaciente:{ campos:[
+    { chave:'qual_tratamento', label:'Que tratamento foi realizado?', obrigatorio:true },
+    { chave:'quando_feito', label:'Quando foi o tratamento?', obrigatorio:true },
+    { chave:'como_esta', label:'Como está se sentindo?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','14:00','15:00','16:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Instrumentos de inspeção' },
+    { id:'m2', nome:'Fotografia intraoral' },
+    { id:'m3', nome:'Radiografia periapical' },
+    { id:'m4', nome:'Formul de avaliação' },
+    { id:'m5', nome:'Pasta de polimento' }
+  ], corretos:['m1','m4'] }
+},{
+  id:'AG-40', titulo:'Agendamento: Orientação de paciente novo',
+  tipo:'agendamento', modalidade:'agendamento', tempo:25,
+  descricao:'Anamnese completa + explicação de procedimentos + cronograma de tratamento.',
+  contexto:'Paciente primeira vez na clínica.',
+  dadosPaciente:{ campos:[
+    { chave:'motivo_visita', label:'Qual é a principal queixa?', obrigatorio:true },
+    { chave:'ultima_visita', label:'Última visita ao dentista quando?', obrigatorio:true },
+    { chave:'expectativa', label:'Qual sua expectativa de tratamento?', obrigatorio:false }
+  ]},
+  agenda:{ correto:{ sala:'Consultório A', dias:['segunda','terça','quarta','quinta','sexta'], horarios:['08:00','09:00','10:00','11:00','14:00','15:00'] }},
+  materiais:{ opcoes:[
+    { id:'m1', nome:'Questionário de anamnese' },
+    { id:'m2', nome:'Radiografia panorâmica' },
+    { id:'m3', nome:'Fotografias faciais' },
+    { id:'m4', nome:'Glossário de procedimentos' },
+    { id:'m5', nome:'Formulário de consentimento' }
+  ], corretos:['m1','m2','m4'] }
 }
 
 ];
