@@ -202,11 +202,11 @@
   .filter-select:focus { border-color: var(--accent); color: var(--text); }
 
   /* Filtro de complexidade customizado */
-  #f-complex { appearance: none; padding: 8px 14px; padding-right: 30px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center; background-size: 12px; font-size: 13px; }
+  #f-complex { appearance: none; padding: 8px 14px; padding-right: 30px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 10px center; background-size: 12px; font-size: 13px; font-weight: 600; }
   #f-complex option:checked { background: linear-gradient(#ff8c42, #ff8c42); color: #fff; }
-  #f-complex option[value="1"] { background: #ffffff; color: #10b981; }
-  #f-complex option[value="2"] { background: #ffffff; color: #f59e0b; }
-  #f-complex option[value="3"] { background: #ffffff; color: #ef4444; }
+  #f-complex option[value="1"] { background: #ffffff; color: #10b981; font-weight: 700; }
+  #f-complex option[value="2"] { background: #ffffff; color: #f59e0b; font-weight: 700; }
+  #f-complex option[value="3"] { background: #ffffff; color: #ef4444; font-weight: 700; }
 
   .filter-count { margin-left: auto; font-size: 12px; color: var(--text3); }
 
@@ -665,9 +665,9 @@
         </select>
         <select class="filter-select" id="f-complex" onchange="renderScenarios()">
           <option value="">✓ Todas as complexidades</option>
-          <option value="1">● Fácil</option>
-          <option value="2">● Médio</option>
-          <option value="3">● Difícil</option>
+          <option value="1">Fácil</option>
+          <option value="2">Médio</option>
+          <option value="3">Difícil</option>
         </select>
         <span class="filter-count" id="filter-count">—</span>
       </div>
@@ -803,9 +803,8 @@
 <!-- Configuração local (URL + anon key + lista de professores) -->
 <script src="config.js"></script>
 
-<!-- Dados externos -->
+<!-- Dados externos (consolidados em cenarios.js) -->
 <script src="cenarios.js"></script>
-<script src="agendamentos.js"></script>
 
 <script>
 // ════════════════════════════════════════════════════════════════════
