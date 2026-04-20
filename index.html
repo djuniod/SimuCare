@@ -1903,6 +1903,21 @@ function openAlunoDetail(alunoId) {
       const data = new Date(r.data);
       const refl = (r.reflexoes||[]).filter(x=>x&&x.trim());
       const agHtml = r.modalidade==='agendamento' ? renderAgRegistro(r) : '';
+      // Renderizar detalhamento de respostas se disponível
+      const respostasDetalhes = r.respostas_detalhes || [];
+      const respostasHtml = respostasDetalhes.length ? `<div style="width:100%;margin-top:10px;background:var(--bg2);border-radius:6px;padding:10px 12px">
+        <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">📝 Detalhamento de Respostas</div>
+        ${respostasDetalhes.map((rd, i) => {
+          const icon = rd.qualidade === 'good' ? '✅' : rd.qualidade === 'ok' ? '⚠️' : '❌';
+          const qualText = rd.qualidade === 'good' ? 'Excelente' : rd.qualidade === 'ok' ? 'Aceitável' : 'Incorreta';
+          return `<div style="margin-bottom:8px;border-left:3px solid ${rd.qualidade==='good'?'var(--success)':rd.qualidade==='ok'?'var(--warning)':'var(--danger)'};padding-left:10px">
+            <div style="font-size:12px;font-weight:600">${icon} Passo ${i+1}: ${rd.fase}</div>
+            <div style="font-size:11px;color:var(--text2);margin-top:3px"><strong>Resposta:</strong> ${rd.respostaSelecionada ? rd.respostaSelecionada.substring(0,80)+'...' : '(sem resposta)'}</div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px"><strong>${qualText}</strong> · ${rd.tentativas||1} ${(rd.tentativas||1)===1?'tentativa':'tentativas'} · ${rd.pontuacao||0} pts</div>
+          </div>`;
+        }).join('')}
+      </div>` : '';
+
       return `<div class="activity-item" style="border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:12px 14px;flex-direction:column;align-items:flex-start">
         <div style="display:flex;width:100%;gap:12px;align-items:center">
           <div class="activity-icon">${r.modalidade==='agendamento'?'📋':(AREA_EMOJI[r.area]||'🦷')}</div>
@@ -1911,6 +1926,7 @@ function openAlunoDetail(alunoId) {
           <div class="activity-score ${r.pontuacao>=8.5?'score-good':r.pontuacao>=6?'score-ok':'score-bad'}">${r.pontuacao.toFixed(1)}</div>
         </div>
         ${agHtml}
+        ${respostasHtml}
         ${refl.length ? `<div style="width:100%;margin-top:10px;">${refl.map((t,i) => `<div class="reflection-item"><div class="r-fase">Reflexão ${i+1}</div>${t}</div>`).join('')}</div>` : ''}
       </div>`;
     }).join('') : '<div class="empty-state">Aluno ainda não realizou cenários.</div>'}
