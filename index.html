@@ -1909,21 +1909,20 @@ function openAlunoDetail(alunoId) {
         if (r.respostas_detalhes) {
           respostasDetalhes = typeof r.respostas_detalhes === 'string'
             ? JSON.parse(r.respostas_detalhes)
-            : r.respostas_detalhes;
+            : Array.isArray(r.respostas_detalhes) ? r.respostas_detalhes : [];
+          console.log('Respostas detalhes carregadas:', respostasDetalhes);
         }
       } catch (e) {
         console.error('Erro ao parsear respostas_detalhes:', e);
         respostasDetalhes = [];
       }
-      const respostasHtml = respostasDetalhes.length ? `<div style="width:100%;margin-top:10px;background:var(--bg2);border-radius:6px;padding:10px 12px">
-        <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">📝 Detalhamento de Respostas</div>
+      const respostasHtml = respostasDetalhes && respostasDetalhes.length ? `<div style="width:100%;margin-top:10px;background:var(--bg2);border-radius:6px;padding:10px 12px">
+        <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:6px">📝 Detalhamento de Respostas</div>
         ${respostasDetalhes.map((rd, i) => {
           const icon = rd.qualidade === 'good' ? '✅' : rd.qualidade === 'ok' ? '⚠️' : '❌';
           const qualText = rd.qualidade === 'good' ? 'Excelente' : rd.qualidade === 'ok' ? 'Aceitável' : 'Incorreta';
-          return `<div style="margin-bottom:8px;border-left:3px solid ${rd.qualidade==='good'?'var(--success)':rd.qualidade==='ok'?'var(--warning)':'var(--danger)'};padding-left:10px">
-            <div style="font-size:12px;font-weight:600">${icon} Passo ${i+1}: ${rd.fase}</div>
-            <div style="font-size:11px;color:var(--text2);margin-top:3px"><strong>Resposta:</strong> ${rd.respostaSelecionada ? rd.respostaSelecionada.substring(0,80)+'...' : '(sem resposta)'}</div>
-            <div style="font-size:11px;color:var(--text3);margin-top:2px"><strong>${qualText}</strong> · ${rd.tentativas||1} ${(rd.tentativas||1)===1?'tentativa':'tentativas'} · ${rd.pontuacao||0} pts</div>
+          return `<div style="margin-bottom:6px;font-size:12px">
+            ${icon} <strong>${rd.fase}</strong> — ${qualText} (${rd.tentativas||1} tentativa, ${rd.pontuacao||0} pts)
           </div>`;
         }).join('')}
       </div>` : '';
