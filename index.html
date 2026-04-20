@@ -861,6 +861,7 @@ const state = {
   currentStep: 0,
   stepScores: [],           // por passo: {pontuacao, comps, reflexao, tentativas}
   attemptedIdx: [],         // índices de opções já tentadas no passo atual
+  optionIndexMap: {},       // mapa de índice visual → índice real (embaralhamento)
   awaitingReflexao: false,
   // agendamento
   currentAg: null,
@@ -1415,7 +1416,7 @@ function renderSimStep(showRetryBanner) {
       </div>
       <hr class="divider">
       <div class="question-label">❓ ${step.pergunta}</div>
-      <div id="options-area">${renderOptionsButtons(step.opcoes)}</div>
+      <div id="options-area">${renderOptionsButtons(shuffleOptionsForStep(step.opcoes))}</div>
       <div id="feedback-area"></div>
     </div>
     <div class="sim-sidebar">
@@ -1429,6 +1430,18 @@ function renderSimStep(showRetryBanner) {
       <div class="sidebar-card"><h4>Competências acumuladas</h4>${compsHtml}</div>
     </div>`;
 }
+function shuffleOptionsForStep(opcoes) {
+  // Cria um mapa de índices original → novo índice embaralhado
+  const indices = Array.from({length: opcoes.length}, (_, i) => i);
+  const shuffled = [...indices].sort(() => Math.random() - 0.5);
+  const mapa = {};
+  shuffled.forEach((newIdx, originalIdx) => { mapa[newIdx] = originalIdx; });
+  state.optionIndexMap = mapa;
+
+  // Reordena as opções de acordo com o embaralhamento
+  return shuffled.map(newIdx => opcoes[newIdx]);
+}
+
 function renderOptionsButtons(opcoes) {
   return opcoes.map((op, idx) =>
     `<button class="option-btn" data-idx="${idx}" onclick="selectOption(${idx})">
@@ -1438,9 +1451,11 @@ function renderOptionsButtons(opcoes) {
 }
 
 function selectOption(idx) {
+  // Converter índice visual para índice real usando o mapa
+  const realIdx = (state.optionIndexMap && state.optionIndexMap[idx]) !== undefined ? state.optionIndexMap[idx] : idx;
   const s = state.currentSim;
   const step = s.passos[state.currentStep];
-  const op = step.opcoes[idx];
+  const op = step.opcoes[realIdx];
   const fb = step.feedbacks[op.qualidade];
   const optBtns = document.querySelectorAll('#options-area .option-btn');
 
