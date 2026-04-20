@@ -770,6 +770,33 @@
       <div id="reflexoes-lista"></div>
     </div>
 
+    <!-- ════════════════════ CRIAR NOVO CENÁRIO ════════════════════ -->
+    <div id="page-criar-cenario" class="page fade-in">
+      <div class="dash-header">
+        <h2>➕ Criar Novo Cenário</h2>
+        <p>Adicione um cenário customizado. Será enviado para validação antes de aparecer para alunos.</p>
+      </div>
+      <div id="form-criar-cenario-container" style="max-width:900px;margin:0 auto"></div>
+    </div>
+
+    <!-- ════════════════════ MODERAÇÃO DE CENÁRIOS ════════════════════ -->
+    <div id="page-moderacao" class="page fade-in" style="display:none">
+      <div class="dash-header">
+        <h2>📋 Validar Cenários</h2>
+        <p>Revise e aprove/rejeite cenários criados pelos professores.</p>
+      </div>
+      <div id="moderacao-container"></div>
+    </div>
+
+    <!-- ════════════════════ PAINEL ADMIN ════════════════════ -->
+    <div id="page-admin" class="page fade-in" style="display:none">
+      <div class="dash-header">
+        <h2>⚙️ Painel de Administração</h2>
+        <p>Gerencie professores, senhas e configurações do sistema.</p>
+      </div>
+      <div id="admin-container" style="max-width:900px;margin:0 auto"></div>
+    </div>
+
   </div>
 </div>
 
@@ -969,6 +996,9 @@ function showPage(id) {
   if (id === 'page-turmas') renderTurmas();
   if (id === 'page-alunos') renderAlunosAdmin();
   if (id === 'page-reflexoes') renderReflexoes();
+  if (id === 'page-criar-cenario') renderFormCriarCenario();
+  if (id === 'page-moderacao' && state.user.isAdmin) renderPaginaModeração();
+  if (id === 'page-admin' && state.user.isAdmin) renderPainelAdmin();
 }
 function showAuth(which) {
   document.getElementById('auth-login').style.display = which === 'login' ? 'block' : 'none';
@@ -1016,7 +1046,8 @@ function doLoginProf() {
   if (!u || !p) return showErr('login-err', 'Preencha usuário e senha.');
   const prof = PROFESSORES[u];
   if (!prof || prof.senha !== p) return showErr('login-err', 'Usuário ou senha incorretos.');
-  state.user = { tipo: 'professor', id: 'prof_'+u, nome: prof.nome, username: u };
+  const isAdmin = u === 'david'; // Apenas David é admin
+  state.user = { tipo: 'professor', id: 'prof_'+u, nome: prof.nome, username: u, isAdmin: isAdmin };
   // Carregamento dos dados é disparado dentro de enterApp()
   enterApp();
 }
@@ -1113,12 +1144,17 @@ async function enterApp() {
   name.textContent = state.user.nome;
   if (state.user.tipo === 'professor') {
     role.textContent = 'Professor'; role.className = 'badge-role professor';
+    let btnAdmin = state.user.isAdmin ? `<button class="nav-btn" data-page="page-admin" onclick="showPage('page-admin')" style="background:#ff6b35;color:white;font-weight:700">⚙️ Admin</button>` : '';
+    let btnModerador = state.user.isAdmin ? `<button class="nav-btn" data-page="page-moderacao" onclick="showPage('page-moderacao')" style="background:#f59e0b;color:white">📋 Moderação</button>` : '';
     center.innerHTML = `
       <button class="nav-btn active" data-page="page-professor" onclick="showPage('page-professor')">Painel</button>
       <button class="nav-btn" data-page="page-turmas" onclick="showPage('page-turmas')">Turmas</button>
       <button class="nav-btn" data-page="page-alunos" onclick="showPage('page-alunos')">Alunos</button>
       <button class="nav-btn" data-page="page-reflexoes" onclick="showPage('page-reflexoes')">Reflexões</button>
-      <button class="nav-btn" data-page="page-cenarios" onclick="showPage('page-cenarios')">Ver Cenários</button>`;
+      <button class="nav-btn" data-page="page-cenarios" onclick="showPage('page-cenarios')">Ver Cenários</button>
+      <button class="nav-btn" data-page="page-criar-cenario" onclick="showPage('page-criar-cenario')">➕ Novo Cenário</button>
+      ${btnModerador}
+      ${btnAdmin}`;
     showScreen('app-screen');
     showPage('page-professor');
   } else {
@@ -1990,6 +2026,261 @@ function showResultAgendamento() { avaliarAgendamento(); }
 // ════════════════════════════════════════════════════════════════════
 //   PAINEL PROFESSOR
 // ════════════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════════
+// CRIAÇÃO DE CENÁRIOS (para todos os professores)
+// ═══════════════════════════════════════════════════════════════════
+function renderFormCriarCenario() {
+  const container = document.getElementById('form-criar-cenario-container');
+  container.innerHTML = `
+    <div style="background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+      <form id="form-cenario" onsubmit="salvarNovoCenario(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:8px">ID do Cenário (ex: MP-21)</label>
+            <input type="text" id="new-cen-id" placeholder="MP-21" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px" required>
+          </div>
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:8px">Tipo</label>
+            <select id="new-cen-tipo" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px" required>
+              <option value="">Selecione</option>
+              <option value="Caso Clínico">Caso Clínico</option>
+              <option value="Agendamento">Agendamento</option>
+              <option value="Materiais">Materiais</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:8px">Área</label>
+            <input type="text" id="new-cen-area" placeholder="Clínica" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px" required>
+          </div>
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:8px">Complexidade</label>
+            <select id="new-cen-complexidade" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px" required>
+              <option value="">Selecione</option>
+              <option value="1">Fácil (1)</option>
+              <option value="2">Médio (2)</option>
+              <option value="3">Difícil (3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom:20px">
+          <label style="font-weight:700;display:block;margin-bottom:8px">Título</label>
+          <input type="text" id="new-cen-titulo" placeholder="Nome do cenário" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px" required>
+        </div>
+
+        <div style="margin-bottom:20px">
+          <label style="font-weight:700;display:block;margin-bottom:8px">Contexto/Descrição</label>
+          <textarea id="new-cen-contexto" placeholder="Descreva a situação clínica..." style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;min-height:120px;font-family:inherit" required></textarea>
+        </div>
+
+        <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px;border-left:4px solid #3b82f6">
+          <p style="margin:0;font-size:13px;color:#6b7280"><strong>ℹ️ Nota:</strong> Cenários novos serão enviados para validação. Após aprovação, estarão disponíveis para todos os alunos.</p>
+        </div>
+
+        <div style="display:flex;gap:12px">
+          <button type="submit" class="btn-next" style="flex:1">📤 Enviar para Validação</button>
+          <button type="button" class="btn-secondary" style="flex:1" onclick="salvarNovoCenario(event, true)">💾 Salvar como Rascunho</button>
+        </div>
+      </form>
+      <div id="cenario-status" style="margin-top:20px"></div>
+    </div>`;
+}
+
+function salvarNovoCenario(e, isRascunho = false) {
+  e.preventDefault();
+  const id = document.getElementById('new-cen-id').value.trim();
+  const tipo = document.getElementById('new-cen-tipo').value;
+  const area = document.getElementById('new-cen-area').value.trim();
+  const complexidade = parseInt(document.getElementById('new-cen-complexidade').value);
+  const titulo = document.getElementById('new-cen-titulo').value.trim();
+  const contexto = document.getElementById('new-cen-contexto').value.trim();
+
+  if (!id || !tipo || !area || !complexidade || !titulo || !contexto) {
+    alert('Preencha todos os campos!');
+    return;
+  }
+
+  // Salvar no estado (depois será enviado para Supabase)
+  const status = isRascunho ? 'rascunho' : 'pendente';
+  const novoCenario = {
+    id, tipo, area, complexidade, titulo, contexto,
+    criadoPor: state.user.username,
+    dataCriacao: new Date().toISOString(),
+    status: status,
+    passos: [] // Será editado depois
+  };
+
+  // Mostrar mensagem
+  const statusEl = document.getElementById('cenario-status');
+  if (isRascunho) {
+    statusEl.innerHTML = `<div class="alert-success" style="background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:12px;border-radius:6px">✅ Cenário salvo como rascunho! Você pode continuar editando depois.</div>`;
+  } else {
+    statusEl.innerHTML = `<div class="alert-success" style="background:#dbeafe;border:1px solid #93c5fd;color:#1e40af;padding:12px;border-radius:6px">📤 Cenário enviado para validação! O administrador analisará em breve.</div>`;
+  }
+
+  // Limpar formulário
+  setTimeout(() => {
+    document.getElementById('form-cenario').reset();
+    statusEl.innerHTML = '';
+  }, 3000);
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// MODERAÇÃO DE CENÁRIOS (apenas para admin)
+// ═══════════════════════════════════════════════════════════════════
+function renderPaginaModeração() {
+  const container = document.getElementById('moderacao-container');
+  // Por enquanto, mostrar que não há cenários pendentes
+  container.innerHTML = `
+    <div style="background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+      <div class="empty-state">
+        <p style="font-size:24px;margin-bottom:12px">📋</p>
+        <p style="font-size:16px;font-weight:700;margin-bottom:4px">Nenhum cenário pendente</p>
+        <p style="color:#6b7280;font-size:14px">Quando professores criarem cenários, aparecerão aqui para validação.</p>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PAINEL ADMIN (apenas para David)
+// ═══════════════════════════════════════════════════════════════════
+function renderPainelAdmin() {
+  const container = document.getElementById('admin-container');
+  container.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr;gap:24px">
+      <!-- Seção: Adicionar Professor -->
+      <div style="background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">➕ Adicionar Novo Professor</h3>
+        <form onsubmit="adicionarProfessor(event)" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:6px;font-size:13px">Username (sem espaços)</label>
+            <input type="text" id="new-prof-user" placeholder="joão_silva" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:13px" required>
+          </div>
+          <div>
+            <label style="font-weight:700;display:block;margin-bottom:6px;font-size:13px">Nome Completo</label>
+            <input type="text" id="new-prof-nome" placeholder="Prof. João Silva" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:13px" required>
+          </div>
+          <div colspan="2">
+            <button type="submit" class="btn-next" style="width:100%">Gerar Senha e Adicionar</button>
+          </div>
+        </form>
+        <div id="admin-status" style="margin-top:16px"></div>
+      </div>
+
+      <!-- Seção: Lista de Professores -->
+      <div style="background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">👥 Professores Cadastrados</h3>
+        <div id="lista-professores"></div>
+      </div>
+
+      <!-- Seção: Configurações -->
+      <div style="background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:16px">⚙️ Configurações</h3>
+        <button class="btn-secondary" style="width:100%;margin-bottom:12px" onclick="exportarConfigJs()">📥 Exportar config.js (para download)</button>
+        <p style="font-size:12px;color:#6b7280;margin:0">Use o arquivo exportado para atualizar o config.js local com os novos professores.</p>
+      </div>
+    </div>`;
+
+  atualizarListaProfessores();
+}
+
+function adicionarProfessor(e) {
+  e.preventDefault();
+  const user = document.getElementById('new-prof-user').value.toLowerCase().trim();
+  const nome = document.getElementById('new-prof-nome').value.trim();
+
+  if (!user || !nome) {
+    alert('Preencha todos os campos!');
+    return;
+  }
+
+  // Verificar se já existe
+  if (PROFESSORES[user]) {
+    alert('Este username já existe!');
+    return;
+  }
+
+  // Gerar senha aleatória
+  const senha = gerarSenhaAleatoria();
+  PROFESSORES[user] = { nome: `Prof. ${nome}`, senha: senha };
+
+  // Mostrar sucesso
+  const statusEl = document.getElementById('admin-status');
+  statusEl.innerHTML = `
+    <div style="background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:12px;border-radius:6px;font-size:13px">
+      ✅ <strong>${nome}</strong> adicionado!<br>
+      <strong>Username:</strong> ${user}<br>
+      <strong>Senha:</strong> <code style="background:rgba(0,0,0,0.1);padding:2px 6px;border-radius:3px">${senha}</code><br>
+      <em>Copie e guarde a senha com segurança!</em>
+    </div>`;
+
+  document.querySelector('form').reset();
+  atualizarListaProfessores();
+
+  setTimeout(() => {statusEl.innerHTML = '';}, 5000);
+}
+
+function gerarSenhaAleatoria() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let senha = '';
+  for (let i = 0; i < 8; i++) {
+    senha += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return senha;
+}
+
+function atualizarListaProfessores() {
+  const container = document.getElementById('lista-professores');
+  const profs = Object.entries(PROFESSORES);
+  container.innerHTML = profs.map(([user, prof]) => `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:8px">
+      <div>
+        <div style="font-weight:700;font-size:14px">${prof.nome}</div>
+        <div style="font-size:12px;color:#6b7280">@${user}</div>
+      </div>
+      <div>
+        <button class="btn-sm" style="background:#ef4444;color:white" onclick="confirmarExcluirProf('${user}')">Excluir</button>
+      </div>
+    </div>`).join('');
+}
+
+function confirmarExcluirProf(user) {
+  if (user === 'david') {
+    alert('Você não pode excluir a sua própria conta!');
+    return;
+  }
+  if (confirm(`Excluir ${PROFESSORES[user].nome}?`)) {
+    delete PROFESSORES[user];
+    atualizarListaProfessores();
+  }
+}
+
+function exportarConfigJs() {
+  let configContent = `window.SIMUCARE_CONFIG = {
+  SUPABASE_URL: "https://urdsvyszymbbxibhslhk.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVyZHN2eXN6eW1iYnhpYmhzbGhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY2NTAzMDQsImV4cCI6MjA5MjIyNjMwNH0.gnEHF0Gceu41T9eNE1G_Q6TEoMAKA7AoJyyhpCGP1dc",
+
+  PROFESSORES: {
+`;
+  Object.entries(PROFESSORES).forEach(([user, prof]) => {
+    configContent += `    ${user}: { nome: "${prof.nome}", senha: "${prof.senha}" },\n`;
+  });
+  configContent = configContent.slice(0, -2); // Remove última vírgula
+  configContent += `\n  }\n};\n`;
+
+  // Download
+  const blob = new Blob([configContent], {type:'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'config.js';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 function renderProfDashboard() {
   document.getElementById('pt-alunos').textContent = state.alunos.length;
   document.getElementById('pt-turmas').textContent = state.turmas.length;
