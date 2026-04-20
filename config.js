@@ -19,6 +19,7 @@ window.SIMUCARE_CONFIG = {
     mirna:    { nome: "Prof. Mirna",    senha: "A8n3SFYX" },
     janaina:  { nome: "Prof. Janaína",  senha: "hGH01Gj5" },
     fernando: { nome: "Prof. Fernando", senha: "zpx0erox" },
-    paula:    { nome: "Prof. Paula",    senha: "6rg1onPN" }
+    paula:    { nome: "Prof. Paula",    senha: "6rg1onPN" },
+    samuel:   { nome: "Prof. Samuel",   senha: "UEeAdUH9" }
   }
 };
