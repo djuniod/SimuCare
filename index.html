@@ -3062,11 +3062,12 @@ function renderMapaCompetencias(competencias) {
     <div class="section-title">Desempenho por competência</div>
     <div style="display:flex;flex-direction:column;gap:14px">
       ${competencias.map(c => {
-        const barWidth = Math.min(100, (c.media / 10) * 100);
+        const mediaNum = parseFloat(c.media) || 0;
+        const barWidth = Math.min(100, (mediaNum / 10) * 100);
         return `<div class="comp-bar-row">
           <div class="comp-name">${c.nome}</div>
           <div class="comp-track"><div class="comp-fill" style="width:${barWidth}%"></div></div>
-          <div class="comp-score">${c.media ? c.media.toFixed(1) : '—'}</div>
+          <div class="comp-score">${mediaNum > 0 ? mediaNum.toFixed(1) : '—'}</div>
         </div>`;
       }).join('')}
     </div>
