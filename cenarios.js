@@ -1,8 +1,8 @@
 /* ============================================================
-   SimuCare — Banco de Cenários Consolidado (150+ cenários)
+   SimuCare — Banco de Cenários Consolidado (150 cenários)
    ============================================================
    Cenários totais:
-   - ~60-70 cenários clínicos (múltipla escolha com 2+ fases)
+   - 60 cenários clínicos (múltipla escolha com 2-3 passos)
    - 50 cenários de Agendamento (3 etapas: dados, agenda, materiais)
    - 40 cenários de Seleção de Materiais
    
@@ -11,18 +11,14 @@
    2. Agendamento — Simulação de recepção e gerenciamento (modalidade: 'agendamento')
    3. Materiais — Seleção de recursos terapêuticos (modalidade: 'materiais')
    
-   Competências avaliadas:
-   0: Comunicação empática
-   1: Resolução de problemas
-   2: Tomada de decisão
-   3: Conhecimento técnico
-   4: Biossegurança
-   5: Trabalho em equipe
-   6: Gestão de conflito
-   7: Profissionalismo
+   Complexidade:
+   1 = Fácil
+   2 = Médio
+   3 = Difícil
    ============================================================ */
 
-window.CENARIOS = [[
+window.CENARIOS = [
+
 /* ============================================================
    ÁREA 1 — SALA DE ESPERA E RECEPÇÃO
    ============================================================ */
@@ -2925,11 +2921,10 @@ window.CENARIOS = [[
     }
   }]
 },
-},
-[
 {
   id:'AG-21', titulo:'Agendamento: Limpeza com orientação',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Limpeza + orientação personalizada de higiene.',
   contexto:'Paciente com acúmulo de biofilme.',
   dadosPaciente:{ campos:[
@@ -2949,6 +2944,7 @@ window.CENARIOS = [[
 {
   id:'AG-22', titulo:'Agendamento: Avaliação estética',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Avaliação para tratamento estético do sorriso.',
   contexto:'Paciente insatisfeito com estética.',
   dadosPaciente:{ campos:[
@@ -2968,6 +2964,7 @@ window.CENARIOS = [[
 {
   id:'AG-23', titulo:'Agendamento: Tratamento de cárie',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Restauração de cárie simples em dente posterior.',
   contexto:'Paciente com cárie interproximal confirmada.',
   dadosPaciente:{ campos:[
@@ -2987,6 +2984,7 @@ window.CENARIOS = [[
 {
   id:'AG-24', titulo:'Agendamento: Profilaxia e flúor',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Limpeza simples + aplicação de flúor tópico.',
   contexto:'Manutenção periódica de paciente baixo risco.',
   dadosPaciente:{ campos:[
@@ -3006,6 +3004,7 @@ window.CENARIOS = [[
 {
   id:'AG-25', titulo:'Agendamento: Extração dentária',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Extração de dente incluso ou com indicação clara.',
   contexto:'Paciente com dente irrecuperável ou impactado.',
   dadosPaciente:{ campos:[
@@ -3025,6 +3024,7 @@ window.CENARIOS = [[
 {
   id:'AG-26', titulo:'Agendamento: Avaliação de DTM',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Avaliação completa de disfunção temporomandibular.',
   contexto:'Paciente com sintomas de DTM.',
   dadosPaciente:{ campos:[
@@ -3044,6 +3044,7 @@ window.CENARIOS = [[
 {
   id:'AG-27', titulo:'Agendamento: Clareamento de consultório',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Clareamento profissional com peróxido concentrado.',
   contexto:'Paciente deseja clarear dentes vitais.',
   dadosPaciente:{ campos:[
@@ -3063,6 +3064,7 @@ window.CENARIOS = [[
 {
   id:'AG-28', titulo:'Agendamento: Periodontia básica',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Raspagem supragengival + instrumentação cuidadosa.',
   contexto:'Paciente com gengivite ou periodontite inicial.',
   dadosPaciente:{ campos:[
@@ -3082,6 +3084,7 @@ window.CENARIOS = [[
 {
   id:'AG-29', titulo:'Agendamento: Endodontia diagnóstica',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Avaliação de vitalidade pulpar e diagnóstico de endodoncia.',
   contexto:'Paciente com suspeita de envolvimento pulpar.',
   dadosPaciente:{ campos:[
@@ -3101,6 +3104,7 @@ window.CENARIOS = [[
 {
   id:'AG-30', titulo:'Agendamento: Ajuste oclusal simples',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Ajuste de contatos prematuros pós-restauração.',
   contexto:'Paciente com desconforto oclusal após tratamento.',
   dadosPaciente:{ campos:[
@@ -3120,6 +3124,7 @@ window.CENARIOS = [[
 {
   id:'AG-31', titulo:'Agendamento: Restauração de emergência',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Restauração temporária para alívio de sintomas agudos.',
   contexto:'Paciente com dor ou dente fraturado necessitando alívio imediato.',
   dadosPaciente:{ campos:[
@@ -3139,6 +3144,7 @@ window.CENARIOS = [[
 {
   id:'AG-32', titulo:'Agendamento: Moldagem para prótese',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Moldagem preliminar e final para confecção de prótese dentária.',
   contexto:'Paciente edêntulo necessitando de prótese completa ou parcial.',
   dadosPaciente:{ campos:[
@@ -3158,6 +3164,7 @@ window.CENARIOS = [[
 {
   id:'AG-33', titulo:'Agendamento: Instalação de implante',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Cirurgia de colocação de implante osseointegrado.',
   contexto:'Paciente com planejamento completo para implante.',
   dadosPaciente:{ campos:[
@@ -3177,6 +3184,7 @@ window.CENARIOS = [[
 {
   id:'AG-34', titulo:'Agendamento: Cimentação de coroa',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Cimentação de coroa protética sobre dente preparado.',
   contexto:'Paciente com coroa pronta para ser instalada.',
   dadosPaciente:{ campos:[
@@ -3196,6 +3204,7 @@ window.CENARIOS = [[
 {
   id:'AG-35', titulo:'Agendamento: Remoção de aparelho ortodôntico',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Remoção de aparelho fixo + limpeza profissional + planejamento de contenção.',
   contexto:'Paciente finalizando tratamento ortodôntico.',
   dadosPaciente:{ campos:[
@@ -3215,6 +3224,7 @@ window.CENARIOS = [[
 {
   id:'AG-36', titulo:'Agendamento: Tratamento de afta',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Diagnóstico e tratamento de úlcera aftosa.',
   contexto:'Paciente com afta dolorosa.',
   dadosPaciente:{ campos:[
@@ -3234,6 +3244,7 @@ window.CENARIOS = [[
 {
   id:'AG-37', titulo:'Agendamento: Avaliação de bruxismo',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Avaliação de bruxismo e indicação de placa oclusal.',
   contexto:'Paciente com suspeita de bruxismo noturno.',
   dadosPaciente:{ campos:[
@@ -3253,6 +3264,7 @@ window.CENARIOS = [[
 {
   id:'AG-38', titulo:'Agendamento: Sondagem periodontal',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Sondagem periodontal completa + documentação de bolsas.',
   contexto:'Paciente com suspeita de periodontite.',
   dadosPaciente:{ campos:[
@@ -3272,6 +3284,7 @@ window.CENARIOS = [[
 {
   id:'AG-39', titulo:'Agendamento: Consulta de follow-up',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Reavaliação pós-tratamento e orientações de manutenção.',
   contexto:'Paciente em acompanhamento de caso finalizado.',
   dadosPaciente:{ campos:[
@@ -3291,6 +3304,7 @@ window.CENARIOS = [[
 {
   id:'AG-40', titulo:'Agendamento: Orientação de paciente novo',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Anamnese completa + explicação de procedimentos + cronograma de tratamento.',
   contexto:'Paciente primeira vez na clínica.',
   dadosPaciente:{ campos:[
@@ -3311,6 +3325,7 @@ window.CENARIOS = [[
 {
   id:'AG-41', titulo:'Agendamento: Aplicação de selante',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Selagem de fossetas e fissuras em molares permanentes.',
   contexto:'Criança com molares permanentes propensos a cárie.',
   dadosPaciente:{ campos:[
@@ -3330,6 +3345,7 @@ window.CENARIOS = [[
 {
   id:'AG-42', titulo:'Agendamento: Tratamento de gengivite',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Instruções de higiene + raspagem leve + medicação',
   contexto:'Paciente com inflamação gengival leve.',
   dadosPaciente:{ campos:[
@@ -3349,6 +3365,7 @@ window.CENARIOS = [[
 {
   id:'AG-43', titulo:'Agendamento: Cimentação de inlay/onlay',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Instalação de restauração indireta em cerâmica ou ouro.',
   contexto:'Paciente com inlay/onlay confeccionada.',
   dadosPaciente:{ campos:[
@@ -3368,6 +3385,7 @@ window.CENARIOS = [[
 {
   id:'AG-44', titulo:'Agendamento: Avaliação de halitose',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Diagnóstico de origem de halitose e plano de tratamento.',
   contexto:'Paciente com queixa de mau hálito.',
   dadosPaciente:{ campos:[
@@ -3387,6 +3405,7 @@ window.CENARIOS = [[
 {
   id:'AG-45', titulo:'Agendamento: Tratamento de lesão de cárie radicular',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Restauração de cárie na raiz exposta de dente.',
   contexto:'Paciente idoso com recessão gengival.',
   dadosPaciente:{ campos:[
@@ -3406,6 +3425,7 @@ window.CENARIOS = [[
 {
   id:'AG-46', titulo:'Agendamento: Avaliação pré-ortodôntica',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Diagnóstico e planejamento de tratamento ortodôntico.',
   contexto:'Paciente interessado em tratamento ortodôntico.',
   dadosPaciente:{ campos:[
@@ -3425,6 +3445,7 @@ window.CENARIOS = [[
 {
   id:'AG-47', titulo:'Agendamento: Restauração com resina direta',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Restauração estética anterior com resina fotopolimerizável.',
   contexto:'Paciente com dente anterior comprometido.',
   dadosPaciente:{ campos:[
@@ -3444,6 +3465,7 @@ window.CENARIOS = [[
 {
   id:'AG-48', titulo:'Agendamento: Limpeza de implantes',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Manutenção profissional de implante e reparação de periimplantite leve.',
   contexto:'Paciente com implante para manutenção periódica.',
   dadosPaciente:{ campos:[
@@ -3463,6 +3485,7 @@ window.CENARIOS = [[
 {
   id:'AG-49', titulo:'Agendamento: Consulta de emergência dental',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Atendimento urgente para dor, trauma ou infecção dental.',
   contexto:'Paciente em situação de emergência dental.',
   dadosPaciente:{ campos:[
@@ -3482,6 +3505,7 @@ window.CENARIOS = [[
 {
   id:'AG-50', titulo:'Agendamento: Avaliação pós-trauma dentário',
   tipo:'agendamento', modalidade:'agendamento', tempo:2,
+  complexidade: 2,
   descricao:'Avaliação completa pós-trauma com teste de vitalidade e mobilidade.',
   contexto:'Paciente com histórico recente de trauma dental.',
   dadosPaciente:{ campos:[
@@ -3498,10 +3522,10 @@ window.CENARIOS = [[
     { id:'m5', nome:'Documentação fotográfica' }
   ], corretos:['m1','m2','m3','m4'] }
 },
-[
 {
   id: 'MAT-01', titulo: 'Restauração de cárie classe I com resina',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de materiais para restauração de cárie em oclusal.',
   contexto: 'Cárie oclusal em primeiro molar inferior.',
   opcoes: [
@@ -3518,6 +3542,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-02', titulo: 'Profilaxia com flúor',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para limpeza profissional com flúor.',
   contexto: 'Paciente de baixo risco em manutenção.',
   opcoes: [
@@ -3534,6 +3559,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-03', titulo: 'Extração dentária simples',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Instrumentais para extração de dente sem retenção óssea.',
   contexto: 'Extração de dente irrompido com mobilidade.',
   opcoes: [
@@ -3550,6 +3576,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-04', titulo: 'Endodontia - Acesso inicial',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Materiais para abertura de acesso à câmara pulpar.',
   contexto: 'Dente anterior com envolvimento pulpar.',
   opcoes: [
@@ -3566,6 +3593,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-05', titulo: 'Clareamento de consultório',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para clareamento profissional com peróxido.',
   contexto: 'Paciente com pigmentação leve dos dentes.',
   opcoes: [
@@ -3582,6 +3610,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-06', titulo: 'Sondagem periodontal',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Instrumentais para avaliação de bolsas periodontais.',
   contexto: 'Paciente com gengivite e possível periodontite.',
   opcoes: [
@@ -3598,6 +3627,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-07', titulo: 'Moldagem para prótese total',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Materiais para moldagem preliminar de prótese.',
   contexto: 'Paciente edêntulo para confecção de prótese.',
   opcoes: [
@@ -3614,6 +3644,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-08', titulo: 'Limpeza supragengival com ultrassom',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de materiais para raspagem com ultrassom.',
   contexto: 'Remoção de tártaro em paciente com gengivite.',
   opcoes: [
@@ -3630,6 +3661,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-09', titulo: 'Cimentação com cimento resinoso',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para cimentação de prótese com cimento resinoso.',
   contexto: 'Instalação de coroa protética.',
   opcoes: [
@@ -3646,6 +3678,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-10', titulo: 'Vedação temporária após raspagem',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para vedação temporária de lesão radicular.',
   contexto: 'Lesão de cárie radicular após raspagem.',
   opcoes: [
@@ -3662,6 +3695,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-11', titulo: 'Preparação de implante - kit cirúrgico',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Componentes para colocação de implante osseointegrado.',
   contexto: 'Cirurgia de implante em região anterior.',
   opcoes: [
@@ -3678,6 +3712,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-12', titulo: 'Tratamento de afta - medicação tópica',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de medicações tópicas para úlcera aftosa.',
   contexto: 'Paciente com afta dolorosa em mucosa bucal.',
   opcoes: [
@@ -3694,6 +3729,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-13', titulo: 'Remoção de bracket ortodôntico',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Instrumentais para remoção de aparelho fixo.',
   contexto: 'Final de tratamento ortodôntico.',
   opcoes: [
@@ -3710,6 +3746,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-14', titulo: 'Tratamento de bruxismo - placa oclusal',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para confecção de placa para bruxismo.',
   contexto: 'Paciente com desgaste dentário por bruxismo.',
   opcoes: [
@@ -3726,6 +3763,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-15', titulo: 'Radiografia periapical - segurança',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Acessórios para radiografia intraoral segura.',
   contexto: 'Radiografia de diagnóstico inicial.',
   opcoes: [
@@ -3742,6 +3780,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-16', titulo: 'Descontaminação de instrumentais - esterilização',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de produtos para desinfecção e esterilização.',
   contexto: 'Preparação de instrumentais após uso.',
   opcoes: [
@@ -3758,6 +3797,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-17', titulo: 'Cárie classe V - restauração com resina',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para restauração em cervical de dente.',
   contexto: 'Cárie na região cervical de dente vital.',
   opcoes: [
@@ -3774,6 +3814,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-18', titulo: 'Controle de dor em cirurgia - anestesia',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de anestésicos para procedimentos cirúrgicos.',
   contexto: 'Extração de dente impactado.',
   opcoes: [
@@ -3790,6 +3831,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-19', titulo: 'Restauração com inlay de cerâmica',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para cimentação de inlay cerâmica.',
   contexto: 'Inlay de cerâmica pronta para cimentação.',
   opcoes: [
@@ -3806,6 +3848,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-20', titulo: 'Flúor para crianças - prevenção de cárie',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de fluoretos para crianças.',
   contexto: 'Aplicação de flúor em criança de 6 anos.',
   opcoes: [
@@ -3822,6 +3865,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-21', titulo: 'Laminado cerâmico - preparação e cimentação',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para laminado cerâmico estético.',
   contexto: 'Colocação de laminado em dente anterior.',
   opcoes: [
@@ -3838,6 +3882,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-22', titulo: 'Teste de vitalidade pulpar',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para diagnóstico de vitalidade.',
   contexto: 'Avaliação diagnóstica após trauma.',
   opcoes: [
@@ -3854,6 +3899,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-23', titulo: 'Higiene oral em paciente com periodontite',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de higiene bucal recomendada.',
   contexto: 'Instruções de higiene pós-tratamento perio.',
   opcoes: [
@@ -3870,6 +3916,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-24', titulo: 'Sedação consciente - seleção de drogas',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de medicamentos para sedação moderada.',
   contexto: 'Paciente com ansiedade severa para extração.',
   opcoes: [
@@ -3886,6 +3933,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-25', titulo: 'Selante de fosseta e fissura',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para prevenção em dentes permanentes.',
   contexto: 'Criança com molares permanentes propensos a cárie.',
   opcoes: [
@@ -3902,6 +3950,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-26', titulo: 'Ajuste de contatos proximais - instrumentais',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para alívio de contatos excessivos.',
   contexto: 'Dente com contato proximal doloroso.',
   opcoes: [
@@ -3918,6 +3967,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-27', titulo: 'Controle de inflamação pós-cirurgia',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para redução de edema pós-operatório.',
   contexto: 'Extrações múltiplas com expectativa de inchaço.',
   opcoes: [
@@ -3934,6 +3984,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-28', titulo: 'Prótese parcial removível - framework',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de materiais para estrutura de PPR.',
   contexto: 'Confecção de prótese parcial removível.',
   opcoes: [
@@ -3950,6 +4001,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-29', titulo: 'Restauração em resina flow',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para restauração com resina fluida.',
   contexto: 'Cárie pequena ou deficiência marginal.',
   opcoes: [
@@ -3966,6 +4018,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-30', titulo: 'Instrumentação endodôntica - files',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de limas para preparo do canal.',
   contexto: 'Instrumentação de canal endodôntico.',
   opcoes: [
@@ -3982,6 +4035,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-31', titulo: 'Fotopolimerização segura',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Proteção durante fotopolimerização.',
   contexto: 'Polymerização de resina composta.',
   opcoes: [
@@ -3998,6 +4052,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-32', titulo: 'Reparação de prótese fraturada',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para reparo temporário.',
   contexto: 'Prótese fraturada em consultório.',
   opcoes: [
@@ -4014,6 +4069,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-33', titulo: 'Reparação de restauração amalgamada',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para reparação de amálgama.',
   contexto: 'Restauração amalgamada com defeito marginal.',
   opcoes: [
@@ -4030,6 +4086,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-34', titulo: 'Frenectomia - kit cirúrgico',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para freio labial/lingual.',
   contexto: 'Cirurgia para remoção de freio.',
   opcoes: [
@@ -4046,6 +4103,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-35', titulo: 'Higienização de aparelho removível',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Instruções para limpeza de prótese.',
   contexto: 'Orientação de paciente sobre prótese removível.',
   opcoes: [
@@ -4062,6 +4120,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-36', titulo: 'Cimento provisório - segurança',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de cimento temporário.',
   contexto: 'Preparação provisória com cimento temporário.',
   opcoes: [
@@ -4078,6 +4137,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-37', titulo: 'Osseointegração - acompanhamento',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Controle periódico de implante.',
   contexto: 'Avaliação pós-operatória de implante.',
   opcoes: [
@@ -4094,6 +4154,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-38', titulo: 'Teste de sensibilidade dentária',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Diagnóstico de hipersensibilidade dentinária.',
   contexto: 'Paciente com reclamação de sensibilidade.',
   opcoes: [
@@ -4110,6 +4171,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-39', titulo: 'Fluorose dental - diagnóstico',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção para avaliação de fluorose.',
   contexto: 'Criança com manchas em dentes.',
   opcoes: [
@@ -4126,6 +4188,7 @@ window.CENARIOS = [[
 {
   id: 'MAT-40', titulo: 'Proteção de dentes com fórceps',
   tipo: 'materiais', modalidade: 'materiais',
+  complexidade: 2,
   descricao: 'Seleção de isolamento durante extração.',
   contexto: 'Extração dentária com proteção de dentes adjacentes.',
   opcoes: [
@@ -4138,4 +4201,5 @@ window.CENARIOS = [[
   ],
   competencias: [6, 8, 8, 9, 8, 7, 7, 8],
   pontuacao_base: 100
-}];
+}
+];
