@@ -103,6 +103,11 @@
     border-radius: 20px; text-transform: uppercase; }
   .badge-role.aluno { background: rgba(0,212,170,0.1); color: var(--accent); border: 1px solid rgba(0,212,170,0.2); }
   .badge-role.professor { background: rgba(255,107,53,0.1); color: var(--accent3); border: 1px solid rgba(255,107,53,0.2); }
+  .btn-refresh { padding: 6px 12px; background: transparent; border: 1px solid var(--border);
+    border-radius: 8px; color: var(--text2); font-family: 'Sora', sans-serif; font-size: 12px;
+    cursor: pointer; transition: all 0.2s; }
+  .btn-refresh:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-refresh.refreshing { opacity: 0.6; cursor: not-allowed; }
   .btn-logout { padding: 6px 12px; background: transparent; border: 1px solid var(--border);
     border-radius: 8px; color: var(--text2); font-family: 'Sora', sans-serif; font-size: 12px;
     cursor: pointer; transition: all 0.2s; }
@@ -562,6 +567,7 @@
           <span class="badge-role" id="nav-role">—</span>
         </div>
       </div>
+      <button class="btn-refresh" id="btn-refresh" onclick="refreshData()" title="Atualizar dados">🔄 Atualizar</button>
       <button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
   </nav>
@@ -1013,6 +1019,28 @@ async function doCadastroAluno() {
   }
   setTimeout(()=>showAuth('login'), 1400);
 }
+
+async function refreshData() {
+  const btn = document.getElementById('btn-refresh');
+  if (btn.classList.contains('refreshing')) return; // evitar múltiplos cliques
+  btn.classList.add('refreshing');
+  btn.disabled = true;
+  try {
+    await loadAllFromSupabase();
+    // Renderizar a tela atual com os novos dados
+    if (state.user?.tipo === 'professor') {
+      showPainel();
+    } else if (state.user?.tipo === 'aluno') {
+      showAlunoDashboard();
+    }
+  } catch (e) {
+    console.error('Erro ao atualizar:', e);
+  } finally {
+    btn.classList.remove('refreshing');
+    btn.disabled = false;
+  }
+}
+
 function doLogout() {
   state.user = null;
   document.getElementById('al-pri').value='';
@@ -1164,6 +1192,16 @@ function renderScenarios() {
   if (fa) list = list.filter(s => s.area === fa);
   if (ft) list = list.filter(s => s.tipo === ft);
   if (fc) list = list.filter(s => String(s.complexidade) === fc);
+
+  // Reordena: cenários respondidos vão para o final
+  const done = state.user?.id ? (state.resultados[state.user.id] || []).map(r => r.cenarioId) : [];
+  list.sort((a, b) => {
+    const aDone = done.includes(a.id);
+    const bDone = done.includes(b.id);
+    if (aDone === bDone) return 0; // mesma condição, mantém ordem
+    return aDone ? 1 : -1; // respondidos para o final
+  });
+
   document.getElementById('filter-count').textContent = `${list.length} cenário${list.length!==1?'s':''}`;
   const grid = document.getElementById('scenarios-grid');
   if (!list.length) {
@@ -1297,8 +1335,15 @@ function selectOption(idx) {
     optBtns[idx].style.background = 'rgba(245,158,11,0.08)';
     const idealIdx = step.opcoes.findIndex(o => o.qualidade === 'good');
     if (idealIdx >= 0) optBtns[idealIdx].classList.add('try-again-ideal');
-    // registra pontuação da OK como a última do passo
-    state.stepScores[state.currentStep] = { pontuacao: op.pontos, comps: op.comps, tentativas: (state.attemptedIdx.length+1) };
+    // registra pontuação da OK como a última do passo, incluindo detalhes da resposta
+    state.stepScores[state.currentStep] = {
+      pontuacao: op.pontos,
+      comps: op.comps,
+      tentativas: (state.attemptedIdx.length+1),
+      respostaSelecionada: op.texto,
+      qualidade: op.qualidade,
+      opcaoIndex: idx
+    };
     feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'ok') +
       (idealIdx >= 0 ? `<div class="ideal-hint fade-in">💡 <div><strong>A conduta ideal seria a opção ${LETTERS[idealIdx]}.</strong> Observe o que ela contempla que sua escolha deixou passar: ${step.opcoes[idealIdx].texto}</div></div>` : '') +
       renderReflexaoCard(s, step);
@@ -1311,7 +1356,14 @@ function selectOption(idx) {
     const mensagem = state.attemptedIdx.length > 0
       ? 'Excelente! Agora você internalizou a conduta ideal. Essa vai ser a resposta registrada neste passo.'
       : 'Excelente escolha de primeira!';
-    state.stepScores[state.currentStep] = { pontuacao: op.pontos, comps: op.comps, tentativas: (state.attemptedIdx.length+1) };
+    state.stepScores[state.currentStep] = {
+      pontuacao: op.pontos,
+      comps: op.comps,
+      tentativas: (state.attemptedIdx.length+1),
+      respostaSelecionada: op.texto,
+      qualidade: op.qualidade,
+      opcaoIndex: idx
+    };
     feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'good', mensagem) + renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   }
@@ -1336,27 +1388,24 @@ function renderReflexaoCard(s, step) {
   const isLast = state.currentStep >= s.passos.length - 1;
   const nextLabel = isLast ? '📊 Ver resultado final' : '▶ Próximo passo';
   return `<div class="reflection-card fade-in">
-    <h3>✍️ Reflexão — antes de ${isLast ? 'concluir' : 'avançar'}</h3>
-    <p>Com suas próprias palavras (mínimo 15 caracteres), por que essa foi a conduta mais adequada neste passo?</p>
+    <h3>✍️ Reflexão (Opcional)</h3>
+    <p>Se desejar, compartilhe com suas próprias palavras por que essa foi a conduta mais adequada neste passo.</p>
     <textarea id="reflexao-text" placeholder="Ex: porque acolheu o paciente sem quebrar o protocolo..." oninput="onReflexaoInput()"></textarea>
-    <div class="char-counter" id="reflexao-counter">0 / 15 mínimo</div>
-    <button class="btn-next" id="btn-reflexao" disabled onclick="submitReflexao()">${nextLabel}</button>
+    <div class="char-counter" id="reflexao-counter">Opcional</div>
+    <button class="btn-next" id="btn-reflexao" onclick="submitReflexao()">${nextLabel}</button>
   </div>`;
 }
 
 function onReflexaoInput() {
   const t = document.getElementById('reflexao-text');
   const c = document.getElementById('reflexao-counter');
-  const b = document.getElementById('btn-reflexao');
   const len = t.value.trim().length;
-  c.textContent = `${len} / 15 mínimo`;
-  b.disabled = len < 15;
+  c.textContent = len > 0 ? `${len} caracteres` : 'Opcional';
 }
 
 function submitReflexao() {
   const t = document.getElementById('reflexao-text').value.trim();
-  if (t.length < 15) return;
-  // salva reflexão associada ao passo atual
+  // salva reflexão associada ao passo atual (agora opcional)
   state.stepScores[state.currentStep].reflexao = t;
   const s = state.currentSim;
   if (state.currentStep < s.passos.length - 1) {
@@ -1397,6 +1446,14 @@ function showResultMultipla() {
     comps: avgComps,
     reflexoes: reflexoes,
     passosInfo: scores.map((sc,i) => ({ fase: s.passos[i].fase, reflexao: sc.reflexao, tentativas: sc.tentativas })),
+    respostasDetalhes: scores.map((sc,i) => ({
+      fase: s.passos[i].fase,
+      respostaSelecionada: sc.respostaSelecionada || '',
+      qualidade: sc.qualidade || '',
+      opcaoIndex: sc.opcaoIndex,
+      tentativas: sc.tentativas || 1,
+      pontuacao: sc.pontuacao
+    })),
     data: new Date().toISOString()
   });
   renderResultScreen(avgScore, avgComps, s, reflexoes, scores);
@@ -1455,6 +1512,7 @@ async function saveResult(res) {
     comps: res.comps,
     reflexoes: res.reflexoes,
     passos_info: res.passosInfo || null,
+    respostas_detalhes: res.respostasDetalhes || null,
     dados_enviados: res.dadosEnviados || null,
     data: res.data || new Date().toISOString()
   };
