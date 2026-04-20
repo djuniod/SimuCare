@@ -1431,15 +1431,19 @@ function renderSimStep(showRetryBanner) {
     </div>`;
 }
 function shuffleOptionsForStep(opcoes) {
-  // Cria um mapa de índices original → novo índice embaralhado
+  // Cria índices [0,1,2,...] e embaralha
   const indices = Array.from({length: opcoes.length}, (_, i) => i);
-  const shuffled = [...indices].sort(() => Math.random() - 0.5);
-  const mapa = {};
-  shuffled.forEach((newIdx, originalIdx) => { mapa[newIdx] = originalIdx; });
-  state.optionIndexMap = mapa;
+  const embaralhado = [...indices].sort(() => Math.random() - 0.5);
 
-  // Reordena as opções de acordo com o embaralhamento
-  return shuffled.map(newIdx => opcoes[newIdx]);
+  // Mapa: posição visual → índice original
+  // Se embaralhado = [2, 0, 1]: posição visual 0 tem opção original 2, etc
+  state.optionIndexMap = {};
+  embaralhado.forEach((indiceOriginal, posicaoVisual) => {
+    state.optionIndexMap[posicaoVisual] = indiceOriginal;
+  });
+
+  // Retorna opções na ordem embaralhada
+  return embaralhado.map(idx => opcoes[idx]);
 }
 
 function renderOptionsButtons(opcoes) {
@@ -1478,8 +1482,10 @@ function selectOption(idx) {
     optBtns.forEach(b => b.disabled = true);
     optBtns[idx].style.borderColor = 'var(--warning)';
     optBtns[idx].style.background = 'rgba(245,158,11,0.08)';
-    const idealIdx = step.opcoes.findIndex(o => o.qualidade === 'good');
-    if (idealIdx >= 0) optBtns[idealIdx].classList.add('try-again-ideal');
+    const idealIdxOriginal = step.opcoes.findIndex(o => o.qualidade === 'good');
+    // Converter índice original para visual
+    const idealIdxVisual = idealIdxOriginal >= 0 ? Object.keys(state.optionIndexMap).find(k => state.optionIndexMap[k] === idealIdxOriginal) : -1;
+    if (idealIdxVisual >= 0) optBtns[idealIdxVisual].classList.add('try-again-ideal');
     // registra pontuação da OK como a última do passo, incluindo detalhes da resposta
     state.stepScores[state.currentStep] = {
       pontuacao: op.pontos,
@@ -1487,10 +1493,10 @@ function selectOption(idx) {
       tentativas: (state.attemptedIdx.length+1),
       respostaSelecionada: op.texto,
       qualidade: op.qualidade,
-      opcaoIndex: idx
+      opcaoIndex: realIdx
     };
     feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'ok') +
-      (idealIdx >= 0 ? `<div class="ideal-hint fade-in">💡 <div><strong>A conduta ideal seria a opção ${LETTERS[idealIdx]}.</strong> Observe o que ela contempla que sua escolha deixou passar: ${step.opcoes[idealIdx].texto}</div></div>` : '') +
+      (idealIdxOriginal >= 0 ? `<div class="ideal-hint fade-in">💡 <div><strong>A conduta ideal seria a opção ${LETTERS[idealIdxVisual]}.</strong> Observe o que ela contempla que sua escolha deixou passar: ${step.opcoes[idealIdxOriginal].texto}</div></div>` : '') +
       renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   } else {
@@ -1507,7 +1513,7 @@ function selectOption(idx) {
       tentativas: (state.attemptedIdx.length+1),
       respostaSelecionada: op.texto,
       qualidade: op.qualidade,
-      opcaoIndex: idx
+      opcaoIndex: realIdx
     };
     feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'good', mensagem) + renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
