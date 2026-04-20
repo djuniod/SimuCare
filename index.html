@@ -825,10 +825,8 @@
 <!-- Configuração local (URL + anon key + lista de professores) -->
 <script src="config.js"></script>
 
-<!-- Dados externos (consolidados em cenarios.js) -->
+<!-- Dados externos (todos os 150 cenários consolidados em cenarios.js) -->
 <script src="cenarios.js"></script>
-<script src="agendamentos.js"></script>
-<script src="materiais.js"></script>
 
 <script>
 // ════════════════════════════════════════════════════════════════════
@@ -1166,11 +1164,17 @@ async function enterApp() {
 
 // -- HELPERS --------------------------------------------------------
 function getAllScenarios() {
-  // cenarios.js define window.CENARIOS, agendamentos.js define window.AGENDAMENTOS, materiais.js define window.MATERIAIS
-  const base = (window.CENARIOS || []).map(c => ({...c, modalidade: 'multipla'}));
-  const ag = (window.AGENDAMENTOS || []).map(a => ({...a, modalidade: 'agendamento', tipo: 'Agendamento', complexidade: a.complexidade||2}));
-  const mat = (window.MATERIAIS || []).map(m => ({...m, modalidade: 'materiais', tipo: 'Materiais', complexidade: m.complexidade||2}));
-  return base.concat(ag).concat(mat);
+  // cenarios.js contém todos os 150 cenários (Caso Clínico + Agendamento + Materiais)
+  return (window.CENARIOS || []).map(s => {
+    // Determina modalidade baseado no ID ou no tipo existente
+    let modalidade = s.modalidade || 'multipla';
+    if (s.id && s.id.startsWith('AG-')) {
+      modalidade = 'agendamento';
+    } else if (s.id && s.id.startsWith('MAT-')) {
+      modalidade = 'materiais';
+    }
+    return { ...s, modalidade };
+  });
 }
 function getResultsForUser(uid) {
   return state.resultados[uid] || [];
@@ -3303,7 +3307,7 @@ function openAlunoDetail(alunoId) {
 
 // Renderiza o REGISTRO COMPLETO de uma atividade de agendamento (visível ao professor e ao aluno)
 function renderAgRegistro(r) {
-  const ag = (window.AGENDAMENTOS||[]).find(x => x.id === r.cenarioId);
+  const ag = (window.CENARIOS||[]).find(x => x.id === r.cenarioId);
   const dados = (r.dadosEnviados && r.dadosEnviados.dados) || {};
   const agenda = (r.dadosEnviados && r.dadosEnviados.agenda) || {};
   const mats   = (r.dadosEnviados && r.dadosEnviados.materiais) || [];
