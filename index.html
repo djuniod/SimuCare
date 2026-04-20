@@ -1144,8 +1144,8 @@ async function enterApp() {
   name.textContent = state.user.nome;
   if (state.user.tipo === 'professor') {
     role.textContent = 'Professor'; role.className = 'badge-role professor';
-    let btnAdmin = state.user.isAdmin ? `<button class="nav-btn" data-page="page-admin" onclick="showPage('page-admin')" style="background:#ff6b35;color:white;font-weight:700">⚙️ Admin</button>` : '';
-    let btnModerador = state.user.isAdmin ? `<button class="nav-btn" data-page="page-moderacao" onclick="showPage('page-moderacao')" style="background:#f59e0b;color:white">📋 Moderação</button>` : '';
+    let btnAdmin = state.user.isAdmin ? `<button class="nav-btn" data-page="page-admin" onclick="showPage('page-admin')" style="background:#ff6b35;color:white;font-weight:700">Admin</button>` : '';
+    let btnModerador = state.user.isAdmin ? `<button class="nav-btn" data-page="page-moderacao" onclick="showPage('page-moderacao')" style="background:#f59e0b;color:white">Moderação</button>` : '';
     center.innerHTML = `
       <button class="nav-btn active" data-page="page-professor" onclick="showPage('page-professor')">Painel</button>
       <button class="nav-btn" data-page="page-turmas" onclick="showPage('page-turmas')">Turmas</button>
@@ -2167,6 +2167,14 @@ function renderFormCriarCenario() {
 
         <!-- CONTAINER: PASSOS (CASO CLÍNICO) -->
         <div id="cc-passos-container"></div>
+
+        <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (CASO CLÍNICO) -->
+        <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência neste caso clínico. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
+          <div id="cc-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
+          <input type="hidden" id="cc-competencias" value="">
+        </div>
         ` : tipoSelecionado === 'Materiais' ? `
         <!-- SEÇÃO: OPÇÕES DE MATERIAIS -->
         <div style="background:#fce7f3;border:1px solid #fbcfe8;border-radius:8px;padding:16px;margin-bottom:20px">
@@ -2206,6 +2214,7 @@ function renderFormCriarCenario() {
     renderizarSliderCompetenciasAgendamento();
   } else if (tipoSelecionado === 'Caso Clínico') {
     renderizarPassosCasoClinico();
+    renderizarSliderCompetenciasCasoClinico();
   } else if (tipoSelecionado === 'Materiais') {
     atualizarListaOpcoesMateriais();
     renderizarSliderCompetenciasMateriais();
@@ -2232,7 +2241,8 @@ if (!state.agendamentoFormData) {
 if (!state.casoClinicoFormData) {
   state.casoClinicoFormData = {
     numPassos: 1,
-    passos: []
+    passos: [],
+    competencias: [5, 5, 5, 5, 5, 5, 5, 5]  // Peso padrão para cada competência
   };
 }
 
@@ -2480,18 +2490,6 @@ function renderizarPassosCasoClinico() {
               </div>
               <div></div>
             </div>
-
-            <!-- COMPETÊNCIAS SLIDERS -->
-            <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:4px;padding:10px">
-              <p style="margin:0 0 10px 0;font-size:11px;font-weight:700;color:#6b7280">Competências (0-10)</p>
-              ${competenciasLabels.map((label, k) => `
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                  <span style="font-size:11px;min-width:120px;color:#4b5563">${label.substring(0, 12)}...</span>
-                  <input type="range" min="0" max="10" value="${passo.opcoes[j]?.comps?.[k] || 5}" onchange="atualizarOpcaoCasoClinico(${i}, ${j}, 'comps_${k}', parseInt(this.value))" style="flex:1;height:4px">
-                  <span style="font-size:11px;min-width:20px;text-align:right;color:#3b82f6;font-weight:700">${passo.opcoes[j]?.comps?.[k] || 5}</span>
-                </div>
-              `).join('')}
-            </div>
           </div>
         `).join('')}
       </div>
@@ -2582,6 +2580,26 @@ function renderizarSliderCompetenciasMateriais() {
 function atualizarCompetenciaMaterial(idx, valor) {
   state.materiaisFormData.competencias[idx] = valor;
   renderizarSliderCompetenciasMateriais();
+}
+
+function renderizarSliderCompetenciasCasoClinico() {
+  const container = document.getElementById('cc-competencias-sliders');
+  if (!container) return;
+
+  container.innerHTML = competenciasLabels.map((label, i) => `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #e5e7eb">
+      <span style="min-width:140px;font-size:13px;font-weight:600;color:#374151">${label}</span>
+      <input type="range" min="0" max="10" value="${state.casoClinicoFormData.competencias[i]}" onchange="atualizarCompetenciaCasoClinico(${i}, parseInt(this.value))" style="flex:1;height:6px;cursor:pointer">
+      <span style="min-width:30px;text-align:right;font-weight:700;color:#059669;font-size:14px">${state.casoClinicoFormData.competencias[i]}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('cc-competencias').value = JSON.stringify(state.casoClinicoFormData.competencias);
+}
+
+function atualizarCompetenciaCasoClinico(idx, valor) {
+  state.casoClinicoFormData.competencias[idx] = valor;
+  renderizarSliderCompetenciasCasoClinico();
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -2752,6 +2770,8 @@ function salvarNovoCenario(e, isRascunho = false) {
       })),
       feedbacks: {} // Será preenchido depois se necessário
     }));
+    // Adicionar competências para caso clínico
+    novoCenario.competenciasRelevantes = state.casoClinicoFormData.competencias;
   } else if (tipo === 'Materiais') {
     novoCenario.materiais = {
       opcoes: state.materiaisFormData.opcoes,
@@ -2784,7 +2804,8 @@ function salvarNovoCenario(e, isRascunho = false) {
     };
     state.casoClinicoFormData = {
       numPassos: 1,
-      passos: []
+      passos: [],
+      competencias: [5, 5, 5, 5, 5, 5, 5, 5]
     };
     state.materiaisFormData = {
       opcoes: [],
