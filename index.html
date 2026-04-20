@@ -828,6 +828,7 @@
 <!-- Dados externos (consolidados em cenarios.js) -->
 <script src="cenarios.js"></script>
 <script src="agendamentos.js"></script>
+<script src="materiais.js"></script>
 
 <script>
 // ════════════════════════════════════════════════════════════════════
@@ -1165,10 +1166,11 @@ async function enterApp() {
 
 // -- HELPERS --------------------------------------------------------
 function getAllScenarios() {
-  // cenarios.js define window.CENARIOS, agendamentos.js define window.AGENDAMENTOS
+  // cenarios.js define window.CENARIOS, agendamentos.js define window.AGENDAMENTOS, materiais.js define window.MATERIAIS
   const base = (window.CENARIOS || []).map(c => ({...c, modalidade: 'multipla'}));
   const ag = (window.AGENDAMENTOS || []).map(a => ({...a, modalidade: 'agendamento', tipo: 'Agendamento', complexidade: a.complexidade||2}));
-  return base.concat(ag);
+  const mat = (window.MATERIAIS || []).map(m => ({...m, modalidade: 'materiais', tipo: 'Materiais', complexidade: m.complexidade||2}));
+  return base.concat(ag).concat(mat);
 }
 function getResultsForUser(uid) {
   return state.resultados[uid] || [];
@@ -1394,6 +1396,7 @@ function startScenario(id) {
   const s = all.find(x => x.id === id);
   if (!s) return;
   if (s.modalidade === 'agendamento') startAgendamento(s);
+  else if (s.modalidade === 'materiais') startMateriais(s);
   else startSim(s);
 }
 
@@ -2019,6 +2022,111 @@ function finalizarAg() {
     </div>`;
 }
 function showResultAgendamento() { avaliarAgendamento(); }
+
+// ════════════════════════════════════════════════════════════════════
+//   SIMULAÇÃO - SELEÇÃO DE MATERIAIS
+// ════════════════════════════════════════════════════════════════════
+function startMateriais(m) {
+  state.currentMat = m;
+  state.matSelecionados = [];
+  document.getElementById('sim-id-label').textContent = m.id;
+  document.getElementById('sim-title-label').textContent = m.titulo;
+  showScreen('sim-screen');
+  renderMatScreen();
+}
+function renderMatScreen() {
+  const m = state.currentMat;
+  const sel = state.matSelecionados || [];
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in" style="max-width:820px;margin:0 auto">
+      <div class="scenario-phase">Atividade de Seleção de Materiais</div>
+      <div class="scenario-title">${m.titulo}</div>
+      <div class="context-box">
+        <div class="context-label">🧪 Cenário</div>
+        <div class="context-text">${m.contexto}</div>
+      </div>
+      <div class="ag-section">
+        <h3>Selecione os materiais apropriados</h3>
+        <div class="hint">Marque todos os materiais necessários para este caso. Existem itens desnecessários (distratores) na lista.</div>
+        <div class="material-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+          ${m.opcoes.map(mat => `<div class="material-item ${sel.includes(mat.id)?'selected':''}" onclick="toggleMaterialSelected('${mat.id}')" style="padding:14px;border:2px solid #ddd;border-radius:8px;cursor:pointer;transition:all 0.2s;${sel.includes(mat.id)?'border-color:#3b82f6;background:#eff6ff':''}">
+            <div class="material-checkbox" style="font-size:18px;margin-bottom:8px">${sel.includes(mat.id)?'✓':''}</div>
+            <div style="font-weight:500">${mat.nome}</div>
+          </div>`).join('')}
+        </div>
+        <button class="btn-next" style="margin-top:20px;width:100%;padding:12px" onclick="avaliarMateriais()">Finalizar e ver resultado</button>
+      </div>
+    </div>`;
+}
+function toggleMaterialSelected(matId) {
+  const sel = state.matSelecionados;
+  const i = sel.indexOf(matId);
+  if (i >= 0) sel.splice(i, 1);
+  else sel.push(matId);
+  renderMatScreen();
+}
+function avaliarMateriais() {
+  const m = state.currentMat;
+  const sel = state.matSelecionados;
+  const corretos = m.opcoes.filter(o => o.correto).map(o => o.id);
+  const acertos = sel.filter(s => corretos.includes(s)).length;
+  const erros_comissao = sel.filter(s => !corretos.includes(s)).length;
+  const erros_omissao = corretos.filter(c => !sel.includes(c)).length;
+  const totalCorretos = corretos.length;
+  const pontos = Math.max(0, Math.round((acertos / (totalCorretos || 1)) * 100 - erros_comissao * 10 - erros_omissao * 10));
+  const comps = (m.competencias || [5,5,5,5,5,5,5,5]).map(c => Math.round((c / 10) * (pontos / 100) * 10));
+  const res = {
+    cenarioId: m.id,
+    titulo: m.titulo,
+    area: m.area || 'Materiais',
+    modalidade: 'materiais',
+    pontuacao: Math.max(0, pontos),
+    comps,
+    dados_enviados: {
+      selecionados: sel,
+      corretos,
+      acertos,
+      erros_comissao,
+      erros_omissao
+    },
+    data: new Date().toISOString()
+  };
+  saveResult(res);
+  showResultMateriais(res, m);
+}
+function showResultMateriais(res, m) {
+  const corretos = res.dados_enviados.corretos;
+  const sel = res.dados_enviados.selecionados;
+  const acertos = res.dados_enviados.acertos;
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in">
+      <div class="scenario-phase">Resultado - Seleção de Materiais</div>
+      <div class="scenario-title">${m.titulo}</div>
+      <div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin-bottom:20px;border-radius:6px">
+        <div style="font-size:28px;font-weight:700;color:#22c55e">${res.pontuacao}%</div>
+        <div style="color:#4b5563;margin-top:4px">Seu desempenho</div>
+      </div>
+      <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:20px">
+        <h4 style="margin:0 0 12px 0;color:#1f2937">Materiais Selecionados</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <div style="font-weight:600;color:#22c55e;margin-bottom:8px">✓ Corretos (${acertos}/${corretos.length})</div>
+            ${sel.filter(s => corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === s)?.nome}</div>`).join('')}
+          </div>
+          <div>
+            <div style="font-weight:600;color:#ef4444;margin-bottom:8px">✗ Incorretos (${res.dados_enviados.erros_comissao})</div>
+            ${sel.filter(s => !corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === s)?.nome}</div>`).join('')}
+          </div>
+        </div>
+        ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === c)?.nome}</div>`).join('')}</div>` : ''}
+      </div>
+      <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
+        <h4 style="margin:0 0 12px 0">Competências Desenvolvidas</h4>
+        <div style="font-size:12px;color:#6b7280">${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => `${comp}: ${res.comps[i]} pts`).join(' • ')}</div>
+      </div>
+      <button class="btn-secondary" onclick="showPage('page-dashboard');showScreen('app-screen')" style="width:100%;padding:12px">Ver meu painel</button>
+    </div>`;
+}
 
 // ════════════════════════════════════════════════════════════════════
 //   PAINEL PROFESSOR
