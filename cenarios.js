@@ -1,11 +1,14 @@
 /* ============================================================
    SimuCare — Cenários Consolidados (Abril 2026)
    ============================================================
-   80 cenários totais:
-   - 40 cenários de Agendamento (AG-01 a AG-40)
+   150 cenários totais:
+   - 60 cenários de Agendamento (AG-01 a AG-60)
+     20 existentes + 40 novos com especialidades diversas
      3 etapas cada: dados do paciente → agendamento → seleção de materiais
    - 40 cenários de Seleção de Materiais (MAT-01 a MAT-40)
-   
+   - 40 casos clínicos com Múltipla Escolha (CC-01 a CC-40)
+     Questões diagnósticas e de planejamento
+
    Complexidade:
    1 = Fácil
    2 = Médio
@@ -13,7 +16,6 @@
    ============================================================ */
 
 window.CENARIOS = [
-
 /* AGENDAMENTOS (40 cenários) */
 {
   id: 'AG-01', titulo: 'Emergência: criança caiu e quebrou o dente da frente',
@@ -1410,6 +1412,1014 @@ window.CENARIOS = [
   ],
   competencias: [8,8,8,8,8,8,8,8],
   pontuacao_base: 100
+},
+{
+  id: 'AG-41', titulo: 'Sondagem periodontal em paciente com gengivite',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Paciente com inflamação gengival, sangramento ao passar fio dental. Necessário fazer sondagem periodontal para avaliar profundidade de bolsas.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'tempo_sintomas', label: 'Há quanto tempo tem sangramento?', obrigatorio: true },
+    { chave: 'fumante', label: 'É fumante?', obrigatorio: true },
+    { chave: 'dieta', label: 'Tem dificuldade em higienizar?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório B', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['09:00','10:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Sonda periodontal' },
+    { id: 'm2', nome: 'Espelho intraoral' },
+    { id: 'm3', nome: 'Explorador' },
+    { id: 'm4', nome: 'Luvas de nitrila' },
+    { id: 'm5', nome: 'Máscara cirúrgica' },
+    { id: 'm6', nome: 'Gaze estéril' },
+    { id: 'm7', nome: 'Clorexidina 0.12%' },
+    { id: 'm8', nome: 'Seringa de irrigação' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Periodontia',
+  competencias: [8,7,8,8,7,7,8,7]
+},
+{
+  id: 'AG-42', titulo: 'Avaliação de osseointegração após 4 meses',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente com implante colocado há 4 meses. Necessário avaliar estabilidade e planejar próxima etapa (moldagem ou carga).',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'data_implante', label: 'Data da colocação do implante', obrigatorio: true },
+    { chave: 'mobilidade_percebida', label: 'Paciente sente movimento?', obrigatorio: true },
+    { chave: 'dor', label: 'Tem dor na região?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Implantologia', dias: ['segunda','terça','quarta','quinta'], horarios: ['09:00','10:00','11:00','13:00','14:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Teste de percussão (martelo)' },
+    { id: 'm2', nome: 'Radiografia periapical' },
+    { id: 'm3', nome: 'Sonda periodontal' },
+    { id: 'm4', nome: 'Espelho intraoral' },
+    { id: 'm5', nome: 'Luvas de nitrila' },
+    { id: 'm6', nome: 'Anestésico tópico' },
+    { id: 'm7', nome: 'Gaze estéril' },
+    { id: 'm8', nome: 'Pinça' },
+    { id: 'm9', nome: 'Cuba de metal' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Implantologia',
+  competencias: [9,8,9,9,8,8,9,8]
+},
+{
+  id: 'AG-43', titulo: 'Tratamento endodôntico em molar inferior',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente com cárie profunda em molar inferior, teste de vitalidade positivo, necessário tratamento de canal.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual dente?', obrigatorio: true },
+    { chave: 'dor_espontanea', label: 'Tem dor espontânea?', obrigatorio: true },
+    { chave: 'tempo_dor', label: 'Há quanto tempo sente dor?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Endodontia', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['08:00','09:00','13:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Dique de borracha' },
+    { id: 'm2', nome: 'Clamp e arco de borracha' },
+    { id: 'm3', nome: 'Brocas de acesso' },
+    { id: 'm4', nome: 'Limas endodônticas' },
+    { id: 'm5', nome: 'Localizador apical eletrônico' },
+    { id: 'm6', nome: 'Hipoclorito de sódio' },
+    { id: 'm7', nome: 'Guta-percha' },
+    { id: 'm8', nome: 'Cimento obturador' },
+    { id: 'm9', nome: 'Anestésico' },
+    { id: 'm10', nome: 'Seringa carpule' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Endodontia',
+  competencias: [9,9,9,9,9,8,8,9]
+},
+{
+  id: 'AG-44', titulo: 'Ortodontia: avaliação cefalométrica e planejamento',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente adolescente com sobremordida, solicita avaliação ortodôntica completa e planejamento de tratamento.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'idade', label: 'Idade', obrigatorio: true },
+    { chave: 'problemas_funcionais', label: 'Tem problemas funcionais (mastigação/fala)?', obrigatorio: true },
+    { chave: 'expectativa', label: 'Expectativa com tratamento', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Ortodontia', dias: ['segunda','quarta','sexta'], horarios: ['10:00','11:00','14:00','15:00','16:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Radiografia cefalométrica' },
+    { id: 'm2', nome: 'Fotografias intraorais' },
+    { id: 'm3', nome: 'Modelos de gesso' },
+    { id: 'm4', nome: 'Compasso de calibração' },
+    { id: 'm5', nome: 'Régua milimetrada' },
+    { id: 'm6', nome: 'Paquímetro' },
+    { id: 'm7', nome: 'Espelho intraoral' },
+    { id: 'm8', nome: 'Software de análise cefalométrica' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Ortodontia',
+  competencias: [8,8,8,9,8,8,8,9]
+},
+{
+  id: 'AG-45', titulo: 'Odontopediatria: restauração com ionômero de vidro',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Criança de 6 anos com cárie em dente decíduo. Restauração com ionômero de vidro para facilitar cooperação.',
+  dadosPaciente: { campos: [
+    { chave: 'nome_crianca', label: 'Nome da criança', obrigatorio: true },
+    { chave: 'idade', label: 'Idade', obrigatorio: true },
+    { chave: 'cooperacao', label: 'Nível de cooperação esperado', obrigatorio: true },
+    { chave: 'higiene_parental', label: 'Higiene supervisionada pelos pais?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Pediátrico', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['08:00','09:00','10:00','14:00','15:00','16:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Boca livre pediátrica' },
+    { id: 'm2', nome: 'Ionômero de vidro' },
+    { id: 'm3', nome: 'Ácido fosfórico 37%' },
+    { id: 'm4', nome: 'Primer/adesivo' },
+    { id: 'm5', nome: 'Espelho infantil' },
+    { id: 'm6', nome: 'Sugador pediátrico' },
+    { id: 'm7', nome: 'Anestésico tópico' },
+    { id: 'm8', nome: 'Matriz tiras Mylar' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Odontopediatria',
+  competencias: [7,7,8,8,7,8,7,8]
+},
+{
+  id: 'AG-46', titulo: 'Prostodontia: cimentação de prótese fixa',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Prótese parcial fixa (3 unidades) pronta para cimentação em preparos 14-15-16. Necessário cimentação definitiva com cimento autoadesivo.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'quais_dentes', label: 'Quais dentes serão cimentados?', obrigatorio: true },
+    { chave: 'sensibilidade_pre', label: 'Tinha sensibilidade antes?', obrigatorio: true },
+    { chave: 'tempo_provisorio', label: 'Há quanto tempo com provisório?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório A', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['09:00','10:00','14:00','15:00','16:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Prótese fixa' },
+    { id: 'm2', nome: 'Cimento autoadesivo' },
+    { id: 'm3', nome: 'Remover provisório com instrumento' },
+    { id: 'm4', nome: 'Limpeza com escova/pedra pomes' },
+    { id: 'm5', nome: 'Anestésico tópico' },
+    { id: 'm6', nome: 'Fio de retenção' },
+    { id: 'm7', nome: 'Gaze estéril' },
+    { id: 'm8', nome: 'Pano de isolamento' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Prostodontia',
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'AG-47', titulo: 'Clareamento dentário supervisionado com luz LED',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Paciente com manchas intrínsecas nos dentes anteriores. Quer fazer clareamento profissional com técnica de consultório.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'sensibilidade_prvia', label: 'Tem sensibilidade dental?', obrigatorio: true },
+    { chave: 'restauracoes', label: 'Tem restaurações nos anteriores?', obrigatorio: true },
+    { chave: 'expectativa_tom', label: 'Qual tom deseja?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Estética', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['10:00','11:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Gel clareador peróxido' },
+    { id: 'm2', nome: 'Luz LED' },
+    { id: 'm3', nome: 'Barreira gengival (dam ou vaselina)' },
+    { id: 'm4', nome: 'Espelho intraoral' },
+    { id: 'm5', nome: 'Moldeira clareadora' },
+    { id: 'm6', nome: 'Escala de cor Vita' },
+    { id: 'm7', nome: 'Fotografia inicial' },
+    { id: 'm8', nome: 'Fluoreto de sódio 2%' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Estética',
+  competencias: [7,8,7,8,8,7,8,7]
+},
+{
+  id: 'AG-48', titulo: 'Cirurgia oral: extração de dente impactado',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Dente 28 (terceiro molar) impactado horizontalmente. Necessário procedimento cirúrgico com osteotomia para remoção.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual dente?', obrigatorio: true },
+    { chave: 'ja_tentou', label: 'Tentou extração antes?', obrigatorio: true },
+    { chave: 'medicacoes', label: 'Usa medicações contínuas?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Centro Cirúrgico', dias: ['segunda','terça','quarta','quinta'], horarios: ['08:00','09:00','10:00','11:00','13:00','14:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Mandril e broca para osteotomia' },
+    { id: 'm2', nome: 'Fórceps de extração' },
+    { id: 'm3', nome: 'Elevador cirúrgico' },
+    { id: 'm4', nome: 'Anestésico local com epinefrina' },
+    { id: 'm5', nome: 'Bisturi cirúrgico' },
+    { id: 'm6', nome: 'Sutura reabsorvível' },
+    { id: 'm7', nome: 'Gaze e compressa' },
+    { id: 'm8', nome: 'Antibiótico profilático' },
+    { id: 'm9', nome: 'Luvas e máscara cirúrgica' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Cirurgia Oral',
+  competencias: [9,9,9,9,9,8,8,9]
+},
+{
+  id: 'AG-49', titulo: 'Laminado cerâmico: preparação e moldagem',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente com desgaste estético nos dentes anteriores. Quer restauração com laminados cerâmicos. Etapa de preparação dental.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'quais_dentes', label: 'Quais dentes serão tratados?', obrigatorio: true },
+    { chave: 'objetivo', label: 'Objetivo principal (cor/formato/comprimento)?', obrigatorio: true },
+    { chave: 'historico_bleaching', label: 'Fez clareamento antes?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Estética', dias: ['segunda','quarta','sexta'], horarios: ['10:00','11:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Broca diamantada ponta troncocônica' },
+    { id: 'm2', nome: 'Disco diamantado' },
+    { id: 'm3', nome: 'Ácido fosfórico 37%' },
+    { id: 'm4', nome: 'Primer/adesivo' },
+    { id: 'm5', nome: 'Resina de teste de cor' },
+    { id: 'm6', nome: 'Moldeira customizada' },
+    { id: 'm7', nome: 'Pasta abrasiva de polimento' },
+    { id: 'm8', nome: 'Dique de borracha' },
+    { id: 'm9', nome: 'Fotografia de cores' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Estética',
+  competencias: [8,8,8,9,8,8,8,9]
+},
+{
+  id: 'AG-50', titulo: 'Acompanhamento pós-colocação de implante (1 semana)',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 1,
+  contexto: 'Paciente em acompanhamento pós-operatório após colocação de implante 1 semana atrás. Avaliação de cicatrização e higiene.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual região foi implantada?', obrigatorio: true },
+    { chave: 'inchaço_presente', label: 'Tem inchaço?', obrigatorio: true },
+    { chave: 'dor_escala', label: 'Nível de dor (0-10)', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Implantologia', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['09:00','10:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Espelho intraoral' },
+    { id: 'm2', nome: 'Sonda periodontal' },
+    { id: 'm3', nome: 'Anestésico tópico' },
+    { id: 'm4', nome: 'Gaze estéril' },
+    { id: 'm5', nome: 'Solução fisiológica' },
+    { id: 'm6', nome: 'Clorexidina 0.12%' },
+    { id: 'm7', nome: 'Antibiótico tópico' },
+    { id: 'm8', nome: 'Talisman (para coágulo)' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7'] },
+  area: 'Implantologia',
+  competencias: [7,7,8,7,8,7,7,7]
+},
+{
+  id: 'AG-51', titulo: 'Retratamento endodôntico com visualização microscópica',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Dente 11 com insucesso de tratamento anterior. Paciente com dor periapical. Necessário retratamento com microscópio.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual dente?', obrigatorio: true },
+    { chave: 'tempo_tratamento_anterior', label: 'Há quanto tempo foi o tratamento anterior?', obrigatorio: true },
+    { chave: 'radiografia_disponivel', label: 'Tem radiografia anterior?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Endodontia', dias: ['segunda','terça','quarta','quinta'], horarios: ['08:00','09:00','13:00','14:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Microscópio operatório' },
+    { id: 'm2', nome: 'Ponta ultrassônica' },
+    { id: 'm3', nome: 'Limas endodônticas pós' },
+    { id: 'm4', nome: 'Localizador apical eletrônico' },
+    { id: 'm5', nome: 'Hipoclorito de sódio' },
+    { id: 'm6', nome: 'Guta-percha nova' },
+    { id: 'm7', nome: 'Cimento obturador' },
+    { id: 'm8', nome: 'Dique de borracha' },
+    { id: 'm9', nome: 'Anestésico' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Endodontia',
+  competencias: [9,9,9,9,9,8,8,9]
+},
+{
+  id: 'AG-52', titulo: 'Periodontia: raspagem e alisamento radicular',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Paciente com periodontite generalizada (bolsas de 5-7 mm). Primeira etapa: raspagem e alisamento radicular com anestesia local.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'quais_areas', label: 'Quais áreas afetadas?', obrigatorio: true },
+    { chave: 'risco_cardiovascular', label: 'Tem fatores de risco cardiovascular?', obrigatorio: true },
+    { chave: 'medicacao_anticoagulante', label: 'Usa anticoagulante?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório B', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['09:00','10:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Curetas periodontais' },
+    { id: 'm2', nome: 'Sonda periodontal' },
+    { id: 'm3', nome: 'Anestésico local com epinefrina' },
+    { id: 'm4', nome: 'Seringa carpule' },
+    { id: 'm5', nome: 'Gaze estéril' },
+    { id: 'm6', nome: 'Sugador de saliva' },
+    { id: 'm7', nome: 'Hipoclorito de sódio 0.12%' },
+    { id: 'm8', nome: 'Pó de polimento' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Periodontia',
+  competencias: [8,8,8,8,8,7,8,8]
+},
+{
+  id: 'AG-53', titulo: 'Ortodontia: ativação de aparelho fixo (mensal)',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 1,
+  contexto: 'Paciente em tratamento ortodôntico há 3 meses. Retorno mensal para ativação do aparelho e avaliação de progresso.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'meses_tratamento', label: 'Há quanto tempo em tratamento?', obrigatorio: true },
+    { chave: 'dor_presente', label: 'Está sentindo dor?', obrigatorio: true },
+    { chave: 'higiene_parece_boa', label: 'Higiene parece adequada?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Ortodontia', dias: ['segunda','quarta','sexta'], horarios: ['09:00','10:00','11:00','14:00','15:00','16:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Alicate de corte' },
+    { id: 'm2', nome: 'Alicate de preensão' },
+    { id: 'm3', nome: 'Fio ortodôntico (espessura apropriada)' },
+    { id: 'm4', nome: 'Elásticos ortodônticos' },
+    { id: 'm5', nome: 'Espelho intraoral' },
+    { id: 'm6', nome: 'Explorador' },
+    { id: 'm7', nome: 'Escova ortho' },
+    { id: 'm8', nome: 'Cera ortodôntica' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Ortodontia',
+  competencias: [8,8,8,8,8,8,7,8]
+},
+{
+  id: 'AG-54', titulo: 'Odontopediatria: aplicação de flúor profissional',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 1, tempo: 1,
+  contexto: 'Criança de 5 anos com risco de cárie. Consulta para aplicação de gel de flúor profissional e orientação de higiene com responsáveis.',
+  dadosPaciente: { campos: [
+    { chave: 'nome_crianca', label: 'Nome da criança', obrigatorio: true },
+    { chave: 'idade', label: 'Idade', obrigatorio: true },
+    { chave: 'ultima_fluorose', label: 'Quando foi última aplicação?', obrigatorio: true },
+    { chave: 'frequencia_escova', label: 'Frequência de escovação?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Pediátrico', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['08:00','09:00','10:00','14:00','15:00','16:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Gel de flúor' },
+    { id: 'm2', nome: 'Moldeira pediátrica' },
+    { id: 'm3', nome: 'Seringa de borracha' },
+    { id: 'm4', nome: 'Gaze' },
+    { id: 'm5', nome: 'Escova infantil' },
+    { id: 'm6', nome: 'Fio dental' },
+    { id: 'm7', nome: 'Espelho infantil' },
+    { id: 'm8', nome: 'Toucinho para orientação de higiene' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Odontopediatria',
+  competencias: [7,7,7,7,8,8,7,7]
+},
+{
+  id: 'AG-55', titulo: 'Prostodontia removível: prótese total superior',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente edêntulo superior. Primeira consulta para moldagem anátômica e levantamento de dimensão vertical.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'tempo_sem_dentes', label: 'Há quanto tempo sem dentes?', obrigatorio: true },
+    { chave: 'usa_protese_antes', label: 'Já usou prótese antes?', obrigatorio: true },
+    { chave: 'atividade_profissional', label: 'Qual atividade profissional?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório A', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['09:00','10:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Moldeira individual' },
+    { id: 'm2', nome: 'Massa de moldagem' },
+    { id: 'm3', nome: 'Dimensionador vertical' },
+    { id: 'm4', nome: 'Compasso de Willis' },
+    { id: 'm5', nome: 'Arco facial' },
+    { id: 'm6', nome: 'Relacionador cêntrico' },
+    { id: 'm7', nome: 'Fita métrica' },
+    { id: 'm8', nome: 'Escala de cor' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Prostodontia',
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'AG-56', titulo: 'Clareamento caseiro supervisionado (orientação)',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 1, tempo: 1,
+  contexto: 'Paciente retornando para receber moldeira customizada e gel de clareamento para uso caseiro. Orientação de uso e cuidados.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'sensibilidade_baseline', label: 'Tem sensibilidade base?', obrigatorio: true },
+    { chave: 'expectativa', label: 'Expectativa de resultado?', obrigatorio: true },
+    { chave: 'frequencia_escova', label: 'Frequência de escovação?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Estética', dias: ['segunda','terça','quarta','quinta','sexta'], horarios: ['10:00','11:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Moldeira customizada' },
+    { id: 'm2', nome: 'Gel clareador caseiro (peroxido 10-16%)' },
+    { id: 'm3', nome: 'Escala de cor Vita' },
+    { id: 'm4', nome: 'Fotografia inicial' },
+    { id: 'm5', nome: 'Fluoreto de sódio' },
+    { id: 'm6', nome: 'Dessensibilizante' },
+    { id: 'm7', nome: 'Seringa dosadora' },
+    { id: 'm8', nome: 'Instrução escrita para casa' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Estética',
+  competencias: [7,7,7,8,8,7,7,7]
+},
+{
+  id: 'AG-57', titulo: 'Cirurgia: frenectomia lingual',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Criança com anquiloglossia (língua presa). Necessário procedimento cirúrgico para liberar freio lingual.',
+  dadosPaciente: { campos: [
+    { chave: 'nome_crianca', label: 'Nome da criança', obrigatorio: true },
+    { chave: 'idade', label: 'Idade', obrigatorio: true },
+    { chave: 'dificuldade_lingua', label: 'Qual dificuldade funcional?', obrigatorio: true },
+    { chave: 'peso_saude_geral', label: 'Tem outras condições de saúde?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Centro Cirúrgico', dias: ['segunda','terça','quarta','quinta'], horarios: ['08:00','09:00','10:00','11:00','14:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Bisturi cirúrgico' },
+    { id: 'm2', nome: 'Tesoura cirúrgica' },
+    { id: 'm3', nome: 'Pinça anatômica' },
+    { id: 'm4', nome: 'Anestésico local' },
+    { id: 'm5', nome: 'Cauterizador ou laser' },
+    { id: 'm6', nome: 'Sutura reabsorvível' },
+    { id: 'm7', nome: 'Gaze estéril' },
+    { id: 'm8', nome: 'Luvas e máscara' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8'] },
+  area: 'Cirurgia Oral',
+  competencias: [8,8,8,8,8,7,8,8]
+},
+{
+  id: 'AG-58', titulo: 'Endodontia: tratamento de fratura radicular',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Dente anterior com fratura radicular transversa após trauma. Paciente busca salvar dente. Avaliação de viabilidade e planejamento.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual dente?', obrigatorio: true },
+    { chave: 'data_trauma', label: 'Data do trauma', obrigatorio: true },
+    { chave: 'dor_presente', label: 'Tem dor atual?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Endodontia', dias: ['segunda','terça','quarta','quinta'], horarios: ['08:00','09:00','13:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Radiografia periapical e oclusal' },
+    { id: 'm2', nome: 'CBCT/Tomografia' },
+    { id: 'm3', nome: 'Dique de borracha' },
+    { id: 'm4', nome: 'Limas endodônticas' },
+    { id: 'm5', nome: 'Localizador apical' },
+    { id: 'm6', nome: 'Hipoclorito de sódio' },
+    { id: 'm7', nome: 'Guta-percha' },
+    { id: 'm8', nome: 'Cimento MTA ou hidróxido de cálcio' },
+    { id: 'm9', nome: 'Anestésico' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Endodontia',
+  competencias: [9,9,9,9,9,8,9,9]
+},
+{
+  id: 'AG-59', titulo: 'Periodontia: aplicação de enxerto gengival livre',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
+  contexto: 'Paciente com recessão gengival no dente 34. Necessário procedimento de enxertia gengival para aumento de mucosa aderida.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'qual_dente', label: 'Qual dente afetado?', obrigatorio: true },
+    { chave: 'tamanho_recessao', label: 'Medida da recessão (em mm)', obrigatorio: true },
+    { chave: 'queixa_estetica', label: 'Preocupação estética?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Centro Cirúrgico', dias: ['segunda','terça','quarta','quinta'], horarios: ['08:00','09:00','10:00','13:00','14:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Bisturi cirúrgico' },
+    { id: 'm2', nome: 'Tesoura de Castroviejo' },
+    { id: 'm3', nome: 'Pinça anatômica' },
+    { id: 'm4', nome: 'Anestésico local' },
+    { id: 'm5', nome: 'Microsutura (5-0 ou 6-0)' },
+    { id: 'm6', nome: 'Membrana de barreira' },
+    { id: 'm7', nome: 'Cimento periodontal' },
+    { id: 'm8', nome: 'Gaze e compressas' },
+    { id: 'm9', nome: 'Luvas e máscara cirúrgica' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Periodontia',
+  competencias: [9,9,9,9,9,8,8,9]
+},
+{
+  id: 'AG-60', titulo: 'Ortodontia: remoção de aparelho e colagem de retentor',
+  tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
+  contexto: 'Paciente completou tratamento ortodôntico (24 meses). Necessário remoção do aparelho, limpeza e colagem de retentor fixo.',
+  dadosPaciente: { campos: [
+    { chave: 'nome', label: 'Nome do paciente', obrigatorio: true },
+    { chave: 'tempo_total', label: 'Tempo total de tratamento', obrigatorio: true },
+    { chave: 'satisfacao', label: 'Satisfação com resultado?', obrigatorio: true },
+    { chave: 'plano_retencao', label: 'Aceitaria usar contenção removível?', obrigatorio: false }
+  ]},
+  agenda: { correto: { sala: 'Consultório Ortodontia', dias: ['segunda','quarta','sexta'], horarios: ['10:00','11:00','14:00','15:00'] }},
+  materiais: { opcoes: [
+    { id: 'm1', nome: 'Removedor de bracket' },
+    { id: 'm2', nome: 'Ponta ultrassônica' },
+    { id: 'm3', nome: 'Resina de colagem' },
+    { id: 'm4', nome: 'Fio retentor (5 ou 7 fios)' },
+    { id: 'm5', nome: 'Ácido fosfórico 37%' },
+    { id: 'm6', nome: 'Primer/adesivo' },
+    { id: 'm7', nome: 'Escala de cor' },
+    { id: 'm8', nome: 'Fotografia final' },
+    { id: 'm9', nome: 'Espelho intraoral' }
+  ], corretos: ['m1','m2','m3','m4','m5','m6','m7','m8','m9'] },
+  area: 'Ortodontia',
+  competencias: [8,8,8,8,8,8,8,8]
+},
+{
+  id: 'CC-01', titulo: 'Periodontia: diagnóstico de gengivite com sangramento',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Paciente apresenta sangramento gengival espontâneo, edema e eritema. Qual é o diagnóstico mais provável?',
+  opcoes: [
+    { texto: 'Gengivite (reversível, sem perda óssea)', correto: true },
+    { texto: 'Periodontite (com perda óssea irreversível)', correto: false },
+    { texto: 'Abcesso gengival agudo', correto: false },
+    { texto: 'Retração gengival traumática', correto: false }
+  ],
+  competencias: [7,8,7,8,7,7,7,7]
+},
+{
+  id: 'CC-02', titulo: 'Endodontia: diagnóstico de necrose pulpar por teste de vitalidade',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Dente 11 não responde à teste de vitalidade (frio, elétrico). Responde positivamente à percussão. Qual é a situação pulpar?',
+  opcoes: [
+    { texto: 'Polpa vital normal', correto: false },
+    { texto: 'Inflamação pulpar reversível', correto: false },
+    { texto: 'Necrose pulpar (polpa não vital)', correto: true },
+    { texto: 'Reabsorção interna', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,8]
+},
+{
+  id: 'CC-03', titulo: 'Cárie dentária: decisão de remoção ou remineralização',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Clínica Geral',
+  contexto: 'Paciente de 7 anos com mancha marrom opaca em fissura de oclusal. À exploração, não há cavitação. Qual é a melhor conduta?',
+  opcoes: [
+    { texto: 'Remover imediatamente (risco de progressão)', correto: false },
+    { texto: 'Monitorar com higiene e fluoreto (lesão não cavitada)', correto: true },
+    { texto: 'Aguardar exfoliação do dente', correto: false },
+    { texto: 'Aplicar selante sem investigação', correto: false }
+  ],
+  competencias: [7,7,8,8,7,7,7,7]
+},
+{
+  id: 'CC-04', titulo: 'Ortodontia: avaliação de padrão esqueletal',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Ortodontia',
+  contexto: 'Análise cefalométrica: ANB = 8°, GoGn = 32°, FMA = 28°. Qual padrão esqueletal?',
+  opcoes: [
+    { texto: 'Classe II esqueletal com padrão hiperdivergente', correto: true },
+    { texto: 'Classe I esqueletal normal', correto: false },
+    { texto: 'Classe III esqueletal com padrão hipodivergente', correto: false },
+    { texto: 'Classe II com padrão equilibrado', correto: false }
+  ],
+  competencias: [8,8,8,9,8,8,8,9]
+},
+{
+  id: 'CC-05', titulo: 'Implantologia: avaliação de viabilidade óssea',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Implantologia',
+  contexto: 'CBCT mostra altura óssea de 6mm na região anterior da maxila. Qual é a melhor conduta?',
+  opcoes: [
+    { texto: 'Implante direto sem aumento (risco de exposição de rosca)', correto: false },
+    { texto: 'Enxerto ósseo ou biomaterial antes do implante', correto: true },
+    { texto: 'Apenas prótese fixa convencional', correto: false },
+    { texto: 'Aguardar ganho ósseo espontâneo', correto: false }
+  ],
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'CC-06', titulo: 'Odontopediatria: manejo de criança ansiosa',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 5 anos chorando, recusa-se a abrir a boca. Qual é a melhor técnica inicial?',
+  opcoes: [
+    { texto: 'Desensibilização gradual (tell-show-do)', correto: true },
+    { texto: 'Sedação imediatamente', correto: false },
+    { texto: 'Constranger a criança para aceitar', correto: false },
+    { texto: 'Adiar indefinidamente', correto: false }
+  ],
+  competencias: [7,8,8,8,8,8,7,7]
+},
+{
+  id: 'CC-07', titulo: 'Prostodontia: avaliação de retenção e estabilidade protética',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Prótese parcial removível superior com suportes em 16 e 26. Apresenta mobilidade. Qual é o problema?',
+  opcoes: [
+    { texto: 'Falta de componentes de estabilidade (placas)', correto: true },
+    { texto: 'Dentes pilares com mobilidade patológica', correto: false },
+    { texto: 'Apenas necessidade de ajuste oclusal', correto: false },
+    { texto: 'Prótese muito grande', correto: false }
+  ],
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'CC-08', titulo: 'Estética: análise de sorriso e guia de planejamento',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Paciente com exposição excessiva de gengiva anterior (mais de 3mm). Qual é a combinação adequada de intervenções?',
+  opcoes: [
+    { texto: 'Gengivoplastia + laminados estéticos', correto: true },
+    { texto: 'Apenas clareamento', correto: false },
+    { texto: 'Apenas ortodontia', correto: false },
+    { texto: 'Cirurgia óssea exclusivamente', correto: false }
+  ],
+  competencias: [7,7,8,8,7,8,7,8]
+},
+{
+  id: 'CC-09', titulo: 'Cirurgia Oral: complicação pós-exodontia',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Cirurgia Oral',
+  contexto: 'Paciente 3 dias pós-exodontia com dor, halitose e alvéolo com aparência necrótica. Qual é o diagnóstico?',
+  opcoes: [
+    { texto: 'Alveolite seca (complicação inflamatória)', correto: true },
+    { texto: 'Infecção bacteriana simples', correto: false },
+    { texto: 'Necrose óssea (osteonecrose)', correto: false },
+    { texto: 'Apenas resposta inflamatória normal', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,8,8]
+},
+{
+  id: 'CC-10', titulo: 'Dentística: infiltração marginal em restauração',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Radiografia mostra radiolucidez na margem de restauração de classe II há 3 anos. Como proceder?',
+  opcoes: [
+    { texto: 'Substituir a restauração com técnica de selamento marginal adequada', correto: true },
+    { texto: 'Apenas observar', correto: false },
+    { texto: 'Aplicar flúor e pronto', correto: false },
+    { texto: 'Fazer endodontia', correto: false }
+  ],
+  competencias: [7,7,8,8,7,7,7,7]
+},
+{
+  id: 'CC-11', titulo: 'Periodontia: resposta ao tratamento não-cirúrgico',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Após 6 semanas de raspagem e alisamento, bolsa de 6mm permanece. Qual é a próxima conduta?',
+  opcoes: [
+    { texto: 'Avaliar higiene do paciente; considerar cirurgia periodontal se necessário', correto: true },
+    { texto: 'Repetir apenas raspagem', correto: false },
+    { texto: 'Antibiótico sistêmico indefinidamente', correto: false },
+    { texto: 'Extrair o dente', correto: false }
+  ],
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'CC-12', titulo: 'Endodontia: obturação de canal radicular',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Canais preparados, comprimento confirmado por radiografia. Qual técnica garante melhor prognóstico?',
+  opcoes: [
+    { texto: 'Guta-percha com cimento e condensação lateral', correto: true },
+    { texto: 'Apenas anestésico no canal', correto: false },
+    { texto: 'Cimento sozinho sem guta-percha', correto: false },
+    { texto: 'Deixar aberto para drenagem', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,8]
+},
+{
+  id: 'CC-13', titulo: 'Ortodontia: erupção ectópica e interceptação',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Ortodontia',
+  contexto: 'Criança de 7 anos: canino superior erupcionando por palatina. Qual é a conduta?',
+  opcoes: [
+    { texto: 'Extrair o incisivo central decíduo para facilitar erupção e reposicionar', correto: true },
+    { texto: 'Extrair o canino permanente', correto: false },
+    { texto: 'Aguardar exfoliação espontânea', correto: false },
+    { texto: 'Apenas observar sem intervenção', correto: false }
+  ],
+  competencias: [7,8,8,8,8,8,7,7]
+},
+{
+  id: 'CC-14', titulo: 'Implantologia: osseointegração comprometida',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Implantologia',
+  contexto: 'Implante com mobilidade perceptível 4 meses após colocação. Qual é o diagnóstico?',
+  opcoes: [
+    { texto: 'Falha de osseointegração (necessário remover)', correto: true },
+    { texto: 'Inflamação normal de cicatrização', correto: false },
+    { texto: 'Apenas soltura do pilar', correto: false },
+    { texto: 'Problema que se resolve espontaneamente', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,8,8]
+},
+{
+  id: 'CC-15', titulo: 'Odontopediatria: cárie precoce da infância (ECC)',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 2 anos com cárie em todos os incisivos superiores decíduos. Qual fator é mais provável?',
+  opcoes: [
+    { texto: 'Exposição prolongada a bebidas açucaradas (mamadeira noturna)', correto: true },
+    { texto: 'Falta de escovação apenas', correto: false },
+    { texto: 'Genética inevitável', correto: false },
+    { texto: 'Apenas falta de fluoreto', correto: false }
+  ],
+  competencias: [7,7,8,7,7,8,7,7]
+},
+{
+  id: 'CC-16', titulo: 'Prostodontia: fratura de prótese parcial fixa',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Prótese fixa de 3 unidades (14-15-16) apresenta fratura do pôntico. Como proceder?',
+  opcoes: [
+    { texto: 'Remover e confeccionar nova prótese (reparação pode ser inadequada)', correto: true },
+    { texto: 'Apenas reparar com resina/cimento', correto: false },
+    { texto: 'Esperar progressão da fratura', correto: false },
+    { texto: 'Extrair os dentes pilares', correto: false }
+  ],
+  competencias: [7,7,8,8,7,8,7,7]
+},
+{
+  id: 'CC-17', titulo: 'Clínica Geral: hipersensibilidade dentinária',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Clínica Geral',
+  contexto: 'Paciente relata dor aguda em dente saudável ao tomar gelado. Qual é o mecanismo e tratamento?',
+  opcoes: [
+    { texto: 'Hipersensibilidade dentinária; dessensibilizante ou resina fluidificada', correto: true },
+    { texto: 'Cárie profunda; necessário tratamento endodôntico', correto: false },
+    { texto: 'Fratura de coroa; necessário coroamento', correto: false },
+    { texto: 'Apenas nervosismo do paciente', correto: false }
+  ],
+  competencias: [7,7,8,8,7,7,7,7]
+},
+{
+  id: 'CC-18', titulo: 'Estética: escolha de material para laminado',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Paciente quer laminado cerâmico vs. resina composta. Qual vantagem dos laminados?',
+  opcoes: [
+    { texto: 'Maior longevidade estética e biocompatibilidade', correto: true },
+    { texto: 'Menor custo inicial', correto: false },
+    { texto: 'Menos invasivo ao dente', correto: false },
+    { texto: 'Reparação mais fácil', correto: false }
+  ],
+  competencias: [7,7,7,8,8,7,7,8]
+},
+{
+  id: 'CC-19', titulo: 'Cirurgia: análise de fatores de risco pré-operatório',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Cirurgia Oral',
+  contexto: 'Paciente com diabetes descompensada (glicemia 350 mg/dL) agendado para extração. Como proceder?',
+  opcoes: [
+    { texto: 'Adiar até compensação glicêmica; risco de infecção e cicatrização pobre', correto: true },
+    { texto: 'Prosseguir com cuidados redobrados', correto: false },
+    { texto: 'Apenas aumentar dose de antibiótico', correto: false },
+    { texto: 'Usar mais anestésico como "proteção"', correto: false }
+  ],
+  competencias: [8,8,8,8,9,8,8,8]
+},
+{
+  id: 'CC-20', titulo: 'Dentística: restauração classe V',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Cárie cervical em face vestibular. Qual sequência de preparação garante melhor retenção?',
+  opcoes: [
+    { texto: 'Retenção mecânica com bisel, chanfro e adesivo universal', correto: true },
+    { texto: 'Apenas remoção de cárie', correto: false },
+    { texto: 'Preparação muito profunda em direção a pulpa', correto: false },
+    { texto: 'Sem preparação, apenas fluidificada sobre cárie', correto: false }
+  ],
+  competencias: [7,7,8,8,7,7,7,7]
+},
+{
+  id: 'CC-21', titulo: 'Periodontia: halitose e etiologia',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Paciente com halitose persistente, gengivite moderada e bolsas periodontal. Qual fator contribui mais?',
+  opcoes: [
+    { texto: 'Bolsas periodontal com bactérias anaeróbias produtoras de enxofre', correto: true },
+    { texto: 'Apenas halitose idiopática genética', correto: false },
+    { texto: 'Deficiência de vitamina C', correto: false },
+    { texto: 'Stress emocional unicamente', correto: false }
+  ],
+  competencias: [8,7,8,8,7,7,8,7]
+},
+{
+  id: 'CC-22', titulo: 'Endodontia: complcações intra-operatórias',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Durante preparo do canal, instrumento ultrapassa limite apical. Como agir?',
+  opcoes: [
+    { texto: 'Medir perda no localizador apical; se significante, avaliar necessidade de MTA apical', correto: true },
+    { texto: 'Ignorar e continuar obturação normal', correto: false },
+    { texto: 'Extrair o dente imediatamente', correto: false },
+    { texto: 'Apenas prescrever antibiótico', correto: false }
+  ],
+  competencias: [8,8,8,9,8,7,8,8]
+},
+{
+  id: 'CC-23', titulo: 'Ortodontia: maloclusão e classe molar',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Ortodontia',
+  contexto: 'Relação molar mesial em 0.5 unidade. Como classificar?',
+  opcoes: [
+    { texto: 'Classe II divisão 1', correto: true },
+    { texto: 'Classe I normal', correto: false },
+    { texto: 'Classe III', correto: false },
+    { texto: 'Mordida cruzada anterior', correto: false }
+  ],
+  competencias: [7,7,8,8,8,7,7,7]
+},
+{
+  id: 'CC-24', titulo: 'Implantologia: material e design do implante',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Implantologia',
+  contexto: 'Qual material tem melhor biocompatibilidade e taxa de osseointegração?',
+  opcoes: [
+    { texto: 'Titânio comercialmente puro ou ligas de titânio', correto: true },
+    { texto: 'Ouro', correto: false },
+    { texto: 'Aço inoxidável', correto: false },
+    { texto: 'Cerâmica de alumina', correto: false }
+  ],
+  competencias: [7,7,7,8,8,7,7,7]
+},
+{
+  id: 'CC-25', titulo: 'Odontopediatria: extração de dente decíduo',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Odontopediatria',
+  contexto: 'Incisivo central decíduo com mobilidade grau 2 deve ser extraído ou deixado?',
+  opcoes: [
+    { texto: 'Deixar exfoliar naturalmente se mobilidade fisiológica sem sintomas', correto: true },
+    { texto: 'Extrair imediatamente', correto: false },
+    { texto: 'Apenas aplicar selante', correto: false },
+    { texto: 'Aguardar até completa mobilidade sem risco', correto: false }
+  ],
+  competencias: [7,8,7,7,7,7,7,7]
+},
+{
+  id: 'CC-26', titulo: 'Prostodontia: prótese total e dimensão vertical',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Paciente apresenta síntese mandibular e dores na ATM após colocação de prótese. Qual pode ser a causa?',
+  opcoes: [
+    { texto: 'Dimensão vertical de oclusão muito alta (DVO excessiva)', correto: true },
+    { texto: 'Apenas falta de lubrificante', correto: false },
+    { texto: 'Prótese muito solta', correto: false },
+    { texto: 'Problema psicológico do paciente', correto: false }
+  ],
+  competencias: [8,8,8,9,8,8,8,8]
+},
+{
+  id: 'CC-27', titulo: 'Clínica Geral: diagnóstico diferencial de lesão oral',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Clínica Geral',
+  contexto: 'Lesão oral branca, endurecida, indolor há 3 meses. Qual é o risco?',
+  opcoes: [
+    { texto: 'Possível leucoplasia; necessário biópsia para descartar displasia/neoplasia', correto: true },
+    { texto: 'Apenas afta trivial', correto: false },
+    { texto: 'Monilíase facilmente tratável', correto: false },
+    { texto: 'Sinal de falta de vitamina', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,8,9]
+},
+{
+  id: 'CC-28', titulo: 'Estética: manutenção de cor em restauração de resina',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Restauração estética em resina composta escurecia após 6 meses. Como minimizar?',
+  opcoes: [
+    { texto: 'Usar resina com melhor matriz (micropartículas), evitar pigmentação; polir regularmente', correto: true },
+    { texto: 'Apenas deixar como está', correto: false },
+    { texto: 'Remover e refazer a cada 3 meses', correto: false },
+    { texto: 'Aplicar sempre selador superficial', correto: false }
+  ],
+  competencias: [7,7,7,8,7,7,7,8]
+},
+{
+  id: 'CC-29', titulo: 'Cirurgia: manejo de hemorragia pós-exodontia',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Cirurgia Oral',
+  contexto: 'Paciente com sangramento contínuo 30 min após exodontia. Qual é o passo inicial?',
+  opcoes: [
+    { texto: 'Compressa com hemostático (trombina, ác. tranexâmico) por 15-20 min com pressão', correto: true },
+    { texto: 'Apenas observar', correto: false },
+    { texto: 'Suturar desnecessariamente', correto: false },
+    { texto: 'Prescrever antibiótico e liberar', correto: false }
+  ],
+  competencias: [7,8,8,8,8,7,8,7]
+},
+{
+  id: 'CC-30', titulo: 'Dentística: escolha de sistema adesivo',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Restauração em dente vital com esmalte e dentina. Qual sistema garante melhor performance?',
+  opcoes: [
+    { texto: 'Sistema universal com etching prévio do esmalte (técnica de aumento de retenção)', correto: true },
+    { texto: 'Apenas adesivo total-etch sem etching', correto: false },
+    { texto: 'Self-etch sem considerar esmalte', correto: false },
+    { texto: 'Sem adesivo, apenas condicionamento', correto: false }
+  ],
+  competencias: [7,8,8,8,7,7,7,7]
+},
+{
+  id: 'CC-31', titulo: 'Periodontia: índice de placa e sangramento',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Paciente com índice de sangramento gengival (SBI) elevado após higiene inadequada. Como avaliar resposta ao tratamento?',
+  opcoes: [
+    { texto: 'Reavaliar SBI após 2-4 semanas de higiene melhorada; redução indica resposta', correto: true },
+    { texto: 'Apenas prescrever enxaguatório', correto: false },
+    { texto: 'Esperar 6 meses sem feedback', correto: false },
+    { texto: 'Extrair dente imediatamente', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,8]
+},
+{
+  id: 'CC-32', titulo: 'Endodontia: fístula periapical',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Fístula intraoral drenando pus. Qual é a causa e tratamento?',
+  opcoes: [
+    { texto: 'Infecção endodôntica com drenagem; necessário tratamento endodôntico', correto: true },
+    { texto: 'Apenas infecção gengival superficial', correto: false },
+    { texto: 'Problema cirúrgico unicamente', correto: false },
+    { texto: 'Resolvido com antibiótico sozinho', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,8]
+},
+{
+  id: 'CC-33', titulo: 'Ortodontia: uso de elásticos intermaxilares',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Ortodontia',
+  contexto: 'Paciente com classe II deve usar elásticos classe II contínuamente. Qual risco de não-compliance?',
+  opcoes: [
+    { texto: 'Falta de correção de classe II; possível resultado insatisfatório', correto: true },
+    { texto: 'Nenhum risco real', correto: false },
+    { texto: 'Melhor resultado, menos tempo', correto: false },
+    { texto: 'Apenas questão estética temporária', correto: false }
+  ],
+  competencias: [7,7,8,8,8,7,7,7]
+},
+{
+  id: 'CC-34', titulo: 'Implantologia: manutenção peri-implantar',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Implantologia',
+  contexto: 'Implante osseointegrado há 2 anos. Como prevenir periimplantite?',
+  opcoes: [
+    { texto: 'Higiene diária rigorosa + visitas regulares ao dentista (3-6 meses)', correto: true },
+    { texto: 'Nenhum cuidado especial necessário', correto: false },
+    { texto: 'Apenas enxaguatório clorexidina indefinidamente', correto: false },
+    { texto: 'Semelhante aos dentes naturais; não precisa higiene especial', correto: false }
+  ],
+  competencias: [7,7,8,8,8,7,7,7]
+},
+{
+  id: 'CC-35', titulo: 'Odontopediatria: higiene bucal e recomendações',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 1, tempo: 2,
+  area: 'Odontopediatria',
+  contexto: 'Qual é a recomendação de fluoreto de sódio para criança de 3 anos?',
+  opcoes: [
+    { texto: '1000 ppm de F em creme dental (aplicação supervisionada, quantidade da ervilha)', correto: true },
+    { texto: '5000 ppm (risco de fluorose)', correto: false },
+    { texto: 'Sem fluoreto até 6 anos', correto: false },
+    { texto: 'Fluoreto acima de 1500 ppm diariamente', correto: false }
+  ],
+  competencias: [7,7,7,7,8,7,7,7]
+},
+{
+  id: 'CC-36', titulo: 'Prostodontia: desajuste oclusal em prótese',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Prótese apresenta contato prematuro em lingual de pré-molares. Como ajustar?',
+  opcoes: [
+    { texto: 'Usar carbono articulado para visualizar e desgastar seletivamente a prótese', correto: true },
+    { texto: 'Desgastar os dentes naturais opostos', correto: false },
+    { texto: 'Deixar sem ajuste', correto: false },
+    { texto: 'Remover e refazer completamente', correto: false }
+  ],
+  competencias: [7,7,7,8,8,7,7,7]
+},
+{
+  id: 'CC-37', titulo: 'Clínica Geral: trismo pós-operatório',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Clínica Geral',
+  contexto: 'Paciente com limitação de abertura bucal após exodontia de impactado. Como tratar?',
+  opcoes: [
+    { texto: 'Aplicar calor local, alongamento e fisioterapia; melhora em 3-7 dias se não infecção', correto: true },
+    { texto: 'Apenas prescrever antibiótico', correto: false },
+    { texto: 'Imobilizar a mandíbula com tala', correto: false },
+    { texto: 'Cirurgia imediata', correto: false }
+  ],
+  competencias: [7,8,8,8,8,7,8,7]
+},
+{
+  id: 'CC-38', titulo: 'Estética: avaliação de linha do sorriso',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Paciente com linha de sorriso alta (mostra >3mm de gengiva). Qual combinação de intervenções?',
+  opcoes: [
+    { texto: 'Avaliação de altura maxilar; se esqueletal, considerar gengivoplastia + possível cirurgia maxilar', correto: true },
+    { texto: 'Apenas colocar laminado', correto: false },
+    { texto: 'Apenas clareamento', correto: false },
+    { texto: 'Nenhuma intervenção necessária', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,8,8]
+},
+{
+  id: 'CC-39', titulo: 'Cirurgia: técnica atraumática de exodontia',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  area: 'Cirurgia Oral',
+  contexto: 'Qual princípio garante melhor cicatrização pós-exodontia?',
+  opcoes: [
+    { texto: 'Luxação progressiva com minimização de trauma ósseo e alveolar', correto: true },
+    { texto: 'Força bruta máxima para remover rápido', correto: false },
+    { texto: 'Sempre fazer osteotomia para qualquer dente', correto: false },
+    { texto: 'Deixar fragmentos ósseos não removidos', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,8,8]
+},
+{
+  id: 'CC-40', titulo: 'Dentística: durabilidade de restauração em anterior',
+  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Restauração de resina em dente anterior é melhor: direta ou indireta (overlay cerâmico)?',
+  opcoes: [
+    { texto: 'Overlay cerâmico: melhor longevidade e estética para dentes anteriores importantes', correto: true },
+    { texto: 'Sempre resina direta', correto: false },
+    { texto: 'Diferença não significativa', correto: false },
+    { texto: 'Resina direta com mais duração', correto: false }
+  ],
+  competencias: [7,7,8,8,8,8,7,8]
 }
 ];
-
