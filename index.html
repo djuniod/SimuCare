@@ -773,7 +773,7 @@
     <!-- ════════════════════ CRIAR NOVO CENÁRIO ════════════════════ -->
     <div id="page-criar-cenario" class="page fade-in">
       <div class="dash-header">
-        <h2>➕ Criar Novo Cenário</h2>
+        <h2>Criar Novo Cenário</h2>
         <p>Adicione um cenário customizado. Será enviado para validação antes de aparecer para alunos.</p>
       </div>
       <div id="form-criar-cenario-container" style="max-width:900px;margin:0 auto"></div>
@@ -782,7 +782,7 @@
     <!-- ════════════════════ MODERAÇÃO DE CENÁRIOS ════════════════════ -->
     <div id="page-moderacao" class="page fade-in">
       <div class="dash-header">
-        <h2>📋 Validar Cenários</h2>
+        <h2>Validar Cenários</h2>
         <p>Revise e aprove/rejeite cenários criados pelos professores.</p>
       </div>
       <div id="moderacao-container"></div>
@@ -1152,7 +1152,7 @@ async function enterApp() {
       <button class="nav-btn" data-page="page-alunos" onclick="showPage('page-alunos')">Alunos</button>
       <button class="nav-btn" data-page="page-reflexoes" onclick="showPage('page-reflexoes')">Reflexões</button>
       <button class="nav-btn" data-page="page-cenarios" onclick="showPage('page-cenarios')">Ver Cenários</button>
-      <button class="nav-btn" data-page="page-criar-cenario" onclick="showPage('page-criar-cenario')">➕ Novo Cenário</button>
+      <button class="nav-btn" data-page="page-criar-cenario" onclick="showPage('page-criar-cenario')">Novo Cenário</button>
       ${btnModerador}
       ${btnAdmin}`;
     showScreen('app-screen');
@@ -1640,7 +1640,8 @@ function showResultMultipla() {
       qualidade: sc.qualidade || '',
       opcaoIndex: sc.opcaoIndex,
       tentativas: sc.tentativas || 1,
-      pontuacao: sc.pontuacao
+      pontuacao: sc.pontuacao,
+      comps: sc.comps || [0,0,0,0,0,0,0,0]  // Incluir competências
     })),
     data: new Date().toISOString()
   });
@@ -2094,7 +2095,7 @@ function renderFormCriarCenario() {
         ${tipoSelecionado === 'Agendamento' ? `
         <!-- SEÇÃO: CAMPOS DO PACIENTE (AGENDAMENTO) -->
         <div style="background:#f0f9ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px;margin-bottom:20px">
-          <h4 style="margin:0 0 12px 0;color:#1e40af">📋 Etapa 1: Campos do Paciente</h4>
+          <h4 style="margin:0 0 12px 0;color:#1e40af">Etapa 1: Campos do Paciente</h4>
           <div id="ag-campos-list" style="margin-bottom:12px"></div>
           <button type="button" onclick="adicionarCampoAgendamento()" class="btn-secondary" style="width:100%;padding:8px">+ Adicionar Campo</button>
         </div>
@@ -2144,7 +2145,7 @@ function renderFormCriarCenario() {
 
         <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (AGENDAMENTO) -->
         <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
-          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <h4 style="margin:0 0 12px 0;color:#15803d">Competências Relevantes</h4>
           <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência neste agendamento. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
           <div id="ag-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
           <input type="hidden" id="ag-competencias" value="">
@@ -2170,7 +2171,7 @@ function renderFormCriarCenario() {
 
         <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (CASO CLÍNICO) -->
         <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
-          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <h4 style="margin:0 0 12px 0;color:#15803d">Competências Relevantes</h4>
           <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência neste caso clínico. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
           <div id="cc-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
           <input type="hidden" id="cc-competencias" value="">
@@ -2186,7 +2187,7 @@ function renderFormCriarCenario() {
 
         <!-- SEÇÃO: COMPETÊNCIAS RELEVANTES (MATERIAIS) -->
         <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:8px;padding:16px;margin-bottom:20px">
-          <h4 style="margin:0 0 12px 0;color:#15803d">📊 Competências Relevantes</h4>
+          <h4 style="margin:0 0 12px 0;color:#15803d">Competências Relevantes</h4>
           <p style="margin:0 0 12px 0;font-size:12px;color:#4b5563">Define o "peso" de cada competência nesta seleção de materiais. O sistema calcula automaticamente os pontos do aluno baseado nesse perfil.</p>
           <div id="mat-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
           <input type="hidden" id="mat-competencias" value="">
@@ -2784,7 +2785,7 @@ function salvarNovoCenario(e, isRascunho = false) {
   // Mostrar mensagem
   const statusEl = document.getElementById('cenario-status');
   if (isRascunho) {
-    statusEl.innerHTML = `<div class="alert-success" style="background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:12px;border-radius:6px">✅ Cenário salvo como rascunho! Você pode continuar editando depois.</div>`;
+    statusEl.innerHTML = `<div class="alert-success" style="background:#d1fae5;border:1px solid #6ee7b7;color:#065f46;padding:12px;border-radius:6px">Cenário salvo como rascunho! Você pode continuar editando depois.</div>`;
   } else {
     statusEl.innerHTML = `<div class="alert-success" style="background:#dbeafe;border:1px solid #93c5fd;color:#1e40af;padding:12px;border-radius:6px">📤 Cenário enviado para validação! O administrador analisará em breve.</div>`;
   }
@@ -3071,7 +3072,7 @@ function calcularCompetencias(alunoId) {
 // Renderiza o mapa de competências
 function renderMapaCompetencias(competencias) {
   return `<div style="margin-bottom:20px">
-    <div class="section-title">📊 Desempenho por competência</div>
+    <div class="section-title">Desempenho por competência</div>
     <div style="display:flex;flex-direction:column;gap:16px">
       ${competencias.map(c => {
         const barWidth = Math.min(100, (c.media / 10) * 100);
@@ -3092,26 +3093,33 @@ function renderMapaCompetencias(competencias) {
 function renderBrasao(level) {
   const corMap = {
     'Bronze': '#cd7f32',
-    'Prata': '#c0c0c0',
+    'Prata': '#a8a9ad',
     'Ouro': '#ffd700',
     'Diamante': '#00d4ff'
   };
+  const strokeMap = {
+    'Bronze': '#8b6914',
+    'Prata': '#7d7d7d',
+    'Ouro': '#b8860b',
+    'Diamante': '#0099cc'
+  };
   const estrelaColor = {
     'Bronze': '#fbbf24',    // Amarelo/ouro
-    'Prata': '#f3f4f6',     // Branco
+    'Prata': '#ffffff',     // Branco puro
     'Ouro': '#fcd34d',      // Amarelo brilhante
     'Diamante': '#e0f2fe'   // Azul claro
   };
   const cor = corMap[level] || '#cd7f32';
+  const corStroke = strokeMap[level] || '#8b6914';
   const corEstrela = estrelaColor[level] || '#fbbf24';
 
   return `<svg width="80" height="80" viewBox="0 0 80 80" style="filter:drop-shadow(0 4px 6px rgba(0,0,0,0.1))">
     <!-- Círculo do brasão -->
-    <circle cx="40" cy="40" r="35" fill="${cor}" stroke="#8b6914" stroke-width="2"/>
+    <circle cx="40" cy="40" r="35" fill="${cor}" stroke="${corStroke}" stroke-width="2"/>
     <!-- Fita (opcional, apenas visual) -->
-    <ellipse cx="40" cy="8" rx="16" ry="6" fill="${cor}" stroke="#8b6914" stroke-width="1.5"/>
+    <ellipse cx="40" cy="8" rx="16" ry="6" fill="${cor}" stroke="${corStroke}" stroke-width="1.5"/>
     <!-- Estrela no centro -->
-    <polygon points="40,20 47,38 66,38 52,48 58,66 40,56 22,66 28,48 14,38 33,38" fill="${corEstrela}" stroke="#f0f0f0" stroke-width="1"/>
+    <polygon points="40,20 47,38 66,38 52,48 58,66 40,56 22,66 28,48 14,38 33,38" fill="${corEstrela}" stroke="none"/>
   </svg>`;
 }
 
