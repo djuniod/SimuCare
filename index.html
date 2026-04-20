@@ -154,17 +154,33 @@
 
   /* GAMIFICAÇÃO */
   .gamification-card { background: linear-gradient(135deg, #ff8c42 0%, #9e5c8a 100%);
-    border-radius: var(--radius); padding: 24px; color: #fff; margin: 24px 0;
-    box-shadow: 0 8px 32px rgba(255,140,66,0.2); }
-  .gamif-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-  .gamif-level { display: flex; align-items: center; gap: 12px; }
-  .gamif-badge { font-size: 48px; }
+    border-radius: var(--radius); padding: 32px; color: #fff; margin: 24px 0;
+    box-shadow: 0 12px 48px rgba(255,140,66,0.25); }
+  .gamif-header { margin-bottom: 28px; }
+  .gamif-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .gamif-current { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+  .gamif-level-display { display: flex; align-items: center; gap: 16px; }
+  .gamif-badge-large { font-size: 72px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
   .gamif-info { }
-  .gamif-level-name { font-size: 20px; font-weight: 800; }
-  .gamif-points { font-size: 12px; opacity: 0.9; }
-  .gamif-next { font-size: 11px; opacity: 0.8; text-align: right; }
-  .gamif-bar { background: rgba(255,255,255,0.2); border-radius: 12px; height: 12px; overflow: hidden; margin-top: 8px; }
-  .gamif-fill { height: 100%; background: rgba(255,255,255,0.8); border-radius: 12px; transition: width 0.6s ease; }
+  .gamif-level-name { font-size: 24px; font-weight: 800; }
+  .gamif-points { font-size: 14px; opacity: 0.95; margin-top: 4px; }
+  .gamif-next-info { font-size: 12px; opacity: 0.85; }
+
+  .gamif-bar-container { margin-bottom: 24px; }
+  .gamif-bar-label { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 8px; opacity: 0.9; }
+  .gamif-bar { background: rgba(255,255,255,0.2); border-radius: 16px; height: 16px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+  .gamif-fill { height: 100%; border-radius: 16px; transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1); background: rgba(255,255,255,0.9); box-shadow: 0 0 16px rgba(255,255,255,0.4); }
+  .gamif-fill.bronze { background: linear-gradient(90deg, #cd7f32, #d4af37); }
+  .gamif-fill.prata { background: linear-gradient(90deg, #c0c0c0, #e8e8e8); }
+  .gamif-fill.ouro { background: linear-gradient(90deg, #ffd700, #ffed4e); }
+  .gamif-fill.diamante { background: linear-gradient(90deg, #00d4ff, #00ffff); }
+
+  .gamif-levels { display: flex; justify-content: space-between; gap: 8px; }
+  .gamif-level-badge { flex: 1; text-align: center; }
+  .gamif-badge { font-size: 48px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15)); margin-bottom: 8px; opacity: 0.5; transition: all 0.3s ease; }
+  .gamif-badge.unlocked { opacity: 1; filter: drop-shadow(0 4px 16px rgba(255,255,255,0.4)) drop-shadow(0 2px 8px rgba(0,0,0,0.2)); transform: scale(1.1); }
+  .gamif-badge-label { font-size: 11px; font-weight: 600; opacity: 0.85; }
+  .gamif-badge-points { font-size: 10px; opacity: 0.7; }
   .activity-score { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px; }
   .score-good { color: var(--success); }
   .score-ok { color: var(--warning); }
@@ -1116,13 +1132,14 @@ function getTurmaNome(turmaId) {
 // -- DASHBOARD ALUNO ------------------------------------------------
 function calculateLevel(totalPoints) {
   const levels = [
-    { name: 'Bronze', badge: '🥉', minPoints: 0, maxPoints: 50 },
-    { name: 'Prata', badge: '🥈', minPoints: 51, maxPoints: 150 },
-    { name: 'Ouro', badge: '🥇', minPoints: 151, maxPoints: Infinity }
+    { name: 'Bronze', badge: '🥉', minPoints: 0, maxPoints: 100, color: 'bronze' },
+    { name: 'Prata', badge: '🥈', minPoints: 101, maxPoints: 200, color: 'prata' },
+    { name: 'Ouro', badge: '🥇', minPoints: 201, maxPoints: 350, color: 'ouro' },
+    { name: 'Diamante', badge: '💎', minPoints: 351, maxPoints: Infinity, color: 'diamante' }
   ];
   const currentLevel = levels.find(l => totalPoints >= l.minPoints && totalPoints <= l.maxPoints);
   const nextLevel = levels.find(l => l.minPoints > totalPoints);
-  return { current: currentLevel, next: nextLevel, total: totalPoints };
+  return { current: currentLevel, next: nextLevel, levels: levels, total: totalPoints };
 }
 
 function renderDashboard() {
@@ -1144,20 +1161,45 @@ function renderDashboard() {
   const totalPoints = rs.reduce((a,r)=>a+r.pontuacao,0);
   const levelData = calculateLevel(totalPoints);
   const progressPercent = Math.min(100, ((totalPoints - levelData.current.minPoints) / (levelData.current.maxPoints - levelData.current.minPoints)) * 100);
-  const nextLevelText = levelData.next ? `Próximo nível: ${levelData.next.name} em ${levelData.next.minPoints} pontos` : 'Máximo nível atingido!';
+  const nextLevelText = levelData.next ? `${levelData.next.minPoints - totalPoints} pontos para ${levelData.next.name}` : '🎊 Máximo nível atingido!';
+
+  const levelsHtml = levelData.levels.map((lv, idx) => {
+    const isUnlocked = totalPoints >= lv.minPoints;
+    const isCurrent = levelData.current.name === lv.name;
+    return `<div class="gamif-level-badge">
+      <div class="gamif-badge ${isUnlocked ? 'unlocked' : ''}">${lv.badge}</div>
+      <div class="gamif-badge-label">${lv.name}</div>
+      <div class="gamif-badge-points">${lv.minPoints}-${lv.maxPoints === Infinity ? '∞' : lv.maxPoints}</div>
+    </div>`;
+  }).join('');
+
   document.getElementById('gamification-card').innerHTML = `
     <div class="gamif-header">
-      <div class="gamif-level">
-        <div class="gamif-badge">${levelData.current.badge}</div>
-        <div class="gamif-info">
-          <div class="gamif-level-name">${levelData.current.name}</div>
-          <div class="gamif-points">${totalPoints} pontos</div>
+      <div class="gamif-title">⭐ Meu Progresso</div>
+      <div class="gamif-current">
+        <div class="gamif-level-display">
+          <div class="gamif-badge-large">${levelData.current.badge}</div>
+          <div class="gamif-info">
+            <div class="gamif-level-name">${levelData.current.name}</div>
+            <div class="gamif-points">${totalPoints} pontos acumulados</div>
+            <div class="gamif-next-info">${nextLevelText}</div>
+          </div>
         </div>
       </div>
-      <div class="gamif-next">${nextLevelText}</div>
     </div>
-    <div class="gamif-bar">
-      <div class="gamif-fill" style="width:${progressPercent}%"></div>
+
+    <div class="gamif-bar-container">
+      <div class="gamif-bar-label">
+        <span>${levelData.current.minPoints}</span>
+        <span>${levelData.current.maxPoints === Infinity ? totalPoints : levelData.current.maxPoints}</span>
+      </div>
+      <div class="gamif-bar">
+        <div class="gamif-fill ${levelData.current.color}" style="width:${progressPercent}%"></div>
+      </div>
+    </div>
+
+    <div class="gamif-levels">
+      ${levelsHtml}
     </div>
   `;
   // comps
