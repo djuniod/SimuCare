@@ -1194,7 +1194,6 @@ function renderScenarios() {
   if (fc) list = list.filter(s => String(s.complexidade) === fc);
 
   // Reordena: cenários respondidos vão para o final
-  const done = state.user?.id ? (state.resultados[state.user.id] || []).map(r => r.cenarioId) : [];
   list.sort((a, b) => {
     const aDone = done.includes(a.id);
     const bDone = done.includes(b.id);
