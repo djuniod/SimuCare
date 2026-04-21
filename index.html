@@ -1535,15 +1535,38 @@ function showResultClinico(res, s, idxSelecionado) {
       </div>
       ${acertou ? '' : `
         <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:16px;margin-bottom:20px">
-          <h4 style="margin:0 0 8px 0;color:#92400e">Resposta Correta</h4>
-          <div style="color:#78350f;font-size:13px">
-            ${s.opcoes.find(o => o.correto) ? `<div style="font-weight:600">${s.opcoes.find(o => o.correto).texto}</div>` : ''}
+          <h4 style="margin:0 0 12px 0;color:#92400e">✓ Resposta Correta</h4>
+          <div style="background:white;padding:12px;border-left:4px solid #22c55e;border-radius:4px;margin-bottom:12px">
+            <div style="font-weight:600;color:#1f2937">${s.opcoes.find(o => o.correto) ? `${s.opcoes.find(o => o.correto).texto}` : ''}</div>
+          </div>
+          <div style="background:#f9fafb;padding:12px;border-radius:4px;font-size:13px;color:#4b5563;line-height:1.6">
+            <div style="font-weight:600;margin-bottom:6px">O que você precisa praticar:</div>
+            <div>• Revisar os conceitos-chave desta área</div>
+            <div>• Buscar exemplos práticos e casos reais</div>
+            <div>• Participar de discussões e exercícios com colegas</div>
+            <div>• Tentar novamente após o estudo</div>
           </div>
         </div>
       `}
       <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
-        <h4 style="margin:0 0 12px 0;color:#1f2937">Competências Desenvolvidas</h4>
-        <div style="font-size:12px;color:#6b7280">${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => `${comp}: ${res.comps[i]} pts`).join(' • ')}</div>
+        <h4 style="margin:0 0 16px 0;color:#1f2937">Desempenho por Competência</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          ${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => {
+            const score = res.comps[i] || 0;
+            const percent = (score / 10) * 100;
+            return `
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:13px;font-weight:500;color:#1f2937">${comp}</span>
+                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${score.toFixed(1)}</span>
+                </div>
+                <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden">
+                  <div style="height:100%;width:${percent}%;background:linear-gradient(90deg, #1b3a8a, #ff8c42);border-radius:3px"></div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
       </div>
       <button class="btn-next" style="width:100%;padding:12px;background:linear-gradient(135deg, #ff8c42, #1b3a8a);color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600" onclick="exitSim()">Voltar aos cenários</button>
     </div>`;
@@ -2255,8 +2278,24 @@ function showResultMateriais(res, m) {
         ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === c)?.nome}</div>`).join('')}</div>` : ''}
       </div>
       <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
-        <h4 style="margin:0 0 12px 0">Competências Desenvolvidas</h4>
-        <div style="font-size:12px;color:#6b7280">${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => `${comp}: ${res.comps[i]} pts`).join(' • ')}</div>
+        <h4 style="margin:0 0 16px 0;color:#1f2937">Desempenho por Competência</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          ${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => {
+            const score = res.comps[i] || 0;
+            const percent = (score / 10) * 100;
+            return `
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:13px;font-weight:500;color:#1f2937">${comp}</span>
+                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${score.toFixed(1)}</span>
+                </div>
+                <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden">
+                  <div style="height:100%;width:${percent}%;background:linear-gradient(90deg, #1b3a8a, #ff8c42);border-radius:3px"></div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
       </div>
       <button class="btn-secondary" onclick="showPage('page-dashboard');showScreen('app-screen')" style="width:100%;padding:12px">Ver meu painel</button>
     </div>`;
