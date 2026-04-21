@@ -2275,7 +2275,7 @@ function showResultMateriais(res, m) {
             ${sel.filter(s => !corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes[s]?.texto || m.opcoes[s]?.nome}</div>`).join('')}
           </div>
         </div>
-        ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === c)?.nome}</div>`).join('')}</div>` : ''}
+        ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes[c]?.texto || m.opcoes[c]?.nome}</div>`).join('')}</div>` : ''}
       </div>
       <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
         <h4 style="margin:0 0 16px 0;color:#1f2937">Desempenho por Competência</h4>
