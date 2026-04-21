@@ -1051,6 +1051,45 @@ function renderComplexityBar(level) {
   return `<div class="complexity-dot" style="background-color:${color}" title="Nível ${lvl} de 3"></div>`;
 }
 
+// -- FORMATAR CONTEXTO COM INFORMAÇÕES FORNECIDAS COMO TÓPICOS -------
+function formatContextoWithInfo(contexto) {
+  if (!contexto) return '';
+
+  // Dividir em narrativa e informações fornecidas
+  const partes = contexto.split('INFORMAÇÕES FORNECIDAS PELO PACIENTE:');
+  const narrativa = partes[0].trim();
+  const infoText = partes[1] ? partes[1].trim() : '';
+
+  if (!infoText) {
+    // Se não tem a seção de informações, retorna como está
+    return `<p style="margin:0 0 14px 0; white-space: pre-wrap;">${escapeHtml(contexto)}</p>`;
+  }
+
+  // Processar as linhas de informações em bullet points
+  const linhas = infoText.split('\n').filter(l => l.trim());
+  const items = linhas.map(linha => {
+    const trimmed = linha.trim();
+    if (!trimmed) return '';
+    return `<li style="margin-bottom: 6px; line-height: 1.5;">${escapeHtml(trimmed)}</li>`;
+  }).join('');
+
+  return `
+    <p style="margin:0 0 16px 0;">${escapeHtml(narrativa)}</p>
+    <div style="margin-top: 14px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Informações do paciente</div>
+      <ul style="margin: 0; padding-left: 20px; list-style-type: none;">
+        ${items}
+      </ul>
+    </div>
+  `;
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 // -- NAVEGAÇÃO ENTRE TELAS ------------------------------------------
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -1525,7 +1564,7 @@ function renderSimMultiplaEscolha() {
       <div class="scenario-title">${s.titulo}</div>
       <div class="context-box">
         <div class="context-label">📋 Contexto</div>
-        <div class="context-text">${s.contexto}</div>
+        <div class="context-text">${formatContextoWithInfo(s.contexto)}</div>
       </div>
       <div class="question-section">
         <h3 style="margin-bottom:16px;color:#1f2937">Qual é a resposta correta?</h3>
@@ -1674,7 +1713,7 @@ function renderSimStep(showRetryBanner) {
       <div class="scenario-title">${s.titulo}</div>
       <div class="context-box">
         <div class="context-label">Contexto da situação</div>
-        <div class="context-text">${s.contexto}</div>
+        <div class="context-text">${formatContextoWithInfo(s.contexto)}</div>
       </div>
       <div class="char-box">
         <div class="char-emoji">${s.personagem?.emoji || '🧑'}</div>
@@ -1977,7 +2016,7 @@ function renderAgStep() {
       <div class="scenario-title">${a.titulo}</div>
       <div class="context-box">
         <div class="context-label">📞 Contato recebido</div>
-        <div class="context-text">${a.contexto}</div>
+        <div class="context-text">${formatContextoWithInfo(a.contexto)}</div>
       </div>
       ${tracker}
       ${body}
@@ -2274,7 +2313,7 @@ function renderMatScreen() {
       <div class="scenario-title">${m.titulo}</div>
       <div class="context-box">
         <div class="context-label">🧪 Cenário</div>
-        <div class="context-text">${m.contexto}</div>
+        <div class="context-text">${formatContextoWithInfo(m.contexto)}</div>
       </div>
       <div class="ag-section">
         <h3>Selecione os materiais apropriados</h3>
