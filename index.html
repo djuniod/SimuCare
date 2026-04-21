@@ -1672,8 +1672,9 @@ function avaliarClinico() {
   const acertou = opcao.correto;
   const letra = String.fromCharCode(65 + idx);
   const pontuacao = acertou ? 100 : 0;
-  // Se acertou: 10 em cada competência. Se errou: 5 (metade)
-  const comps = [10,10,10,10,10,10,10,10].map(c => acertou ? c : Math.round(c * 0.5));
+  // Usar os pesos específicos do cenário. Se acertou: peso total. Se errou: peso * 0.5
+  const competenciasBase = s.competencias || [10,10,10,10,10,10,10,10];
+  const comps = competenciasBase.map(c => acertou ? c : Math.round(c * 0.5));
 
   const res = {
     cenarioId: s.id,
@@ -2261,9 +2262,10 @@ function renderAgErroCritico(info) {
 }
 
 function calcAgComps(a, dadosPct, agendaPct, matScore) {
-  // Competências proporcionais ao desempenho: 10 se 100%, 5 se 50%, etc.
+  // Competências proporcionais ao desempenho usando pesos do cenário
   const avgPct = (dadosPct * 0.25 + agendaPct * 0.25 + matScore * 0.5);
-  const resultado = [10,10,10,10,10,10,10,10].map(() => Math.round((avgPct / 100) * 10));
+  const competenciasBase = a.competencias || [10,10,10,10,10,10,10,10];
+  const resultado = competenciasBase.map(c => Math.round((avgPct / 100) * c));
   return resultado;
 }
 
@@ -2412,8 +2414,9 @@ function avaliarMateriais() {
   const erros_omissao = corretos.filter(c => !sel.includes(c)).length;
   const totalCorretos = corretos.length;
   const pontos = Math.max(0, Math.round((acertos / (totalCorretos || 1)) * 100 - erros_comissao * 10 - erros_omissao * 10));
-  // Competências proporcionais ao desempenho: 10 se 100%, 5 se 50%, etc.
-  const comps = [10,10,10,10,10,10,10,10].map(c => Math.round((pontos / 100) * c));
+  // Competências proporcionais ao desempenho usando pesos do cenário
+  const competenciasBase = m.competencias || [10,10,10,10,10,10,10,10];
+  const comps = competenciasBase.map(c => Math.round((pontos / 100) * c));
   const res = {
     cenarioId: m.id,
     titulo: m.titulo,
