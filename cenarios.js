@@ -20,42 +20,77 @@ window.CENARIOS = [
         {
           "chave": "nome_crianca",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "sofia"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "8"
+          ]
         },
         {
           "chave": "responsavel",
           "label": "Responsável",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "pai"
+          ]
         },
         {
           "chave": "telefone",
           "label": "Telefone",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_atendimento",
           "label": "Tipo de atendimento",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "urgência",
+            "emergência",
+            "consulta",
+            "limpeza",
+            "tratamento"
+          ]
         },
         {
           "chave": "grau_urgencia",
           "label": "Grau de urgência (1-5)",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "alto",
+            "médio",
+            "baixo",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "chave": "sangramento",
           "label": "Há sangramento ativo?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "sim",
+            "ativo"
+          ]
         },
         {
           "chave": "consciencia",
           "label": "Perda de consciência?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": [
+            "sim",
+            "perdeu"
+          ]
         }
       ]
     },
@@ -239,22 +274,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "freq_escova",
           "label": "Frequência de escovação (vezes/dia)",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "usa_fio",
           "label": "Usa fio dental?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -381,22 +422,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente afetado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "sensibilidade",
           "label": "Tem sensibilidade?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "ultima_limpeza",
           "label": "Última limpeza quando?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -522,22 +569,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "insatisfeito"
+          ]
         },
         {
           "chave": "insatisfacao",
           "label": "O que deseja melhorar?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa",
           "label": "Expectativa realista?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "orcamento",
           "label": "Orçamento definido?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -656,22 +709,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente será extraído?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "motivo",
           "label": "Motivo da extração?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "ansiedade",
           "label": "Nível de ansiedade (1-5)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -793,17 +852,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "em"
+          ]
         },
         {
           "chave": "ultima_profilaxia",
           "label": "Última profilaxia quando?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "alergias",
           "label": "Alergias conhecidas?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -926,17 +990,25 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "sangramento",
           "label": "Intensidade do sangramento (1-5)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "não",
+            "sem sangramento"
+          ]
         },
         {
           "chave": "fumante",
           "label": "É fumante?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -1057,17 +1129,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente tem desconforto?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_desconforto",
           "label": "Como se manifesta o desconforto?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1177,17 +1254,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "edêntulo"
+          ]
         },
         {
           "chave": "tipo_prótese",
           "label": "Que tipo de prótese?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa",
           "label": "Qual sua expectativa?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1292,22 +1374,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "idade",
           "label": "Qual é a idade?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "higiene",
           "label": "Higiene oral atual?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "historico_carie",
           "label": "Tem histórico de cárie?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -1426,17 +1514,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "quem_refere",
           "label": "Quem notou (você/familiar)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "desgaste",
           "label": "Nota desgaste dentário?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1544,17 +1637,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "tipo_dor",
           "label": "Tipo de dor (espontânea/provocada)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "duracao",
           "label": "Quanto tempo dura a dor?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1665,17 +1763,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "deseja"
+          ]
         },
         {
           "chave": "sensibilidade",
           "label": "Tem sensibilidade atual?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa",
           "label": "Cor final desejada?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1783,17 +1886,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "dor_articular",
           "label": "Onde sente dor?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "clicks",
           "label": "Tem estalos ou clicks?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -1899,17 +2007,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_defeito",
           "label": "Tipo de defeito?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2020,17 +2131,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "em"
+          ]
         },
         {
           "chave": "qual_tratamento",
           "label": "Que tratamento foi feito?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "como_esta",
           "label": "Como está se sentindo?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -2144,17 +2260,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "primeira"
+          ]
         },
         {
           "chave": "motivo_visita",
           "label": "Principal queixa?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "ultima_visita",
           "label": "Última visita ao dentista quando?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2269,17 +2390,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "localizacao",
           "label": "Onde está a afta?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "duracao",
           "label": "Há quanto tempo?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2391,17 +2517,25 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "sangramento",
           "label": "Sangramento durante sondagem?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "não",
+            "sem sangramento"
+          ]
         },
         {
           "chave": "ultimo_rx",
           "label": "Último RX quando?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -2511,17 +2645,25 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "sangramento",
           "label": "Sangra durante escovação?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "não",
+            "sem sangramento"
+          ]
         },
         {
           "chave": "fumante",
           "label": "É fumante?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -2632,17 +2774,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "motivo",
           "label": "Motivo (cárie/fratura)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tamanho",
           "label": "Tamanho da lesão?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2757,17 +2902,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_coroa",
           "label": "Qual dente receberá coroa?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_coroa",
           "label": "Tipo (cerâmica/ouro)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2877,17 +3025,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tempo_uso",
           "label": "Por quanto tempo usou aparelho?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "satisfacao",
           "label": "Satisfeito com resultado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -2992,17 +3143,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_halitose",
           "label": "Matinal ou persistente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "tratamento"
+          ]
         },
         {
           "chave": "historico",
           "label": "Histórico familiar?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -3112,17 +3268,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "regiao",
           "label": "Qual região do implante?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "densidade_ossea",
           "label": "Densidade óssea adequada?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3238,17 +3397,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quando_implante",
           "label": "Quando foi colocado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "higiene",
           "label": "Como está higienizando?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3354,17 +3516,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_emergencia",
           "label": "Tipo de emergência?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "duracao",
           "label": "Há quanto tempo?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3487,17 +3652,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quando_trauma",
           "label": "Quando foi o trauma?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_trauma",
           "label": "Tipo de trauma?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3611,17 +3779,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_freio",
           "label": "Qual freio?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "motivo",
           "label": "Motivo da cirurgia?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3726,17 +3897,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "sobre"
+          ]
         },
         {
           "chave": "tempo_uso",
           "label": "Há quanto tempo usa prótese?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dificuldades",
           "label": "Tem dificuldades na limpeza?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -3850,17 +4026,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "historia_fluorose",
           "label": "História de exposição ao flúor?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -3970,17 +4151,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "freq_escova",
           "label": "Frequência de escovação?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -4092,17 +4278,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "em"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "queixa",
           "label": "Queixa principal?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -4209,17 +4400,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "nivel_ansiedade",
           "label": "Nível de ansiedade (1-10)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "experiencia_anterior",
           "label": "Experiência anterior?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -4329,17 +4525,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quando_cirurgia",
           "label": "Quando foi a cirurgia?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "sintomas",
           "label": "Tem sintomas?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -4449,17 +4648,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quando_original",
           "label": "Quando foi o primeiro tratamento?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -4578,17 +4780,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "idoso"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "sensibilidade",
           "label": "Tem sensibilidade radicular?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -4700,17 +4907,22 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "onde_dor",
           "label": "Onde dói?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quando_feita",
           "label": "Quando foi feita a prótese?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -4823,17 +5035,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_restauracao",
           "label": "Tipo de restauração?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "sensibilidade",
           "label": "Tem sensibilidade?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -4947,17 +5162,20 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tipo_fratura",
           "label": "Tipo de fratura?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         }
       ]
     },
@@ -5081,22 +5299,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "tempo_sintomas",
           "label": "Há quanto tempo tem sangramento?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "fumante",
           "label": "É fumante?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dieta",
           "label": "Tem dificuldade em higienizar?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -5236,22 +5460,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "data_implante",
           "label": "Data da colocação do implante",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "mobilidade_percebida",
           "label": "Paciente sente movimento?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dor",
           "label": "Tem dor na região?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -5395,22 +5625,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dor_espontanea",
           "label": "Tem dor espontânea?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tempo_dor",
           "label": "Há quanto tempo sente dor?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -5569,22 +5805,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "adolescente"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "problemas_funcionais",
           "label": "Tem problemas funcionais (mastigação/fala)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa",
           "label": "Expectativa com tratamento",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -5722,22 +5964,30 @@ window.CENARIOS = [
         {
           "chave": "nome_crianca",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "de"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "6"
+          ]
         },
         {
           "chave": "cooperacao",
           "label": "Nível de cooperação esperado",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "higiene_parental",
           "label": "Higiene supervisionada pelos pais?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -5881,22 +6131,26 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "quais_dentes",
           "label": "Quais dentes serão cimentados?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "sensibilidade_pre",
           "label": "Tinha sensibilidade antes?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tempo_provisorio",
           "label": "Há quanto tempo com provisório?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6038,22 +6292,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "sensibilidade_prvia",
           "label": "Tem sensibilidade dental?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "restauracoes",
           "label": "Tem restaurações nos anteriores?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa_tom",
           "label": "Qual tom deseja?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6193,22 +6453,26 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "ja_tentou",
           "label": "Tentou extração antes?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "medicacoes",
           "label": "Usa medicações contínuas?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6355,22 +6619,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "quais_dentes",
           "label": "Quais dentes serão tratados?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "objetivo",
           "label": "Objetivo principal (cor/formato/comprimento)?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "historico_bleaching",
           "label": "Fez clareamento antes?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6511,22 +6781,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "em"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual região foi implantada?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "inchaço_presente",
           "label": "Tem inchaço?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dor_escala",
           "label": "Nível de dor (0-10)",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6665,22 +6941,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tempo_tratamento_anterior",
           "label": "Há quanto tempo foi o tratamento anterior?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "radiografia_disponivel",
           "label": "Tem radiografia anterior?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6823,22 +7105,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "quais_areas",
           "label": "Quais áreas afetadas?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "risco_cardiovascular",
           "label": "Tem fatores de risco cardiovascular?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "medicacao_anticoagulante",
           "label": "Usa anticoagulante?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -6978,22 +7266,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "em"
+          ]
         },
         {
           "chave": "meses_tratamento",
           "label": "Há quanto tempo em tratamento?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dor_presente",
           "label": "Está sentindo dor?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "higiene_parece_boa",
           "label": "Higiene parece adequada?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7133,22 +7427,30 @@ window.CENARIOS = [
         {
           "chave": "nome_crianca",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "de"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "5"
+          ]
         },
         {
           "chave": "ultima_fluorose",
           "label": "Quando foi última aplicação?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "frequencia_escova",
           "label": "Frequência de escovação?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7292,22 +7594,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "edêntulo"
+          ]
         },
         {
           "chave": "tempo_sem_dentes",
           "label": "Há quanto tempo sem dentes?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "usa_protese_antes",
           "label": "Já usou prótese antes?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "atividade_profissional",
           "label": "Qual atividade profissional?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7447,22 +7755,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "retornando"
+          ]
         },
         {
           "chave": "sensibilidade_baseline",
           "label": "Tem sensibilidade base?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "expectativa",
           "label": "Expectativa de resultado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "frequencia_escova",
           "label": "Frequência de escovação?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7602,22 +7916,28 @@ window.CENARIOS = [
         {
           "chave": "nome_crianca",
           "label": "Nome da criança",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "idade",
           "label": "Idade",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dificuldade_lingua",
           "label": "Qual dificuldade funcional?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "peso_saude_geral",
           "label": "Tem outras condições de saúde?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7757,22 +8077,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "busca"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "data_trauma",
           "label": "Data do trauma",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "dor_presente",
           "label": "Tem dor atual?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -7917,22 +8243,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "com"
+          ]
         },
         {
           "chave": "qual_dente",
           "label": "Qual dente afetado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "tamanho_recessao",
           "label": "Medida da recessão (em mm)",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "queixa_estetica",
           "label": "Preocupação estética?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },
@@ -8077,22 +8409,28 @@ window.CENARIOS = [
         {
           "chave": "nome",
           "label": "Nome do paciente",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": [
+            "completou"
+          ]
         },
         {
           "chave": "tempo_total",
           "label": "Tempo total de tratamento",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "satisfacao",
           "label": "Satisfação com resultado?",
-          "obrigatorio": true
+          "obrigatorio": true,
+          "validacao": []
         },
         {
           "chave": "plano_retencao",
           "label": "Aceitaria usar contenção removível?",
-          "obrigatorio": false
+          "obrigatorio": false,
+          "validacao": []
         }
       ]
     },

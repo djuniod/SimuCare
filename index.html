@@ -703,14 +703,23 @@
         </div>
       </div>
       <div class="section-title with-action">
-        <span>Ferramentas</span>
+        <span>Gerenciamento</span>
       </div>
       <div class="action-btns">
         <button class="btn-sm primary-sm" onclick="showPage('page-turmas')">Gerenciar Turmas</button>
         <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">Gerenciar Alunos</button>
-        <button class="btn-sm" onclick="showPage('page-editar-cenarios')">✏️ Editar Cenários</button>
         <button class="btn-sm" onclick="showPage('page-reflexoes')">Ver Reflexões</button>
         <button class="btn-sm" onclick="exportarCSV()">Exportar CSV</button>
+      </div>
+
+      <div class="section-title with-action">
+        <span>Cenários</span>
+      </div>
+      <div class="big-card" style="margin-bottom:0">
+        <div class="card-body" style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-sm primary-sm" style="flex:1;min-width:160px" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
+          <button class="btn-sm primary-sm" style="flex:1;min-width:160px" onclick="showPage('page-editar-cenarios')">Editar Cenário</button>
+        </div>
       </div>
     </div>
 
@@ -789,7 +798,7 @@
     <!-- ════════════════════ EDITAR CENÁRIOS ════════════════════ -->
     <div id="page-editar-cenarios" class="page fade-in">
       <div class="dash-header">
-        <h2>✏️ Editar Cenários</h2>
+        <h2>Editar Cenário</h2>
         <p>Edite qualquer cenário para corrigir textos ou ajustar conteúdo.</p>
       </div>
       <div style="display:flex;gap:20px;margin-bottom:20px">
@@ -981,14 +990,15 @@ function rowToResultado(r) {
 async function loadAllFromSupabase() {
   if (!sb) return;
   try {
-    const [alunosRes, turmasRes, resultadosRes] = await Promise.all([
+    const [alunosRes, turmasRes, resultadosRes, cenarioEditadosRes] = await Promise.all([
       sb.from('alunos').select('*').order('created_at', { ascending: true }),
       sb.from('turmas').select('*').order('created_at', { ascending: true }),
-      sb.from('resultados').select('*').order('data', { ascending: true })
+      sb.from('resultados').select('*').order('data', { ascending: true }),
+      sb.from('cenarios_editados').select('*')
     ]);
-    if (alunosRes.error)     throw alunosRes.error;
-    if (turmasRes.error)     throw turmasRes.error;
-    if (resultadosRes.error) throw resultadosRes.error;
+    if (alunosRes.error)           throw alunosRes.error;
+    if (turmasRes.error)           throw turmasRes.error;
+    if (resultadosRes.error)       throw resultadosRes.error;
 
     state.alunos = (alunosRes.data || []).map(rowToAluno);
     state.turmas = (turmasRes.data || []).map(rowToTurma);
@@ -1000,10 +1010,28 @@ async function loadAllFromSupabase() {
       if (!state.resultados[r.aluno_id]) state.resultados[r.aluno_id] = [];
       state.resultados[r.aluno_id].push(rowToResultado(r));
     });
+
+    // Carregar cenários editados e mesclar
+    const cenarioEditados = (cenarioEditadosRes.data || []);
+    applyEditedScenariosToDefaultList(cenarioEditados);
   } catch (err) {
     console.error('Erro ao carregar dados do Supabase:', err);
     alert('Não foi possível carregar dados do servidor. Verifique sua conexão e as configurações do Supabase.');
   }
+}
+
+// Mesclar cenários editados com os padrão
+function applyEditedScenariosToDefaultList(editedScenarios) {
+  editedScenarios.forEach(edit => {
+    const idx = window.CENARIOS.findIndex(s => s.id === edit.cenario_id);
+    if (idx >= 0 && edit.dados) {
+      // Mesclar: data editada sobrescreve campos correspondentes
+      window.CENARIOS[idx] = {
+        ...window.CENARIOS[idx],
+        ...edit.dados
+      };
+    }
+  });
 }
 
 // Stub mantido para compatibilidade com chamadas legadas.
