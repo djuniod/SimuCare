@@ -1415,7 +1415,7 @@ window.CENARIOS = [
 
 {
   id:"AG-40", titulo:"Extração de terceiro molar incluso — avaliação pré-cirúrgica",
-  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`RENATA OLIVEIRA PINTO, 22 anos, chega com queixa de dor na região do siso inferior esquerdo e inchaço local há 2 dias (pericoronarite). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 112/70 mmHg. Radiografia panorâmica recente mostra dente 38 incluso em posição mesioangular com ausência de espaço. Temperatura oral: 37,4°C.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["renata oliveira pinto","renata oliveira","renata"]},
@@ -1608,7 +1608,7 @@ window.CENARIOS = [
 
 {
   id:"AG-45", titulo:"Biópsia de lesão em mucosa jugal",
-  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia",
   contexto:`LUIZA BEATRIZ MOURA, 55 anos, foi encaminhada pelo clínico geral com lesão esbranquiçada em mucosa jugal direita, presente há 4 meses, assintomática, não raspável. Diagnóstico diferencial: leucoplasia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Fumante (20 cigarros/dia há 25 anos). Não tem alergias. Faz uso de losartana e atenolol. PA: 142/88 mmHg.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["luiza beatriz moura","luiza beatriz","luiza"]},
@@ -1829,7 +1829,7 @@ window.CENARIOS = [
 
 {
   id:"AG-51", titulo:"Frenectomia lingual — limitação de mobilidade",
-  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`HÉLIO AUGUSTO PRADO, 8 anos, é trazido pelos pais com queixa de dificuldade na fala (trocas fonéticas) e avaliação fonoaudiológica confirmando anquiloglossia grau III. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda dos pais. Não tem alergias. Não usa medicamentos. A fonoaudióloga encaminhou para frenectomia lingual. Peso: 28 kg.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["hélio augusto prado","helio augusto prado","hélio augusto","helio augusto"]},
@@ -3312,7 +3312,7 @@ window.CENARIOS = [
 // ════════════════════════════════════════════
 {
   id:"CC-01", titulo:"Dor pós-extração com sinais de alveolite",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`Paciente masculino, 24 anos, retorna à clínica 3 dias após extração do dente 38. Relata dor intensa e constante que não cede com analgésico. Ao exame: alvéolo sem coágulo visível, paredes ósseas expostas, halitose intensa e dor à sondagem leve. O paciente admite ter fumado no dia seguinte à cirurgia e que fez bochechos com água morna para "limpar o local".`,
   personagem:{nome:"Paciente pós-extração",avatar:"paciente"},
   passos:[
@@ -3373,7 +3373,7 @@ window.CENARIOS = [
 
 {
   id:"CC-02", titulo:"Paciente hipertenso com necessidade de extração",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`Paciente feminina, 58 anos, chega para extração do dente 46 (cárie extensa, irrestaurável). Ao aferir a pressão arterial antes do procedimento: 172/104 mmHg. A paciente relata que toma losartana 50 mg/dia, mas esqueceu de tomar esta manhã. Nega dor de cabeça, alterações visuais ou outros sintomas. Não tem alergias a medicamentos.`,
   personagem:{nome:"Paciente hipertensa",avatar:"paciente"},
   passos:[
@@ -3925,7 +3925,7 @@ window.CENARIOS = [
 
 {
   id:"CC-13", titulo:"Impacto de medicamentos na saúde bucal",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente feminino, 45 anos, transplantada renal há 2 anos. Em uso de ciclosporina (imunossupressor). Comparece com queixa de gengiva crescida e avermelhada progressivamente nos últimos 8 meses. Ao exame: hiperplasia gengival generalizada, principalmente nas papilas interproximais, com sangramento à sondagem. Higiene oral deficiente.`,
   personagem:{nome:"Paciente transplantada",avatar:"paciente"},
   passos:[
@@ -4135,7 +4135,7 @@ window.CENARIOS = [
 
 {
   id:"CC-17", titulo:"Paciente com anticoagulante — cirurgia oral",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia",
   contexto:`Paciente masculino, 67 anos, em uso de varfarina (anticoagulante oral) por fibrilação atrial. INR atual: 2,4 (faixa terapêutica: 2,0-3,0). Necessita de extração do dente 16 (cárie extensa, irrestaurável). Cardiologista foi consultado e liberou para procedimento sem suspender a varfarina. PA: 132/84 mmHg.`,
   personagem:{nome:"Paciente anticoagulado",avatar:"paciente"},
   passos:[
@@ -4377,7 +4377,7 @@ window.CENARIOS = [
 
 {
   id:"CC-22", titulo:"Paciente em uso de bifosfonatos — extração dental",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia",
   contexto:`Paciente feminina, 68 anos, com osteoporose. Faz uso de alendronato 70 mg/semana há 7 anos. Necessita de extração do dente 27 (cárie extensa, irrestaurável). A paciente não tem histórico de osteorradionecrose nem lesões expostas. PA: 138/86 mmHg. Sem alergias.`,
   personagem:{nome:"Paciente com bifosfonato",avatar:"paciente"},
   passos:[
@@ -4482,7 +4482,7 @@ window.CENARIOS = [
 
 {
   id:"CC-24", titulo:"Halitose — investigação e conduta",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente masculino, 38 anos, queixa de mau hálito persistente relatado por familiares. Ao exame: saburra lingual posterior abundante, sangramento à sondagem em 4 sítios (gengivite leve), cáries ausentes. Sem xerostomia, sem próteses. O paciente é fumante. Sem refluxo, sinusite ou doenças sistêmicas conhecidas.`,
   personagem:{nome:"Paciente com halitose",avatar:"paciente"},
   passos:[
@@ -4526,7 +4526,7 @@ window.CENARIOS = [
 
 {
   id:"CC-25", titulo:"Trismo pós-anestesia — complicação",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`Paciente masculino, 30 anos, retorna 2 dias após extração do dente 48 com queixa de limitação de abertura bucal (abertura máxima: 18 mm). Sem febre nem edema. Refere que a extração foi longa (50 minutos) com múltiplas reinjeções de anestésico. Ao exame: sensibilidade à palpação do pterigóideo medial. Sem sinal de infecção.`,
   personagem:{nome:"Paciente com trismo pós-operatório",avatar:"paciente"},
   passos:[
@@ -4719,7 +4719,7 @@ window.CENARIOS = [
 
 {
   id:"CC-29", titulo:"Mucocele — diagnóstico e tratamento",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia",
   contexto:`Paciente masculino, 16 anos, com nódulo azulado no lábio inferior há 3 meses, crescimento lento, sem dor, consistência flutuante à palpação. A mãe relata que ele tem hábito de morder o lábio inferior frequentemente. Ao exame: lesão de 1,2 cm, séssil, bem delimitada, mucosa íntegra sobrejacente de coloração translúcida-azulada.`,
   personagem:{nome:"Adolescente com nódulo labial",avatar:"paciente"},
   passos:[
@@ -4824,7 +4824,7 @@ window.CENARIOS = [
 
 {
   id:"CC-31", titulo:"Odontossecção e extração complexa — dente 48",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia",
   contexto:`Paciente masculino, 26 anos, encaminhado para exodontia do dente 48 incluso mesioangular. Radiografia panorâmica: raízes em contato com o canal mandibular (sinal de interrupção da cortical), angulação mesioangular grau IIB (Winter). Sem inflamação ativa. Sem alergias. Não usa medicamentos. PA: 122/78 mmHg.`,
   personagem:{nome:"Paciente — extração de siso incluso",avatar:"paciente"},
   passos:[
@@ -4973,7 +4973,7 @@ window.CENARIOS = [
 
 {
   id:"CC-34", titulo:"Xerostomia — causas e manejo",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente feminina, 62 anos, queixa de boca seca constante há 1 ano, dificuldade de engolir alimentos secos e múltiplas cáries cervicais novas. Ao exame: mucosa ressecada, saliva espessa, múltiplas raízes cariadas. Faz uso de: amitriptilina (depressão), atenolol (hipertensão), hidroclorotiazida e lorazepam (ansiedade).`,
   personagem:{nome:"Paciente com xerostomia",avatar:"paciente"},
   passos:[

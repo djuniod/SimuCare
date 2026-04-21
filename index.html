@@ -805,7 +805,7 @@
                   <option value="">Todos</option>
                   <option value="agendamento">Agendamento (AG)</option>
                   <option value="materiais">Materiais (MAT)</option>
-                  <option value="clinico">Caso Clínico (CC)</option>
+                  <option value="multipla">Caso Clínico (CC)</option>
                 </select>
               </div>
               <div class="field"><label>Área</label>
@@ -3808,6 +3808,7 @@ function renderAlunosAdmin() {
         <h4>⚠️ ${alunosSemTurma.length} aluno(s) sem turma</h4>
         <p style="margin:0;font-size:12px;color:var(--text2)">Os seguintes alunos ainda não foram atribuídos a uma turma:</p>
         <div style="margin-top:8px">${alunosSemTurma.map(a => `<div style="font-size:12px;color:var(--text2);margin-bottom:4px">• ${a.primeiro} ${a.sobrenome}</div>`).join('')}</div>
+        <button class="btn-sm" style="margin-top:12px" onclick="limparAlunosSemTurma()">Limpar esses alunos</button>
       </div>`;
     }
   } else {
@@ -3849,6 +3850,24 @@ async function excluirAluno(alunoId) {
   if (error) { console.error(error); return alert('Erro ao excluir aluno.'); }
   await loadAllFromSupabase();
   renderAlunosAdmin();
+}
+
+async function limparAlunosSemTurma() {
+  const alunosSemTurma = state.alunos.filter(a => !a.turma);
+  if (alunosSemTurma.length === 0) {
+    alert('Nenhum aluno sem turma para limpar.');
+    return;
+  }
+  const nomes = alunosSemTurma.map(a => capitalize(a.primeiro)).join(', ');
+  if (!confirm(`Excluir ${alunosSemTurma.length} aluno(s) sem turma?\n\n${nomes}\n\nEsta ação não pode ser desfeita.`)) return;
+
+  for (const al of alunosSemTurma) {
+    const { error } = await sb.from('alunos').delete().eq('id', al.id);
+    if (error) console.error('Erro ao excluir:', error);
+  }
+  await loadAllFromSupabase();
+  renderAlunosAdmin();
+  alert('Alunos sem turma removidos com sucesso!');
 }
 
 function renderReflexoes() {
