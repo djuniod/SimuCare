@@ -10927,12 +10927,12 @@ window.CENARIOS = [
     "contexto": "Um paciente pergunta ao auxiliar: \"Quantas vezes por dia devo escovar os dentes?\" Qual é a resposta mais correta?",
     "opcoes": [
       {
-        "texto": "Pelo menos 2 vezes ao dia (manhã e noite), idealmente após refeições",
-        "correto": true
-      },
-      {
         "texto": "Uma vez ao dia é suficiente (de preferência à noite)",
         "correto": false
+      },
+      {
+        "texto": "Pelo menos 2 vezes ao dia (manhã e noite), idealmente após refeições",
+        "correto": true
       },
       {
         "texto": "3 a 4 vezes ao dia, sempre com força",
@@ -10965,16 +10965,16 @@ window.CENARIOS = [
     "contexto": "O auxiliar está orientando um paciente sobre o uso correto do fio dental. Em qual momento do dia o fio dental deve ser usado?",
     "opcoes": [
       {
-        "texto": "À noite, antes de dormir, após a escovação",
-        "correto": true
-      },
-      {
         "texto": "Apenas uma vez ao mês, para limpeza profunda",
         "correto": false
       },
       {
         "texto": "Somente quando há restos de comida visíveis",
         "correto": false
+      },
+      {
+        "texto": "À noite, antes de dormir, após a escovação",
+        "correto": true
       },
       {
         "texto": "Pela manhã, como substituto da escovação",
@@ -11003,10 +11003,6 @@ window.CENARIOS = [
     "contexto": "Um paciente apresenta manchas brancas/acinzentadas nos dentes. O auxiliar suspeita de fluorose. Qual é a principal causa dessa condição?",
     "opcoes": [
       {
-        "texto": "Excesso de flúor durante a formação dos dentes (infância)",
-        "correto": true
-      },
-      {
         "texto": "Falta de escovação adequada dos dentes",
         "correto": false
       },
@@ -11017,6 +11013,10 @@ window.CENARIOS = [
       {
         "texto": "Herança genética apenas",
         "correto": false
+      },
+      {
+        "texto": "Excesso de flúor durante a formação dos dentes (infância)",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11079,12 +11079,12 @@ window.CENARIOS = [
     "contexto": "Um auxiliar está se preparando para realizar limpeza supragengival em um paciente. Qual é o EPI (Equipamento de Proteção Individual) mais crítico nesse procedimento?",
     "opcoes": [
       {
-        "texto": "Luvas, máscara e protetor facial/óculos de proteção",
-        "correto": true
-      },
-      {
         "texto": "Apenas avental de proteção",
         "correto": false
+      },
+      {
+        "texto": "Luvas, máscara e protetor facial/óculos de proteção",
+        "correto": true
       },
       {
         "texto": "Apenas máscara cirúrgica",
@@ -11117,16 +11117,16 @@ window.CENARIOS = [
     "contexto": "Um técnico pergunta qual é o protocolo correto para higienização de mãos. Quando as mãos devem ser lavadas?",
     "opcoes": [
       {
-        "texto": "Antes e após atender cada paciente, antes de colocar luvas e após removê-las",
-        "correto": true
-      },
-      {
         "texto": "Apenas ao final do expediente",
         "correto": false
       },
       {
         "texto": "Apenas quando visualmente sujas",
         "correto": false
+      },
+      {
+        "texto": "Antes e após atender cada paciente, antes de colocar luvas e após removê-las",
+        "correto": true
       },
       {
         "texto": "Não é necessário se usar luvas",
@@ -11155,10 +11155,6 @@ window.CENARIOS = [
     "contexto": "Durante um procedimento, há exposição acidental de sangue de paciente na pele do auxiliar. Qual é a conduta imediata correta?",
     "opcoes": [
       {
-        "texto": "Lavar abundantemente com água e sabão, comunicar ao responsável e documentar",
-        "correto": true
-      },
-      {
         "texto": "Aplicar apenas álcool 70%",
         "correto": false
       },
@@ -11169,6 +11165,10 @@ window.CENARIOS = [
       {
         "texto": "Apenas limpar com papel e esperar",
         "correto": false
+      },
+      {
+        "texto": "Lavar abundantemente com água e sabão, comunicar ao responsável e documentar",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11231,12 +11231,12 @@ window.CENARIOS = [
     "contexto": "Os instrumentais odontológicos devem ser esterilizados após cada uso. Qual é o método mais confiável para esterilizar instrumentais de aço?",
     "opcoes": [
       {
-        "texto": "Autoclave a vapor (121°C, 15-20 minutos)",
-        "correto": true
-      },
-      {
         "texto": "Apenas lavar com água morna e sabão",
         "correto": false
+      },
+      {
+        "texto": "Autoclave a vapor (121°C, 15-20 minutos)",
+        "correto": true
       },
       {
         "texto": "Apenas desinfectar com álcool 70%",
@@ -11269,16 +11269,16 @@ window.CENARIOS = [
     "contexto": "Um auxiliar está preparando instrumentais para limpeza. Para que serve a sonda exploradora?",
     "opcoes": [
       {
-        "texto": "Detectar cáries, cálculos e alterações na superfície dental",
-        "correto": true
-      },
-      {
         "texto": "Remover placa bacteriana acima da gengiva",
         "correto": false
       },
       {
         "texto": "Polir os dentes",
         "correto": false
+      },
+      {
+        "texto": "Detectar cáries, cálculos e alterações na superfície dental",
+        "correto": true
       },
       {
         "texto": "Aplicar flúor nos dentes",
@@ -11307,10 +11307,6 @@ window.CENARIOS = [
     "contexto": "Durante o atendimento, o auxiliar usa o espelho intraoral. Qual é sua principal função?",
     "opcoes": [
       {
-        "texto": "Visualizar áreas de difícil acesso e refletir luz",
-        "correto": true
-      },
-      {
         "texto": "Aplicar flúor nos dentes posteriores",
         "correto": false
       },
@@ -11321,6 +11317,10 @@ window.CENARIOS = [
       {
         "texto": "Secar a boca do paciente",
         "correto": false
+      },
+      {
+        "texto": "Visualizar áreas de difícil acesso e refletir luz",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11383,12 +11383,12 @@ window.CENARIOS = [
     "contexto": "O raspador de tártaro (scaler) é usado em limpeza profissional. Qual é sua função?",
     "opcoes": [
       {
-        "texto": "Remover cálculos (tártaro) acima e abaixo da linha da gengiva",
-        "correto": true
-      },
-      {
         "texto": "Polir os dentes após limpeza",
         "correto": false
+      },
+      {
+        "texto": "Remover cálculos (tártaro) acima e abaixo da linha da gengiva",
+        "correto": true
       },
       {
         "texto": "Aplicar selador de fossetas",
@@ -11421,16 +11421,16 @@ window.CENARIOS = [
     "contexto": "A taça de borracha é acoplada a uma peça de mão. Para que ela serve?",
     "opcoes": [
       {
-        "texto": "Fazer polimento dental com pasta de profilaxia",
-        "correto": true
-      },
-      {
         "texto": "Remover cálculos",
         "correto": false
       },
       {
         "texto": "Anestesiar o dente",
         "correto": false
+      },
+      {
+        "texto": "Fazer polimento dental com pasta de profilaxia",
+        "correto": true
       },
       {
         "texto": "Aplicar flúor em gel",
@@ -11459,10 +11459,6 @@ window.CENARIOS = [
     "contexto": "O dique de borracha é usado em vários procedimentos. Qual é sua principal função?",
     "opcoes": [
       {
-        "texto": "Isolar o dente e área de trabalho, protegendo o paciente e facilitando o procedimento",
-        "correto": true
-      },
-      {
         "texto": "Secar os dentes após limpeza",
         "correto": false
       },
@@ -11473,6 +11469,10 @@ window.CENARIOS = [
       {
         "texto": "Apenas proteger o avental do paciente",
         "correto": false
+      },
+      {
+        "texto": "Isolar o dente e área de trabalho, protegendo o paciente e facilitando o procedimento",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11535,12 +11535,12 @@ window.CENARIOS = [
     "contexto": "O ácido fosfórico é usado em alguns procedimentos. Qual é sua função principal?",
     "opcoes": [
       {
-        "texto": "Preparar a superfície do dente para melhor adesão de materiais (selador, resina)",
-        "correto": true
-      },
-      {
         "texto": "Matar bactérias e desinfetar",
         "correto": false
+      },
+      {
+        "texto": "Preparar a superfície do dente para melhor adesão de materiais (selador, resina)",
+        "correto": true
       },
       {
         "texto": "Dessensibilizar o dente",
@@ -11573,16 +11573,16 @@ window.CENARIOS = [
     "contexto": "O selador de fossetas é um material preventivo. Qual é sua função?",
     "opcoes": [
       {
-        "texto": "Selar fossetas e fissuras para evitar cáries",
-        "correto": true
-      },
-      {
         "texto": "Remover cáries já existentes",
         "correto": false
       },
       {
         "texto": "Fazer branqueamento dental",
         "correto": false
+      },
+      {
+        "texto": "Selar fossetas e fissuras para evitar cáries",
+        "correto": true
       },
       {
         "texto": "Tratar inflamação gengival",
@@ -11611,10 +11611,6 @@ window.CENARIOS = [
     "contexto": "Na clínica, há disponível flúor em gel e em solução. Qual é a diferença de aplicação?",
     "opcoes": [
       {
-        "texto": "Gel é para aplicação tópica prolongada em moldeira; solução para bochecho rápido",
-        "correto": true
-      },
-      {
         "texto": "São iguais, apenas em formas diferentes",
         "correto": false
       },
@@ -11625,6 +11621,10 @@ window.CENARIOS = [
       {
         "texto": "Solução é mais forte e nunca deve ser usada",
         "correto": false
+      },
+      {
+        "texto": "Gel é para aplicação tópica prolongada em moldeira; solução para bochecho rápido",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11687,12 +11687,12 @@ window.CENARIOS = [
     "contexto": "Qual é a estrutura localizada logo abaixo do esmalte dentário?",
     "opcoes": [
       {
-        "texto": "Dentina (mais macia que o esmalte, com sensibilidade)",
-        "correto": true
-      },
-      {
         "texto": "Cemento",
         "correto": false
+      },
+      {
+        "texto": "Dentina (mais macia que o esmalte, com sensibilidade)",
+        "correto": true
       },
       {
         "texto": "Osso alveolar",
@@ -11725,16 +11725,16 @@ window.CENARIOS = [
     "contexto": "A polpa dentária está no interior do dente. Qual é sua função?",
     "opcoes": [
       {
-        "texto": "Nutrir e dar sensibilidade ao dente (contém vasos e nervos)",
-        "correto": true
-      },
-      {
         "texto": "Proteger o dente de atritos",
         "correto": false
       },
       {
         "texto": "Aumentar a dureza do esmalte",
         "correto": false
+      },
+      {
+        "texto": "Nutrir e dar sensibilidade ao dente (contém vasos e nervos)",
+        "correto": true
       },
       {
         "texto": "Apenas preencher o espaço vazio",
@@ -11763,10 +11763,6 @@ window.CENARIOS = [
     "contexto": "O cemento é encontrado na raiz do dente. Qual é sua função?",
     "opcoes": [
       {
-        "texto": "Fixar o dente ao osso alveolar através do ligamento periodontal",
-        "correto": true
-      },
-      {
         "texto": "Proteger a polpa do dente",
         "correto": false
       },
@@ -11777,6 +11773,10 @@ window.CENARIOS = [
       {
         "texto": "Apenas recobrir a raiz",
         "correto": false
+      },
+      {
+        "texto": "Fixar o dente ao osso alveolar através do ligamento periodontal",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11839,12 +11839,12 @@ window.CENARIOS = [
     "contexto": "Um técnico está começando uma limpeza profissional. Qual é a sequência correta de procedimentos?",
     "opcoes": [
       {
-        "texto": "1. Remover cálculo (scaler) 2. Escovar com taça 3. Aplicar flúor",
-        "correto": true
-      },
-      {
         "texto": "1. Aplicar flúor 2. Escovar com taça 3. Remover cálculo",
         "correto": false
+      },
+      {
+        "texto": "1. Remover cálculo (scaler) 2. Escovar com taça 3. Aplicar flúor",
+        "correto": true
       },
       {
         "texto": "1. Escovar com taça 2. Remover cálculo 3. Aplicar flúor",
@@ -11877,16 +11877,16 @@ window.CENARIOS = [
     "contexto": "Qual é o tempo médio recomendado para uma limpeza profissional (profilaxia)?",
     "opcoes": [
       {
-        "texto": "30 a 60 minutos (depende da quantidade de cálculo)",
-        "correto": true
-      },
-      {
         "texto": "5 minutos apenas",
         "correto": false
       },
       {
         "texto": "2 a 3 horas",
         "correto": false
+      },
+      {
+        "texto": "30 a 60 minutos (depende da quantidade de cálculo)",
+        "correto": true
       },
       {
         "texto": "Quanto menos tempo melhor",
@@ -11915,10 +11915,6 @@ window.CENARIOS = [
     "contexto": "Ao usar o scaler para remover cálculo, qual é o cuidado mais importante?",
     "opcoes": [
       {
-        "texto": "Usar movimentos suaves e não danificar o esmalte; evitar forçar",
-        "correto": true
-      },
-      {
         "texto": "Usar força máxima para remover rápido",
         "correto": false
       },
@@ -11929,6 +11925,10 @@ window.CENARIOS = [
       {
         "texto": "Não usar proteção individual",
         "correto": false
+      },
+      {
+        "texto": "Usar movimentos suaves e não danificar o esmalte; evitar forçar",
+        "correto": true
       }
     ],
     "competencias": [
@@ -11991,12 +11991,12 @@ window.CENARIOS = [
     "contexto": "Após a aplicação de flúor em gel, qual é a orientação importante para o paciente?",
     "opcoes": [
       {
-        "texto": "Não beber água, não comer nem falar muito por 30 minutos",
-        "correto": true
-      },
-      {
         "texto": "Beber bastante água imediatamente",
         "correto": false
+      },
+      {
+        "texto": "Não beber água, não comer nem falar muito por 30 minutos",
+        "correto": true
       },
       {
         "texto": "Comer alimentos ácidos para melhorar absorção",
@@ -12029,16 +12029,16 @@ window.CENARIOS = [
     "contexto": "Durante o atendimento, qual é a posição ergonomicamente correta para o auxiliar?",
     "opcoes": [
       {
-        "texto": "Posição 4 e 5 (atrás ou ao lado do paciente, coluna reta)",
-        "correto": true
-      },
-      {
         "texto": "De pé em qualquer posição",
         "correto": false
       },
       {
         "texto": "Sentado de frente para o paciente",
         "correto": false
+      },
+      {
+        "texto": "Posição 4 e 5 (atrás ou ao lado do paciente, coluna reta)",
+        "correto": true
       },
       {
         "texto": "Agachado",
@@ -12067,10 +12067,6 @@ window.CENARIOS = [
     "contexto": "A cadeira do paciente deve estar em qual altura durante o procedimento?",
     "opcoes": [
       {
-        "texto": "Altura que permita o auxiliar trabalhar com braços na altura do cotovelo (90°)",
-        "correto": true
-      },
-      {
         "texto": "Muito alta para facilitar visualização",
         "correto": false
       },
@@ -12081,6 +12077,10 @@ window.CENARIOS = [
       {
         "texto": "Qualquer altura",
         "correto": false
+      },
+      {
+        "texto": "Altura que permita o auxiliar trabalhar com braços na altura do cotovelo (90°)",
+        "correto": true
       }
     ],
     "competencias": [
@@ -12143,12 +12143,12 @@ window.CENARIOS = [
     "contexto": "Qual é o tempo recomendado de pausa a cada 2 horas de trabalho?",
     "opcoes": [
       {
-        "texto": "10 a 15 minutos para descanso e alongamento",
-        "correto": true
-      },
-      {
         "texto": "Trabalhar sem pausa o turno todo",
         "correto": false
+      },
+      {
+        "texto": "10 a 15 minutos para descanso e alongamento",
+        "correto": true
       },
       {
         "texto": "5 minutos apenas",
@@ -12181,16 +12181,16 @@ window.CENARIOS = [
     "contexto": "Como deve ser feito o transporte de materiais pesados na clínica?",
     "opcoes": [
       {
-        "texto": "Dobrar as pernas, manter a coluna reta e aproximar o objeto do corpo",
-        "correto": true
-      },
-      {
         "texto": "Dobrar a coluna e levantar com os braços",
         "correto": false
       },
       {
         "texto": "Torcer o tronco enquanto levanta",
         "correto": false
+      },
+      {
+        "texto": "Dobrar as pernas, manter a coluna reta e aproximar o objeto do corpo",
+        "correto": true
       },
       {
         "texto": "Arrastrar o objeto no chão",
@@ -12219,10 +12219,6 @@ window.CENARIOS = [
     "contexto": "Um paciente relata dor durante a limpeza. Qual é a ação correta do auxiliar?",
     "opcoes": [
       {
-        "texto": "Parar imediatamente, avisar o dentista e oferecer anestesia se necessário",
-        "correto": true
-      },
-      {
         "texto": "Continuar o procedimento ignorando a dor",
         "correto": false
       },
@@ -12233,6 +12229,10 @@ window.CENARIOS = [
       {
         "texto": "Remover apenas o instrumento e deixar o paciente esperando",
         "correto": false
+      },
+      {
+        "texto": "Parar imediatamente, avisar o dentista e oferecer anestesia se necessário",
+        "correto": true
       }
     ],
     "competencias": [
@@ -12295,12 +12295,12 @@ window.CENARIOS = [
     "contexto": "Um paciente apresenta gengivite severa com sangramento abundante. Qual é a conduta?",
     "opcoes": [
       {
-        "texto": "Realizar limpeza suave, orientar sobre higiene e marcar reavaliação",
-        "correto": true
-      },
-      {
         "texto": "Realizar raspagem profunda imediatamente",
         "correto": false
+      },
+      {
+        "texto": "Realizar limpeza suave, orientar sobre higiene e marcar reavaliação",
+        "correto": true
       },
       {
         "texto": "Não fazer nada, apenas orientar",
@@ -12333,16 +12333,16 @@ window.CENARIOS = [
     "contexto": "Um paciente relata alergia a látex. Qual é o procedimento correto?",
     "opcoes": [
       {
-        "texto": "Usar luvas e equipamentos sem látex durante todo atendimento",
-        "correto": true
-      },
-      {
         "texto": "Usar luvas de látex normalmente (alergia é rara)",
         "correto": false
       },
       {
         "texto": "Não usar nenhuma proteção",
         "correto": false
+      },
+      {
+        "texto": "Usar luvas e equipamentos sem látex durante todo atendimento",
+        "correto": true
       },
       {
         "texto": "Usar apenas látex de qualidade premium",
@@ -12371,10 +12371,6 @@ window.CENARIOS = [
     "contexto": "Um paciente desenvolve reação alérgica (prurido, inchaço de lábios) durante atendimento. Qual é a ação?",
     "opcoes": [
       {
-        "texto": "Parar procedimento, avisar dentista, remover agente causador, manter paciente calmo, chamar socorro se necessário",
-        "correto": true
-      },
-      {
         "texto": "Continuar o procedimento normalmente",
         "correto": false
       },
@@ -12385,6 +12381,10 @@ window.CENARIOS = [
       {
         "texto": "Deixar o paciente sair da sala sozinho",
         "correto": false
+      },
+      {
+        "texto": "Parar procedimento, avisar dentista, remover agente causador, manter paciente calmo, chamar socorro se necessário",
+        "correto": true
       }
     ],
     "competencias": [

@@ -1305,13 +1305,43 @@ function getTurmaNome(turmaId) {
   return t ? t.nome : null;
 }
 
+// -- GERADOR DE BRASÕES SVG ------------------------------------------
+function generateBadgeSVG(level) {
+  const colors = {
+    'Bronze': { outer: '#cd7f32', outer2: '#8b6914', inner: '#d4af37' },
+    'Prata': { outer: '#a9a9a9', outer2: '#808080', inner: '#c0c0c0' },
+    'Ouro': { outer: '#ffd700', outer2: '#ffed4e', inner: '#ffed4e' },
+    'Diamante': { outer: '#00d4ff', outer2: '#1dd1a1', inner: '#1dd1a1' }
+  };
+
+  const c = colors[level];
+  return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <!-- Círculo externo -->
+    <circle cx="100" cy="100" r="95" fill="${c.outer}" stroke="${c.outer2}" stroke-width="4"/>
+    <!-- Brilho interno -->
+    <circle cx="100" cy="100" r="85" fill="url(%23grad${level})"/>
+    <!-- Coroa/estrela dentro -->
+    <g transform="translate(100,100)">
+      <!-- Picos de coroa -->
+      <polygon points="0,-45 12,-20 8,-35 20,-15 5,-25 25,-5 10,-10 30,5 15,0 25,20 10,10 15,30 0,15 -15,30 -10,10 -25,20 -15,0 -30,5 -10,-10 -25,-5 -5,-25 -20,-15 -8,-35 -12,-20" fill="${c.inner}" opacity="0.85"/>
+    </g>
+    <!-- Definição do gradiente -->
+    <defs>
+      <radialGradient id="grad${level}">
+        <stop offset="0%" style="stop-color:${c.inner};stop-opacity:0.9" />
+        <stop offset="100%" style="stop-color:${c.outer};stop-opacity:0.6" />
+      </radialGradient>
+    </defs>
+  </svg>`;
+}
+
 // -- DASHBOARD ALUNO ------------------------------------------------
 function calculateLevel(totalPoints) {
   const levels = [
-    { name: 'Bronze', badge: '🥉', minPoints: 0, maxPoints: 100, color: 'bronze' },
-    { name: 'Prata', badge: '🥈', minPoints: 101, maxPoints: 200, color: 'prata' },
-    { name: 'Ouro', badge: '🥇', minPoints: 201, maxPoints: 350, color: 'ouro' },
-    { name: 'Diamante', badge: '💎', minPoints: 351, maxPoints: Infinity, color: 'diamante' }
+    { name: 'Bronze', badge: 'SVG', minPoints: 0, maxPoints: 100, color: 'bronze' },
+    { name: 'Prata', badge: 'SVG', minPoints: 101, maxPoints: 200, color: 'prata' },
+    { name: 'Ouro', badge: 'SVG', minPoints: 201, maxPoints: 350, color: 'ouro' },
+    { name: 'Diamante', badge: 'SVG', minPoints: 351, maxPoints: Infinity, color: 'diamante' }
   ];
   const currentLevel = levels.find(l => totalPoints >= l.minPoints && totalPoints <= l.maxPoints);
   const nextLevel = levels.find(l => l.minPoints > totalPoints);
@@ -1339,11 +1369,14 @@ function renderDashboard() {
   const progressPercent = Math.min(100, ((totalPoints - levelData.current.minPoints) / (levelData.current.maxPoints - levelData.current.minPoints)) * 100);
   const nextLevelText = levelData.next ? `${levelData.next.minPoints - totalPoints} pontos para ${levelData.next.name}` : 'Máximo nível atingido!';
 
-  // Badges simples: círculos com estrelas
+  // Badges padronizados: círculos com três estrelas (coroa)
+  // Design unificado para todos os níveis - apenas cores mudam
   const badgesByLevel = {
     'Bronze': `<svg width="90" height="90" viewBox="0 0 90 90" style="display:inline-block">
       <circle cx="45" cy="45" r="40" fill="#cd7f32" stroke="#8b5a2b" stroke-width="2"/>
-      <polygon points="45,25 50,40 65,40 53,50 58,65 45,55 32,65 37,50 25,40 40,40" fill="#ffd700"/>
+      <polygon points="45,20 50,32 63,32 52,42 57,55 45,45 33,55 38,42 27,32 40,32" fill="#d4af37"/>
+      <polygon points="35,25 39,35 49,35 41,42 44,55 35,48 26,55 29,42 21,35 31,35" fill="#d4af37"/>
+      <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#d4af37"/>
     </svg>`,
     'Prata': `<svg width="90" height="90" viewBox="0 0 90 90" style="display:inline-block">
       <circle cx="45" cy="45" r="40" fill="#c0c0c0" stroke="#666666" stroke-width="2"/>
@@ -1358,7 +1391,7 @@ function renderDashboard() {
       <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#ffed4e"/>
     </svg>`,
     'Diamante': `<svg width="90" height="90" viewBox="0 0 90 90" style="display:inline-block">
-      <polygon points="45,20 65,45 45,70 25,45" fill="#00d4ff" stroke="#0066aa" stroke-width="2"/>
+      <circle cx="45" cy="45" r="40" fill="#00d4ff" stroke="#0066aa" stroke-width="2"/>
       <polygon points="45,20 50,32 63,32 52,42 57,55 45,45 33,55 38,42 27,32 40,32" fill="#ffffff"/>
       <polygon points="35,25 39,35 49,35 41,42 44,55 35,48 26,55 29,42 21,35 31,35" fill="#ffffff"/>
       <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#ffffff"/>
