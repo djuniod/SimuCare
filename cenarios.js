@@ -5331,3 +5331,1159 @@ window.CENARIOS = [
 }
 
 ];
+
+// ════════════════════════════════════════════════════════════════════
+// 30 NOVOS CENÁRIOS — Situações Difíceis e Desafiadoras
+// CC-41 a CC-55 (15 Casos Clínicos) + AG-61 a AG-75 (15 Agendamentos)
+// ════════════════════════════════════════════════════════════════════
+
+// ══════════════════════ CASOS CLÍNICOS DIFÍCEIS (CC-41 a CC-55) ══════════════════════
+
+{
+  id:"CC-41", titulo:"Paciente atrasado chega nervoso e desconfiado",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação",
+  contexto:`Paciente masculino, 38 anos, chegou 45 minutos ATRASADO para a consulta marcada. Entra na sala irritado, dizendo que "espera não vai resolver o meu problema de dor". Tem dor de dente há 3 dias, quer solução IMEDIATA. Ao exame: cárie em dentina no dente 36, polpa exposta, inflamação periapical. Paciente interrompe você várias vezes e questiona: "Quanto vai custar? Vai doer?". Está com pressa e diz que tem reunião em 20 minutos.`,
+  personagem:{nome:"Paciente irritado — atrasado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Manejo comportamental",
+      pergunta:"Como você iniciaria a conversa com este paciente para ganhar sua confiança apesar da irritação e pressa?",
+      opcoes:[
+        {letra:"A", texto:"Começar imediatamente o diagnóstico e tratamento para não perder tempo — paciente já está irritado"},
+        {letra:"B", texto:"Validar sua fruição ('Entendo que você está com pressa e com dor'), dar prognóstico realista em 2 minutos, propor solução emergencial (analgésico + antibiótico) e remarcar"},
+        {letra:"C", texto:"Explicar que precisa de 1 hora, que ele deveria ter chegado no horário, e que terá que esperar"},
+        {letra:"D", texto:"Oferecer desconto imediatamente para acalmar o paciente"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Começar precipitadamente pode levar a erro diagnóstico ou iatrogenia. Paciente irritado + pressa = alto risco de complicações.",
+        B:"Correto. Validação empática + prognóstico rápido + proposta viável (analgésico + antibiótico + anestésico tópico para polpa exposta + agendamento próximo) mantém a confiança. Em 5-7 minutos você resolva a emergência sem prejudicar o tratamento definitivo.",
+        C:"Culpar o paciente piora o relacionamento e afasta o paciente — não é a abordagem adequada.",
+        D:"Oferecer desconto sem diagnóstico consolidado é improfissional e cria expectativa de que preço é negoziável."
+      }
+    },
+    {
+      fase:"Planejamento com restrição de tempo",
+      pergunta:"Qual seria a conduta ADEQUADA diante da polpa exposta, dor intensa e restrição de tempo?",
+      opcoes:[
+        {letra:"A", texto:"Fazer RCT completo agora (60-90 min) mesmo com paciente com pressa"},
+        {letra:"B", texto:"Prescrever apenas analgésicos e antibióticos e deixar para depois"},
+        {letra:"C", texto:"Acesso + remoção da polpa vitalizada + medicação intracanal + fechamento provisório (15-20 min). RCT completo em sessão posterior"},
+        {letra:"D", texto:"Extrair o dente para 'resolver' rápido"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Fazer RCT em paciente com pressa e irritado aumenta risco de erro e insatisfação. Melhor controlar a emergência primeiro.",
+        B:"Deixar apenas com analgésico/antibiótico sem alívio da pressão pulpar piora a dor e pode levar a necrose e abscesso.",
+        C:"Correto. Acesso + remoção da polpa vitalizada alivia IMEDIATAMENTE a dor (pressão intrapulpar cai), medicação intracanal controla inflamação, fechamento provisório sela. RCT completo em 3-4 dias quando paciente está menos pressionado.",
+        D:"Extração é irreversível — sempre tentar preservar o dente primeiro."
+      }
+    }
+  ],
+  competencias:[9,8,7,6,8,8,7,8]
+},
+
+{
+  id:"CC-42", titulo:"Paciente questiona esterilização do instrumental",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Biossegurança",
+  contexto:`Paciente feminina, 31 anos, vem para restauração de cárie no dente 24. Educação superior (farmacêutica). ANTES de você começar, ela pergunta: "Como vocês esterilizam os instrumentos? Qual é a temperatura? Qual é o tempo? Vocês usam autoclave de verdade ou só limpam?". Parece desconfiada da segurança. Você nota que ela está observando tudo com atenção criteriosa.`,
+  personagem:{nome:"Paciente desconfiada — educada",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Transparência sobre protocolos",
+      pergunta:"Como você responderia com segurança PROFISSIONAL e HONESTA para convencer esta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Dizer que 'tudo é bem esterilizado, não se preocupe' — mantém resposta genérica"},
+        {letra:"B", texto:"Explicar o protocolo ESPECÍFICO: autoclave a 121°C, 15-20 min, pressão 15 psi; mostrar o equipamento; explicar que rotina é diária; oferecer ver o livro de manutenção/calibração"},
+        {letra:"C", texto:"Admitir que a clínica 'às vezes' tem dificuldades com esterilização mas que 'no geral é seguro'"},
+        {letra:"D", texto:"Mudar de assunto rápido para não parecer que há problema"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Resposta vaga alimenta desconfiança. Paciente educada vai perceberque você não domina o protocolo.",
+        B:"Correto. Transparência ESPECÍFICA (temperatura, tempo, pressão) + mostrar equipamento + comprovar rotina de calibração/manutenção = confiança genuína. Paciente desconfiada QUER ser convencida com dados, não com promessas.",
+        C:"Admitir inconsistência destrói credibilidade e coloca paciente em risco real.",
+        D:"Mudar de assunto é desonesto e aumenta suspeita."
+      }
+    },
+    {
+      fase:"Documentação de segurança",
+      pergunta:"Que documentação você deveria ter À MÃO para sustentar a segurança de esterilização?",
+      opcoes:[
+        {letra:"A", texto:"Nenhuma — é responsabilidade da clínica, não do dentista"},
+        {letra:"B", texto:"Certificado de calibração da autoclave (anual), registro de manutenção, protocolo escrito, embalagens com indicador químico"},
+        {letra:"C", texto:"Apenas recibo da compra da autoclave"},
+        {letra:"D", texto:"Foto do equipamento é suficiente"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Documentação é responsabilidade COLETIVA — você deve conhecer e poder comprovar.",
+        B:"Correto. Certificado anual de calibração + registro de manutenção preventiva + protocolo escrito + indicadores químicos em cada embalagem = auditoria completa. Tudo deve estar ACESSÍVEL.",
+        C:"Recibo de compra prova compra, não que funciona corretamente.",
+        D:"Foto não prova calibração ou funcionamento."
+      }
+    }
+  ],
+  competencias:[8,7,8,9,9,7,6,8]
+},
+
+{
+  id:"CC-43", titulo:"Paciente descobre que falta material durante o atendimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Gestão",
+  contexto:`Você está no meio de uma restauração em resina do dente 14 quando percebe que o consultório NÃO TEM a resina da cor correta (A2) em estoque — só tem A1 (muito clara) e A3 (muito escura). Paciente já está com boca aberta, dente preparado, isolamento feito. Ele pergunta: "Tá tudo certo? Por que você parou?". Você não pode voltar atrás agora.`,
+  personagem:{nome:"Paciente — esperando",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Comunicação honesta",
+      pergunta:"Como você comunicaria o problema ao paciente AGORA, mantendo confiança?",
+      opcoes:[
+        {letra:"A", texto:"Fingir que tudo está bem e usar cor incorreta 'por enquanto'"},
+        {letra:"B", texto:"Dizer que 'não está funcionando bem' e cobrar para refazer depois"},
+        {letra:"C", texto:"Explicar HONESTAMENTE: 'Descobri que a cor exata não está disponível agora. Tenho 2 opções: 1) usar cor aproximada hoje (pode precisar ajuste depois) ou 2) reagendar em 2 dias quando chegar o material correto. O que você prefere?'"},
+        {letra:"D", texto:"Culpar o assistente ou equipe de estoque"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Usar material incorreto prejudica resultado final e quebra confiança quando paciente descobre a discrepância de cor.",
+        B:"Cobrar para refazer por erro da clínica é injusto com paciente.",
+        C:"Correto. Honestidade + oferecer OPÇÕES permite paciente decidir. Se escolhe cor aproximada: anota na ficha a necessidade de polimento futurista; se reagenda: mostra que qualidade é prioridade.",
+        D:"Culpar equipe não resolve problema e piora a situação perante paciente."
+      }
+    },
+    {
+      fase:"Prevenção sistêmica",
+      pergunta:"Como ESTRUTURALMENTE evitar este cenário?",
+      opcoes:[
+        {letra:"A", texto:"Checklist de materiais ANTES de cada procedimento (cor, tamanho, validade)"},
+        {letra:"B", texto:"Confiar apenas na memória do assistente"},
+        {letra:"C", texto:"Comprar materiais em grande quantidade genérica"},
+        {letra:"D", texto:"Não é responsabilidade do dentista, é do estoque"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Protocolo: separar os materiais específicos para cada paciente 5-10 min antes do atendimento + verificar cor, tamanho, validade. Previne 90% dos problemas.",
+        B:"Memória humana falha regularmente.",
+        C:"Comprar genérico não garante que tenha COR CORRETA quando precisar.",
+        D:"Gestão de estoque é responsabilidade COMPARTILHADA — dentista tem dever de verificar antes de começar."
+      }
+    }
+  ],
+  competencias:[8,9,7,7,8,8,7,7]
+},
+
+{
+  id:"CC-44", titulo:"Acompanhante agressivo interfere no atendimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Comunicação",
+  contexto:`Você está fazendo profilaxia no dente 25 de uma paciente (mulher, 42 anos) quando o ACOMPANHANTE (marido) começa a gritar: "Quanto tá custando isso? Por que demoraaaa? Você tá cobrando pra quê?". Ele interrompe constantemente, questiona cada passo. A paciente está constrangida. Você ainda tem 15 minutos de procedimento.`,
+  personagem:{nome:"Paciente constrangida + acompanhante agressivo",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Estabelecer limite profissional",
+      pergunta:"Qual é a abordagem MAIS ADEQUADA?",
+      opcoes:[
+        {letra:"A", texto:"Parar o procedimento e discutir preço com o acompanhante NOW"},
+        {letra:"B", texto:"Ignorar os gritos e continuar — não é problema seu"},
+        {letra:"C", texto:"Pausar procedimento, olhar para o acompanhante com confiança, dizer: 'Entendo a preocupação. Posso falar melhor os detalhes DEPOIS que terminar. Agora preciso de silêncio para fazer o melhor trabalho.' Retomar. Se continuar: pausar novamente e pedir que ele aguarde na recepção."},
+        {letra:"D", texto:"Chamar segurança imediatamente"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Parar e discutir dá poder ao acompanhante agressivo. Preço deve ser discutido com paciente (tomadora de decisão), não com acompanhante.",
+        B:"Ignorar afeta qualidade do trabalho e conforto da paciente.",
+        C:"Correto. Afirmação CLARA e CALMA de limite profissional + oferta de conversa DEPOIS estabelece autoridade sem confronto direto. Se insistir: formalizar pedido de saída (documento). Protege segurança emocional da paciente.",
+        D:"Chamar segurança é última opção — validação + limite verbal geralmente resolve."
+      }
+    },
+    {
+      fase:"Proteção da paciente",
+      pergunta:"Que preocupação você deveria ter com a paciente neste cenário?",
+      opcoes:[
+        {letra:"A", texto:"Nenhuma — é uma situação financeira normal entre casal"},
+        {letra:"B", texto:"Possível abuso ou controle coercitivo — padrão 'controlador monitora' pode indicar relação tóxica"},
+        {letra:"C", texto:"A paciente gosta de atenção, por isso o marido está ali"},
+        {letra:"D", texto:"É assunto privado, você não deve se envolver"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Monitoramento agressivo + constrangimento pode ser sinal de controle coercitivo ou abuso.",
+        B:"Correto. Padrão: acompanhante agressivo + fiscalização de gastos + constrangimento da paciente = bandeira vermelha para relação tóxica. Como profissional de saúde, você CAN e DEVE reconhecer. Não precisa confrontar, mas: ofereça espaço seguro ('Se precisar, temos atendimento privado'), tenha informações de proteção à mulher, documente comportamento.",
+        C:"Constrangimento genuíno ≠ busca de atenção.",
+        D:"Saúde biopsicossocial é sua responsabilidade — ignorar negligencia."
+      }
+    }
+  ],
+  competencias:[9,8,8,7,8,9,8,8]
+},
+
+{
+  id:"CC-45", titulo:"Paciente mãe questiona anestesia — risco de síncope",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação",
+  contexto:`Mãe traz filha de 9 anos para restauração. ANTES de qualquer coisa, ela diz: "Minha filha NUNCA tomou injeção no dente. Estou com medo que ela desmaie ou tenha reação à anestesia. Vocês têm que fazer SEM anestesia porque ela é alérgica a medicamento." (Ao exame: paciente não relata alergia confirmada, apenas "mãe acha").`,
+  personagem:{nome:"Mãe ansiosa + criança assustada",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Escuta ativa e validação",
+      pergunta:"Como você abordaria a mãe PRIMEIRO, antes de conversar com a criança?",
+      opcoes:[
+        {letra:"A", texto:"Dizer que 'não pode fazer sem anestesia' — fecha a conversa"},
+        {letra:"B", texto:"Validar o medo ('Entendo que você se preocupa'), perguntar ESPECIFICAMENTE que tipo de reação ela observou, explicar que alergia a anestésico é RARA, oferecer teste de alergia se necessário, mas na maioria das vezes é ansiedade da MÃE que passa para criança"},
+        {letra:"C", texto:"Fazer de qualquer jeito SEM anestesia para satisfazer a mãe"},
+        {letra:"D", texto:"Oferecer sedação intravenosa como 'solução'"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Recusa sem diálogo aumenta desconfiança e afasta a família.",
+        B:"Correto. Alergia real a anestésico local é EXTREMAMENTE rara (~0,5%). Na maioria: mãe ansiosa + criança absorve ansiedade = síncope vasovagal (não alergia). Validar medo da mãe + questionar ESPECIFICAMENTE + oferecer teste (benzoíno se há dúvida) = confiança. Geralmente mãe confia depois.",
+        C:"Restauração SEM anestesia em criança = trauma dental permanente + risco de acidente com criança se mexer.",
+        D:"Sedação IV é invasivo e desnecessário neste caso — resolve ansiedade materna, não a da criança."
+      }
+    },
+    {
+      fase:"Manejo da criança",
+      pergunta:"Se a mãe autorizar anestesia (após diálogo), como você prepararia APENAS a criança?",
+      opcoes:[
+        {letra:"A", texto:"Ser 'honesto demais': 'Vai doer, mas é importante'"},
+        {letra:"B", texto:"Tell-Show-Do: explicar em palavras simples ('vou dormir o dente'), MOSTRAR seringa (sem agulha visível), fazer com gesto firme + rápido. Elogiar: 'Que corajosa!'"},
+        {letra:"C", texto:"Distrair com tela e fones, fazer sem avisar para 'não assustar'"},
+        {letra:"D", texto:"Pedir à mãe que saia e deixar criança sozinha para 'ser bravo'"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Honestidade excessiva gera medo em criança.",
+        B:"Correto. Tell-Show-Do funciona melhor em pediátricos: linguagem simples + mostrar (sem agulha em vista) + ação rápida + reforço positivo. Mãe na sala ( não muito perto) ajuda.",
+        C:"Sem aviso = traição (perda de confiança), não proteção.",
+        D:"Isolar criança aumenta medo exponencialmente."
+      }
+    }
+  ],
+  competencias:[9,8,7,8,8,9,7,9]
+},
+
+{
+  id:"CC-46", titulo:"Paciente relata sangramento após procedimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Emergência",
+  contexto:`Paciente liga 2 horas após você fazer uma extração simples (dente 45). Ele relata: "Ainda está sangrando, já troquei de gaze 5 vezes. Tô preocupado." Você confirmou na extração que não havia problema de coagulação (não toma anticoagulante, sem histórico). O sangramento deve ter parado em 10 minutos. Agora está com 2 horas.`,
+  personagem:{nome:"Paciente assustado — pós-extração",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação telefônica",
+      pergunta:"Qual é sua PRIMEIRA ação?",
+      opcoes:[
+        {letra:"A", texto:"Dizer que 'é normal' e desligar — deixar paciente ansioso"},
+        {letra:"B", texto:"Fazer perguntas focadas: sangramento ATIVO ou OOZING? Sangue puro ou misto com saliva? Pressão com gaze? Coágulo saiu? Febre? Inchaço?"},
+        {letra:"C", texto:"Mandar paciente para emergência IMEDIATAMENTE sem avaliar"},
+        {letra:"D", texto:"Marcar retorno em 3 dias para ver"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Abandono emocional. Paciente pode perder confiança ou deixar sangrar.",
+        B:"Correto. Perguntas diagnósticas diretas: sangramento ativo puro = problema real. Oozing + saliva = normal prolongado. Coágulo saiu = alveolite (refazer curativo). Febre/inchaço = infecção. Reabilitação em consultório vs urgência depende das respostas.",
+        C:"Pode ser necessário, mas sem avaliação adequada você pode mandar paciente desnecessariamente ou não reconhecer verdadeiro problema.",
+        D:"3 dias é tempo demais se sangramento ativo."
+      }
+    },
+    {
+      fase:"Manejo em consultório (se possível)",
+      pergunta:"Se sangramento está controlável, qual é o protocolo?",
+      opcoes:[
+        {letra:"A", texto:"Não fazer nada — deixar tempo passar"},
+        {letra:"B", texto:"Gaze com pressão 20 min + irrigação com soro (remover coágulo solto) + injetar trombina ou ácido tranexâmico se sangra muito + curativo com ácido carboxílico ou colágeno + repouso/elevação"},
+        {letra:"C", texto:"Fazer nova extração para 'resolver'"},
+        {letra:"D", texto:"Prescrever apenas analgésico"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Tempo passivo pode permitir sangramento contínuo ou alveolite.",
+        B:"Correto. Protocolo hemostático: gaze com pressão + limpeza + hemostático tópico (trombina, ácido tranexâmico, colágeno) + curativo + instruções (nada quente, não cuspir, não beber com canudo, dormir elevado). Se persiste → encaminhar para cirurgião.",
+        C:"Desnecessário e gera trauma adicional.",
+        D:"Analgésico NÃO para sangramento."
+      }
+    }
+  ],
+  competencias:[8,8,8,8,8,8,7,7]
+},
+
+{
+  id:"CC-47", titulo:"Paciente oferece pagamento a menos + pressão para desconto",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Ética",
+  contexto:`Você realizou tratamento periodontal básico (sessão de limpeza + curetagem + instrução de higiene). Valor combinado: R$ 450. Na hora de pagar, paciente oferece: "Tô sem dinheiro agora. Você faz por R$ 250?" Você PRECISA pagar a equipe (higienista, assistente), aluguel do espaço. Paciente insiste: "Olha, eu recomendo você pra todo mundo. Faz esse preço!"`.
+  personagem:{nome:"Paciente com restrição financeira",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Negociação ética",
+      pergunta:"Como você responderia PROFISSIONALMENTE?",
+      opcoes:[
+        {letra:"A", texto:"Aceitar R$ 250 para não perder paciente — compensar compleição depois"},
+        {letra:"B", texto:"Recusar: 'O preço é R$ 450, pague ou não recebe o tratamento'"},
+        {letra:"C", texto:"Explicar: 'Entendo a dificuldade. O valor contempla equipe, material e espaço. Opções: 1) parcelar em 2x R$ 225; 2) você vem em 6 meses sem custo para acompanhamento se fizer higiene caseira bem; 3) retornamos quando tiver capacidade. Qual prefere?'"},
+        {letra:"D", texto:"Oferecer pacote descontado se ele trazer outros pacientes"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Aceitar menos desvaloriza seu trabalho + cria expectativa de que preço é negoviável + prejudica equipe que não recebe integral.",
+        B:"Rigidez sem empatia afasta paciente e não resolve o problema.",
+        C:"Correto. Validar dificuldade + explicar custos + oferecer opções viáveis (parcelamento, acompanhamento, reagendamento) mostra profissionalismo + respeito à paciente + preserva relacionamento.",
+        D:"Oferecer desconto por indicação é armadilha — paciente passa a trazer gente 'esperando desconto'."
+      }
+    },
+    {
+      fase:"Estrutura de preço",
+      pergunta:"Como estruturalmente evitar este conflito?",
+      opcoes:[
+        {letra:"A", texto:"Nunca discutir preço — deixar secretária informar"},
+        {letra:"B", texto:"Ter política clara ANTES do atendimento: preço fixo, formas de pagamento (à vista, parcelamento, cartão), planos de desconto documentados"},
+        {letra:"C", texto:"Cobrar cada procedimento isolado com preço diferente para confundir"},
+        {letra:"D", texto:"Aceitar calote regular — 'é bom para a reputação'"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Evitar conversa = conflito pós-atendimento.",
+        B:"Correto. TRANSPARÊNCIA PRÉVIA: tabela de preços visível + opções de pagamento claras + política de desconto documentada (ex: 10% à vista, 3x sem juros no cartão) + escrito = nenhuma surpresa.",
+        C:"Confusão deliberada é desonestidade.",
+        D:"Calote regular destrói a prática financeira."
+      }
+    }
+  ],
+  competencias:[8,7,7,9,7,8,8,7]
+},
+
+{
+  id:"CC-48", titulo:"Diagnóstico anterior está ERRADO — como comunicar?",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Comunicação",
+  contexto:`Paciente volta para você com radiografia e diagnóstico de colega: "cárie no dente 26, superficial". Você examina, faz radiografia, vê que NÃO é cárie em 26 — é CÁLCULO subgengival + periodontite leve + possível cárie em 27 (não mencionada). Você precisa comunicar que o diagnóstico anterior estava ERRADO, sem ofender o colega nem perder a confiança do paciente.`,
+  personagem:{nome:"Paciente confuso — segundo diagnóstico",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Comunicação honesta",
+      pergunta:"Como você comunicaria isto ao paciente?",
+      opcoes:[
+        {letra:"A", texto:"Dizer que 'o colega errou feio' e criticar"},
+        {letra:"B", texto:"Concordar com diagnóstico anterior e não mudar nada"},
+        {letra:"C", texto:"Apresentar SEUS ACHADOS: 'Fiz uma avaliação nova e encontrei achados diferentes. Em 26 vejo cálculo subgengival (que pode parecer escuro na radiografia, mas não é cárie). Em 27 vejo possível cárie que não foi mencionada antes. Vou aprofundar o diagnóstico com exame intraoral + radiografias adicionais se necessário. Quer que eu continue?'"},
+        {letra:"D", texto:"Ignorar o diagnóstico anterior e não mencionar"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Criticar colega destrói confiança profissional (na classe inteira) e oferece pouco valor ao paciente.",
+        B:"Deixar erro sem correção prejudica paciente.",
+        C:"Correto. Você comunica SEUS achados (não 'erro do colega'), oferece explicação simples, propõe aprofundamento. Respeita colega + protege paciente + mostra diligência.",
+        D:"Omitir informação é desonesto."
+      }
+    },
+    {
+      fase:"Próximos passos profissionais",
+      pergunta:"Você deveria fazer algo mais?",
+      opcoes:[
+        {letra:"A", texto:"Nada — cada um cuida de seu paciente"},
+        {letra:"B", texto:"Ligar para o colega DEPOIS (não na frente do paciente) e comentar os achados para ele atualizar seu conhecimento ou protocolo"},
+        {letra:"C", texto:"Fazer queixa no conselho"},
+        {letra:"D", texto:"Publicar o caso em redes sociais criticando o colega"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Profissionalismo implica colaboração e educação continuada.",
+        B:"Correto. Contato PRIVADO com colega é educacional, construtivo e respeitoso. Pode ser: 'Oi, vi seu paciente (nome/data). Achei achados diferentes em 26 — pode ser cálculo vs cárie por ângulo radiográfico. Queria compartilhar. Você costuma fazer cálculo?'. Melhora protocolo dele sem ofender.",
+        C:"Queixa ao conselho é para negligência grave, não para divergência diagnóstica normal.",
+        D:"Desonroso."
+      }
+    }
+  ],
+  competencias:[9,9,8,7,8,8,7,9]
+},
+
+{
+  id:"CC-49", titulo:"Paciente relata uso de crack — como proceder?",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Saúde Pública",
+  contexto:`Durante triagem, paciente masculino, 34 anos, responde HONESTAMENTE quando você pergunta: "Você usa ou já usou substâncias?" com: "Sim, crack. Parei 2 meses, mas antes usava bastante." Ele tem pigmentação anormal nos dentes anteriores, erosão ácida severa, inflamação gengival. Está aqui porque "dente tá doendo". Você é o PRIMEIRO profissional que ele confia em revelar isto.`,
+  personagem:{nome:"Paciente em recuperação — dependência",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Escuta não-julgadora",
+      pergunta:"Como você responderia IMEDIATAMENTE?",
+      opcoes:[
+        {letra:"A", texto:"Manifestar desaprovação: 'Droga é péssimo. Você devia parar de vez'"},
+        {letra:"B", texto:"Validar: 'Fico feliz que você confiou em me contar. Parar há 2 meses é GRANDE passo. Como está indo?' e ouça"},
+        {letra:"C", texto:"Ignorar a informação e focar só no dente"},
+        {letra:"D", texto:"Chamar polícia ou denunciar"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Julgamento afasta paciente — ele foi corajoso em contar. Desaprovação causa culpa + abandono do tratamento.",
+        B:"Correto. Validação de avanço (2 meses é significativo) + escuta ativa cria vínculo. Este é o momento em que você tem PODER de apoiar recuperação ou afastar.",
+        C:"Ignorar perde oportunidade de cuidado holístico — hábitos de uso explicam achados.",
+        D:"Crack é descriminado, não crime (consumo). Denunciar destrói confiança e não ajuda paciente."
+      }
+    },
+    {
+      fase:"Plano de cuidados integrado",
+      pergunta:"Qual é a conduta ODONTOLÓGICA adequada?",
+      opcoes:[
+        {letra:"A", texto:"Fazer tratamento normal — afinal é problema dele"},
+        {letra:"B", texto:"Recusar: 'Drogado não pode receber tratamento'"},
+        {letra:"C", texto:"Diagnóstico + tratamento da dor IMEDIATO + orientação: ácido (dentes) causado pelo crack, precisa de suporte odontológico contínuo (acompanhamento 3-6 meses) + referenciar para programa de redução de dano ou AA/NA se interessado + desmineralização grave exige protocolo de remineralização"},
+        {letra:"D", texto:"Prescrever antibiótico 'por precaução' porque 'drogado tem infecção'"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Tratamento sem contexto ignora que uso CONTINUADO vai danificar novamente.",
+        B:"Discriminação. Pacientes em recuperação precisam de cuidado MORE, não negação.",
+        C:"Correto. Cuidado acesso centrado: (1) aliviar dor AGORA (urgência); (2) explicar conexão crack-erosão-erosão (educação); (3) acompanhamento contínuo (apoio); (4) referência para programa de redução de dano (colaboração com saúde pública). Você é parte do apoio à recuperação.",
+        D:"Antibiótico 'por precaução' sem indicação é prescricao desnecessária."
+      }
+    }
+  ],
+  competencias:[9,9,8,8,9,8,7,9]
+},
+
+{
+  id:"CC-50", titulo:"Paciente quer procedimento 'estético' sem necessidade real",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Ética",
+  contexto:`Paciente feminina, 28 anos, vem porque "quer fazer faceta em todos os dentes anteriores porque vi no Instagram que fica lindo". Ao exame: dentes SEM cáries, bem alinhados (sem maloclusão), bem brancos (sem manchas), periodontal normal. Ela mostra fotos de celebridades. Você vê que ela tem discreta assimetria nas proporções faciais (leve) e pode estar buscando 'correção' de insegurança pessoal, não de problema dental.`,
+  personagem:{nome:"Paciente influenciado — insegurança",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Comunicação ética",
+      pergunta:"Como você abordaria isto?",
+      opcoes:[
+        {letra:"A", texto:"Fazer facetas em todos — é demanda do paciente, não sua responsabilidade avaliar"},
+        {letra:"B", texto:"Recusar facetas totalmente: 'Seus dentes estão perfeitos, não precisa'"},
+        {letra:"C", texto:"Validar vontade ('Entendo que você quer algo diferente'), examinar CRITICAMENTE o que mudaria ('o que especificamente você não gosta?'), oferecer alternativas menos invasivas PRIMEIRO (whitening, microabrasão, ortodontia), explicar que faceta é IRREVERSÍVEL e exige manutenção perpétua, propor acompanhamento de 3-6 meses ANTES de decidir ('às vezes a insegurança passa')"},
+        {letra:"D", texto:"Oferecer financiamento em 48x para tornar 'acessível'"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Fazer procedimento desnecessário é má prática — você se torna cúmplice de decisão potencialmente prejudicial.",
+        B:"Recusa sem diálogo invalida vontade da paciente.",
+        C:"Correto. Você ouve + valida + questiona especificamente + oferece menor-risco ANTES da irreversível + propõe tempo para reflexão. Isto é 'consentimento informado genuíno' — não impulso + Instagram.",
+        D:"Facilitar financiamento de procedimento questionável é irresponsável."
+      }
+    },
+    {
+      fase:"Reconhecer insegurança",
+      pergunta:"Deve você tentar 'tratar' a insegurança emocional dela?",
+      opcoes:[
+        {letra:"A", texto:"Sim, oferecer terapia ou acompanhamento psicológico"},
+        {letra:"B", texto:"Não, é responsabilidade exclusiva de psicólogo"},
+        {letra:"C", texto:"Reconhecer que existe ('você parece buscar algo além de estética') + sugerir avaliação com psicólogo + oferecer odontologia como PARTE do cuidado, não solução total"},
+        {letra:"D", texto:"Ignorar aspecto emocional e focar só nos dentes"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Você não é psicólogo — oferecer terapia excede seu escopo.",
+        B:"Verdadeiro que é responsabilidade do psicólogo, mas você pode RECONHECER e REFERENCIAR.",
+        C:"Correto. Você não trata insegurança, mas reconhece, valida, refere para especialista competente e oferece odontologia como complemento saudável (não como 'solução mágica').",
+        D:"Integralidade de cuidado exige ver a pessoa, não só os dentes."
+      }
+    }
+  ],
+  competencias:[9,8,7,8,8,8,9,8]
+},
+
+{
+  id:"CC-51", titulo:"Paciente transexual — respeito e protocolo",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação",
+  contexto:`Paciente entra na recepção. Nome na ficha: "Roberto da Silva" (masculino). Apresenta-se como: "Oi, meu nome é Beatriz, ela/ela". Você vê que é uma mulher transexual. Na anamnese colhe: "Tomo hormônios, já fiz cirurgia de mama, tenho histórico de depressão medicada". Ela veio para rotina (restauração + limpeza).`,
+  personagem:{nome:"Paciente transexual — Beatriz",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Acolhimento digno",
+      pergunta:"Como você iniciaria o atendimento?",
+      opcoes:[
+        {letra:"A", texto:"Chamar pelo nome da ficha (Roberto) apesar da apresentação — 'é o certo administrativamente'"},
+        {letra:"B", texto:"Chamar por 'ele/dele' como está registrado, mas respeitar durante diálogo"},
+        {letra:"C", texto:"Usar IMEDIATAMENTE o nome social (Beatriz) e pronome (ela/ela) que ela apresentou. Atualizar ficha INTERNAMENTE com nome social. Nunca usar nome anterior na frente dela ou colegas"},
+        {letra:"D", texto:"Fazer comentário: 'Ah, você é trans? Que interessante'"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Desrespeitar nome social é exclusão. Muitos dentistas fazem isto e criam barreiras para pacientes trans.",
+        B:"Inconsistência confunde — use nome social.",
+        C:"Correto. Identidade é DIREITO, não opinião. Use nome social + pronome correto sempre + atualize sistema + treine equipe. Isto é dignidade básica + legalmente protegido (Lei 13.811/19).",
+        D:"Comentário exotizante é minimizante."
+      }
+    },
+    {
+      fase:"Cuidados clínicos integrados",
+      pergunta:"Como a transição hormonalafeta o cuidado odontológico?",
+      opcoes:[
+        {letra:"A", texto:"Não afeta nada — trate como qualquer paciente"},
+        {letra:"B", texto:"Cuidado: hormônios (especialmente estrogênio exógeno) podem aumentar risco de inflamação gengival e xerostomia. Monitorar saúde gengival + prescrever suplementos salivares se necessário + realizar limpezas mais frequentes (4-6 meses vs 6-12). Depressão medicada: considerar efeitos colaterais de medicamentos (alguns aumentam risco de bruxismo)."},
+        {letra:"C", texto:"Exigir certificado de cirurgia antes de atender"},
+        {letra:"D", texto:"Questionar a transição ('por que você fez isso?')"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Ignorar diferenças clínicas reais é má prática.",
+        B:"Correto. Transição hormonal tem EFEITOS ODONTOLÓGICOS reais: inflamação gengival ↑, xerostomia possível, risco de bruxismo se há ansiedade/depressão. Adaptar protocolo de prevenção.",
+        C:"Certificado não é sua responsabilidade legal/clínica — respeite privacidade.",
+        D:"Desonesto e invasivo."
+      }
+    }
+  ],
+  competencias:[9,8,7,8,8,8,8,9]
+},
+
+{
+  id:"CC-52", titulo:"Paciente surdo(a) — comunicação adaptada",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação",
+  contexto:`Paciente entra na recepção. Você vê que traz um intérprete de LIBRAS (Língua Brasileira de Sinais). Recepção pergunta ao INTÉRPRETE em vez de perguntar PARA O PACIENTE. Agora você vai atender — é uma restauração simples (cárie em 24). Paciente é surdo(a) profundo(a) e faz leitura labial (com dificuldade).`,
+  personagem:{nome:"Paciente surdo(a) — com intérprete",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Comunicação direta",
+      pergunta:"Como você falaria?",
+      opcoes:[
+        {letra:"A", texto:"Falar para o INTÉRPRETE e deixar ele passar para paciente"},
+        {letra:"B", texto:"Falar DIRETAMENTE com paciente, não com intérprete. O intérprete está ali para MEDIAR, não para ser o paciente. Olhe para paciente, não para intérprete. Fale claro, sem pressa, deixando ver seus lábios."},
+        {letra:"C", texto:"Usar muita mímica exagerada"},
+        {letra:"D", texto:"Evitar falar e só usar gestos"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Quando você fala pro intérprete, ignora paciente — é desrespeitoso e exclui.",
+        B:"Correto. SEMPRE fale PARA paciente, não através intérprete. Intérprete é meio, não sujeito. Fale claro (leitura labial exige) + mantém contato visual com PACIENTE + valida compreensão perguntando.",
+        C:"Mímica exagerada é condescendente.",
+        D:"Linguagem só gestos é desonesto — você fala português, paciente entende português (em LIBRAS, pelo intérprete, ou por leitura labial)."
+      }
+    },
+    {
+      fase:"Protocolo clínico adaptado",
+      pergunta:"Durante o procedimento, como você garante compreensão?",
+      opcoes:[
+        {letra:"A", texto:"Fazer procedimento normalmente — intérprete vê e traduz depois"},
+        {letra:"B", texto:"Escrever instruções pós-operatórias em papel + validar compreensão pelo intérprete + ter contato emergencial por WhatsApp (preferência de muitos pacientes surdos é escrita)"},
+        {letra:"C", texto:"Só confiar em leitura labial — paciente vai entender tudo assim"},
+        {letra:"D", texto:"Simplificar tudo porque 'paciente surdo não entende bem'"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Intérprete é para DIÁLOGO, não narração posterior.",
+        B:"Correto. Protocolo: diálogo em tempo real (com intérprete) + instruções ESCRITAS + validação + contato alternativo (muitos surdos preferem WhatsApp — é método acessível). Deixar paciente ATIVO na decisão.",
+        C:"Leitura labial é suplementar, não suficiente — especialmente em consultório com máscara (contexto pós-COVID).",
+        D:"Ser inclusivo = explicar bem, não simplificar inadequadamente."
+      }
+    }
+  ],
+  competencias:[9,8,8,8,8,8,9,8]
+},
+
+{
+  id:"CC-53", titulo:"Paciente com TOC (Transtorno Obsessivo-Compulsivo)",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Saúde Mental",
+  contexto:`Paciente feminina, 27 anos, vem para limpeza. Durante higiene, você nota que ela TEME muito a falta de limpeza — pede constantemente "tem certeza que limpou TUDO?" Ela relata: "Sou meio obsessiva. Tenho TOC." Faz terapia cognitivo-comportamental, toma fluoxetina. Depois da consulta, quer você GARANTIR em escrita que "os dentes estão 100% limpos".`,
+  personagem:{nome:"Paciente com TOC — obsessões de contaminação",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Reconhecer limite profissional",
+      pergunta:"Como você responderia ao pedido de GARANTIA em escrita?",
+      opcoes:[
+        {letra:"A", texto:"Escrever: 'Garantido 100% de limpeza' — satisfazer obsessão"},
+        {letra:"B", texto:"Recusar e dizer: 'Ninguém pode garantir 100%, é impossível'"},
+        {letra:"C", texto:"Validar a ansiedade ('Entendo que você quer certeza'), explicar que GARANTIA de 100% é impossível (bactérias residuais sempre existem — é normal) + oferecer alternativa útil: 'Posso atestar que realizei procedimento com protocolo padrão de limpeza' (verdadeiro) + sugerir discussão com terapeuta sobre obsessão"},
+        {letra:"D", texto:"Sugerir que ela 'relaxe' ou 'deixe de ser obsessiva'"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Escrever falsa garantia ALIMENTA a obsessão — próximo atendimento ela vai pedir mais garantias. Você piora o TOC.",
+        B:"Recusa sem empatia invalida a ansiedade real dela.",
+        C:"Correto. Validação + realidade científica (bactérias sempre existem, é normal) + oferta verdadeira (atestar protocolo, não resultado mágico) + colaboração com terapeuta = acesso centrado sem alimentar compulsão.",
+        D:"Minimizar é desrespeitoso com transtorno real."
+      }
+    },
+    {
+      fase:"Protocolo de acompanhamento",
+      pergunta:"Como você estruturaria retornos?",
+      opcoes:[
+        {letra:"A", texto:"Retorna a cada 2 semanas porque 'está obsessiva'"},
+        {letra:"B", texto:"Nunca mais chama para retorno — 'não quer problemas'"},
+        {letra:"C", texto:"Retorno CONFORME protocolo padrão (6 meses para profilaxia) + fazer retorno um pouco mais frequente se houver Indicação clínica (sangramento gengival, por exemplo), NÃO por obsessão. Se paciente EXIGIR retornos desnecessários, referenciar para psicólogo: 'Seu terapeuta é melhor para ajudar essa ansiedade. Eu posso ajudar com dentes.'"},
+        {letra:"D", texto:"Retorno mensal indefinidamente para satisfazer ela"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Retornos frequentes alimentam a obsessão.",
+        B:"Abandono não é ético.",
+        C:"Correto. Manter protocolo CLÍNICO (6 meses) + referenciar ansiedade para quem é especialista (psicólogo/psiquiatra). Você não é terapeuta mental — sua função é dentes. Limite saudável beneficia paciente.",
+        D:"Acomodar compulsão prejudica paciente a longo prazo."
+      }
+    }
+  ],
+  competencias:[9,8,8,8,8,8,8,9]
+},
+
+{
+  id:"CC-54", titulo:"Paciente com déficit de atenção (TDAH) não segue instruções",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação",
+  contexto:`Paciente masculino, 16 anos, com diagnóstico de TDAH (tomando metilfenidato). Você instruiu cuidadosamente pós-operatório de extração: não comer por 2h, não beber com canudo, repouso. 3 dias depois, ele retorna com EDEMA e POSSÍVEL alveolite. Ele relata: "Eu esqueci... comi pizza 1h depois... bebi refrigerante com canudo... corria na rua..."`.
+  personagem:{nome:"Paciente adolescente — TDAH",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Reconhecer neurodiversidade",
+      pergunta:"Como você abordaria AGORA (NÃO responsabilizando por esquecimento)?",
+      opcoes:[
+        {letra:"A", texto:"Reclamar: 'Você não escutava? Falei muito claro!'"},
+        {letra:"B", texto:"Reconhecer que TDAH afeta memória de curto prazo + oferecer ESCRITA visual + marcar retorno telefônico em 24h para validar adesão + enviar mensagem lembrando + simplificar instruções (máximo 3 itens)"},
+        {letra:"C", texto:"Culpabilizar: 'Por sua culpa você tem alveolite'"},
+        {letra:"D", texto:"Ignorar e focar só em tratar complicação"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Culpa não ajuda com TDAH — cérebro dele funciona diferente, não é preguiça.",
+        B:"Correto. TDAH = dificuldade com memória de trabalho + desinibição impulsiva. Adaptação: ESCRITO (visual é melhor que verbal) + retorno telefônico + lembretes + simplicidade (3 itens máximo) + envolver responsável se menor. Isto NÃO é acomodação, é acesso à saúde.",
+        C:"Alveolite tem múltiplas causas — culpabilizar adolescente é injusto.",
+        D:"Tratar complicação SIM, mas aprender para futuro."
+      }
+    },
+    {
+      fase:"Futuro clínico",
+      pergunta:"Para próximos atendimentos, como você mudaria o protocolo?",
+      opcoes:[
+        {letra:"A", texto:"Mesma coisa — paciente que se adapte"},
+        {letra:"B", texto:"Instruções ESCRITAS em papel + WhatsApp com pais + 24h depois ligar para confirmar compreensão + envolver pai/mãe na sessão para reforçar + fotos/desenhos de instruções (visual ajuda TDAH)"},
+        {letra:"C", texto:"Prescrever medicação diferente para ele 'lembrar melhor'"},
+        {letra:"D", texto:"Recusar atender porque 'não segue instruções'"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Esperar que paciente se adapte quando tem dificuldade neurobiológica é ableísmo.",
+        B:"Correto. Múltiplos canais (escrito + verbal + WhatsApp + visual) + follow-up (24h ligar) + envolver responsável = chance realista de adesão. Isto aumenta segurança para paciente.",
+        C:"Medicação odontológica não 'melhora TDAH'.",
+        D:"Recusa sem adaptação tentativa é discriminação."
+      }
+    }
+  ],
+  competencias:[9,8,8,8,8,8,8,9]
+},
+
+{
+  id:"CC-55", titulo:"Paciente relata violência doméstica — seu papel como denunciante obrigatória",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Ética",
+  contexto:`Paciente feminina, 35 anos, vem com hematoma no rosto ("caiu escada"). Você faz anamnese e ela quebra: "Na verdade, foi meu marido. Me bateu porque não gostou da comida. Ele faz sempre, mas essa foi a primeira vez que vi sangue na boca." Ela pede: "Por favor não conta pra ninguém, ele vai ficar furioso". Você é dentista, mas é profissional de saúde e há LEI que obriga denúncia.`,
+  personagem:{nome:"Paciente vítima de violência doméstica",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Obrigação legal vs vontade da paciente",
+      pergunta:"Como você navegaria isto?",
+      opcoes:[
+        {letra:"A", texto:"Prometer confidencialidade absoluta ('Fico entre nós') e não denunciar"},
+        {letra:"B", texto:"Denunciar IMEDIATAMENTE sem falar com ela — 'por segurança'"},
+        {letra:"C", texto:"Validar medo dela ('Entendo que tem medo'), informar CLARA: 'Você é vítima de crime (lesão corporal dolosa). Existe LEI 10.778 que me OBRIGA a denunciar caso de violência doméstica para polícia e Conselho Tutelar. Não é você em julgamento — é para sua proteção. Você também pode fazer B.O. (boletim de ocorrência). Posso ajudar.' + oferecer contatos de abrigo/proteção + manter sigilo da conversa (ela não é obrigada a contar pro marido que você soube)"},
+        {letra:"D", texto:"Dar conselhos pessoais: 'Você deveria sair dele'"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Lei 10.778/2003 OBRIGA profissional de saúde a notificar caso de violência doméstica. Você pode ser processado(a) por omissão se não denunciar.",
+        B:"Denunciar sem avisar viola direito de conhecer seus deveres + pode assustar paciente desnecessariamente.",
+        C:"Correto. Informação clara + validação + explicação legal + adesão à lei + oferta de recursos (abrigo, WhatsApp da delegacia de mulher) + respeito à autonomia dela (ela também PODE fazer B.O.). Lei existe para PROTEGER, não punir vítima.",
+        D:"Você não é conselheiro pessoal — mantenha limite."
+      }
+    },
+    {
+      fase:"Documentação e sigilo",
+      pergunta:"Como você documentaria este caso?",
+      opcoes:[
+        {letra:"A", texto:"Escrever detalhes da violência na ficha clínica públicas"},
+        {letra:"B", texto:"Não documentar nada para 'proteger' dela"},
+        {letra:"C", texto:"Documentar CLINICAMENTE objetivo (ferimentos encontrados, local, tipo) + indicação de 'possível violência' + data/hora + seus dados (profissional que atendeu) + arquivar em local SEGURO. Esta documentação é SIGILOSA — serve como comprovação legal SE paciente depois fizer B.O. + respalda você na denúncia."},
+        {letra:"D", texto:"Compartilhar informação com recepção/colegas para 'alertar'"
+      ],
+      correta:"C",
+      feedback:{
+        A:"Descrição clínica é essencial para comprovação legal, mas NÃO é público — é sigilo profissional.",
+        B:"Não documentar deixa você desprotegido(a) legalmente se precisa comprovar por que denunciou.",
+        C:"Correto. Documentação CLÍNICA + sigilo profissional = prova + proteção de paciente + proteção sua. Arquivo seguro (senha, acesso restrito).",
+        D:"Compartilhar viola sigilo e pode colocar paciente em risco."
+      }
+    }
+  ],
+  competencias:[9,9,8,8,9,8,8,9]
+}
+
+];
+
+// ══════════════════════ AGENDAMENTOS DIFÍCEIS (AG-61 a AG-75) ══════════════════════
+
+{
+  id:"AG-61", titulo:"Paciente chega 45 minutos atrasado — agenda apertada",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Urgência",
+  contexto:`CARLOS MENDES, 42 anos, foi agendado para 14:00 (profilaxia + 2 restaurações). Ele chega às 14:45. Você tem próximo paciente às 15:30. Ele entra rápido e diz: "Tive trânsito. Pode fazer tudo rápido?" PA: 140/90 mmHg. Sem medicamentos. Sem alergias. Escova 1x ao dia.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carlos mendes","carlos"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["42","42 anos"]},
+    {chave:"horario_chegada",label:"Horário de chegada",obrigatorio:true,validacao:["14:45","14h45","14h 45"]},
+    {chave:"tempo_disponivel",label:"Tempo restante até próximo paciente",obrigatorio:true,validacao:["45 minutos","45 min","45"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Dentística","Consultório de Higiene","Consultório de Urgência"],
+    correto:{sala:"Consultório de Urgência",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["14:45"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Escaler ultrassom (para profilaxia)"},
+      {id:"m2",nome:"Curetas manuais (limpeza profunda)"},
+      {id:"m3",nome:"Polidor e pasta fluoretada"},
+      {id:"m4",nome:"Resina composta (para 2 restaurações)"},
+      {id:"m5",nome:"Ácido fosfórico (condicionamento)"},
+      {id:"m6",nome:"Adesivo (bonding)"},
+      {id:"m7",nome:"Matriz e cunha (restaurações"}},
+      {id:"m8",nome:"Fotopolimerizador com potência adequada"},
+      {id:"m9",nome:"Algodão e sugador (isolamento)"},
+      {id:"m10",nome:"Fone de ouvido com música relaxante"},
+      {id:"m11",nome:"Anestésico tópico + lidocaína 2%"},
+      {id:"m12",nome:"Gaze estéril (hemostasia)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m11"]
+  }
+},
+
+{
+  id:"AG-62", titulo:"Paciente relata MEDO extremo — fóbico",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Comportamento",
+  contexto:`DIANA SANTOS, 38 anos, foi agendada para restauração simples (cárie 35). É sua PRIMEIRA CONSULTA. Ela entra tremendo, diz: "Tenho muito medo de agulha. Meu coração tá acelerado. Meu pai teve infarto aos 50." Pulso: 110 bpm. PA: 145/92 mmHg. Suor nas mãos. Sem alergias, toma apenas omeprazol.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["diana santos","diana"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
+    {chave:"medo_agulha",label:"Relata medo de agulha?",obrigatorio:true,validacao:["sim","muito","extremo"]},
+    {chave:"pulso",label:"Frequência cardíaca",obrigatorio:true,validacao:["110","110 bpm","elevada"]},
+    {chave:"pa",label:"Pressão arterial",obrigatorio:true,validacao:["145/92","elevada","alta"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00"],
+    salas:["Consultório A — Clínica Geral","Consultório com sedação","Consultório de psicoprofilaxia"],
+    correto:{sala:"Consultório com sedação",dias:["segunda","terça","quarta","quinta"],horarios:["10:00","11:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico (benzocaína) — minimiza espera por anestesia"},
+      {id:"m2",nome:"Seringa carpule com agulha FINA (27g — menos dor)"},
+      {id:"m3",nome:"Lidocaína 2% com vasoconstritor (ação rápida)"},
+      {id:"m4",nome:"Óxido nitroso/oxigênio (sedação leve) + máscara nasal"},
+      {id:"m5",nome:"Monitor de frequência cardíaca/PA (observar sinais vitais)"},
+      {id:"m6",nome:"Resina composta + fotopolimerizador"},
+      {id:"m7",nome:"Ácido/adesivo/matriz"},
+      {id:"m8",nome:"Fone com música relaxante + óculos escuro (reduzem ansiedade)"},
+      {id:"m9",nome:"Bola de estresse na mão do paciente"},
+      {id:"m10",nome:"Algodão/sugador para isolamento suave"},
+      {id:"m11",nome:"Adrenalina IM (se reação vasovagal)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  }
+},
+
+{
+  id:"AG-63", titulo:"Paciente sem recursos financeiros — impotência",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Ética",
+  contexto:`JOÃO PEREIRA, 56 anos, desempregado há 8 meses, vem por DOR intensa (cárie profunda em 46). Vive em abrigo. Pede: "Posso pagar depois? Não tenho grana agora." Você vê que está mal-nutrido, higiene precária. SUS não cobre este procedimento. Você é clínica privada.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["joao pereira","joão pereira","joao"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["56","56 anos"]},
+    {chave:"condicao",label:"Condição atual",obrigatorio:true,validacao:["desempregado","abrigo","sem recursos","pobreza"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["dor","cárie","46"]},
+    {chave:"capacidade_pagamento",label:"Capacidade de pagamento",obrigatorio:true,validacao:["não","sem recursos","depois"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Urgência"],
+    correto:{sala:"Consultório de Urgência",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["09:00","10:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico + lidocaína (alívio rápido)"},
+      {id:"m2",nome:"Brocas diamantadas para acesso"},
+      {id:"m3",nome:"Cavidade + amalgama (restauração de baixo custo) vs resina"},
+      {id:"m4",nome:"Antibiótico (amoxicilina) — prescrever se abscesso"},
+      {id:"m5",nome:"Enxaguante bucal com clorexidina (higiene pós)"},
+      {id:"m6",nome:"Informações de programa de saúde bucal PÚBLICO (SUS)"},
+      {id:"m7",nome:"Contato de assistente social (benefícios, alimentação)"},
+      {id:"m8",nome:"Instruções de limpeza com suportes visuais (ele pode ter baixa alfabetização)"},
+      {id:"m9",nome:"Preço reduzido ou parcelamento sem juros"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  }
+},
+
+{
+  id:"AG-64", titulo:"Paciente desconfiado questiona TODAS as recomendações",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Comunicação",
+  contexto:`MARCOS SILVA, 44 anos, vem para avaliação. Desde que entra, questiona: "Por que preciso de limpeza? Por que devo fazer radiografia? Você tá querendo ganhar mais dinheiro vendendo exame?" Parece desconfiado de motivos financeiros. Educação: ensino médio. Tem acesso à internet/blogs questionáveis.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marcos silva","marcos"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
+    {chave:"queixa_principal",label:"Queixa principal",obrigatorio:true,validacao:["avaliação","limpeza"]},
+    {chave:"confianca_nivel",label:"Nível de confiança inicial",obrigatorio:true,validacao:["baixo","desconfiado","questiona"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta"],horarios:["10:00","11:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Espelho intraoral (MOSTRAR os achados — evidência visual)"},
+      {id:"m2",nome:"Radiografia (comprovar com imagem)"},
+      {id:"m3",nome:"Modelos descritivos sobre cárie/gengivite (educação visual)"},
+      {id:"m4",nome:"Explicação de protocolo: 'limpeza é base'"},
+      {id:"m5",nome:"Deixar paciente VER espelho durante exame (empoderamento)"},
+      {id:"m6",nome:"Escala de cores de gengivite (mostrar quanto está)"},
+      {id:"m7",nome:"Documento com recomendações por ESCRITO"},
+      {id:"m8",nome:"Dar opção: 'Fazer limpeza agora ou próxima semana?'"},
+      {id:"m9",nome:"Paciência + validação: 'Boa pergunta, dúvida faz sentido'"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  }
+},
+
+{
+  id:"AG-65", titulo:"Paciente com baixa adesão — falta periodicidade",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prevenção",
+  contexto:`ROSA OLIVEIRA, 52 anos, mulher diabética (tipo 2, não controlado bem), último retorno foi HÁ 3 ANOS. Você encontra: sangramento gengival profuso, mobilidade grau 1 em dentes 35-45, cálculo abundante. Ela diz: "Eu sou de difícil, dente sempre foi assim. Não vejo necessidade de voltar se tá funcionando." Renda baixa-média.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["rosa oliveira","rosa"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["52","52 anos"]},
+    {chave:"ultima_visita",label:"Última visita",obrigatorio:true,validacao:["3 anos","três anos","há 3 anos"]},
+    {chave:"diabetes",label:"Tem diabetes?",obrigatorio:true,validacao:["sim","tipo 2","descontrolado"]},
+    {chave:"sangramento",label:"Sangramento gengival?",obrigatorio:true,validacao:["sim","profuso"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta"],horarios:["09:00","10:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Sonda periodontal (medir profundidade)"},
+      {id:"m2",nome:"Cureta manual (desbridamento)"},
+      {id:"m3",nome:"Ultrassom (limpeza profunda subgengival)"},
+      {id:"m4",nome:"Radiografia (verificar perda óssea)"},
+      {id:"m5",nome:"Solução gluconato clorexidina 0,12% (irrigação)"},
+      {id:"m6",nome:"Antibiótico tópico ou sistêmico (se abscesso)"},
+      {id:"m7",nome:"Escovário elétrica (prescrever)"},
+      {id:"m8",nome:"Fio dental demonstrativo"},
+      {id:"m9",nome:"Contato com endocrinologista (diabetes descontrolado)"},
+      {id:"m10",nome:"Retorno em 2 semanas (adesão inicial)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10"]
+  }
+},
+
+{
+  id:"AG-66", titulo:"Paciente quer 'solução rápida' sem tratamento planejado",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gestão",
+  contexto:`ANDRÉ COSTA, 35 anos, executivo muito ocupado, vem com CÁRIE em 25 e 26, ambas profundas. Ele demanda: "Faça rápido. Não tenho tempo. Quero sair daqui em 30 minutos." Você sabe que: restauração em 25 precisa de acesso amplo (complexa) + 26 pode ser RCT (não restauração simples).`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andré costa","andre costa","andré"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
+    {chave:"tempo_disponível",label:"Tempo disponível",obrigatorio:true,validacao:["30 minutos","30 min","limitado"]},
+    {chave:"caries",label:"Dentes com cárie",obrigatorio:true,validacao:["25","26","profunda"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["12:00","13:00","17:00","18:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Urgência"],
+    correto:{sala:"Consultório de Urgência",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["13:00","17:00","18:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Radiografia (confirmar profundidade)"},
+      {id:"m2",nome:"Anestésico tópico + lidocaína"},
+      {id:"m3",nome:"Broca diamantada para acesso"}},
+      {id:"m4",nome:"Resina para restauração simples (25)"},
+      {id:"m5",nome:"Material para curativo provisório (26 — se RCT necessário)"},
+      {id:"m6",nome:"Isolamento com borracha"},
+      {id:"m7",nome:"Fotopolimerizador"},
+      {id:"m8",nome:"Agendamento de continuação (realista)"},
+      {id:"m9",nome:"Prescrição de analgésico (se necessário)"}
+    ],
+    corretos:["m1","m2","m3","m5","m6","m8"]
+  }
+},
+
+{
+  id:"AG-67", titulo:"Paciente interrompido por ligação/mensagem — falta de presença",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Comunicação",
+  contexto:`LUCAS MENDES, 28 anos, veio para consulta de rotina. Você está explicando plano de tratamento quando seu CELULAR toca. Ele: "Desculpa, tenho que pegar" — sai da sala por 5 minutos. Volta com cabeça em outro lugar. Depois: "Ué, você estava falando o quê?" Parece desatento.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["lucas mendes","lucas"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["28","28 anos"]},
+    {chave:"foco",label:"Nível de atenção durante consulta",obrigatorio:true,validacao:["baixo","desatento","celular"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["14:00","15:00","16:00","17:00"],
+    salas:["Consultório A — Clínica Geral"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta"],horarios:["14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Tablet/quadro para desenhar plano (visual)"},
+      {id:"m2",nome:"Documento impresso com recomendações"},
+      {id:"m3",nome:"Modelo de dente (tátil)"},
+      {id:"m4",nome:"Fotos de antes/depois (engajamento)"},
+      {id:"m5",nome:"Perguntar: 'Você entendeu?'"},
+      {id:"m6",nome:"Video educativo (ele assiste depois)"},
+      {id:"m7",nome:"WhatsApp com resumo do plano (ele relê quando quiser)"},
+      {id:"m8",nome:"Email de confirmação"}
+    ],
+    corretos:["m1","m2","m3","m5","m7","m8"]
+  }
+},
+
+{
+  id:"AG-68", titulo:"Paciente alergia NÃO CONFIRMADA — anestesia",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Segurança",
+  contexto:`FERNANDA ROCHA, 41 anos, vem para restauração. Na triagem: "Sou alérgica a anestesia." Você pergunta: que tipo de reação? Ela: "Meu corpo fica todo vermelho." Você investiga: foi diagnóstico por alergista? Não. Quando aconteceu? "Acho que foi há 10 anos num dentista." Sem comprovação.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fernanda rocha","fernanda"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["41","41 anos"]},
+    {chave:"alergia_relatada",label:"Alergia reportada",obrigatorio:true,validacao:["anestesia","alérgica"]},
+    {chave:"confirmacao",label:"Alergia confirmada por alergista?",obrigatorio:true,validacao:["não","não confirmada"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório com teste de alergia"],
+    correto:{sala:"Consultório com teste de alergia",dias:["segunda","terça","quarta","quinta"],horarios:["10:00","11:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico (benzocaína) — teste primeiro"},
+      {id:"m2",nome:"Lidocaína 2% SEM vasoconstritor (testar)"},
+      {id:"m3",nome:"Epinefrina IM (se reação)"},
+      {id:"m4",nome:"Seringa de tuberculina (para teste intradérmico)"},
+      {id:"m5",nome:"Observação por 15 min após cada teste"},
+      {id:"m6",nome:"Refrigerante + bolinho (para sintomas vasovagais)"},
+      {id:"m7",nome:"Formulário de consentimento para teste"},
+      {id:"m8",nome:"Referência para alergista (documentar)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m7","m8"]
+  }
+},
+
+{
+  id:"AG-69", titulo:"Paciente grávida com sangramento gengival — risco pré-natal",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Saúde",
+  contexto:`PATRICIA LIMA, 32 anos, gravida de 6 meses, procura por "gengiva sangra muito". Você vê gengivite severa (epúlide?) + sangramento ao mínimo toque. Ela toma apenas ácido fólico + vitamina D. Relacionamento com parceiro: aparenta estar bem, mas ele não veio. PA: 120/70 (normal).`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["patricia lima","patricia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["32","32 anos"]},
+    {chave:"gestacao",label:"Gestação (semanas)",obrigatorio:true,validacao:["6 meses","24 semanas"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["sangramento","gengiva"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00"],
+    salas:["Consultório de Periodontia","Consultório Seguro para Gestantes"],
+    correto:{sala:"Consultório Seguro para Gestantes",dias:["segunda","terça","quarta","quinta"],horarios:["09:00","10:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Sonda periodontal DELICADA"},
+      {id:"m2",nome:"Cureta manual (sem vibração — evitar ultrassom em 1º trimestre)"},
+      {id:"m3",nome:"Solução fisiológica para irrigação (segura)"},
+      {id:"m4",nome:"Clorexidina 0,12% (apenas local, não ingerir)"},
+      {id:"m5",nome:"Anestesia local se necessário (lidocaína SEM vasoconstritor — categoria B)"},
+      {id:"m6",nome:"Cadeira confortável (não deitar muito — evitar síncope)"},
+      {id:"m7",nome:"Contato com obstetrícia (complicações)"},
+      {id:"m8",nome:"Monitoramento de PA durante atendimento"},
+      {id:"m9",nome:"Retorno após parto para acompanhamento"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  }
+},
+
+{
+  id:"AG-70", titulo:"Paciente idoso — comunicação e mobilidade reduzida",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gerontologia",
+  contexto:`JOSÉ SANTOS, 78 anos, vem para limpeza. Você nota: AUDIÇÃO reduzida, visão acurada (óculos prescrição desatualizada?), postura curvada, dificuldade em sentar na cadeira odontológica (mobilidade reduzida). Toma: atenolol, atorvastatina, omeprazol. Mora sozinho.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["josé santos","jose santos","josé"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["78","78 anos"]},
+    {chave:"acuidade_auditiva",label:"Audição",obrigatorio:true,validacao:["reduzida","difícil"]},
+    {chave:"mobilidade",label:"Mobilidade",obrigatorio:true,validacao:["reduzida","dificuldade"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta"],
+    horariosDisponiveis:["09:00","10:00","14:00","15:00"],
+    salas:["Consultório Acessível — Piso térreo","Consultório com cadeira adaptada"],
+    correto:{sala:"Consultório Acessível — Piso térreo",dias:["segunda","terça","quarta","quinta"],horarios:["09:00","10:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Cadeira odontológica com suporte lombar extra"},
+      {id:"m2",nome:"Descanso de pé (ajuda na transferência)"},
+      {id:"m3",nome:"Comunicação CLARA + fácil (evitar jargão médico)"},
+      {id:"m4",nome:"Avaliação de medicações (atenolol pode afetar vasos/cicatrização)"},
+      {id:"m5",nome:"Escaler ultrassom (menos traumático que cureta manual)"},
+      {id:"m6",nome:"Polidor com baixa rotação (conforto)"},
+      {id:"m7",nome:"Acompanhante permitido (segurança + comunicação)"},
+      {id:"m8",nome:"Retorno em 6 meses (prevenção regular)"},
+      {id:"m9",nome:"Verificação se tem cuidador (informar sobre higiene bucal)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  }
+},
+
+{
+  id:"AG-71", titulo:"Paciente religioso — recusa transfusão de sangue",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Ética",
+  contexto:`BENJAMIN PEREIRA, 50 anos, Testemunha de Jeová, vem para extração de dente com infecção (mobilidade, dor). Ele tem CARTÃO religioso que diz: "Recuso transfusão de sangue em qualquer situação." Risco cirúrgico: moderado (pressão elevada). Você sabe que extrações podem sangrar.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["benjamin pereira","benjamin"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["50","50 anos"]},
+    {chave:"religiao",label:"Religião/crença",obrigatorio:true,validacao:["testemunha","jeová","recusa"]},
+    {chave:"documento",label:"Tem cartão de recusa?",obrigatorio:true,validacao:["sim","cartão"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00"],
+    salas:["Sala cirúrgica — com hemostáticos à mão","Consultório de Cirurgia"],
+    correto:{sala:"Sala cirúrgica — com hemostáticos à mão",dias:["segunda","terça","quarta","quinta"],horarios:["09:00","10:00","11:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Hemostáticos tópicos (trombina, ácido tranexâmico, colágeno)"},
+      {id:"m2",nome:"Gaze com pressão (protocolo reforçado)"},
+      {id:"m3",nome:"Ácido carboxílico ou colágeno absorvível"},
+      {id:"m4",nome:"Epinefrina vasoconstritor local"},
+      {id:"m5",nome:"Sutura com fio (para hemostasia maior)"},
+      {id:"m6",nome:"Monitoramento de PA/FC contínuo"},
+      {id:"m7",nome:"Protocolo ESCRITO de consentimento informado (respeitar crença)"},
+      {id:"m8",nome:"Referência para cirurgião se complicação (coordenar aços)"},
+      {id:"m9",nome:"Contato emergencial documentado"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  }
+},
+
+{
+  id:"AG-72", titulo:"Paciente com deficiência visual — adaptação",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Acessibilidade",
+  contexto:`AMELIA OLIVEIRA, 45 anos, CEGA (retinopatia diabética). Vem acompanhada de cão guia. Agenda: avaliação + limpeza. Recepção NÃO sabe como receber. Você é o dentista — como proceder?`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["amelia oliveira","amélia oliveira","amelia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["45","45 anos"]},
+    {chave:"deficiencia",label:"Tipo de deficiência",obrigatorio:true,validacao:["cega","visual","cegueira"]},
+    {chave:"acompanhante",label:"Acompanhante/cão guia?",obrigatorio:true,validacao:["sim","cão guia","guia"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["10:00","11:00","14:00","15:00"],
+    salas:["Consultório Acessível — Espaçoso (cão guia)"],
+    correto:{sala:"Consultório Acessível — Espaçoso (cão guia)",dias:["segunda","terça","quarta","quinta"],horarios:["10:00","11:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Explicação VERBAL detalhada de cada passo"},
+      {id:"m2",nome:"Toque/orientação tátil (onde ela vai sentar, cadeira)"},
+      {id:"m3",nome:"Comunicação direta COM paciente (não com acompanhante)"},
+      {id:"m4",nome:"Aviso antes de instrumento (barulho/vibração de ultrassom)"},
+      {id:"m5",nome:"Espaço para cão guia (tranquilo, deitar ao lado)"},
+      {id:"m6",nome:"Escaler ultrassom (ela sente vibração como informação)"},
+      {id:"m7",nome:"Instruções PÓS-atendimento verbais + ESCRITA (braille ou áudio)"},
+      {id:"m8",nome:"Retorno telefônico para confirmar bem-estar"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  }
+},
+
+{
+  id:"AG-73", titulo:"Paciente que já foi 'abandonado' em outro consultório",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Confiança",
+  contexto:`SABRINA TEIXEIRA, 36 anos, relata: "Eu tinha dentista, mas ela parou de me atender porque disseram que eu sou difícil." Você investiga: havia questão de higiene bucal, ela questionava recomendações. Outro dentista a 'abandonou'. Ela vem com medo de ser rejeitada.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["sabrina teixeira","sabrina"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["36","36 anos"]},
+    {chave:"historia",label:"Referência anterior",obrigatorio:true,validacao:["abandonada","difícil","rejeitada"]},
+    {chave:"estado_emocional",label:"Estado emocional",obrigatorio:true,validacao:["medo","ansiedade","desconfiança"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta"],horarios:["10:00","11:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Escuta empática (entender por que foi 'abandonada')"},
+      {id:"m2",nome:"Comunicação de aceitação ('Estou aqui para ajudar, não julgar')"},
+      {id:"m3",nome:"Envolvimento na decisão ('Como VOCÊ quer fazer isto?')"},
+      {id:"m4",nome:"Espelho intraoral (ela vê achados, participa)"},
+      {id:"m5",nome:"Reconhecimento de dificuldades ('Higiene em casa é desafiadora para muitas pessoas')"},
+      {id:"m6",nome:"Oferecimento de suporte (limpeza profissional regular, não culpa)"},
+      {id:"m7",nome:"Cronograma realista + flexível"},
+      {id:"m8",nome:"Reforço positivo a cada avanço"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  }
+},
+
+{
+  id:"AG-74", titulo:"Paciente com insistência em procedimento ESTÉTICO desnecessário",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Ética",
+  contexto:`VICTOR ALVES, 32 anos, bem-sucedido (profissional liberal), vem pedindo: "Quero laminar 10 dentes para ficar tipo ator." Exame: dentes PERFEITOS, bem alinhados, bem brancos. Nenhuma indicação clínica. Ele quer porque "vi no Instagram".`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["victor alves","víctor alves","victor"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["32","32 anos"]},
+    {chave:"demanda",label:"Demanda estética",obrigatorio:true,validacao:["faceta","laminado","ator"]},
+    {chave:"indicacao_clinica",label:"Indicação clínica?",obrigatorio:true,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["17:00","18:00"],
+    salas:["Consultório de Estética"],
+    correto:{sala:"Consultório de Estética",dias:["segunda","terça","quarta","quinta"],horarios:["17:00","18:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Fotos de antes/depois com laminados (educação de expectativa)"},
+      {id:"m2",nome:"Explicação de IRREVERSIBILIDADE (desgaste de 0,5-1mm de estrutura)"},
+      {id:"m3",nome:"Explicação de manutenção perpétua (laminados não duram para sempre)"},
+      {id:"m4",nome:"Videozinhos de casos com complicações (falhas, lascas)"},
+      {id:"m5",nome:"Proposta alternativa menos invasiva: CLAREAMENTO digital (simular)"},
+      {id:"m6",nome:"Formulário de consentimento específico para estética"},
+      {id:"m7",nome:"Tempo de reflexão ('Pense por 1 mês, volte se ainda quer')"},
+      {id:"m8",nome:"Documentação de aconselhamento (você se protege se ele se arrepender)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  }
+},
+
+{
+  id:"AG-75", titulo:"Paciente em situação de rua — sem documentação",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Saúde Pública",
+  contexto:`JOÃO (sobrenome desconhecido), ~40 anos (aparenta mais), em situação de rua, procura por DOR severa (possível abscesso). Sem documentação (CPF, RG). Higiene precária. Você é clínica privada — como proceder?`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome/identificação",obrigatorio:true,validacao:["joão","desconhecido","sem documento"]},
+    {chave:"situacao",label:"Situação",obrigatorio:true,validacao:["rua","sem-abrigo","situacao de rua"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["dor","abscesso","urgência"]},
+    {chave:"documentacao",label:"Tem documentação?",obrigatorio:true,validacao:["não","sem documento"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00"],
+    salas:["Consultório de Urgência","Consultório de Caridade/Filantropia"],
+    correto:{sala:"Consultório de Urgência",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["09:00","10:00","14:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Analgésico IM/oral (alívio urgente)"},
+      {id:"m2",nome:"Antibiótico (amoxicilina + clavulanato, se abscesso)"},
+      {id:"m3",nome:"Radiografia (confirmar diagnóstico)"},
+      {id:"m4",nome:"Acesso ao abscesso se necessário"},
+      {id:"m5",nome:"Contato com programa de saúde bucal público (SUS — ele tem direito)"},
+      {id:"m6",nome:"Referência para assistente social (abrigo, benefícios)"},
+      {id:"m7",nome:"Sem exigência de documentação para atendimento de urgência"},
+      {id:"m8",nome:"Higiene orientada (com recursos disponíveis)"},
+      {id:"m9",nome:"Follow-up em SUS para continuidade"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  }
+}
+
+];
