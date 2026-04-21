@@ -10055,7 +10055,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Endodontia, Prótese Dentária",
+    "area": "Endodontia",
     "contexto": "Dente endodonticamente tratado precisa de reabilitação com pino + núcleo + coroa. Quais são os materiais para cimentação?",
     "opcoes": [
       {

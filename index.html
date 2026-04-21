@@ -1481,7 +1481,7 @@ function renderDashboard() {
     act.innerHTML = recent.map(r => {
       const sc = all.find(s => s.id === r.cenarioId);
       const cls = r.pontuacao >= 8.5 ? 'score-good' : r.pontuacao >= 6 ? 'score-ok' : 'score-bad';
-      const icon = sc && sc.modalidade === 'agendamento' ? '📋' : (AREA_EMOJI[sc && sc.area]||'🦷');
+      const icon = '📌';
       const titulo = sc ? sc.titulo : r.cenarioId;
       const data = new Date(r.data);
       return `<div class="activity-item">
@@ -1570,7 +1570,7 @@ function renderScenarios() {
       ${isDone ? '<span class="card-done">✓</span>' : ''}
       <div class="card-top"><span class="card-id">${s.id}</span>${renderComplexityBar(s.complexidade)}</div>
       <div class="card-title">${s.titulo}</div>
-      <div class="card-area">${s.area ? `${AREA_EMOJI[s.area]||'📌'} ${s.area}` : ''}</div>
+      <div class="card-area">${s.area ? `📌 ${s.area}` : ''}</div>
       <div class="card-meta">
         <span class="tag ${tipoCls}">${modalidadeLabel}</span>
         ${s.tempo ? `<span class="tag time">${s.tempo} min</span>` : ''}
@@ -1783,7 +1783,7 @@ function renderSimStep(showRetryBanner) {
     <div class="sim-sidebar">
       <div class="sidebar-card">
         <h4>Cenário</h4>
-        ${s.area ? `<div class="area-badge" style="background:${color}20;color:${color};border:1px solid ${color}40">${AREA_EMOJI[s.area]||'📌'} ${s.area}</div>` : ''}
+        ${s.area ? `<div class="area-badge" style="background:${color}20;color:${color};border:1px solid ${color}40">📌 ${s.area}</div>` : ''}
         <div class="info-item"><span class="info-key">Tipo</span><span class="info-val">${s.tipo}</span></div>
         <div class="info-item"><span class="info-key">Complexidade</span><span class="info-val">${renderComplexityBar(s.complexidade)}</span></div>
         <div class="info-item"><span class="info-key">Tempo est.</span><span class="info-val">${s.tempo||'—'} min</span></div>
@@ -3627,7 +3627,7 @@ function openAlunoDetail(alunoId) {
 
       return `<div class="activity-item" style="border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:12px 14px;flex-direction:column;align-items:flex-start">
         <div style="display:flex;width:100%;gap:12px;align-items:center">
-          <div class="activity-icon">${r.modalidade==='agendamento'?'📋':(AREA_EMOJI[r.area]||'🦷')}</div>
+          <div class="activity-icon">📌</div>
           <div style="flex:1"><div class="activity-title">${r.titulo||r.cenarioId}</div>
           <div class="activity-sub">${r.cenarioId} · ${data.toLocaleDateString('pt-BR')} · ${data.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})} · ${r.area||''}</div></div>
           <div class="activity-score ${r.pontuacao>=8.5?'score-good':r.pontuacao>=6?'score-ok':'score-bad'}">${r.pontuacao.toFixed(1)}</div>
