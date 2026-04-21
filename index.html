@@ -654,10 +654,6 @@
         <h2>Cenários</h2>
         <p>Escolha um cenário para simular. Em cada um você praticará sua tomada de decisão até dominar a conduta ideal.</p>
       </div>
-      <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap">
-        <button class="btn-sm primary-sm" style="flex:1;min-width:180px" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
-        <button class="btn-sm primary-sm" style="flex:1;min-width:180px" onclick="showPage('page-editar-cenarios')">Editar Cenário</button>
-      </div>
       <div class="filter-bar">
         <select class="filter-select" id="f-modalidade" onchange="renderScenarios()">
           <option value="">Todos os tipos</option>
@@ -714,6 +710,8 @@
         <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">Gerenciar Alunos</button>
         <button class="btn-sm" onclick="showPage('page-reflexoes')">Ver Reflexões</button>
         <button class="btn-sm" onclick="exportarCSV()">Exportar CSV</button>
+        <button class="btn-sm primary-sm" onclick="showPage('page-editar-cenarios')">✏️ Editar Cenários</button>
+        <button class="btn-sm primary-sm" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
       </div>
     </div>
 
@@ -1126,6 +1124,12 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 function showPage(id) {
+  // Páginas restritas ao professor — alunos não têm acesso
+  const paginasProf = ['page-criar-cenario', 'page-editar-cenarios', 'page-moderacao', 'page-admin', 'page-turmas', 'page-alunos', 'page-reflexoes'];
+  if (paginasProf.includes(id) && state.user?.tipo !== 'professor') {
+    console.warn('Acesso negado: página restrita ao professor.');
+    return;
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const el = document.getElementById(id);
   if (el) el.classList.add('active');
