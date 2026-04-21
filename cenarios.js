@@ -1,22 +1,14 @@
 /* ============================================================
-   SimuCare — Cenários Consolidados (Abril 2026)
+   SimuCare — Cenários Consolidados (140 cenários — Abril 2026)
    ============================================================
-   150 cenários totais:
-   - 60 cenários de Agendamento (AG-01 a AG-60)
-     20 existentes + 40 novos com especialidades diversas
-     3 etapas cada: dados do paciente → agendamento → seleção de materiais
-   - 40 cenários de Seleção de Materiais (MAT-01 a MAT-40)
-   - 40 casos clínicos com Múltipla Escolha (CC-01 a CC-40)
-     Questões diagnósticas e de planejamento
-
-   Complexidade:
-   1 = Fácil
-   2 = Médio
-   3 = Difícil
+   
+   AGENDAMENTOS (60): AG-01 a AG-60
+   MATERIAIS (40): MAT-01 a MAT-40
+   CASOS CLÍNICOS (40): CC-01 a CC-40
+   
    ============================================================ */
 
 window.CENARIOS = [
-/* AGENDAMENTOS (40 cenários) */
 {
   id: 'AG-01', titulo: 'Emergência: criança caiu e quebrou o dente da frente',
   tipo: 'agendamento', modalidade: 'agendamento', complexidade: 3, tempo: 3,
@@ -810,609 +802,6 @@ window.CENARIOS = [
   ], corretos: ['m1','m2','m3','m5','m6'] },
   competencias: [8,8,8,8,8,7,7,8]
 },
-
-/* MATERIAIS (40 cenários) - Seleção de recursos terapêuticos */
-
-{
-  id: 'MAT-01', titulo: 'Seleção de luvas para procedimento', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Escolha de equipamento de proteção',
-  contexto: 'Seleção de luvas adequadas para limpeza profissional',
-  opcoes: [
-    { id: 'm1', nome: 'Luvas de nitrila sem pó', correto: true },
-    { id: 'm2', nome: 'Luvas de borracha natural', correto: true },
-    { id: 'm3', nome: 'Luvas de vinil', correto: false },
-    { id: 'm4', nome: 'Luvas de couro', correto: false },
-    { id: 'm5', nome: 'Luvas de algodão', correto: false },
-    { id: 'm6', nome: 'Sem luvas', correto: false }
-  ],
-  competencias: [8,7,8,7,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-02', titulo: 'Isolamento do campo operatório', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Técnica de isolamento para restauração',
-  contexto: 'Isolamento adequado para restauração anterior com resina',
-  opcoes: [
-    { id: 'm1', nome: 'Dique de borracha', correto: true },
-    { id: 'm2', nome: 'Gaze absorvente', correto: true },
-    { id: 'm3', nome: 'Plástico transparente', correto: false },
-    { id: 'm4', nome: 'Papel alumínio', correto: false },
-    { id: 'm5', nome: 'Pano de algodão', correto: false },
-    { id: 'm6', nome: 'Nenhum isolamento', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-03', titulo: 'Anestésicos tópicos', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Preparação para injeção anestésica',
-  contexto: 'Redução do desconforto antes da aplicação de anestésico',
-  opcoes: [
-    { id: 'm1', nome: 'Benzocaína gel 20%', correto: true },
-    { id: 'm2', nome: 'Prilocaína spray', correto: true },
-    { id: 'm3', nome: 'Xilocaína 2%', correto: false },
-    { id: 'm4', nome: 'Álcool 70%', correto: false },
-    { id: 'm5', nome: 'Água filtrada', correto: false },
-    { id: 'm6', nome: 'Óleo essencial', correto: false }
-  ],
-  competencias: [7,8,7,8,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-04', titulo: 'Adesivos dentários', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Seleção de adesivos para restauração',
-  contexto: 'Restauração de cárie em superfície com resina',
-  opcoes: [
-    { id: 'm1', nome: 'Adesivo universal', correto: true },
-    { id: 'm2', nome: 'Primer', correto: true },
-    { id: 'm3', nome: 'Selador de fosseta', correto: false },
-    { id: 'm4', nome: 'Clorexidina', correto: false },
-    { id: 'm5', nome: 'Álcool puro', correto: false },
-    { id: 'm6', nome: 'Peróxido', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-05', titulo: 'Polimentos e pastas', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Acabamento de restauração',
-  contexto: 'Polimento final de restauração estética',
-  opcoes: [
-    { id: 'm1', nome: 'Pasta de polimento baixa abrasividade', correto: true },
-    { id: 'm2', nome: 'Disco de polimento', correto: true },
-    { id: 'm3', nome: 'Lixa extra grossa', correto: false },
-    { id: 'm4', nome: 'Carvão ativado', correto: false },
-    { id: 'm5', nome: 'Sal marinho', correto: false },
-    { id: 'm6', nome: 'Bicarbonato', correto: false }
-  ],
-  competencias: [8,7,7,8,7,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-06', titulo: 'Materiais para moldagem', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Seleção para moldagem protética',
-  contexto: 'Moldagem preliminar para confecção de prótese removível',
-  opcoes: [
-    { id: 'm1', nome: 'Alginato', correto: true },
-    { id: 'm2', nome: 'Bandeja de moldagem', correto: true },
-    { id: 'm3', nome: 'Pasta de modeling', correto: false },
-    { id: 'm4', nome: 'Siliconado', correto: false },
-    { id: 'm5', nome: 'Gesso', correto: false },
-    { id: 'm6', nome: 'Parafina', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-07', titulo: 'Instrumentos de diagnóstico', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Avaliação clínica',
-  contexto: 'Avaliação de mobilidade dentária',
-  opcoes: [
-    { id: 'm1', nome: 'Sonda periapical', correto: true },
-    { id: 'm2', nome: 'Teste de mobilidade', correto: true },
-    { id: 'm3', nome: 'Espelho não-ótico', correto: false },
-    { id: 'm4', nome: 'Compasso de ponta seca', correto: false },
-    { id: 'm5', nome: 'Régua flexível', correto: false },
-    { id: 'm6', nome: 'Fita métrica', correto: false }
-  ],
-  competencias: [8,7,8,7,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-08', titulo: 'Fluoração tópica', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Prevenção de cárie',
-  contexto: 'Aplicação de flúor para prevenção',
-  opcoes: [
-    { id: 'm1', nome: 'Verniz de flúor 22000 ppm', correto: true },
-    { id: 'm2', nome: 'Gel fluoretado', correto: true },
-    { id: 'm3', nome: 'Água com flúor', correto: false },
-    { id: 'm4', nome: 'Pasta com flúor', correto: false },
-    { id: 'm5', nome: 'Óleo de coco', correto: false },
-    { id: 'm6', nome: 'Mel puro', correto: false }
-  ],
-  competencias: [8,7,7,7,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-09', titulo: 'Desinfecção de superfícies', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Protocolo de biossegurança',
-  contexto: 'Desinfecção de superfícies clínicas',
-  opcoes: [
-    { id: 'm1', nome: 'Álcool 70%', correto: true },
-    { id: 'm2', nome: 'Clorexidina 0,12%', correto: true },
-    { id: 'm3', nome: 'Água destilada', correto: false },
-    { id: 'm4', nome: 'Soro fisiológico', correto: false },
-    { id: 'm5', nome: 'Leite integral', correto: false },
-    { id: 'm6', nome: 'Vinagre branco', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-10', titulo: 'Fio dental e higiene', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Higiene proximal',
-  contexto: 'Orientação de higiene oral ao paciente',
-  opcoes: [
-    { id: 'm1', nome: 'Fio dental 50m', correto: true },
-    { id: 'm2', nome: 'Fita de seda encerada', correto: true },
-    { id: 'm3', nome: 'Barbante', correto: false },
-    { id: 'm4', nome: 'Corda de nylon', correto: false },
-    { id: 'm5', nome: 'Papel higiênico', correto: false },
-    { id: 'm6', nome: 'Borracha elástica', correto: false }
-  ],
-  competencias: [8,7,7,7,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-11', titulo: 'Selantes de fosseta e fissura', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Prevenção em criança',
-  contexto: 'Selagem preventiva de fossetas em molares permanentes',
-  opcoes: [
-    { id: 'm1', nome: 'Selante resinoso fotopolimerizável', correto: true },
-    { id: 'm2', nome: 'Ácido fosfórico 37%', correto: true },
-    { id: 'm3', nome: 'Cimento de vidro ionômero', correto: false },
-    { id: 'm4', nome: 'Resina temporária', correto: false },
-    { id: 'm5', nome: 'Cera de abelha', correto: false },
-    { id: 'm6', nome: 'Parafina', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-12', titulo: 'Clareamento caseiro seguro', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Acompanhamento de clareamento',
-  contexto: 'Prescrição de clareamento seguro para casa',
-  opcoes: [
-    { id: 'm1', nome: 'Moldeira térmica', correto: true },
-    { id: 'm2', nome: 'Gel clareador 10%', correto: true },
-    { id: 'm3', nome: 'Água sanitária', correto: false },
-    { id: 'm4', nome: 'Bleach comercial', correto: false },
-    { id: 'm5', nome: 'Carvão ativado', correto: false },
-    { id: 'm6', nome: 'Peróxido 30%', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-13', titulo: 'Retração gengival para moldagem', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Preparo de coroa protética',
-  contexto: 'Técnica de retração para moldagem de coroa',
-  opcoes: [
-    { id: 'm1', nome: 'Fio de retração de algodão', correto: true },
-    { id: 'm2', nome: 'Clorexidina gel', correto: true },
-    { id: 'm3', nome: 'Fio de nylon', correto: false },
-    { id: 'm4', nome: 'Barbante comum', correto: false },
-    { id: 'm5', nome: 'Papel absorvente', correto: false },
-    { id: 'm6', nome: 'Tecido sintético', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-14', titulo: 'Cimentos provisórios', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Proteção de preparo',
-  contexto: 'Cimentação provisória com removibilidade',
-  opcoes: [
-    { id: 'm1', nome: 'Óxido de zinco sem eugenol', correto: true },
-    { id: 'm2', nome: 'Cimento de vidro ionômero', correto: true },
-    { id: 'm3', nome: 'Cimento resinoso forte', correto: false },
-    { id: 'm4', nome: 'Argamassa', correto: false },
-    { id: 'm5', nome: 'Gesso', correto: false },
-    { id: 'm6', nome: 'Pasta de dente', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-15', titulo: 'Teste de vitalidade', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Diagnóstico endodôntico',
-  contexto: 'Teste de vitalidade pulpar',
-  opcoes: [
-    { id: 'm1', nome: 'Teste térmico com gelo', correto: true },
-    { id: 'm2', nome: 'Teste elétrico', correto: true },
-    { id: 'm3', nome: 'Fogo direto', correto: false },
-    { id: 'm4', nome: 'Água quente pura', correto: false },
-    { id: 'm5', nome: 'Ar comprimido forte', correto: false },
-    { id: 'm6', nome: 'Ácido cítrico puro', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-16', titulo: 'Dique de borracha tipos', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Isolamento do campo',
-  contexto: 'Isolamento adequado com dique de borracha',
-  opcoes: [
-    { id: 'm1', nome: 'Dique fino para isolamento rápido', correto: true },
-    { id: 'm2', nome: 'Grampos de retenção', correto: true },
-    { id: 'm3', nome: 'Fita adesiva dupla face', correto: false },
-    { id: 'm4', nome: 'Elástico comum', correto: false },
-    { id: 'm5', nome: 'Prendedores de roupa', correto: false },
-    { id: 'm6', nome: 'Pasta blu-tack', correto: false }
-  ],
-  competencias: [8,7,7,7,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-17', titulo: 'Materiais para gengivite', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Tratamento de inflamação gengival',
-  contexto: 'Tratamento de gengivite leve',
-  opcoes: [
-    { id: 'm1', nome: 'Clorexidina gel', correto: true },
-    { id: 'm2', nome: 'Escova macia', correto: true },
-    { id: 'm3', nome: 'Sal para bochechar', correto: false },
-    { id: 'm4', nome: 'Limão puro', correto: false },
-    { id: 'm5', nome: 'Álcool puro', correto: false },
-    { id: 'm6', nome: 'Água com mel', correto: false }
-  ],
-  competencias: [8,7,7,8,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-18', titulo: 'Radioproteção adequada', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Segurança durante radiografia',
-  contexto: 'Proteção durante radiografia intraoral',
-  opcoes: [
-    { id: 'm1', nome: 'Avental de chumbo', correto: true },
-    { id: 'm2', nome: 'Protetor de tireóide', correto: true },
-    { id: 'm3', nome: 'Máscara de pano', correto: false },
-    { id: 'm4', nome: 'Luva de borracha', correto: false },
-    { id: 'm5', nome: 'Papel alumínio', correto: false },
-    { id: 'm6', nome: 'Plástico comum', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-19', titulo: 'Revelador de biofilme', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Motivação de higiene',
-  contexto: 'Visualização de biofilme para motivação',
-  opcoes: [
-    { id: 'm1', nome: 'Solução de fuccina básica', correto: true },
-    { id: 'm2', nome: 'Pigmento alimentar', correto: true },
-    { id: 'm3', nome: 'Tinta nanquim', correto: false },
-    { id: 'm4', nome: 'Café preto', correto: false },
-    { id: 'm5', nome: 'Beterraba ralada', correto: false },
-    { id: 'm6', nome: 'Açafrão', correto: false }
-  ],
-  competencias: [8,7,7,7,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-20', titulo: 'Curetas periodontais', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Raspagem subgengival',
-  contexto: 'Instrumentos para raspagem periodontal',
-  opcoes: [
-    { id: 'm1', nome: 'Cureta de Gracey específica', correto: true },
-    { id: 'm2', nome: 'Escaler ultrassônico', correto: true },
-    { id: 'm3', nome: 'Faca de manteiga', correto: false },
-    { id: 'm4', nome: 'Raspador de metal', correto: false },
-    { id: 'm5', nome: 'Vidro quebrado', correto: false },
-    { id: 'm6', nome: 'Tesoura dentária', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-21', titulo: 'Resinas compostas', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Restauração anterior',
-  contexto: 'Seleção de resina para restauração estética',
-  opcoes: [
-    { id: 'm1', nome: 'Resina microparticulada', correto: true },
-    { id: 'm2', nome: 'Resina bulk-fill', correto: true },
-    { id: 'm3', nome: 'Cimento de vidro ionômero', correto: false },
-    { id: 'm4', nome: 'Amálgama', correto: false },
-    { id: 'm5', nome: 'Chocolate derretido', correto: false },
-    { id: 'm6', nome: 'Gesso', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-22', titulo: 'Fotopolimerizadores', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Protocolo seguro de ativação',
-  contexto: 'Uso seguro de luz LED',
-  opcoes: [
-    { id: 'm1', nome: 'LED azul 450-490nm', correto: true },
-    { id: 'm2', nome: 'Proteção ocular para paciente', correto: true },
-    { id: 'm3', nome: 'Halógeno sem filtro', correto: false },
-    { id: 'm4', nome: 'Radiação UV pura', correto: false },
-    { id: 'm5', nome: 'Luz vermelha', correto: false },
-    { id: 'm6', nome: 'Luz infravermelha', correto: false }
-  ],
-  competencias: [8,7,8,7,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-23', titulo: 'Matriz de contorno', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Restauração interproximal',
-  contexto: 'Contorno interproximal adequado',
-  opcoes: [
-    { id: 'm1', nome: 'Matriz de acetato', correto: true },
-    { id: 'm2', nome: 'Cunha de madeira', correto: true },
-    { id: 'm3', nome: 'Fita adesiva', correto: false },
-    { id: 'm4', nome: 'Linha de pesca', correto: false },
-    { id: 'm5', nome: 'Barbante', correto: false },
-    { id: 'm6', nome: 'Elástico comum', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-24', titulo: 'Anestésicos locais adequados', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Injeção anestésica segura',
-  contexto: 'Seleção segura de anestésico',
-  opcoes: [
-    { id: 'm1', nome: 'Lidocaína 2% com epinefrina', correto: true },
-    { id: 'm2', nome: 'Agulha 30x20', correto: true },
-    { id: 'm3', nome: 'Lidocaína pura', correto: false },
-    { id: 'm4', nome: 'Ácido acético', correto: false },
-    { id: 'm5', nome: 'Água destilada', correto: false },
-    { id: 'm6', nome: 'Soro fisiológico', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-25', titulo: 'Instrumentos rotatórios', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Preparação de cavidade',
-  contexto: 'Seleção de brocas para preparo',
-  opcoes: [
-    { id: 'm1', nome: 'Broca esférica #10', correto: true },
-    { id: 'm2', nome: 'Broca cônica para margem', correto: true },
-    { id: 'm3', nome: 'Broca carbide grossa', correto: false },
-    { id: 'm4', nome: 'Fresa de diamante grossa', correto: false },
-    { id: 'm5', nome: 'Tesoura dentária', correto: false },
-    { id: 'm6', nome: 'Faca comum', correto: false }
-  ],
-  competencias: [8,7,8,7,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-26', titulo: 'Fio ortodôntico', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Remoção de aparelho',
-  contexto: 'Remoção segura de aparelho fixo',
-  opcoes: [
-    { id: 'm1', nome: 'Fio de nylon transparente', correto: true },
-    { id: 'm2', nome: 'Alicate para decodagem', correto: true },
-    { id: 'm3', nome: 'Barbante comum', correto: false },
-    { id: 'm4', nome: 'Elástico grosso', correto: false },
-    { id: 'm5', nome: 'Mola helicoidal', correto: false },
-    { id: 'm6', nome: 'Corda sintética', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-27', titulo: 'Higienizadores de implante', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Manutenção pós-operatória',
-  contexto: 'Limpeza segura de implante',
-  opcoes: [
-    { id: 'm1', nome: 'Ultrassom para implante', correto: true },
-    { id: 'm2', nome: 'Cureta plástica', correto: true },
-    { id: 'm3', nome: 'Escaler metálico direto', correto: false },
-    { id: 'm4', nome: 'Lixa abrasiva', correto: false },
-    { id: 'm5', nome: 'Palha de aço', correto: false },
-    { id: 'm6', nome: 'Escova de aço', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-28', titulo: 'Barreira gengival clareadora', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Proteção de tecido mole',
-  contexto: 'Proteção durante clareamento',
-  opcoes: [
-    { id: 'm1', nome: 'Barreira de borracha/silicone', correto: true },
-    { id: 'm2', nome: 'Vaselina', correto: true },
-    { id: 'm3', nome: 'Azeite puro', correto: false },
-    { id: 'm4', nome: 'Manteiga', correto: false },
-    { id: 'm5', nome: 'Óleo mineral', correto: false },
-    { id: 'm6', nome: 'Álcool desnaturado', correto: false }
-  ],
-  competencias: [8,7,7,8,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-29', titulo: 'Radiografias periapicais', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Diagnóstico de cárie',
-  contexto: 'Técnica radiográfica adequada',
-  opcoes: [
-    { id: 'm1', nome: 'Filme periapical tamanho 1', correto: true },
-    { id: 'm2', nome: 'Posicionador de acrílico', correto: true },
-    { id: 'm3', nome: 'Filme oclusal', correto: false },
-    { id: 'm4', nome: 'Bobina de algodão', correto: false },
-    { id: 'm5', nome: 'Papel comum', correto: false },
-    { id: 'm6', nome: 'Vidro sem tratamento', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-30', titulo: 'Selador endodôntico', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Obturação após instrumentação',
-  contexto: 'Obturação de canal radicular',
-  opcoes: [
-    { id: 'm1', nome: 'Guta-percha', correto: true },
-    { id: 'm2', nome: 'Cimento à base hidróxido cálcio', correto: true },
-    { id: 'm3', nome: 'Cimento de vidro ionômero', correto: false },
-    { id: 'm4', nome: 'Resina epóxi', correto: false },
-    { id: 'm5', nome: 'Argila', correto: false },
-    { id: 'm6', nome: 'Barro comum', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-31', titulo: 'Luzes de fotoativação segura', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Cura de resinas',
-  contexto: 'Protocolo seguro de fotoativação',
-  opcoes: [
-    { id: 'm1', nome: 'LED 405-490nm', correto: true },
-    { id: 'm2', nome: 'Intensidade maior 500mW/cm2', correto: true },
-    { id: 'm3', nome: 'Lâmpada incandescente', correto: false },
-    { id: 'm4', nome: 'Vela acesa', correto: false },
-    { id: 'm5', nome: 'Raios solares diretos', correto: false },
-    { id: 'm6', nome: 'Fogo aberto', correto: false }
-  ],
-  competencias: [8,7,7,8,8,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-32', titulo: 'Hipoclorito de sódio', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Limpeza do canal radicular',
-  contexto: 'Irrigação durante tratamento endodôntico',
-  opcoes: [
-    { id: 'm1', nome: 'Concentração 1-5,25%', correto: true },
-    { id: 'm2', nome: 'Agulha curva irrigação', correto: true },
-    { id: 'm3', nome: 'Água sanitária pura 100%', correto: false },
-    { id: 'm4', nome: 'Cloro gasoso', correto: false },
-    { id: 'm5', nome: 'Água com sal', correto: false },
-    { id: 'm6', nome: 'Álcool puro', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-33', titulo: 'Prótese removível limpeza', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Instrução ao paciente',
-  contexto: 'Higiene de prótese removível',
-  opcoes: [
-    { id: 'm1', nome: 'Solução efervescente', correto: true },
-    { id: 'm2', nome: 'Escova macia específica', correto: true },
-    { id: 'm3', nome: 'Água muito quente fervendo', correto: false },
-    { id: 'm4', nome: 'Lixívia comercial', correto: false },
-    { id: 'm5', nome: 'Soda cáustica', correto: false },
-    { id: 'm6', nome: 'Gasolina', correto: false }
-  ],
-  competencias: [8,7,7,8,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-34', titulo: 'Teste de sensibilidade adequado', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Avaliação de neuropatia',
-  contexto: 'Teste de sensibilidade dentária',
-  opcoes: [
-    { id: 'm1', nome: 'Teste com gelo', correto: true },
-    { id: 'm2', nome: 'Teste com explorador frio', correto: true },
-    { id: 'm3', nome: 'Fogo direto', correto: false },
-    { id: 'm4', nome: 'Ar muito quente', correto: false },
-    { id: 'm5', nome: 'Eletricidade alta voltagem', correto: false },
-    { id: 'm6', nome: 'Sal puro na língua', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-35', titulo: 'Limpeza desinfecção prótese', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Prevenção de candidíase',
-  contexto: 'Higiene adequada de prótese removível',
-  opcoes: [
-    { id: 'm1', nome: 'Solução efervescente', correto: true },
-    { id: 'm2', nome: 'Escova macia específica', correto: true },
-    { id: 'm3', nome: 'Água extremamente quente', correto: false },
-    { id: 'm4', nome: 'Lixívia diluída', correto: false },
-    { id: 'm5', nome: 'Álcool 95%', correto: false },
-    { id: 'm6', nome: 'Gasolina', correto: false }
-  ],
-  competencias: [8,7,7,8,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-36', titulo: 'Cimento provisório segurança', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Preparação com removibilidade',
-  contexto: 'Cimentação provisória adequada',
-  opcoes: [
-    { id: 'm1', nome: 'Óxido de zinco sem eugenol', correto: true },
-    { id: 'm2', nome: 'Cimento vidro ionômero modificado', correto: true },
-    { id: 'm3', nome: 'Cimento resinoso dual forte', correto: false },
-    { id: 'm4', nome: 'Pasta hidróxido cálcio', correto: false },
-    { id: 'm5', nome: 'Epóxi bicomponente', correto: false },
-    { id: 'm6', nome: 'Silicone acetona', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-37', titulo: 'Osseointegração acompanhamento', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Avaliação pós-implante',
-  contexto: 'Controle periódico de implante',
-  opcoes: [
-    { id: 'm1', nome: 'Radiografia densidade óssea', correto: true },
-    { id: 'm2', nome: 'Teste de mobilidade clínica', correto: true },
-    { id: 'm3', nome: 'Sonda periodontal implante', correto: false },
-    { id: 'm4', nome: 'Câmera termográfica', correto: false },
-    { id: 'm5', nome: 'Ultrassom avaliativo', correto: false },
-    { id: 'm6', nome: 'Teste ressonância frequência', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-38', titulo: 'Teste de sensibilidade dentária', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Diagnóstico hipersensibilidade',
-  contexto: 'Avaliação de sensibilidade',
-  opcoes: [
-    { id: 'm1', nome: 'Teste com ar comprimido', correto: true },
-    { id: 'm2', nome: 'Teste explorador não aquecido', correto: true },
-    { id: 'm3', nome: 'Teste água quente', correto: false },
-    { id: 'm4', nome: 'Teste álcool', correto: false },
-    { id: 'm5', nome: 'Teste limão fresco', correto: false },
-    { id: 'm6', nome: 'Teste sal cristalino', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-39', titulo: 'Isolamento com tira teflon', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 1, descricao: 'Proteção de papila',
-  contexto: 'Isolamento interproximal adequado',
-  opcoes: [
-    { id: 'm1', nome: 'Tira teflon matriz', correto: true },
-    { id: 'm2', nome: 'Cunha triangular madeira', correto: true },
-    { id: 'm3', nome: 'Fita adesiva dupla face', correto: false },
-    { id: 'm4', nome: 'Borracha elástica', correto: false },
-    { id: 'm5', nome: 'Mola helicoidal', correto: false },
-    { id: 'm6', nome: 'Arame dentário', correto: false }
-  ],
-  competencias: [8,7,7,8,7,8,7,8],
-  pontuacao_base: 100
-},
-{
-  id: 'MAT-40', titulo: 'Proteção dentes com fórceps', tipo: 'materiais', modalidade: 'materiais',
-  complexidade: 2, descricao: 'Extração com proteção',
-  contexto: 'Extração dentária com proteção',
-  opcoes: [
-    { id: 'm1', nome: 'Protetor cera/borracha dentes', correto: true },
-    { id: 'm2', nome: 'Gaze proteção lábios/mucosa', correto: true },
-    { id: 'm3', nome: 'Fórceps revestimento suave', correto: false },
-    { id: 'm4', nome: 'Dique borracha durante extração', correto: false },
-    { id: 'm5', nome: 'Luva dupla melhor aderência', correto: false },
-    { id: 'm6', nome: 'Aspirador ativo permanente', correto: false }
-  ],
-  competencias: [8,8,8,8,8,8,8,8],
-  pontuacao_base: 100
-},
 {
   id: 'AG-41', titulo: 'Sondagem periodontal em paciente com gengivite',
   tipo: 'agendamento', modalidade: 'agendamento', complexidade: 2, tempo: 2,
@@ -1903,10 +1292,730 @@ window.CENARIOS = [
   competencias: [8,8,8,8,8,8,8,8]
 },
 {
-  id: 'CC-01', titulo: 'Periodontia: diagnóstico de gengivite com sangramento',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  id: 'MAT-01', titulo: 'Restauração de cárie classe II com resina composta',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Paciente com cárie interproximal em molar inferior (dente 36). Você será o responsável pela restauração com resina composta. Quais materiais você precisa para este procedimento?',
+  opcoes: [
+    { texto: 'Dique de borracha e clamp', correto: true },
+    { texto: 'Matriz de contorno e cunha de madeira', correto: true },
+    { texto: 'Ácido fosfórico 37% e adesivo universal', correto: true },
+    { texto: 'Resina composta (bulk-fill ou incremental)', correto: true },
+    { texto: 'Luz LED para fotopolimerização', correto: true },
+    { texto: 'Seringa tríplice para lavar', correto: true },
+    { texto: 'Guta-percha (para endodontia)', correto: false },
+    { texto: 'Clorexidina para bactérias', correto: false },
+    { texto: 'Fórceps de extração', correto: false }
+  ],
+  competencias: [7,7,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-02', titulo: 'Tratamento endodôntico: preparo de canal',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Dente anterior com polpa vital inflamada (teste positivo). Você precisa fazer tratamento endodôntico. Quais são os materiais essenciais para preparo e limpeza do canal?',
+  opcoes: [
+    { texto: 'Dique de borracha e clamp', correto: true },
+    { texto: 'Limas endodônticas (série K ou H)', correto: true },
+    { texto: 'Localizador apical eletrônico', correto: true },
+    { texto: 'Hipoclorito de sódio 2.5%', correto: true },
+    { texto: 'Seringa endodôntica e agulha courva', correto: true },
+    { texto: 'Anestésico com epinefrina', correto: true },
+    { texto: 'Resina composta (para restauração final)', correto: false },
+    { texto: 'Matriz de contorno interproximal', correto: false },
+    { texto: 'Selador de fossetas', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-03', titulo: 'Aplicação profissional de flúor gel em criança',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 6 anos com risco de cárie. Você vai fazer aplicação de gel de flúor profissional (5000 ppm). Quais são os materiais e ferramentas necessários?',
+  opcoes: [
+    { texto: 'Gel de flúor 5000 ppm', correto: true },
+    { texto: 'Moldeira pediátrica (ou tabuleiros individualizados)', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Gaze estéril para secar dentes', correto: true },
+    { texto: 'Copo descartável para bochecho pós-aplicação', correto: true },
+    { texto: 'Escova infantil para educação de higiene', correto: true },
+    { texto: 'Guta-percha (para tratamento endo)', correto: false },
+    { texto: 'Resina composta cor tooth-colored', correto: false },
+    { texto: 'Fórceps de extração', correto: false }
+  ],
+  competencias: [7,7,7,7,8,8,7,7]
+},
+{
+  id: 'MAT-04', titulo: 'Limpeza e polimento de dentes (profilaxia)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
   area: 'Periodontia',
-  contexto: 'Paciente apresenta sangramento gengival espontâneo, edema e eritema. Qual é o diagnóstico mais provável?',
+  contexto: 'Paciente em visita periódica de profilaxia. Apresenta biofilme moderado e sem doença periodontal. Quais materiais você usará para limpeza e polimento?',
+  opcoes: [
+    { texto: 'Escaler ultrassônico ou manual', correto: true },
+    { texto: 'Taça de borracha ou escova de polimento', correto: true },
+    { texto: 'Pasta de polimento (RDA apropriado)', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Seringa tríplice', correto: true },
+    { texto: 'Fio dental ou fita para educação', correto: true },
+    { texto: 'Clorexidina 0.12% (não está indicada sem doença)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Anestésico local com epinefrina', correto: false }
+  ],
+  competencias: [7,6,6,7,7,7,6,6]
+},
+{
+  id: 'MAT-05', titulo: 'Sondagem periodontal diagnóstica',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Periodontia',
+  contexto: 'Paciente com queixa de sangramento gengival. Você precisa fazer diagnóstico periodontal com sondagem completa. Quais instrumentos e materiais são necessários?',
+  opcoes: [
+    { texto: 'Sonda periodontal (com marcações)', correto: true },
+    { texto: 'Espelho intraoral', correto: true },
+    { texto: 'Explorador duplo', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Gaze para secar', correto: true },
+    { texto: 'Anestésico tópico (se necessário)', correto: true },
+    { texto: 'Bisturi periodontal', correto: false },
+    { texto: 'Matriz de contorno', correto: false },
+    { texto: 'Guta-percha', correto: false }
+  ],
+  competencias: [8,7,8,7,7,7,7,7]
+},
+{
+  id: 'MAT-06', titulo: 'Extração dentária simples (exodontia)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Cirurgia Oral',
+  contexto: 'Paciente necessita extração de dente 35 (com raiz única, sem impactação). Quais são os materiais principais para esta exodontia?',
+  opcoes: [
+    { texto: 'Fórceps de extração apropriado (tipo 88)', correto: true },
+    { texto: 'Elevador cirúrgico', correto: true },
+    { texto: 'Anestésico local com epinefrina', correto: true },
+    { texto: 'Seringa carpule', correto: true },
+    { texto: 'Gaze e compressa estéril', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Sutura reabsorvível (para simples não precisa)', correto: false },
+    { texto: 'Limas endodônticas', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [7,8,8,7,8,7,7,7]
+},
+{
+  id: 'MAT-07', titulo: 'Cimentação de coroa protética',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Coroa cerâmica sobre preparação unitária em dente 14 está pronta. Você fará cimentação definitiva. Quais materiais são necessários?',
+  opcoes: [
+    { texto: 'Coroa protética (já confeccionada)', correto: true },
+    { texto: 'Cimento resinoso autoadesivo', correto: true },
+    { texto: 'Fio de retenção/retração (se necessário)', correto: true },
+    { texto: 'Gaze e compressa para isolamento', correto: true },
+    { texto: 'Seringa tríplice para lavar', correto: true },
+    { texto: 'Anestésico tópico', correto: true },
+    { texto: 'Dique de borracha (não é obrigatório)', correto: false },
+    { texto: 'Resina composta bulk-fill', correto: false },
+    { texto: 'Guta-percha para endodontia', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-08', titulo: 'Clareamento dental de consultório',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Paciente quer clareamento imediato dos dentes anteriores superiores. Você usará técnica de consultório com luz LED. Quais materiais precisa?',
+  opcoes: [
+    { texto: 'Gel clareador com peróxido (35% ou 38%)', correto: true },
+    { texto: 'Luz LED para ativação', correto: true },
+    { texto: 'Barreira gengival (dam ou vaselina sólida)', correto: true },
+    { texto: 'Escala de cor Vita (para contraste)', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Fluoreto de sódio para pós-tratamento', correto: true },
+    { texto: 'Resina composta para restauração', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Ácido fosfórico para gravação', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-09', titulo: 'Restauração com ionômero de vidro em criança',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 5 anos com cárie em dente 64. Você escolhe ionômero de vidro para facilitar cooperação. Quais materiais você necessita?',
+  opcoes: [
+    { texto: 'Ionômero de vidro convencional ou modificado com resina', correto: true },
+    { texto: 'Ácido poliacrílico 25% (condicionamento)', correto: true },
+    { texto: 'Espelho infantil pequeno', correto: true },
+    { texto: 'Sugador infantil', correto: true },
+    { texto: 'Anestésico tópico', correto: true },
+    { texto: 'Matriz de contorno pediátrica', correto: true },
+    { texto: 'Luz LED (não precisa com ionômero fotopolimerizável)', correto: false },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Fórceps de extração', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-10', titulo: 'Ajuste oclusal com articulador',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Clínica Geral',
+  contexto: 'Paciente relata incômodo após cimentação de coroa. Você suspeita de contato prematuro. Quais materiais para diagnóstico e ajuste?',
+  opcoes: [
+    { texto: 'Papel de articulação colorido (carbono)', correto: true },
+    { texto: 'Pinça para segurar papel de articulação', correto: true },
+    { texto: 'Bra de alta rotação com ponta de polimento', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Espelho intraoral', correto: true },
+    { texto: 'Seringa tríplice', correto: true },
+    { texto: 'Resina composta para reparar', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Fórceps de extração', correto: false }
+  ],
+  competencias: [7,7,7,8,7,7,7,7]
+},
+{
+  id: 'MAT-11', titulo: 'Raspagem e alisamento radicular (terapia não-cirúrgica)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Paciente com periodontite crônica (bolsas 5-7mm). Primeira fase: raspagem e alisamento radicular com anestesia local. Quais materiais?',
+  opcoes: [
+    { texto: 'Curetas periodontais (Gracey ou mini-Gracey)', correto: true },
+    { texto: 'Anestésico local com epinefrina', correto: true },
+    { texto: 'Seringa carpule', correto: true },
+    { texto: 'Hipoclorito de sódio 0.12% para lavar', correto: true },
+    { texto: 'Seringa de irrigação com agulha fina', correto: true },
+    { texto: 'Gaze estéril', correto: true },
+    { texto: 'Sutura (não precisa em terapia não-cirúrgica)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-12', titulo: 'Moldagem para prótese removível (primeira consulta)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Paciente edêntulo superior. Primeira consulta para moldagem anátômica. Quais materiais você precisa para esta etapa?',
+  opcoes: [
+    { texto: 'Moldeira individual de estoque (tamanho apropriado)', correto: true },
+    { texto: 'Pasta ou massa de moldagem para moldagem anatômica', correto: true },
+    { texto: 'Alginato ou silicone leve para moldagem funcional (segunda etapa)', correto: true },
+    { texto: 'Compasso de Willis (para dimensão vertical)', correto: true },
+    { texto: 'Espátula para misturar pasta de moldagem', correto: true },
+    { texto: 'Água/ativador para alginato', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina para restauração estética', correto: false },
+    { texto: 'Fórceps de extração', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-13', titulo: 'Tratamento de sensibilidade dentinária',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Clínica Geral',
+  contexto: 'Paciente com sensibilidade dental generalizada ao frio. Você diagnosticou como hipersensibilidade dentinária. Quais são as opções de material?',
+  opcoes: [
+    { texto: 'Gel ou pasta dessensibilizante com nitrato de potássio', correto: true },
+    { texto: 'Verniz de flúor para aplicação profissional', correto: true },
+    { texto: 'Resina fluidificada de baixa viscosidade (para ocluir túbulos)', correto: true },
+    { texto: 'Adesivo universal (com efeito dessensibilizante)', correto: true },
+    { texto: 'Escova infantil com cerdas macias (para educação)', correto: true },
+    { texto: 'Clorexidina 0.12% (se houver inflamação)', correto: false },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta opaca', correto: false },
+    { texto: 'Cimento resinoso', correto: false }
+  ],
+  competencias: [7,7,7,7,7,6,6,6]
+},
+{
+  id: 'MAT-14', titulo: 'Obturação de canal radicular',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 2,
+  area: 'Endodontia',
+  contexto: 'Canais foram preparados e comprimento confirmado. Agora você vai obturar os canais. Quais são os materiais essenciais?',
+  opcoes: [
+    { texto: 'Guta-percha (cones principais e acessórios)', correto: true },
+    { texto: 'Cimento obturador endodôntico (com zinco ou resina epóxi)', correto: true },
+    { texto: 'Localizador apical eletrônico (para confirmar comprimento)', correto: true },
+    { texto: 'Espinha de peixe ou técnica de condensação lateral', correto: true },
+    { texto: 'Plugger (condensador térmico ou mecânico)', correto: true },
+    { texto: 'Hipoclorito de sódio para lavar antes de obturar', correto: true },
+    { texto: 'Resina composta (para restauração coronal depois)', correto: false },
+    { texto: 'Anestésico (já foi usado no preparo)', correto: false },
+    { texto: 'Matriz de contorno', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-15', titulo: 'Selante de fossetas e fissuras',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 7 anos com primeiros molares permanentes erupcionados. Você vai aplicar selante para prevenir cáries. Quais materiais?',
+  opcoes: [
+    { texto: 'Selante de fossetas (resinoso ou ionomérico)', correto: true },
+    { texto: 'Ácido fosfórico 37% para gravação', correto: true },
+    { texto: 'Luz LED para fotopolimerização', correto: true },
+    { texto: 'Escova ou gaze para limpeza das superfícies', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Espelho infantil pequeno', correto: true },
+    { texto: 'Clorexidina (não indicada para selante)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Resina composta bulk-fill', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-16', titulo: 'Cimentação de restauração indireta (onlay/inlay)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Onlay cerâmica sobre preparação no dente 16 está pronta. Você fará cimentação definitiva. Quais materiais você precisa?',
+  opcoes: [
+    { texto: 'Onlay cerâmica confeccionada', correto: true },
+    { texto: 'Cimento resinoso dual ou autoadesivo', correto: true },
+    { texto: 'Ácido fosfórico 37% (se sistema de duplo condicionamento)', correto: true },
+    { texto: 'Adesivo universal', correto: true },
+    { texto: 'Fio de retenção/retração', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Guta-percha (para endodontia)', correto: false },
+    { texto: 'Resina composta sem catalisador', correto: false },
+    { texto: 'Pasta de polimento abrasiva', correto: false }
+  ],
+  competencias: [7,8,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-17', titulo: 'Restauração classe V (cárie cervical)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Dentística',
+  contexto: 'Cárie cervical no dente 34 (face vestibular). Você escolhe restaurar com resina composta. Quais materiais para preparação e restauração?',
+  opcoes: [
+    { texto: 'Ácido fosfórico 37% para gravação do esmalte', correto: true },
+    { texto: 'Adesivo universal', correto: true },
+    { texto: 'Resina composta (micropartículada ou flowable)', correto: true },
+    { texto: 'Luz LED para fotopolimerização', correto: true },
+    { texto: 'Tira de poliéster para proteger a papila', correto: true },
+    { texto: 'Anestésico tópico (se necessário)', correto: true },
+    { texto: 'Dique de borracha (difícil em cervical)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Cimento obturador de canal', correto: false }
+  ],
+  competencias: [7,7,7,8,7,7,7,7]
+},
+{
+  id: 'MAT-18', titulo: 'Anestesia em endodontia com vaso intenso',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Endodontia',
+  contexto: 'Paciente com polpa vital inflamada muito sensível. Anestesia convencional não foi eficaz. Você vai usar técnica complementar. Quais materiais?',
+  opcoes: [
+    { texto: 'Anestésico local com epinefrina 1:50.000 ou 1:100.000', correto: true },
+    { texto: 'Seringa carpule e agulha apropriada', correto: true },
+    { texto: 'Anestésico tópico (antes da injeção)', correto: true },
+    { texto: 'Técnica intraligamentar (pistola intraligamentar ou seringa)', correto: true },
+    { texto: 'Técnica intraossea (se equipamento disponível)', correto: true },
+    { texto: 'Hipoclorito de sódio (depois da anestesia)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Cimento de obturação', correto: false },
+    { texto: 'Coroa protética', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-19', titulo: 'Esfoliação assistida de dente decíduo',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Odontopediatria',
+  contexto: 'Dente decíduo 62 com mobilidade grau 3 será extraído. Você decidiu fazer esfoliação controlada. Quais materiais?',
+  opcoes: [
+    { texto: 'Fórceps pediátrico pequeno', correto: true },
+    { texto: 'Elevador infantil fino', correto: true },
+    { texto: 'Anestésico tópico', correto: true },
+    { texto: 'Gaze estéril para hemostasia', correto: true },
+    { texto: 'Sugador infantil pequeno', correto: true },
+    { texto: 'Água oxigenada para lavar (se houver infecção)', correto: true },
+    { texto: 'Sutura (não precisa em criança)', correto: false },
+    { texto: 'Anestésico local injetável (se apenas tópico bastar)', correto: false },
+    { texto: 'Guta-percha', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-20', titulo: 'Tratamento de afta (úlcera oral)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Clínica Geral',
+  contexto: 'Paciente com afta dolorosa em mucosa alveolar. Você vai fazer tratamento tópico. Quais materiais?',
+  opcoes: [
+    { texto: 'Cauterizante (nitrato de prata ou laser)', correto: true },
+    { texto: 'Gel anestésico tópico com benzocaína', correto: true },
+    { texto: 'Corticosteroide tópico em pasta (se inflamação)', correto: true },
+    { texto: 'Enxaguatório com clorexidina 0.12%', correto: true },
+    { texto: 'Gaze estéril para aplicação', correto: true },
+    { texto: 'Instrução de higiene (álcool ou ácido citrato NÃO)', correto: true },
+    { texto: 'Antibiótico sistêmico (não é indicado para afta simples)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-21', titulo: 'Instalação de implante (cirurgia)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 3,
+  area: 'Implantologia',
+  contexto: 'Cirurgia de colocação de implante dentário em maxila. Qual é a lista completa de materiais e instrumentos?',
+  opcoes: [
+    { texto: 'Implante dentário (parafuso, tamanho apropriado)', correto: true },
+    { texto: 'Kit de brocas progressivas (para osteotomia)', correto: true },
+    { texto: 'Anestésico local com epinefrina', correto: true },
+    { texto: 'Bisturi cirúrgico e cabo de bisturi', correto: true },
+    { texto: 'Sugador cirúrgico de grande volume', correto: true },
+    { texto: 'Sutura (geralmente reabsorvível)', correto: true },
+    { texto: 'Guta-percha (para endodontia, não para cirurgia)', correto: false },
+    { texto: 'Resina composta (para restauração final, depois)', correto: false },
+    { texto: 'Fio dental (após cicatrização)', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-22', titulo: 'Prova de coroa protética (segunda consulta)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Prostodontia',
+  contexto: 'Coroa protética em processamento está pronta para prova. Você vai avaliar adaptação e oclusão. Quais materiais?',
+  opcoes: [
+    { texto: 'Coroa protética confeccionada', correto: true },
+    { texto: 'Papel de articulação colorido', correto: true },
+    { texto: 'Escala de cor Vita (para comparação)', correto: true },
+    { texto: 'Paquímetro (para avaliar espessura de espaço)', correto: true },
+    { texto: 'Espelho intraoral', correto: true },
+    { texto: 'Seringa tríplice', correto: true },
+    { texto: 'Cimento de cimentação (já para cimentar na prova)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,7,7]
+},
+{
+  id: 'MAT-23', titulo: 'Fluoretação com verniz profissional',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Odontopediatria',
+  contexto: 'Criança com história de cárie. Você vai aplicar verniz de flúor profissional como medida preventiva. Quais materiais?',
+  opcoes: [
+    { texto: 'Verniz de flúor 22.600 ppm (ou gel 12.300 ppm)', correto: true },
+    { texto: 'Gaze estéril para secar dentes', correto: true },
+    { texto: 'Toucinho ou algodão para isolamento relativo', correto: true },
+    { texto: 'Sugador infantil', correto: true },
+    { texto: 'Copo descartável para enxague pós-aplicação', correto: true },
+    { texto: 'Escova para educação de higiene', correto: true },
+    { texto: 'Clorexidina (não é necessária após fluoração)', correto: false },
+    { texto: 'Guta-percha', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-24', titulo: 'Laminado cerâmico: preparo dental',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Estética',
+  contexto: 'Paciente para restauração estética com laminado cerâmico. Você vai fazer o preparo dos dentes anteriores. Quais materiais?',
+  opcoes: [
+    { texto: 'Broca diamantada ponta troncocônica', correto: true },
+    { texto: 'Disco diamantado de corte fino', correto: true },
+    { texto: 'Ácido fosfórico 37% para gravação', correto: true },
+    { texto: 'Primer e adesivo universal', correto: true },
+    { texto: 'Resina de cor de teste (para preview estético)', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Guta-percha (para endodontia, não estética)', correto: false },
+    { texto: 'Pasta de polimento abrasiva demais', correto: false },
+    { texto: 'Cimento de obturação de canal', correto: false }
+  ],
+  competencias: [8,8,7,8,7,7,7,7]
+},
+{
+  id: 'MAT-25', titulo: 'Exodontia com alveolectomia (múltiplos dentes)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 3,
+  area: 'Cirurgia Oral',
+  contexto: 'Extração de múltiplos dentes deteriorados com alveolectomia para preparo de rebordo. Quais são os materiais cirúrgicos?',
+  opcoes: [
+    { texto: 'Fórceps de extração (vários tamanhos)', correto: true },
+    { texto: 'Elevadores cirúrgicos', correto: true },
+    { texto: 'Mandril com broca para osteotomia', correto: true },
+    { texto: 'Bisturi cirúrgico para acesso', correto: true },
+    { texto: 'Sugador cirúrgico potente', correto: true },
+    { texto: 'Sutura reabsorvível', correto: true },
+    { texto: 'Guta-percha (endodontia, não cirurgia)', correto: false },
+    { texto: 'Resina composta (para restauração depois)', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-26', titulo: 'Cimentação de pino (núcleo) e coroa em dente tratado',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Endodontia + Prostodontia',
+  contexto: 'Dente endodonticamente tratado precisa de reabilitação com pino + núcleo + coroa. Quais são os materiais para cimentação?',
+  opcoes: [
+    { texto: 'Pino de fibra ou metálico (já selecionado)', correto: true },
+    { texto: 'Cimento resinoso dual ou autoadesivo', correto: true },
+    { texto: 'Ácido fosfórico 37% (se dupla condicionamento)', correto: true },
+    { texto: 'Adesivo universal', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Coroa protética (para depois)', correto: false },
+    { texto: 'Hipoclorito de sódio (já foi usado)', correto: false },
+    { texto: 'Guta-percha (já está no canal)', correto: false },
+    { texto: 'Resina composta simples', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-27', titulo: 'Enxerto ósseo para implantologia',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 3,
+  area: 'Implantologia',
+  contexto: 'Paciente com volume ósseo insuficiente. Você fará enxerto ósseo para preparar leito implantário. Quais materiais e biomateriais?',
+  opcoes: [
+    { texto: 'Osso autógeno (coletado da região) ou alógeno/xenógeno', correto: true },
+    { texto: 'Membrana de barreira reabsorvível', correto: true },
+    { texto: 'Parafusos de fixação de membrana', correto: true },
+    { texto: 'Bisturi e elevadores cirúrgicos', correto: true },
+    { texto: 'Sutura reabsorvível', correto: true },
+    { texto: 'Anestésico local com epinefrina', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-28', titulo: 'Ajuste de prótese removível (linha de pescoço)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Prostodontia',
+  contexto: 'Prótese removível está causando irritação em mucosa linha do pescoço. Você fará reembasamento localizado. Quais materiais?',
+  opcoes: [
+    { texto: 'Carbono articulado para marcar área', correto: true },
+    { texto: 'Bra de alta rotação com ponta troncocônica', correto: true },
+    { texto: 'Resina acrílica auto ou termopolimerizável', correto: true },
+    { texto: 'Monômero para misturar à resina', correto: true },
+    { texto: 'Polidora para acabamento final', correto: true },
+    { texto: 'Gaze para ajuste fino', correto: false },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Cimento de obturação', correto: false },
+    { texto: 'Laminado cerâmico', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-29', titulo: 'Retratamento com microscópio cirúrgico',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 3, tempo: 3,
+  area: 'Endodontia',
+  contexto: 'Dente com insucesso de tratamento anterior. Você fará retratamento com visualização microcirúrgica. Quais são os materiais?',
+  opcoes: [
+    { texto: 'Microscópio operatório', correto: true },
+    { texto: 'Ponta ultrassônica para remover guta-percha', correto: true },
+    { texto: 'Limas endodônticas de tamanho apropriado', correto: true },
+    { texto: 'Hipoclorito de sódio 5% para limpeza', correto: true },
+    { texto: 'Guta-percha nova', correto: true },
+    { texto: 'Cimento obturador endodôntico', correto: true },
+    { texto: 'Resina composta (após obturação)', correto: false },
+    { texto: 'Coroa protética (consulta posterior)', correto: false },
+    { texto: 'Fio dental preventivo', correto: false }
+  ],
+  competencias: [9,9,9,9,9,9,8,8]
+},
+{
+  id: 'MAT-30', titulo: 'Limpeza de implante infectado (periimplantite)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Implantologia',
+  contexto: 'Implante com sinais de periimplantite. Você fará limpeza cirúrgica da superfície implantária. Quais materiais?',
+  opcoes: [
+    { texto: 'Curetas de titânio (compatível com implante)', correto: true },
+    { texto: 'Ponta ultrassônica de titânio', correto: true },
+    { texto: 'Clorexidina 0.12% ou peróxido de hidrogênio para lavar', correto: true },
+    { texto: 'Anestésico local', correto: true },
+    { texto: 'Gaze estéril', correto: true },
+    { texto: 'Sugador de saliva', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta (não em implante)', correto: false },
+    { texto: 'Antibiótico sistêmico apenas (sem limpeza local)', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-31', titulo: 'Reparação de prótese parcial removível (PPR)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Prótese parcial removível com fratura na sela. Você fará reparo. Quais materiais e técnicas?',
+  opcoes: [
+    { texto: 'Resina acrílica termopolimerizável', correto: true },
+    { texto: 'Primer e agente de ligação para resina', correto: true },
+    { texto: 'Monômero apropriado', correto: true },
+    { texto: 'Mufla para termopolimerização', correto: true },
+    { texto: 'Bra para acabamento final', correto: true },
+    { texto: 'Papel carbono para ajuste oclusal', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Cimento de obturação', correto: false },
+    { texto: 'Tira de poliéster', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-32', titulo: 'Tratamento de bruxismo: confecção de placa de proteção',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Clínica Geral',
+  contexto: 'Paciente diagnosticado com bruxismo noturno. Você fará moldagem para placa de proteção. Quais materiais?',
+  opcoes: [
+    { texto: 'Moldeira de estoque (tamanho apropriado)', correto: true },
+    { texto: 'Alginato ou silicone leve para moldagem', correto: true },
+    { texto: 'Ativador de alginato', correto: true },
+    { texto: 'Resina acrílica para placa (termopolimerizável)', correto: true },
+    { texto: 'Papel carbono para ajuste de contatos', correto: true },
+    { texto: 'Bra para acabamento suave', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Laminado cerâmico (para estética)', correto: false },
+    { texto: 'Cimento de obturação', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-33', titulo: 'Diagnóstico de cárie com métodos auxiliares',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Dentística',
+  contexto: 'Paciente com suspeita de cárie interproximal não visível clinicamente. Você usará métodos diagnósticos complementares. Quais?',
+  opcoes: [
+    { texto: 'Radiografia periapical/interproximal', correto: true },
+    { texto: 'Fio dental para detecção tátil', correto: true },
+    { texto: 'Laser de diagnóstico de fluorescência (DIAGNOdent)', correto: true },
+    { texto: 'Explorador duplo (tato fino)', correto: true },
+    { texto: 'Espelho intraoral', correto: true },
+    { texto: 'Luz halógena ou LED para transioniluminação', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Cimento de obturação', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-34', titulo: 'Drenagem de abcesso perioral',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Cirurgia Oral',
+  contexto: 'Paciente com abcesso endodôntico/periodontal drenando pus. Você fará drenagem cirúrgica. Quais materiais?',
+  opcoes: [
+    { texto: 'Bisturi cirúrgico para incisão', correto: true },
+    { texto: 'Drenagem (tubo de borracha ou gaze iodofórmica)', correto: true },
+    { texto: 'Anestésico local com epinefrina', correto: true },
+    { texto: 'Sugador cirúrgico', correto: true },
+    { texto: 'Gaze estéril para limpeza', correto: true },
+    { texto: 'Cultura para sensibilidade a antibióticos (se indicado)', correto: true },
+    { texto: 'Guta-percha (para endodontia depois)', correto: false },
+    { texto: 'Resina composta (não em cirurgia aguda)', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-35', titulo: 'Controle de placa em criança (educação)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Odontopediatria',
+  contexto: 'Criança de 4 anos com má higiene bucal. Você fará educação em técnica de escovação. Quais materiais?',
+  opcoes: [
+    { texto: 'Escova infantil de cerdas macias', correto: true },
+    { texto: 'Pasta de dente infantil (com flúor adequado)', correto: true },
+    { texto: 'Fio dental infantil', correto: true },
+    { texto: 'Modelo de dente grande para demonstração', correto: true },
+    { texto: 'Revelador de placa (solução/pastilha)', correto: true },
+    { texto: 'Espelho infantil para o paciente ver', correto: true },
+    { texto: 'Clorexidina 0.12% (apenas se gengivite)', correto: false },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-36', titulo: 'Moldagem para coroa protética (primeira etapa)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 2,
+  area: 'Prostodontia',
+  contexto: 'Dente 14 preparado para coroa. Primeira etapa: moldagem de precisão. Quais materiais e técnicas?',
+  opcoes: [
+    { texto: 'Silicone putty para moldeira individual', correto: true },
+    { texto: 'Silicone leve para moldagem de precisão', correto: true },
+    { texto: 'Espátula para silicone', correto: true },
+    { texto: 'Fio de retenção/retração se necessário', correto: true },
+    { texto: 'Seringa tríplice para lavar', correto: true },
+    { texto: 'Moldeira de estoque para base', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta para toque final (na moldagem)', correto: false },
+    { texto: 'Cimento de obturação', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-37', titulo: 'Sutura e pontos após cirurgia oral',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Cirurgia Oral',
+  contexto: 'Cirurgia de extração com alveolectomia realizada. Agora você fará sutura dos retalhos. Quais materiais?',
+  opcoes: [
+    { texto: 'Sutura reabsorvível (ácido poliglicólico ou polidioxanona)', correto: true },
+    { texto: 'Agulha apropriada para cirurgia (triangular)', correto: true },
+    { texto: 'Pinça anatômica para retalho', correto: true },
+    { texto: 'Tesoura cirúrgica para corte', correto: true },
+    { texto: 'Porta-agulha cirúrgico', correto: true },
+    { texto: 'Gaze estéril para secar antes de suturar', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta (restauração)', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [8,8,8,8,8,8,7,7]
+},
+{
+  id: 'MAT-38', titulo: 'Sensibilidade dental - teste diagnóstico',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Clínica Geral',
+  contexto: 'Paciente relata dor ao frio. Você vai fazer testes para confirmar hipersensibilidade dentinária. Quais testes?',
+  opcoes: [
+    { texto: 'Teste com ar comprimido (resposta dor rápida)', correto: true },
+    { texto: 'Teste com escovação leve', correto: true },
+    { texto: 'Teste com água gelada (resposta nítida)', correto: true },
+    { texto: 'Teste de sensibilidade elétrica (se endodontia)', correto: true },
+    { texto: 'Teste com explorador para tato de cavitação', correto: true },
+    { texto: 'Teste com álcool (irritante, evitar)', correto: false },
+    { texto: 'Teste com suco de limão fresco (irritante)', correto: false },
+    { texto: 'Guta-percha para tratamento imediato', correto: false },
+    { texto: 'Resina composta sem diagnóstico prévio', correto: false }
+  ],
+  competencias: [8,8,8,8,8,7,7,7]
+},
+{
+  id: 'MAT-39', titulo: 'Aumento de rebordo gengival com Botox (estética)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 2, tempo: 1,
+  area: 'Estética',
+  contexto: 'Paciente com sorriso gengival por hiperatividade muscular. Você vai fazer aplicação de Botox. Quais materiais?',
+  opcoes: [
+    { texto: 'Botulinum toxin (marca apropriada)', correto: true },
+    { texto: 'Seringa de insulina 1 mL para aplicação', correto: true },
+    { texto: 'Agulha fina 30 ou 31G', correto: true },
+    { texto: 'Algodão com álcool 70% para assepsia', correto: true },
+    { texto: 'Luvas cirúrgicas estéreis', correto: true },
+    { texto: 'Anestésico tópico ou crioterapia', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'MAT-40', titulo: 'Avaliação de mobilidade dental (periodontia)',
+  modalidade: 'materiais', tipo: 'Caso Clínico - Materiais', complexidade: 1, tempo: 1,
+  area: 'Periodontia',
+  contexto: 'Paciente com periodontite. Você vai avaliar graus de mobilidade dos dentes (1, 2, 3). Quais instrumentos?',
+  opcoes: [
+    { texto: 'Espelho intraoral para visualização', correto: true },
+    { texto: 'Duas hastes de instrumento (cabo de espelho + explorador)', correto: true },
+    { texto: 'Palpação digital para sentir movimento', correto: true },
+    { texto: 'Sonda periodontal para referência de movimento', correto: true },
+    { texto: 'Radiografia periapical para avaliar altura óssea', correto: true },
+    { texto: 'Anotação clara em prontuário dos graus', correto: true },
+    { texto: 'Guta-percha (endodontia)', correto: false },
+    { texto: 'Resina composta (tratamento)', correto: false },
+    { texto: 'Selante de fossetas', correto: false }
+  ],
+  competencias: [7,7,7,7,7,7,6,6]
+},
+{
+  id: 'CC-01', titulo: 'Periodontia: diagnóstico de gengivite com sangramento',
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  area: 'Periodontia',
+  contexto: 'Paciente apresenta sangramento gengival espontâneo, edema e eritema, mas sem perda óssea radiográfica. Qual é o diagnóstico mais provável?',
   opcoes: [
     { texto: 'Gengivite (reversível, sem perda óssea)', correto: true },
     { texto: 'Periodontite (com perda óssea irreversível)', correto: false },
@@ -1917,7 +2026,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-02', titulo: 'Endodontia: diagnóstico de necrose pulpar por teste de vitalidade',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Endodontia',
   contexto: 'Dente 11 não responde à teste de vitalidade (frio, elétrico). Responde positivamente à percussão. Qual é a situação pulpar?',
   opcoes: [
@@ -1930,20 +2039,20 @@ window.CENARIOS = [
 },
 {
   id: 'CC-03', titulo: 'Cárie dentária: decisão de remoção ou remineralização',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Clínica Geral',
-  contexto: 'Paciente de 7 anos com mancha marrom opaca em fissura de oclusal. À exploração, não há cavitação. Qual é a melhor conduta?',
+  contexto: 'Paciente de 7 anos com mancha marrom opaca em fissura de oclusal. À exploração, não há cavitação visível. Qual é a melhor conduta?',
   opcoes: [
     { texto: 'Remover imediatamente (risco de progressão)', correto: false },
     { texto: 'Monitorar com higiene e fluoreto (lesão não cavitada)', correto: true },
     { texto: 'Aguardar exfoliação do dente', correto: false },
-    { texto: 'Aplicar selante sem investigação', correto: false }
+    { texto: 'Aplicar selante sem investigação adicional', correto: false }
   ],
   competencias: [7,7,8,8,7,7,7,7]
 },
 {
   id: 'CC-04', titulo: 'Ortodontia: avaliação de padrão esqueletal',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Ortodontia',
   contexto: 'Análise cefalométrica: ANB = 8°, GoGn = 32°, FMA = 28°. Qual padrão esqueletal?',
   opcoes: [
@@ -1956,7 +2065,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-05', titulo: 'Implantologia: avaliação de viabilidade óssea',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Implantologia',
   contexto: 'CBCT mostra altura óssea de 6mm na região anterior da maxila. Qual é a melhor conduta?',
   opcoes: [
@@ -1969,7 +2078,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-06', titulo: 'Odontopediatria: manejo de criança ansiosa',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Odontopediatria',
   contexto: 'Criança de 5 anos chorando, recusa-se a abrir a boca. Qual é a melhor técnica inicial?',
   opcoes: [
@@ -1982,7 +2091,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-07', titulo: 'Prostodontia: avaliação de retenção e estabilidade protética',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Prostodontia',
   contexto: 'Prótese parcial removível superior com suportes em 16 e 26. Apresenta mobilidade. Qual é o problema?',
   opcoes: [
@@ -1995,7 +2104,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-08', titulo: 'Estética: análise de sorriso e guia de planejamento',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Estética',
   contexto: 'Paciente com exposição excessiva de gengiva anterior (mais de 3mm). Qual é a combinação adequada de intervenções?',
   opcoes: [
@@ -2008,7 +2117,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-09', titulo: 'Cirurgia Oral: complicação pós-exodontia',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Cirurgia Oral',
   contexto: 'Paciente 3 dias pós-exodontia com dor, halitose e alvéolo com aparência necrótica. Qual é o diagnóstico?',
   opcoes: [
@@ -2021,7 +2130,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-10', titulo: 'Dentística: infiltração marginal em restauração',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Dentística',
   contexto: 'Radiografia mostra radiolucidez na margem de restauração de classe II há 3 anos. Como proceder?',
   opcoes: [
@@ -2034,7 +2143,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-11', titulo: 'Periodontia: resposta ao tratamento não-cirúrgico',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Periodontia',
   contexto: 'Após 6 semanas de raspagem e alisamento, bolsa de 6mm permanece. Qual é a próxima conduta?',
   opcoes: [
@@ -2047,7 +2156,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-12', titulo: 'Endodontia: obturação de canal radicular',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Endodontia',
   contexto: 'Canais preparados, comprimento confirmado por radiografia. Qual técnica garante melhor prognóstico?',
   opcoes: [
@@ -2060,7 +2169,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-13', titulo: 'Ortodontia: erupção ectópica e interceptação',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Ortodontia',
   contexto: 'Criança de 7 anos: canino superior erupcionando por palatina. Qual é a conduta?',
   opcoes: [
@@ -2073,7 +2182,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-14', titulo: 'Implantologia: osseointegração comprometida',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Implantologia',
   contexto: 'Implante com mobilidade perceptível 4 meses após colocação. Qual é o diagnóstico?',
   opcoes: [
@@ -2086,7 +2195,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-15', titulo: 'Odontopediatria: cárie precoce da infância (ECC)',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Odontopediatria',
   contexto: 'Criança de 2 anos com cárie em todos os incisivos superiores decíduos. Qual fator é mais provável?',
   opcoes: [
@@ -2099,7 +2208,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-16', titulo: 'Prostodontia: fratura de prótese parcial fixa',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Prostodontia',
   contexto: 'Prótese fixa de 3 unidades (14-15-16) apresenta fratura do pôntico. Como proceder?',
   opcoes: [
@@ -2112,7 +2221,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-17', titulo: 'Clínica Geral: hipersensibilidade dentinária',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Clínica Geral',
   contexto: 'Paciente relata dor aguda em dente saudável ao tomar gelado. Qual é o mecanismo e tratamento?',
   opcoes: [
@@ -2125,7 +2234,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-18', titulo: 'Estética: escolha de material para laminado',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Estética',
   contexto: 'Paciente quer laminado cerâmico vs. resina composta. Qual vantagem dos laminados?',
   opcoes: [
@@ -2138,7 +2247,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-19', titulo: 'Cirurgia: análise de fatores de risco pré-operatório',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Cirurgia Oral',
   contexto: 'Paciente com diabetes descompensada (glicemia 350 mg/dL) agendado para extração. Como proceder?',
   opcoes: [
@@ -2151,20 +2260,20 @@ window.CENARIOS = [
 },
 {
   id: 'CC-20', titulo: 'Dentística: restauração classe V',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Dentística',
   contexto: 'Cárie cervical em face vestibular. Qual sequência de preparação garante melhor retenção?',
   opcoes: [
     { texto: 'Retenção mecânica com bisel, chanfro e adesivo universal', correto: true },
     { texto: 'Apenas remoção de cárie', correto: false },
-    { texto: 'Preparação muito profunda em direção a pulpa', correto: false },
+    { texto: 'Preparação muito profunda em direção a polpa', correto: false },
     { texto: 'Sem preparação, apenas fluidificada sobre cárie', correto: false }
   ],
   competencias: [7,7,8,8,7,7,7,7]
 },
 {
   id: 'CC-21', titulo: 'Periodontia: halitose e etiologia',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Periodontia',
   contexto: 'Paciente com halitose persistente, gengivite moderada e bolsas periodontal. Qual fator contribui mais?',
   opcoes: [
@@ -2176,8 +2285,8 @@ window.CENARIOS = [
   competencias: [8,7,8,8,7,7,8,7]
 },
 {
-  id: 'CC-22', titulo: 'Endodontia: complcações intra-operatórias',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  id: 'CC-22', titulo: 'Endodontia: complicações intra-operatórias',
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Endodontia',
   contexto: 'Durante preparo do canal, instrumento ultrapassa limite apical. Como agir?',
   opcoes: [
@@ -2190,7 +2299,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-23', titulo: 'Ortodontia: maloclusão e classe molar',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Ortodontia',
   contexto: 'Relação molar mesial em 0.5 unidade. Como classificar?',
   opcoes: [
@@ -2203,7 +2312,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-24', titulo: 'Implantologia: material e design do implante',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Implantologia',
   contexto: 'Qual material tem melhor biocompatibilidade e taxa de osseointegração?',
   opcoes: [
@@ -2216,7 +2325,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-25', titulo: 'Odontopediatria: extração de dente decíduo',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Odontopediatria',
   contexto: 'Incisivo central decíduo com mobilidade grau 2 deve ser extraído ou deixado?',
   opcoes: [
@@ -2229,7 +2338,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-26', titulo: 'Prostodontia: prótese total e dimensão vertical',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Prostodontia',
   contexto: 'Paciente apresenta síntese mandibular e dores na ATM após colocação de prótese. Qual pode ser a causa?',
   opcoes: [
@@ -2242,7 +2351,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-27', titulo: 'Clínica Geral: diagnóstico diferencial de lesão oral',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Clínica Geral',
   contexto: 'Lesão oral branca, endurecida, indolor há 3 meses. Qual é o risco?',
   opcoes: [
@@ -2255,7 +2364,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-28', titulo: 'Estética: manutenção de cor em restauração de resina',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Estética',
   contexto: 'Restauração estética em resina composta escurecia após 6 meses. Como minimizar?',
   opcoes: [
@@ -2268,7 +2377,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-29', titulo: 'Cirurgia: manejo de hemorragia pós-exodontia',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Cirurgia Oral',
   contexto: 'Paciente com sangramento contínuo 30 min após exodontia. Qual é o passo inicial?',
   opcoes: [
@@ -2281,7 +2390,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-30', titulo: 'Dentística: escolha de sistema adesivo',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Dentística',
   contexto: 'Restauração em dente vital com esmalte e dentina. Qual sistema garante melhor performance?',
   opcoes: [
@@ -2294,7 +2403,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-31', titulo: 'Periodontia: índice de placa e sangramento',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Periodontia',
   contexto: 'Paciente com índice de sangramento gengival (SBI) elevado após higiene inadequada. Como avaliar resposta ao tratamento?',
   opcoes: [
@@ -2307,7 +2416,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-32', titulo: 'Endodontia: fístula periapical',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Endodontia',
   contexto: 'Fístula intraoral drenando pus. Qual é a causa e tratamento?',
   opcoes: [
@@ -2320,7 +2429,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-33', titulo: 'Ortodontia: uso de elásticos intermaxilares',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Ortodontia',
   contexto: 'Paciente com classe II deve usar elásticos classe II contínuamente. Qual risco de não-compliance?',
   opcoes: [
@@ -2333,7 +2442,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-34', titulo: 'Implantologia: manutenção peri-implantar',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Implantologia',
   contexto: 'Implante osseointegrado há 2 anos. Como prevenir periimplantite?',
   opcoes: [
@@ -2346,7 +2455,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-35', titulo: 'Odontopediatria: higiene bucal e recomendações',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 1, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 1, tempo: 2,
   area: 'Odontopediatria',
   contexto: 'Qual é a recomendação de fluoreto de sódio para criança de 3 anos?',
   opcoes: [
@@ -2359,7 +2468,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-36', titulo: 'Prostodontia: desajuste oclusal em prótese',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Prostodontia',
   contexto: 'Prótese apresenta contato prematuro em lingual de pré-molares. Como ajustar?',
   opcoes: [
@@ -2372,7 +2481,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-37', titulo: 'Clínica Geral: trismo pós-operatório',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Clínica Geral',
   contexto: 'Paciente com limitação de abertura bucal após exodontia de impactado. Como tratar?',
   opcoes: [
@@ -2385,7 +2494,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-38', titulo: 'Estética: avaliação de linha do sorriso',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Estética',
   contexto: 'Paciente com linha de sorriso alta (mostra >3mm de gengiva). Qual combinação de intervenções?',
   opcoes: [
@@ -2398,7 +2507,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-39', titulo: 'Cirurgia: técnica atraumática de exodontia',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 3, tempo: 2,
   area: 'Cirurgia Oral',
   contexto: 'Qual princípio garante melhor cicatrização pós-exodontia?',
   opcoes: [
@@ -2411,7 +2520,7 @@ window.CENARIOS = [
 },
 {
   id: 'CC-40', titulo: 'Dentística: durabilidade de restauração em anterior',
-  modalidade: 'multipla', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
+  modalidade: 'clinico', tipo: 'Caso Clínico', complexidade: 2, tempo: 2,
   area: 'Dentística',
   contexto: 'Restauração de resina em dente anterior é melhor: direta ou indireta (overlay cerâmico)?',
   opcoes: [

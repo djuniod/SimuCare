@@ -236,6 +236,8 @@
   .tag.excecao { background: rgba(245,158,11,0.1); color: var(--warning); border: 1px solid rgba(245,158,11,0.2); }
   .tag.emergencia { background: rgba(239,68,68,0.1); color: var(--danger); border: 1px solid rgba(239,68,68,0.2); }
   .tag.agendamento { background: rgba(0,153,204,0.1); color: var(--accent2); border: 1px solid rgba(0,153,204,0.2); }
+  .tag.clinico { background: rgba(139,92,246,0.1); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); }
+  .tag.materiais { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
   .tag.time { background: var(--bg2); color: var(--text2); border: 1px solid var(--border); }
   .card-done { position: absolute; top: 12px; right: 12px; font-size: 18px; }
 
@@ -653,6 +655,12 @@
         <p>Escolha um cenário para simular. Em cada um você praticará sua tomada de decisão até dominar a conduta ideal.</p>
       </div>
       <div class="filter-bar">
+        <select class="filter-select" id="f-modalidade" onchange="renderScenarios()">
+          <option value="">Todos os tipos</option>
+          <option value="agendamento">Agendamento</option>
+          <option value="clinico">Caso Clínico</option>
+          <option value="materiais">Materiais</option>
+        </select>
         <select class="filter-select" id="f-area" onchange="renderScenarios()">
           <option value="">Todas as áreas</option>
         </select>
@@ -1158,14 +1166,20 @@ async function enterApp() {
 
 // -- HELPERS --------------------------------------------------------
 function getAllScenarios() {
-  // cenarios.js contém todos os 150 cenários (Caso Clínico + Agendamento + Materiais)
+  // cenarios.js contém todos os 140 cenários (Agendamento + Materiais + Caso Clínico)
   return (window.CENARIOS || []).map(s => {
-    // Determina modalidade baseado no ID ou no tipo existente
-    let modalidade = s.modalidade || 'multipla';
-    if (s.id && s.id.startsWith('AG-')) {
-      modalidade = 'agendamento';
-    } else if (s.id && s.id.startsWith('MAT-')) {
-      modalidade = 'materiais';
+    // Usa modalidade definida, senão detecta por ID
+    let modalidade = s.modalidade;
+    if (!modalidade) {
+      if (s.id && s.id.startsWith('AG-')) {
+        modalidade = 'agendamento';
+      } else if (s.id && s.id.startsWith('MAT-')) {
+        modalidade = 'materiais';
+      } else if (s.id && s.id.startsWith('CC-')) {
+        modalidade = 'clinico';
+      } else {
+        modalidade = 'multipla';
+      }
     }
     return { ...s, modalidade };
   });
@@ -1354,9 +1368,11 @@ function renderScenarios() {
   populateAreaFilter();
   const uid = state.user?.id;
   const done = (getResultsForUser(uid)||[]).map(r => r.cenarioId);
+  const fm = document.getElementById('f-modalidade').value;
   const fa = document.getElementById('f-area').value;
   const fc = document.getElementById('f-complex').value;
   let list = getAllScenarios();
+  if (fm) list = list.filter(s => s.modalidade === fm);
   if (fa) list = list.filter(s => s.area === fa);
   if (fc) list = list.filter(s => String(s.complexidade) === fc);
 
@@ -1376,15 +1392,19 @@ function renderScenarios() {
   }
   grid.innerHTML = list.map(s => {
     const isDone = done.includes(s.id);
-    const isAg = s.modalidade === 'agendamento';
-    const tipoCls = isAg ? 'agendamento' : s.tipo === 'Emergência' ? 'emergencia' : s.tipo === 'Exceção' ? 'excecao' : 'normal';
+    const modalidadeLabel = s.modalidade === 'agendamento' ? 'Agendamento' :
+                            s.modalidade === 'clinico' ? 'Caso Clínico' :
+                            s.modalidade === 'materiais' ? 'Materiais' : 'Caso Clínico';
+    const tipoCls = s.modalidade === 'agendamento' ? 'agendamento' :
+                    s.modalidade === 'clinico' ? 'clinico' :
+                    s.modalidade === 'materiais' ? 'materiais' : 'normal';
     return `<div class="scenario-card complexidade-${s.complexidade||2} ${isDone?'completed':''}" onclick="startScenario('${s.id}')">
       ${isDone ? '<span class="card-done">✓</span>' : ''}
       <div class="card-top"><span class="card-id">${s.id}</span>${renderComplexityBar(s.complexidade)}</div>
       <div class="card-title">${s.titulo}</div>
       <div class="card-area">${s.area ? `${AREA_EMOJI[s.area]||'📌'} ${s.area}` : ''}</div>
       <div class="card-meta">
-        <span class="tag ${tipoCls}">${isAg ? 'Agendamento' : s.tipo}</span>
+        <span class="tag ${tipoCls}">${modalidadeLabel}</span>
         ${s.tempo ? `<span class="tag time">${s.tempo} min</span>` : ''}
       </div>
     </div>`;
