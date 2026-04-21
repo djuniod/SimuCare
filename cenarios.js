@@ -14,7 +14,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "O pai Rogério Paz liga assustado: a filha Sofia, 8 anos, acabou de cair na escola e quebrou o dente da frente. Está com sangramento, chorando, sem perda de consciência. Ele está a 15 minutos da clínica. Pergunta se pode ir direto.",
+    "contexto": "O pai Rogério Paz liga assustado: a filha Sofia, 8 anos, acabou de cair na escola e quebrou o dente da frente. Está com sangramento, chorando, sem perda de consciência. Ele está a 15 minutos da clínica. Pergunta se pode ir direto.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -104,11 +104,26 @@ window.CENARIOS = [
         "17:00"
       ],
       "salas": [
-        "Consultório de Emergência"
+        "Consultório de Emergência",
+        "Consultório A",
+        "Consultório B",
+        "Sala de Observação"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "m11",
+          "nome": "Sutura reabsorvível"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m4",
+          "nome": "Anestésico tópico"
+        },
         {
           "id": "m1",
           "nome": "Luvas de nitrila"
@@ -118,44 +133,72 @@ window.CENARIOS = [
           "nome": "Máscara cirúrgica"
         },
         {
-          "id": "m3",
-          "nome": "Gaze estéril"
+          "id": "m9",
+          "nome": "Explorador"
         },
         {
-          "id": "m4",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "m5",
-          "nome": "Lidocaína 2% com epinefrina"
+          "id": "dist_4",
+          "nome": "Pomada cicatrizante"
         },
         {
           "id": "m6",
           "nome": "Seringa carpule"
         },
         {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
           "id": "m7",
           "nome": "Agulha 30x20"
         },
         {
-          "id": "m8",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m9",
-          "nome": "Explorador"
+          "id": "m3",
+          "nome": "Gaze estéril"
         },
         {
           "id": "m10",
           "nome": "Pinça"
         },
         {
-          "id": "m11",
-          "nome": "Sutura reabsorvível"
+          "id": "dist_3",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "m8",
+          "nome": "Espelho intraoral"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "dist_5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m12",
           "nome": "Fio de seda"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "m5",
+          "nome": "Lidocaína 2% com epinefrina"
         }
       ],
       "corretos": [
@@ -190,7 +233,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 2,
-    "contexto": "Paciente com acúmulo de biofilme solicita limpeza profissional. Paciente de baixo risco, mantém boa higiene.",
+    "contexto": "Paciente com acúmulo de biofilme solicita limpeza profissional. Paciente de baixo risco, mantém boa higiene.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -248,7 +291,10 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -258,28 +304,48 @@ window.CENARIOS = [
           "nome": "Escova de dentes macia"
         },
         {
-          "id": "m2",
-          "nome": "Fio dental 50m"
-        },
-        {
-          "id": "m3",
-          "nome": "Clorexidina 0.12%"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta de dente com flúor"
+          "id": "d2",
+          "nome": "Máscara FFP2"
         },
         {
           "id": "m5",
           "nome": "Raspador de língua"
         },
         {
-          "id": "m6",
-          "nome": "Taça de borracha"
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         },
         {
           "id": "m7",
           "nome": "Pasta de polimento"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m6",
+          "nome": "Taça de borracha"
+        },
+        {
+          "id": "m3",
+          "nome": "Clorexidina 0.12%"
+        },
+        {
+          "id": "m2",
+          "nome": "Fio dental 50m"
+        },
+        {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "m4",
+          "nome": "Pasta de dente com flúor"
         }
       ],
       "corretos": [
@@ -309,7 +375,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com cárie interproximal confirmada em primeiro molar inferior. Necessita restauração com resina.",
+    "contexto": "Paciente com cárie interproximal confirmada em primeiro molar inferior. Necessita restauração com resina.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -365,38 +431,61 @@ window.CENARIOS = [
         "15:30"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Dique de borracha"
-        },
-        {
           "id": "m2",
           "nome": "Resina composta bulk-fill"
         },
         {
-          "id": "m3",
-          "nome": "Adesivo universal"
-        },
-        {
-          "id": "m4",
-          "nome": "Matriz de contorno"
+          "id": "dist_0",
+          "nome": "Pomada cicatrizante"
         },
         {
           "id": "m5",
           "nome": "Ácido fosfórico 37%"
         },
         {
-          "id": "m6",
-          "nome": "Luz de LED"
+          "id": "m1",
+          "nome": "Dique de borracha"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "m4",
+          "nome": "Matriz de contorno"
         },
         {
           "id": "m7",
           "nome": "Anestésico"
+        },
+        {
+          "id": "m3",
+          "nome": "Adesivo universal"
+        },
+        {
+          "id": "m6",
+          "nome": "Luz de LED"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
         }
       ],
       "corretos": [
@@ -427,7 +516,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente insatisfeito com estética dos dentes. Quer saber sobre possibilidades de melhoramento.",
+    "contexto": "Paciente insatisfeito com estética dos dentes. Quer saber sobre possibilidades de melhoramento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -483,22 +572,33 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Estético"
+        "Consultório Estético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Guia de cor VITA"
+          "id": "dist_2",
+          "nome": "Gaze 4x4"
         },
         {
           "id": "m2",
           "nome": "Espelho intraoral"
         },
         {
-          "id": "m3",
-          "nome": "Paquímetro digital"
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
         },
         {
           "id": "m4",
@@ -509,8 +609,20 @@ window.CENARIOS = [
           "nome": "Tomografia digital"
         },
         {
+          "id": "m1",
+          "nome": "Guia de cor VITA"
+        },
+        {
           "id": "m6",
           "nome": "Software de simulação"
+        },
+        {
+          "id": "m3",
+          "nome": "Paquímetro digital"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Máscara FFP2"
         }
       ],
       "corretos": [
@@ -538,7 +650,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 2,
-    "contexto": "Paciente com dente irrecuperável ou impactado necessita extração. Procedimento cirúrgico programado.",
+    "contexto": "Paciente com dente irrecuperável ou impactado necessita extração. Procedimento cirúrgico programado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -590,30 +702,17 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Fórceps para extração"
-        },
-        {
-          "id": "m2",
-          "nome": "Elevador dentário"
-        },
-        {
-          "id": "m3",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m4",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "m5",
-          "nome": "Anestésico potente"
+          "id": "dist_0",
+          "nome": "Água oxigenada"
         },
         {
           "id": "m6",
@@ -622,6 +721,42 @@ window.CENARIOS = [
         {
           "id": "m7",
           "nome": "Agulha 30x20"
+        },
+        {
+          "id": "m4",
+          "nome": "Sutura reabsorvível"
+        },
+        {
+          "id": "m3",
+          "nome": "Gaze estéril"
+        },
+        {
+          "id": "m2",
+          "nome": "Elevador dentário"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
+          "id": "m1",
+          "nome": "Fórceps para extração"
+        },
+        {
+          "id": "m5",
+          "nome": "Anestésico potente"
         }
       ],
       "corretos": [
@@ -652,7 +787,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 2,
-    "contexto": "Paciente em manutenção periódica. Limpeza simples e aplicação de flúor tópico.",
+    "contexto": "Paciente em manutenção periódica. Limpeza simples e aplicação de flúor tópico.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -674,7 +809,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório C",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "terça",
@@ -707,18 +842,41 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório C"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Taça de borracha"
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m5",
+          "nome": "Gel fluoretado"
         },
         {
           "id": "m2",
           "nome": "Pasta de polimento"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "d3",
+          "nome": "Espelho bucal grande"
         },
         {
           "id": "m3",
@@ -729,8 +887,8 @@ window.CENARIOS = [
           "nome": "Fio dental"
         },
         {
-          "id": "m5",
-          "nome": "Gel fluoretado"
+          "id": "m1",
+          "nome": "Taça de borracha"
         },
         {
           "id": "m6",
@@ -762,7 +920,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com inflamação gengival leve. Necessita instruções de higiene e raspagem leve.",
+    "contexto": "Paciente com inflamação gengival leve. Necessita instruções de higiene e raspagem leve.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -813,11 +971,34 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "d10",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m4",
+          "nome": "Pasta dentifrícia com flúor"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
+        },
         {
           "id": "m1",
           "nome": "Escova de dentes macia"
@@ -827,20 +1008,20 @@ window.CENARIOS = [
           "nome": "Fio dental"
         },
         {
-          "id": "m3",
-          "nome": "Clorexidina gel"
+          "id": "m6",
+          "nome": "Enxaguante bucal"
         },
         {
-          "id": "m4",
-          "nome": "Pasta dentifrícia com flúor"
+          "id": "m3",
+          "nome": "Clorexidina gel"
         },
         {
           "id": "m5",
           "nome": "Ultrassom periodontal"
         },
         {
-          "id": "m6",
-          "nome": "Enxaguante bucal"
+          "id": "dist_2",
+          "nome": "Sugador de saliva"
         }
       ],
       "corretos": [
@@ -870,7 +1051,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com desconforto oclusal após restauração. Necessita ajuste de contatos prematuros.",
+    "contexto": "Paciente com desconforto oclusal após restauração. Necessita ajuste de contatos prematuros.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -919,7 +1100,10 @@ window.CENARIOS = [
         "15:30"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -929,20 +1113,36 @@ window.CENARIOS = [
           "nome": "Papel carbono"
         },
         {
+          "id": "m4",
+          "nome": "Pasta de polimento"
+        },
+        {
           "id": "m2",
           "nome": "Disco de desgaste fino"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "m5",
+          "nome": "Espelho intraoral"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         },
         {
           "id": "m3",
           "nome": "Disco de polimento"
         },
         {
-          "id": "m4",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho intraoral"
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
         }
       ],
       "corretos": [
@@ -971,7 +1171,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente edêntulo necessitando de prótese. Moldagem preliminar e final.",
+    "contexto": "Paciente edêntulo necessitando de prótese. Moldagem preliminar e final.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1016,30 +1216,49 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Protético"
+        "Consultório Protético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Alginato"
-        },
-        {
-          "id": "m2",
-          "nome": "Espátula de moldagem"
+          "id": "m5",
+          "nome": "Elastômero"
         },
         {
           "id": "m3",
           "nome": "Bandeja de moldagem"
         },
         {
-          "id": "m4",
-          "nome": "Gesso tipo III"
+          "id": "d11",
+          "nome": "Alcool 70%"
         },
         {
-          "id": "m5",
-          "nome": "Elastômero"
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m2",
+          "nome": "Espátula de moldagem"
+        },
+        {
+          "id": "m1",
+          "nome": "Alginato"
+        },
+        {
+          "id": "m4",
+          "nome": "Gesso tipo III"
         }
       ],
       "corretos": [
@@ -1067,7 +1286,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 2,
-    "contexto": "Criança com molares permanentes propensos a cárie. Selagem preventiva de fossetas e fissuras.",
+    "contexto": "Criança com molares permanentes propensos a cárie. Selagem preventiva de fossetas e fissuras.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1123,26 +1342,17 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Selante de fosseta/fissura"
-        },
-        {
           "id": "m2",
           "nome": "Ácido fosfórico 37%"
-        },
-        {
-          "id": "m3",
-          "nome": "Primer"
-        },
-        {
-          "id": "m4",
-          "nome": "Microescova de limpeza"
         },
         {
           "id": "m5",
@@ -1151,6 +1361,38 @@ window.CENARIOS = [
         {
           "id": "m6",
           "nome": "Luz de LED"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m4",
+          "nome": "Microescova de limpeza"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
+        },
+        {
+          "id": "m1",
+          "nome": "Selante de fosseta/fissura"
+        },
+        {
+          "id": "m3",
+          "nome": "Primer"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Gaze 4x4"
         }
       ],
       "corretos": [
@@ -1178,7 +1420,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com suspeita de bruxismo noturno. Necessita avaliação e possível confecção de placa oclusal.",
+    "contexto": "Paciente com suspeita de bruxismo noturno. Necessita avaliação e possível confecção de placa oclusal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1225,30 +1467,49 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Arco facial"
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "m5",
+          "nome": "Resina acrílica"
         },
         {
           "id": "m2",
           "nome": "Papel carbono"
         },
         {
-          "id": "m3",
-          "nome": "Moldeira de bruxismo"
-        },
-        {
           "id": "m4",
           "nome": "Elastômero"
         },
         {
-          "id": "m5",
-          "nome": "Resina acrílica"
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "m1",
+          "nome": "Arco facial"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m3",
+          "nome": "Moldeira de bruxismo"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
         }
       ],
       "corretos": [
@@ -1277,7 +1538,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com suspeita de envolvimento pulpar. Necessita avaliação de vitalidade e diagnóstico.",
+    "contexto": "Paciente com suspeita de envolvimento pulpar. Necessita avaliação de vitalidade e diagnóstico.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1328,30 +1589,49 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Teste de vitalidade térmica"
-        },
-        {
-          "id": "m2",
-          "nome": "Teste elétrico"
-        },
-        {
-          "id": "m3",
-          "nome": "Radiografia periapical"
+          "id": "d8",
+          "nome": "Estéril 4x4"
         },
         {
           "id": "m4",
           "nome": "Teste de percussão"
         },
         {
+          "id": "m3",
+          "nome": "Radiografia periapical"
+        },
+        {
           "id": "m5",
           "nome": "Teste de mobilidade"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "m2",
+          "nome": "Teste elétrico"
+        },
+        {
+          "id": "m1",
+          "nome": "Teste de vitalidade térmica"
         }
       ],
       "corretos": [
@@ -1379,7 +1659,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente deseja clarear dentes vitais. Clareamento profissional com peróxido concentrado.",
+    "contexto": "Paciente deseja clarear dentes vitais. Clareamento profissional com peróxido concentrado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1426,22 +1706,25 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estético"
+        "Consultório Estético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Peróxido de hidrogênio 35%"
-        },
-        {
           "id": "m2",
           "nome": "Barreira gengival"
         },
         {
-          "id": "m3",
-          "nome": "Escala de cor VITA"
+          "id": "m1",
+          "nome": "Peróxido de hidrogênio 35%"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Álcool 70%"
         },
         {
           "id": "m4",
@@ -1450,6 +1733,22 @@ window.CENARIOS = [
         {
           "id": "m5",
           "nome": "Protetor labial"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "m3",
+          "nome": "Escala de cor VITA"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d10",
+          "nome": "Solução salina 0.9%"
         }
       ],
       "corretos": [
@@ -1478,7 +1777,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com sintomas de disfunção temporomandibular. Avaliação completa necessária.",
+    "contexto": "Paciente com sintomas de disfunção temporomandibular. Avaliação completa necessária.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1500,7 +1799,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório B",
+        "sala": "Consultório A",
         "dias": [
           "terça",
           "quarta",
@@ -1525,18 +1824,17 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório B"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Eletromiografia"
-        },
-        {
-          "id": "m2",
-          "nome": "Arco facial"
+          "id": "dist_0",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m3",
@@ -1547,8 +1845,28 @@ window.CENARIOS = [
           "nome": "Tomografia articular"
         },
         {
+          "id": "dist_1",
+          "nome": "Pomada cicatrizante"
+        },
+        {
           "id": "m5",
           "nome": "Ressonância magnética"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "m1",
+          "nome": "Eletromiografia"
+        },
+        {
+          "id": "m2",
+          "nome": "Arco facial"
         }
       ],
       "corretos": [
@@ -1575,7 +1893,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Restauração anterior com defeito marginal. Necessita reparo.",
+    "contexto": "Restauração anterior com defeito marginal. Necessita reparo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1626,18 +1944,25 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estético"
+        "Consultório Estético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Resina composta"
+          "id": "d5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m2",
           "nome": "Adesivo universal"
+        },
+        {
+          "id": "m1",
+          "nome": "Resina composta"
         },
         {
           "id": "m3",
@@ -1648,8 +1973,20 @@ window.CENARIOS = [
           "nome": "Matriz de contorno"
         },
         {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
           "id": "m5",
           "nome": "Luz de LED"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
         }
       ],
       "corretos": [
@@ -1677,7 +2014,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Paciente em acompanhamento pós-tratamento. Reavaliação de resposta e orientações finais.",
+    "contexto": "Paciente em acompanhamento pós-tratamento. Reavaliação de resposta e orientações finais.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1732,7 +2069,10 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -1742,20 +2082,36 @@ window.CENARIOS = [
           "nome": "Instrumentos de inspeção"
         },
         {
-          "id": "m2",
-          "nome": "Fotografia intraoral"
+          "id": "dist_0",
+          "nome": "Sugador de saliva"
         },
         {
-          "id": "m3",
-          "nome": "Radiografia periapical"
+          "id": "d5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m4",
           "nome": "Formulário de avaliação"
         },
         {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "m3",
+          "nome": "Radiografia periapical"
+        },
+        {
+          "id": "m2",
+          "nome": "Fotografia intraoral"
+        },
+        {
           "id": "m5",
           "nome": "Pasta de polimento"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         }
       ],
       "corretos": [
@@ -1782,7 +2138,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente primeira vez na clínica. Anamnese completa e orientação de procedimentos.",
+    "contexto": "Paciente primeira vez na clínica. Anamnese completa e orientação de procedimentos.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1837,22 +2193,33 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "m3",
+          "nome": "Fotografias faciais"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "d3",
+          "nome": "Espelho bucal grande"
+        },
+        {
           "id": "m1",
           "nome": "Questionário de anamnese"
         },
         {
-          "id": "m2",
-          "nome": "Radiografia panorâmica"
-        },
-        {
-          "id": "m3",
-          "nome": "Fotografias faciais"
+          "id": "dist_1",
+          "nome": "Retrator de bochechas"
         },
         {
           "id": "m4",
@@ -1861,6 +2228,14 @@ window.CENARIOS = [
         {
           "id": "m5",
           "nome": "Formulário de consentimento"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m2",
+          "nome": "Radiografia panorâmica"
         }
       ],
       "corretos": [
@@ -1888,7 +2263,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Paciente com afta dolorosa. Diagnóstico e tratamento.",
+    "contexto": "Paciente com afta dolorosa. Diagnóstico e tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -1941,30 +2316,49 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Cauterizador de afta"
-        },
-        {
           "id": "m2",
           "nome": "Gel anestésico"
         },
         {
-          "id": "m3",
-          "nome": "Enxaguante bucal"
+          "id": "dist_1",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m1",
+          "nome": "Cauterizador de afta"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m5",
+          "nome": "Antiviral"
         },
         {
           "id": "m4",
           "nome": "Protetor oral"
         },
         {
-          "id": "m5",
-          "nome": "Antiviral"
+          "id": "m3",
+          "nome": "Enxaguante bucal"
         }
       ],
       "corretos": [
@@ -1991,7 +2385,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com suspeita de periodontite. Sondagem completa e documentação.",
+    "contexto": "Paciente com suspeita de periodontite. Sondagem completa e documentação.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2042,14 +2436,33 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "m4",
+          "nome": "Papel carbono"
+        },
+        {
           "id": "m1",
           "nome": "Sonda periodontal milimetrada"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "m5",
+          "nome": "Gaze"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
         },
         {
           "id": "m2",
@@ -2060,12 +2473,12 @@ window.CENARIOS = [
           "nome": "Espelho intraoral"
         },
         {
-          "id": "m4",
-          "nome": "Papel carbono"
+          "id": "dist_0",
+          "nome": "Água oxigenada"
         },
         {
-          "id": "m5",
-          "nome": "Gaze"
+          "id": "d12",
+          "nome": "Água oxigenada"
         }
       ],
       "corretos": [
@@ -2092,7 +2505,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Remoção de tártaro com ultrassom em paciente com gengivite.",
+    "contexto": "Remoção de tártaro com ultrassom em paciente com gengivite.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2143,11 +2556,26 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "dist_1",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "m5",
+          "nome": "Pasta de polimento"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Sugador de saliva"
+        },
         {
           "id": "m1",
           "nome": "Ultrassom periodontal"
@@ -2157,16 +2585,20 @@ window.CENARIOS = [
           "nome": "Pontas ultrassônicas"
         },
         {
-          "id": "m3",
-          "nome": "Aspirador de saliva"
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
         },
         {
           "id": "m4",
           "nome": "Clorexidina gel"
         },
         {
-          "id": "m5",
-          "nome": "Pasta de polimento"
+          "id": "m3",
+          "nome": "Aspirador de saliva"
         }
       ],
       "corretos": [
@@ -2194,7 +2626,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Restauração estética anterior com resina fotopolimerizável.",
+    "contexto": "Restauração estética anterior com resina fotopolimerizável.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2241,11 +2673,22 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estético"
+        "Consultório Estético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m3",
+          "nome": "Guia de cor VITA"
+        },
         {
           "id": "m1",
           "nome": "Resina micropartículas"
@@ -2255,8 +2698,24 @@ window.CENARIOS = [
           "nome": "Adesivo"
         },
         {
-          "id": "m3",
-          "nome": "Guia de cor VITA"
+          "id": "dist_2",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m6",
+          "nome": "Ácido fosfórico"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         },
         {
           "id": "m4",
@@ -2265,10 +2724,6 @@ window.CENARIOS = [
         {
           "id": "m5",
           "nome": "Discos de polimento"
-        },
-        {
-          "id": "m6",
-          "nome": "Ácido fosfórico"
         }
       ],
       "corretos": [
@@ -2296,7 +2751,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Instalação de coroa protética sobre dente preparado.",
+    "contexto": "Instalação de coroa protética sobre dente preparado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2347,7 +2802,10 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Protético"
+        "Consultório Protético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
@@ -2357,20 +2815,36 @@ window.CENARIOS = [
           "nome": "Cimento resinoso dual"
         },
         {
-          "id": "m2",
-          "nome": "Fio de retração gengival"
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m5",
+          "nome": "Espelho"
         },
         {
           "id": "m3",
           "nome": "Papel de carbono"
         },
         {
-          "id": "m4",
-          "nome": "Escova de dentes"
+          "id": "m2",
+          "nome": "Fio de retração gengival"
         },
         {
-          "id": "m5",
-          "nome": "Espelho"
+          "id": "dist_0",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m4",
+          "nome": "Escova de dentes"
         }
       ],
       "corretos": [
@@ -2397,7 +2871,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Remoção de aparelho fixo e planejamento de contenção.",
+    "contexto": "Remoção de aparelho fixo e planejamento de contenção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2419,7 +2893,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório Ortho",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "quarta",
@@ -2442,30 +2916,49 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Ortho"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "m4",
+          "nome": "Retentor fixo"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
           "id": "m1",
           "nome": "Alicate para bracket"
         },
         {
-          "id": "m2",
-          "nome": "Pasta de remoção"
+          "id": "m5",
+          "nome": "Contentor removível"
         },
         {
           "id": "m3",
           "nome": "Escova de remoção"
         },
         {
-          "id": "m4",
-          "nome": "Retentor fixo"
+          "id": "d6",
+          "nome": "Retrator de bochechas"
         },
         {
-          "id": "m5",
-          "nome": "Contentor removível"
+          "id": "m2",
+          "nome": "Pasta de remoção"
         }
       ],
       "corretos": [
@@ -2493,7 +2986,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Diagnóstico de origem de halitose e plano de tratamento.",
+    "contexto": "Diagnóstico de origem de halitose e plano de tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2544,23 +3037,14 @@ window.CENARIOS = [
         "15:30"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Halímetro"
-        },
-        {
-          "id": "m2",
-          "nome": "Raspador de língua"
-        },
-        {
-          "id": "m3",
-          "nome": "Enxaguante com clorexidina"
-        },
         {
           "id": "m4",
           "nome": "Escova de língua"
@@ -2568,6 +3052,34 @@ window.CENARIOS = [
         {
           "id": "m5",
           "nome": "Teste organoléptico"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m1",
+          "nome": "Halímetro"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m2",
+          "nome": "Raspador de língua"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m3",
+          "nome": "Enxaguante com clorexidina"
         }
       ],
       "corretos": [
@@ -2594,7 +3106,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Cirurgia de colocação de implante osseointegrado.",
+    "contexto": "Cirurgia de colocação de implante osseointegrado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2616,7 +3128,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Bloco Cirúrgico",
+        "sala": "Consultório Cirúrgico",
         "dias": [
           "segunda",
           "quarta",
@@ -2637,38 +3149,61 @@ window.CENARIOS = [
         "09:00"
       ],
       "salas": [
-        "Bloco Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Implante dentário"
+          "id": "dist_1",
+          "nome": "Álcool 70%"
         },
         {
-          "id": "m2",
-          "nome": "Abutment"
+          "id": "m7",
+          "nome": "Seringa carpule"
         },
         {
           "id": "m3",
           "nome": "Guia cirúrgico"
         },
         {
-          "id": "m4",
-          "nome": "Sutura reabsorvível"
+          "id": "m6",
+          "nome": "Anestésico potente"
+        },
+        {
+          "id": "m2",
+          "nome": "Abutment"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "m1",
+          "nome": "Implante dentário"
         },
         {
           "id": "m5",
           "nome": "Enzimas hemostáticas"
         },
         {
-          "id": "m6",
-          "nome": "Anestésico potente"
+          "id": "m4",
+          "nome": "Sutura reabsorvível"
         },
         {
-          "id": "m7",
-          "nome": "Seringa carpule"
+          "id": "dist_2",
+          "nome": "Luvas latex"
         }
       ],
       "corretos": [
@@ -2697,7 +3232,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Manutenção profissional de implante.",
+    "contexto": "Manutenção profissional de implante.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2744,18 +3279,17 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Ultrassom específico"
-        },
-        {
-          "id": "m2",
-          "nome": "Curetas de Gracey"
+          "id": "d7",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m3",
@@ -2766,8 +3300,28 @@ window.CENARIOS = [
           "nome": "Agente antimicrobiano"
         },
         {
+          "id": "dist_1",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m2",
+          "nome": "Curetas de Gracey"
+        },
+        {
           "id": "m5",
           "nome": "Enxaguante"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m1",
+          "nome": "Ultrassom específico"
         }
       ],
       "corretos": [
@@ -2794,7 +3348,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 2,
-    "contexto": "Atendimento urgente para dor, trauma ou infecção.",
+    "contexto": "Atendimento urgente para dor, trauma ou infecção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2849,26 +3403,45 @@ window.CENARIOS = [
         "18:00"
       ],
       "salas": [
-        "Consultório de Emergência"
+        "Consultório de Emergência",
+        "Consultório A",
+        "Consultório B",
+        "Sala de Observação"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Anestésico potente"
+          "id": "dist_0",
+          "nome": "Álcool 70%"
         },
         {
           "id": "m2",
           "nome": "Dique de borracha"
         },
         {
-          "id": "m3",
-          "nome": "Cimento temporário"
+          "id": "m1",
+          "nome": "Anestésico potente"
         },
         {
           "id": "m4",
           "nome": "Analgésicos"
+        },
+        {
+          "id": "m3",
+          "nome": "Cimento temporário"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Pomada cicatrizante"
         },
         {
           "id": "m5",
@@ -2877,6 +3450,10 @@ window.CENARIOS = [
         {
           "id": "m6",
           "nome": "Gaze estéril"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
         }
       ],
       "corretos": [
@@ -2904,7 +3481,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Avaliação completa pós-trauma com testes de vitalidade.",
+    "contexto": "Avaliação completa pós-trauma com testes de vitalidade.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -2957,14 +3534,17 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Teste de vitalidade térmica"
+          "id": "d12",
+          "nome": "Água oxigenada"
         },
         {
           "id": "m2",
@@ -2975,12 +3555,28 @@ window.CENARIOS = [
           "nome": "Radiografia periapical"
         },
         {
+          "id": "m1",
+          "nome": "Teste de vitalidade térmica"
+        },
+        {
           "id": "m4",
           "nome": "Escala de mobilidade"
         },
         {
           "id": "m5",
           "nome": "Documentação fotográfica"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
         }
       ],
       "corretos": [
@@ -3009,7 +3605,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Cirurgia para remoção de freio labial ou lingual.",
+    "contexto": "Cirurgia para remoção de freio labial ou lingual.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3054,30 +3650,49 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Bisturi fino"
+          "id": "m4",
+          "nome": "Cauterizador"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Espelho bucal grande"
         },
         {
           "id": "m2",
           "nome": "Tesoura de Metzenbaum"
         },
         {
-          "id": "m3",
-          "nome": "Sutura reabsorvível"
+          "id": "d4",
+          "nome": "Sugador de água"
         },
         {
-          "id": "m4",
-          "nome": "Cauterizador"
+          "id": "m1",
+          "nome": "Bisturi fino"
         },
         {
           "id": "m5",
           "nome": "Pinça de dissecção"
+        },
+        {
+          "id": "m3",
+          "nome": "Sutura reabsorvível"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
         }
       ],
       "corretos": [
@@ -3105,7 +3720,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Orientação de paciente sobre limpeza de prótese removível.",
+    "contexto": "Orientação de paciente sobre limpeza de prótese removível.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3160,7 +3775,10 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -3170,16 +3788,32 @@ window.CENARIOS = [
           "nome": "Solução efervescente"
         },
         {
-          "id": "m2",
-          "nome": "Escova macia"
-        },
-        {
           "id": "m3",
           "nome": "Água morna"
         },
         {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m2",
+          "nome": "Escova macia"
+        },
+        {
           "id": "m4",
           "nome": "Sabão neutro"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
         },
         {
           "id": "m5",
@@ -3210,7 +3844,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Criança com manchas em dentes. Diagnóstico de fluorose.",
+    "contexto": "Criança com manchas em dentes. Diagnóstico de fluorose.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3261,30 +3895,49 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Índice de fluorose de Dean"
-        },
-        {
           "id": "m2",
           "nome": "Câmera fotográfica"
-        },
-        {
-          "id": "m3",
-          "nome": "Luz LED"
         },
         {
           "id": "m4",
           "nome": "Teste de vitalidade"
         },
         {
+          "id": "m3",
+          "nome": "Luz LED"
+        },
+        {
           "id": "m5",
           "nome": "Espelho"
+        },
+        {
+          "id": "m1",
+          "nome": "Índice de fluorose de Dean"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         }
       ],
       "corretos": [
@@ -3311,7 +3964,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Criança com acúmulo de biofilme. Orientação de higiene lúdica.",
+    "contexto": "Criança com acúmulo de biofilme. Orientação de higiene lúdica.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3362,22 +4015,21 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Revelador de biofilme"
-        },
-        {
           "id": "m2",
           "nome": "Escova de dentes colorida"
         },
         {
-          "id": "m3",
-          "nome": "Fio dental infantil"
+          "id": "m1",
+          "nome": "Revelador de biofilme"
         },
         {
           "id": "m4",
@@ -3386,6 +4038,26 @@ window.CENARIOS = [
         {
           "id": "m5",
           "nome": "Material didático"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m3",
+          "nome": "Fio dental infantil"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Gaze 4x4"
         }
       ],
       "corretos": [
@@ -3414,7 +4086,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Avaliação completa da oclusão em criança em desenvolvimento.",
+    "contexto": "Avaliação completa da oclusão em criança em desenvolvimento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3461,30 +4133,49 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
           "id": "m1",
           "nome": "Papel carbono"
-        },
-        {
-          "id": "m2",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m3",
-          "nome": "Sonda exploradora"
         },
         {
           "id": "m4",
           "nome": "Arco facial"
         },
         {
+          "id": "m3",
+          "nome": "Sonda exploradora"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m2",
+          "nome": "Espelho intraoral"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Sugador de saliva"
+        },
+        {
           "id": "m5",
           "nome": "Radiografia panorâmica"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
         }
       ],
       "corretos": [
@@ -3512,7 +4203,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com alta ansiedade. Necessita acolhimento e orientação antes do procedimento.",
+    "contexto": "Paciente com alta ansiedade. Necessita acolhimento e orientação antes do procedimento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3563,30 +4254,49 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Material didático"
-        },
-        {
-          "id": "m2",
-          "nome": "Vídeo educativo"
+          "id": "d1",
+          "nome": "Luvas latex"
         },
         {
           "id": "m3",
           "nome": "Música ambiente"
         },
         {
-          "id": "m4",
-          "nome": "Técnicas de relaxamento"
+          "id": "m1",
+          "nome": "Material didático"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m2",
+          "nome": "Vídeo educativo"
         },
         {
           "id": "m5",
           "nome": "Anestésico tópico"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "m4",
+          "nome": "Técnicas de relaxamento"
         }
       ],
       "corretos": [
@@ -3613,7 +4323,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Avaliação periódica de implante osseointegrado após cirurgia.",
+    "contexto": "Avaliação periódica de implante osseointegrado após cirurgia.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3664,30 +4374,49 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "m2",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "m3",
-          "nome": "Teste de mobilidade"
+          "id": "dist_1",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m4",
           "nome": "Ultrassom avaliativo"
         },
         {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
           "id": "m5",
           "nome": "Teste de ressonância"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m2",
+          "nome": "Sonda periodontal"
+        },
+        {
+          "id": "m1",
+          "nome": "Radiografia periapical"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m3",
+          "nome": "Teste de mobilidade"
         }
       ],
       "corretos": [
@@ -3714,7 +4443,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Dente com falha no tratamento anterior. Necessita retratamento.",
+    "contexto": "Dente com falha no tratamento anterior. Necessita retratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3763,30 +4492,53 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Broca endodôntica"
-        },
-        {
-          "id": "m2",
-          "nome": "Dique de borracha"
+          "id": "d10",
+          "nome": "Solução salina 0.9%"
         },
         {
           "id": "m3",
           "nome": "Limas rotatórias"
         },
         {
+          "id": "m5",
+          "nome": "Guta-percha"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Álcool 70%"
+        },
+        {
           "id": "m4",
           "nome": "Hipoclorito de sódio"
         },
         {
-          "id": "m5",
-          "nome": "Guta-percha"
+          "id": "dist_0",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
+        },
+        {
+          "id": "m1",
+          "nome": "Broca endodôntica"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m2",
+          "nome": "Dique de borracha"
         },
         {
           "id": "m6",
@@ -3820,7 +4572,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente idoso com recessão gengival e cárie radicular.",
+    "contexto": "Paciente idoso com recessão gengival e cárie radicular.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3871,18 +4623,17 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Resina de baixa contração"
-        },
-        {
-          "id": "m2",
-          "nome": "Adesivo universal"
+          "id": "d5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m3",
@@ -3893,8 +4644,28 @@ window.CENARIOS = [
           "nome": "Cimento de vidro ionomérico"
         },
         {
+          "id": "m2",
+          "nome": "Adesivo universal"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m1",
+          "nome": "Resina de baixa contração"
+        },
+        {
           "id": "m5",
           "nome": "Gel dessensibilizante"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Luvas latex"
         }
       ],
       "corretos": [
@@ -3923,7 +4694,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Ajuste de prótese removível em paciente com desconforto.",
+    "contexto": "Ajuste de prótese removível em paciente com desconforto.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -3976,30 +4747,49 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Protético"
+        "Consultório Protético",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
           "id": "m1",
           "nome": "Pasta marcadora"
         },
         {
-          "id": "m2",
-          "nome": "Fresa de ajuste"
+          "id": "m5",
+          "nome": "Espelho"
         },
         {
-          "id": "m3",
-          "nome": "Disco de polimento"
+          "id": "dist_1",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
         },
         {
           "id": "m4",
           "nome": "Pasta de polimento"
         },
         {
-          "id": "m5",
-          "nome": "Espelho"
+          "id": "m3",
+          "nome": "Disco de polimento"
+        },
+        {
+          "id": "m2",
+          "nome": "Fresa de ajuste"
         }
       ],
       "corretos": [
@@ -4027,7 +4817,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Restauração com protocolo seguro de fotopolimerização.",
+    "contexto": "Restauração com protocolo seguro de fotopolimerização.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4082,30 +4872,49 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "m2",
+          "nome": "Proteção ocular"
+        },
+        {
           "id": "m1",
           "nome": "Luz de LED"
         },
         {
-          "id": "m2",
-          "nome": "Proteção ocular"
+          "id": "m5",
+          "nome": "Manejo de tempo"
         },
         {
           "id": "m3",
           "nome": "Máscara facial"
         },
         {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "d10",
+          "nome": "Solução salina 0.9%"
+        },
+        {
           "id": "m4",
           "nome": "Ponta com filtro"
         },
         {
-          "id": "m5",
-          "nome": "Manejo de tempo"
+          "id": "dist_0",
+          "nome": "Água oxigenada"
         }
       ],
       "corretos": [
@@ -4132,7 +4941,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Reparação de restauração de resina com fratura marginal.",
+    "contexto": "Reparação de restauração de resina com fratura marginal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4187,7 +4996,10 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -4201,8 +5013,24 @@ window.CENARIOS = [
           "nome": "Adesivo"
         },
         {
-          "id": "m3",
-          "nome": "Ácido fosfórico"
+          "id": "m6",
+          "nome": "Discos de polimento"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m4",
@@ -4213,8 +5041,12 @@ window.CENARIOS = [
           "nome": "Luz de LED"
         },
         {
-          "id": "m6",
-          "nome": "Discos de polimento"
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m3",
+          "nome": "Ácido fosfórico"
         }
       ],
       "corretos": [
@@ -4243,7 +5075,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com inflamação gengival, sangramento ao passar fio dental. Necessário fazer sondagem periodontal para avaliar profundidade de bolsas.",
+    "contexto": "Paciente com inflamação gengival, sangramento ao passar fio dental. Necessário fazer sondagem periodontal para avaliar profundidade de bolsas.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4270,7 +5102,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório B",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "terça",
@@ -4299,34 +5131,61 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório B"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Berço para anestesia"
+        },
+        {
           "id": "m1",
           "nome": "Sonda periodontal"
         },
         {
-          "id": "m2",
-          "nome": "Espelho intraoral"
+          "id": "m6",
+          "nome": "Gaze estéril"
         },
         {
-          "id": "m3",
-          "nome": "Explorador"
+          "id": "dist_3",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
         },
         {
           "id": "m4",
           "nome": "Luvas de nitrila"
         },
         {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
+          "id": "m3",
+          "nome": "Explorador"
+        },
+        {
+          "id": "m2",
+          "nome": "Espelho intraoral"
+        },
+        {
           "id": "m5",
           "nome": "Máscara cirúrgica"
         },
         {
-          "id": "m6",
-          "nome": "Gaze estéril"
+          "id": "dist_1",
+          "nome": "Sugador de saliva"
         },
         {
           "id": "m7",
@@ -4335,6 +5194,10 @@ window.CENARIOS = [
         {
           "id": "m8",
           "nome": "Seringa de irrigação"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
         }
       ],
       "corretos": [
@@ -4367,7 +5230,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente com implante colocado há 4 meses. Necessário avaliar estabilidade e planejar próxima etapa (moldagem ou carga).",
+    "contexto": "Paciente com implante colocado há 4 meses. Necessário avaliar estabilidade e planejar próxima etapa (moldagem ou carga).\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4423,7 +5286,10 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Implantologia"
+        "Consultório Implantologia",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
@@ -4433,12 +5299,48 @@ window.CENARIOS = [
           "nome": "Teste de percussão (martelo)"
         },
         {
+          "id": "m3",
+          "nome": "Sonda periodontal"
+        },
+        {
+          "id": "d3",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "m9",
+          "nome": "Cuba de metal"
+        },
+        {
           "id": "m2",
           "nome": "Radiografia periapical"
         },
         {
-          "id": "m3",
-          "nome": "Sonda periodontal"
+          "id": "dist_2",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "m8",
+          "nome": "Pinça"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "m7",
+          "nome": "Gaze estéril"
+        },
+        {
+          "id": "m6",
+          "nome": "Anestésico tópico"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
         },
         {
           "id": "m4",
@@ -4449,20 +5351,12 @@ window.CENARIOS = [
           "nome": "Luvas de nitrila"
         },
         {
-          "id": "m6",
-          "nome": "Anestésico tópico"
+          "id": "d4",
+          "nome": "Sugador de água"
         },
         {
-          "id": "m7",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m8",
-          "nome": "Pinça"
-        },
-        {
-          "id": "m9",
-          "nome": "Cuba de metal"
+          "id": "dist_3",
+          "nome": "Sugador de saliva"
         }
       ],
       "corretos": [
@@ -4495,7 +5389,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente com cárie profunda em molar inferior, teste de vitalidade positivo, necessário tratamento de canal.",
+    "contexto": "Paciente com cárie profunda em molar inferior, teste de vitalidade positivo, necessário tratamento de canal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4553,50 +5447,89 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Endodontia"
+        "Consultório Endodontia",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "m2",
-          "nome": "Clamp e arco de borracha"
-        },
-        {
           "id": "m3",
           "nome": "Brocas de acesso"
         },
         {
-          "id": "m4",
-          "nome": "Limas endodônticas"
+          "id": "dist_2",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m5",
           "nome": "Localizador apical eletrônico"
         },
         {
+          "id": "m9",
+          "nome": "Anestésico"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
           "id": "m6",
           "nome": "Hipoclorito de sódio"
         },
         {
-          "id": "m7",
-          "nome": "Guta-percha"
+          "id": "m2",
+          "nome": "Clamp e arco de borracha"
+        },
+        {
+          "id": "m4",
+          "nome": "Limas endodônticas"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "dist_4",
+          "nome": "Pomada cicatrizante"
         },
         {
           "id": "m8",
           "nome": "Cimento obturador"
         },
         {
-          "id": "m9",
-          "nome": "Anestésico"
-        },
-        {
           "id": "m10",
           "nome": "Seringa carpule"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m7",
+          "nome": "Guta-percha"
+        },
+        {
+          "id": "m1",
+          "nome": "Dique de borracha"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
         }
       ],
       "corretos": [
@@ -4630,7 +5563,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente adolescente com sobremordida, solicita avaliação ortodôntica completa e planejamento de tratamento.",
+    "contexto": "Paciente adolescente com sobremordida, solicita avaliação ortodôntica completa e planejamento de tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4684,7 +5617,10 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Ortodontia"
+        "Consultório Ortodontia",
+        "Consultório A",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -4694,32 +5630,60 @@ window.CENARIOS = [
           "nome": "Radiografia cefalométrica"
         },
         {
-          "id": "m2",
-          "nome": "Fotografias intraorais"
+          "id": "m4",
+          "nome": "Compasso de calibração"
+        },
+        {
+          "id": "m8",
+          "nome": "Software de análise cefalométrica"
         },
         {
           "id": "m3",
           "nome": "Modelos de gesso"
         },
         {
-          "id": "m4",
-          "nome": "Compasso de calibração"
-        },
-        {
-          "id": "m5",
-          "nome": "Régua milimetrada"
+          "id": "m7",
+          "nome": "Espelho intraoral"
         },
         {
           "id": "m6",
           "nome": "Paquímetro"
         },
         {
-          "id": "m7",
-          "nome": "Espelho intraoral"
+          "id": "dist_1",
+          "nome": "Pomada cicatrizante"
         },
         {
-          "id": "m8",
-          "nome": "Software de análise cefalométrica"
+          "id": "m2",
+          "nome": "Fotografias intraorais"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "m5",
+          "nome": "Régua milimetrada"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Máscara FFP2"
         }
       ],
       "corretos": [
@@ -4752,7 +5716,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Criança de 6 anos com cárie em dente decíduo. Restauração com ionômero de vidro para facilitar cooperação.",
+    "contexto": "Criança de 6 anos com cárie em dente decíduo. Restauração com ionômero de vidro para facilitar cooperação.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4812,42 +5776,73 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Boca livre pediátrica"
+          "id": "m6",
+          "nome": "Sugador pediátrico"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Luvas latex"
         },
         {
           "id": "m2",
           "nome": "Ionômero de vidro"
         },
         {
-          "id": "m3",
-          "nome": "Ácido fosfórico 37%"
+          "id": "m5",
+          "nome": "Espelho infantil"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Espelho bucal grande"
         },
         {
           "id": "m4",
           "nome": "Primer/adesivo"
         },
         {
-          "id": "m5",
-          "nome": "Espelho infantil"
+          "id": "dist_0",
+          "nome": "Gaze 4x4"
         },
         {
-          "id": "m6",
-          "nome": "Sugador pediátrico"
+          "id": "m3",
+          "nome": "Ácido fosfórico 37%"
         },
         {
-          "id": "m7",
-          "nome": "Anestésico tópico"
+          "id": "dist_1",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m1",
+          "nome": "Boca livre pediátrica"
         },
         {
           "id": "m8",
           "nome": "Matriz tiras Mylar"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "m7",
+          "nome": "Anestésico tópico"
         }
       ],
       "corretos": [
@@ -4880,7 +5875,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Prótese parcial fixa (3 unidades) pronta para cimentação em preparos 14-15-16. Necessário cimentação definitiva com cimento autoadesivo.",
+    "contexto": "Prótese parcial fixa (3 unidades) pronta para cimentação em preparos 14-15-16. Necessário cimentação definitiva com cimento autoadesivo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -4938,42 +5933,73 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Prótese fixa"
+          "id": "d15",
+          "nome": "Cuba para resíduos"
         },
         {
-          "id": "m2",
-          "nome": "Cimento autoadesivo"
+          "id": "dist_2",
+          "nome": "Água oxigenada"
         },
         {
-          "id": "m3",
-          "nome": "Remover provisório com instrumento"
-        },
-        {
-          "id": "m4",
-          "nome": "Limpeza com escova/pedra pomes"
-        },
-        {
-          "id": "m5",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "m6",
-          "nome": "Fio de retenção"
+          "id": "d11",
+          "nome": "Alcool 70%"
         },
         {
           "id": "m7",
           "nome": "Gaze estéril"
         },
         {
+          "id": "m6",
+          "nome": "Fio de retenção"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "m1",
+          "nome": "Prótese fixa"
+        },
+        {
+          "id": "m5",
+          "nome": "Anestésico tópico"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m2",
+          "nome": "Cimento autoadesivo"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
           "id": "m8",
           "nome": "Pano de isolamento"
+        },
+        {
+          "id": "m4",
+          "nome": "Limpeza com escova/pedra pomes"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "m3",
+          "nome": "Remover provisório com instrumento"
         }
       ],
       "corretos": [
@@ -5006,7 +6032,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com manchas intrínsecas nos dentes anteriores. Quer fazer clareamento profissional com técnica de consultório.",
+    "contexto": "Paciente com manchas intrínsecas nos dentes anteriores. Quer fazer clareamento profissional com técnica de consultório.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5033,7 +6059,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório Estética",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "terça",
@@ -5062,18 +6088,21 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estética"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Gel clareador peróxido"
+          "id": "dist_2",
+          "nome": "Pinça clínica"
         },
         {
-          "id": "m2",
-          "nome": "Luz LED"
+          "id": "dist_1",
+          "nome": "Luvas latex"
         },
         {
           "id": "m3",
@@ -5084,20 +6113,48 @@ window.CENARIOS = [
           "nome": "Espelho intraoral"
         },
         {
-          "id": "m5",
-          "nome": "Moldeira clareadora"
-        },
-        {
-          "id": "m6",
-          "nome": "Escala de cor Vita"
+          "id": "d7",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m7",
           "nome": "Fotografia inicial"
         },
         {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "m5",
+          "nome": "Moldeira clareadora"
+        },
+        {
+          "id": "m2",
+          "nome": "Luz LED"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
           "id": "m8",
           "nome": "Fluoreto de sódio 2%"
+        },
+        {
+          "id": "m1",
+          "nome": "Gel clareador peróxido"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "m6",
+          "nome": "Escala de cor Vita"
         }
       ],
       "corretos": [
@@ -5130,7 +6187,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Dente 28 (terceiro molar) impactado horizontalmente. Necessário procedimento cirúrgico com osteotomia para remoção.",
+    "contexto": "Dente 28 (terceiro molar) impactado horizontalmente. Necessário procedimento cirúrgico com osteotomia para remoção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5157,7 +6214,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Centro Cirúrgico",
+        "sala": "Consultório Cirúrgico",
         "dias": [
           "segunda",
           "terça",
@@ -5188,46 +6245,77 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Centro Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Mandril e broca para osteotomia"
+          "id": "m9",
+          "nome": "Luvas e máscara cirúrgica"
         },
         {
-          "id": "m2",
-          "nome": "Fórceps de extração"
+          "id": "dist_3",
+          "nome": "Solução salina 0.9%"
         },
         {
-          "id": "m3",
-          "nome": "Elevador cirúrgico"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local com epinefrina"
-        },
-        {
-          "id": "m5",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "m6",
-          "nome": "Sutura reabsorvível"
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
         },
         {
           "id": "m7",
           "nome": "Gaze e compressa"
         },
         {
+          "id": "m5",
+          "nome": "Bisturi cirúrgico"
+        },
+        {
+          "id": "m2",
+          "nome": "Fórceps de extração"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "d6",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m6",
+          "nome": "Sutura reabsorvível"
+        },
+        {
+          "id": "m3",
+          "nome": "Elevador cirúrgico"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
+        },
+        {
+          "id": "m4",
+          "nome": "Anestésico local com epinefrina"
+        },
+        {
           "id": "m8",
           "nome": "Antibiótico profilático"
         },
         {
-          "id": "m9",
-          "nome": "Luvas e máscara cirúrgica"
+          "id": "m1",
+          "nome": "Mandril e broca para osteotomia"
         }
       ],
       "corretos": [
@@ -5261,7 +6349,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente com desgaste estético nos dentes anteriores. Quer restauração com laminados cerâmicos. Etapa de preparação dental.",
+    "contexto": "Paciente com desgaste estético nos dentes anteriores. Quer restauração com laminados cerâmicos. Etapa de preparação dental.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5288,7 +6376,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório Estética",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "quarta",
@@ -5313,38 +6401,41 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estética"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Broca diamantada ponta troncocônica"
+          "id": "dist_0",
+          "nome": "Pomada cicatrizante"
         },
         {
-          "id": "m2",
-          "nome": "Disco diamantado"
+          "id": "d14",
+          "nome": "Vidro com vaselina"
         },
         {
-          "id": "m3",
-          "nome": "Ácido fosfórico 37%"
+          "id": "d6",
+          "nome": "Retrator de bochechas"
         },
         {
           "id": "m4",
           "nome": "Primer/adesivo"
         },
         {
-          "id": "m5",
-          "nome": "Resina de teste de cor"
+          "id": "dist_3",
+          "nome": "Retrator de bochechas"
         },
         {
-          "id": "m6",
-          "nome": "Moldeira customizada"
+          "id": "m2",
+          "nome": "Disco diamantado"
         },
         {
-          "id": "m7",
-          "nome": "Pasta abrasiva de polimento"
+          "id": "dist_1",
+          "nome": "Espelho bucal grande"
         },
         {
           "id": "m8",
@@ -5353,6 +6444,34 @@ window.CENARIOS = [
         {
           "id": "m9",
           "nome": "Fotografia de cores"
+        },
+        {
+          "id": "m1",
+          "nome": "Broca diamantada ponta troncocônica"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m3",
+          "nome": "Ácido fosfórico 37%"
+        },
+        {
+          "id": "m6",
+          "nome": "Moldeira customizada"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "m5",
+          "nome": "Resina de teste de cor"
+        },
+        {
+          "id": "m7",
+          "nome": "Pasta abrasiva de polimento"
         }
       ],
       "corretos": [
@@ -5386,7 +6505,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 1,
-    "contexto": "Paciente em acompanhamento pós-operatório após colocação de implante 1 semana atrás. Avaliação de cicatrização e higiene.",
+    "contexto": "Paciente em acompanhamento pós-operatório após colocação de implante 1 semana atrás. Avaliação de cicatrização e higiene.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5442,11 +6561,46 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Implantologia"
+        "Consultório Implantologia",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m4",
+          "nome": "Gaze estéril"
+        },
+        {
+          "id": "m6",
+          "nome": "Clorexidina 0.12%"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m3",
+          "nome": "Anestésico tópico"
+        },
+        {
+          "id": "m5",
+          "nome": "Solução fisiológica"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Berço para anestesia"
+        },
         {
           "id": "m1",
           "nome": "Espelho intraoral"
@@ -5456,24 +6610,20 @@ window.CENARIOS = [
           "nome": "Sonda periodontal"
         },
         {
-          "id": "m3",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "m4",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m5",
-          "nome": "Solução fisiológica"
-        },
-        {
-          "id": "m6",
-          "nome": "Clorexidina 0.12%"
-        },
-        {
           "id": "m7",
           "nome": "Antibiótico tópico"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "d9",
+          "nome": "Gaze de algodão"
         },
         {
           "id": "m8",
@@ -5509,7 +6659,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Dente 11 com insucesso de tratamento anterior. Paciente com dor periapical. Necessário retratamento com microscópio.",
+    "contexto": "Dente 11 com insucesso de tratamento anterior. Paciente com dor periapical. Necessário retratamento com microscópio.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5563,46 +6713,77 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Consultório Endodontia"
+        "Consultório Endodontia",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Microscópio operatório"
+          "id": "m7",
+          "nome": "Cimento obturador"
         },
         {
-          "id": "m2",
-          "nome": "Ponta ultrassônica"
-        },
-        {
-          "id": "m3",
-          "nome": "Limas endodônticas pós"
-        },
-        {
-          "id": "m4",
-          "nome": "Localizador apical eletrônico"
-        },
-        {
-          "id": "m5",
-          "nome": "Hipoclorito de sódio"
+          "id": "dist_0",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m6",
           "nome": "Guta-percha nova"
         },
         {
-          "id": "m7",
-          "nome": "Cimento obturador"
+          "id": "m9",
+          "nome": "Anestésico"
+        },
+        {
+          "id": "m5",
+          "nome": "Hipoclorito de sódio"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m4",
+          "nome": "Localizador apical eletrônico"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Espelho bucal grande"
         },
         {
           "id": "m8",
           "nome": "Dique de borracha"
         },
         {
-          "id": "m9",
-          "nome": "Anestésico"
+          "id": "dist_1",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m1",
+          "nome": "Microscópio operatório"
+        },
+        {
+          "id": "d15",
+          "nome": "Cuba para resíduos"
+        },
+        {
+          "id": "m2",
+          "nome": "Ponta ultrassônica"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m3",
+          "nome": "Limas endodônticas pós"
         }
       ],
       "corretos": [
@@ -5636,7 +6817,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente com periodontite generalizada (bolsas de 5-7 mm). Primeira etapa: raspagem e alisamento radicular com anestesia local.",
+    "contexto": "Paciente com periodontite generalizada (bolsas de 5-7 mm). Primeira etapa: raspagem e alisamento radicular com anestesia local.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5663,7 +6844,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório B",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "terça",
@@ -5692,33 +6873,20 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório B"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Curetas periodontais"
+          "id": "d1",
+          "nome": "Luvas latex"
         },
         {
-          "id": "m2",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "m3",
-          "nome": "Anestésico local com epinefrina"
-        },
-        {
-          "id": "m4",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "m5",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m6",
+          "id": "dist_1",
           "nome": "Sugador de saliva"
         },
         {
@@ -5726,8 +6894,52 @@ window.CENARIOS = [
           "nome": "Hipoclorito de sódio 0.12%"
         },
         {
+          "id": "m3",
+          "nome": "Anestésico local com epinefrina"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m4",
+          "nome": "Seringa carpule"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "d3",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m6",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "m2",
+          "nome": "Sonda periodontal"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m5",
+          "nome": "Gaze estéril"
+        },
+        {
           "id": "m8",
           "nome": "Pó de polimento"
+        },
+        {
+          "id": "m1",
+          "nome": "Curetas periodontais"
         }
       ],
       "corretos": [
@@ -5760,7 +6972,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 1,
-    "contexto": "Paciente em tratamento ortodôntico há 3 meses. Retorno mensal para ativação do aparelho e avaliação de progresso.",
+    "contexto": "Paciente em tratamento ortodôntico há 3 meses. Retorno mensal para ativação do aparelho e avaliação de progresso.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5816,11 +7028,58 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Ortodontia"
+        "Consultório Ortodontia",
+        "Consultório A",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
+        {
+          "id": "m5",
+          "nome": "Espelho intraoral"
+        },
+        {
+          "id": "m4",
+          "nome": "Elásticos ortodônticos"
+        },
+        {
+          "id": "m6",
+          "nome": "Explorador"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m8",
+          "nome": "Cera ortodôntica"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "m3",
+          "nome": "Fio ortodôntico (espessura apropriada)"
+        },
         {
           "id": "m1",
           "nome": "Alicate de corte"
@@ -5830,28 +7089,12 @@ window.CENARIOS = [
           "nome": "Alicate de preensão"
         },
         {
-          "id": "m3",
-          "nome": "Fio ortodôntico (espessura apropriada)"
-        },
-        {
-          "id": "m4",
-          "nome": "Elásticos ortodônticos"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m6",
-          "nome": "Explorador"
+          "id": "d12",
+          "nome": "Água oxigenada"
         },
         {
           "id": "m7",
           "nome": "Escova ortho"
-        },
-        {
-          "id": "m8",
-          "nome": "Cera ortodôntica"
         }
       ],
       "corretos": [
@@ -5884,7 +7127,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Criança de 5 anos com risco de cárie. Consulta para aplicação de gel de flúor profissional e orientação de higiene com responsáveis.",
+    "contexto": "Criança de 5 anos com risco de cárie. Consulta para aplicação de gel de flúor profissional e orientação de higiene com responsáveis.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -5944,7 +7187,10 @@ window.CENARIOS = [
         "16:00"
       ],
       "salas": [
-        "Consultório Pediátrico"
+        "Consultório Pediátrico",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
@@ -5954,16 +7200,48 @@ window.CENARIOS = [
           "nome": "Gel de flúor"
         },
         {
-          "id": "m2",
-          "nome": "Moldeira pediátrica"
-        },
-        {
           "id": "m3",
           "nome": "Seringa de borracha"
         },
         {
+          "id": "dist_1",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Sugador de saliva"
+        },
+        {
+          "id": "m7",
+          "nome": "Espelho infantil"
+        },
+        {
+          "id": "m8",
+          "nome": "Toucinho para orientação de higiene"
+        },
+        {
+          "id": "d13",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "d2",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Espelho bucal grande"
+        },
+        {
           "id": "m4",
           "nome": "Gaze"
+        },
+        {
+          "id": "d3",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "m2",
+          "nome": "Moldeira pediátrica"
         },
         {
           "id": "m5",
@@ -5974,12 +7252,8 @@ window.CENARIOS = [
           "nome": "Fio dental"
         },
         {
-          "id": "m7",
-          "nome": "Espelho infantil"
-        },
-        {
-          "id": "m8",
-          "nome": "Toucinho para orientação de higiene"
+          "id": "dist_0",
+          "nome": "Pinça clínica"
         }
       ],
       "corretos": [
@@ -6012,7 +7286,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente edêntulo superior. Primeira consulta para moldagem anátômica e levantamento de dimensão vertical.",
+    "contexto": "Paciente edêntulo superior. Primeira consulta para moldagem anátômica e levantamento de dimensão vertical.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6068,7 +7342,10 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório A"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
@@ -6078,12 +7355,12 @@ window.CENARIOS = [
           "nome": "Moldeira individual"
         },
         {
-          "id": "m2",
-          "nome": "Massa de moldagem"
+          "id": "m6",
+          "nome": "Relacionador cêntrico"
         },
         {
-          "id": "m3",
-          "nome": "Dimensionador vertical"
+          "id": "dist_1",
+          "nome": "Álcool 70%"
         },
         {
           "id": "m4",
@@ -6094,16 +7371,44 @@ window.CENARIOS = [
           "nome": "Arco facial"
         },
         {
-          "id": "m6",
-          "nome": "Relacionador cêntrico"
+          "id": "m2",
+          "nome": "Massa de moldagem"
+        },
+        {
+          "id": "m8",
+          "nome": "Escala de cor"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d11",
+          "nome": "Alcool 70%"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m3",
+          "nome": "Dimensionador vertical"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Pinça clínica"
         },
         {
           "id": "m7",
           "nome": "Fita métrica"
         },
         {
-          "id": "m8",
-          "nome": "Escala de cor"
+          "id": "dist_0",
+          "nome": "Gaze 4x4"
         }
       ],
       "corretos": [
@@ -6136,7 +7441,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 1,
     "tempo": 1,
-    "contexto": "Paciente retornando para receber moldeira customizada e gel de clareamento para uso caseiro. Orientação de uso e cuidados.",
+    "contexto": "Paciente retornando para receber moldeira customizada e gel de clareamento para uso caseiro. Orientação de uso e cuidados.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6163,7 +7468,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Consultório Estética",
+        "sala": "Consultório A",
         "dias": [
           "segunda",
           "terça",
@@ -6192,42 +7497,73 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Estética"
+        "Consultório A",
+        "Consultório B",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Moldeira customizada"
-        },
-        {
           "id": "m2",
           "nome": "Gel clareador caseiro (peroxido 10-16%)"
         },
         {
-          "id": "m3",
-          "nome": "Escala de cor Vita"
+          "id": "dist_1",
+          "nome": "Pomada cicatrizante"
+        },
+        {
+          "id": "d8",
+          "nome": "Estéril 4x4"
         },
         {
           "id": "m4",
           "nome": "Fotografia inicial"
         },
         {
+          "id": "dist_2",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
           "id": "m5",
           "nome": "Fluoreto de sódio"
         },
         {
-          "id": "m6",
-          "nome": "Dessensibilizante"
+          "id": "dist_3",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m8",
+          "nome": "Instrução escrita para casa"
+        },
+        {
+          "id": "m1",
+          "nome": "Moldeira customizada"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m7",
           "nome": "Seringa dosadora"
         },
         {
-          "id": "m8",
-          "nome": "Instrução escrita para casa"
+          "id": "m6",
+          "nome": "Dessensibilizante"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "m3",
+          "nome": "Escala de cor Vita"
         }
       ],
       "corretos": [
@@ -6260,7 +7596,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Criança com anquiloglossia (língua presa). Necessário procedimento cirúrgico para liberar freio lingual.",
+    "contexto": "Criança com anquiloglossia (língua presa). Necessário procedimento cirúrgico para liberar freio lingual.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6287,7 +7623,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Centro Cirúrgico",
+        "sala": "Consultório Cirúrgico",
         "dias": [
           "segunda",
           "terça",
@@ -6316,42 +7652,73 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Centro Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "m2",
-          "nome": "Tesoura cirúrgica"
-        },
-        {
-          "id": "m3",
-          "nome": "Pinça anatômica"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local"
-        },
-        {
           "id": "m5",
           "nome": "Cauterizador ou laser"
-        },
-        {
-          "id": "m6",
-          "nome": "Sutura reabsorvível"
         },
         {
           "id": "m7",
           "nome": "Gaze estéril"
         },
         {
+          "id": "dist_3",
+          "nome": "Álcool 70%"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m3",
+          "nome": "Pinça anatômica"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
           "id": "m8",
           "nome": "Luvas e máscara"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m6",
+          "nome": "Sutura reabsorvível"
+        },
+        {
+          "id": "d14",
+          "nome": "Vidro com vaselina"
+        },
+        {
+          "id": "m1",
+          "nome": "Bisturi cirúrgico"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m2",
+          "nome": "Tesoura cirúrgica"
+        },
+        {
+          "id": "m4",
+          "nome": "Anestésico local"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Sugador de saliva"
         }
       ],
       "corretos": [
@@ -6384,7 +7751,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Dente anterior com fratura radicular transversa após trauma. Paciente busca salvar dente. Avaliação de viabilidade e planejamento.",
+    "contexto": "Dente anterior com fratura radicular transversa após trauma. Paciente busca salvar dente. Avaliação de viabilidade e planejamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6440,46 +7807,77 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Endodontia"
+        "Consultório Endodontia",
+        "Consultório A",
+        "Consultório B",
+        "Consultório C"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Radiografia periapical e oclusal"
-        },
-        {
           "id": "m2",
           "nome": "CBCT/Tomografia"
         },
         {
-          "id": "m3",
-          "nome": "Dique de borracha"
+          "id": "dist_0",
+          "nome": "Pinça clínica"
         },
         {
-          "id": "m4",
-          "nome": "Limas endodônticas"
+          "id": "d14",
+          "nome": "Vidro com vaselina"
         },
         {
           "id": "m5",
           "nome": "Localizador apical"
         },
         {
-          "id": "m6",
-          "nome": "Hipoclorito de sódio"
-        },
-        {
-          "id": "m7",
-          "nome": "Guta-percha"
+          "id": "d15",
+          "nome": "Cuba para resíduos"
         },
         {
           "id": "m8",
           "nome": "Cimento MTA ou hidróxido de cálcio"
         },
         {
+          "id": "m7",
+          "nome": "Guta-percha"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "m4",
+          "nome": "Limas endodônticas"
+        },
+        {
+          "id": "m6",
+          "nome": "Hipoclorito de sódio"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "m1",
+          "nome": "Radiografia periapical e oclusal"
+        },
+        {
           "id": "m9",
           "nome": "Anestésico"
+        },
+        {
+          "id": "d10",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m3",
+          "nome": "Dique de borracha"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Gaze 4x4"
         }
       ],
       "corretos": [
@@ -6513,7 +7911,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 3,
     "tempo": 3,
-    "contexto": "Paciente com recessão gengival no dente 34. Necessário procedimento de enxertia gengival para aumento de mucosa aderida.",
+    "contexto": "Paciente com recessão gengival no dente 34. Necessário procedimento de enxertia gengival para aumento de mucosa aderida.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6540,7 +7938,7 @@ window.CENARIOS = [
     },
     "agenda": {
       "correto": {
-        "sala": "Centro Cirúrgico",
+        "sala": "Consultório Cirúrgico",
         "dias": [
           "segunda",
           "terça",
@@ -6569,46 +7967,77 @@ window.CENARIOS = [
         "14:00"
       ],
       "salas": [
-        "Centro Cirúrgico"
+        "Consultório Cirúrgico",
+        "Centro Cirúrgico",
+        "Consultório A",
+        "Consultório B"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "m2",
-          "nome": "Tesoura de Castroviejo"
-        },
-        {
-          "id": "m3",
-          "nome": "Pinça anatômica"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local"
-        },
-        {
-          "id": "m5",
-          "nome": "Microsutura (5-0 ou 6-0)"
-        },
-        {
-          "id": "m6",
-          "nome": "Membrana de barreira"
+          "id": "m8",
+          "nome": "Gaze e compressas"
         },
         {
           "id": "m7",
           "nome": "Cimento periodontal"
         },
         {
-          "id": "m8",
-          "nome": "Gaze e compressas"
+          "id": "m6",
+          "nome": "Membrana de barreira"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Berço para anestesia"
+        },
+        {
+          "id": "m1",
+          "nome": "Bisturi cirúrgico"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Solução salina 0.9%"
+        },
+        {
+          "id": "m4",
+          "nome": "Anestésico local"
+        },
+        {
+          "id": "d5",
+          "nome": "Berço para anestesia"
         },
         {
           "id": "m9",
           "nome": "Luvas e máscara cirúrgica"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Máscara FFP2"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
+          "id": "d7",
+          "nome": "Pinça clínica"
+        },
+        {
+          "id": "m2",
+          "nome": "Tesoura de Castroviejo"
+        },
+        {
+          "id": "m5",
+          "nome": "Microsutura (5-0 ou 6-0)"
+        },
+        {
+          "id": "m3",
+          "nome": "Pinça anatômica"
         }
       ],
       "corretos": [
@@ -6642,7 +8071,7 @@ window.CENARIOS = [
     "modalidade": "agendamento",
     "complexidade": 2,
     "tempo": 2,
-    "contexto": "Paciente completou tratamento ortodôntico (24 meses). Necessário remoção do aparelho, limpeza e colagem de retentor fixo.",
+    "contexto": "Paciente completou tratamento ortodôntico (24 meses). Necessário remoção do aparelho, limpeza e colagem de retentor fixo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
     "dadosPaciente": {
       "campos": [
         {
@@ -6694,46 +8123,77 @@ window.CENARIOS = [
         "15:00"
       ],
       "salas": [
-        "Consultório Ortodontia"
+        "Consultório Ortodontia",
+        "Consultório A",
+        "Consultório C",
+        "Consultório D"
       ]
     },
     "materiais": {
       "opcoes": [
         {
-          "id": "m1",
-          "nome": "Removedor de bracket"
-        },
-        {
-          "id": "m2",
-          "nome": "Ponta ultrassônica"
-        },
-        {
-          "id": "m3",
-          "nome": "Resina de colagem"
-        },
-        {
-          "id": "m4",
-          "nome": "Fio retentor (5 ou 7 fios)"
-        },
-        {
-          "id": "m5",
-          "nome": "Ácido fosfórico 37%"
+          "id": "m9",
+          "nome": "Espelho intraoral"
         },
         {
           "id": "m6",
           "nome": "Primer/adesivo"
         },
         {
+          "id": "m4",
+          "nome": "Fio retentor (5 ou 7 fios)"
+        },
+        {
+          "id": "d12",
+          "nome": "Água oxigenada"
+        },
+        {
           "id": "m7",
           "nome": "Escala de cor"
+        },
+        {
+          "id": "dist_2",
+          "nome": "Sugador de saliva"
         },
         {
           "id": "m8",
           "nome": "Fotografia final"
         },
         {
-          "id": "m9",
-          "nome": "Espelho intraoral"
+          "id": "m3",
+          "nome": "Resina de colagem"
+        },
+        {
+          "id": "d4",
+          "nome": "Sugador de água"
+        },
+        {
+          "id": "m2",
+          "nome": "Ponta ultrassônica"
+        },
+        {
+          "id": "dist_3",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "d1",
+          "nome": "Luvas latex"
+        },
+        {
+          "id": "dist_1",
+          "nome": "Espelho bucal grande"
+        },
+        {
+          "id": "m1",
+          "nome": "Removedor de bracket"
+        },
+        {
+          "id": "dist_0",
+          "nome": "Retrator de bochechas"
+        },
+        {
+          "id": "m5",
+          "nome": "Ácido fosfórico 37%"
         }
       ],
       "corretos": [
