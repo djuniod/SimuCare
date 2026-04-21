@@ -1064,6 +1064,14 @@ function uid() { return Date.now().toString(36) + Math.random().toString(36).sli
 function norm(s) { return (s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""); }
 function capitalize(s) { return (s||"").trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' '); }
 
+// Normalizar pontuação para escala 0-10
+function normalizarNota(pontuacao, modalidade) {
+  // Casos Clínicos: 0-100 → 0-10
+  if (modalidade === 'clinico') return pontuacao / 10;
+  // Materiais/Agendamentos: já estão em 0-10
+  return pontuacao;
+}
+
 // -- COMPLEXIDADE BARRA DE CORES
 function renderComplexityBar(level) {
   const lvl = Math.min(3, Math.max(1, level || 2));
@@ -1380,8 +1388,10 @@ function renderDashboard() {
     : `Sua turma ainda não foi atribuída. Peça ao professor. Você pode começar os cenários mesmo assim.`;
   const rs = getResultsForUser(u.id);
   document.getElementById('st-count').textContent = rs.length;
-  document.getElementById('st-avg').textContent = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length).toFixed(1) : '—';
-  document.getElementById('st-best').textContent = rs.length ? Math.max(...rs.map(r=>r.pontuacao)).toFixed(1) : '—';
+  // Normalizar pontuações para escala 0-10
+  const notasNormalizadas = rs.map(r => r.modalidade === 'clinico' ? r.pontuacao / 10 : r.pontuacao);
+  document.getElementById('st-avg').textContent = rs.length ? (notasNormalizadas.reduce((a,n)=>a+n,0)/rs.length).toFixed(1) : '—';
+  document.getElementById('st-best').textContent = rs.length ? Math.max(...notasNormalizadas).toFixed(1) : '—';
   const totalReflexoes = rs.reduce((a,r)=>a + ((r.reflexoes||[]).filter(x=>x && x.trim()).length), 0);
   document.getElementById('st-refl').textContent = totalReflexoes;
 
@@ -1480,7 +1490,8 @@ function renderDashboard() {
     const recent = rs.slice(-6).reverse();
     act.innerHTML = recent.map(r => {
       const sc = all.find(s => s.id === r.cenarioId);
-      const cls = r.pontuacao >= 8.5 ? 'score-good' : r.pontuacao >= 6 ? 'score-ok' : 'score-bad';
+      const notaNormalizada = normalizarNota(r.pontuacao, r.modalidade);
+      const cls = notaNormalizada >= 8.5 ? 'score-good' : notaNormalizada >= 6 ? 'score-ok' : 'score-bad';
       const icon = '📌';
       const titulo = sc ? sc.titulo : r.cenarioId;
       const data = new Date(r.data);
@@ -1490,7 +1501,7 @@ function renderDashboard() {
           <div class="activity-title">${titulo}</div>
           <div class="activity-sub">${r.cenarioId} · ${data.toLocaleDateString('pt-BR')} ${data.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</div>
         </div>
-        <div class="activity-score ${cls}">${r.pontuacao.toFixed(1)}</div>
+        <div class="activity-score ${cls}">${notaNormalizada.toFixed(1)}</div>
       </div>`;
     }).join('');
   }
@@ -1946,7 +1957,9 @@ function updateCompetenciasSidebar() {
 function showResultMultipla() {
   const s = state.currentSim;
   const scores = state.stepScores.filter(Boolean);
-  const avgScore = scores.length ? parseFloat((scores.reduce((a,r)=>a+r.pontuacao,0)/scores.length).toFixed(1)) : 0;
+  // Normalizar para 0-10 (Casos Clínicos estão em 0-100)
+  const notasNormalizadas = scores.map(r => normalizarNota(r.pontuacao, 'clinico'));
+  const avgScore = notasNormalizadas.length ? parseFloat((notasNormalizadas.reduce((a,r)=>a+r,0)/notasNormalizadas.length).toFixed(1)) : 0;
   const avgComps = COMPETENCIAS.map((_,i) => Math.round(scores.reduce((a,r)=>a + (r.comps[i]||0),0)/scores.length));
   const reflexoes = scores.map(sc => sc.reflexao || '');
   saveResult({
@@ -3423,7 +3436,9 @@ function renderProfDashboard() {
   document.getElementById('pt-turmas').textContent = state.turmas.length;
   const todosResult = Object.values(state.resultados).flat();
   document.getElementById('pt-sessoes').textContent = todosResult.length;
-  const mediaGeral = todosResult.length ? (todosResult.reduce((a,r)=>a+r.pontuacao,0)/todosResult.length).toFixed(1) : '—';
+  // Normalizar para 0-10
+  const notasNormalizadasProf = todosResult.map(r => normalizarNota(r.pontuacao, r.modalidade));
+  const mediaGeral = notasNormalizadasProf.length ? (notasNormalizadasProf.reduce((a,r)=>a+r,0)/notasNormalizadasProf.length).toFixed(1) : '—';
   document.getElementById('pt-media').textContent = mediaGeral;
   // Tabela alunos
   const body = document.getElementById('prof-alunos-body');
@@ -3588,7 +3603,9 @@ function openAlunoDetail(alunoId) {
     if (!al) { console.error('Aluno não encontrado:', alunoId); return; }
     const rs = getResultsForUser(alunoId);
     const turma = al.turma ? getTurmaNome(al.turma) : null;
-    const avg = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length).toFixed(1) : '—';
+    // Normalizar para 0-10
+    const notasNormAluno = rs.map(r => normalizarNota(r.pontuacao, r.modalidade));
+    const avg = notasNormAluno.length ? (notasNormAluno.reduce((a,r)=>a+r,0)/notasNormAluno.length).toFixed(1) : '—';
 
     // Calcular competências e gamificação
     const competencias = calcularCompetencias(alunoId);
@@ -3625,12 +3642,14 @@ function openAlunoDetail(alunoId) {
         }).join('')}
       </div>` : '';
 
+      // Normalizar nota para 0-10
+      const notaNorm = normalizarNota(r.pontuacao, r.modalidade);
       return `<div class="activity-item" style="border:1px solid var(--border);border-radius:8px;margin-bottom:8px;padding:12px 14px;flex-direction:column;align-items:flex-start">
         <div style="display:flex;width:100%;gap:12px;align-items:center">
           <div class="activity-icon">📌</div>
           <div style="flex:1"><div class="activity-title">${r.titulo||r.cenarioId}</div>
           <div class="activity-sub">${r.cenarioId} · ${data.toLocaleDateString('pt-BR')} · ${data.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})} · ${r.area||''}</div></div>
-          <div class="activity-score ${r.pontuacao>=8.5?'score-good':r.pontuacao>=6?'score-ok':'score-bad'}">${r.pontuacao.toFixed(1)}</div>
+          <div class="activity-score ${notaNorm>=8.5?'score-good':notaNorm>=6?'score-ok':'score-bad'}">${notaNorm.toFixed(1)}</div>
         </div>
         ${agHtml}
         ${respostasHtml}
