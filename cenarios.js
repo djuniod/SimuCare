@@ -1,12441 +1,5333 @@
-/* ============================================================
-   SimuCare — Cenários Consolidados (140 cenários — Abril 2026)
-   ============================================================
-   AGENDAMENTOS (60): AG-01 a AG-60
-   MATERIAIS (40): MAT-01 a MAT-40
-   CASOS CLÍNICOS (40): CC-01 a CC-40 [NÍVEL TÉCNICO/AUXILIAR]
-   ============================================================ */
+// ============================================================
+// SimuCare — cenarios.js — Versão 3.0
+// 140 cenários: 60 Agendamento + 40 Materiais + 40 Caso Clínico
+// Gerado automaticamente em 2026-04-21
+// ============================================================
 
 window.CENARIOS = [
-  {
-    "id": "AG-01",
-    "titulo": "Emergência: criança caiu e quebrou o dente da frente",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "O pai Rogério Paz liga assustado: a filha Sofia, 8 anos, acabou de cair na escola e quebrou o dente da frente. Está com sangramento, chorando, sem perda de consciência. Ele está a 15 minutos da clínica. Pergunta se pode ir direto.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome_crianca",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "sofia"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": [
-            "8"
-          ]
-        },
-        {
-          "chave": "responsavel",
-          "label": "Responsável",
-          "obrigatorio": true,
-          "validacao": [
-            "pai"
-          ]
-        },
-        {
-          "chave": "telefone",
-          "label": "Telefone",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_atendimento",
-          "label": "Tipo de atendimento",
-          "obrigatorio": true,
-          "validacao": [
-            "urgência",
-            "emergência",
-            "consulta",
-            "limpeza",
-            "tratamento"
-          ]
-        },
-        {
-          "chave": "grau_urgencia",
-          "label": "Grau de urgência (1-5)",
-          "obrigatorio": true,
-          "validacao": [
-            "alto",
-            "médio",
-            "baixo",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-          ]
-        },
-        {
-          "chave": "sangramento",
-          "label": "Há sangramento ativo?",
-          "obrigatorio": true,
-          "validacao": [
-            "sim",
-            "ativo"
-          ]
-        },
-        {
-          "chave": "consciencia",
-          "label": "Perda de consciência?",
-          "obrigatorio": false,
-          "validacao": [
-            "sim",
-            "perdeu"
-          ]
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório de Emergência",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta",
-          "sábado"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "11:00",
-          "12:00",
-          "13:00",
-          "14:00",
-          "15:00",
-          "16:00",
-          "17:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta",
-        "sábado"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00",
-        "12:00",
-        "13:00",
-        "14:00",
-        "15:00",
-        "16:00",
-        "17:00"
-      ],
-      "salas": [
-        "Consultório de Emergência",
-        "Consultório A",
-        "Consultório B",
-        "Sala de Observação"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m11",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "m1",
-          "nome": "Luvas de nitrila"
-        },
-        {
-          "id": "m2",
-          "nome": "Máscara cirúrgica"
-        },
-        {
-          "id": "m9",
-          "nome": "Explorador"
-        },
-        {
-          "id": "dist_4",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m6",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "m7",
-          "nome": "Agulha 30x20"
-        },
-        {
-          "id": "m3",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m10",
-          "nome": "Pinça"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m8",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "dist_5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m12",
-          "nome": "Fio de seda"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m5",
-          "nome": "Lidocaína 2% com epinefrina"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9",
-        "m10",
-        "m11"
-      ]
-    },
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8,
-      9
-    ],
-    "area": "Odontopediatria"
-  },
-  {
-    "id": "AG-02",
-    "titulo": "Limpeza de rotina com orientação de higiene",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 2,
-    "contexto": "Paciente com acúmulo de biofilme solicita limpeza profissional. Paciente de baixo risco, mantém boa higiene.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "freq_escova",
-          "label": "Frequência de escovação (vezes/dia)",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "usa_fio",
-          "label": "Usa fio dental?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Escova de dentes macia"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m5",
-          "nome": "Raspador de língua"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m7",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m6",
-          "nome": "Taça de borracha"
-        },
-        {
-          "id": "m3",
-          "nome": "Clorexidina 0.12%"
-        },
-        {
-          "id": "m2",
-          "nome": "Fio dental 50m"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta de dente com flúor"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m6",
-        "m7"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      6,
-      7,
-      8,
-      8,
-      6,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-03",
-    "titulo": "Restauração de cárie em primeiro molar",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com cárie interproximal confirmada em primeiro molar inferior. Necessita restauração com resina.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente afetado?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "sensibilidade",
-          "label": "Tem sensibilidade?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "ultima_limpeza",
-          "label": "Última limpeza quando?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:30",
-          "09:30",
-          "14:30",
-          "15:30"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:30",
-        "09:30",
-        "14:30",
-        "15:30"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Resina composta bulk-fill"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m5",
-          "nome": "Ácido fosfórico 37%"
-        },
-        {
-          "id": "m1",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m4",
-          "nome": "Matriz de contorno"
-        },
-        {
-          "id": "m7",
-          "nome": "Anestésico"
-        },
-        {
-          "id": "m3",
-          "nome": "Adesivo universal"
-        },
-        {
-          "id": "m6",
-          "nome": "Luz de LED"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7"
-      ]
-    },
-    "competencias": [
-      7,
-      8,
-      8,
-      9,
-      8,
-      7,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-04",
-    "titulo": "Avaliação estética do sorriso",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente insatisfeito com estética dos dentes. Quer saber sobre possibilidades de melhoramento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "insatisfeito"
-          ]
-        },
-        {
-          "chave": "insatisfacao",
-          "label": "O que deseja melhorar?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa",
-          "label": "Expectativa realista?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "orcamento",
-          "label": "Orçamento definido?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Estético",
-        "dias": [
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Estético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_2",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m2",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m4",
-          "nome": "Câmera fotográfica"
-        },
-        {
-          "id": "m5",
-          "nome": "Tomografia digital"
-        },
-        {
-          "id": "m1",
-          "nome": "Guia de cor VITA"
-        },
-        {
-          "id": "m6",
-          "nome": "Software de simulação"
-        },
-        {
-          "id": "m3",
-          "nome": "Paquímetro digital"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Máscara FFP2"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m4",
-        "m6"
-      ]
-    },
-    "competencias": [
-      9,
-      7,
-      8,
-      8,
-      6,
-      8,
-      7,
-      9
-    ],
-    "area": "Estética"
-  },
-  {
-    "id": "AG-05",
-    "titulo": "Extração dentária programada",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 2,
-    "contexto": "Paciente com dente irrecuperável ou impactado necessita extração. Procedimento cirúrgico programado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente será extraído?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "motivo",
-          "label": "Motivo da extração?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "ansiedade",
-          "label": "Nível de ansiedade (1-5)?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m6",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "m7",
-          "nome": "Agulha 30x20"
-        },
-        {
-          "id": "m4",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "m3",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m2",
-          "nome": "Elevador dentário"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "m1",
-          "nome": "Fórceps para extração"
-        },
-        {
-          "id": "m5",
-          "nome": "Anestésico potente"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7"
-      ]
-    },
-    "competencias": [
-      8,
-      9,
-      8,
-      9,
-      9,
-      8,
-      8,
-      9
-    ],
-    "area": "Cirurgia Oral"
-  },
-  {
-    "id": "AG-06",
-    "titulo": "Profilaxia com aplicação de flúor",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 2,
-    "contexto": "Paciente em manutenção periódica. Limpeza simples e aplicação de flúor tópico.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "em"
-          ]
-        },
-        {
-          "chave": "ultima_profilaxia",
-          "label": "Última profilaxia quando?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "alergias",
-          "label": "Alergias conhecidas?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m5",
-          "nome": "Gel fluoretado"
-        },
-        {
-          "id": "m2",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "d3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m3",
-          "nome": "Verniz de flúor 22000ppm"
-        },
-        {
-          "id": "m4",
-          "nome": "Fio dental"
-        },
-        {
-          "id": "m1",
-          "nome": "Taça de borracha"
-        },
-        {
-          "id": "m6",
-          "nome": "Escova de dentes"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      6,
-      7,
-      7,
-      8,
-      6,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-07",
-    "titulo": "Tratamento de gengivite",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com inflamação gengival leve. Necessita instruções de higiene e raspagem leve.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "sangramento",
-          "label": "Intensidade do sangramento (1-5)?",
-          "obrigatorio": true,
-          "validacao": [
-            "não",
-            "sem sangramento"
-          ]
-        },
-        {
-          "chave": "fumante",
-          "label": "É fumante?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "d10",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta dentifrícia com flúor"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m1",
-          "nome": "Escova de dentes macia"
-        },
-        {
-          "id": "m2",
-          "nome": "Fio dental"
-        },
-        {
-          "id": "m6",
-          "nome": "Enxaguante bucal"
-        },
-        {
-          "id": "m3",
-          "nome": "Clorexidina gel"
-        },
-        {
-          "id": "m5",
-          "nome": "Ultrassom periodontal"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Sugador de saliva"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      7,
-      8,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Periodontia"
-  },
-  {
-    "id": "AG-08",
-    "titulo": "Ajuste oclusal simples",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com desconforto oclusal após restauração. Necessita ajuste de contatos prematuros.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente tem desconforto?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_desconforto",
-          "label": "Como se manifesta o desconforto?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:30",
-          "09:30",
-          "14:30",
-          "15:30"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:30",
-        "09:30",
-        "14:30",
-        "15:30"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Papel carbono"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "m2",
-          "nome": "Disco de desgaste fino"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m3",
-          "nome": "Disco de polimento"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      7,
-      8,
-      8,
-      8,
-      8,
-      7,
-      6,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-09",
-    "titulo": "Moldagem para prótese dentária",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente edêntulo necessitando de prótese. Moldagem preliminar e final.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "edêntulo"
-          ]
-        },
-        {
-          "chave": "tipo_prótese",
-          "label": "Que tipo de prótese?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa",
-          "label": "Qual sua expectativa?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Protético",
-        "dias": [
-          "terça",
-          "quinta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "terça",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Protético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m5",
-          "nome": "Elastômero"
-        },
-        {
-          "id": "m3",
-          "nome": "Bandeja de moldagem"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m2",
-          "nome": "Espátula de moldagem"
-        },
-        {
-          "id": "m1",
-          "nome": "Alginato"
-        },
-        {
-          "id": "m4",
-          "nome": "Gesso tipo III"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      7,
-      8,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Prótese Dentária"
-  },
-  {
-    "id": "AG-10",
-    "titulo": "Aplicação de selante de fosseta",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 2,
-    "contexto": "Criança com molares permanentes propensos a cárie. Selagem preventiva de fossetas e fissuras.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Qual é a idade?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "higiene",
-          "label": "Higiene oral atual?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "historico_carie",
-          "label": "Tem histórico de cárie?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Ácido fosfórico 37%"
-        },
-        {
-          "id": "m5",
-          "nome": "Gaze absorvente"
-        },
-        {
-          "id": "m6",
-          "nome": "Luz de LED"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m4",
-          "nome": "Microescova de limpeza"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "m1",
-          "nome": "Selante de fosseta/fissura"
-        },
-        {
-          "id": "m3",
-          "nome": "Primer"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Gaze 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m4",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      7,
-      8,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Odontopediatria"
-  },
-  {
-    "id": "AG-11",
-    "titulo": "Avaliação de bruxismo",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com suspeita de bruxismo noturno. Necessita avaliação e possível confecção de placa oclusal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "quem_refere",
-          "label": "Quem notou (você/familiar)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "desgaste",
-          "label": "Nota desgaste dentário?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m5",
-          "nome": "Resina acrílica"
-        },
-        {
-          "id": "m2",
-          "nome": "Papel carbono"
-        },
-        {
-          "id": "m4",
-          "nome": "Elastômero"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m1",
-          "nome": "Arco facial"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m3",
-          "nome": "Moldeira de bruxismo"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-12",
-    "titulo": "Endodontia diagnóstica",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com suspeita de envolvimento pulpar. Necessita avaliação de vitalidade e diagnóstico.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "tipo_dor",
-          "label": "Tipo de dor (espontânea/provocada)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "duracao",
-          "label": "Quanto tempo dura a dor?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Teste de percussão"
-        },
-        {
-          "id": "m3",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "m5",
-          "nome": "Teste de mobilidade"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m2",
-          "nome": "Teste elétrico"
-        },
-        {
-          "id": "m1",
-          "nome": "Teste de vitalidade térmica"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Endodontia"
-  },
-  {
-    "id": "AG-13",
-    "titulo": "Clareamento de consultório",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente deseja clarear dentes vitais. Clareamento profissional com peróxido concentrado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "deseja"
-          ]
-        },
-        {
-          "chave": "sensibilidade",
-          "label": "Tem sensibilidade atual?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa",
-          "label": "Cor final desejada?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Estético",
-        "dias": [
-          "terça",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "terça",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Estético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Barreira gengival"
-        },
-        {
-          "id": "m1",
-          "nome": "Peróxido de hidrogênio 35%"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m4",
-          "nome": "Gel dessensibilizante"
-        },
-        {
-          "id": "m5",
-          "nome": "Protetor labial"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m3",
-          "nome": "Escala de cor VITA"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d10",
-          "nome": "Solução salina 0.9%"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      8,
-      8,
-      7,
-      8,
-      7,
-      9
-    ],
-    "area": "Estética"
-  },
-  {
-    "id": "AG-14",
-    "titulo": "Avaliação de DTM",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com sintomas de disfunção temporomandibular. Avaliação completa necessária.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "dor_articular",
-          "label": "Onde sente dor?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "clicks",
-          "label": "Tem estalos ou clicks?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m3",
-          "nome": "Palpador de articulação"
-        },
-        {
-          "id": "m4",
-          "nome": "Tomografia articular"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m5",
-          "nome": "Ressonância magnética"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m1",
-          "nome": "Eletromiografia"
-        },
-        {
-          "id": "m2",
-          "nome": "Arco facial"
-        }
-      ],
-      "corretos": [
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-15",
-    "titulo": "Reparação de restauração com defeito",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Restauração anterior com defeito marginal. Necessita reparo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_defeito",
-          "label": "Tipo de defeito?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Estético",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Estético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m2",
-          "nome": "Adesivo universal"
-        },
-        {
-          "id": "m1",
-          "nome": "Resina composta"
-        },
-        {
-          "id": "m3",
-          "nome": "Ácido fosfórico"
-        },
-        {
-          "id": "m4",
-          "nome": "Matriz de contorno"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m5",
-          "nome": "Luz de LED"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5"
-      ]
-    },
-    "competencias": [
-      7,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-16",
-    "titulo": "Consulta de reavaliação pós-tratamento",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Paciente em acompanhamento pós-tratamento. Reavaliação de resposta e orientações finais.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "em"
-          ]
-        },
-        {
-          "chave": "qual_tratamento",
-          "label": "Que tratamento foi feito?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "como_esta",
-          "label": "Como está se sentindo?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Instrumentos de inspeção"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m4",
-          "nome": "Formulário de avaliação"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m3",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "m2",
-          "nome": "Fotografia intraoral"
-        },
-        {
-          "id": "m5",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      6,
-      7,
-      7,
-      8,
-      6,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-17",
-    "titulo": "Avaliação de novo paciente",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente primeira vez na clínica. Anamnese completa e orientação de procedimentos.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "primeira"
-          ]
-        },
-        {
-          "chave": "motivo_visita",
-          "label": "Principal queixa?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "ultima_visita",
-          "label": "Última visita ao dentista quando?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m3",
-          "nome": "Fotografias faciais"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "d3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m1",
-          "nome": "Questionário de anamnese"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m4",
-          "nome": "Glossário de procedimentos"
-        },
-        {
-          "id": "m5",
-          "nome": "Formulário de consentimento"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m2",
-          "nome": "Radiografia panorâmica"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5"
-      ]
-    },
-    "competencias": [
-      9,
-      6,
-      7,
-      7,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-18",
-    "titulo": "Tratamento de afta",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Paciente com afta dolorosa. Diagnóstico e tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "localizacao",
-          "label": "Onde está a afta?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "duracao",
-          "label": "Há quanto tempo?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Gel anestésico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m1",
-          "nome": "Cauterizador de afta"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m5",
-          "nome": "Antiviral"
-        },
-        {
-          "id": "m4",
-          "nome": "Protetor oral"
-        },
-        {
-          "id": "m3",
-          "nome": "Enxaguante bucal"
-        }
-      ],
-      "corretos": [
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      7,
-      7,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-19",
-    "titulo": "Sondagem periodontal",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com suspeita de periodontite. Sondagem completa e documentação.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "sangramento",
-          "label": "Sangramento durante sondagem?",
-          "obrigatorio": true,
-          "validacao": [
-            "não",
-            "sem sangramento"
-          ]
-        },
-        {
-          "chave": "ultimo_rx",
-          "label": "Último RX quando?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:30",
-          "09:30",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:30",
-        "09:30",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m4",
-          "nome": "Papel carbono"
-        },
-        {
-          "id": "m1",
-          "nome": "Sonda periodontal milimetrada"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m5",
-          "nome": "Gaze"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m2",
-          "nome": "Explorador duplo"
-        },
-        {
-          "id": "m3",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Periodontia"
-  },
-  {
-    "id": "AG-20",
-    "titulo": "Limpeza supragengival com ultrassom",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Remoção de tártaro com ultrassom em paciente com gengivite.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "sangramento",
-          "label": "Sangra durante escovação?",
-          "obrigatorio": true,
-          "validacao": [
-            "não",
-            "sem sangramento"
-          ]
-        },
-        {
-          "chave": "fumante",
-          "label": "É fumante?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_1",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m5",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m1",
-          "nome": "Ultrassom periodontal"
-        },
-        {
-          "id": "m2",
-          "nome": "Pontas ultrassônicas"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Clorexidina gel"
-        },
-        {
-          "id": "m3",
-          "nome": "Aspirador de saliva"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Periodontia"
-  },
-  {
-    "id": "AG-21",
-    "titulo": "Restauração com resina direct",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Restauração estética anterior com resina fotopolimerizável.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "motivo",
-          "label": "Motivo (cárie/fratura)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tamanho",
-          "label": "Tamanho da lesão?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Estético",
-        "dias": [
-          "terça",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "terça",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Estético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m3",
-          "nome": "Guia de cor VITA"
-        },
-        {
-          "id": "m1",
-          "nome": "Resina micropartículas"
-        },
-        {
-          "id": "m2",
-          "nome": "Adesivo"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m6",
-          "nome": "Ácido fosfórico"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m4",
-          "nome": "Lâmina de polímero"
-        },
-        {
-          "id": "m5",
-          "nome": "Discos de polimento"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Estética"
-  },
-  {
-    "id": "AG-22",
-    "titulo": "Cimentação de coroa protética",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Instalação de coroa protética sobre dente preparado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_coroa",
-          "label": "Qual dente receberá coroa?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_coroa",
-          "label": "Tipo (cerâmica/ouro)?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Protético",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Protético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Cimento resinoso dual"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho"
-        },
-        {
-          "id": "m3",
-          "nome": "Papel de carbono"
-        },
-        {
-          "id": "m2",
-          "nome": "Fio de retração gengival"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m4",
-          "nome": "Escova de dentes"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      9,
-      8,
-      8,
-      8
-    ],
-    "area": "Prótese Dentária"
-  },
-  {
-    "id": "AG-23",
-    "titulo": "Remoção de aparelho ortodôntico",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Remoção de aparelho fixo e planejamento de contenção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tempo_uso",
-          "label": "Por quanto tempo usou aparelho?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "satisfacao",
-          "label": "Satisfeito com resultado?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m4",
-          "nome": "Retentor fixo"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m1",
-          "nome": "Alicate para bracket"
-        },
-        {
-          "id": "m5",
-          "nome": "Contentor removível"
-        },
-        {
-          "id": "m3",
-          "nome": "Escova de remoção"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m2",
-          "nome": "Pasta de remoção"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Ortodontia"
-  },
-  {
-    "id": "AG-24",
-    "titulo": "Avaliação de halitose",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Diagnóstico de origem de halitose e plano de tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_halitose",
-          "label": "Matinal ou persistente?",
-          "obrigatorio": true,
-          "validacao": [
-            "tratamento"
-          ]
-        },
-        {
-          "chave": "historico",
-          "label": "Histórico familiar?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:30",
-          "10:00",
-          "14:30",
-          "15:30"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:30",
-        "10:00",
-        "14:30",
-        "15:30"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m4",
-          "nome": "Escova de língua"
-        },
-        {
-          "id": "m5",
-          "nome": "Teste organoléptico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m1",
-          "nome": "Halímetro"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m2",
-          "nome": "Raspador de língua"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m3",
-          "nome": "Enxaguante com clorexidina"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      8,
-      8,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-25",
-    "titulo": "Instalação de implante",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Cirurgia de colocação de implante osseointegrado.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "regiao",
-          "label": "Qual região do implante?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "densidade_ossea",
-          "label": "Densidade óssea adequada?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_1",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m7",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "m3",
-          "nome": "Guia cirúrgico"
-        },
-        {
-          "id": "m6",
-          "nome": "Anestésico potente"
-        },
-        {
-          "id": "m2",
-          "nome": "Abutment"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m1",
-          "nome": "Implante dentário"
-        },
-        {
-          "id": "m5",
-          "nome": "Enzimas hemostáticas"
-        },
-        {
-          "id": "m4",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Luvas latex"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m3",
-        "m4",
-        "m6",
-        "m7"
-      ]
-    },
-    "competencias": [
-      8,
-      9,
-      8,
-      10,
-      10,
-      8,
-      9,
-      9
-    ],
-    "area": "Implantologia"
-  },
-  {
-    "id": "AG-26",
-    "titulo": "Limpeza de implante",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Manutenção profissional de implante.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quando_implante",
-          "label": "Quando foi colocado?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "higiene",
-          "label": "Como está higienizando?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m3",
-          "nome": "Escova específica"
-        },
-        {
-          "id": "m4",
-          "nome": "Agente antimicrobiano"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m2",
-          "nome": "Curetas de Gracey"
-        },
-        {
-          "id": "m5",
-          "nome": "Enxaguante"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m1",
-          "nome": "Ultrassom específico"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      9,
-      8,
-      8,
-      8
-    ],
-    "area": "Implantologia"
-  },
-  {
-    "id": "AG-27",
-    "titulo": "Consulta de emergência dental",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 2,
-    "contexto": "Atendimento urgente para dor, trauma ou infecção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_emergencia",
-          "label": "Tipo de emergência?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "duracao",
-          "label": "Há quanto tempo?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório de Emergência",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "07:00",
-          "08:00",
-          "11:00",
-          "12:00",
-          "17:00",
-          "18:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "07:00",
-        "08:00",
-        "11:00",
-        "12:00",
-        "17:00",
-        "18:00"
-      ],
-      "salas": [
-        "Consultório de Emergência",
-        "Consultório A",
-        "Consultório B",
-        "Sala de Observação"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m2",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "m1",
-          "nome": "Anestésico potente"
-        },
-        {
-          "id": "m4",
-          "nome": "Analgésicos"
-        },
-        {
-          "id": "m3",
-          "nome": "Cimento temporário"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m5",
-          "nome": "Antibióticos"
-        },
-        {
-          "id": "m6",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      9,
-      9
-    ],
-    "area": "Urgência/Trauma"
-  },
-  {
-    "id": "AG-28",
-    "titulo": "Avaliação pós-trauma dentário",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Avaliação completa pós-trauma com testes de vitalidade.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quando_trauma",
-          "label": "Quando foi o trauma?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_trauma",
-          "label": "Tipo de trauma?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m2",
-          "nome": "Teste de percussão"
-        },
-        {
-          "id": "m3",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "m1",
-          "nome": "Teste de vitalidade térmica"
-        },
-        {
-          "id": "m4",
-          "nome": "Escala de mobilidade"
-        },
-        {
-          "id": "m5",
-          "nome": "Documentação fotográfica"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Urgência/Trauma"
-  },
-  {
-    "id": "AG-29",
-    "titulo": "Frenectomia",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Cirurgia para remoção de freio labial ou lingual.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_freio",
-          "label": "Qual freio?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "motivo",
-          "label": "Motivo da cirurgia?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m4",
-          "nome": "Cauterizador"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m2",
-          "nome": "Tesoura de Metzenbaum"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m1",
-          "nome": "Bisturi fino"
-        },
-        {
-          "id": "m5",
-          "nome": "Pinça de dissecção"
-        },
-        {
-          "id": "m3",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      9,
-      8,
-      9,
-      9,
-      8,
-      8,
-      9
-    ],
-    "area": "Cirurgia Oral"
-  },
-  {
-    "id": "AG-30",
-    "titulo": "Higienização de aparelho removível",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Orientação de paciente sobre limpeza de prótese removível.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "sobre"
-          ]
-        },
-        {
-          "chave": "tempo_uso",
-          "label": "Há quanto tempo usa prótese?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dificuldades",
-          "label": "Tem dificuldades na limpeza?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Solução efervescente"
-        },
-        {
-          "id": "m3",
-          "nome": "Água morna"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m2",
-          "nome": "Escova macia"
-        },
-        {
-          "id": "m4",
-          "nome": "Sabão neutro"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m5",
-          "nome": "Recipiente para imersão"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      6,
-      7,
-      8,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Prótese Dentária"
-  },
-  {
-    "id": "AG-31",
-    "titulo": "Fluorose dental - avaliação",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Criança com manchas em dentes. Diagnóstico de fluorose.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "historia_fluorose",
-          "label": "História de exposição ao flúor?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Câmera fotográfica"
-        },
-        {
-          "id": "m4",
-          "nome": "Teste de vitalidade"
-        },
-        {
-          "id": "m3",
-          "nome": "Luz LED"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho"
-        },
-        {
-          "id": "m1",
-          "nome": "Índice de fluorose de Dean"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      7,
-      8,
-      7,
-      8,
-      7,
-      8
-    ],
-    "area": "Odontopediatria"
-  },
-  {
-    "id": "AG-32",
-    "titulo": "Controle de biofilme em criança",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Criança com acúmulo de biofilme. Orientação de higiene lúdica.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "freq_escova",
-          "label": "Frequência de escovação?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Escova de dentes colorida"
-        },
-        {
-          "id": "m1",
-          "nome": "Revelador de biofilme"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta de dente com flúor"
-        },
-        {
-          "id": "m5",
-          "nome": "Material didático"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m3",
-          "nome": "Fio dental infantil"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Gaze 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      9,
-      6,
-      7,
-      8,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Odontopediatria"
-  },
-  {
-    "id": "AG-33",
-    "titulo": "Avaliação de oclusão",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Avaliação completa da oclusão em criança em desenvolvimento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "em"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "queixa",
-          "label": "Queixa principal?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m1",
-          "nome": "Papel carbono"
-        },
-        {
-          "id": "m4",
-          "nome": "Arco facial"
-        },
-        {
-          "id": "m3",
-          "nome": "Sonda exploradora"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m2",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m5",
-          "nome": "Radiografia panorâmica"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Odontopediatria"
-  },
-  {
-    "id": "AG-34",
-    "titulo": "Orientação de paciente ansioso",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com alta ansiedade. Necessita acolhimento e orientação antes do procedimento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "nivel_ansiedade",
-          "label": "Nível de ansiedade (1-10)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "experiencia_anterior",
-          "label": "Experiência anterior?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m3",
-          "nome": "Música ambiente"
-        },
-        {
-          "id": "m1",
-          "nome": "Material didático"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m2",
-          "nome": "Vídeo educativo"
-        },
-        {
-          "id": "m5",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m4",
-          "nome": "Técnicas de relaxamento"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m5"
-      ]
-    },
-    "competencias": [
-      10,
-      7,
-      7,
-      7,
-      7,
-      8,
-      8,
-      9
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-35",
-    "titulo": "Acompanhamento de implante",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Avaliação periódica de implante osseointegrado após cirurgia.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quando_cirurgia",
-          "label": "Quando foi a cirurgia?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "sintomas",
-          "label": "Tem sintomas?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_1",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m4",
-          "nome": "Ultrassom avaliativo"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m5",
-          "nome": "Teste de ressonância"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m2",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "m1",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m3",
-          "nome": "Teste de mobilidade"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      7,
-      8
-    ],
-    "area": "Implantologia"
-  },
-  {
-    "id": "AG-36",
-    "titulo": "Retratamento endodôntico",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Dente com falha no tratamento anterior. Necessita retratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quando_original",
-          "label": "Quando foi o primeiro tratamento?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d10",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m3",
-          "nome": "Limas rotatórias"
-        },
-        {
-          "id": "m5",
-          "nome": "Guta-percha"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m4",
-          "nome": "Hipoclorito de sódio"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "m1",
-          "nome": "Broca endodôntica"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m2",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "m6",
-          "nome": "Selador endodôntico"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      9,
-      9,
-      10,
-      9,
-      8,
-      8,
-      9
-    ],
-    "area": "Endodontia"
-  },
-  {
-    "id": "AG-37",
-    "titulo": "Avaliação de cárie radicular",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente idoso com recessão gengival e cárie radicular.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "idoso"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "sensibilidade",
-          "label": "Tem sensibilidade radicular?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m3",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "m4",
-          "nome": "Cimento de vidro ionomérico"
-        },
-        {
-          "id": "m2",
-          "nome": "Adesivo universal"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m1",
-          "nome": "Resina de baixa contração"
-        },
-        {
-          "id": "m5",
-          "nome": "Gel dessensibilizante"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Luvas latex"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-38",
-    "titulo": "Ajuste de prótese removível",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Ajuste de prótese removível em paciente com desconforto.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "onde_dor",
-          "label": "Onde dói?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quando_feita",
-          "label": "Quando foi feita a prótese?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Protético",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Protético",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m1",
-          "nome": "Pasta marcadora"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m4",
-          "nome": "Pasta de polimento"
-        },
-        {
-          "id": "m3",
-          "nome": "Disco de polimento"
-        },
-        {
-          "id": "m2",
-          "nome": "Fresa de ajuste"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      7,
-      8,
-      7,
-      7,
-      7,
-      8
-    ],
-    "area": "Prótese Dentária"
-  },
-  {
-    "id": "AG-39",
-    "titulo": "Fotopolimerização segura",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Restauração com protocolo seguro de fotopolimerização.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_restauracao",
-          "label": "Tipo de restauração?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "sensibilidade",
-          "label": "Tem sensibilidade?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Proteção ocular"
-        },
-        {
-          "id": "m1",
-          "nome": "Luz de LED"
-        },
-        {
-          "id": "m5",
-          "nome": "Manejo de tempo"
-        },
-        {
-          "id": "m3",
-          "nome": "Máscara facial"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "d10",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m4",
-          "nome": "Ponta com filtro"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Água oxigenada"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m4"
-      ]
-    },
-    "competencias": [
-      8,
-      7,
-      7,
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-40",
-    "titulo": "Reparação de fratura de resina",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Reparação de restauração de resina com fratura marginal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tipo_fratura",
-          "label": "Tipo de fratura?",
-          "obrigatorio": true,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Resina composta"
-        },
-        {
-          "id": "m2",
-          "nome": "Adesivo"
-        },
-        {
-          "id": "m6",
-          "nome": "Discos de polimento"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m4",
-          "nome": "Matriz de contorno"
-        },
-        {
-          "id": "m5",
-          "nome": "Luz de LED"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m3",
-          "nome": "Ácido fosfórico"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m5",
-        "m6"
-      ]
-    },
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      8
-    ],
-    "area": "Clínica Geral"
-  },
-  {
-    "id": "AG-41",
-    "titulo": "Sondagem periodontal em paciente com gengivite",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com inflamação gengival, sangramento ao passar fio dental. Necessário fazer sondagem periodontal para avaliar profundidade de bolsas.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "tempo_sintomas",
-          "label": "Há quanto tempo tem sangramento?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "fumante",
-          "label": "É fumante?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dieta",
-          "label": "Tem dificuldade em higienizar?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m1",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "m6",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m4",
-          "nome": "Luvas de nitrila"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "m3",
-          "nome": "Explorador"
-        },
-        {
-          "id": "m2",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m5",
-          "nome": "Máscara cirúrgica"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m7",
-          "nome": "Clorexidina 0.12%"
-        },
-        {
-          "id": "m8",
-          "nome": "Seringa de irrigação"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Periodontia",
-    "competencias": [
-      8,
-      7,
-      8,
-      8,
-      7,
-      7,
-      8,
-      7
-    ]
-  },
-  {
-    "id": "AG-42",
-    "titulo": "Avaliação de osseointegração após 4 meses",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente com implante colocado há 4 meses. Necessário avaliar estabilidade e planejar próxima etapa (moldagem ou carga).\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "data_implante",
-          "label": "Data da colocação do implante",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "mobilidade_percebida",
-          "label": "Paciente sente movimento?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dor",
-          "label": "Tem dor na região?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Implantologia",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "11:00",
-          "13:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "11:00",
-        "13:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Implantologia",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Teste de percussão (martelo)"
-        },
-        {
-          "id": "m3",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "d3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m9",
-          "nome": "Cuba de metal"
-        },
-        {
-          "id": "m2",
-          "nome": "Radiografia periapical"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m8",
-          "nome": "Pinça"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m7",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m6",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m5",
-          "nome": "Luvas de nitrila"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Sugador de saliva"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Implantologia",
-    "competencias": [
-      9,
-      8,
-      9,
-      9,
-      8,
-      8,
-      9,
-      8
-    ]
-  },
-  {
-    "id": "AG-43",
-    "titulo": "Tratamento endodôntico em molar inferior",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente com cárie profunda em molar inferior, teste de vitalidade positivo, necessário tratamento de canal.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dor_espontanea",
-          "label": "Tem dor espontânea?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tempo_dor",
-          "label": "Há quanto tempo sente dor?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Endodontia",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "13:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "13:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Endodontia",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m3",
-          "nome": "Brocas de acesso"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m5",
-          "nome": "Localizador apical eletrônico"
-        },
-        {
-          "id": "m9",
-          "nome": "Anestésico"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m6",
-          "nome": "Hipoclorito de sódio"
-        },
-        {
-          "id": "m2",
-          "nome": "Clamp e arco de borracha"
-        },
-        {
-          "id": "m4",
-          "nome": "Limas endodônticas"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "dist_4",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m8",
-          "nome": "Cimento obturador"
-        },
-        {
-          "id": "m10",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m7",
-          "nome": "Guta-percha"
-        },
-        {
-          "id": "m1",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Endodontia",
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-44",
-    "titulo": "Ortodontia: avaliação cefalométrica e planejamento",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente adolescente com sobremordida, solicita avaliação ortodôntica completa e planejamento de tratamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "adolescente"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "problemas_funcionais",
-          "label": "Tem problemas funcionais (mastigação/fala)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa",
-          "label": "Expectativa com tratamento",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Ortodontia",
-        "dias": [
-          "segunda",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Ortodontia",
-        "Consultório A",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Radiografia cefalométrica"
-        },
-        {
-          "id": "m4",
-          "nome": "Compasso de calibração"
-        },
-        {
-          "id": "m8",
-          "nome": "Software de análise cefalométrica"
-        },
-        {
-          "id": "m3",
-          "nome": "Modelos de gesso"
-        },
-        {
-          "id": "m7",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m6",
-          "nome": "Paquímetro"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "m2",
-          "nome": "Fotografias intraorais"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m5",
-          "nome": "Régua milimetrada"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Máscara FFP2"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Ortodontia",
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-45",
-    "titulo": "Odontopediatria: restauração com ionômero de vidro",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Criança de 6 anos com cárie em dente decíduo. Restauração com ionômero de vidro para facilitar cooperação.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome_crianca",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "de"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": [
-            "6"
-          ]
-        },
-        {
-          "chave": "cooperacao",
-          "label": "Nível de cooperação esperado",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "higiene_parental",
-          "label": "Higiene supervisionada pelos pais?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m6",
-          "nome": "Sugador pediátrico"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m2",
-          "nome": "Ionômero de vidro"
-        },
-        {
-          "id": "m5",
-          "nome": "Espelho infantil"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m4",
-          "nome": "Primer/adesivo"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "m3",
-          "nome": "Ácido fosfórico 37%"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m1",
-          "nome": "Boca livre pediátrica"
-        },
-        {
-          "id": "m8",
-          "nome": "Matriz tiras Mylar"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m7",
-          "nome": "Anestésico tópico"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Odontopediatria",
-    "competencias": [
-      7,
-      7,
-      8,
-      8,
-      7,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "AG-46",
-    "titulo": "Prostodontia: cimentação de prótese fixa",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Prótese parcial fixa (3 unidades) pronta para cimentação em preparos 14-15-16. Necessário cimentação definitiva com cimento autoadesivo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "quais_dentes",
-          "label": "Quais dentes serão cimentados?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "sensibilidade_pre",
-          "label": "Tinha sensibilidade antes?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tempo_provisorio",
-          "label": "Há quanto tempo com provisório?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "m7",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m6",
-          "nome": "Fio de retenção"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m1",
-          "nome": "Prótese fixa"
-        },
-        {
-          "id": "m5",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m2",
-          "nome": "Cimento autoadesivo"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m8",
-          "nome": "Pano de isolamento"
-        },
-        {
-          "id": "m4",
-          "nome": "Limpeza com escova/pedra pomes"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m3",
-          "nome": "Remover provisório com instrumento"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Prótese Dentária",
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "AG-47",
-    "titulo": "Clareamento dentário supervisionado com luz LED",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com manchas intrínsecas nos dentes anteriores. Quer fazer clareamento profissional com técnica de consultório.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "sensibilidade_prvia",
-          "label": "Tem sensibilidade dental?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "restauracoes",
-          "label": "Tem restaurações nos anteriores?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa_tom",
-          "label": "Qual tom deseja?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m3",
-          "nome": "Barreira gengival (dam ou vaselina)"
-        },
-        {
-          "id": "m4",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m7",
-          "nome": "Fotografia inicial"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m5",
-          "nome": "Moldeira clareadora"
-        },
-        {
-          "id": "m2",
-          "nome": "Luz LED"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m8",
-          "nome": "Fluoreto de sódio 2%"
-        },
-        {
-          "id": "m1",
-          "nome": "Gel clareador peróxido"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m6",
-          "nome": "Escala de cor Vita"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Estética",
-    "competencias": [
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8,
-      7
-    ]
-  },
-  {
-    "id": "AG-48",
-    "titulo": "Cirurgia oral: extração de dente impactado",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Dente 28 (terceiro molar) impactado horizontalmente. Necessário procedimento cirúrgico com osteotomia para remoção.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "ja_tentou",
-          "label": "Tentou extração antes?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "medicacoes",
-          "label": "Usa medicações contínuas?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "11:00",
-          "13:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00",
-        "13:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m9",
-          "nome": "Luvas e máscara cirúrgica"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m7",
-          "nome": "Gaze e compressa"
-        },
-        {
-          "id": "m5",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "m2",
-          "nome": "Fórceps de extração"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m6",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "m3",
-          "nome": "Elevador cirúrgico"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local com epinefrina"
-        },
-        {
-          "id": "m8",
-          "nome": "Antibiótico profilático"
-        },
-        {
-          "id": "m1",
-          "nome": "Mandril e broca para osteotomia"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Cirurgia Oral",
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-49",
-    "titulo": "Laminado cerâmico: preparação e moldagem",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente com desgaste estético nos dentes anteriores. Quer restauração com laminados cerâmicos. Etapa de preparação dental.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "quais_dentes",
-          "label": "Quais dentes serão tratados?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "objetivo",
-          "label": "Objetivo principal (cor/formato/comprimento)?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "historico_bleaching",
-          "label": "Fez clareamento antes?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_0",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "d6",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m4",
-          "nome": "Primer/adesivo"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m2",
-          "nome": "Disco diamantado"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m8",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "m9",
-          "nome": "Fotografia de cores"
-        },
-        {
-          "id": "m1",
-          "nome": "Broca diamantada ponta troncocônica"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m3",
-          "nome": "Ácido fosfórico 37%"
-        },
-        {
-          "id": "m6",
-          "nome": "Moldeira customizada"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m5",
-          "nome": "Resina de teste de cor"
-        },
-        {
-          "id": "m7",
-          "nome": "Pasta abrasiva de polimento"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Clínica Geral",
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-50",
-    "titulo": "Acompanhamento pós-colocação de implante (1 semana)",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 1,
-    "contexto": "Paciente em acompanhamento pós-operatório após colocação de implante 1 semana atrás. Avaliação de cicatrização e higiene.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "em"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual região foi implantada?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "inchaço_presente",
-          "label": "Tem inchaço?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dor_escala",
-          "label": "Nível de dor (0-10)",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Implantologia",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Implantologia",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m4",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m6",
-          "nome": "Clorexidina 0.12%"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m3",
-          "nome": "Anestésico tópico"
-        },
-        {
-          "id": "m5",
-          "nome": "Solução fisiológica"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m1",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m2",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "m7",
-          "nome": "Antibiótico tópico"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d9",
-          "nome": "Gaze de algodão"
-        },
-        {
-          "id": "m8",
-          "nome": "Talisman (para coágulo)"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7"
-      ]
-    },
-    "area": "Implantologia",
-    "competencias": [
-      7,
-      7,
-      8,
-      7,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "AG-51",
-    "titulo": "Retratamento endodôntico com visualização microscópica",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Dente 11 com insucesso de tratamento anterior. Paciente com dor periapical. Necessário retratamento com microscópio.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tempo_tratamento_anterior",
-          "label": "Há quanto tempo foi o tratamento anterior?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "radiografia_disponivel",
-          "label": "Tem radiografia anterior?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Endodontia",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "13:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "13:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Endodontia",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m7",
-          "nome": "Cimento obturador"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m6",
-          "nome": "Guta-percha nova"
-        },
-        {
-          "id": "m9",
-          "nome": "Anestésico"
-        },
-        {
-          "id": "m5",
-          "nome": "Hipoclorito de sódio"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m4",
-          "nome": "Localizador apical eletrônico"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m8",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m1",
-          "nome": "Microscópio operatório"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m2",
-          "nome": "Ponta ultrassônica"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m3",
-          "nome": "Limas endodônticas pós"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Endodontia",
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-52",
-    "titulo": "Periodontia: raspagem e alisamento radicular",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente com periodontite generalizada (bolsas de 5-7 mm). Primeira etapa: raspagem e alisamento radicular com anestesia local.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "quais_areas",
-          "label": "Quais áreas afetadas?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "risco_cardiovascular",
-          "label": "Tem fatores de risco cardiovascular?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "medicacao_anticoagulante",
-          "label": "Usa anticoagulante?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m7",
-          "nome": "Hipoclorito de sódio 0.12%"
-        },
-        {
-          "id": "m3",
-          "nome": "Anestésico local com epinefrina"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m4",
-          "nome": "Seringa carpule"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "d3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m6",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m2",
-          "nome": "Sonda periodontal"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m5",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "m8",
-          "nome": "Pó de polimento"
-        },
-        {
-          "id": "m1",
-          "nome": "Curetas periodontais"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Periodontia",
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "AG-53",
-    "titulo": "Ortodontia: ativação de aparelho fixo (mensal)",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 1,
-    "contexto": "Paciente em tratamento ortodôntico há 3 meses. Retorno mensal para ativação do aparelho e avaliação de progresso.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "em"
-          ]
-        },
-        {
-          "chave": "meses_tratamento",
-          "label": "Há quanto tempo em tratamento?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dor_presente",
-          "label": "Está sentindo dor?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "higiene_parece_boa",
-          "label": "Higiene parece adequada?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Ortodontia",
-        "dias": [
-          "segunda",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Ortodontia",
-        "Consultório A",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m5",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m4",
-          "nome": "Elásticos ortodônticos"
-        },
-        {
-          "id": "m6",
-          "nome": "Explorador"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m8",
-          "nome": "Cera ortodôntica"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m3",
-          "nome": "Fio ortodôntico (espessura apropriada)"
-        },
-        {
-          "id": "m1",
-          "nome": "Alicate de corte"
-        },
-        {
-          "id": "m2",
-          "nome": "Alicate de preensão"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m7",
-          "nome": "Escova ortho"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Ortodontia",
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "AG-54",
-    "titulo": "Odontopediatria: aplicação de flúor profissional",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Criança de 5 anos com risco de cárie. Consulta para aplicação de gel de flúor profissional e orientação de higiene com responsáveis.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome_crianca",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "de"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": [
-            "5"
-          ]
-        },
-        {
-          "chave": "ultima_fluorose",
-          "label": "Quando foi última aplicação?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "frequencia_escova",
-          "label": "Frequência de escovação?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Pediátrico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00",
-          "16:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00",
-        "16:00"
-      ],
-      "salas": [
-        "Consultório Pediátrico",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Gel de flúor"
-        },
-        {
-          "id": "m3",
-          "nome": "Seringa de borracha"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m7",
-          "nome": "Espelho infantil"
-        },
-        {
-          "id": "m8",
-          "nome": "Toucinho para orientação de higiene"
-        },
-        {
-          "id": "d13",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "d2",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m4",
-          "nome": "Gaze"
-        },
-        {
-          "id": "d3",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m2",
-          "nome": "Moldeira pediátrica"
-        },
-        {
-          "id": "m5",
-          "nome": "Escova infantil"
-        },
-        {
-          "id": "m6",
-          "nome": "Fio dental"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Odontopediatria",
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "AG-55",
-    "titulo": "Prostodontia removível: prótese total superior",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente edêntulo superior. Primeira consulta para moldagem anátômica e levantamento de dimensão vertical.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "edêntulo"
-          ]
-        },
-        {
-          "chave": "tempo_sem_dentes",
-          "label": "Há quanto tempo sem dentes?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "usa_protese_antes",
-          "label": "Já usou prótese antes?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "atividade_profissional",
-          "label": "Qual atividade profissional?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "09:00",
-          "10:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "09:00",
-        "10:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m1",
-          "nome": "Moldeira individual"
-        },
-        {
-          "id": "m6",
-          "nome": "Relacionador cêntrico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "m4",
-          "nome": "Compasso de Willis"
-        },
-        {
-          "id": "m5",
-          "nome": "Arco facial"
-        },
-        {
-          "id": "m2",
-          "nome": "Massa de moldagem"
-        },
-        {
-          "id": "m8",
-          "nome": "Escala de cor"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d11",
-          "nome": "Alcool 70%"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m3",
-          "nome": "Dimensionador vertical"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m7",
-          "nome": "Fita métrica"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Gaze 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Prótese Dentária",
-    "competencias": [
-      8,
-      8,
-      8,
-      9,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "AG-56",
-    "titulo": "Clareamento caseiro supervisionado (orientação)",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 1,
-    "tempo": 1,
-    "contexto": "Paciente retornando para receber moldeira customizada e gel de clareamento para uso caseiro. Orientação de uso e cuidados.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "retornando"
-          ]
-        },
-        {
-          "chave": "sensibilidade_baseline",
-          "label": "Tem sensibilidade base?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "expectativa",
-          "label": "Expectativa de resultado?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "frequencia_escova",
-          "label": "Frequência de escovação?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório A",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório A",
-        "Consultório B",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "Gel clareador caseiro (peroxido 10-16%)"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Pomada cicatrizante"
-        },
-        {
-          "id": "d8",
-          "nome": "Estéril 4x4"
-        },
-        {
-          "id": "m4",
-          "nome": "Fotografia inicial"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m5",
-          "nome": "Fluoreto de sódio"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m8",
-          "nome": "Instrução escrita para casa"
-        },
-        {
-          "id": "m1",
-          "nome": "Moldeira customizada"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m7",
-          "nome": "Seringa dosadora"
-        },
-        {
-          "id": "m6",
-          "nome": "Dessensibilizante"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "m3",
-          "nome": "Escala de cor Vita"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Estética",
-    "competencias": [
-      7,
-      7,
-      7,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "AG-57",
-    "titulo": "Cirurgia: frenectomia lingual",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Criança com anquiloglossia (língua presa). Necessário procedimento cirúrgico para liberar freio lingual.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome_crianca",
-          "label": "Nome da criança",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "idade",
-          "label": "Idade",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dificuldade_lingua",
-          "label": "Qual dificuldade funcional?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "peso_saude_geral",
-          "label": "Tem outras condições de saúde?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "11:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "11:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m5",
-          "nome": "Cauterizador ou laser"
-        },
-        {
-          "id": "m7",
-          "nome": "Gaze estéril"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Álcool 70%"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m3",
-          "nome": "Pinça anatômica"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m8",
-          "nome": "Luvas e máscara"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m6",
-          "nome": "Sutura reabsorvível"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m1",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m2",
-          "nome": "Tesoura cirúrgica"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Sugador de saliva"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8"
-      ]
-    },
-    "area": "Cirurgia Oral",
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "AG-58",
-    "titulo": "Endodontia: tratamento de fratura radicular",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Dente anterior com fratura radicular transversa após trauma. Paciente busca salvar dente. Avaliação de viabilidade e planejamento.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "busca"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "data_trauma",
-          "label": "Data do trauma",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "dor_presente",
-          "label": "Tem dor atual?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Endodontia",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "13:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "13:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Endodontia",
-        "Consultório A",
-        "Consultório B",
-        "Consultório C"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m2",
-          "nome": "CBCT/Tomografia"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "d14",
-          "nome": "Vidro com vaselina"
-        },
-        {
-          "id": "m5",
-          "nome": "Localizador apical"
-        },
-        {
-          "id": "d15",
-          "nome": "Cuba para resíduos"
-        },
-        {
-          "id": "m8",
-          "nome": "Cimento MTA ou hidróxido de cálcio"
-        },
-        {
-          "id": "m7",
-          "nome": "Guta-percha"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "m4",
-          "nome": "Limas endodônticas"
-        },
-        {
-          "id": "m6",
-          "nome": "Hipoclorito de sódio"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m1",
-          "nome": "Radiografia periapical e oclusal"
-        },
-        {
-          "id": "m9",
-          "nome": "Anestésico"
-        },
-        {
-          "id": "d10",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m3",
-          "nome": "Dique de borracha"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Gaze 4x4"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Endodontia",
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "AG-59",
-    "titulo": "Periodontia: aplicação de enxerto gengival livre",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 3,
-    "tempo": 3,
-    "contexto": "Paciente com recessão gengival no dente 34. Necessário procedimento de enxertia gengival para aumento de mucosa aderida.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "com"
-          ]
-        },
-        {
-          "chave": "qual_dente",
-          "label": "Qual dente afetado?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "tamanho_recessao",
-          "label": "Medida da recessão (em mm)",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "queixa_estetica",
-          "label": "Preocupação estética?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Cirúrgico",
-        "dias": [
-          "segunda",
-          "terça",
-          "quarta",
-          "quinta"
-        ],
-        "horarios": [
-          "08:00",
-          "09:00",
-          "10:00",
-          "13:00",
-          "14:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "terça",
-        "quarta",
-        "quinta"
-      ],
-      "horariosDisponiveis": [
-        "08:00",
-        "09:00",
-        "10:00",
-        "13:00",
-        "14:00"
-      ],
-      "salas": [
-        "Consultório Cirúrgico",
-        "Centro Cirúrgico",
-        "Consultório A",
-        "Consultório B"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m8",
-          "nome": "Gaze e compressas"
-        },
-        {
-          "id": "m7",
-          "nome": "Cimento periodontal"
-        },
-        {
-          "id": "m6",
-          "nome": "Membrana de barreira"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m1",
-          "nome": "Bisturi cirúrgico"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Solução salina 0.9%"
-        },
-        {
-          "id": "m4",
-          "nome": "Anestésico local"
-        },
-        {
-          "id": "d5",
-          "nome": "Berço para anestesia"
-        },
-        {
-          "id": "m9",
-          "nome": "Luvas e máscara cirúrgica"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Máscara FFP2"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "d7",
-          "nome": "Pinça clínica"
-        },
-        {
-          "id": "m2",
-          "nome": "Tesoura de Castroviejo"
-        },
-        {
-          "id": "m5",
-          "nome": "Microsutura (5-0 ou 6-0)"
-        },
-        {
-          "id": "m3",
-          "nome": "Pinça anatômica"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Periodontia",
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "AG-60",
-    "titulo": "Ortodontia: remoção de aparelho e colagem de retentor",
-    "tipo": "agendamento",
-    "modalidade": "agendamento",
-    "complexidade": 2,
-    "tempo": 2,
-    "contexto": "Paciente completou tratamento ortodôntico (24 meses). Necessário remoção do aparelho, limpeza e colagem de retentor fixo.\n\nINFORMAÇÕES FORNECIDAS PELO PACIENTE:\n✓ Nome, idade, procedimento necessário (conforme acima)\n✗ Alergias: NÃO informado - DEVE confirmar\n✗ Medicamentos em uso: NÃO informado - DEVE confirmar\n✗ Última higienização: NÃO informado - DEVE confirmar\n✗ Histórico de sensibilidade: NÃO informado - DEVE confirmar",
-    "dadosPaciente": {
-      "campos": [
-        {
-          "chave": "nome",
-          "label": "Nome do paciente",
-          "obrigatorio": true,
-          "validacao": [
-            "completou"
-          ]
-        },
-        {
-          "chave": "tempo_total",
-          "label": "Tempo total de tratamento",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "satisfacao",
-          "label": "Satisfação com resultado?",
-          "obrigatorio": true,
-          "validacao": []
-        },
-        {
-          "chave": "plano_retencao",
-          "label": "Aceitaria usar contenção removível?",
-          "obrigatorio": false,
-          "validacao": []
-        }
-      ]
-    },
-    "agenda": {
-      "correto": {
-        "sala": "Consultório Ortodontia",
-        "dias": [
-          "segunda",
-          "quarta",
-          "sexta"
-        ],
-        "horarios": [
-          "10:00",
-          "11:00",
-          "14:00",
-          "15:00"
-        ]
-      },
-      "diasDisponiveis": [
-        "segunda",
-        "quarta",
-        "sexta"
-      ],
-      "horariosDisponiveis": [
-        "10:00",
-        "11:00",
-        "14:00",
-        "15:00"
-      ],
-      "salas": [
-        "Consultório Ortodontia",
-        "Consultório A",
-        "Consultório C",
-        "Consultório D"
-      ]
-    },
-    "materiais": {
-      "opcoes": [
-        {
-          "id": "m9",
-          "nome": "Espelho intraoral"
-        },
-        {
-          "id": "m6",
-          "nome": "Primer/adesivo"
-        },
-        {
-          "id": "m4",
-          "nome": "Fio retentor (5 ou 7 fios)"
-        },
-        {
-          "id": "d12",
-          "nome": "Água oxigenada"
-        },
-        {
-          "id": "m7",
-          "nome": "Escala de cor"
-        },
-        {
-          "id": "dist_2",
-          "nome": "Sugador de saliva"
-        },
-        {
-          "id": "m8",
-          "nome": "Fotografia final"
-        },
-        {
-          "id": "m3",
-          "nome": "Resina de colagem"
-        },
-        {
-          "id": "d4",
-          "nome": "Sugador de água"
-        },
-        {
-          "id": "m2",
-          "nome": "Ponta ultrassônica"
-        },
-        {
-          "id": "dist_3",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "d1",
-          "nome": "Luvas latex"
-        },
-        {
-          "id": "dist_1",
-          "nome": "Espelho bucal grande"
-        },
-        {
-          "id": "m1",
-          "nome": "Removedor de bracket"
-        },
-        {
-          "id": "dist_0",
-          "nome": "Retrator de bochechas"
-        },
-        {
-          "id": "m5",
-          "nome": "Ácido fosfórico 37%"
-        }
-      ],
-      "corretos": [
-        "m1",
-        "m2",
-        "m3",
-        "m4",
-        "m5",
-        "m6",
-        "m7",
-        "m8",
-        "m9"
-      ]
-    },
-    "area": "Ortodontia",
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "MAT-01",
-    "titulo": "Restauração de cárie classe II com resina composta",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Dentística",
-    "contexto": "Paciente com cárie interproximal em molar inferior (dente 36). Você será o responsável pela restauração com resina composta. Quais materiais você precisa para este procedimento?",
-    "opcoes": [
-      {
-        "texto": "Dique de borracha e clamp",
-        "correto": true
-      },
-      {
-        "texto": "Matriz de contorno e cunha de madeira",
-        "correto": true
-      },
-      {
-        "texto": "Ácido fosfórico 37% e adesivo universal",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta (bulk-fill ou incremental)",
-        "correto": true
-      },
-      {
-        "texto": "Luz LED para fotopolimerização",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice para lavar",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Clorexidina para bactérias",
-        "correto": false
-      },
-      {
-        "texto": "Fórceps de extração",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-02",
-    "titulo": "Tratamento endodôntico: preparo de canal",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 2,
-    "area": "Endodontia",
-    "contexto": "Dente anterior com polpa vital inflamada (teste positivo). Você precisa fazer tratamento endodôntico. Quais são os materiais essenciais para preparo e limpeza do canal?",
-    "opcoes": [
-      {
-        "texto": "Dique de borracha e clamp",
-        "correto": true
-      },
-      {
-        "texto": "Limas endodônticas (série K ou H)",
-        "correto": true
-      },
-      {
-        "texto": "Localizador apical eletrônico",
-        "correto": true
-      },
-      {
-        "texto": "Hipoclorito de sódio 2.5%",
-        "correto": true
-      },
-      {
-        "texto": "Seringa endodôntica e agulha courva",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta (para restauração final)",
-        "correto": false
-      },
-      {
-        "texto": "Matriz de contorno interproximal",
-        "correto": false
-      },
-      {
-        "texto": "Selador de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-03",
-    "titulo": "Aplicação profissional de flúor gel em criança",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Odontopediatria",
-    "contexto": "Criança de 6 anos com risco de cárie. Você vai fazer aplicação de gel de flúor profissional (5000 ppm). Quais são os materiais e ferramentas necessários?",
-    "opcoes": [
-      {
-        "texto": "Gel de flúor 5000 ppm",
-        "correto": true
-      },
-      {
-        "texto": "Moldeira pediátrica (ou tabuleiros individualizados)",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para secar dentes",
-        "correto": true
-      },
-      {
-        "texto": "Copo descartável para bochecho pós-aplicação",
-        "correto": true
-      },
-      {
-        "texto": "Escova infantil para educação de higiene",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para tratamento endo)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta cor tooth-colored",
-        "correto": false
-      },
-      {
-        "texto": "Fórceps de extração",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-04",
-    "titulo": "Limpeza e polimento de dentes (profilaxia)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Periodontia",
-    "contexto": "Paciente em visita periódica de profilaxia. Apresenta biofilme moderado e sem doença periodontal. Quais materiais você usará para limpeza e polimento?",
-    "opcoes": [
-      {
-        "texto": "Escaler ultrassônico ou manual",
-        "correto": true
-      },
-      {
-        "texto": "Taça de borracha ou escova de polimento",
-        "correto": true
-      },
-      {
-        "texto": "Pasta de polimento (RDA apropriado)",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice",
-        "correto": true
-      },
-      {
-        "texto": "Fio dental ou fita para educação",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina 0.12% (não está indicada sem doença)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      6,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-05",
-    "titulo": "Sondagem periodontal diagnóstica",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Periodontia",
-    "contexto": "Paciente com queixa de sangramento gengival. Você precisa fazer diagnóstico periodontal com sondagem completa. Quais instrumentos e materiais são necessários?",
-    "opcoes": [
-      {
-        "texto": "Sonda periodontal (com marcações)",
-        "correto": true
-      },
-      {
-        "texto": "Espelho intraoral",
-        "correto": true
-      },
-      {
-        "texto": "Explorador duplo",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Gaze para secar",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico (se necessário)",
-        "correto": true
-      },
-      {
-        "texto": "Bisturi periodontal",
-        "correto": false
-      },
-      {
-        "texto": "Matriz de contorno",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-06",
-    "titulo": "Extração dentária simples (exodontia)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Cirurgia Oral",
-    "contexto": "Paciente necessita extração de dente 35 (com raiz única, sem impactação). Quais são os materiais principais para esta exodontia?",
-    "opcoes": [
-      {
-        "texto": "Fórceps de extração apropriado (tipo 88)",
-        "correto": true
-      },
-      {
-        "texto": "Elevador cirúrgico",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Seringa carpule",
-        "correto": true
-      },
-      {
-        "texto": "Gaze e compressa estéril",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Sutura reabsorvível (para simples não precisa)",
-        "correto": false
-      },
-      {
-        "texto": "Limas endodônticas",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      8,
-      8,
-      7,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-07",
-    "titulo": "Cimentação de coroa protética",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Prótese Dentária",
-    "contexto": "Coroa cerâmica sobre preparação unitária em dente 14 está pronta. Você fará cimentação definitiva. Quais materiais são necessários?",
-    "opcoes": [
-      {
-        "texto": "Coroa protética (já confeccionada)",
-        "correto": true
-      },
-      {
-        "texto": "Cimento resinoso autoadesivo",
-        "correto": true
-      },
-      {
-        "texto": "Fio de retenção/retração (se necessário)",
-        "correto": true
-      },
-      {
-        "texto": "Gaze e compressa para isolamento",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice para lavar",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico",
-        "correto": true
-      },
-      {
-        "texto": "Dique de borracha (não é obrigatório)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta bulk-fill",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha para endodontia",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-08",
-    "titulo": "Clareamento dental de consultório",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Estética",
-    "contexto": "Paciente quer clareamento imediato dos dentes anteriores superiores. Você usará técnica de consultório com luz LED. Quais materiais precisa?",
-    "opcoes": [
-      {
-        "texto": "Gel clareador com peróxido (35% ou 38%)",
-        "correto": true
-      },
-      {
-        "texto": "Luz LED para ativação",
-        "correto": true
-      },
-      {
-        "texto": "Barreira gengival (dam ou vaselina sólida)",
-        "correto": true
-      },
-      {
-        "texto": "Escala de cor Vita (para contraste)",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Fluoreto de sódio para pós-tratamento",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta para restauração",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Ácido fosfórico para gravação",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-09",
-    "titulo": "Restauração com ionômero de vidro em criança",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Odontopediatria",
-    "contexto": "Criança de 5 anos com cárie em dente 64. Você escolhe ionômero de vidro para facilitar cooperação. Quais materiais você necessita?",
-    "opcoes": [
-      {
-        "texto": "Ionômero de vidro convencional ou modificado com resina",
-        "correto": true
-      },
-      {
-        "texto": "Ácido poliacrílico 25% (condicionamento)",
-        "correto": true
-      },
-      {
-        "texto": "Espelho infantil pequeno",
-        "correto": true
-      },
-      {
-        "texto": "Sugador infantil",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico",
-        "correto": true
-      },
-      {
-        "texto": "Matriz de contorno pediátrica",
-        "correto": true
-      },
-      {
-        "texto": "Luz LED (não precisa com ionômero fotopolimerizável)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Fórceps de extração",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-10",
-    "titulo": "Ajuste oclusal com articulador",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Clínica Geral",
-    "contexto": "Paciente relata incômodo após cimentação de coroa. Você suspeita de contato prematuro. Quais materiais para diagnóstico e ajuste?",
-    "opcoes": [
-      {
-        "texto": "Papel de articulação colorido (carbono)",
-        "correto": true
-      },
-      {
-        "texto": "Pinça para segurar papel de articulação",
-        "correto": true
-      },
-      {
-        "texto": "Bra de alta rotação com ponta de polimento",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Espelho intraoral",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta para reparar",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Fórceps de extração",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      8,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-11",
-    "titulo": "Raspagem e alisamento radicular (terapia não-cirúrgica)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Periodontia",
-    "contexto": "Paciente com periodontite crônica (bolsas 5-7mm). Primeira fase: raspagem e alisamento radicular com anestesia local. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Curetas periodontais (Gracey ou mini-Gracey)",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Seringa carpule",
-        "correto": true
-      },
-      {
-        "texto": "Hipoclorito de sódio 0.12% para lavar",
-        "correto": true
-      },
-      {
-        "texto": "Seringa de irrigação com agulha fina",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril",
-        "correto": true
-      },
-      {
-        "texto": "Sutura (não precisa em terapia não-cirúrgica)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-12",
-    "titulo": "Moldagem para prótese removível (primeira consulta)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Prótese Dentária",
-    "contexto": "Paciente edêntulo superior. Primeira consulta para moldagem anátômica. Quais materiais você precisa para esta etapa?",
-    "opcoes": [
-      {
-        "texto": "Moldeira individual de estoque (tamanho apropriado)",
-        "correto": true
-      },
-      {
-        "texto": "Pasta ou massa de moldagem para moldagem anatômica",
-        "correto": true
-      },
-      {
-        "texto": "Alginato ou silicone leve para moldagem funcional (segunda etapa)",
-        "correto": true
-      },
-      {
-        "texto": "Compasso de Willis (para dimensão vertical)",
-        "correto": true
-      },
-      {
-        "texto": "Espátula para misturar pasta de moldagem",
-        "correto": true
-      },
-      {
-        "texto": "Água/ativador para alginato",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina para restauração estética",
-        "correto": false
-      },
-      {
-        "texto": "Fórceps de extração",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-13",
-    "titulo": "Tratamento de sensibilidade dentinária",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Clínica Geral",
-    "contexto": "Paciente com sensibilidade dental generalizada ao frio. Você diagnosticou como hipersensibilidade dentinária. Quais são as opções de material?",
-    "opcoes": [
-      {
-        "texto": "Gel ou pasta dessensibilizante com nitrato de potássio",
-        "correto": true
-      },
-      {
-        "texto": "Verniz de flúor para aplicação profissional",
-        "correto": true
-      },
-      {
-        "texto": "Resina fluidificada de baixa viscosidade (para ocluir túbulos)",
-        "correto": true
-      },
-      {
-        "texto": "Adesivo universal (com efeito dessensibilizante)",
-        "correto": true
-      },
-      {
-        "texto": "Escova infantil com cerdas macias (para educação)",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina 0.12% (se houver inflamação)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta opaca",
-        "correto": false
-      },
-      {
-        "texto": "Cimento resinoso",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-14",
-    "titulo": "Obturação de canal radicular",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 2,
-    "area": "Endodontia",
-    "contexto": "Canais foram preparados e comprimento confirmado. Agora você vai obturar os canais. Quais são os materiais essenciais?",
-    "opcoes": [
-      {
-        "texto": "Guta-percha (cones principais e acessórios)",
-        "correto": true
-      },
-      {
-        "texto": "Cimento obturador endodôntico (com zinco ou resina epóxi)",
-        "correto": true
-      },
-      {
-        "texto": "Localizador apical eletrônico (para confirmar comprimento)",
-        "correto": true
-      },
-      {
-        "texto": "Espinha de peixe ou técnica de condensação lateral",
-        "correto": true
-      },
-      {
-        "texto": "Plugger (condensador térmico ou mecânico)",
-        "correto": true
-      },
-      {
-        "texto": "Hipoclorito de sódio para lavar antes de obturar",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta (para restauração coronal depois)",
-        "correto": false
-      },
-      {
-        "texto": "Anestésico (já foi usado no preparo)",
-        "correto": false
-      },
-      {
-        "texto": "Matriz de contorno",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-15",
-    "titulo": "Selante de fossetas e fissuras",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Odontopediatria",
-    "contexto": "Criança de 7 anos com primeiros molares permanentes erupcionados. Você vai aplicar selante para prevenir cáries. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Selante de fossetas (resinoso ou ionomérico)",
-        "correto": true
-      },
-      {
-        "texto": "Ácido fosfórico 37% para gravação",
-        "correto": true
-      },
-      {
-        "texto": "Luz LED para fotopolimerização",
-        "correto": true
-      },
-      {
-        "texto": "Escova ou gaze para limpeza das superfícies",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Espelho infantil pequeno",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina (não indicada para selante)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta bulk-fill",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-16",
-    "titulo": "Cimentação de restauração indireta (onlay/inlay)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Dentística",
-    "contexto": "Onlay cerâmica sobre preparação no dente 16 está pronta. Você fará cimentação definitiva. Quais materiais você precisa?",
-    "opcoes": [
-      {
-        "texto": "Onlay cerâmica confeccionada",
-        "correto": true
-      },
-      {
-        "texto": "Cimento resinoso dual ou autoadesivo",
-        "correto": true
-      },
-      {
-        "texto": "Ácido fosfórico 37% (se sistema de duplo condicionamento)",
-        "correto": true
-      },
-      {
-        "texto": "Adesivo universal",
-        "correto": true
-      },
-      {
-        "texto": "Fio de retenção/retração",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta sem catalisador",
-        "correto": false
-      },
-      {
-        "texto": "Pasta de polimento abrasiva",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      8,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-17",
-    "titulo": "Restauração classe V (cárie cervical)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Dentística",
-    "contexto": "Cárie cervical no dente 34 (face vestibular). Você escolhe restaurar com resina composta. Quais materiais para preparação e restauração?",
-    "opcoes": [
-      {
-        "texto": "Ácido fosfórico 37% para gravação do esmalte",
-        "correto": true
-      },
-      {
-        "texto": "Adesivo universal",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta (micropartículada ou flowable)",
-        "correto": true
-      },
-      {
-        "texto": "Luz LED para fotopolimerização",
-        "correto": true
-      },
-      {
-        "texto": "Tira de poliéster para proteger a papila",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico (se necessário)",
-        "correto": true
-      },
-      {
-        "texto": "Dique de borracha (difícil em cervical)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Cimento obturador de canal",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      8,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-18",
-    "titulo": "Anestesia em endodontia com vaso intenso",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Endodontia",
-    "contexto": "Paciente com polpa vital inflamada muito sensível. Anestesia convencional não foi eficaz. Você vai usar técnica complementar. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Anestésico local com epinefrina 1:50.000 ou 1:100.000",
-        "correto": true
-      },
-      {
-        "texto": "Seringa carpule e agulha apropriada",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico (antes da injeção)",
-        "correto": true
-      },
-      {
-        "texto": "Técnica intraligamentar (pistola intraligamentar ou seringa)",
-        "correto": true
-      },
-      {
-        "texto": "Técnica intraossea (se equipamento disponível)",
-        "correto": true
-      },
-      {
-        "texto": "Hipoclorito de sódio (depois da anestesia)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      },
-      {
-        "texto": "Coroa protética",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-19",
-    "titulo": "Esfoliação assistida de dente decíduo",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Odontopediatria",
-    "contexto": "Dente decíduo 62 com mobilidade grau 3 será extraído. Você decidiu fazer esfoliação controlada. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Fórceps pediátrico pequeno",
-        "correto": true
-      },
-      {
-        "texto": "Elevador infantil fino",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para hemostasia",
-        "correto": true
-      },
-      {
-        "texto": "Sugador infantil pequeno",
-        "correto": true
-      },
-      {
-        "texto": "Água oxigenada para lavar (se houver infecção)",
-        "correto": true
-      },
-      {
-        "texto": "Sutura (não precisa em criança)",
-        "correto": false
-      },
-      {
-        "texto": "Anestésico local injetável (se apenas tópico bastar)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-20",
-    "titulo": "Tratamento de afta (úlcera oral)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Clínica Geral",
-    "contexto": "Paciente com afta dolorosa em mucosa alveolar. Você vai fazer tratamento tópico. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Cauterizante (nitrato de prata ou laser)",
-        "correto": true
-      },
-      {
-        "texto": "Gel anestésico tópico com benzocaína",
-        "correto": true
-      },
-      {
-        "texto": "Corticosteroide tópico em pasta (se inflamação)",
-        "correto": true
-      },
-      {
-        "texto": "Enxaguatório com clorexidina 0.12%",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para aplicação",
-        "correto": true
-      },
-      {
-        "texto": "Instrução de higiene (álcool ou ácido citrato NÃO)",
-        "correto": true
-      },
-      {
-        "texto": "Antibiótico sistêmico (não é indicado para afta simples)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-21",
-    "titulo": "Instalação de implante (cirurgia)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 3,
-    "area": "Implantologia",
-    "contexto": "Cirurgia de colocação de implante dentário em maxila. Qual é a lista completa de materiais e instrumentos?",
-    "opcoes": [
-      {
-        "texto": "Implante dentário (parafuso, tamanho apropriado)",
-        "correto": true
-      },
-      {
-        "texto": "Kit de brocas progressivas (para osteotomia)",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Bisturi cirúrgico e cabo de bisturi",
-        "correto": true
-      },
-      {
-        "texto": "Sugador cirúrgico de grande volume",
-        "correto": true
-      },
-      {
-        "texto": "Sutura (geralmente reabsorvível)",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para endodontia, não para cirurgia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (para restauração final, depois)",
-        "correto": false
-      },
-      {
-        "texto": "Fio dental (após cicatrização)",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-22",
-    "titulo": "Prova de coroa protética (segunda consulta)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Prótese Dentária",
-    "contexto": "Coroa protética em processamento está pronta para prova. Você vai avaliar adaptação e oclusão. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Coroa protética confeccionada",
-        "correto": true
-      },
-      {
-        "texto": "Papel de articulação colorido",
-        "correto": true
-      },
-      {
-        "texto": "Escala de cor Vita (para comparação)",
-        "correto": true
-      },
-      {
-        "texto": "Paquímetro (para avaliar espessura de espaço)",
-        "correto": true
-      },
-      {
-        "texto": "Espelho intraoral",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice",
-        "correto": true
-      },
-      {
-        "texto": "Cimento de cimentação (já para cimentar na prova)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-23",
-    "titulo": "Fluoretação com verniz profissional",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Odontopediatria",
-    "contexto": "Criança com história de cárie. Você vai aplicar verniz de flúor profissional como medida preventiva. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Verniz de flúor 22.600 ppm (ou gel 12.300 ppm)",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para secar dentes",
-        "correto": true
-      },
-      {
-        "texto": "Toucinho ou algodão para isolamento relativo",
-        "correto": true
-      },
-      {
-        "texto": "Sugador infantil",
-        "correto": true
-      },
-      {
-        "texto": "Copo descartável para enxague pós-aplicação",
-        "correto": true
-      },
-      {
-        "texto": "Escova para educação de higiene",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina (não é necessária após fluoração)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-24",
-    "titulo": "Laminado cerâmico: preparo dental",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Estética",
-    "contexto": "Paciente para restauração estética com laminado cerâmico. Você vai fazer o preparo dos dentes anteriores. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Broca diamantada ponta troncocônica",
-        "correto": true
-      },
-      {
-        "texto": "Disco diamantado de corte fino",
-        "correto": true
-      },
-      {
-        "texto": "Ácido fosfórico 37% para gravação",
-        "correto": true
-      },
-      {
-        "texto": "Primer e adesivo universal",
-        "correto": true
-      },
-      {
-        "texto": "Resina de cor de teste (para preview estético)",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para endodontia, não estética)",
-        "correto": false
-      },
-      {
-        "texto": "Pasta de polimento abrasiva demais",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação de canal",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      7,
-      8,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-25",
-    "titulo": "Exodontia com alveolectomia (múltiplos dentes)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 3,
-    "area": "Cirurgia Oral",
-    "contexto": "Extração de múltiplos dentes deteriorados com alveolectomia para preparo de rebordo. Quais são os materiais cirúrgicos?",
-    "opcoes": [
-      {
-        "texto": "Fórceps de extração (vários tamanhos)",
-        "correto": true
-      },
-      {
-        "texto": "Elevadores cirúrgicos",
-        "correto": true
-      },
-      {
-        "texto": "Mandril com broca para osteotomia",
-        "correto": true
-      },
-      {
-        "texto": "Bisturi cirúrgico para acesso",
-        "correto": true
-      },
-      {
-        "texto": "Sugador cirúrgico potente",
-        "correto": true
-      },
-      {
-        "texto": "Sutura reabsorvível",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia, não cirurgia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (para restauração depois)",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-26",
-    "titulo": "Cimentação de pino (núcleo) e coroa em dente tratado",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Endodontia",
-    "contexto": "Dente endodonticamente tratado precisa de reabilitação com pino + núcleo + coroa. Quais são os materiais para cimentação?",
-    "opcoes": [
-      {
-        "texto": "Pino de fibra ou metálico (já selecionado)",
-        "correto": true
-      },
-      {
-        "texto": "Cimento resinoso dual ou autoadesivo",
-        "correto": true
-      },
-      {
-        "texto": "Ácido fosfórico 37% (se dupla condicionamento)",
-        "correto": true
-      },
-      {
-        "texto": "Adesivo universal",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Coroa protética (para depois)",
-        "correto": false
-      },
-      {
-        "texto": "Hipoclorito de sódio (já foi usado)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha (já está no canal)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta simples",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-27",
-    "titulo": "Enxerto ósseo para implantologia",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 3,
-    "area": "Implantologia",
-    "contexto": "Paciente com volume ósseo insuficiente. Você fará enxerto ósseo para preparar leito implantário. Quais materiais e biomateriais?",
-    "opcoes": [
-      {
-        "texto": "Osso autógeno (coletado da região) ou alógeno/xenógeno",
-        "correto": true
-      },
-      {
-        "texto": "Membrana de barreira reabsorvível",
-        "correto": true
-      },
-      {
-        "texto": "Parafusos de fixação de membrana",
-        "correto": true
-      },
-      {
-        "texto": "Bisturi e elevadores cirúrgicos",
-        "correto": true
-      },
-      {
-        "texto": "Sutura reabsorvível",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-28",
-    "titulo": "Ajuste de prótese removível (linha de pescoço)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Prótese Dentária",
-    "contexto": "Prótese removível está causando irritação em mucosa linha do pescoço. Você fará reembasamento localizado. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Carbono articulado para marcar área",
-        "correto": true
-      },
-      {
-        "texto": "Bra de alta rotação com ponta troncocônica",
-        "correto": true
-      },
-      {
-        "texto": "Resina acrílica auto ou termopolimerizável",
-        "correto": true
-      },
-      {
-        "texto": "Monômero para misturar à resina",
-        "correto": true
-      },
-      {
-        "texto": "Polidora para acabamento final",
-        "correto": true
-      },
-      {
-        "texto": "Gaze para ajuste fino",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      },
-      {
-        "texto": "Laminado cerâmico",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-29",
-    "titulo": "Retratamento com microscópio cirúrgico",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 3,
-    "tempo": 3,
-    "area": "Endodontia",
-    "contexto": "Dente com insucesso de tratamento anterior. Você fará retratamento com visualização microcirúrgica. Quais são os materiais?",
-    "opcoes": [
-      {
-        "texto": "Microscópio operatório",
-        "correto": true
-      },
-      {
-        "texto": "Ponta ultrassônica para remover guta-percha",
-        "correto": true
-      },
-      {
-        "texto": "Limas endodônticas de tamanho apropriado",
-        "correto": true
-      },
-      {
-        "texto": "Hipoclorito de sódio 5% para limpeza",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha nova",
-        "correto": true
-      },
-      {
-        "texto": "Cimento obturador endodôntico",
-        "correto": true
-      },
-      {
-        "texto": "Resina composta (após obturação)",
-        "correto": false
-      },
-      {
-        "texto": "Coroa protética (consulta posterior)",
-        "correto": false
-      },
-      {
-        "texto": "Fio dental preventivo",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "MAT-30",
-    "titulo": "Limpeza de implante infectado (periimplantite)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Implantologia",
-    "contexto": "Implante com sinais de periimplantite. Você fará limpeza cirúrgica da superfície implantária. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Curetas de titânio (compatível com implante)",
-        "correto": true
-      },
-      {
-        "texto": "Ponta ultrassônica de titânio",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina 0.12% ou peróxido de hidrogênio para lavar",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril",
-        "correto": true
-      },
-      {
-        "texto": "Sugador de saliva",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (não em implante)",
-        "correto": false
-      },
-      {
-        "texto": "Antibiótico sistêmico apenas (sem limpeza local)",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-31",
-    "titulo": "Reparação de prótese parcial removível (PPR)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Prótese Dentária",
-    "contexto": "Prótese parcial removível com fratura na sela. Você fará reparo. Quais materiais e técnicas?",
-    "opcoes": [
-      {
-        "texto": "Resina acrílica termopolimerizável",
-        "correto": true
-      },
-      {
-        "texto": "Primer e agente de ligação para resina",
-        "correto": true
-      },
-      {
-        "texto": "Monômero apropriado",
-        "correto": true
-      },
-      {
-        "texto": "Mufla para termopolimerização",
-        "correto": true
-      },
-      {
-        "texto": "Bra para acabamento final",
-        "correto": true
-      },
-      {
-        "texto": "Papel carbono para ajuste oclusal",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      },
-      {
-        "texto": "Tira de poliéster",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-32",
-    "titulo": "Tratamento de bruxismo: confecção de placa de proteção",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Clínica Geral",
-    "contexto": "Paciente diagnosticado com bruxismo noturno. Você fará moldagem para placa de proteção. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Moldeira de estoque (tamanho apropriado)",
-        "correto": true
-      },
-      {
-        "texto": "Alginato ou silicone leve para moldagem",
-        "correto": true
-      },
-      {
-        "texto": "Ativador de alginato",
-        "correto": true
-      },
-      {
-        "texto": "Resina acrílica para placa (termopolimerizável)",
-        "correto": true
-      },
-      {
-        "texto": "Papel carbono para ajuste de contatos",
-        "correto": true
-      },
-      {
-        "texto": "Bra para acabamento suave",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Laminado cerâmico (para estética)",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-33",
-    "titulo": "Diagnóstico de cárie com métodos auxiliares",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Dentística",
-    "contexto": "Paciente com suspeita de cárie interproximal não visível clinicamente. Você usará métodos diagnósticos complementares. Quais?",
-    "opcoes": [
-      {
-        "texto": "Radiografia periapical/interproximal",
-        "correto": true
-      },
-      {
-        "texto": "Fio dental para detecção tátil",
-        "correto": true
-      },
-      {
-        "texto": "Laser de diagnóstico de fluorescência (DIAGNOdent)",
-        "correto": true
-      },
-      {
-        "texto": "Explorador duplo (tato fino)",
-        "correto": true
-      },
-      {
-        "texto": "Espelho intraoral",
-        "correto": true
-      },
-      {
-        "texto": "Luz halógena ou LED para transioniluminação",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-34",
-    "titulo": "Drenagem de abcesso perioral",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Cirurgia Oral",
-    "contexto": "Paciente com abcesso endodôntico/periodontal drenando pus. Você fará drenagem cirúrgica. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Bisturi cirúrgico para incisão",
-        "correto": true
-      },
-      {
-        "texto": "Drenagem (tubo de borracha ou gaze iodofórmica)",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico local com epinefrina",
-        "correto": true
-      },
-      {
-        "texto": "Sugador cirúrgico",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para limpeza",
-        "correto": true
-      },
-      {
-        "texto": "Cultura para sensibilidade a antibióticos (se indicado)",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (para endodontia depois)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (não em cirurgia aguda)",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-35",
-    "titulo": "Controle de placa em criança (educação)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Odontopediatria",
-    "contexto": "Criança de 4 anos com má higiene bucal. Você fará educação em técnica de escovação. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Escova infantil de cerdas macias",
-        "correto": true
-      },
-      {
-        "texto": "Pasta de dente infantil (com flúor adequado)",
-        "correto": true
-      },
-      {
-        "texto": "Fio dental infantil",
-        "correto": true
-      },
-      {
-        "texto": "Modelo de dente grande para demonstração",
-        "correto": true
-      },
-      {
-        "texto": "Revelador de placa (solução/pastilha)",
-        "correto": true
-      },
-      {
-        "texto": "Espelho infantil para o paciente ver",
-        "correto": true
-      },
-      {
-        "texto": "Clorexidina 0.12% (apenas se gengivite)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-36",
-    "titulo": "Moldagem para coroa protética (primeira etapa)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Prótese Dentária",
-    "contexto": "Dente 14 preparado para coroa. Primeira etapa: moldagem de precisão. Quais materiais e técnicas?",
-    "opcoes": [
-      {
-        "texto": "Silicone putty para moldeira individual",
-        "correto": true
-      },
-      {
-        "texto": "Silicone leve para moldagem de precisão",
-        "correto": true
-      },
-      {
-        "texto": "Espátula para silicone",
-        "correto": true
-      },
-      {
-        "texto": "Fio de retenção/retração se necessário",
-        "correto": true
-      },
-      {
-        "texto": "Seringa tríplice para lavar",
-        "correto": true
-      },
-      {
-        "texto": "Moldeira de estoque para base",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta para toque final (na moldagem)",
-        "correto": false
-      },
-      {
-        "texto": "Cimento de obturação",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-37",
-    "titulo": "Sutura e pontos após cirurgia oral",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Cirurgia Oral",
-    "contexto": "Cirurgia de extração com alveolectomia realizada. Agora você fará sutura dos retalhos. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Sutura reabsorvível (ácido poliglicólico ou polidioxanona)",
-        "correto": true
-      },
-      {
-        "texto": "Agulha apropriada para cirurgia (triangular)",
-        "correto": true
-      },
-      {
-        "texto": "Pinça anatômica para retalho",
-        "correto": true
-      },
-      {
-        "texto": "Tesoura cirúrgica para corte",
-        "correto": true
-      },
-      {
-        "texto": "Porta-agulha cirúrgico",
-        "correto": true
-      },
-      {
-        "texto": "Gaze estéril para secar antes de suturar",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (restauração)",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-38",
-    "titulo": "Sensibilidade dental - teste diagnóstico",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Clínica Geral",
-    "contexto": "Paciente relata dor ao frio. Você vai fazer testes para confirmar hipersensibilidade dentinária. Quais testes?",
-    "opcoes": [
-      {
-        "texto": "Teste com ar comprimido (resposta dor rápida)",
-        "correto": true
-      },
-      {
-        "texto": "Teste com escovação leve",
-        "correto": true
-      },
-      {
-        "texto": "Teste com água gelada (resposta nítida)",
-        "correto": true
-      },
-      {
-        "texto": "Teste de sensibilidade elétrica (se endodontia)",
-        "correto": true
-      },
-      {
-        "texto": "Teste com explorador para tato de cavitação",
-        "correto": true
-      },
-      {
-        "texto": "Teste com álcool (irritante, evitar)",
-        "correto": false
-      },
-      {
-        "texto": "Teste com suco de limão fresco (irritante)",
-        "correto": false
-      },
-      {
-        "texto": "Guta-percha para tratamento imediato",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta sem diagnóstico prévio",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "MAT-39",
-    "titulo": "Aumento de rebordo gengival com Botox (estética)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Estética",
-    "contexto": "Paciente com sorriso gengival por hiperatividade muscular. Você vai fazer aplicação de Botox. Quais materiais?",
-    "opcoes": [
-      {
-        "texto": "Botulinum toxin (marca apropriada)",
-        "correto": true
-      },
-      {
-        "texto": "Seringa de insulina 1 mL para aplicação",
-        "correto": true
-      },
-      {
-        "texto": "Agulha fina 30 ou 31G",
-        "correto": true
-      },
-      {
-        "texto": "Algodão com álcool 70% para assepsia",
-        "correto": true
-      },
-      {
-        "texto": "Luvas cirúrgicas estéreis",
-        "correto": true
-      },
-      {
-        "texto": "Anestésico tópico ou crioterapia",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "MAT-40",
-    "titulo": "Avaliação de mobilidade dental (periodontia)",
-    "modalidade": "materiais",
-    "tipo": "Caso Clínico - Materiais",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Periodontia",
-    "contexto": "Paciente com periodontite. Você vai avaliar graus de mobilidade dos dentes (1, 2, 3). Quais instrumentos?",
-    "opcoes": [
-      {
-        "texto": "Espelho intraoral para visualização",
-        "correto": true
-      },
-      {
-        "texto": "Duas hastes de instrumento (cabo de espelho + explorador)",
-        "correto": true
-      },
-      {
-        "texto": "Palpação digital para sentir movimento",
-        "correto": true
-      },
-      {
-        "texto": "Sonda periodontal para referência de movimento",
-        "correto": true
-      },
-      {
-        "texto": "Radiografia periapical para avaliar altura óssea",
-        "correto": true
-      },
-      {
-        "texto": "Anotação clara em prontuário dos graus",
-        "correto": true
-      },
-      {
-        "texto": "Guta-percha (endodontia)",
-        "correto": false
-      },
-      {
-        "texto": "Resina composta (tratamento)",
-        "correto": false
-      },
-      {
-        "texto": "Selante de fossetas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      6,
-      6
-    ]
-  },
-  {
-    "id": "CC-01",
-    "titulo": "Escovação adequada: qual é a técnica correta?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Prevenção",
-    "contexto": "Um auxiliar está ensinando higiene bucal para uma criança. Qual é a técnica de escovação mais recomendada para remover placa bacteriana de forma eficaz?",
-    "opcoes": [
-      {
-        "texto": "Técnica circular (ou de Fones) - escova em movimento circular nos dentes",
-        "correto": true
-      },
-      {
-        "texto": "Técnica horizontal - escova movimentando-se apenas de um lado para o outro",
-        "correto": false
-      },
-      {
-        "texto": "Técnica aleatória - escova com movimentos sem padrão definido",
-        "correto": false
-      },
-      {
-        "texto": "Técnica de força - escova com movimento forte e rápido em uma direção",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      6,
-      7,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-02",
-    "titulo": "Frequência de escovação: qual é o recomendado?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Prevenção",
-    "contexto": "Um paciente pergunta ao auxiliar: \"Quantas vezes por dia devo escovar os dentes?\" Qual é a resposta mais correta?",
-    "opcoes": [
-      {
-        "texto": "Uma vez ao dia é suficiente (de preferência à noite)",
-        "correto": false
-      },
-      {
-        "texto": "Pelo menos 2 vezes ao dia (manhã e noite), idealmente após refeições",
-        "correto": true
-      },
-      {
-        "texto": "3 a 4 vezes ao dia, sempre com força",
-        "correto": false
-      },
-      {
-        "texto": "Apenas quando houver sintomas de cárie ou dor",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      7,
-      5,
-      6,
-      7,
-      6,
-      7
-    ]
-  },
-  {
-    "id": "CC-03",
-    "titulo": "Uso do fio dental: quando é o momento ideal?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Prevenção",
-    "contexto": "O auxiliar está orientando um paciente sobre o uso correto do fio dental. Em qual momento do dia o fio dental deve ser usado?",
-    "opcoes": [
-      {
-        "texto": "Apenas uma vez ao mês, para limpeza profunda",
-        "correto": false
-      },
-      {
-        "texto": "Somente quando há restos de comida visíveis",
-        "correto": false
-      },
-      {
-        "texto": "À noite, antes de dormir, após a escovação",
-        "correto": true
-      },
-      {
-        "texto": "Pela manhã, como substituto da escovação",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      8,
-      6,
-      7,
-      8,
-      6,
-      7
-    ]
-  },
-  {
-    "id": "CC-04",
-    "titulo": "Fluorose dental: qual é a causa principal?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Prevenção",
-    "contexto": "Um paciente apresenta manchas brancas/acinzentadas nos dentes. O auxiliar suspeita de fluorose. Qual é a principal causa dessa condição?",
-    "opcoes": [
-      {
-        "texto": "Falta de escovação adequada dos dentes",
-        "correto": false
-      },
-      {
-        "texto": "Consumo excessivo de açúcar",
-        "correto": false
-      },
-      {
-        "texto": "Herança genética apenas",
-        "correto": false
-      },
-      {
-        "texto": "Excesso de flúor durante a formação dos dentes (infância)",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      7,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-05",
-    "titulo": "Flúor em pasta de dente: qual é a concentração recomendada para crianças?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Prevenção",
-    "contexto": "Uma mãe pergunta qual pasta de dente usar para sua filha de 4 anos. O auxiliar recomenda pasta com baixo teor de flúor. Qual é o teor adequado?",
-    "opcoes": [
-      {
-        "texto": "500-1000 ppm de flúor (apenas pasta com baixa concentração)",
-        "correto": true
-      },
-      {
-        "texto": "5000 ppm de flúor (concentração de adulto)",
-        "correto": false
-      },
-      {
-        "texto": "Sem flúor (apenas mecânica de escovação)",
-        "correto": false
-      },
-      {
-        "texto": "10000 ppm de flúor (máxima proteção)",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      7,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-06",
-    "titulo": "EPI essencial: qual é o equipamento de proteção mais importante?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Biossegurança",
-    "contexto": "Um auxiliar está se preparando para realizar limpeza supragengival em um paciente. Qual é o EPI (Equipamento de Proteção Individual) mais crítico nesse procedimento?",
-    "opcoes": [
-      {
-        "texto": "Apenas avental de proteção",
-        "correto": false
-      },
-      {
-        "texto": "Luvas, máscara e protetor facial/óculos de proteção",
-        "correto": true
-      },
-      {
-        "texto": "Apenas máscara cirúrgica",
-        "correto": false
-      },
-      {
-        "texto": "Apenas luvas de procedimento",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-07",
-    "titulo": "Higienização das mãos: quando é obrigatório lavar as mãos?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Biossegurança",
-    "contexto": "Um técnico pergunta qual é o protocolo correto para higienização de mãos. Quando as mãos devem ser lavadas?",
-    "opcoes": [
-      {
-        "texto": "Apenas ao final do expediente",
-        "correto": false
-      },
-      {
-        "texto": "Apenas quando visualmente sujas",
-        "correto": false
-      },
-      {
-        "texto": "Antes e após atender cada paciente, antes de colocar luvas e após removê-las",
-        "correto": true
-      },
-      {
-        "texto": "Não é necessário se usar luvas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      8,
-      9,
-      8,
-      9,
-      9,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "CC-08",
-    "titulo": "Exposição a sangue: qual é o procedimento correto?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Biossegurança",
-    "contexto": "Durante um procedimento, há exposição acidental de sangue de paciente na pele do auxiliar. Qual é a conduta imediata correta?",
-    "opcoes": [
-      {
-        "texto": "Aplicar apenas álcool 70%",
-        "correto": false
-      },
-      {
-        "texto": "Continuar o procedimento normalmente, sem preocupação",
-        "correto": false
-      },
-      {
-        "texto": "Apenas limpar com papel e esperar",
-        "correto": false
-      },
-      {
-        "texto": "Lavar abundantemente com água e sabão, comunicar ao responsável e documentar",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-09",
-    "titulo": "Descarte de agulhas: qual é o procedimento correto?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Biossegurança",
-    "contexto": "Um auxiliar usado uma agulha para anestesia. Como deve ser o descarte correto dessa agulha?",
-    "opcoes": [
-      {
-        "texto": "Em recipiente rígido específico (caixa de perfurocortante) - nunca reutilizar",
-        "correto": true
-      },
-      {
-        "texto": "Em lixo comum, envolvida em gaze",
-        "correto": false
-      },
-      {
-        "texto": "Enterrada no jardim da clínica",
-        "correto": false
-      },
-      {
-        "texto": "Desinfetada e reutilizada",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-10",
-    "titulo": "Esterilização: qual é o método mais comum para instrumentais?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Biossegurança",
-    "contexto": "Os instrumentais odontológicos devem ser esterilizados após cada uso. Qual é o método mais confiável para esterilizar instrumentais de aço?",
-    "opcoes": [
-      {
-        "texto": "Apenas lavar com água morna e sabão",
-        "correto": false
-      },
-      {
-        "texto": "Autoclave a vapor (121°C, 15-20 minutos)",
-        "correto": true
-      },
-      {
-        "texto": "Apenas desinfectar com álcool 70%",
-        "correto": false
-      },
-      {
-        "texto": "Expor ao sol por algumas horas",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-11",
-    "titulo": "Instrumental: qual é a função da sonda exploradora?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Instrumentais",
-    "contexto": "Um auxiliar está preparando instrumentais para limpeza. Para que serve a sonda exploradora?",
-    "opcoes": [
-      {
-        "texto": "Remover placa bacteriana acima da gengiva",
-        "correto": false
-      },
-      {
-        "texto": "Polir os dentes",
-        "correto": false
-      },
-      {
-        "texto": "Detectar cáries, cálculos e alterações na superfície dental",
-        "correto": true
-      },
-      {
-        "texto": "Aplicar flúor nos dentes",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-12",
-    "titulo": "Instrumental: qual é a função do espelho intraoral?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Instrumentais",
-    "contexto": "Durante o atendimento, o auxiliar usa o espelho intraoral. Qual é sua principal função?",
-    "opcoes": [
-      {
-        "texto": "Aplicar flúor nos dentes posteriores",
-        "correto": false
-      },
-      {
-        "texto": "Remover cálculos dentários",
-        "correto": false
-      },
-      {
-        "texto": "Secar a boca do paciente",
-        "correto": false
-      },
-      {
-        "texto": "Visualizar áreas de difícil acesso e refletir luz",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      7,
-      6,
-      7,
-      7,
-      6,
-      7
-    ]
-  },
-  {
-    "id": "CC-13",
-    "titulo": "Instrumental: qual é a função do sugador de saliva?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Instrumentais",
-    "contexto": "O sugador de saliva é um instrumental importante. Qual é sua função principal?",
-    "opcoes": [
-      {
-        "texto": "Remover saliva e manter a visibilidade do campo operatório",
-        "correto": true
-      },
-      {
-        "texto": "Remover tártaro dos dentes",
-        "correto": false
-      },
-      {
-        "texto": "Aplicar medicamentos",
-        "correto": false
-      },
-      {
-        "texto": "Fazer polimento",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      6,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "CC-14",
-    "titulo": "Instrumental: qual é a função do raspador de tártaro (Scaler)?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Instrumentais",
-    "contexto": "O raspador de tártaro (scaler) é usado em limpeza profissional. Qual é sua função?",
-    "opcoes": [
-      {
-        "texto": "Polir os dentes após limpeza",
-        "correto": false
-      },
-      {
-        "texto": "Remover cálculos (tártaro) acima e abaixo da linha da gengiva",
-        "correto": true
-      },
-      {
-        "texto": "Aplicar selador de fossetas",
-        "correto": false
-      },
-      {
-        "texto": "Remover apenas placa bacteriana",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-15",
-    "titulo": "Instrumental: qual é a função da taça de borracha?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Instrumentais",
-    "contexto": "A taça de borracha é acoplada a uma peça de mão. Para que ela serve?",
-    "opcoes": [
-      {
-        "texto": "Remover cálculos",
-        "correto": false
-      },
-      {
-        "texto": "Anestesiar o dente",
-        "correto": false
-      },
-      {
-        "texto": "Fazer polimento dental com pasta de profilaxia",
-        "correto": true
-      },
-      {
-        "texto": "Aplicar flúor em gel",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-16",
-    "titulo": "Materiais: qual é a função do dique de borracha?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Materiais",
-    "contexto": "O dique de borracha é usado em vários procedimentos. Qual é sua principal função?",
-    "opcoes": [
-      {
-        "texto": "Secar os dentes após limpeza",
-        "correto": false
-      },
-      {
-        "texto": "Substituir o sugador de saliva",
-        "correto": false
-      },
-      {
-        "texto": "Apenas proteger o avental do paciente",
-        "correto": false
-      },
-      {
-        "texto": "Isolar o dente e área de trabalho, protegendo o paciente e facilitando o procedimento",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-17",
-    "titulo": "Materiais: qual é a composição da pasta de profilaxia?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Materiais",
-    "contexto": "A pasta de profilaxia é usada para polimento dental. Do que ela é composta?",
-    "opcoes": [
-      {
-        "texto": "Abrasivo (pó), flúor e aglutinante",
-        "correto": true
-      },
-      {
-        "texto": "Apenas água destilada",
-        "correto": false
-      },
-      {
-        "texto": "Apenas álcool e glicerina",
-        "correto": false
-      },
-      {
-        "texto": "Apenas resina e catalisador",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-18",
-    "titulo": "Materiais: qual é a função do ácido fosfórico?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Materiais",
-    "contexto": "O ácido fosfórico é usado em alguns procedimentos. Qual é sua função principal?",
-    "opcoes": [
-      {
-        "texto": "Matar bactérias e desinfetar",
-        "correto": false
-      },
-      {
-        "texto": "Preparar a superfície do dente para melhor adesão de materiais (selador, resina)",
-        "correto": true
-      },
-      {
-        "texto": "Dessensibilizar o dente",
-        "correto": false
-      },
-      {
-        "texto": "Remover cálculos",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-19",
-    "titulo": "Materiais: qual é a função do selador de fossetas?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Materiais",
-    "contexto": "O selador de fossetas é um material preventivo. Qual é sua função?",
-    "opcoes": [
-      {
-        "texto": "Remover cáries já existentes",
-        "correto": false
-      },
-      {
-        "texto": "Fazer branqueamento dental",
-        "correto": false
-      },
-      {
-        "texto": "Selar fossetas e fissuras para evitar cáries",
-        "correto": true
-      },
-      {
-        "texto": "Tratar inflamação gengival",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-20",
-    "titulo": "Materiais: qual é a diferença entre flúor em gel e em solução?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Materiais",
-    "contexto": "Na clínica, há disponível flúor em gel e em solução. Qual é a diferença de aplicação?",
-    "opcoes": [
-      {
-        "texto": "São iguais, apenas em formas diferentes",
-        "correto": false
-      },
-      {
-        "texto": "Gel é para ingerir; solução para uso tópico",
-        "correto": false
-      },
-      {
-        "texto": "Solução é mais forte e nunca deve ser usada",
-        "correto": false
-      },
-      {
-        "texto": "Gel é para aplicação tópica prolongada em moldeira; solução para bochecho rápido",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-21",
-    "titulo": "Estruturas: qual é a estrutura mais externa do dente?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Anatomia",
-    "contexto": "Um aluno pergunta qual é a estrutura mais dura e externa do dente. Qual é a resposta correta?",
-    "opcoes": [
-      {
-        "texto": "Esmalte (estrutura mineralizada mais dura)",
-        "correto": true
-      },
-      {
-        "texto": "Dentina",
-        "correto": false
-      },
-      {
-        "texto": "Cemento",
-        "correto": false
-      },
-      {
-        "texto": "Polpa dentária",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      6,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "CC-22",
-    "titulo": "Estruturas: qual é a camada logo abaixo do esmalte?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Anatomia",
-    "contexto": "Qual é a estrutura localizada logo abaixo do esmalte dentário?",
-    "opcoes": [
-      {
-        "texto": "Cemento",
-        "correto": false
-      },
-      {
-        "texto": "Dentina (mais macia que o esmalte, com sensibilidade)",
-        "correto": true
-      },
-      {
-        "texto": "Osso alveolar",
-        "correto": false
-      },
-      {
-        "texto": "Polpa",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      6,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "CC-23",
-    "titulo": "Estruturas: qual é a função da polpa dentária?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Anatomia",
-    "contexto": "A polpa dentária está no interior do dente. Qual é sua função?",
-    "opcoes": [
-      {
-        "texto": "Proteger o dente de atritos",
-        "correto": false
-      },
-      {
-        "texto": "Aumentar a dureza do esmalte",
-        "correto": false
-      },
-      {
-        "texto": "Nutrir e dar sensibilidade ao dente (contém vasos e nervos)",
-        "correto": true
-      },
-      {
-        "texto": "Apenas preencher o espaço vazio",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-24",
-    "titulo": "Estruturas: qual é a função do cemento dentário?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Anatomia",
-    "contexto": "O cemento é encontrado na raiz do dente. Qual é sua função?",
-    "opcoes": [
-      {
-        "texto": "Proteger a polpa do dente",
-        "correto": false
-      },
-      {
-        "texto": "Aumentar a dureza do dente",
-        "correto": false
-      },
-      {
-        "texto": "Apenas recobrir a raiz",
-        "correto": false
-      },
-      {
-        "texto": "Fixar o dente ao osso alveolar através do ligamento periodontal",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-25",
-    "titulo": "Estruturas: qual é o tipo de dente com 2 cúspides?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Anatomia",
-    "contexto": "Durante a revisão de anatomia, qual é o tipo de dente que possui 2 cúspides?",
-    "opcoes": [
-      {
-        "texto": "Prémolar (ou pré-molar)",
-        "correto": true
-      },
-      {
-        "texto": "Molar (3 ou mais cúspides)",
-        "correto": false
-      },
-      {
-        "texto": "Incisivo (cortante, sem cúspides)",
-        "correto": false
-      },
-      {
-        "texto": "Canino (1 cúspide)",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-26",
-    "titulo": "Procedimento: qual é a sequência correta de limpeza?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Procedimentos",
-    "contexto": "Um técnico está começando uma limpeza profissional. Qual é a sequência correta de procedimentos?",
-    "opcoes": [
-      {
-        "texto": "1. Aplicar flúor 2. Escovar com taça 3. Remover cálculo",
-        "correto": false
-      },
-      {
-        "texto": "1. Remover cálculo (scaler) 2. Escovar com taça 3. Aplicar flúor",
-        "correto": true
-      },
-      {
-        "texto": "1. Escovar com taça 2. Remover cálculo 3. Aplicar flúor",
-        "correto": false
-      },
-      {
-        "texto": "Qualquer ordem funciona",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-27",
-    "titulo": "Procedimento: quanto tempo deve durar uma limpeza?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Procedimentos",
-    "contexto": "Qual é o tempo médio recomendado para uma limpeza profissional (profilaxia)?",
-    "opcoes": [
-      {
-        "texto": "5 minutos apenas",
-        "correto": false
-      },
-      {
-        "texto": "2 a 3 horas",
-        "correto": false
-      },
-      {
-        "texto": "30 a 60 minutos (depende da quantidade de cálculo)",
-        "correto": true
-      },
-      {
-        "texto": "Quanto menos tempo melhor",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      7,
-      6,
-      7,
-      7,
-      6,
-      7
-    ]
-  },
-  {
-    "id": "CC-28",
-    "titulo": "Procedimento: qual é o cuidado ao trabalhar com scaler?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Procedimentos",
-    "contexto": "Ao usar o scaler para remover cálculo, qual é o cuidado mais importante?",
-    "opcoes": [
-      {
-        "texto": "Usar força máxima para remover rápido",
-        "correto": false
-      },
-      {
-        "texto": "Trabalhar sem cuidado com a gengiva",
-        "correto": false
-      },
-      {
-        "texto": "Não usar proteção individual",
-        "correto": false
-      },
-      {
-        "texto": "Usar movimentos suaves e não danificar o esmalte; evitar forçar",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-29",
-    "titulo": "Procedimento: qual é o tempo de aplicação de flúor em gel?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Procedimentos",
-    "contexto": "Quanto tempo o flúor em gel deve permanecer em contato com os dentes?",
-    "opcoes": [
-      {
-        "texto": "4 a 5 minutos (seguindo a orientação do fabricante)",
-        "correto": true
-      },
-      {
-        "texto": "30 segundos apenas",
-        "correto": false
-      },
-      {
-        "texto": "15 a 20 minutos",
-        "correto": false
-      },
-      {
-        "texto": "Quanto mais tempo melhor",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      6,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "CC-30",
-    "titulo": "Procedimento: o que o paciente não deve fazer após flúor?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Procedimentos",
-    "contexto": "Após a aplicação de flúor em gel, qual é a orientação importante para o paciente?",
-    "opcoes": [
-      {
-        "texto": "Beber bastante água imediatamente",
-        "correto": false
-      },
-      {
-        "texto": "Não beber água, não comer nem falar muito por 30 minutos",
-        "correto": true
-      },
-      {
-        "texto": "Comer alimentos ácidos para melhorar absorção",
-        "correto": false
-      },
-      {
-        "texto": "Lavar a boca vigorosamente",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      7,
-      8,
-      7,
-      8,
-      8,
-      7,
-      8
-    ]
-  },
-  {
-    "id": "CC-31",
-    "titulo": "Ergonomia: qual é a posição correta do auxiliar?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Ergonomia",
-    "contexto": "Durante o atendimento, qual é a posição ergonomicamente correta para o auxiliar?",
-    "opcoes": [
-      {
-        "texto": "De pé em qualquer posição",
-        "correto": false
-      },
-      {
-        "texto": "Sentado de frente para o paciente",
-        "correto": false
-      },
-      {
-        "texto": "Posição 4 e 5 (atrás ou ao lado do paciente, coluna reta)",
-        "correto": true
-      },
-      {
-        "texto": "Agachado",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-32",
-    "titulo": "Ergonomia: qual é a altura correta da cadeira do paciente?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Ergonomia",
-    "contexto": "A cadeira do paciente deve estar em qual altura durante o procedimento?",
-    "opcoes": [
-      {
-        "texto": "Muito alta para facilitar visualização",
-        "correto": false
-      },
-      {
-        "texto": "Muito baixa para melhor controle",
-        "correto": false
-      },
-      {
-        "texto": "Qualquer altura",
-        "correto": false
-      },
-      {
-        "texto": "Altura que permita o auxiliar trabalhar com braços na altura do cotovelo (90°)",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7,
-      7
-    ]
-  },
-  {
-    "id": "CC-33",
-    "titulo": "Ergonomia: qual é o risco de má postura?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Ergonomia",
-    "contexto": "Qual é o principal risco de uma postura incorreta durante o trabalho odontológico?",
-    "opcoes": [
-      {
-        "texto": "LER (Lesão por Esforço Repetitivo) e problemas na coluna",
-        "correto": true
-      },
-      {
-        "texto": "Melhor visibilidade do campo operatório",
-        "correto": false
-      },
-      {
-        "texto": "Maior velocidade de trabalho",
-        "correto": false
-      },
-      {
-        "texto": "Não há risco",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-34",
-    "titulo": "Ergonomia: qual é o tempo recomendado de pausa?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Ergonomia",
-    "contexto": "Qual é o tempo recomendado de pausa a cada 2 horas de trabalho?",
-    "opcoes": [
-      {
-        "texto": "Trabalhar sem pausa o turno todo",
-        "correto": false
-      },
-      {
-        "texto": "10 a 15 minutos para descanso e alongamento",
-        "correto": true
-      },
-      {
-        "texto": "5 minutos apenas",
-        "correto": false
-      },
-      {
-        "texto": "2 horas de pausa",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      7,
-      6,
-      7,
-      6,
-      7,
-      7,
-      6,
-      7
-    ]
-  },
-  {
-    "id": "CC-35",
-    "titulo": "Ergonomia: qual é a melhor maneira de transportar equipamentos pesados?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 1,
-    "tempo": 1,
-    "area": "Ergonomia",
-    "contexto": "Como deve ser feito o transporte de materiais pesados na clínica?",
-    "opcoes": [
-      {
-        "texto": "Dobrar a coluna e levantar com os braços",
-        "correto": false
-      },
-      {
-        "texto": "Torcer o tronco enquanto levanta",
-        "correto": false
-      },
-      {
-        "texto": "Dobrar as pernas, manter a coluna reta e aproximar o objeto do corpo",
-        "correto": true
-      },
-      {
-        "texto": "Arrastrar o objeto no chão",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-36",
-    "titulo": "Emergência: paciente sente dor durante procedimento. O que fazer?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Emergência",
-    "contexto": "Um paciente relata dor durante a limpeza. Qual é a ação correta do auxiliar?",
-    "opcoes": [
-      {
-        "texto": "Continuar o procedimento ignorando a dor",
-        "correto": false
-      },
-      {
-        "texto": "Pedir ao paciente para relaxar e continuar",
-        "correto": false
-      },
-      {
-        "texto": "Remover apenas o instrumento e deixar o paciente esperando",
-        "correto": false
-      },
-      {
-        "texto": "Parar imediatamente, avisar o dentista e oferecer anestesia se necessário",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      9,
-      8,
-      9,
-      9,
-      8,
-      9,
-      8,
-      9
-    ]
-  },
-  {
-    "id": "CC-37",
-    "titulo": "Emergência: paciente tem tonteira no consultório. O que fazer?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 2,
-    "area": "Emergência",
-    "contexto": "Um paciente começa a sentir tonteira durante o atendimento. Qual é a conduta correta?",
-    "opcoes": [
-      {
-        "texto": "Deitar o paciente na cadeira com a cabeça para trás, avisar o dentista, oferecer água",
-        "correto": true
-      },
-      {
-        "texto": "Pedir ao paciente para sair da sala",
-        "correto": false
-      },
-      {
-        "texto": "Continuar o procedimento normalmente",
-        "correto": false
-      },
-      {
-        "texto": "Dar medicamento sem avisar o dentista",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-38",
-    "titulo": "Emergência: paciente está com gengivite severa. O que fazer?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Emergência",
-    "contexto": "Um paciente apresenta gengivite severa com sangramento abundante. Qual é a conduta?",
-    "opcoes": [
-      {
-        "texto": "Realizar raspagem profunda imediatamente",
-        "correto": false
-      },
-      {
-        "texto": "Realizar limpeza suave, orientar sobre higiene e marcar reavaliação",
-        "correto": true
-      },
-      {
-        "texto": "Não fazer nada, apenas orientar",
-        "correto": false
-      },
-      {
-        "texto": "Remover os dentes",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8,
-      8
-    ]
-  },
-  {
-    "id": "CC-39",
-    "titulo": "Emergência: paciente tem alergia a látex. Como proceder?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 2,
-    "tempo": 1,
-    "area": "Emergência",
-    "contexto": "Um paciente relata alergia a látex. Qual é o procedimento correto?",
-    "opcoes": [
-      {
-        "texto": "Usar luvas de látex normalmente (alergia é rara)",
-        "correto": false
-      },
-      {
-        "texto": "Não usar nenhuma proteção",
-        "correto": false
-      },
-      {
-        "texto": "Usar luvas e equipamentos sem látex durante todo atendimento",
-        "correto": true
-      },
-      {
-        "texto": "Usar apenas látex de qualidade premium",
-        "correto": false
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  },
-  {
-    "id": "CC-40",
-    "titulo": "Emergência: paciente apresenta reação alérgica. O que fazer?",
-    "modalidade": "clinico",
-    "tipo": "Caso Clínico",
-    "complexidade": 3,
-    "tempo": 2,
-    "area": "Emergência",
-    "contexto": "Um paciente desenvolve reação alérgica (prurido, inchaço de lábios) durante atendimento. Qual é a ação?",
-    "opcoes": [
-      {
-        "texto": "Continuar o procedimento normalmente",
-        "correto": false
-      },
-      {
-        "texto": "Apenas oferecer água",
-        "correto": false
-      },
-      {
-        "texto": "Deixar o paciente sair da sala sozinho",
-        "correto": false
-      },
-      {
-        "texto": "Parar procedimento, avisar dentista, remover agente causador, manter paciente calmo, chamar socorro se necessário",
-        "correto": true
-      }
-    ],
-    "competencias": [
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9,
-      9
-    ]
-  }
+
+// ════════════════════════════════════════════
+// BLOCO 1: AGENDAMENTOS (AG-01 a AG-60)
+// ════════════════════════════════════════════
+{
+  id:"AG-01", titulo:"Urgência: trauma dental em criança",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`O Sr. Rogério Mendonça liga em pânico às 10h20. Ele informa que a filha SOFIA MENDONÇA, 8 anos, caiu da bicicleta no pátio da escola e fraturou o dente da frente. Está com sangramento leve na gengiva, chorando muito, mas não bateu a cabeça. Ele está a 10 minutos da clínica e pergunta se pode vir agora. Sofia escova os dentes 2 VEZES AO DIA (manhã e noite) e USA FIO DENTAL diariamente com ajuda dos pais. O pai não sabe informar sobre alergias da criança.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo da paciente",obrigatorio:true,validacao:["sofia mendonça","sofia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["rogério","rogério mendonça","pai"]},
+    {chave:"tipo_atendimento",label:"Tipo de atendimento",obrigatorio:true,validacao:["urgência","emergência","trauma"]},
+    {chave:"sangramento",label:"Há sangramento?",obrigatorio:true,validacao:["sim","leve","há sangramento"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não informado","nao informado","a confirmar","não sabe"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Emergência","Consultório Infantil","Consultório de Cirurgia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico sabor frutal"},
+      {id:"m2",nome:"Tubete de anestésico pediátrico"},
+      {id:"m3",nome:"Seringa carpule pediátrica e agulha curta"},
+      {id:"m4",nome:"Gaze estéril"},
+      {id:"m5",nome:"Espelho clínico, pinça e explorador"},
+      {id:"m6",nome:"Fotopolimerizador LED"},
+      {id:"m7",nome:"Resina composta de emergência (A2 e A3)"},
+      {id:"m8",nome:"Ácido fosfórico 37%"},
+      {id:"m9",nome:"Adesivo universal"},
+      {id:"m10",nome:"Curetas de Gracey (raspagem periodontal)"},
+      {id:"m11",nome:"Fórceps pediátrico de extração"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  },
+  competencias:[9,9,9,9,9,8,8,9]
+},
+
+{
+  id:"AG-02", titulo:"Profilaxia semestral — adulto jovem",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`CARLA OLIVEIRA SANTOS, 28 anos, liga para agendar sua profilaxia semestral de rotina. Ela informa que escova os dentes 3 VEZES AO DIA (após as refeições) e USA FIO DENTAL diariamente. Sua última limpeza foi há 6 meses. Não relata dores nem sensibilidades. Não tem alergias a medicamentos. Não faz uso de nenhum medicamento contínuo. Ela prefere horário de manhã e não pode às quintas-feiras.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carla oliveira santos","carla oliveira","carla"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["28","28 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes","após as refeições"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:true,validacao:["não","nenhuma","sem alergia","não tem"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["não","nenhum","sem medicamento","não usa"]},
+    {chave:"ultima_limpeza",label:"Última limpeza",obrigatorio:false,validacao:["6 meses","semestre","há 6"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Emergência","Consultório Infantil"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","sexta"],horarios:["07:30","08:00","08:30","09:00","09:30","10:00","10:30","11:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom"},
+      {id:"m2",nome:"Taça de borracha"},
+      {id:"m3",nome:"Pasta profilática"},
+      {id:"m4",nome:"Fio dental"},
+      {id:"m5",nome:"Sonda periodontal"},
+      {id:"m6",nome:"Espelho, pinça e explorador"},
+      {id:"m7",nome:"Curetas de Gracey (raspagem subgengival — não indicada aqui)"},
+      {id:"m8",nome:"Revelador de placa"},
+      {id:"m9",nome:"Limas endodônticas"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m8"]
+  },
+  competencias:[8,7,7,7,8,8,7,8]
+},
+
+{
+  id:"AG-03", titulo:"Restauração de cárie Classe II — primeiro molar inferior",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Dentística",
+  contexto:`MARCOS AURELIO FERREIRA, 35 anos, foi encaminhado da triagem após radiografia que revelou cárie interproximal no dente 36 (primeiro molar inferior esquerdo). Ele relata sensibilidade ao frio e ao doce há 3 semanas. Escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. Não tem alergias conhecidas. Não usa medicamentos. A cárie é de profundidade moderada, sem sintomas espontâneos.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marcos aurelio ferreira","marcos aurelio","marcos"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes","manhã e noite"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa","nao usa"]},
+    {chave:"dente_afetado",label:"Dente afetado",obrigatorio:true,validacao:["36","dente 36","molar inferior esquerdo","molar"]},
+    {chave:"sensibilidade",label:"Sensibilidade presente?",obrigatorio:true,validacao:["sim","ao frio","ao doce","sim, ao"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","08:30","09:00","09:30","10:00","14:00","14:30","15:00","15:30","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Endodontia","Consultório de Emergência","Consultório de Cirurgia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","08:30","09:00","09:30","10:00","14:00","14:30","15:00","15:30","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Dique de borracha, clamp e arco"},
+      {id:"m2",nome:"Broca esférica e cônica para preparo"},
+      {id:"m3",nome:"Ácido fosfórico 37%"},
+      {id:"m4",nome:"Adesivo universal"},
+      {id:"m5",nome:"Resina composta"},
+      {id:"m6",nome:"Sistema de matriz de Tofflemire e cunha"},
+      {id:"m7",nome:"Fotopolimerizador LED"},
+      {id:"m8",nome:"Brocas de acabamento e polimento"},
+      {id:"m9",nome:"Guta-percha e cimento endodôntico"},
+      {id:"m10",nome:"Fórceps de extração"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[7,8,8,8,7,7,7,8]
+},
+
+{
+  id:"AG-04", titulo:"Extração simples de pré-molar para ortodontia",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Cirurgia",
+  contexto:`ANDREA SANTOS, 22 anos, chega com encaminhamento do ortodontista para extração do dente 14 (primeiro pré-molar superior direito) como parte do planejamento ortodôntico. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias a medicamentos. Não usa anticoagulantes. Não é gestante. A pressão arterial foi aferida e está normal (120/80 mmHg). O dente está hígido, sem cárie.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andrea santos","andrea"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["22","22 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"alergias",label:"Alergias a medicamentos",obrigatorio:true,validacao:["não","nenhuma","sem alergia"]},
+    {chave:"anticoagulante",label:"Usa anticoagulante?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["não","nao"]},
+    {chave:"pressao",label:"Pressão arterial",obrigatorio:false,validacao:["120/80","normal"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia","Consultório de Periodontia","Consultório Infantil"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["07:30","08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico"},
+      {id:"m2",nome:"Tubete de anestésico com vasoconstritor"},
+      {id:"m3",nome:"Seringa carpule e agulhas"},
+      {id:"m4",nome:"Sindesmótomo reto"},
+      {id:"m5",nome:"Alavanca reta (elevador)"},
+      {id:"m6",nome:"Fórceps para pré-molar superior"},
+      {id:"m7",nome:"Gaze estéril"},
+      {id:"m8",nome:"Soro fisiológico e seringa de irrigação"},
+      {id:"m9",nome:"Bisturi e descolador de periósteo (extração complexa)"},
+      {id:"m10",nome:"Sutura reabsorvível (extração simples não necessita)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[7,8,8,8,7,7,7,8]
+},
+
+{
+  id:"AG-05", titulo:"Urgência — abscesso dentoalveolar agudo",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`PAULO HENRIQUE ROCHA, 45 anos, liga às 8h relatando dor intensa e pulsátil no dente inferior esquerdo há 2 dias, com inchaço na bochecha, febre de 38°C e dificuldade para abrir a boca. Escova os dentes 1 VEZ AO DIA (somente à noite) e NÃO USA FIO DENTAL. Ele informa que tem alergia à PENICILINA. Faz uso de losartana 50mg para hipertensão. Pressão aferida: 145/90 mmHg. Precisa de atendimento imediato.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["paulo henrique rocha","paulo henrique","paulo"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["45","45 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x","somente à noite","noite apenas"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"alergia",label:"Alergias a medicamentos",obrigatorio:true,validacao:["penicilina","alergia a penicilina"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["losartana","anti-hipertensivo"]},
+    {chave:"pressao",label:"Pressão arterial",obrigatorio:true,validacao:["145/90","elevada","alta"]},
+    {chave:"febre",label:"Febre?",obrigatorio:true,validacao:["sim","38","febre"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico"},
+      {id:"m2",nome:"Tubetes de anestésico (mepivacaína — sem vasoconstritor, pois hipertenso)"},
+      {id:"m3",nome:"Seringa carpule e agulha longa"},
+      {id:"m4",nome:"Espelho, pinça, explorador e sonda periodontal"},
+      {id:"m5",nome:"Dique de borracha, clamp e arco"},
+      {id:"m6",nome:"Broca esférica para abertura coronária"},
+      {id:"m7",nome:"Hipoclorito de sódio 2,5% e seringa endodôntica"},
+      {id:"m8",nome:"Curativo intracanal (PMCC ou cresofeno)"},
+      {id:"m9",nome:"Penicilina (antibiótico contraindicado — alergia!)"},
+      {id:"m10",nome:"Coltosol ou CIV provisório"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m10"]
+  },
+  competencias:[9,9,9,9,9,8,8,9]
+},
+
+{
+  id:"AG-06", titulo:"Profilaxia e orientação de higiene — adolescente",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`LUCAS RODRIGUES, 15 anos, é trazido pela mãe para profilaxia semestral. A mãe relata que Lucas escova os dentes APENAS 1 VEZ AO DIA (geralmente à noite) e NUNCA USA FIO DENTAL. Apresenta gengivite leve e acúmulo moderado de biofilme, especialmente na região dos molares. Lucas não tem alergias e não usa nenhum medicamento. A mãe também pede que alguém oriente Lucas sobre a técnica correta de escovação pois ele está com aparelho ortodôntico fixo há 6 meses.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["lucas rodrigues","lucas"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["15","15 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x","apenas à noite"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","nunca","não usa"]},
+    {chave:"aparelho_ortod",label:"Usa aparelho ortodôntico?",obrigatorio:true,validacao:["sim","usa","fixo","ortodôntico"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae","responsável"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório Infantil","Consultório de Periodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom"},
+      {id:"m2",nome:"Taça de borracha e pasta profilática"},
+      {id:"m3",nome:"Fio dental e escova interdental"},
+      {id:"m4",nome:"Revelador de placa"},
+      {id:"m5",nome:"Escova monopenacho (para higiene ao redor do braquete)"},
+      {id:"m6",nome:"Sonda periodontal e espelho"},
+      {id:"m7",nome:"Modelo didático de arcada para demonstração"},
+      {id:"m8",nome:"Curetas de Gracey (raspagem subgengival — não necessário)"},
+      {id:"m9",nome:"Limas endodônticas"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[8,7,6,7,8,8,7,8]
+},
+
+{
+  id:"AG-07", titulo:"Restauração estética — fratura de ângulo incisal",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Dentística",
+  contexto:`FERNANDA LIMA, 19 anos, universitária, fraturou o ângulo mesioincisal do dente 11 (incisivo central superior direito) ao morder um objeto duro ontem. O fragmento não foi encontrado. O dente apresenta vitalidade preservada e sem dor espontânea. Fernanda escova os dentes 3 VEZES AO DIA e USA FIO DENTAL ao menos uma vez por dia. Não tem alergias. Não usa medicamentos. Está muito preocupada com a estética e tem um evento importante em 5 dias.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fernanda lima","fernanda"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["19","19 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","ao menos","1 vez","diariamente"]},
+    {chave:"dente",label:"Dente afetado",obrigatorio:true,validacao:["11","dente 11","incisivo central","central superior direito"]},
+    {chave:"vitalidade",label:"Vitalidade do dente",obrigatorio:true,validacao:["positiva","sim","preservada","tem vitalidade"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Emergência","Consultório de Endodontia","Consultório de Cirurgia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubete de anestésico"},
+      {id:"m2",nome:"Dique de borracha e clamp anterior"},
+      {id:"m3",nome:"Guia/índice de silicone palatal"},
+      {id:"m4",nome:"Ácido fosfórico 37% e adesivo universal"},
+      {id:"m5",nome:"Resina de dentina e resina de esmalte (cores estratificadas)"},
+      {id:"m6",nome:"Fotopolimerizador LED"},
+      {id:"m7",nome:"Brocas de acabamento e discos de polimento"},
+      {id:"m8",nome:"Fórceps anterior (extração — não indicada)"},
+      {id:"m9",nome:"Limas endodônticas"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,8,9,8,8,7,7,9]
+},
+
+{
+  id:"AG-08", titulo:"Raspagem subgengival — periodontite moderada",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Periodontia",
+  contexto:`ROBERTO MENEZES, 52 anos, retorna para início do tratamento de raspagem e alisamento radicular (RAR) após diagnóstico de periodontite generalizada estágio II. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) mas NÃO USA FIO DENTAL há anos. Apresenta bolsas periodontais de 4 a 6 mm em posteriores. Não tem alergias. Faz uso de metformina para diabetes tipo 2 — glicemia controlada (última: 115 mg/dL). A sessão de hoje é o quadrante inferior esquerdo.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["roberto menezes","roberto"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["52","52 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","manhã e noite"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["metformina","diabetes","antidiabético"]},
+    {chave:"glicemia",label:"Glicemia recente",obrigatorio:true,validacao:["115","controlada","115 mg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubete de anestésico"},
+      {id:"m2",nome:"Seringa carpule e agulha longa"},
+      {id:"m3",nome:"Curetas de Gracey (11-12 e 13-14 para posteriores)"},
+      {id:"m4",nome:"Aparelho de ultrassom com inserto subgengival slim"},
+      {id:"m5",nome:"Sonda periodontal milimetrada"},
+      {id:"m6",nome:"Seringa de irrigação com clorexidina 0,12%"},
+      {id:"m7",nome:"Gaze, espelho, pinça"},
+      {id:"m8",nome:"Bisturi e sutura (cirurgia perio — não indicada hoje)"},
+      {id:"m9",nome:"Dique de borracha e clamp"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[8,8,8,8,8,7,7,8]
+},
+
+{
+  id:"AG-09", titulo:"Urgência endodôntica — dor intensa pulsátil",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`CRISTINA ALVES, 38 anos, liga às 7h30 relatando dor espontânea intensa e pulsátil no dente inferior esquerdo há 2 noites, sem alivio com dipirona. Não conseguiu dormir. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente (2 ou 3 vezes por semana). Não tem alergias. Não usa medicamentos contínuos. A dor piora muito com o calor (como em bebidas quentes) e tem leve melhora com frio. Suspeita de pulpite irreversível.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["cristina alves","cristina"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","eventualmente","2 ou 3","às vezes"]},
+    {chave:"tipo_dor",label:"Característica da dor",obrigatorio:true,validacao:["pulsátil","espontânea","intensa","piora com calor"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:true,validacao:["não","nenhuma"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["não","nenhum"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"],
+    salas:["Consultório de Endodontia","Consultório de Emergência","Consultório A — Clínica Geral","Consultório de Cirurgia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Endodontia",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubetes de anestésico (bloqueio)"},
+      {id:"m2",nome:"Seringa carpule e agulha longa"},
+      {id:"m3",nome:"Dique de borracha, clamp e arco"},
+      {id:"m4",nome:"Broca esférica e troncocônica (abertura coronária)"},
+      {id:"m5",nome:"Limas K manuais nº 10 e 15"},
+      {id:"m6",nome:"Hipoclorito de sódio 2,5% + seringa endodôntica"},
+      {id:"m7",nome:"Curativo intracanal (PMCC)"},
+      {id:"m8",nome:"Coltosol ou IRM (selamento provisório)"},
+      {id:"m9",nome:"Guta-percha e cimento endodôntico (obturação — 2ª sessão)"},
+      {id:"m10",nome:"Fórceps de extração"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[9,9,9,9,8,7,7,9]
+},
+
+{
+  id:"AG-10", titulo:"Clareamento dental em consultório",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Estética",
+  contexto:`VANESSA PEREIRA, 31 anos, deseja realizar clareamento dental em consultório para eliminar manchas extrínsecas por café e chá que a incomodam estéticamente. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem histórico de sensibilidade dentinária. Não está grávida. Não está amamentando. Não tem restaurações no sorriso que precisem ser substituídas após o clareamento. A dentista solicitou profilaxia prévia na mesma sessão.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["vanessa pereira","vanessa"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["31","31 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"sensibilidade",label:"Histórico de sensibilidade",obrigatorio:true,validacao:["não","nenhuma","sem sensibilidade"]},
+    {chave:"gestante",label:"Gestante ou amamentando?",obrigatorio:true,validacao:["não","nao"]},
+    {chave:"motivacao",label:"Motivo do clareamento",obrigatorio:false,validacao:["café","chá","manchas"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Cirurgia","Consultório Infantil"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Gel clareador de peróxido de hidrogênio 35%"},
+      {id:"m2",nome:"Protetor gengival (barreira gengival fotopolimerizável)"},
+      {id:"m3",nome:"Afastador labial"},
+      {id:"m4",nome:"Fotopolimerizador ou lâmpada de fotoativação LED"},
+      {id:"m5",nome:"Taça de borracha e pasta profilática (profilaxia prévia)"},
+      {id:"m6",nome:"Gaze e cotonetes"},
+      {id:"m7",nome:"Papel de articulação (ajuste oclusal — não necessário aqui)"},
+      {id:"m8",nome:"Dique de borracha e clamp (endodontia — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[7,7,7,7,8,8,7,8]
+},
+
+{
+  id:"AG-11", titulo:"Confecção de PPR — moldagem e plano de tratamento",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
+  contexto:`MARIA APARECIDA ROCHA, 67 anos, é encaminhada para confecção de prótese parcial removível inferior. Ela perdeu os dentes 35, 36 e 37 (Classe III de Kennedy modificada). Os dentes remanescentes têm boa condição. Ela escova os dentes SOMENTE 1 VEZ AO DIA (à noite) e USA FIO DENTAL raramente (menos de uma vez por semana). Não tem alergias. Faz uso de AAS 100mg e enalapril 10mg diariamente. A pressão arterial está controlada: 130/85 mmHg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["maria aparecida rocha","maria aparecida","dona maria"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["67","67 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x","à noite","somente"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["raramente","menos de uma","quase nunca","não","eventualmente"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["aas","enalapril","aspirina","anti-hipertensivo"]},
+    {chave:"pressao",label:"Pressão arterial",obrigatorio:true,validacao:["130/85","controlada"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Alginato e moldeira de estoque inferior"},
+      {id:"m2",nome:"Gesso tipo II para modelo de estudo"},
+      {id:"m3",nome:"Cuba de borracha e espátulas"},
+      {id:"m4",nome:"Cera utilidade para bordejamento"},
+      {id:"m5",nome:"Registro de mordida em cera"},
+      {id:"m6",nome:"Silicone de adição (prótese fixa — não para PPR preliminar)"},
+      {id:"m7",nome:"Fórceps de extração"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[7,7,7,8,7,7,7,8]
+},
+
+{
+  id:"AG-12", titulo:"Restauração de cárie em dente decíduo — criança",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Odontopediatria",
+  contexto:`TOMÁS FERREIRA, 7 anos, é trazido pela mãe Sra. Andréia Ferreira para restauração de cárie no dente 74 (primeiro molar decíduo inferior esquerdo). A mãe relata que Tomás escova os dentes 2 VEZES AO DIA com ajuda dela e NÃO USA FIO DENTAL. Tomás tem histórico de comportamento ansioso no consultório. Não tem alergias a medicamentos. Não usa nenhum medicamento. Peso: 24 kg (importante para dose de anestésico). A cárie é moderada, sem envolvimento pulpar.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["tomás ferreira","tomás","tomas"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["7","7 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"responsavel",label:"Nome do responsável",obrigatorio:true,validacao:["andréia","andreia","mãe","mae"]},
+    {chave:"peso",label:"Peso (para dose de anestésico)",obrigatorio:true,validacao:["24","24 kg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório Infantil","Consultório A — Clínica Geral","Consultório de Emergência","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico sabor frutal"},
+      {id:"m2",nome:"Tubete de anestésico pediátrico (artucaína 4%)"},
+      {id:"m3",nome:"Seringa carpule pediátrica e agulha curta"},
+      {id:"m4",nome:"Broca esférica de baixa rotação"},
+      {id:"m5",nome:"Cureta de dentina pediátrica"},
+      {id:"m6",nome:"Cimento de ionômero de vidro (material de eleição em decíduo)"},
+      {id:"m7",nome:"Sistema de matriz pediátrica"},
+      {id:"m8",nome:"Limas endodônticas pediátricas (pulpotomia — não indicada aqui)"},
+      {id:"m9",nome:"Fórceps pediátrico (extração — não indicada)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[8,8,8,8,8,8,7,9]
+},
+
+{
+  id:"AG-13", titulo:"Primeira consulta odontopediatria — bebê de 1 ano",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Odontopediatria",
+  contexto:`A Sra. JULIANA MATOS liga para agendar a PRIMEIRA CONSULTA ODONTOLÓGICA do filho ENZO MATOS, 1 ANO E 2 MESES. Ela está preocupada pois percebeu uma mancha branca em um dentinho. Enzo está amamentando e a mãe diz que escova os dentes do bebê 2 VEZES AO DIA com dedeira. Não usa fio dental ainda (bebê). Enzo não tem alergias conhecidas. A mãe tem muitas dúvidas sobre alimentação, fluorterapia e hábitos de sucção.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do bebê",obrigatorio:true,validacao:["enzo matos","enzo"]},
+    {chave:"idade",label:"Idade do bebê",obrigatorio:true,validacao:["1 ano","1 ano e 2","14 meses"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação (bebê)",obrigatorio:true,validacao:["2 vezes","2x","dedeira"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa","bebê"]},
+    {chave:"responsavel",label:"Nome da responsável",obrigatorio:true,validacao:["juliana matos","juliana","mãe"]},
+    {chave:"amamentacao",label:"Está amamentando?",obrigatorio:true,validacao:["sim","está","amamentando"]},
+    {chave:"alergias",label:"Alergias conhecidas",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório Infantil","Consultório A — Clínica Geral","Consultório de Emergência","Consultório B — Clínica Geral","Consultório de Periodontia"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Espelho bucal pequeno (nº 2)"},
+      {id:"m2",nome:"Sonda exploradora de ponta romba"},
+      {id:"m3",nome:"Gaze estéril (para higienizar a boca do bebê durante exame)"},
+      {id:"m4",nome:"Flúor verniz (para aplicação preventiva)"},
+      {id:"m5",nome:"Material educativo (folder sobre bebê de colo)"},
+      {id:"m6",nome:"Dedeira de silicone (para demonstrar escovação à mãe)"},
+      {id:"m7",nome:"Limas endodônticas (tratamento de canal — bebê)"},
+      {id:"m8",nome:"Anestésico tópico (bebê de 1 ano — não necessário para exame simples)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[9,7,6,7,8,8,7,9]
+},
+
+{
+  id:"AG-14", titulo:"Profilaxia em gestante — segundo trimestre",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
+  contexto:`ANA BEATRIZ SOUZA, 26 anos, grávida de 18 semanas (2º trimestre), liga para agendar profilaxia. O obstetra já autorizou o atendimento odontológico. Ela relata sangramento gengival ao escovar, o que a preocupa. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Toma sulfato ferroso e ácido fólico. Sua pressão arterial está normal (110/70 mmHg). Não pode ficar muito tempo em posição supina.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["ana beatriz souza","ana beatriz","ana"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["26","26 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"semanas_gestacao",label:"Semanas de gestação",obrigatorio:true,validacao:["18","18 semanas","segundo trimestre","2º trimestre"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["sulfato ferroso","ácido fólico","ferro","folico"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório Infantil","Consultório de Emergência"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom"},
+      {id:"m2",nome:"Taça de borracha e pasta profilática"},
+      {id:"m3",nome:"Sonda periodontal milimetrada"},
+      {id:"m4",nome:"Espelho, pinça e explorador"},
+      {id:"m5",nome:"Clorexidina 0,12% (bochecho — seguro na gestação)"},
+      {id:"m6",nome:"Revelador de placa para motivação"},
+      {id:"m7",nome:"Flúor gel (uso cauteloso na gestação — verificar com dentista)"},
+      {id:"m8",nome:"Antibiótico por via oral (não indicado preventivamente)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[9,8,7,8,9,8,7,9]
+},
+
+{
+  id:"AG-15", titulo:"Urgência — alveolite seca pós-extração",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
+  contexto:`RENATO COSTA, 41 anos, liga 3 dias após extração do dente 38 relatando dor intensa e crescente no local (não cedeu com ibuprofeno), mau cheiro na boca e alvéolo com aparência esbranquiçada sem coágulo visível. Diagnóstico clínico suspeito: ALVEOLITE SECA. Renato escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente. Não tem alergias. Ele confessa que fumou cigarros no dia da extração (contraindicado). Não usa medicamentos contínuos.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["renato costa","renato"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["41","41 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","eventualmente","às vezes"]},
+    {chave:"data_extracao",label:"Data da extração",obrigatorio:true,validacao:["3 dias","há 3"]},
+    {chave:"fumante",label:"Fumou após extração?",obrigatorio:true,validacao:["sim","fumou","cigarros"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"],
+    salas:["Consultório de Emergência","Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubete de anestésico local"},
+      {id:"m2",nome:"Seringa de irrigação com soro fisiológico (lavagem do alvéolo)"},
+      {id:"m3",nome:"Curativo alveolar com eugenol (Alvogyl ou similar)"},
+      {id:"m4",nome:"Pinça clínica e espelho"},
+      {id:"m5",nome:"Gaze estéril"},
+      {id:"m6",nome:"Sutura reabsorvível (suturar novamente — não indicado)"},
+      {id:"m7",nome:"Fórceps (segunda extração — não indicada)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[8,8,8,8,7,7,7,8]
+},
+
+{
+  id:"AG-16", titulo:"Exodontia de terceiro molar incluso",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia",
+  contexto:`ISABELA CARVALHO, 23 anos, chega com encaminhamento para extração do dente 38 (terceiro molar inferior esquerdo incluso em posição mesioangular), confirmado em radiografia panorâmica. Ela relata episódios repetidos de pericoronarite (inflamação da gengiva ao redor do siso). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 115/75 mmHg. A extração requerirá retalho, osteotomia e odontossecção.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["isabela carvalho","isabela"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["23","23 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"dente",label:"Dente a ser extraído",obrigatorio:true,validacao:["38","dente 38","siso","terceiro molar"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:true,validacao:["não","nenhuma"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["não","nenhum"]},
+    {chave:"pressao",label:"Pressão arterial",obrigatorio:false,validacao:["115/75","normal"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubetes (bloqueio alveolar inferior + lingual + bucal)"},
+      {id:"m2",nome:"Seringa carpule e agulha longa"},
+      {id:"m3",nome:"Bisturi cabo 3 + lâmina 15C"},
+      {id:"m4",nome:"Descolador de periósteo (Molt)"},
+      {id:"m5",nome:"Peça de mão cirúrgica + broca cirúrgica troncocônica"},
+      {id:"m6",nome:"Soro fisiológico e seringa de irrigação (refrigeração)"},
+      {id:"m7",nome:"Alavancas anguladas e fórceps molar"},
+      {id:"m8",nome:"Cureta cirúrgica"},
+      {id:"m9",nome:"Porta-agulha e sutura reabsorvível 3-0"},
+      {id:"m10",nome:"Gaze e compressas cirúrgicas"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10"]
+  },
+  competencias:[8,9,9,8,8,7,7,9]
+},
+
+{
+  id:"AG-17", titulo:"Radiografia panorâmica — avaliação ortodôntica",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Radiologia",
+  contexto:`GUSTAVO MACHADO, 17 anos, é trazido pelos pais para início de tratamento ortodôntico. O ortodontista solicitou radiografia panorâmica para avaliação completa dos dentes permanentes, presença de terceiros molares e desenvolvimento ósseo. Gustavo escova os dentes 2 VEZES AO DIA e USA FIO DENTAL ocasionalmente (1 ou 2 vezes por semana). Não tem alergias. Não usa medicamentos. Não há relato de sintomas ou dores.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["gustavo machado","gustavo"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["17","17 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","ocasionalmente","1 ou 2","às vezes"]},
+    {chave:"exame_solicitado",label:"Exame solicitado",obrigatorio:true,validacao:["panorâmica","panorâmico","radiografia"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"],
+    salas:["Sala de Radiologia","Consultório A — Clínica Geral","Consultório de Periodontia","Consultório Infantil","Consultório de Cirurgia"],
+    correto:{sala:"Sala de Radiologia",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de raios X panorâmico"},
+      {id:"m2",nome:"Avental de chumbo"},
+      {id:"m3",nome:"Colar cervical de chumbo"},
+      {id:"m4",nome:"Guia de mordida descartável"},
+      {id:"m5",nome:"Chassi panorâmico ou sensor digital"},
+      {id:"m6",nome:"Filme periapical e posicionador (exame diferente — periapical)"},
+      {id:"m7",nome:"Alginato e moldeira (moldagem — outro procedimento)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[6,7,7,8,8,7,6,7]
+},
+
+{
+  id:"AG-18", titulo:"Profilaxia — paciente diabético tipo 2",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
+  contexto:`JOSÉ DOS SANTOS, 61 anos, chega para profilaxia semestral. Ele é diabético tipo 2 há 8 anos, com glicemia controlada (última glicemia: 130 mg/dL). Escova os dentes 2 VEZES AO DIA (manhã e após o jantar) e USA FIO DENTAL de 2 a 3 vezes por semana. Faz uso de metformina 850mg e glibenclamida 5mg. Não tem alergias. O exame periodontal revelou gengivite leve generalizada — o diabetes aumenta a susceptibilidade periodontal. PA: 128/82 mmHg (adequada).`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["josé dos santos","jose dos santos","josé","seu josé"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["61","61 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","manhã e","após o jantar"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","2 a 3","2 ou 3","às vezes"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["metformina","glibenclamida","antidiabético","diabetes"]},
+    {chave:"glicemia",label:"Glicemia recente",obrigatorio:true,validacao:["130","controlada","130 mg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Emergência","Consultório de Cirurgia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom"},
+      {id:"m2",nome:"Taça de borracha e pasta profilática"},
+      {id:"m3",nome:"Sonda periodontal milimetrada"},
+      {id:"m4",nome:"Revelador de placa"},
+      {id:"m5",nome:"Espelho, pinça, explorador"},
+      {id:"m6",nome:"Glicosímetro (verificar glicemia pré-atendimento)"},
+      {id:"m7",nome:"Gaze e sugador"},
+      {id:"m8",nome:"Curetas de Gracey (raspagem subgengival — avaliar se necessário)"},
+      {id:"m9",nome:"Insulina (medicamento do paciente — clínica não administra)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[8,8,7,8,8,8,7,8]
+},
+
+{
+  id:"AG-19", titulo:"Avaliação e controle de PA — paciente hipertenso",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Clínica Geral",
+  contexto:`LÚCIA FERREIRA, 58 anos, chegou para consulta de restauração mas ao aferir a pressão arterial na recepção obteve PA de 165/100 mmHg. A paciente relata que esqueceu de tomar o remédio esta manhã. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL de vez em quando (cerca de 2 vezes por semana). Faz uso de losartana 50mg e hidroclorotiazida 25mg diariamente. Não tem alergias. A conduta será: orientar a paciente, aguardar repouso de 10 minutos e reaferir a PA antes de decidir sobre o procedimento.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["lúcia ferreira","lucia ferreira","lúcia","dona lúcia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["58","58 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","às vezes","2 vezes","eventualmente"]},
+    {chave:"pressao_inicial",label:"Pressão arterial inicial",obrigatorio:true,validacao:["165/100","elevada","alta"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["losartana","hidroclorotiazida","anti-hipertensivo"]},
+    {chave:"tomou_remedio",label:"Tomou medicação hoje?",obrigatorio:true,validacao:["não","não tomou","esqueceu"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Emergência","Consultório de Cirurgia","Consultório de Periodontia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Esfigmomanômetro e estetoscópio (aferição de PA)"},
+      {id:"m2",nome:"Espelho, pinça, explorador (exame bucal)"},
+      {id:"m3",nome:"Anestésico sem vasoconstritor (mepivacaína — se proceder)"},
+      {id:"m4",nome:"Tubete de anestésico com vasoconstritor (CONTRAINDICADO para PA > 160/100)"},
+      {id:"m5",nome:"Gaze"},
+      {id:"m6",nome:"Ficha de registro de PA"},
+      {id:"m7",nome:"Fórceps de extração (não indicado hoje)"}
+    ],
+    corretos:["m1","m2","m3","m5","m6"]
+  },
+  competencias:[9,8,7,8,9,8,8,9]
+},
+
+{
+  id:"AG-20", titulo:"Extração em paciente em uso de anticoagulante oral",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Cirurgia",
+  contexto:`ANTÔNIO BATISTA, 70 anos, precisa extrair o dente 45 (segundo pré-molar inferior direito) que está comprometido. Ele faz uso de VARFARINA (warfarina) por fibrilação atrial, com INR de 2,8 (dentro do intervalo terapêutico de 2-3). Seu cardiologista foi consultado e AUTORIZOU a extração SEM SUSPENDER a varfarina, desde que com medidas hemostáticas locais. Ele escova os dentes 2 VEZES AO DIA e USA FIO DENTAL raramente (1 vez por semana). Não tem alergias.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["antônio batista","antonio batista","antônio","seu antônio"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["70","70 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","raramente","1 vez","às vezes"]},
+    {chave:"medicamento_coag",label:"Anticoagulante em uso",obrigatorio:true,validacao:["varfarina","warfarina","anticoagulante"]},
+    {chave:"inr",label:"Valor do INR",obrigatorio:true,validacao:["2,8","2.8","dentro do intervalo","terapêutico"]},
+    {chave:"autorizacao_cardio",label:"Autorização do cardiologista",obrigatorio:true,validacao:["sim","autorizado","cardiologista autorizou"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00"],
+    salas:["Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Emergência","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["07:30","08:00","09:00","10:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e anestésico local sem vasoconstritor (mepivacaína 3%)"},
+      {id:"m2",nome:"Seringa carpule e agulha"},
+      {id:"m3",nome:"Sindesmótomo e alavanca"},
+      {id:"m4",nome:"Fórceps para pré-molar inferior"},
+      {id:"m5",nome:"Gaze estéril e compressas (pressão hemostática)"},
+      {id:"m6",nome:"Esponja hemostática de colágeno (Hemospon ou similar) para o alvéolo"},
+      {id:"m7",nome:"Sutura reabsorvível (fechamento do alvéolo para hemostasia)"},
+      {id:"m8",nome:"Ácido tranexâmico (enxagúe hemostático pós-extração)"},
+      {id:"m9",nome:"Vitamina K via oral (para reverter varfarina — não indicado pelo cardiologista)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[9,9,9,9,8,8,8,9]
+},
+
+{
+  id:"AG-21", titulo:"Frenectomia labial superior — criança com diastema",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Cirurgia",
+  contexto:`MIGUEL OLIVEIRA, 9 anos, é trazido pela mãe após indicação ortodôntica para FRENECTOMIA LABIAL SUPERIOR. O freio inserido baixo está causando diastema entre os incisivos centrais superiores permanentes. Após a frenectomia, o ortodontista dará continuidade ao fechamento do diastema com aparelho. Miguel escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 31 kg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["miguel oliveira","miguel"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["9","9 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","3 vezes","com ajuda"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae"]},
+    {chave:"peso",label:"Peso (para dose de anestésico)",obrigatorio:true,validacao:["31","31 kg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório de Cirurgia","Consultório Infantil","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico sabor frutal"},
+      {id:"m2",nome:"Tubete de anestésico pediátrico e seringa carpule pediátrica"},
+      {id:"m3",nome:"Bisturi cabo 3 + lâmina 15"},
+      {id:"m4",nome:"Pinça hemostática e tesoura cirúrgica"},
+      {id:"m5",nome:"Porta-agulha e sutura reabsorvível 4-0"},
+      {id:"m6",nome:"Gaze estéril e solução de clorexidina 0,12%"},
+      {id:"m7",nome:"Dique de borracha e clamp (para endodontia/dentística — não cirurgia)"},
+      {id:"m8",nome:"Fórceps pediátrico (extração — não indicada)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[8,8,9,8,7,7,7,9]
+},
+
+{
+  id:"AG-22", titulo:"Raspagem supragengival — gengivite com tártaro moderado",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Periodontia",
+  contexto:`SANDRA TEIXEIRA, 44 anos, retorna após 1 ano sem profilaxia. Apresenta cálculo supragengival moderado generalizado com sangramento gengival difuso ao exame. Bolsas de até 3 mm (gengivite). Ela escova os dentes SOMENTE 2 VEZES AO DIA (sem técnica adequada) e USA FIO DENTAL apenas 2 vezes por semana. Não tem alergias. Não usa medicamentos. Refere que o sangramento ao escovar já dura 4 meses.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["sandra teixeira","sandra"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","2 vezes","às vezes"]},
+    {chave:"sangramento_tempo",label:"Há quanto tempo sangra?",obrigatorio:true,validacao:["4 meses","há 4"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:false,validacao:["não","nenhum"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom com inserto supragengival"},
+      {id:"m2",nome:"Curetas universais (McCall ou Columbia)"},
+      {id:"m3",nome:"Sonda periodontal milimetrada"},
+      {id:"m4",nome:"Revelador de placa"},
+      {id:"m5",nome:"Clorexidina 0,12% (bochecho pré-operatório)"},
+      {id:"m6",nome:"Gaze, espelho, pinça"},
+      {id:"m7",nome:"Curetas de Gracey (raspagem subgengival — bolsas ≤ 3mm não indicam isso)"},
+      {id:"m8",nome:"Bisturi lâmina 15 e porta-agulha (cirurgia — não indicada)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[8,7,7,8,8,8,7,8]
+},
+
+{
+  id:"AG-23", titulo:"Retratamento endodôntico — insucesso de canal anterior",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`FLÁVIO RIBEIRO, 47 anos, foi encaminhado pelo dentista após radiografia mostrar lesão periapical em crescimento no dente 25 (segundo pré-molar superior esquerdo), tratado endodonticamente há 4 anos. Não sente dor, mas o exame mostra abaulamento periapical. Indica-se retratamento endodôntico. Flávio escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 120/80 mmHg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["flávio ribeiro","flavio ribeiro","flávio","flavio"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["47","47 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"dente",label:"Dente para retratamento",obrigatorio:true,validacao:["25","dente 25","pré-molar","pré molar"]},
+    {chave:"tratamento_anterior",label:"Tratamento de canal anterior?",obrigatorio:true,validacao:["sim","há 4 anos","tratado","tratamento anterior"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório de Endodontia","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Periodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Endodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubetes de anestésico"},
+      {id:"m2",nome:"Dique de borracha, clamp e arco"},
+      {id:"m3",nome:"Solvente de guta-percha (xilol ou eucaliptol)"},
+      {id:"m4",nome:"Brocas de Gates-Glidden e limas de desobstrução (Reciproc Retreatment)"},
+      {id:"m5",nome:"Localizador apical e limas K manuais"},
+      {id:"m6",nome:"Hipoclorito de sódio 2,5% e EDTA"},
+      {id:"m7",nome:"Nova guta-percha e cimento endodôntico"},
+      {id:"m8",nome:"CIV provisório ou Coltosol"},
+      {id:"m9",nome:"Fórceps de extração (somente se retratamento contraindicado)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[8,9,9,9,8,7,7,9]
+},
+
+{
+  id:"AG-24", titulo:"Instalação de coroa total — cimentação definitiva",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
+  contexto:`CÉLIA MONTEIRO, 55 anos, retorna para cimentação definitiva da coroa metal-cerâmica no dente 36 (primeiro molar inferior esquerdo). O provisório foi instalado há 3 semanas e o protético entregou a peça definitiva. Célia escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de atorvastatina 20mg. PA: 125/80 mmHg. A paciente está satisfeita com o provisório e sem dores.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["célia monteiro","celia monteiro","célia","celia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["55","55 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["atorvastatina","estatina"]},
+    {chave:"dente_coroa",label:"Dente da coroa",obrigatorio:true,validacao:["36","dente 36","molar inferior"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Cimento de fosfato de zinco ou ionômero de vidro para cimentação"},
+      {id:"m2",nome:"Espátula de espatulação e placa de vidro"},
+      {id:"m3",nome:"Fio dental (verificar ponto de contato)"},
+      {id:"m4",nome:"Papel de articulação e pinça de articulação"},
+      {id:"m5",nome:"Espelho, pinça e explorador"},
+      {id:"m6",nome:"Gaze e algodão"},
+      {id:"m7",nome:"Broca de ajuste (se necessário após cimentação)"},
+      {id:"m8",nome:"Alginato e moldeira (moldagem — não indicado na cimentação)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,7,7,8,7,7,7,8]
+},
+
+{
+  id:"AG-25", titulo:"Pulpotomia em molar decíduo — criança com exposição pulpar",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Odontopediatria",
+  contexto:`HEITOR NASCIMENTO, 6 anos, chega com a avó relatando que ele acordou com dor no dente do fundo. O exame clínico mostra cárie profunda no dente 75 (segundo molar decíduo inferior esquerdo) com exposição pulpar confirmada e sangramento vivo ao toque. Indicado: PULPOTOMIA com formocresol. Heitor escova os dentes 2 VEZES AO DIA (com ajuda) e NÃO USA FIO DENTAL. Não tem alergias. Peso: 20 kg. A avó é a responsável hoje.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["heitor nascimento","heitor"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["6","6 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","com ajuda"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"responsavel",label:"Responsável presente",obrigatorio:true,validacao:["avó","avo","avó","responsável"]},
+    {chave:"peso",label:"Peso",obrigatorio:true,validacao:["20","20 kg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório Infantil","Consultório de Endodontia","Consultório A — Clínica Geral","Consultório de Emergência","Consultório de Cirurgia"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico sabor frutal"},
+      {id:"m2",nome:"Tubete de anestésico pediátrico (artucaína 4% — dose por peso)"},
+      {id:"m3",nome:"Seringa carpule pediátrica e agulha curta"},
+      {id:"m4",nome:"Dique de borracha com clamp pediátrico"},
+      {id:"m5",nome:"Broca esférica de baixa rotação e cureta de dentina"},
+      {id:"m6",nome:"Algodão + formocresol (curativo pulpar)"},
+      {id:"m7",nome:"CIV e coroa de aço inoxidável pediátrica"},
+      {id:"m8",nome:"Guta-percha e cimento endodôntico (obturação de canal permanente)"},
+      {id:"m9",nome:"Limas rotatórias (não indicadas em pulpotomia)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[9,9,9,9,8,8,7,9]
+},
+
+{
+  id:"AG-26", titulo:"Profilaxia — paciente com Síndrome de Down",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Paciente Especial",
+  contexto:`FELIPE DUARTE, 18 anos, portador de Síndrome de Down (trisomia 21), é trazido pela mãe para profilaxia semestral. A mãe relata que Felipe escova os dentes 2 VEZES AO DIA com supervisão dela e USA FIO DENTAL 3 vezes por semana com ajuda. Apresenta hipotonicidade lingual típica da síndrome, que favorece acúmulo de biofilme. A mãe informa alergia a AAS (ácido acetilsalicílico). Faz uso de levotiroxina (hipotireoidismo associado). Felipe aceita bem o atendimento mas precisa de comunicação simples e pausada.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["felipe duarte","felipe"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["18","18 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","com supervisão","com ajuda"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","3 vezes","com ajuda"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:true,validacao:["aas","ácido acetilsalicílico","aspirina"]},
+    {chave:"medicamentos",label:"Medicamentos em uso",obrigatorio:true,validacao:["levotiroxina","tireoidiana","hipotireoidismo"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório Infantil","Consultório de Periodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom"},
+      {id:"m2",nome:"Taça de borracha e pasta profilática"},
+      {id:"m3",nome:"Escova monopenacho e fio dental"},
+      {id:"m4",nome:"Revelador de placa"},
+      {id:"m5",nome:"Sonda periodontal e espelho"},
+      {id:"m6",nome:"Flúor verniz (aplicação preventiva)"},
+      {id:"m7",nome:"Material educativo simplificado (ilustrado)"},
+      {id:"m8",nome:"AAS (medicamento contraindicado — alergia!)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[9,8,7,8,9,8,8,9]
+},
+
+{
+  id:"AG-27", titulo:"Selante de fissuras — primeiros molares permanentes",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Preventivo",
+  contexto:`LARA QUEIRÓS, 8 anos, é trazida pela mãe para aplicação de SELANTE DE FISSURAS nos primeiros molares permanentes recém-erupcionados (dentes 16, 26, 36 e 46). A criança tem alto risco de cárie por dieta rica em carboidratos. Lara escova os dentes 2 VEZES AO DIA com ajuda dos pais e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 26 kg. Os dentes estão hígidos — sem cárie.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["lara queirós","lara queiros","lara"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","com ajuda"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","3 vezes","com ajuda"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae"]},
+    {chave:"dentes_tratados",label:"Dentes para selante",obrigatorio:true,validacao:["16","26","36","46","primeiros molares","4 molares"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório Infantil","Consultório A — Clínica Geral","Consultório de Emergência","Consultório B — Clínica Geral","Consultório de Cirurgia"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Ácido fosfórico 37% (condicionamento das fissuras)"},
+      {id:"m2",nome:"Selante fotopolimerizável (resina fluida sem carga)"},
+      {id:"m3",nome:"Fotopolimerizador LED"},
+      {id:"m4",nome:"Roletes de algodão e gaze (isolamento relativo)"},
+      {id:"m5",nome:"Espelho clínico e explorador"},
+      {id:"m6",nome:"Pasta profilática e taça de borracha (profilaxia antes do selante)"},
+      {id:"m7",nome:"Cimento de ionômero de vidro (para selante em dente não totalmente erupcionado)"},
+      {id:"m8",nome:"Guta-percha e limas endodônticas (endodontia — não indicado)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[8,7,6,7,8,8,7,8]
+},
+
+{
+  id:"AG-28", titulo:"Remoção de ponto de sutura pós-cirurgia",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Cirurgia",
+  contexto:`PAULO SÉRGIO MEDEIROS, 35 anos, retorna 7 dias após extração do dente 48 (terceiro molar inferior direito incluso) para remoção dos pontos de sutura e avaliação da cicatrização. Ele relata que a dor melhorou progressivamente e está bem. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente (evitando a área operada). Não tem alergias. Não usa antibióticos. O alvéolo está com boa aparência clínica, sem sinais de infecção.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["paulo sérgio medeiros","paulo sergio medeiros","paulo sérgio","paulo"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"dias_pos_cirurgia",label:"Dias após a cirurgia",obrigatorio:true,validacao:["7","7 dias","uma semana"]},
+    {chave:"cicatrizacao",label:"Cicatrização adequada?",obrigatorio:true,validacao:["sim","boa","adequada","bem"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"],
+    salas:["Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Endodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Tesoura de ponta reta ou tesoura de sutura"},
+      {id:"m2",nome:"Pinça clínica com dente"},
+      {id:"m3",nome:"Espelho clínico e explorador"},
+      {id:"m4",nome:"Solução de clorexidina 0,12% (irrigação pós-remoção de sutura)"},
+      {id:"m5",nome:"Gaze estéril"},
+      {id:"m6",nome:"Anestésico local (não necessário para remoção de sutura simples)"},
+      {id:"m7",nome:"Bisturi lâmina 15 (nova incisão — não indicada nesta consulta)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[7,7,6,7,7,7,7,7]
+},
+
+{
+  id:"AG-29", titulo:"Clareamento caseiro — moldagem e orientação",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Estética",
+  contexto:`AMANDA VASCONCELOS, 24 anos, solicita clareamento caseiro supervisionado com moldeiras individualizadas. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não está grávida. Não está amamentando. Não tem histórico de sensibilidade. Não tem restaurações no sorriso (ou já planeja substituí-las após o clareamento). A dentista aprovará o plano de tratamento com peróxido de carbamida 10% em moldeira por 2 horas/dia por 3 semanas.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["amanda vasconcelos","amanda"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["24","24 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"gestante",label:"Gestante ou amamentando?",obrigatorio:true,validacao:["não","nao"]},
+    {chave:"sensibilidade",label:"Histórico de sensibilidade?",obrigatorio:true,validacao:["não","nenhuma","sem sensibilidade"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Alginato e moldeiras de estoque (superior e inferior)"},
+      {id:"m2",nome:"Gesso tipo II (vazar os modelos para confecção das moldeiras)"},
+      {id:"m3",nome:"Gel de peróxido de carbamida 10% (para enviar ao paciente)"},
+      {id:"m4",nome:"Reservatório de resina acrílica (para confeccionar o espaço na moldeira)"},
+      {id:"m5",nome:"Espelho clínico e fotografia de cor dos dentes (registro antes/depois)"},
+      {id:"m6",nome:"Gel clareador 35% (clareamento em consultório — não para este caso)"},
+      {id:"m7",nome:"Barreira gengival fotopolimerizável (clareamento em consultório)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[7,7,7,7,7,7,7,8]
+},
+
+{
+  id:"AG-30", titulo:"Aplicação de flúor e orientação — criança com alto risco de cárie",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`SOFIA HELENA MARQUES, 5 anos, é trazida pela mãe para aplicação de flúor e orientação de higiene. A mãe relata que Sofia come muito doce e escova os dentes APENAS 1 VEZ AO DIA (antes de dormir) e NÃO USA FIO DENTAL. Já teve 2 cáries tratadas neste ano. Não tem alergias. Não usa medicamentos. Peso: 18 kg. A mãe está motivada a melhorar os hábitos da criança.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["sofia helena marques","sofia helena","sofia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["5","5 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x","antes de dormir"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae"]},
+    {chave:"historico_caries",label:"Histórico de cáries",obrigatorio:true,validacao:["sim","2 cáries","já teve","tratadas"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório Infantil","Consultório A — Clínica Geral","Consultório de Emergência","Consultório B — Clínica Geral","Consultório de Periodontia"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Flúor verniz (Duraphat ou similar — mais indicado para criança)"},
+      {id:"m2",nome:"Gaze para secar os dentes"},
+      {id:"m3",nome:"Espelho clínico e explorador"},
+      {id:"m4",nome:"Revelador de placa (demonstração dos locais sujos)"},
+      {id:"m5",nome:"Modelo didático e escova de demonstração"},
+      {id:"m6",nome:"Material educativo para os pais"},
+      {id:"m7",nome:"Flúor gel APF em moldeira (criança < 6 anos — risco de deglutição)"},
+      {id:"m8",nome:"Aparelho de ultrassom (profilaxia — não indicado para 5 anos sem cálculo)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6"]
+  },
+  competencias:[9,7,6,7,8,9,7,9]
+}
+
+,
+
+{
+  id:"AG-31", titulo:"Urgência: reação alérgica ao anestésico",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`ALBERTO SANTOS FERREIRA, 42 anos, liga relatando que está com o rosto inchado e urticária no pescoço após receber anestesia em outra clínica há 40 minutos. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. É ALÉRGICO À LIDOCAÍNA (reação documentada). Faz uso contínuo de enalapril (hipertensão) e loratadina (rinite). PA de base: 130/85 mmHg. Não tem histórico de asma.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["alberto santos ferreira","alberto santos","alberto"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["42","42 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"alergia_anestesico",label:"Alergia a anestésico",obrigatorio:true,validacao:["sim","lidocaína","lidocaina","alérgico"]},
+    {chave:"medicamentos",label:"Medicamentos contínuos",obrigatorio:true,validacao:["enalapril","loratadina"]},
+    {chave:"pa",label:"Pressão arterial de base",obrigatorio:true,validacao:["130/85","130","hipertensão","hipertensa"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Kit de emergência com adrenalina 1:1000"},
+      {id:"m2",nome:"Dipirona EV (analgesia de emergência)"},
+      {id:"m3",nome:"Esfigmomanômetro e estetoscópio"},
+      {id:"m4",nome:"Oxímetro de pulso"},
+      {id:"m5",nome:"Oxigênio (máscara de O₂) e ambu"},
+      {id:"m6",nome:"Anti-histamínico (dexclorfeniramina)"},
+      {id:"m7",nome:"Corticosteroide (dexametasona)"},
+      {id:"m8",nome:"Cadeira em posição semi-inclinada (Trendelenburg reverso se angioedema)"},
+      {id:"m9",nome:"Mepivacaína 3% sem vasoconstritor (alternativa futura para procedimentos)"},
+      {id:"m10",nome:"Articulador e modelos de gesso (procedimento eletivo — não urgência)"},
+      {id:"m11",nome:"Sugador de alta e baixa potência"}
+    ],
+    corretos:["m1","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[9,9,10,9,9,8,8,9]
+},
+
+{
+  id:"AG-32", titulo:"Confecção de placa miorrelaxante — bruxismo",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Disfunção Temporomandibular",
+  contexto:`PATRICIA FONTES RIBEIRO, 37 anos, foi encaminhada pelo médico com queixa de bruxismo noturno e cefaleia matinal. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). Relata dor muscular bilateral na região de masseter e temporal ao acordar. Não tem alergias. Faz uso de clonazepam 0,5 mg à noite (prescrito há 3 meses). PA: 118/76 mmHg. Não tem histórico de próteses ou implantes.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["patricia fontes ribeiro","patricia fontes","patricia"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["37","37 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","1 vez","diariamente","à noite"]},
+    {chave:"queixa_principal",label:"Queixa principal",obrigatorio:true,validacao:["bruxismo","dor muscular","cefaleia"]},
+    {chave:"medicamentos",label:"Medicamentos contínuos",obrigatorio:true,validacao:["clonazepam","0,5 mg"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma","sem alergias"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Prótese","Consultório de Periodontia","Consultório de Cirurgia","Consultório Infantil"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Alginato e moldeiras de estoque (moldagem superior e inferior)"},
+      {id:"m2",nome:"Gesso tipo III (modelos de trabalho)"},
+      {id:"m3",nome:"Placa de acetato 2 mm (termoformada — material da placa)"},
+      {id:"m4",nome:"Articulador semi-ajustável e arco facial"},
+      {id:"m5",nome:"Papel carbono articular (ajuste da oclusão da placa)"},
+      {id:"m6",nome:"Broca multilaminada e pedra montada (polimento da placa)"},
+      {id:"m7",nome:"Espelho clínico, espátula e cuba"},
+      {id:"m8",nome:"Resina acrílica autopolimerizável (rebase/ajuste)"},
+      {id:"m9",nome:"Fórceps e alavanca (procedimento cirúrgico — não indicado aqui)"},
+      {id:"m10",nome:"Fotopolimerizador e sistema adesivo (restauração — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[8,7,8,8,7,7,7,8]
+},
+
+{
+  id:"AG-33", titulo:"Radiografia periapical e diagnóstico — dor em molar",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Radiologia",
+  contexto:`EDMILSON CAVALCANTE LIMA, 50 anos, liga com queixa de dor latejante no lado esquerdo inferior há 4 dias, que piora ao deitar. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de metformina (diabetes tipo 2) e sinvastatina. Glicemia de jejum recente: 142 mg/dL (controlada). PA: 135/88 mmHg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["edmilson cavalcante lima","edmilson cavalcante","edmilson"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["50","50 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"medicamentos",label:"Medicamentos contínuos",obrigatorio:true,validacao:["metformina","sinvastatina"]},
+    {chave:"doenca_sistemica",label:"Doença sistêmica",obrigatorio:true,validacao:["diabetes","diabético","diabetes tipo 2"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Sala de Radiologia","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Cirurgia","Consultório de Emergência"],
+    correto:{sala:"Sala de Radiologia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Filme radiográfico periapical ou sensor digital (tamanho 2)"},
+      {id:"m2",nome:"Posicionador radiográfico (Rinn XCP ou similar)"},
+      {id:"m3",nome:"EPI: avental de chumbo e protetor de tireoide"},
+      {id:"m4",nome:"Equipamento de raio-X intraoral"},
+      {id:"m5",nome:"Luvas, máscara e óculos de proteção (biossegurança)"},
+      {id:"m6",nome:"Espelho clínico e explorador (exame clínico complementar)"},
+      {id:"m7",nome:"Processadora ou software de imagem digital"},
+      {id:"m8",nome:"Alginato e moldeiras (moldagem — não indicado nesta consulta)"},
+      {id:"m9",nome:"Limas endodônticas (tratamento de canal — consulta posterior)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,8,8,8,9,7,6,8]
+},
+
+{
+  id:"AG-34", titulo:"Restauração urgente em gestante — 2º trimestre",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Dentística",
+  contexto:`MÔNICA ANDRADE SOUSA, 28 anos, liga com dor em dente superior direito. Está GESTANTE de 22 SEMANAS (2º trimestre). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Pré-natal em dia, sem intercorrências. Não tem alergias. Faz uso de sulfato ferroso e ácido fólico (suplementação gestacional). PA: 110/70 mmHg. Relata dor ao mastigar no dente da frente superior direito.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["mônica andrade sousa","monica andrade sousa","mônica andrade","monica andrade"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["28","28 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["sim","gestante","22 semanas","2º trimestre","segundo trimestre"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["sulfato ferroso","ácido fólico","suplementação"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma","sem alergias"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Emergência","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico (benzocaína 20%)"},
+      {id:"m2",nome:"Mepivacaína 2% com epinefrina 1:100.000 (dose mínima, segura no 2º trimestre)"},
+      {id:"m3",nome:"Seringa carpule e agulha curta"},
+      {id:"m4",nome:"Espelho, explorador e pinça clínica"},
+      {id:"m5",nome:"Broca esférica diamantada e cônica (remoção de cárie)"},
+      {id:"m6",nome:"Hidróxido de cálcio (base protetora se exposição pulpar)"},
+      {id:"m7",nome:"Ácido fosfórico 37%, adesivo e resina composta"},
+      {id:"m8",nome:"Fotopolimerizador LED"},
+      {id:"m9",nome:"Avental de chumbo (proteção da gestante durante Rx)"},
+      {id:"m10",nome:"AINE (ibuprofeno — contraindicado no 3º trimestre e gestantes em geral)"},
+      {id:"m11",nome:"Óxido de zinco e eugenol provisório"},
+      {id:"m12",nome:"Dique de borracha"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m11","m12"]
+  },
+  competencias:[9,8,9,9,9,8,8,9]
+},
+
+{
+  id:"AG-35", titulo:"Moldagem para prótese parcial removível (PPR)",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Prótese",
+  contexto:`NELSON BRAGA CARDOSO, 65 anos, é encaminhado para confecção de PPR superior (falta os dentes 14, 15, 16, 17, 24, 25, 26). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Tem histórico de periodontite tratada. Não tem alergias. Faz uso de atorvastatina e AAS 100 mg (cardiopatia isquêmica leve, controlada). PA: 138/82 mmHg. Dentes remanescentes estão estáveis sem mobilidade.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["nelson braga cardoso","nelson braga","nelson"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["65","65 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","3 vezes","três vezes por semana"]},
+    {chave:"medicamentos",label:"Medicamentos contínuos",obrigatorio:true,validacao:["atorvastatina","aas","ácido acetilsalicílico"]},
+    {chave:"historico_periodontal",label:"Histórico periodontal",obrigatorio:true,validacao:["sim","periodontite","tratada"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório de Periodontia","Sala de Radiologia","Consultório de Cirurgia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Alginato e moldeiras de estoque (superior e inferior)"},
+      {id:"m2",nome:"Gesso tipo III ou IV (modelos de trabalho)"},
+      {id:"m3",nome:"Articulador semi-ajustável e cera de mordida"},
+      {id:"m4",nome:"Delineador de modelos (planejamento dos grampos)"},
+      {id:"m5",nome:"Espelho clínico, sonda periodontal e explorador"},
+      {id:"m6",nome:"Moldeira individual de resina acrílica (se necessário para PPR)"},
+      {id:"m7",nome:"Pasta zinco-enólica ou silicona de condensação (moldagem de precisão)"},
+      {id:"m8",nome:"Fotopolimerizador (restauração — não indicado nesta consulta)"},
+      {id:"m9",nome:"Lima endodôntica (tratamento de canal — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,7,8,9,7,7,7,8]
+},
+
+{
+  id:"AG-36", titulo:"Urgência — dor pós-extração (alveolite seca)",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
+  contexto:`THIAGO MENDES FERREIRA, 25 anos, liga 3 dias após a extração do dente 38 com dor intensa e fétida. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. Relata que fez bochecho com água quente e fumou no dia seguinte à extração. O analgésico prescrito parou de fazer efeito.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["thiago mendes ferreira","thiago mendes","thiago"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["25","25 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"procedimento_anterior",label:"Procedimento recente",obrigatorio:true,validacao:["extração","exodontia","dente 38"]},
+    {chave:"fator_agravante",label:"Fator agravante identificado",obrigatorio:true,validacao:["fumou","cigarro","bochecho","removeu coágulo"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório Infantil"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Seringa irrigadora e soro fisiológico (irrigação do alvéolo)"},
+      {id:"m2",nome:"Curetas cirúrgicas pequenas (curetagem leve do alvéolo)"},
+      {id:"m3",nome:"Alvogyl ou pasta de bismuto (curativo de alveolite)"},
+      {id:"m4",nome:"Gaze estéril"},
+      {id:"m5",nome:"Anestésico local (bloqueio para manejo da dor durante irrigação)"},
+      {id:"m6",nome:"Espelho, explorador e pinça cirúrgica"},
+      {id:"m7",nome:"Prescrição de analgésico (dipirona ou paracetamol) e antibiótico se necessário"},
+      {id:"m8",nome:"Fórceps para nova extração (não indicado — aguardar cicatrização)"},
+      {id:"m9",nome:"Sutura reabsorvível (alvéolo aberto — não suturar alveolite)"},
+      {id:"m10",nome:"Fotopolimerizador LED (restauração — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[9,9,9,9,8,7,7,9]
+},
+
+{
+  id:"AG-37", titulo:"Avaliação de DTM e confecção de placa oclusal",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Disfunção Temporomandibular",
+  contexto:`BEATRIZ FRANCO ALVES, 29 anos, vem encaminhada por clínica geral com queixa de estalido na ATM esquerda, dificuldade de abrir a boca e dor de cabeça frequente ao acordar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de anticoncepcional oral (etinilestradiol + levonorgestrel). PA: 115/72 mmHg. Relata hábito de morder as bochechas quando está ansiosa.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["beatriz franco alves","beatriz franco","beatriz"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["29","29 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"queixa_atm",label:"Queixa relacionada a ATM",obrigatorio:true,validacao:["estalido","dor","dificuldade de abrir","dtm","atm"]},
+    {chave:"habito_parafuncional",label:"Hábito parafuncional",obrigatorio:true,validacao:["morde","bruxismo","morder bochechas","parafuncional"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["anticoncepcional","etinilestradiol","levonorgestrel"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Periodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Alginato e moldeiras de estoque (modelos para placa)"},
+      {id:"m2",nome:"Gesso tipo III (vazar modelos)"},
+      {id:"m3",nome:"Placa de acetato 2 mm (base da placa oclusal)"},
+      {id:"m4",nome:"Resina acrílica autopolimerizável (ajuste oclusal da placa)"},
+      {id:"m5",nome:"Articulador semi-ajustável e arco facial"},
+      {id:"m6",nome:"Papel carbono articular e broca multilaminada (ajuste oclusal)"},
+      {id:"m7",nome:"Espelho clínico e régua milimetrada (mensuração da abertura bucal)"},
+      {id:"m8",nome:"Limas endodônticas (tratamento de canal — não indicado aqui)"},
+      {id:"m9",nome:"Fórceps de extração (não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,8,8,8,7,7,7,8]
+},
+
+{
+  id:"AG-38", titulo:"Profilaxia em idoso com xerostomia",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
+  contexto:`DJALMA RODRIGUES SANTOS, 72 anos, é trazido pelo filho para profilaxia de rotina. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Apresenta boca seca frequente (xerostomia) e múltiplas raízes expostas. Faz uso contínuo de: amitriptilina (depressão), hidroclorotiazida (hipertensão), metoprolol e omeprazol. PA: 148/88 mmHg. Sem alergias. Última profilaxia: há mais de 1 ano.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["djalma rodrigues santos","djalma rodrigues","djalma"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["72","72 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"medicamentos",label:"Medicamentos contínuos",obrigatorio:true,validacao:["amitriptilina","hidroclorotiazida","metoprolol","omeprazol"]},
+    {chave:"xerostomia",label:"Boca seca (xerostomia)?",obrigatorio:true,validacao:["sim","xerostomia","boca seca"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Prótese","Consultório Infantil"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom (profilaxia supragengival)"},
+      {id:"m2",nome:"Curetas de Gracey 1-2 e 3-4 (áreas anteriores)"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m4",nome:"Flúor verniz (proteção de raízes expostas)"},
+      {id:"m5",nome:"Espelho, sonda periodontal e explorador"},
+      {id:"m6",nome:"Esfigmomanômetro (aferição de PA antes do atendimento)"},
+      {id:"m7",nome:"Saliva artificial spray (orientação para xerostomia)"},
+      {id:"m8",nome:"Revelador de placa (motivação do paciente)"},
+      {id:"m9",nome:"Ácido fosfórico e adesivo (restauração — não indicado aqui)"},
+      {id:"m10",nome:"Jato de bicarbonato (manchas — verificar sensibilidade das raízes antes)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[9,7,7,8,8,8,7,9]
+},
+
+{
+  id:"AG-39", titulo:"Atendimento odontológico — paciente HIV positivo",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Pacientes Especiais",
+  contexto:`PEDRO AUGUSTO LOPES, 40 anos, solicita consulta de profilaxia e revisão. Informa que é HIV POSITIVO e está em TARV (tenofovir + lamivudina + dolutegravir) há 3 anos. CD4: 620 células/mm³ (controlado). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. PA: 120/80 mmHg. Relata leve sensação de ardência na língua eventualmente. Última carga viral indetectável.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["pedro augusto lopes","pedro augusto","pedro"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["40","40 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"condicao_sistemica",label:"Condição sistêmica",obrigatorio:true,validacao:["hiv","hiv positivo","soropositivo"]},
+    {chave:"medicamentos",label:"Medicamentos (TARV)",obrigatorio:true,validacao:["tarv","tenofovir","lamivudina","dolutegravir","antirretroviral"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Periodontia","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Prótese"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"EPI reforçado: luvas duplas, máscara N95, óculos e avental"},
+      {id:"m2",nome:"Aparelho de ultrassom (profilaxia supragengival)"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m4",nome:"Sonda periodontal e espelho clínico"},
+      {id:"m5",nome:"Revelador de placa"},
+      {id:"m6",nome:"Flúor tópico (prevenção)"},
+      {id:"m7",nome:"Autoclave para esterilização (biossegurança padrão)"},
+      {id:"m8",nome:"Materiais de caixa descartável individual"},
+      {id:"m9",nome:"Separação de sala/consultório exclusivo (não necessário — precaução padrão é suficiente)"},
+      {id:"m10",nome:"Antifúngico tópico (nistatina — para candidíase se presente)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[9,7,7,8,10,9,7,9]
+},
+
+{
+  id:"AG-40", titulo:"Extração de terceiro molar incluso — avaliação pré-cirúrgica",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`RENATA OLIVEIRA PINTO, 22 anos, chega com queixa de dor na região do siso inferior esquerdo e inchaço local há 2 dias (pericoronarite). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 112/70 mmHg. Radiografia panorâmica recente mostra dente 38 incluso em posição mesioangular com ausência de espaço. Temperatura oral: 37,4°C.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["renata oliveira pinto","renata oliveira","renata"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["22","22 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","2 vezes por semana","duas vezes por semana"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["pericoronarite","siso","dor","inchaço","inflamação"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["não","nenhum","sem medicamentos"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubete de articaína 4% com epinefrina 1:100.000"},
+      {id:"m2",nome:"Seringa carpule e agulha longa (bloqueio do nervo alveolar inferior)"},
+      {id:"m3",nome:"Bisturi lâmina 15C e cabo"},
+      {id:"m4",nome:"Descolador de periósteo (Molt 9)"},
+      {id:"m5",nome:"Fórceps 13 inferior (ou especial para 38)"},
+      {id:"m6",nome:"Alavancas (Seldin 1, 2 e 3)"},
+      {id:"m7",nome:"Broca cirúrgica em turbina ou peça de mão (osteotomia/odontossecção)"},
+      {id:"m8",nome:"Cureta de Lucas (limpeza do alvéolo)"},
+      {id:"m9",nome:"Sutura reabsorvível 3-0 e porta-agulha"},
+      {id:"m10",nome:"Gaze estéril e compressa"},
+      {id:"m11",nome:"Alginato e moldeiras (prótese — não indicado aqui)"},
+      {id:"m12",nome:"Limas endodônticas (tratamento de canal — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10"]
+  },
+  competencias:[8,8,9,9,9,7,7,8]
+},
+
+{
+  id:"AG-41", titulo:"Gengivite gestacional — 3º trimestre",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Periodontia",
+  contexto:`AMANDA CRISTINA MELO, 31 anos, GESTANTE de 32 SEMANAS (3º trimestre), chega com queixa de gengiva sangrando ao escovar. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Faz uso de sulfato ferroso, ácido fólico e carbonato de cálcio. PA: 108/65 mmHg. Placa visível, gengiva eritematosa generalizada. Nega dor ou abscesso.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["amanda cristina melo","amanda cristina","amanda"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["31","31 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","3 vezes","três vezes por semana"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["sim","gestante","32 semanas","3º trimestre","terceiro trimestre"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["sangramento","gengiva","gengivite"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["sulfato ferroso","ácido fólico","cálcio"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Emergência"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom (raspagem supragengival — segura no 3º trimestre se necessário)"},
+      {id:"m2",nome:"Curetas de Gracey (raspagem manual — mais indicada na gestante)"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m4",nome:"Espelho clínico e sonda periodontal"},
+      {id:"m5",nome:"Revelador de placa (motivação)"},
+      {id:"m6",nome:"Material educativo sobre higiene bucal na gestação"},
+      {id:"m7",nome:"Anestésico local (somente se necessário — não rotina para profilaxia)"},
+      {id:"m8",nome:"Antibioticoterapia sistêmica (somente em periodontite severa com risco)"},
+      {id:"m9",nome:"Cadeira reclinada a 45° máximo (evitar compressão de veia cava)"},
+      {id:"m10",nome:"Bisturi e sutura (cirurgia periodontal — contraindicada no 3º trimestre)"}
+    ],
+    corretos:["m2","m3","m4","m5","m6","m9"]
+  },
+  competencias:[9,8,8,9,8,8,7,9]
+},
+
+{
+  id:"AG-42", titulo:"Tratamento de canal — molar inferior sintomático",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`CARLOS ALBERTO NUNES, 44 anos, chega com dor espontânea intensa no molar inferior esquerdo (dente 36), piora à noite e ao deitar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos contínuos. PA: 128/82 mmHg. Radiografia mostra lesão periapical incipiente. O dentista clínico avaliou e indicou tratamento endodôntico.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carlos alberto nunes","carlos alberto","carlos"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"queixa",label:"Queixa principal",obrigatorio:true,validacao:["dor","molar","dente 36","canal","endodontia"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["não","nenhum"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Endodontia","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Periodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Endodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e articaína 4% (bloqueio do nervo alveolar inferior)"},
+      {id:"m2",nome:"Seringa carpule e agulha longa"},
+      {id:"m3",nome:"Dique de borracha, grampo e arco (isolamento absoluto)"},
+      {id:"m4",nome:"Broca Endo Access / Gates-Glidden (acesso à câmara)"},
+      {id:"m5",nome:"Limas K-file (10 a 40) e limas Flexo-file"},
+      {id:"m6",nome:"Localizador apical eletrônico e régua endodôntica"},
+      {id:"m7",nome:"Hipoclorito de sódio 1-2,5% (irrigação dos canais)"},
+      {id:"m8",nome:"EDTA 17% (quelação — alternância com NaOCl)"},
+      {id:"m9",nome:"Cones de papel absorvente (secagem dos canais)"},
+      {id:"m10",nome:"Hidróxido de cálcio (curativo entre sessões)"},
+      {id:"m11",nome:"Cimento endodôntico (AH Plus, Sealer Plus etc.)"},
+      {id:"m12",nome:"Guta-percha (cones principais e acessórios)"},
+      {id:"m13",nome:"Fórceps de extração (não indicado — tratamento conservador)"},
+      {id:"m14",nome:"Alginato e moldeiras (prótese — não indicado nesta consulta)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10"]
+  },
+  competencias:[8,9,9,10,9,7,7,9]
+},
+
+{
+  id:"AG-43", titulo:"Cimentação de coroa cerâmica unitária — dente 21",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
+  contexto:`FERNANDA LIMA COSTA, 38 anos, retorna para cimentação definitiva da coroa cerâmica do dente 21 (incisivo central superior esquerdo). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de levotiroxina (hipotireoidismo). PA: 120/78 mmHg. A coroa foi confeccionada no laboratório e chegou para prova e cimentação. Provisória instalada há 3 semanas.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fernanda lima costa","fernanda lima","fernanda"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","1 vez","diariamente","uma vez por dia"]},
+    {chave:"procedimento",label:"Procedimento",obrigatorio:true,validacao:["cimentação","coroa","dente 21","prótese"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["levotiroxina","hipotireoidismo"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Coroa cerâmica confeccionada no laboratório (conforme guia de cor)"},
+      {id:"m2",nome:"Cimento resinoso dual (RelyX, Multilink etc.)"},
+      {id:"m3",nome:"Ácido fluorídrico 10% (condicionamento interno da cerâmica)"},
+      {id:"m4",nome:"Silano (agente de união cerâmica-resina)"},
+      {id:"m5",nome:"Ácido fosfórico 37% (condicionamento do preparo no dente)"},
+      {id:"m6",nome:"Adesivo universal (primer do dente)"},
+      {id:"m7",nome:"Fio dental e tira de lixa (remoção de excessos interproximais)"},
+      {id:"m8",nome:"Papel carbono articular (ajuste oclusal pós-cimentação)"},
+      {id:"m9",nome:"Fotopolimerizador LED"},
+      {id:"m10",nome:"Espelho, explorador e pinça"},
+      {id:"m11",nome:"Pasta profilática e escova de Robinson (limpeza do preparo)"},
+      {id:"m12",nome:"Limas endodônticas (tratamento de canal — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10","m11"]
+  },
+  competencias:[7,7,8,9,8,7,7,8]
+},
+
+{
+  id:"AG-44", titulo:"Profilaxia em paciente portador de marca-passo",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Pacientes Especiais",
+  contexto:`OSWALDO TEIXEIRA VIEIRA, 68 anos, chega para profilaxia de rotina. Portador de MARCA-PASSO CARDÍACO (implantado há 2 anos por bloqueio AV total). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Faz uso de varfarina (INR: 2,1 — controlado), amiodarona e espironolactona. PA: 134/80 mmHg. Sem alergias. Cardiologista autorizou atendimento odontológico de rotina.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["oswaldo teixeira vieira","oswaldo teixeira","oswaldo"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["68","68 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"marca_passo",label:"Marca-passo?",obrigatorio:true,validacao:["sim","marca-passo","marca passo","cardíaco"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["varfarina","amiodarona","espironolactona","warfarina"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório Infantil","Sala de Radiologia"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom (CONTRAINDICADO em marca-passo — NÃO USAR)"},
+      {id:"m2",nome:"Curetas de Gracey (raspagem manual — única opção segura)"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m4",nome:"Espelho, sonda periodontal e explorador"},
+      {id:"m5",nome:"Esfigmomanômetro (aferição de PA)"},
+      {id:"m6",nome:"Oxímetro de pulso (monitoramento durante atendimento)"},
+      {id:"m7",nome:"Revelador de placa e material educativo"},
+      {id:"m8",nome:"Flúor tópico (prevenção)"},
+      {id:"m9",nome:"Bisturi elétrico (cautério — CONTRAINDICADO em marca-passo)"},
+      {id:"m10",nome:"Gaze estéril (hemostasia manual se necessário)"}
+    ],
+    corretos:["m2","m3","m4","m5","m6","m7","m8","m10"]
+  },
+  competencias:[9,8,8,9,10,8,7,9]
+},
+
+{
+  id:"AG-45", titulo:"Biópsia de lesão em mucosa jugal",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`LUIZA BEATRIZ MOURA, 55 anos, foi encaminhada pelo clínico geral com lesão esbranquiçada em mucosa jugal direita, presente há 4 meses, assintomática, não raspável. Diagnóstico diferencial: leucoplasia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Fumante (20 cigarros/dia há 25 anos). Não tem alergias. Faz uso de losartana e atenolol. PA: 142/88 mmHg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["luiza beatriz moura","luiza beatriz","luiza"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["55","55 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","1 vez","uma vez","diariamente"]},
+    {chave:"habito_tabagismo",label:"Tabagismo",obrigatorio:true,validacao:["sim","fumante","cigarro","tabagismo","20 cigarros"]},
+    {chave:"lesao",label:"Lesão na mucosa?",obrigatorio:true,validacao:["sim","lesão","leucoplasia","branca","mucosa"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["losartana","atenolol"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Periodontia","Consultório de Endodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico local (infiltração perilesional — articaína ou lidocaína)"},
+      {id:"m2",nome:"Bisturi lâmina 15 e cabo nº 3"},
+      {id:"m3",nome:"Pinça de tecido e tesoura cirúrgica"},
+      {id:"m4",nome:"Frascos de formol 10% (fixação da amostra para histopatológico)"},
+      {id:"m5",nome:"Sutura reabsorvível 3-0 ou 4-0 e porta-agulha"},
+      {id:"m6",nome:"Gaze estéril e compressas"},
+      {id:"m7",nome:"Formulário de requisição de biópsia/anatomia patológica"},
+      {id:"m8",nome:"Espelho e iluminação auxiliar (mapeamento da lesão)"},
+      {id:"m9",nome:"Fotografia clínica pré e pós (documentação)"},
+      {id:"m10",nome:"Broca cirúrgica em peça de mão (osteotomia — não indicado aqui)"},
+      {id:"m11",nome:"Fórceps de extração (não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  },
+  competencias:[8,9,9,9,8,7,7,9]
+}
+
+,
+
+{
+  id:"AG-46", titulo:"Urgência — celulite facial odontogênica",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`ROBERTO FARIA MACHADO, 35 anos, chega ao consultório com inchaço facial difuso do lado direito, febre (38,6°C) e dificuldade leve de abrir a boca há 2 dias. Refere dor em dente inferior direito há 1 semana sem procurar atendimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. PA: 126/82 mmHg. Radiografia mostra lesão periapical extensa no dente 46.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["roberto faria machado","roberto faria","roberto"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"queixa",label:"Queixa e sinais clínicos",obrigatorio:true,validacao:["inchaço","celulite","febre","dor","dente 46","periapical"]},
+    {chave:"temperatura",label:"Temperatura corporal",obrigatorio:true,validacao:["38,6","febre","febril"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório de Cirurgia","Consultório A — Clínica Geral","Consultório de Endodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Antibioticoterapia sistêmica (amoxicilina 500 mg 8/8h ou clindamicina)"},
+      {id:"m2",nome:"Analgésico/anti-inflamatório (dipirona ou paracetamol — AINE com cautela)"},
+      {id:"m3",nome:"Esfigmomanômetro e termômetro"},
+      {id:"m4",nome:"Espelho, explorador e iluminação (exame clínico)"},
+      {id:"m5",nome:"Encaminhamento hospitalar (se trismo severo ou celulite difusa)"},
+      {id:"m6",nome:"Radiografia periapical (confirmar origem do foco infeccioso)"},
+      {id:"m7",nome:"Drenagem da coleção purulenta (se flutuação presente)"},
+      {id:"m8",nome:"Gaze e solução salina (irrigação)"},
+      {id:"m9",nome:"Tratamento definitivo após controle da infecção (endodontia ou extração)"},
+      {id:"m10",nome:"Alginato e moldeiras (prótese — não indicado em urgência infecciosa)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  },
+  competencias:[9,9,10,9,9,8,7,9]
+},
+
+{
+  id:"AG-47", titulo:"Radiografia panorâmica — avaliação geral adulto",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Radiologia",
+  contexto:`SIMONE APARECIDA FONSECA, 33 anos, vem para consulta inicial com solicitação de radiografia panorâmica para avaliação geral (presença de terceiros molares, implantes futuros e cáries ocultas). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 115/72 mmHg. Não tem histórico cirúrgico ou protético.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["simone aparecida fonseca","simone aparecida","simone"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["33","33 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","2 vezes por semana","duas vezes"]},
+    {chave:"objetivo_exame",label:"Objetivo do exame",obrigatorio:true,validacao:["avaliação geral","panorâmica","terceiros molares","implantes","panoramica"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["não","nao","não gestante"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Sala de Radiologia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Sala de Radiologia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Equipamento de radiografia panorâmica (ortopantomógrafo)"},
+      {id:"m2",nome:"Avental de chumbo e protetor de tireoide"},
+      {id:"m3",nome:"Posicionador mordedor de plástico descartável (bite block)"},
+      {id:"m4",nome:"Luvas e máscara (biossegurança padrão)"},
+      {id:"m5",nome:"Software de imagem digital (visualização e envio ao CD)"},
+      {id:"m6",nome:"Filme de posicionamento intraoral (periapical — diferente da panorâmica)"},
+      {id:"m7",nome:"Sensor digital intraoral (usado em periapical — não na panorâmica)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5"]
+  },
+  competencias:[6,7,7,8,9,7,6,7]
+},
+
+{
+  id:"AG-48", titulo:"Raspagem subgengival — periodontite moderada",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Periodontia",
+  contexto:`MARCO AURÉLIO CUNHA, 47 anos, retorna para segunda sessão de raspagem subgengival (quadrantes posteriores direitos). Diagnóstico: periodontite estágio II, grau B. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de metformina e glibenclamida (diabetes tipo 2, HbA1c: 7,8%). PA: 134/86 mmHg. Boa resposta ao tratamento nos quadrantes anteriores tratados na semana passada.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marco aurélio cunha","marco aurelio cunha","marco aurélio","marco"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["47","47 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","1 vez","uma vez","diariamente"]},
+    {chave:"doenca_sistemica",label:"Doença sistêmica",obrigatorio:true,validacao:["diabetes","diabético","diabetes tipo 2"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["metformina","glibenclamida"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico local (bloqueio infiltrativo — conforto para raspagem)"},
+      {id:"m2",nome:"Curetas de Gracey 7-8, 9-10, 11-12 e 13-14 (posterior)"},
+      {id:"m3",nome:"Cureta universal Columbia 4R/4L"},
+      {id:"m4",nome:"Aparelho de ultrassom com insert subgengival (sonda slim)"},
+      {id:"m5",nome:"Sonda periodontal OMS (sondagem antes de iniciar)"},
+      {id:"m6",nome:"Espelho, pinça e explorador"},
+      {id:"m7",nome:"Solução salina e seringa irrigadora (irrigação subgengival)"},
+      {id:"m8",nome:"Gaze estéril"},
+      {id:"m9",nome:"Cimento periodontal/curativo Coe-Pack (não indicado em raspagem simples)"},
+      {id:"m10",nome:"Bisturi e suturas (cirurgia — não indicado nesta fase)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[8,8,8,9,8,7,7,8]
+},
+
+{
+  id:"AG-49", titulo:"Consulta preventiva — adolescente com aparelho ortodôntico",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`GABRIEL SOUZA ANDRADE, 15 anos, vem para consulta preventiva semestral. Usa aparelho ortodôntico fixo há 8 meses. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL (usa apenas escova interdental). O responsável informa que o ortodontista indicou manutenção preventiva paralela. Não tem alergias. Não usa medicamentos. O paciente está sob responsabilidade da mãe, ROSA ANDRADE, que está presente.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["gabriel souza andrade","gabriel souza","gabriel"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["15","15 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa","escova interdental"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae","rosa andrade","rosa"]},
+    {chave:"aparelho",label:"Usa aparelho ortodôntico?",obrigatorio:true,validacao:["sim","ortodôntico","aparelho fixo","braquetes"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório A — Clínica Geral","Consultório Infantil","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Endodontia"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Escova de Robinson e pasta profilática (profilaxia ao redor dos braquetes)"},
+      {id:"m2",nome:"Flúor verniz ou gel neutro (proteção ao redor dos braquetes)"},
+      {id:"m3",nome:"Revelador de placa (mostrar acúmulo ao redor do aparelho)"},
+      {id:"m4",nome:"Escova interdental e fio guia (orientação de higiene específica)"},
+      {id:"m5",nome:"Espelho clínico e explorador"},
+      {id:"m6",nome:"Aparelho de ultrassom (supragengival — com cuidado nos braquetes)"},
+      {id:"m7",nome:"Jato de bicarbonato (contraindicado próximo aos braquetes colados)"},
+      {id:"m8",nome:"Material educativo sobre higiene com aparelho"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m8"]
+  },
+  competencias:[8,6,6,7,8,8,7,8]
+},
+
+{
+  id:"AG-50", titulo:"Urgência — avulsão de dente permanente (trauma)",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`A mãe de LUCAS BARBOSA TELES, 10 anos, liga em pânico após queda da bicicleta. O dente 11 saiu inteiro e ela está segurando pela coroa, embrulhado em guardanapo seco. O acidente ocorreu há 20 minutos. Lucas escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe. Não tem alergias. Não usa medicamentos. A mãe deseja saber se é possível reimplantar o dente.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["lucas barbosa teles","lucas barbosa","lucas"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["10","10 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","com ajuda"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["mãe","mae","responsável"]},
+    {chave:"dente_avulsionado",label:"Dente avulsionado",obrigatorio:true,validacao:["11","dente 11","incisivo","avulsão","saiu"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório Infantil","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Soro fisiológico (reidratação do dente avulsionado se necessário)"},
+      {id:"m2",nome:"Anestésico local pediátrico (infiltração para reimplante)"},
+      {id:"m3",nome:"Gaze estéril"},
+      {id:"m4",nome:"Seringa carpule pediátrica e agulha curta"},
+      {id:"m5",nome:"Contenção semi-rígida (fio 0,4 mm + resina — imobilização pós-reimplante)"},
+      {id:"m6",nome:"Fotopolimerizador e resina"},
+      {id:"m7",nome:"Espelho clínico e explorador (avaliação do alvéolo)"},
+      {id:"m8",nome:"Radiografia periapical pós-reimplante (verificar posicionamento)"},
+      {id:"m9",nome:"Prescrição de antibiótico e encaminhamento médico (avaliar antitetânica)"},
+      {id:"m10",nome:"Fórceps de extração (contraindicado — não extrair dente reimplantável)"},
+      {id:"m11",nome:"Hipoclorito de sódio (NÃO usar para lavar a raiz — destrói ligamento periodontal)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  },
+  competencias:[10,9,10,9,9,8,8,9]
+},
+
+{
+  id:"AG-51", titulo:"Frenectomia lingual — limitação de mobilidade",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`HÉLIO AUGUSTO PRADO, 8 anos, é trazido pelos pais com queixa de dificuldade na fala (trocas fonéticas) e avaliação fonoaudiológica confirmando anquiloglossia grau III. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda dos pais. Não tem alergias. Não usa medicamentos. A fonoaudióloga encaminhou para frenectomia lingual. Peso: 28 kg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["hélio augusto prado","helio augusto prado","hélio augusto","helio augusto"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","com ajuda"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["pais","pai","mãe","mae","responsável"]},
+    {chave:"indicacao",label:"Indicação do procedimento",obrigatorio:true,validacao:["frenectomia","anquiloglossia","língua presa","fala","fonoaudióloga"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"],
+    salas:["Consultório de Cirurgia","Consultório Infantil","Consultório A — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Cirurgia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico sabor frutal (mucosa lingual)"},
+      {id:"m2",nome:"Tubete anestésico pediátrico — dose por peso (28 kg: máx. 2 tubetes)"},
+      {id:"m3",nome:"Seringa carpule pediátrica e agulha curta"},
+      {id:"m4",nome:"Tesoura cirúrgica reta (seção do freio)"},
+      {id:"m5",nome:"Pinça hemostática reta (freio)"},
+      {id:"m6",nome:"Sutura reabsorvível 4-0 (vicryl) e porta-agulha"},
+      {id:"m7",nome:"Gaze estéril"},
+      {id:"m8",nome:"Espelho clínico e iluminação auxiliar"},
+      {id:"m9",nome:"Bisturi lâmina 15C (alternativa à tesoura)"},
+      {id:"m10",nome:"Fórceps de extração (não indicado — não é extração)"},
+      {id:"m11",nome:"Limas endodônticas (não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9"]
+  },
+  competencias:[8,8,8,9,9,8,7,8]
+},
+
+{
+  id:"AG-52", titulo:"Retratamento endodôntico — dente com insucesso",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`IVANA CRISTINA BORGES, 48 anos, encaminhada com dente 26 (primeiro molar superior esquerdo) com histórico de tratamento de canal há 5 anos e dor à percussão, fístula ativa há 2 meses. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de sertralina 50 mg (depressão) e omeprazol 20 mg. PA: 122/78 mmHg. Radiografia mostra lesão periapical com subobturação dos canais.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["ivana cristina borges","ivana cristina","ivana"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["48","48 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"dente",label:"Dente a ser retratado",obrigatorio:true,validacao:["26","dente 26","molar superior","retratamento"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["sertralina","omeprazol"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Endodontia","Consultório A — Clínica Geral","Consultório de Cirurgia","Sala de Radiologia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Endodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e articaína 4% (bloqueio para molar superior)"},
+      {id:"m2",nome:"Dique de borracha e grampo (isolamento absoluto)"},
+      {id:"m3",nome:"Brocas de retratamento (ProTaper Retreatment D1, D2, D3 ou similar)"},
+      {id:"m4",nome:"Solvente de guta-percha (xilol ou Endosolv)"},
+      {id:"m5",nome:"Limas K-file e Flexofile (retratamento e reconfiguração)"},
+      {id:"m6",nome:"Localizador apical eletrônico"},
+      {id:"m7",nome:"Hipoclorito de sódio 2,5% (irrigação)"},
+      {id:"m8",nome:"EDTA 17% (quelação)"},
+      {id:"m9",nome:"Cones de papel absorvente"},
+      {id:"m10",nome:"Hidróxido de cálcio (curativo entre sessões)"},
+      {id:"m11",nome:"Guta-percha e cimento endodôntico (obturação — sessão posterior)"},
+      {id:"m12",nome:"Alginato e moldeiras (prótese — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m9","m10"]
+  },
+  competencias:[8,9,9,10,9,7,7,9]
+},
+
+{
+  id:"AG-53", titulo:"Profilaxia e aplicação de flúor — paciente diabético controlado",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
+  contexto:`MARCOS VINÍCIUS CAVALCANTI, 58 anos, diabético tipo 2, vem para profilaxia semestral. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). HbA1c: 7,2% (controlado). Faz uso de glipizida e metformina. PA: 138/84 mmHg. Sem alergias. Última profilaxia há 7 meses. Apresenta raízes expostas nos dentes posteriores inferiores bilateralmente.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marcos vinícius cavalcanti","marcos vinicius cavalcanti","marcos vinícius","marcos vinicius"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["58","58 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","1 vez","uma vez","à noite"]},
+    {chave:"doenca_sistemica",label:"Doença sistêmica",obrigatorio:true,validacao:["diabetes","diabético","diabetes tipo 2"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["glipizida","metformina"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Prótese","Consultório Infantil"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Aparelho de ultrassom (profilaxia supragengival)"},
+      {id:"m2",nome:"Curetas de Gracey (áreas posteriores e raízes expostas)"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m4",nome:"Flúor verniz (proteção das raízes expostas)"},
+      {id:"m5",nome:"Esfigmomanômetro (aferição de PA)"},
+      {id:"m6",nome:"Espelho, sonda periodontal e explorador"},
+      {id:"m7",nome:"Revelador de placa"},
+      {id:"m8",nome:"Orientação dietética (carboidratos e risco de cárie no diabético)"},
+      {id:"m9",nome:"Flúor gel APF em moldeira (raízes expostas — verificar sensibilidade antes)"},
+      {id:"m10",nome:"Antibioticoprofilaxia (não indicada em diabético controlado sem cirurgia)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[8,7,7,8,8,8,7,8]
+},
+
+{
+  id:"AG-54", titulo:"Instalação de prótese total superior e inferior",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Prótese",
+  contexto:`BENEDITA SOUZA FERREIRA, 71 anos, retorna para instalação das próteses totais superior e inferior confeccionadas. Escova os dentes 2 VEZES AO DIA (prótese total anterior) e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de losartana e hidroclorotiazida (hipertensão) e AAS 100 mg. PA: 144/86 mmHg. As próteses estão prontas no laboratório. Paciente edêntula total há 3 anos.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["benedita souza ferreira","benedita souza","benedita"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["71","71 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação (higiene da prótese)",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa","edêntula","sem dentes"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["losartana","hidroclorotiazida","aas","ácido acetilsalicílico"]},
+    {chave:"pa",label:"Pressão arterial",obrigatorio:true,validacao:["144/86","hipertensão","hipertensa","controlada"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Prótese","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Endodontia"],
+    correto:{sala:"Consultório de Prótese",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Próteses totais superior e inferior (vindas do laboratório)"},
+      {id:"m2",nome:"Papel carbono articular (ajuste de contatos oclusais)"},
+      {id:"m3",nome:"Broca multilaminada e pedra Arkansas (polimento dos pontos de ajuste)"},
+      {id:"m4",nome:"Espelho clínico e espátula (verificação do assentamento)"},
+      {id:"m5",nome:"Pasta de pressão (identificar pontos de pressão nas bases)"},
+      {id:"m6",nome:"Material para instrução de higiene das próteses (escova específica, pastilha efervescente)"},
+      {id:"m7",nome:"Esfigmomanômetro (aferição de PA antes do atendimento)"},
+      {id:"m8",nome:"Adesivo para prótese (não indicado para prótese nova bem adaptada)"},
+      {id:"m9",nome:"Alginato e moldeiras (nova moldagem — não necessário nesta consulta)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[7,7,8,8,7,8,7,8]
+},
+
+{
+  id:"AG-55", titulo:"Urgência — fratura coronária em incisivo adulto",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
+  contexto:`VINICIUS ROCHA LIMA, 27 anos, chega ao consultório após queda de skate com fratura coronária do dente 11 envolvendo esmalte e dentina, sem exposição pulpar visível, sensível ao toque. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos. PA: 120/78 mmHg. Traz o fragmento dental consigo, embalado em lenço úmido.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["vinicius rocha lima","vinicius rocha","vinicius"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["27","27 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","3 vezes","três vezes por semana"]},
+    {chave:"trauma",label:"Descrição do trauma",obrigatorio:true,validacao:["fratura","dente 11","queda","incisivo","esmalte","dentina"]},
+    {chave:"fragmento",label:"Fragmento disponível?",obrigatorio:true,validacao:["sim","traz","fragmento","trouxe"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Endodontia","Consultório de Periodontia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Anestésico tópico e tubete (infiltração para manejo da dor se necessário)"},
+      {id:"m2",nome:"Espelho clínico e explorador (exame e localização da fratura)"},
+      {id:"m3",nome:"Ácido fosfórico 37% (condicionamento para recimentação do fragmento)"},
+      {id:"m4",nome:"Adesivo universal e resina composta (restauração ou recimentação)"},
+      {id:"m5",nome:"Fotopolimerizador LED"},
+      {id:"m6",nome:"Tiras de lixa e brocas de acabamento (refinamento da restauração)"},
+      {id:"m7",nome:"Radiografia periapical (verificar integridade radicular e periapical)"},
+      {id:"m8",nome:"Dique de borracha"},
+      {id:"m9",nome:"Fórceps de extração (não indicado — dente com boa prognose)"},
+      {id:"m10",nome:"Hidróxido de cálcio (se necessário como proteção pulpar)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8","m10"]
+  },
+  competencias:[9,9,9,9,8,7,7,9]
+},
+
+{
+  id:"AG-56", titulo:"Selante oclusal — criança de alto risco de cárie",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`ISABELA FERREIRA GOMES, 7 anos, vem para aplicação de selante nos primeiros molares permanentes recém-irrompidos (dentes 16 e 26). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Responsável: PAI — JORGE FERREIRA. Alto risco de cárie (3 lesões de cárie em dentes decíduos). Não tem alergias. Não usa medicamentos. Peso: 23 kg.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome da paciente",obrigatorio:true,validacao:["isabela ferreira gomes","isabela ferreira","isabela"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["7","7 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"responsavel",label:"Responsável",obrigatorio:true,validacao:["pai","jorge ferreira","jorge","responsável"]},
+    {chave:"risco_carie",label:"Risco de cárie",obrigatorio:true,validacao:["alto","alto risco","cáries","3 lesões"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["08:00","09:00","10:00","14:00","15:00","16:00"],
+    salas:["Consultório Infantil","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Consultório de Emergência"],
+    correto:{sala:"Consultório Infantil",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["08:00","09:00","10:00","14:00","15:00","16:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Ácido fosfórico 37% (condicionamento das fossas e fissuras)"},
+      {id:"m2",nome:"Selante resinoso fotopolimerizável (Fissurit FX, Helioseal etc.)"},
+      {id:"m3",nome:"Fotopolimerizador LED"},
+      {id:"m4",nome:"Escova de Robinson e pasta profilática sem flúor (limpeza prévia)"},
+      {id:"m5",nome:"Sugador e rolo de algodão (isolamento relativo)"},
+      {id:"m6",nome:"Espelho clínico e explorador (verificar selamento)"},
+      {id:"m7",nome:"Revelador de placa (motivação antes do procedimento)"},
+      {id:"m8",nome:"Dique de borracha (ouro-padrão de isolamento para selantes)"},
+      {id:"m9",nome:"Fórceps de extração (não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m8"]
+  },
+  competencias:[8,7,7,8,9,8,7,8]
+},
+
+{
+  id:"AG-57", titulo:"Jato de bicarbonato e polimento — manchas extrínsecas",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
+  contexto:`FLAVIA REGINA TOSTA, 30 anos, vem para remoção de manchas externas por café e chá. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 112/70 mmHg. Não é gestante. Não tem sensibilidade dentinária. Nenhuma raiz exposta. Gengiva saudável.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["flavia regina tosta","flávia regina tosta","flavia regina","flávia regina"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["30","30 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["2 vezes","2x","duas vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"sensibilidade",label:"Sensibilidade dentinária?",obrigatorio:true,validacao:["não","nao","sem sensibilidade","nenhuma"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["não","nao"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório A — Clínica Geral","Consultório de Periodontia","Consultório B — Clínica Geral","Consultório de Prótese","Consultório Infantil"],
+    correto:{sala:"Consultório A — Clínica Geral",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Jato de bicarbonato de sódio (air polishing — manchas extrínsecas)"},
+      {id:"m2",nome:"Pó de bicarbonato de sódio granulometria fina"},
+      {id:"m3",nome:"Escova de Robinson e pasta profilática (polimento final)"},
+      {id:"m4",nome:"Espelho clínico e explorador"},
+      {id:"m5",nome:"Sugador de alta e baixa potência"},
+      {id:"m6",nome:"Óculos de proteção para o paciente"},
+      {id:"m7",nome:"Flúor tópico (pós-profilaxia)"},
+      {id:"m8",nome:"Curetas de Gracey (subgengival — não indicado para manchas extrínsecas)"},
+      {id:"m9",nome:"Ácido fosfórico e resina (restauração — não indicado aqui)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[6,6,6,7,8,7,6,7]
+},
+
+{
+  id:"AG-58", titulo:"Consulta de manutenção periodontal — pós-tratamento",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Periodontia",
+  contexto:`ANDRÉIA LIMA SANTOS, 42 anos, retorna para consulta de manutenção periodontal (protocolo de 3 em 3 meses). Diagnóstico anterior: periodontite estágio III, grau C. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Fumante (10 cigarros/dia — relatou redução). Faz uso de amlodipina (hipertensão). PA: 126/80 mmHg. Sem alergias. Boa higiene e manutenção na última consulta.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andréia lima santos","andreia lima santos","andréia lima","andreia lima"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["42","42 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"tabagismo",label:"Tabagismo",obrigatorio:true,validacao:["sim","fumante","cigarro","10 cigarros","tabagismo"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:false,validacao:["amlodipina","hipertensão"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Periodontia","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Cirurgia","Consultório de Prótese"],
+    correto:{sala:"Consultório de Periodontia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Sonda periodontal OMS (sondagem completa de 6 sítios por dente)"},
+      {id:"m2",nome:"Curetas de Gracey (raspagem de manutenção)"},
+      {id:"m3",nome:"Aparelho de ultrassom (supragengival e subgengival leve)"},
+      {id:"m4",nome:"Escova de Robinson e pasta profilática"},
+      {id:"m5",nome:"Revelador de placa (índice de biofilme)"},
+      {id:"m6",nome:"Espelho clínico e explorador"},
+      {id:"m7",nome:"Reforço de motivação e técnica de escovação para fumantes"},
+      {id:"m8",nome:"Flúor verniz (proteção de raízes em risco)"},
+      {id:"m9",nome:"Bisturi e sutura (cirurgia periodontal — não indicado em manutenção)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7","m8"]
+  },
+  competencias:[8,7,8,8,8,8,8,8]
+},
+
+{
+  id:"AG-59", titulo:"Urgência — dor de dente em paciente hipertenso descompensado",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`GERALDO ALVES CUNHA, 62 anos, chega com dor intensa em dente inferior esquerdo. Aferição na recepção: PA 178/108 mmHg. Diz que está em uso de enalapril mas não tomou hoje por esquecimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias a medicamentos. Relata que a dor o impediu de dormir. Nenhum médico foi consultado recentemente.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["geraldo alves cunha","geraldo alves","geraldo"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["62","62 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["1 vez","uma vez","1x"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["não","nao","não usa"]},
+    {chave:"pa",label:"Pressão arterial atual",obrigatorio:true,validacao:["178/108","178","108","alta","hipertensão","descompensada"]},
+    {chave:"medicamentos",label:"Medicamentos",obrigatorio:true,validacao:["enalapril","anti-hipertensivo","não tomou"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta","sábado"],
+    horariosDisponiveis:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"],
+    salas:["Consultório de Emergência","Consultório A — Clínica Geral","Consultório B — Clínica Geral","Consultório de Periodontia","Sala de Radiologia"],
+    correto:{sala:"Consultório de Emergência",dias:["segunda","terça","quarta","quinta","sexta","sábado"],horarios:["07:30","08:00","09:00","10:00","11:00","13:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Esfigmomanômetro e estetoscópio (monitoramento antes de qualquer procedimento)"},
+      {id:"m2",nome:"Analgésico não-invasivo oral (paracetamol/dipirona — alívio imediato da dor)"},
+      {id:"m3",nome:"Mepivacaína 3% SEM vasoconstritor (única opção se PA > 160/100)"},
+      {id:"m4",nome:"Articaína 4% com epinefrina 1:100.000 (CONTRAINDICADA com PA 178/108)"},
+      {id:"m5",nome:"Orientação para retornar após regularizar a PA com médico"},
+      {id:"m6",nome:"Prontuário com registro da PA e conduta tomada"},
+      {id:"m7",nome:"Oxímetro de pulso (monitoramento)"},
+      {id:"m8",nome:"Procedimento cirúrgico imediato (CONTRAINDICADO com PA descompensada)"},
+      {id:"m9",nome:"Encaminhamento médico de urgência (se PA ≥ 180/110 sem sintomas: SAMU)"}
+    ],
+    corretos:["m1","m2","m3","m5","m6","m7","m9"]
+  },
+  competencias:[10,9,10,9,9,8,8,10]
+},
+
+{
+  id:"AG-60", titulo:"Tomografia computadorizada de feixe cônico (CBCT) — planejamento de implante",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Radiologia",
+  contexto:`ANDREA MARQUES TAVARES, 46 anos, foi encaminhada para tomografia de feixe cônico (CBCT) para planejamento de implante na região do dente 36 (ausente há 4 anos). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 118/76 mmHg. Não é gestante. O implantodontista solicitou avaliação do volume ósseo e distância ao canal mandibular.`,
+  dadosPaciente:{campos:[
+    {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andrea marques tavares","andréa marques tavares","andrea marques","andréa marques"]},
+    {chave:"idade",label:"Idade",obrigatorio:true,validacao:["46","46 anos"]},
+    {chave:"freq_escovacao",label:"Frequência de escovação",obrigatorio:true,validacao:["3 vezes","3x","três vezes"]},
+    {chave:"uso_fio",label:"Usa fio dental?",obrigatorio:true,validacao:["sim","usa","diariamente"]},
+    {chave:"objetivo_exame",label:"Objetivo do exame",obrigatorio:true,validacao:["implante","tomografia","cbct","dente 36","planejamento","canal mandibular"]},
+    {chave:"gestante",label:"Gestante?",obrigatorio:true,validacao:["não","nao"]},
+    {chave:"alergias",label:"Alergias",obrigatorio:false,validacao:["não","nenhuma"]}
+  ]},
+  agenda:{
+    diasDisponiveis:["segunda","terça","quarta","quinta","sexta"],
+    horariosDisponiveis:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"],
+    salas:["Sala de Radiologia","Consultório A — Clínica Geral","Consultório de Cirurgia","Consultório de Prótese","Consultório de Endodontia"],
+    correto:{sala:"Sala de Radiologia",dias:["segunda","terça","quarta","quinta","sexta"],horarios:["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00"]}
+  },
+  materiais:{
+    opcoes:[
+      {id:"m1",nome:"Equipamento CBCT (tomógrafo de feixe cônico)"},
+      {id:"m2",nome:"Avental de chumbo e protetor de tireoide"},
+      {id:"m3",nome:"Mordedor de posicionamento (estabilização durante o exame)"},
+      {id:"m4",nome:"Software de análise 3D (OnDemand3D, RealScan etc.) para medições"},
+      {id:"m5",nome:"Termo de consentimento e ficha de triagem radiológica"},
+      {id:"m6",nome:"Luvas e máscara (biossegurança para itens de contato)"},
+      {id:"m7",nome:"Espelho clínico e sonda (exame clínico complementar pré-Rx)"},
+      {id:"m8",nome:"Alginato e moldeiras (protético — não indicado nesta consulta)"},
+      {id:"m9",nome:"Sensor intraoral periapical (diferente — não substitui CBCT para implante)"}
+    ],
+    corretos:["m1","m2","m3","m4","m5","m6","m7"]
+  },
+  competencias:[6,7,7,8,9,7,6,7]
+}
+
+,
+
+// ════════════════════════════════════════════
+// BLOCO 2: MATERIAIS (MAT-01 a MAT-40)
+// ════════════════════════════════════════════
+// ─────────────────────────────────────────────
+// DENTÍSTICA (MAT-01 a MAT-08)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-01",
+  titulo: "Restauração Classe II com resina composta e forramento de CIV",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `A dentista solicitou que você prepare a bancada para uma restauração Classe II em resina composta no dente 36 (primeiro molar inferior esquerdo) de um paciente adulto de 42 anos. A radiografia mostra cárie interproximal profunda, próxima à polpa, sem exposição pulpar confirmada. Por isso, a conduta será realizar um FORRAMENTO com cimento de ionômero de vidro (CIV) antes da restauração em resina. O dente apresenta sensibilidade ao frio e ao doce. Selecione todos os materiais necessários para este procedimento.`,
+  opcoes: [
+    { texto: "Anestésico tópico (gel ou spray)", correto: true },
+    { texto: "Tubete de anestésico (lidocaína 2% com vasoconstritor)", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Broca esférica (acesso) e broca cônica para preparo do contorno", correto: true },
+    { texto: "Cureta de dentina (para remoção do tecido cariado amolecido)", correto: true },
+    { texto: "Cimento de ionômero de vidro convencional (CIV) — forramento", correto: true },
+    { texto: "Ácido fosfórico 37% (condicionamento do esmalte e dentina)", correto: true },
+    { texto: "Adesivo universal (sistema adesivo)", correto: true },
+    { texto: "Resina composta (incrementos de dentina e esmalte)", correto: true },
+    { texto: "Sistema de matriz de contorno (Tofflemire + cunha de madeira)", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento e polimento (multilaminada e disco)", correto: true },
+    { texto: "Dique de borracha, clamp e arco (isolamento absoluto)", correto: true },
+    { texto: "Guta-percha e cimento endodôntico", correto: false },
+    { texto: "Fórceps de extração para molares inferiores", correto: false },
+    { texto: "Hipoclorito de sódio 2,5% para irrigação de canal", correto: false },
+    { texto: "Limas endodônticas (série K e H)", correto: false },
+    { texto: "Impressão com alginato e gesso tipo III", correto: false }
+  ],
+  competencias: [7, 8, 9, 9, 8, 7, 7, 8]
+},
+
+{
+  id: "MAT-02",
+  titulo: "Restauração Classe II com resina composta e hidróxido de cálcio",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Dentística",
+  contexto: `Paciente Fernanda, 31 anos, comparece com dor espontânea de baixa intensidade no dente 46 (primeiro molar inferior direito). Após sondagem e teste de vitalidade positivo, o diagnóstico é cárie profunda com exposição pulpar puntiforme (micro-exposição). A dentista opta por proteção pulpar direta com HIDRÓXIDO DE CÁLCIO antes do forramento com CIV e da restauração final em resina composta. Esta abordagem objetiva preservar a vitalidade pulpar. Prepare os materiais para este protocolo de proteção pulpar direta.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de lidocaína 2% com vasoconstritor", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Dique de borracha, clamp e arco", correto: true },
+    { texto: "Broca esférica e cônica para preparo cavitário", correto: true },
+    { texto: "Cureta de dentina para remoção seletiva de tecido cariado", correto: true },
+    { texto: "Hidróxido de cálcio (material forrador protetor pulpar)", correto: true },
+    { texto: "Cimento de ionômero de vidro (CIV) como base intermediária", correto: true },
+    { texto: "Ácido fosfórico 37%", correto: true },
+    { texto: "Adesivo universal", correto: true },
+    { texto: "Resina composta (bulk-fill ou incremental)", correto: true },
+    { texto: "Sistema de matriz de contorno e cunha de madeira", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento e polimento", correto: true },
+    { texto: "Guta-percha e cimento endodôntico (para obturação de canal)", correto: false },
+    { texto: "Localizador apical eletrônico", correto: false },
+    { texto: "Limas endodônticas rotatórias", correto: false },
+    { texto: "Molde de alginato para confecção de coroa provisória", correto: false }
+  ],
+  competencias: [7, 9, 9, 9, 8, 7, 7, 8]
+},
+
+{
+  id: "MAT-03",
+  titulo: "Restauração Classe I com resina composta simples (sem forramento)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Dentística",
+  contexto: `O paciente Eduardo, 19 anos, apresenta cárie oclusal rasa no dente 16 (primeiro molar superior direito), detectada em exame de rotina. O teste de vitalidade é positivo e o dente não apresenta sensibilidade espontânea. A cárie é de profundidade média, sem risco de exposição pulpar. A conduta é restauração Classe I direta com resina composta, SEM forramento e SEM proteção pulpar — apenas condicionamento e adesivo antes da resina. Separe os materiais necessários para este caso.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico com vasoconstritor", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Dique de borracha, clamp e arco (isolamento absoluto)", correto: true },
+    { texto: "Broca esférica de alta rotação (acesso)", correto: true },
+    { texto: "Broca cônica para preparo da cavidade", correto: true },
+    { texto: "Cureta de dentina", correto: true },
+    { texto: "Ácido fosfórico 37%", correto: true },
+    { texto: "Adesivo (sistema adesivo de frasco único ou dois frascos)", correto: true },
+    { texto: "Resina composta (preferencialmente bulk-fill para Classe I)", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento e polimento + disco de polimento", correto: true },
+    { texto: "Espelho clínico, pinça e explorador", correto: true },
+    { texto: "Hidróxido de cálcio (forramento protetor pulpar)", correto: false },
+    { texto: "Cimento de ionômero de vidro como base (técnica sanduíche)", correto: false },
+    { texto: "Sistema de matriz de Tofflemire", correto: false },
+    { texto: "Guta-percha (para obturação de canal)", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [6, 7, 9, 8, 7, 7, 7, 7]
+},
+
+{
+  id: "MAT-04",
+  titulo: "Restauração Classe II em ionômero de vidro convencional (dente decíduo)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `A paciente Isabela, 7 anos, apresenta cárie interproximal no dente 75 (segundo molar decíduo inferior esquerdo). A radiografia confirma cárie na face distal com profundidade moderada, sem envolvimento pulpar. O dentista decide por restauração Classe II com CIMENTO DE IONÔMERO DE VIDRO (CIV) convencional — opção ideal para dentes decíduos pelo efeito cariostático do flúor liberado. Atenção: para o CIV convencional NÃO se usa ácido fosfórico nem adesivo para resina. O condicionador utilizado é o ácido poliacrílico. Separe os materiais corretos para este procedimento.`,
+  opcoes: [
+    { texto: "Anestésico tópico pediátrico (sabor frutal) e tubete pediátrico", correto: true },
+    { texto: "Seringa carpule pediátrica e agulha curta", correto: true },
+    { texto: "Dique de borracha (com clamp pediátrico) ou roletes de algodão", correto: true },
+    { texto: "Broca esférica de baixa rotação para preparo em criança", correto: true },
+    { texto: "Cureta de dentina pediátrica (pequena)", correto: true },
+    { texto: "Ácido poliacrílico a 10-25% (condicionador específico do CIV)", correto: true },
+    { texto: "Cimento de ionômero de vidro (pó + líquido ou cápsula)", correto: true },
+    { texto: "Espátula de espatulação e bloco de papel (ou placa de vidro)", correto: true },
+    { texto: "Sistema de matriz de contorno e cunha de madeira (pediátrica)", correto: true },
+    { texto: "Verniz protetou ou Top Coat (para proteger o CIV recém-manipulado)", correto: true },
+    { texto: "Brocas de acabamento (multilaminada fina)", correto: true },
+    { texto: "Ácido fosfórico 37% (condicionamento de esmalte para resina)", correto: false },
+    { texto: "Adesivo universal para resina composta", correto: false },
+    { texto: "Resina composta fotopolimerizável", correto: false },
+    { texto: "Fotopolimerizador LED (não necessário para CIV convencional)", correto: false },
+    { texto: "Limas endodônticas pediátricas", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 8, 7, 8]
+},
+
+{
+  id: "MAT-05",
+  titulo: "Restauração Classe III em resina composta (dente anterior)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `A paciente Letícia, 25 anos, apresenta lesão de cárie inicial na face proximal do dente 12 (incisivo lateral superior direito), detectada por transiluminação e radiografia interproximal. A conduta é restauração Classe III direta em resina composta. Para dentes anteriores, a ênfase é na estética: utiliza-se resina composta estratificada (resina de dentina + resina de esmalte em diferentes opacidades) e tiras de poliéster para acabamento proximal. Não se usa Tofflemire neste caso. Separe os materiais.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Dique de borracha e clamp anterior (ou fio afastador)", correto: true },
+    { texto: "Broca de alta rotação (troncocônica ou cilíndrica de ponta ativa)", correto: true },
+    { texto: "Cureta de dentina", correto: true },
+    { texto: "Ácido fosfórico 37%", correto: true },
+    { texto: "Adesivo universal", correto: true },
+    { texto: "Resina composta de dentina (cor A3 ou similar — mais opaca)", correto: true },
+    { texto: "Resina composta de esmalte (cor A2 ou similar — mais translúcida)", correto: true },
+    { texto: "Tiras de poliéster (para acabamento proximal e proteção)", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento e polimento + disco de polimento SOF-Lex", correto: true },
+    { texto: "Sistema de matriz de Tofflemire e cunha", correto: false },
+    { texto: "Cimento de ionômero de vidro como base (sanduíche aberto)", correto: false },
+    { texto: "Guta-percha", correto: false },
+    { texto: "Fórceps", correto: false }
+  ],
+  competencias: [7, 8, 9, 8, 8, 7, 7, 8]
+},
+
+{
+  id: "MAT-06",
+  titulo: "Restauração Classe IV em resina composta (fratura de ângulo incisal)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `O paciente Bruno, 22 anos, sofreu queda e fraturou o ângulo mesioincisal do dente 11 (incisivo central superior direito). O fragmento não foi recuperado. O teste de vitalidade é positivo. A conduta é restauração Classe IV direta em resina composta, com guia de silicone palatal (índice de silicone) para reconstrução do ângulo com precisão anatômica. A estética é prioridade. Separe todos os materiais para este procedimento.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico", correto: true },
+    { texto: "Seringa carpule e agulha", correto: true },
+    { texto: "Dique de borracha e clamp anterior", correto: true },
+    { texto: "Guia/índice de silicone palatal (confeccionado previamente em silicone de adição)", correto: true },
+    { texto: "Broca diamantada para biselamento do esmalte fraturado", correto: true },
+    { texto: "Ácido fosfórico 37%", correto: true },
+    { texto: "Adesivo universal", correto: true },
+    { texto: "Resina composta de dentina (cor de base)", correto: true },
+    { texto: "Resina composta de esmalte (cor mais translúcida)", correto: true },
+    { texto: "Resina de efeito (opaca ou translúcida para halo)", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento multilaminadas e discos de polimento", correto: true },
+    { texto: "Tiras de poliéster", correto: true },
+    { texto: "Sistema de matriz de Tofflemire (para uso posterior)", correto: false },
+    { texto: "Limas endodônticas para sondagem do canal", correto: false },
+    { texto: "Cimento de fosfato de zinco (cimentação provisória)", correto: false },
+    { texto: "Fórceps anterior", correto: false }
+  ],
+  competencias: [7, 8, 9, 8, 8, 7, 7, 9]
+},
+
+{
+  id: "MAT-07",
+  titulo: "Restauração Classe V em ionômero de vidro (abrasão/erosão cervical)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `A paciente Renata, 45 anos, apresenta sensibilidade cervical intensa nos dentes 23 e 24 (canino e primeiro pré-molar superiores esquerdos). Há lesões cervicais em forma de cunha (abfração/abrasão) expondo a dentina. A conduta é restauração Classe V com IONÔMERO DE VIDRO FOTOPOLIMERIZÁVEL (Vitremer ou similar), que alia adesão química à dentina úmida, liberação de flúor e boa estética. Atenção: o protocolo do CIV fotoativado é diferente do convencional — utiliza primer específico do fabricante. Selecione os materiais corretos.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Roletes de algodão ou dique de borracha para isolamento", correto: true },
+    { texto: "Cureta de dentina para limpeza da lesão", correto: true },
+    { texto: "Primer específico do ionômero fotopolimerizável (ativador de superfície)", correto: true },
+    { texto: "Cimento de ionômero de vidro fotopolimerizável (Vitremer, Fuji II LC ou similar)", correto: true },
+    { texto: "Espátula de espatulação e placa de vidro (para CIV convencional) OU cápsula fotoativada", correto: true },
+    { texto: "Fotopolimerizador LED (o Vitremer exige fotoativação)", correto: true },
+    { texto: "Verniz de proteção (Top Coat) após fotoativação", correto: true },
+    { texto: "Broca de acabamento fina (se necessário ajuste oclusal)", correto: true },
+    { texto: "Ácido fosfórico 37% (não usado para CIV — condicionamento é pelo primer)", correto: false },
+    { texto: "Adesivo universal para resina composta (não necessário para CIV com primer próprio)", correto: false },
+    { texto: "Resina composta (material diferente)", correto: false },
+    { texto: "Limas endodônticas para tratamento de sensibilidade", correto: false },
+    { texto: "Guta-percha (endodontia)", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-08",
+  titulo: "Restauração Classe I com técnica sanduíche (CIV base + resina)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Dentística",
+  contexto: `O paciente Cláudio, 38 anos, apresenta cárie oclusal no dente 26 (primeiro molar superior esquerdo) de profundidade moderada, sem atingir a polpa. O dentista opta pela TÉCNICA SANDUÍCHE: ionômero de vidro convencional como base em dentina (aproveitando sua adesão química e liberação de flúor) e resina composta como cobertura oclusal (para resistência ao desgaste mastigatório). Este é um protocolo intermediário que combina as vantagens dos dois materiais. Selecione os materiais necessários para a técnica sanduíche fechado.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete com vasoconstritor", correto: true },
+    { texto: "Seringa carpule e agulha", correto: true },
+    { texto: "Dique de borracha, clamp e arco (isolamento absoluto recomendado)", correto: true },
+    { texto: "Broca esférica e cônica para preparo cavitário", correto: true },
+    { texto: "Cureta de dentina", correto: true },
+    { texto: "Cimento de ionômero de vidro convencional (base em dentina — sanduíche)", correto: true },
+    { texto: "Espátula de espatulação e bloco de papel", correto: true },
+    { texto: "Ácido fosfórico 37% (somente para condicionar o esmalte, não a base de CIV)", correto: true },
+    { texto: "Adesivo universal (aplicado sobre o CIV após endurecimento)", correto: true },
+    { texto: "Resina composta (camada oclusal de cobertura)", correto: true },
+    { texto: "Fotopolimerizador LED", correto: true },
+    { texto: "Brocas de acabamento e polimento", correto: true },
+    { texto: "Hidróxido de cálcio (não indicado neste protocolo)", correto: false },
+    { texto: "Sistema de matriz de Tofflemire (não necessário para Classe I)", correto: false },
+    { texto: "Guta-percha e cimento endodôntico", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas K para exploração de canal", correto: false }
+  ],
+  competencias: [7, 8, 9, 8, 7, 7, 7, 8]
+},
+
+// ─────────────────────────────────────────────
+// PERIODONTIA (MAT-09 a MAT-16)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-09",
+  titulo: "Profilaxia com ultrassom, taça de borracha e flúor",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Periodontia",
+  contexto: `A paciente Gisele, 32 anos, retorna para consulta de profilaxia semestral. O exame clínico revela presença de biofilme supragengival generalizado e cálculo supragengival leve localizado nos dentes anteriores inferiores. A gengiva apresenta leve vermelhidão (gengivite leve por higiene deficiente). O procedimento será: (1) remoção do cálculo com ultrassom; (2) polimento com taça de borracha e pasta profilática; (3) aplicação de flúor tópico ao final. Selecione todos os materiais necessários para este atendimento completo.`,
+  opcoes: [
+    { texto: "Aparelho de ultrassom odontológico (cavitador)", correto: true },
+    { texto: "Ponta do ultrassom (inserto supragengival padrão)", correto: true },
+    { texto: "Taça de borracha para contra-ângulo", correto: true },
+    { texto: "Pasta profilática (de baixa abrasividade)", correto: true },
+    { texto: "Contra-ângulo de baixa rotação (para a taça)", correto: true },
+    { texto: "Flúor gel neutro a 2% ou verniz fluoretado", correto: true },
+    { texto: "Moldeira descartável (se flúor em gel com moldeira)", correto: true },
+    { texto: "Sonda periodontal milimetrada", correto: true },
+    { texto: "Espelho clínico, pinça e explorador", correto: true },
+    { texto: "Gaze estéril e sugador", correto: true },
+    { texto: "Solução reveladora de placa (para motivação do paciente)", correto: true },
+    { texto: "Curetas de Gracey (raspagem subgengival — não indicada na profilaxia simples)", correto: false },
+    { texto: "Bisturi cirúrgico lâmina 15 (cirurgia periodontal)", correto: false },
+    { texto: "Pontos de sutura reabsorvíveis", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas", correto: false }
+  ],
+  competencias: [8, 7, 7, 8, 8, 8, 7, 8]
+},
+
+{
+  id: "MAT-10",
+  titulo: "Raspagem supragengival com curetas universais",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Periodontia",
+  contexto: `O paciente Roberto, 47 anos, comparece com sangramento gengival ao escovar os dentes há 3 meses. O exame periodontal revela presença de cálculo supragengival moderado generalizado, sangramento à sondagem, mas profundidade de bolsa de até 3 mm (sem bolsa verdadeira). Diagnóstico: gengivite associada ao biofilme com cálculo. O tratamento indicado é a RASPAGEM SUPRAGENGIVAL com curetas universais e ultrassom, sem necessidade de anestesia em todos os pacientes (mas disponível para mais sensíveis). Após a raspagem, instrução de higiene oral e reavaliação em 30 dias. Selecione os materiais.`,
+  opcoes: [
+    { texto: "Aparelho de ultrassom com ponta supragengival", correto: true },
+    { texto: "Curetas universais (McCall, Columbia ou Barnhart)", correto: true },
+    { texto: "Sonda periodontal milimetrada (para diagnóstico e documentação)", correto: true },
+    { texto: "Espelho clínico, pinça e explorador", correto: true },
+    { texto: "Gaze estéril e sugador de saliva", correto: true },
+    { texto: "Solução de clorexidina 0,12% (bochecho pré-operatório)", correto: true },
+    { texto: "Anestésico tópico (para pacientes com hipersensibilidade)", correto: true },
+    { texto: "Afiadeiras (Arkansas ou pedra para afiar curetas)", correto: true },
+    { texto: "Curetas de Gracey 1-2 e 3-4 (para anteriores) e 11-12, 13-14 (para posteriores)", correto: false },
+    { texto: "Bisturi e lâmina 15 (cirurgia periodontal)", correto: false },
+    { texto: "Pontos de sutura reabsorvíveis 4-0", correto: false },
+    { texto: "Membrana de regeneração óssea (para cirurgia)", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [8, 8, 7, 8, 8, 8, 7, 8]
+},
+
+{
+  id: "MAT-11",
+  titulo: "Raspagem subgengival com curetas de Gracey (raspagem e alisamento radicular)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Periodontia",
+  contexto: `A paciente Ana Paula, 51 anos, foi diagnosticada com periodontite generalizada estágio II, grau B. O exame periodontal mostra bolsas de 4 a 6 mm nas faces interproximais dos molares, sangramento à sondagem generalizado e cálculo sub e supragengival. O plano de tratamento inclui raspagem e alisamento radicular (RAR) por quadrante, sob anestesia local. As CURETAS DE GRACEY são os instrumentos específicos para cada região dental (são area-specific). Após a raspagem, aplica-se clorexidina para controle bacteriano. Selecione TODOS os materiais necessários para a sessão de raspagem subgengival.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (para anestesia por bloqueio/infiltração)", correto: true },
+    { texto: "Seringa carpule e agulhas (longa para bloqueio + curta para infiltração)", correto: true },
+    { texto: "Curetas de Gracey 1-2 (anteriores — faces vestibular e lingual)", correto: true },
+    { texto: "Curetas de Gracey 11-12 (molares e pré-molares — face mesial)", correto: true },
+    { texto: "Curetas de Gracey 13-14 (molares e pré-molares — face distal)", correto: true },
+    { texto: "Curetas de Gracey 7-8 e 9-10 (pré-molares e molares, faces livres)", correto: true },
+    { texto: "Aparelho de ultrassom com ponta subgengival (inserto slim para bolsas)", correto: true },
+    { texto: "Sonda periodontal milimetrada (sondagem antes e durante a sessão)", correto: true },
+    { texto: "Seringa de irrigação e solução de clorexidina 0,12% (irrigação subgengival)", correto: true },
+    { texto: "Afiadeira (manutenção do fio das curetas)", correto: true },
+    { texto: "Gaze estéril, espelho, pinça, sugador", correto: true },
+    { texto: "Limas endodônticas K para instrumentação do canal", correto: false },
+    { texto: "Bisturi lâmina 15 e porta-agulha (cirurgia periodontal)", correto: false },
+    { texto: "Pontos de sutura reabsorvíveis (pós-cirurgia)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Dique de borracha e clamp (endodontia/dentística)", correto: false }
+  ],
+  competencias: [8, 9, 8, 8, 8, 8, 7, 8]
+},
+
+{
+  id: "MAT-12",
+  titulo: "Jato de bicarbonato (air polishing) para remoção de manchas e biofilme",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Periodontia",
+  contexto: `O paciente Tiago, 27 anos, fumante, apresenta manchas extrínsecas escuras generalizadas (por tabaco e café) e biofilme moderado sem cálculo supragengival significativo. A conduta indicada é profilaxia com JATO DE BICARBONATO (air polishing) para remoção das manchas, seguido de polimento com taça de borracha. O jato de bicarbonato é contraindicado em: pacientes com dieta hipossódica, insuficiência renal ou respiratória, e em implantes (usar pó de glicina nesses casos). Selecione os materiais para este procedimento.`,
+  opcoes: [
+    { texto: "Aparelho de jato de bicarbonato (air polishing / profilaxia a jato)", correto: true },
+    { texto: "Pó de bicarbonato de sódio (granulometria específica para o aparelho)", correto: true },
+    { texto: "Óculos de proteção para o paciente", correto: true },
+    { texto: "Máscara de proteção reforçada para a equipe", correto: true },
+    { texto: "Sugador de alta potência (o jato gera muito aerossol)", correto: true },
+    { texto: "Espelho clínico (para visualização — pode embaçar, usar com spray de água)", correto: true },
+    { texto: "Taça de borracha e pasta profilática (polimento final após jato)", correto: true },
+    { texto: "Vaselina para proteção labial do paciente (evita ressecamento)", correto: true },
+    { texto: "Curetas de Gracey (raspagem subgengival — procedimento diferente)", correto: false },
+    { texto: "Aparelho de ultrassom com inserto subgengival (não é necessário para este caso)", correto: false },
+    { texto: "Bisturi e sutura (cirurgia periodontal)", correto: false },
+    { texto: "Pontos de sutura reabsorvíveis", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [7, 7, 7, 8, 8, 8, 6, 8]
+},
+
+{
+  id: "MAT-13",
+  titulo: "Aplicação tópica de flúor em gel com moldeira",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Periodontia",
+  contexto: `A paciente Sophia, 14 anos, apresenta alto risco de cárie: histórico de múltiplas cáries tratadas, dieta rica em carboidratos, higiene bucal regular. Após a profilaxia realizada, a dentista indica aplicação tópica de flúor gel fosfato acidulado (APF) a 1,23% por 4 minutos. O flúor aumenta a resistência do esmalte e pode remineralizar lesões iniciais. O paciente não deve comer nem beber por 30 minutos após a aplicação. Selecione todos os materiais para a aplicação de flúor em gel com moldeira.`,
+  opcoes: [
+    { texto: "Flúor gel fosfato acidulado (APF) a 1,23% (sabor neutro ou frutal)", correto: true },
+    { texto: "Moldeira descartável de espuma (superior e inferior, tamanho adequado)", correto: true },
+    { texto: "Gaze para secar os dentes antes da aplicação", correto: true },
+    { texto: "Sugador de saliva (para evitar deglutição do flúor)", correto: true },
+    { texto: "Espelho clínico e pinça", correto: true },
+    { texto: "Seringa de saliva (para manter os dentes secos)", correto: true },
+    { texto: "Ácido fosfórico 37% (condicionamento de esmalte para resina)", correto: false },
+    { texto: "Adesivo para resina composta", correto: false },
+    { texto: "Resina composta fotopolimerizável", correto: false },
+    { texto: "Fotopolimerizador LED", correto: false },
+    { texto: "Curetas de Gracey para raspagem", correto: false },
+    { texto: "Aparelho de ultrassom", correto: false },
+    { texto: "Solução de clorexidina 2% para irrigação subgengival", correto: false }
+  ],
+  competencias: [7, 7, 7, 8, 8, 8, 6, 8]
+},
+
+{
+  id: "MAT-14",
+  titulo: "Frenectomia labial superior (freio inserido alto com diastema)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Periodontia",
+  contexto: `O paciente Murilo, 9 anos, apresenta freio labial superior com inserção baixa (chegando até a papila interdental), causando diastema entre os incisivos centrais superiores. Após avaliação ortodôntica, foi indicada a FRENECTOMIA LABIAL SUPERIOR por técnica clássica (excisão em diamante com bisturi), seguida de sutura. O procedimento é realizado com anestesia local e dura aproximadamente 20 a 30 minutos. Selecione todos os materiais necessários para este procedimento cirúrgico.`,
+  opcoes: [
+    { texto: "Anestésico tópico (gel ou spray)", correto: true },
+    { texto: "Tubete de anestésico (lidocaína 2% com epinefrina 1:100.000)", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Bisturi cabo número 3 e lâmina 15", correto: true },
+    { texto: "Pinça hemostática reta (Kelly)", correto: true },
+    { texto: "Tesoura cirúrgica de ponta reta (para remoção do freio)", correto: true },
+    { texto: "Porta-agulha (porta-suturas)", correto: true },
+    { texto: "Fio de sutura reabsorvível 4-0 (categute cromado ou Vicryl)", correto: true },
+    { texto: "Pinça de tecido com dente (Adson)", correto: true },
+    { texto: "Gaze estéril e compressa", correto: true },
+    { texto: "Solução de clorexidina 0,12% (irrigação da ferida)", correto: true },
+    { texto: "Afastador de lábio ou espelho para afastar tecido", correto: true },
+    { texto: "Dique de borracha, clamp e arco (para isolamento em restaurações)", correto: false },
+    { texto: "Limas endodônticas K e H", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Ácido fosfórico 37% e adesivo para resina", correto: false }
+  ],
+  competencias: [8, 8, 9, 8, 7, 7, 7, 9]
+},
+
+{
+  id: "MAT-15",
+  titulo: "Frenectomia lingual (anquiloglossia com dificuldade de fala)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Periodontia",
+  contexto: `O paciente Pedro, 4 anos, apresenta freio lingual curto e espesso (anquiloglossia grau II), com dificuldade de protruir a língua, limitação de movimentos e dificuldade de fala (fono recomendou cirurgia). A FRENECTOMIA LINGUAL é mais delicada que a labial: a língua é altamente vascularizada, e há risco de lesão do ducto de Wharton (glândula sublingual). A técnica mais comum em crianças pequenas é a frenotomia com tesoura (sem bisturi) com sutura mínima ou sem sutura (dependendo da idade e tamanho do freio). Selecione os materiais.`,
+  opcoes: [
+    { texto: "Anestésico tópico (gel lingual ou spray)", correto: true },
+    { texto: "Tubete de anestésico pediátrico (dose reduzida por peso)", correto: true },
+    { texto: "Seringa carpule pediátrica e agulha curta", correto: true },
+    { texto: "Pinça hemostática reta (Kelly ou Mosquito) — para segurar e orientar o corte", correto: true },
+    { texto: "Tesoura cirúrgica de ponta romba (para frenectomia lingual em criança)", correto: true },
+    { texto: "Gaze estéril e compressas (controle de sangramento)", correto: true },
+    { texto: "Porta-agulha e fio de sutura reabsorvível 4-0 ou 5-0 (se necessário)", correto: true },
+    { texto: "Solução de clorexidina 0,12% (irrigação suave)", correto: true },
+    { texto: "Afastador de língua e espelho clínico", correto: true },
+    { texto: "Bisturi lâmina 15 (somente se técnica cirúrgica clássica em criança maior)", correto: true },
+    { texto: "Dique de borracha e clamp (isolamento para dentística)", correto: false },
+    { texto: "Fórceps de extração pediátrico", correto: false },
+    { texto: "Limas endodônticas pediátricas", correto: false },
+    { texto: "Ácido fosfórico 37% para condicionamento de esmalte", correto: false },
+    { texto: "Aparelho de ultrassom para raspagem", correto: false }
+  ],
+  competencias: [8, 9, 9, 8, 7, 7, 7, 9]
+},
+
+{
+  id: "MAT-16",
+  titulo: "Orientação de higiene bucal — montagem do kit e demonstração",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Periodontia",
+  contexto: `O paciente Hélio, 16 anos, apresenta gengivite generalizada causada exclusivamente por higiene bucal deficiente. Não há cálculo. O índice de placa é alto. Após o tratamento com profilaxia, a dentista solicita que você realize a SESSÃO DE ORIENTAÇÃO DE HIGIENE BUCAL, demonstrando a técnica de Bass modificada, o uso do fio dental e o uso de escovas interdentais. É fundamental utilizar o revelador de placa para motivar o paciente. Selecione todos os materiais necessários para a sessão educativa e de orientação.`,
+  opcoes: [
+    { texto: "Escova de dentes de cerdas macias (para demonstração)", correto: true },
+    { texto: "Fio dental (tipo encerado ou em fita)", correto: true },
+    { texto: "Escovas interdentais (variedade de tamanhos para motivação)", correto: true },
+    { texto: "Creme dental fluoretado (para demonstração da quantidade correta)", correto: true },
+    { texto: "Revelador de placa bacteriana (solução ou pastilhas)", correto: true },
+    { texto: "Espelho clínico (para mostrar ao paciente os locais com placa revelada)", correto: true },
+    { texto: "Modelo didático de arcada dentária (para demonstrar a técnica de escovação)", correto: true },
+    { texto: "Escova monopenacho (para áreas de difícil acesso)", correto: true },
+    { texto: "Material educativo / folder sobre saúde bucal", correto: true },
+    { texto: "Sonda periodontal (para mostrar profundidade das bolsas gengivais)", correto: true },
+    { texto: "Curetas de Gracey para raspagem (procedimento clínico, não de orientação)", correto: false },
+    { texto: "Aparelho de ultrassom (raspagem)", correto: false },
+    { texto: "Bisturi e porta-agulha (cirurgia)", correto: false },
+    { texto: "Anestésico local e seringa carpule", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [9, 7, 6, 7, 8, 8, 7, 9]
+},
+
+// ─────────────────────────────────────────────
+// CIRURGIA ORAL MENOR (MAT-17 a MAT-23)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-17",
+  titulo: "Extração simples de pré-molar unirradicular",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Cirurgia",
+  contexto: `O paciente João Carlos, 22 anos, necessita extração do dente 14 (primeiro pré-molar superior direito) para início do tratamento ortodôntico. O dente está hígido (sem cárie), tem raiz única e bom suporte ósseo. Será realizada extração simples com luxação e sindesmotomia prévia. Não há necessidade de sutura. O procedimento é considerado de baixa complexidade cirúrgica. Selecione os materiais necessários para esta extração simples.`,
+  opcoes: [
+    { texto: "Anestésico tópico (gel 20% ou spray benzocaína)", correto: true },
+    { texto: "Tubetes de anestésico (lidocaína 2% com epinefrina 1:100.000 — bloqueio + infiltração)", correto: true },
+    { texto: "Seringa carpule e agulhas (longa para bloqueio + curta para infiltração)", correto: true },
+    { texto: "Sindesmótomo reto (secção do ligamento periodontal — sindesmotomia)", correto: true },
+    { texto: "Alavanca reta (elevador reto de Seldin — luxação inicial)", correto: true },
+    { texto: "Fórceps para pré-molar superior (fórceps 150 ou similar)", correto: true },
+    { texto: "Gaze estéril (curativo alveolar pós-extração)", correto: true },
+    { texto: "Espelho clínico, pinça e explorador", correto: true },
+    { texto: "Seringa de irrigação e soro fisiológico 0,9% estéril (limpeza do alvéolo)", correto: true },
+    { texto: "Bisturi lâmina 15 e descolador de periósteo (para extrações complexas)", correto: false },
+    { texto: "Broca cirúrgica para ostectomia (extração complexa)", correto: false },
+    { texto: "Porta-agulha e sutura reabsorvível (não necessário na extração simples)", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Dique de borracha e clamp", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-18",
+  titulo: "Extração complexa com osteotomia — terceiro molar inferior incluso",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Cirurgia",
+  contexto: `A paciente Camila, 23 anos, apresenta queixa de dor e inflamação pericoronária recorrente no dente 38 (terceiro molar inferior esquerdo). A radiografia panorâmica mostra inclusão parcial em posição mesioangular, com cobertura óssea no terço distal. A extração requer RETALHO MUCOPERIOSTEAL, OSTEOTOMIA (remoção de parte do osso com broca cirúrgica) e ODONTOSSECÇÃO (secção do dente em partes). É uma extração complexa sob anestesia loco-regional. Selecione TODOS os materiais para este procedimento.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (bloqueio do nervo alveolar inferior + lingual + bucal longo)", correto: true },
+    { texto: "Seringa carpule e agulhas longa e curta", correto: true },
+    { texto: "Bisturi cabo 3 + lâmina 15C (incisão para retalho)", correto: true },
+    { texto: "Descolador de periósteo (Molt ou Freer — para levantar o retalho)", correto: true },
+    { texto: "Afastador de tecido (Ministeck ou Minnesota)", correto: true },
+    { texto: "Peça de mão cirúrgica (contra-ângulo cirúrgico) com motor elétrico", correto: true },
+    { texto: "Broca cirúrgica troncocônica de aço inoxidável (ostectomia e odontossecção)", correto: true },
+    { texto: "Irrigação abundante com soro fisiológico 0,9% estéril (refrigeração)", correto: true },
+    { texto: "Alavancas anguladas (Lecluse, Cryer — para luxar o dente seccionado)", correto: true },
+    { texto: "Fórceps para molar inferior (para remoção do dente)", correto: true },
+    { texto: "Cureta cirúrgica (para limpeza do alvéolo e remoção de tecido folicular)", correto: true },
+    { texto: "Lima para osso (regularização de espículas ósseas)", correto: true },
+    { texto: "Porta-agulha, pinça cirúrgica e fio de sutura reabsorvível 3-0 (Vicryl ou categute cromado)", correto: true },
+    { texto: "Gaze estéril e compressas cirúrgicas", correto: true },
+    { texto: "Limas endodônticas K para exploração de canal", correto: false },
+    { texto: "Dique de borracha e clamp (isolamento para dentística)", correto: false },
+    { texto: "Ácido fosfórico 37% e adesivo para resina", correto: false }
+  ],
+  competencias: [8, 9, 9, 8, 8, 7, 7, 9]
+},
+
+{
+  id: "MAT-19",
+  titulo: "Extração simples múltipla — 4 pré-molares para ortodontia",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 3, area: "Cirurgia",
+  contexto: `A paciente Beatriz, 16 anos, necessita extração dos quatro primeiros pré-molares (14, 24, 34 e 44) para início do tratamento ortodôntico com aparelho fixo. Todos os dentes são hígidos, com raízes únicas e sem complicações previstas. As extrações serão realizadas na mesma sessão (lado a lado), começando pelos superiores. Não haverá retalho nem osteotomia. São 4 extrações simples sequenciais. Você precisa calcular a quantidade adequada de materiais para 4 extrações. Selecione os materiais necessários.`,
+  opcoes: [
+    { texto: "Anestésico tópico (gel ou spray — suficiente para os 4 sítios)", correto: true },
+    { texto: "Múltiplos tubetes de anestésico — 6 a 8 tubetes para os 4 quadrantes", correto: true },
+    { texto: "Seringa carpule e agulhas (longa e curta — trocar a agulha a cada quadrante)", correto: true },
+    { texto: "Sindesmótomo reto e curvo (para cada dente)", correto: true },
+    { texto: "Alavancas retas (elevadores — para luxação prévia)", correto: true },
+    { texto: "Fórceps para pré-molar superior (dentes 14 e 24)", correto: true },
+    { texto: "Fórceps para pré-molar inferior (dentes 34 e 44)", correto: true },
+    { texto: "Gaze estéril (em quantidade suficiente para os 4 alvéolos)", correto: true },
+    { texto: "Seringa de irrigação e soro fisiológico 0,9% estéril", correto: true },
+    { texto: "Espelho, pinça e explorador", correto: true },
+    { texto: "Bisturi lâmina 15 e descolador de periósteo (extrações complexas)", correto: false },
+    { texto: "Broca cirúrgica para ostectomia (dentes inclusos)", correto: false },
+    { texto: "Porta-agulha e sutura (não necessário para extrações simples sem retalho)", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Dique de borracha e clamp", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-20",
+  titulo: "Biópsia excisional de lesão na mucosa jugal",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Cirurgia",
+  contexto: `A paciente Marta, 55 anos, apresenta lesão branca de 0,6 cm na mucosa jugal direita, de bordas irregulares, indolor, há 4 semanas (leucoplasia suspeita). Após documentação fotográfica, o cirurgião indica BIÓPSIA EXCISIONAL — remoção total da lesão com margem de tecido sadio ao redor, pois a lesão é pequena e acessível. A peça deve ser enviada em formol 10% para análise anatomopatológica. Selecione TODOS os materiais para este procedimento diagnóstico-cirúrgico.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico sem vasoconstritor ou com baixa concentração (para não interferir na coloração do tecido)", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Bisturi cabo 3 + lâmina 15 (para incisão em fuso ao redor da lesão)", correto: true },
+    { texto: "Pinça de tecido com dente (Adson) — para manipular a lesão sem esmagar", correto: true },
+    { texto: "Tesoura cirúrgica de ponta reta (para dissecção da lesão)", correto: true },
+    { texto: "Porta-agulha e pinça cirúrgica", correto: true },
+    { texto: "Fio de sutura reabsorvível 4-0 (Vicryl) para fechamento", correto: true },
+    { texto: "Gaze estéril e compressas", correto: true },
+    { texto: "Frasco com formol a 10% (fixação imediata da peça cirúrgica)", correto: true },
+    { texto: "Etiqueta de identificação para o frasco e requisição para anatomopatológico", correto: true },
+    { texto: "Afastador de bochecha (para acesso à mucosa jugal)", correto: true },
+    { texto: "Câmera fotográfica ou fotografia pré-operatória (documentação)", correto: true },
+    { texto: "Fórceps de extração (cirurgia dento-alveolar)", correto: false },
+    { texto: "Limas endodônticas e hipoclorito de sódio", correto: false },
+    { texto: "Dique de borracha e clamp", correto: false },
+    { texto: "Resina composta e fotopolimerizador", correto: false }
+  ],
+  competencias: [8, 9, 9, 8, 7, 7, 7, 9]
+},
+
+{
+  id: "MAT-21",
+  titulo: "Biópsia incisional de lesão ulcerada extensa na língua",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Cirurgia",
+  contexto: `O paciente Antônio, 62 anos, tabagista e etilista há 30 anos, apresenta úlcera indurada de 2,5 cm na borda lateral esquerda da língua, indolor, há 6 semanas. Alta suspeita de carcinoma de células escamosas. Por ser grande, o cirurgião indica BIÓPSIA INCISIONAL — coleta de um fragmento representativo (incluindo a borda ativa da lesão, não o centro necrótico). A sutura deve ser com fio não-reabsorvível para que o patologista possa identificar as margens da amostra. Selecione os materiais.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (sem vasoconstritor — para não distorcer o tecido histológico)", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Bisturi cabo 3 + lâmina 15 (ou 12 para acesso lingual)", correto: true },
+    { texto: "Pinça de tecido com dente (Adson) — manipulação delicada", correto: true },
+    { texto: "Tesoura cirúrgica fina (dissecção cuidadosa)", correto: true },
+    { texto: "Porta-agulha e pinça cirúrgica", correto: true },
+    { texto: "Fio de sutura NÃO-REABSORVÍVEL (nylon 3-0 ou seda 3-0) — para identificar margens da amostra ao patologista", correto: true },
+    { texto: "Gaze estéril e compressas", correto: true },
+    { texto: "Frasco com formol a 10% devidamente identificado", correto: true },
+    { texto: "Formulário de requisição de exame anatomopatológico com história clínica detalhada", correto: true },
+    { texto: "Afastador de língua e gaze para segurar a língua", correto: true },
+    { texto: "Fotografia pré-operatória da lesão (documentação)", correto: true },
+    { texto: "Fórceps de extração dental", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Dique de borracha e clamp", correto: false },
+    { texto: "Aparelho de ultrassom (raspagem periodontal)", correto: false }
+  ],
+  competencias: [8, 9, 9, 8, 7, 7, 7, 9]
+},
+
+{
+  id: "MAT-22",
+  titulo: "Alveoloplastia pós-extração múltipla para prótese total",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Cirurgia",
+  contexto: `O paciente Osvaldo, 68 anos, realizou extrações múltiplas na arcada superior há 3 semanas para confecção de prótese total. Retornou ao consultório com queixa de irregularidade óssea (espicula óssea palpável) na região dos dentes 12 e 13, dificultando a adaptação da prótese provisória. A conduta é ALVEOLOPLASTIA — regularização cirúrgica do rebordo alveolar para criar uma base lisa e uniforme para a prótese. Inclui retalho, remoção de espículas com lima óssea ou broca, e sutura. Selecione os materiais.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (infiltração local)", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Bisturi cabo 3 + lâmina 15 (incisão de retalho sobre o rebordo)", correto: true },
+    { texto: "Descolador de periósteo (Molt — para levantar o retalho e expor o osso)", correto: true },
+    { texto: "Lima para osso (lima óssea fina — remoção de espicula por desgaste manual)", correto: true },
+    { texto: "Broca cirúrgica troncocônica (ostectomia leve se necesário)", correto: true },
+    { texto: "Peça de mão cirúrgica (baixa rotação) com refrigeração", correto: true },
+    { texto: "Pinça Gouge (para remoção de fragmentos ósseos maiores)", correto: true },
+    { texto: "Soro fisiológico 0,9% estéril e seringa de irrigação", correto: true },
+    { texto: "Porta-agulha, pinça cirúrgica e fio reabsorvível 3-0 (Vicryl para sutura)", correto: true },
+    { texto: "Gaze estéril e compressas cirúrgicas", correto: true },
+    { texto: "Fórceps de extração (extrações já realizadas anteriormente)", correto: false },
+    { texto: "Limas endodônticas e hipoclorito de sódio", correto: false },
+    { texto: "Dique de borracha e clamp", correto: false },
+    { texto: "Ácido fosfórico 37% e adesivo para resina", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-23",
+  titulo: "Extração de dente decíduo com rizólise (criança)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 2, area: "Cirurgia",
+  contexto: `A paciente Maria, 8 anos, apresenta o dente 64 (primeiro molar decíduo superior esquerdo) com mobilidade grau II devido à rizólise fisiológica avançada (raiz reabsorvida). O dente permanente está em erupção. A extração é simples, com luxação mínima, pois as raízes estão parcialmente reabsorvidas. É importante utilizar anestésico em dose pediátrica correta (calculada por peso). O instrumento de escolha é o fórceps pediátrico para decíduo, menor que o adulto. Selecione os materiais adequados para este atendimento pediátrico.`,
+  opcoes: [
+    { texto: "Anestésico tópico com sabor (para reduzir ansiedade infantil)", correto: true },
+    { texto: "Tubete de anestésico pediátrico (artucaína 4% ou lidocaína — dose por kg)", correto: true },
+    { texto: "Seringa carpule pediátrica e agulha curta 27G", correto: true },
+    { texto: "Sindesmótomo reto de tamanho pediátrico (pequeno)", correto: true },
+    { texto: "Alavanca reta pequena (luxação suave — raiz já reabsorvida)", correto: true },
+    { texto: "Fórceps pediátrico para decíduo superior (Fórceps 150S — menor que adulto)", correto: true },
+    { texto: "Gaze estéril (curativo pós-extração e mordida)", correto: true },
+    { texto: "Espelho clínico e explorador", correto: true },
+    { texto: "Bisturi e descolador de periósteo (cirurgia complexa — não necessário)", correto: false },
+    { texto: "Broca cirúrgica para ostectomia (dentes inclusos)", correto: false },
+    { texto: "Porta-agulha e sutura (não necessário na extração simples decídua)", correto: false },
+    { texto: "Fórceps adulto para molar superior (muito grande para a criança)", correto: false },
+    { texto: "Limas endodônticas pediátricas", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 8, 7, 9]
+},
+
+// ─────────────────────────────────────────────
+// PRÓTESE (MAT-24 a MAT-30)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-24",
+  titulo: "Preparo e moldagem para prótese unitária fixa (coroa metal-cerâmica)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Prótese",
+  contexto: `A paciente Vera, 44 anos, necessita de coroa metal-cerâmica no dente 21 (incisivo central superior esquerdo), que apresenta cárie extensa e fratura de cúspide tornando-o irrestaurável diretamente. O dente tem vitalidade preservada. A sessão de hoje contempla: preparo protético (desgaste do dente para receber a coroa), retração gengival para exposição da linha de término, e moldagem com silicone de adição (polivinilsiloxano). Ao final, instala-se coroa provisória em acrílico cimentada com cimento provisório. Selecione TODOS os materiais.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico com vasoconstritor", correto: true },
+    { texto: "Seringa carpule e agulha curta", correto: true },
+    { texto: "Brocas diamantadas para preparo (troncocônica de ponta ativa + chanfro + broca de penetração)", correto: true },
+    { texto: "Fio de retração gengival (cordão de retração nº 00 e nº 0)", correto: true },
+    { texto: "Pasta de retração gengival hemostática (ex: Expasyl ou Astringident)", correto: true },
+    { texto: "Silicone de adição (polivinilsiloxano) — massa pesada + fluida (moldagem com dupla viscosidade)", correto: true },
+    { texto: "Moldeira de estoque (metálica ou de estoque rígido)", correto: true },
+    { texto: "Silicone de adição fluido (para moldagem da linha de término)", correto: true },
+    { texto: "Coroa provisória em acrílico autopolimerizável (ou bisacrílico)", correto: true },
+    { texto: "Cimento provisório (ex: Temp-Bond ou Rely X Temp)", correto: true },
+    { texto: "Papel de articulação e pinça de articulação (ajuste oclusal do provisório)", correto: true },
+    { texto: "Espelho clínico, pinça, sonda e explorador", correto: true },
+    { texto: "Guta-percha e cimento endodôntico (tratamento de canal)", correto: false },
+    { texto: "Curetas de Gracey (raspagem periodontal)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas K e H", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-25",
+  titulo: "Preparo e moldagem para prótese fixa de 3 elementos (ponte)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Prótese",
+  contexto: `O paciente Sérgio, 52 anos, perdeu o dente 36 (primeiro molar inferior esquerdo) há 2 anos. Os dentes 35 (segundo pré-molar) e 37 (segundo molar) estão hígidos e serão utilizados como pilares para uma PONTE FIXA DE 3 ELEMENTOS (pôntico no espaço do 36). Os dentes pilares serão preparados hoje, com moldagem em silicone de adição e instalação de provisório. O protético receberá o modelo para confecção. Selecione os materiais para a sessão de preparo e moldagem.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (bloqueio nervo alveolar inferior + infiltração)", correto: true },
+    { texto: "Seringa carpule e agulhas (longa + curta)", correto: true },
+    { texto: "Brocas diamantadas para preparo (troncocônica, ponta ativa, chanfro ou ombro)", correto: true },
+    { texto: "Fios de retração gengival e pasta hemostática (dois sítios — dentes 35 e 37)", correto: true },
+    { texto: "Silicone de adição de dupla viscosidade (massa pesada + fluida) + pistola de mistura", correto: true },
+    { texto: "Moldeira de estoque inferior metálica", correto: true },
+    { texto: "Provisório em bisacrílico (moldado sobre a arcada antes do preparo — técnica do negativo)", correto: true },
+    { texto: "Cimento provisório (Temp-Bond ou similar)", correto: true },
+    { texto: "Articulador de mão e papel de articulação para ajuste oclusal do provisório", correto: true },
+    { texto: "Cera de registro oclusal (registro de mordida para o protético)", correto: true },
+    { texto: "Espelho clínico, pinça, sonda, explorador", correto: true },
+    { texto: "Guta-percha e cimento endodôntico (endodontia)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas rotatórias", correto: false },
+    { texto: "Resina composta bulk-fill e fotopolimerizador (dentística direta)", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-26",
+  titulo: "Moldagem para Prótese Parcial Removível (PPR) superior",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Prótese",
+  contexto: `A paciente Dilma, 63 anos, é desdentada parcial superior: ausência dos dentes 15, 16, 17 (Classe I de Kennedy modificação 1). Os dentes remanescentes estão em boas condições. O plano de tratamento é PPR com grampos circunferenciais nos dentes 14 e 18. A sessão de hoje é a MOLDAGEM PRELIMINAR com alginato para obtenção de modelos de estudo e confecção de moldeira individual. O alginato é o material de escolha para moldagens de PPR (não o silicone — esse é para prótese fixa). Selecione os materiais.`,
+  opcoes: [
+    { texto: "Alginato (material de moldagem irreversível — tipo 2 de presa normal)", correto: true },
+    { texto: "Moldeira de estoque metálica ou plástica para maxila (perfurada)", correto: true },
+    { texto: "Gesso tipo II — Tipo comum (para vazamento do modelo de estudo)", correto: true },
+    { texto: "Cuba de borracha e espátula de espatulação para gesso", correto: true },
+    { texto: "Cuba de borracha e espátula para alginato (cuba separada)", correto: true },
+    { texto: "Cera utilidade (rosa) — para ajuste das bordas da moldeira de estoque", correto: true },
+    { texto: "Registro de mordida em cera (para articular os modelos)", correto: true },
+    { texto: "Sugador de saliva e pinça para afastar língua/bochecha", correto: true },
+    { texto: "Espelho clínico e pinça", correto: true },
+    { texto: "Silicone de adição de dupla viscosidade (para prótese fixa — não para PPR preliminar)", correto: false },
+    { texto: "Fio de retração gengival (para prótese fixa)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Broca de alta rotação para preparo protético", correto: false }
+  ],
+  competencias: [7, 7, 7, 8, 7, 7, 7, 8]
+},
+
+{
+  id: "MAT-27",
+  titulo: "Moldagem preliminar para Prótese Total superior (desdentado total)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Prótese",
+  contexto: `O paciente Nelson, 72 anos, é desdentado total na arcada superior há 5 anos. A prótese atual está desgastada e desadaptada. O tratamento indicado é confecção de nova PRÓTESE TOTAL SUPERIOR. A primeira sessão clínica é a MOLDAGEM PRELIMINAR (de estudo), com alginato em moldeira de estoque para desdentado, que gerará o modelo primário. A partir desse modelo, o protético confeccionará a moldeira individual para a moldagem definitiva. Selecione os materiais para a moldagem preliminar de desdentado total.`,
+  opcoes: [
+    { texto: "Alginato (moldagem de estudo — material de escolha para preliminar)", correto: true },
+    { texto: "Moldeira de estoque para desdentado total superior (bordas lisas, sem retenções abruptas)", correto: true },
+    { texto: "Cera utilidade para bordejamento das bordas da moldeira (evitar trauma gengival)", correto: true },
+    { texto: "Gesso tipo II (para vazar o modelo primário — gesso comum)", correto: true },
+    { texto: "Cuba de borracha e espátula para alginato", correto: true },
+    { texto: "Cuba e espátula para gesso", correto: true },
+    { texto: "Vibrador de gesso (para eliminar bolhas no modelo)", correto: true },
+    { texto: "Espelho clínico e pinça (exame pré-moldagem do rebordo)", correto: true },
+    { texto: "Silicone de adição de dupla viscosidade (moldagem definitiva — próxima sessão)", correto: false },
+    { texto: "Moldeira individual (confeccionada após a preliminar — próxima etapa)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Broca de alta rotação (preparo protético)", correto: false }
+  ],
+  competencias: [6, 7, 7, 8, 7, 7, 6, 8]
+},
+
+{
+  id: "MAT-28",
+  titulo: "Cimentação de prótese fixa unitária (coroa total cerâmica)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Prótese",
+  contexto: `O paciente Ricardo, 38 anos, retorna para instalação definitiva de coroa total em cerâmica pura (e.max) no dente 11 (incisivo central superior direito), confeccionada pelo protético. Antes da cimentação, deve-se: (1) realizar o tratamento de superfície da porcelana com ácido fluorídrico 9,5% + silano; (2) tratar o dente com ácido fosfórico + adesivo; (3) cimentar com cimento resinoso fotoativado. Este protocolo garante a adesão máxima entre a cerâmica e o dente. Selecione TODOS os materiais para a cimentação adesiva de cerâmica pura.`,
+  opcoes: [
+    { texto: "Ácido fluorídrico 9,5% (ataque da superfície interna da cerâmica)", correto: true },
+    { texto: "Silano (agente de união entre a porcelana e o cimento resinoso)", correto: true },
+    { texto: "Ácido fosfórico 37% (condicionamento do dente)", correto: true },
+    { texto: "Adesivo universal (aplicado no dente após condicionamento)", correto: true },
+    { texto: "Pasta de prova de cor (try-in paste — testar a cor antes de cimentar)", correto: true },
+    { texto: "Cimento resinoso fotoativado (ex: Variolink Esthetic, RelyX Veneer)", correto: true },
+    { texto: "Fotopolimerizador LED (fotoativação do cimento)", correto: true },
+    { texto: "Fio dental (verificar ponto de contato antes e remover excesso de cimento)", correto: true },
+    { texto: "Papel de articulação + pinça (ajuste oclusal após cimentação)", correto: true },
+    { texto: "Espelho clínico e explorador", correto: true },
+    { texto: "Gaze e algodão (limpeza e secagem)", correto: true },
+    { texto: "Broca de alta rotação para ajuste se necessário", correto: true },
+    { texto: "Guta-percha e cimento endodôntico (endodontia)", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Alginato para moldagem (moldagem já foi realizada em sessão anterior)", correto: false }
+  ],
+  competencias: [7, 8, 9, 8, 7, 7, 7, 9]
+},
+
+{
+  id: "MAT-29",
+  titulo: "Reembasamento direto de PPR inferior no consultório",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Prótese",
+  contexto: `A paciente Conceição, 70 anos, retorna com queixa de PPR inferior solta e desconfortável. O exame mostra perda óssea no rebordo após 3 anos sem ajuste — a base da prótese não acompanhou as alterações do rebordo. Indica-se REEMBASAMENTO DIRETO no consultório: aplicação de resina de reembasamento autopolimerizável (tipo Kooliner ou Tokuyama Rebase Fast II) diretamente sobre a base da prótese em boca, moldando o novo assento da base sobre o rebordo atual. Selecione os materiais para este procedimento.`,
+  opcoes: [
+    { texto: "Resina de reembasamento direto autopolimerizável (Kooliner, Ufi Gel Hard ou similar)", correto: true },
+    { texto: "Monômero (líquido) e polímero (pó) do sistema de reembasamento", correto: true },
+    { texto: "Espátula de espatulação e pote dappen (para misturar a resina)", correto: true },
+    { texto: "Pincel (para aplicar a resina líquida na base da prótese)", correto: true },
+    { texto: "Vaselina (isolante para os tecidos moles do paciente evitar aderência)", correto: true },
+    { texto: "Gaze para secar o rebordo antes da aplicação", correto: true },
+    { texto: "Espelho clínico e pinça", correto: true },
+    { texto: "Papel de articulação (verificar oclusão após o reembasamento)", correto: true },
+    { texto: "Broca ou pedra para polimento da borda da base (acabamento)", correto: true },
+    { texto: "Alginato e moldeira (moldagem de estudo — outra sessão)", correto: false },
+    { texto: "Silicone de adição (para prótese fixa)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas", correto: false },
+    { texto: "Bisturi e porta-agulha (cirurgia)", correto: false }
+  ],
+  competencias: [6, 7, 7, 8, 7, 7, 6, 8]
+},
+
+{
+  id: "MAT-30",
+  titulo: "Prótese Total — moldagem definitiva com moldeira individual",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Prótese",
+  contexto: `O paciente Geraldo, 74 anos, está em tratamento para Prótese Total superior e inferior. Já foi realizada a moldagem preliminar e confeccionadas as moldeiras individuais em acrílico pelo protético. A sessão de hoje é a MOLDAGEM DEFINITIVA (funcional) com pasta zinco-enólica ou silicone de baixa viscosidade em moldeira individual, que registra com precisão o contorno do rebordo e das zonas de selamento periférico. Após esta sessão, o protético fará os planos de cera para o registro de relação cêntrica. Selecione os materiais.`,
+  opcoes: [
+    { texto: "Moldeiras individuais confeccionadas em acrílico (superior e inferior)", correto: true },
+    { texto: "Pasta zinco-eugenólica (óxido de zinco + eugenol — moldagem funcional precisa)", correto: true },
+    { texto: "Espátula de espatulação e placa de vidro (para manipular a pasta zinco)", correto: true },
+    { texto: "Cera de bordejamento (Kerr wax) para moldagem das bordas periféricas", correto: true },
+    { texto: "Lamparina ou pegador de cera (para amolecer a cera de bordejamento)", correto: true },
+    { texto: "Gesso tipo IV (extraduro — para vazar o modelo definitivo)", correto: true },
+    { texto: "Vibrador de gesso e mufla", correto: true },
+    { texto: "Isolante para gesso (para separação posterior do modelo)", correto: true },
+    { texto: "Espelho clínico, pinça e explorador (exame do rebordo)", correto: true },
+    { texto: "Alginato (usado somente na moldagem preliminar — não na definitiva)", correto: false },
+    { texto: "Moldeira de estoque (usada na preliminar — não na definitiva)", correto: false },
+    { texto: "Silicone de adição massa pesada (para prótese fixa — não PT)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Limas endodônticas", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+// ─────────────────────────────────────────────
+// ENDODONTIA (MAT-31 a MAT-36)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-31",
+  titulo: "Tratamento endodôntico de dente unirradicular — polpa vital inflamada",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Endodontia",
+  contexto: `O paciente Fábio, 29 anos, chega com dor intensa ao frio e ao calor no dente 11 (incisivo central superior direito), dor que persiste por mais de 30 segundos após o estímulo. Diagnóstico: PULPITE IRREVERSÍVEL SINTOMÁTICA com polpa vital. Indicado tratamento endodôntico completo em sessão única. O procedimento inclui: acesso, odontometria (localizador apical), preparo biomecânico com limas K, irrigação com hipoclorito, secagem com cones de papel, obturação com guta-percha e cimento, selamento com CIV provisório. Selecione TODOS os materiais necessários.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico com vasoconstritor", correto: true },
+    { texto: "Seringa carpule e agulha longa (para bloqueio palatino e vestibular)", correto: true },
+    { texto: "Dique de borracha, clamp anterior e arco (isolamento absoluto — obrigatório)", correto: true },
+    { texto: "Broca esférica de alta rotação (acesso à câmara pulpar)", correto: true },
+    { texto: "Broca de Endo-Z ou troncocônica (refinamento do acesso)", correto: true },
+    { texto: "Explorador endodôntico (espora de Lima — para localizar entradas dos canais)", correto: true },
+    { texto: "Limas K manuais (nº 10, 15, 20, 25, 30 — exploração e patência)", correto: true },
+    { texto: "Localizador apical eletrônico (odontometria eletrônica)", correto: true },
+    { texto: "Régua endodôntica milimetrada (para medir as limas)", correto: true },
+    { texto: "Hipoclorito de sódio 2,5% (irrigante principal — dissolução de tecido pulpar)", correto: true },
+    { texto: "EDTA 17% gel ou líquido (quelante — limpeza de smear layer no terço final)", correto: true },
+    { texto: "Seringa endodôntica de 5ml e agulha de irrigação calibre 30G (irrigação)", correto: true },
+    { texto: "Cones de papel absorvente (secagem do canal após irrigação)", correto: true },
+    { texto: "Cimentos endodônticos (AH Plus, Sealapex ou Endofill)", correto: true },
+    { texto: "Cones de guta-percha (cone principal calibrado + cones acessórios)", correto: true },
+    { texto: "Condensadores laterais e endodôntico de calor (espalhador e plugger)", correto: true },
+    { texto: "Ionômero de vidro de baixa viscosidade (selamento coronário provisório)", correto: true },
+    { texto: "Fórceps de extração (cirurgia — não indicado neste caso)", correto: false },
+    { texto: "Ácido fosfórico 37% para resina composta (restauração definitiva — próxima sessão)", correto: false },
+    { texto: "Curetas de Gracey (raspagem periodontal)", correto: false }
+  ],
+  competencias: [8, 9, 9, 9, 8, 7, 7, 9]
+},
+
+{
+  id: "MAT-32",
+  titulo: "Tratamento de canal multirradicular — periodontite apical (molar inferior)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Endodontia",
+  contexto: `A paciente Helena, 42 anos, queixa-se de dor à mastigação e sensação de dente "crescido" no dente 36 (primeiro molar inferior esquerdo). A radiografia periapical mostra lesão periapical (rarefação óssea) nas raízes mesial e distal. Diagnóstico: PERIODONTITE APICAL SINTOMÁTICA. Indicado tratamento de canal em 2 sessões: primeira — acesso, odontometria, preparo e curativo (Ca(OH)2); segunda — obturação e selamento. O dente tem 3 canais (mesiovestibular, mesiolingual e distal). Selecione os materiais para a PRIMEIRA SESSÃO do tratamento de molar inferior.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (bloqueio alveolar inferior + infiltração)", correto: true },
+    { texto: "Seringa carpule e agulhas (longa para bloqueio)", correto: true },
+    { texto: "Dique de borracha, clamp molar e arco", correto: true },
+    { texto: "Broca esférica e troncocônica de alta rotação (acesso oclusal ao molar)", correto: true },
+    { texto: "Explorador endodôntico (localizar 3 entradas de canal)", correto: true },
+    { texto: "Brocas de Gates-Glidden 1, 2 e 3 (ampliação cervical dos canais)", correto: true },
+    { texto: "Limas K manuais iniciais (nº 10 e 15 — exploração da patência de cada canal)", correto: true },
+    { texto: "Limas rotatórias (sistema ProTaper Next ou Reciproc — preparo mecanizado)", correto: true },
+    { texto: "Motor de endodontia com torque controlado (para limas rotatórias)", correto: true },
+    { texto: "Localizador apical eletrônico (odontometria nos 3 canais)", correto: true },
+    { texto: "Hipoclorito de sódio 2,5% e EDTA 17%", correto: true },
+    { texto: "Seringa endodôntica e agulha de irrigação 30G", correto: true },
+    { texto: "Cones de papel absorvente (secagem após irrigação final)", correto: true },
+    { texto: "Pasta de hidróxido de cálcio (Calen ou similar — curativo intracanal)", correto: true },
+    { texto: "Algodão e cimento provisório (Coltosol ou CIV) para selamento coronário", correto: true },
+    { texto: "Cones de guta-percha e cimento endodôntico (2ª sessão — obturação)", correto: false },
+    { texto: "Fórceps de extração", correto: false },
+    { texto: "Curetas de Gracey", correto: false }
+  ],
+  competencias: [8, 9, 9, 9, 8, 7, 7, 9]
+},
+
+{
+  id: "MAT-33",
+  titulo: "Retratamento endodôntico — falha de tratamento anterior",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 3, area: "Endodontia",
+  contexto: `O paciente Alexandre, 48 anos, realizou tratamento de canal no dente 25 (segundo pré-molar superior esquerdo) há 5 anos. A radiografia atual mostra lesão periapical crescente (insucesso endodôntico) — a obturação anterior está aquém do ápice e há condutância de contraste em região periapical. Diagnóstico: INSUCESSO ENDODÔNTICO. Indicado RETRATAMENTO: remoção da obturação antiga (guta-percha + cimento), reinstrumentação e nova obturação. A principal dificuldade é a desobstrução da guta-percha, que exige solventes e instrumentos específicos. Selecione os materiais para o retratamento.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubete de anestésico", correto: true },
+    { texto: "Seringa carpule e agulha", correto: true },
+    { texto: "Dique de borracha, clamp e arco", correto: true },
+    { texto: "Broca esférica para remoção da restauração coronária (acesso)", correto: true },
+    { texto: "Solvente de guta-percha (xilol, clorofórmio ou eucaliptol — dissolução da GP)", correto: true },
+    { texto: "Brocas de Peeso ou Gates-Glidden (remoção de GP no terço cervical)", correto: true },
+    { texto: "Limas de desobstrução (Reciproc Retreatment, D-Race ou Mtwo R — retirada da GP)", correto: true },
+    { texto: "Limas K manuais (exploração e repassagem da odontometria original)", correto: true },
+    { texto: "Localizador apical eletrônico (nova odontometria)", correto: true },
+    { texto: "Hipoclorito de sódio 2,5% e EDTA 17% (nova irrigação)", correto: true },
+    { texto: "Seringa endodôntica e agulha de irrigação", correto: true },
+    { texto: "Cones de papel absorvente", correto: true },
+    { texto: "Pasta de hidróxido de cálcio (curativo intracanal entre sessões, se necessário)", correto: true },
+    { texto: "Nova guta-percha e novo cimento endodôntico (para nova obturação)", correto: true },
+    { texto: "Alginato para moldagem de coroa (próxima etapa — restauração)", correto: false },
+    { texto: "Fórceps de extração (somente em caso de insucesso total)", correto: false },
+    { texto: "Curetas de Gracey", correto: false }
+  ],
+  competencias: [8, 9, 9, 9, 8, 7, 7, 9]
+},
+
+{
+  id: "MAT-34",
+  titulo: "Pulpotomia em dente decíduo (polpa vital exposta — criança)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Endodontia",
+  contexto: `A paciente Valentina, 6 anos, apresenta cárie profunda com exposição pulpar no dente 75 (segundo molar decíduo inferior esquerdo). O teste de sangramento mostrou sangramento vermelho vivo ao contato (polpa vital). Indicada PULPOTOMIA: remoção da polpa coronária (câmara), mantendo a polpa radicular vital. O medicamento de escolha é o FORMOCRESOL (protocolo clássico em decíduo) ou MTA (mais atual). Após a pulpotomia, o assoalho é selado com cimento de ionômero de vidro e a restauração é com coroa de aço. Selecione os materiais para este procedimento pediátrico.`,
+  opcoes: [
+    { texto: "Anestésico tópico com sabor e tubete pediátrico (artucaína 4% 1:200.000)", correto: true },
+    { texto: "Seringa carpule pediátrica e agulha curta 27G", correto: true },
+    { texto: "Dique de borracha com clamp pediátrico (molar decíduo)", correto: true },
+    { texto: "Broca esférica de baixa rotação (acesso e remoção de dentina cariada)", correto: true },
+    { texto: "Cureta de dentina pediátrica (remoção da polpa coronária)", correto: true },
+    { texto: "Bola de algodão úmida em soro fisiológico (hemostasia da polpa radicular)", correto: true },
+    { texto: "Formocresol (diluído 1:5 — devitalização da polpa radicular por 5 min) OU MTA", correto: true },
+    { texto: "Cimento de óxido de zinco e eugenol reforçado (sobre o formocresol — selamento inicial)", correto: true },
+    { texto: "Cimento de ionômero de vidro (base do assoalho da câmara)", correto: true },
+    { texto: "Coroa de aço inoxidável pediátrica (restauração final do molar decíduo)", correto: true },
+    { texto: "Cimento de fosfato de zinco (cimentação da coroa de aço)", correto: true },
+    { texto: "Guta-percha e cimento endodôntico (obturação de canal em permanentes)", correto: false },
+    { texto: "Localizador apical eletrônico (pouco preciso em dentes com rizólise)", correto: false },
+    { texto: "Limas rotatórias (não indicadas na técnica de pulpotomia)", correto: false },
+    { texto: "Resina composta (coroa de aço é a restauração de escolha no decíduo)", correto: false }
+  ],
+  competencias: [8, 9, 9, 8, 7, 8, 7, 9]
+},
+
+{
+  id: "MAT-35",
+  titulo: "Obturação do canal radicular (guta-percha + cimento endodôntico)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Endodontia",
+  contexto: `O paciente Daniel, 33 anos, retorna para a segunda sessão do tratamento de canal do dente 22 (incisivo lateral superior esquerdo). O canal já foi preparado e medicado com hidróxido de cálcio por 15 dias. A dor cessou. Hoje será realizada a OBTURAÇÃO do canal com guta-percha pela técnica de condensação lateral e cimento endodôntico AH Plus. Após confirmação radiográfica da obturação, o dente será selado com ionômero de vidro provisório. Selecione apenas os materiais específicos para a etapa de OBTURAÇÃO.`,
+  opcoes: [
+    { texto: "Cones de guta-percha (cone principal calibrado ao CAF + cones acessórios finos)", correto: true },
+    { texto: "Cimento endodôntico (AH Plus, Sealapex ou Endofill — pasta A e B)", correto: true },
+    { texto: "Espalhadores laterais (condensadores laterais de metal — para compactar os cones)", correto: true },
+    { texto: "Espatulador de guta-percha (instrumento para amolecer a GP em técnica termoplástica)", correto: true },
+    { texto: "Cones de papel absorvente (secagem final do canal antes da obturação)", correto: true },
+    { texto: "Hipoclorito de sódio e EDTA (última irrigação antes de obturar)", correto: true },
+    { texto: "Broca de calor ou plugger aquecido (para remoção do excesso de GP cervical)", correto: true },
+    { texto: "Ionômero de vidro de baixa viscosidade (selamento coronário provisório)", correto: true },
+    { texto: "Radiografia de verificação (confirmar extensão e qualidade da obturação)", correto: true },
+    { texto: "Dique de borracha, clamp e arco (isolamento durante a obturação)", correto: true },
+    { texto: "Limas K manuais novas (para instrumentação — já foi feita na 1ª sessão)", correto: false },
+    { texto: "Motor endodôntico e limas rotatórias (preparo já concluído)", correto: false },
+    { texto: "Pasta de hidróxido de cálcio (curativo já removido nesta sessão)", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [7, 9, 9, 8, 8, 7, 7, 8]
+},
+
+{
+  id: "MAT-36",
+  titulo: "Endodontia de urgência — abertura coronária (pulpite irreversível com dor intensa)",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 2, tempo: 2, area: "Endodontia",
+  contexto: `A paciente Roberta, 27 anos, chega em URGÊNCIA com dor espontânea intensa e pulsátil no dente 46 (primeiro molar inferior direito) há 2 dias, pior à noite, sem alívio com analgésicos. Diagnóstico: PULPITE IRREVERSÍVEL SINTOMÁTICA. O procedimento de urgência é a ABERTURA CORONÁRIA (biopulpectomia parcial): acesso à câmara pulpar, remoção da polpa coronária, irrigação e curativo medicamentoso intracanal. NÃO será feita a obturação hoje — apenas o alívio imediato da dor. Selecione os materiais para a abertura de urgência.`,
+  opcoes: [
+    { texto: "Anestésico tópico e tubetes de anestésico (bloqueio nervo alveolar inferior)", correto: true },
+    { texto: "Seringa carpule e agulha longa (bloqueio alveolar inferior)", correto: true },
+    { texto: "Dique de borracha, clamp molar e arco (isolamento obrigatório mesmo na urgência)", correto: true },
+    { texto: "Broca esférica de alta rotação nº 1014 (acesso oclusal ao molar)", correto: true },
+    { texto: "Broca troncocônica (ampliação e remoção de teto da câmara pulpar)", correto: true },
+    { texto: "Explorador endodôntico (localizar entradas dos canais)", correto: true },
+    { texto: "Limas K manuais nº 10 e 15 (patência mínima dos canais)", correto: true },
+    { texto: "Hipoclorito de sódio 2,5% (irrigação e limpeza mínima da câmara)", correto: true },
+    { texto: "Seringa endodôntica e agulha de irrigação 30G", correto: true },
+    { texto: "Cones de papel absorvente (secagem básica)", correto: true },
+    { texto: "Curativo intracanal (PMCC — paramonoclorofenol canforado — ou cresofeno)", correto: true },
+    { texto: "Algodão estéril e cimento provisório (Coltosol, IRM ou CIV) para selamento", correto: true },
+    { texto: "Cones de guta-percha e cimento endodôntico (obturação — próxima sessão)", correto: false },
+    { texto: "Limas rotatórias (preparo completo — não na urgência)", correto: false },
+    { texto: "Fórceps de extração (somente se indicada exodontia)", correto: false },
+    { texto: "Ácido fosfórico e resina (restauração definitiva — próxima etapa)", correto: false }
+  ],
+  competencias: [7, 8, 8, 8, 7, 7, 7, 8]
+},
+
+// ─────────────────────────────────────────────
+// RADIOLOGIA (MAT-37 a MAT-40)
+// ─────────────────────────────────────────────
+{
+  id: "MAT-37",
+  titulo: "Radiografia periapical pela técnica do paralelismo",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 1, area: "Radiologia",
+  contexto: `O dentista solicitou radiografia periapical do dente 36 (primeiro molar inferior esquerdo) para avaliação pós-obturação de canal. A técnica indicada é o PARALELISMO (técnica do cone longo): o filme/sensor é posicionado paralelamente ao longo eixo do dente, com posicionador específico, e o feixe de raios X é perpendicular ao conjunto. É a técnica mais precisa para avaliação endodôntica e periapical. Selecione todos os materiais e equipamentos necessários para a radiografia periapical.`,
+  opcoes: [
+    { texto: "Filme radiográfico periapical (tamanho 2) OU sensor digital periapical (receptor CCD ou PSP)", correto: true },
+    { texto: "Posicionador de filme/sensor para técnica do paralelismo (Rinn XCP ou Dentsply Rinn)", correto: true },
+    { texto: "Aparelho de raios X intraoral (máquina de RX odontológico — 70 kVp)", correto: true },
+    { texto: "Avental de chumbo plumbífero (proteção do paciente — tronco e abdômen)", correto: true },
+    { texto: "Colar cervical de chumbo (proteção da tireoide do paciente)", correto: true },
+    { texto: "Processadora automática (se filme convencional) OU software de análise radiográfica (se digital)", correto: true },
+    { texto: "Soluções de revelação e fixação (se convencional — revelador, fixador e água)", correto: true },
+    { texto: "Envelope identificado (nome do paciente, data, dente) para o filme/sensor", correto: true },
+    { texto: "Luvas para manuseio do filme revelado (proteção da equipe)", correto: true },
+    { texto: "Aparelho de tomografia cone beam (exame diferente — mais complexo)", correto: false },
+    { texto: "Filme radiográfico panorâmico (exame diferente — extraoral)", correto: false },
+    { texto: "Chassi de tela intensificadora (radiografia extraoral convencional)", correto: false },
+    { texto: "Alginato e moldeira (moldagem — procedimento clínico diferente)", correto: false }
+  ],
+  competencias: [6, 7, 7, 8, 8, 7, 6, 8]
+},
+
+{
+  id: "MAT-38",
+  titulo: "Radiografia interproximal (bitewing) — diagnóstico de cáries interproximais",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 1, area: "Radiologia",
+  contexto: `O dentista solicitou radiografias interproximais (bitewing) bilaterais — superiores e inferiores — para diagnóstico de cáries interproximais nos dentes posteriores de um paciente adulto de 35 anos com alto risco de cárie. O bitewing mostra simultaneamente as coroas dos dentes superiores e inferiores de um mesmo lado, sendo o melhor exame para detectar cárie em esmalte e dentina antes que se torne clínica. São necessárias 2 exposições (lado direito e lado esquerdo). Selecione os materiais para as 2 radiografias bitewing.`,
+  opcoes: [
+    { texto: "Filmes bitewing (tamanho 2 ou 3) — 2 filmes para direita e esquerda — OU sensor digital", correto: true },
+    { texto: "Posicionador bitewing com aba de mordida (suporte de filme com aba interproximal)", correto: true },
+    { texto: "Aparelho de raios X intraoral", correto: true },
+    { texto: "Avental de chumbo e colar cervical de proteção", correto: true },
+    { texto: "Processadora (se convencional) OU software digital (se sensor digital)", correto: true },
+    { texto: "Envolvimento e identificação dos filmes/exames (nome, data, lado D e E)", correto: true },
+    { texto: "Luvas para manuseio", correto: true },
+    { texto: "Posicionador periapical de cone longo (técnica do paralelismo — para periapical, não bitewing)", correto: false },
+    { texto: "Chassi panorâmico (exame extraoral diferente)", correto: false },
+    { texto: "Aparelho de tomografia cone beam (exame diferente)", correto: false },
+    { texto: "Alginato (moldagem — procedimento clínico diferente)", correto: false },
+    { texto: "Dique de borracha e clamp (endodontia ou dentística)", correto: false }
+  ],
+  competencias: [6, 7, 7, 8, 8, 7, 6, 8]
+},
+
+{
+  id: "MAT-39",
+  titulo: "Radiografia panorâmica — avaliação geral e planejamento",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 1, tempo: 1, area: "Radiologia",
+  contexto: `A dentista solicitou radiografia panorâmica (ortopantomografia) de um paciente de 13 anos para avaliação do desenvolvimento dos dentes permanentes, presença de terceiros molares, anomalias e planejamento ortodôntico. A radiografia panorâmica é um exame EXTRAORAL que mostra toda a arcada superior e inferior, articulações temporomandibulares, seios maxilares e corpo da mandíbula em uma única imagem. Diferente dos exames intraorais, o paciente não coloca nada na boca (apenas a guia de mordida plástica). Selecione os materiais e equipamentos para este exame.`,
+  opcoes: [
+    { texto: "Aparelho de raios X panorâmico (ortopantomógrafo — equipamento extraoral)", correto: true },
+    { texto: "Chassi panorâmico com écran (tela intensificadora) — se convencional — OU sensor panorâmico digital", correto: true },
+    { texto: "Avental de chumbo (proteção do tronco do paciente)", correto: true },
+    { texto: "Colar cervical de chumbo (proteção da tireoide — obrigatório!)", correto: true },
+    { texto: "Guia de mordida descartável (plástica — para posicionar a mordida do paciente)", correto: true },
+    { texto: "Posicionadores de cabeça (apoio para a testa e o queixo no equipamento)", correto: true },
+    { texto: "Processadora de filme panorâmico OU software de análise de imagem digital", correto: true },
+    { texto: "Posicionador bitewing (para exame periapical e interproximal — intraoral)", correto: false },
+    { texto: "Filme periapical tamanho 2 (filme intraoral)", correto: false },
+    { texto: "Aparelho de tomografia cone beam (exame diferente — 3D)", correto: false },
+    { texto: "Alginato e moldeira (moldagem clínica)", correto: false },
+    { texto: "Dique de borracha (endodontia/dentística)", correto: false }
+  ],
+  competencias: [6, 7, 7, 8, 8, 7, 6, 8]
+},
+
+{
+  id: "MAT-40",
+  titulo: "Tomografia computadorizada cone beam (CBCT) — planejamento de implante",
+  modalidade: "materiais",
+  tipo: "Caso Clínico - Materiais",
+  complexidade: 3, tempo: 2, area: "Radiologia",
+  contexto: `O paciente Marcos, 48 anos, está em planejamento para implante dentário na região do dente 36 ausente (primeiro molar inferior esquerdo). O implantodontista solicitou TOMOGRAFIA COMPUTADORIZADA CONE BEAM (CBCT) com stent radiográfico para avaliação da altura e largura óssea, localização do nervo alveolar inferior, densidade óssea e posicionamento preciso do implante com auxílio de software de planejamento 3D. O CBCT gera imagens em 3 planos (axial, sagital, coronal) com menor dose de radiação que o tomógrafo hospitalar convencional. Selecione os materiais e recursos para este exame.`,
+  opcoes: [
+    { texto: "Aparelho de tomografia cone beam (CBCT odontológico — ex: i-CAT, CS 9000, Newtom)", correto: true },
+    { texto: "Avental de chumbo e colar cervical de proteção", correto: true },
+    { texto: "Stent radiográfico (guia com marcadores de referência — confeccionado pelo laboratório)", correto: true },
+    { texto: "Software de planejamento de implante em 3D (ex: Nobel Clinician, Simplant, coDiagnostiX)", correto: true },
+    { texto: "Workstation/computador com tela de alta resolução (análise das imagens DICOM)", correto: true },
+    { texto: "Posicionador de cabeça e apoio para queixo do aparelho de CBCT", correto: true },
+    { texto: "Impressora 3D ou fresadora (para confecção de guia cirúrgica a partir do planejamento)", correto: true },
+    { texto: "Aparelho panorâmico convencional (exame diferente — 2D apenas)", correto: false },
+    { texto: "Filme periapical e posicionador de cone longo (exame diferente)", correto: false },
+    { texto: "Alginato e moldeira (moldagem clínica — outro procedimento)", correto: false },
+    { texto: "Tomógrafo hospitalar (TC médica — dose de radiação muito maior, não indicada para rotina dental)", correto: false },
+    { texto: "Fórceps de extração", correto: false }
+  ],
+  competencias: [7, 8, 8, 9, 8, 7, 7, 9]
+}
+
+,
+
+// ════════════════════════════════════════════
+// BLOCO 3: CASOS CLÍNICOS (CC-01 a CC-40)
+// ════════════════════════════════════════════
+{
+  id:"CC-01", titulo:"Dor pós-extração com sinais de alveolite",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente masculino, 24 anos, retorna à clínica 3 dias após extração do dente 38. Relata dor intensa e constante que não cede com analgésico. Ao exame: alvéolo sem coágulo visível, paredes ósseas expostas, halitose intensa e dor à sondagem leve. O paciente admite ter fumado no dia seguinte à cirurgia e que fez bochechos com água morna para "limpar o local".`,
+  personagem:{nome:"Paciente pós-extração",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico",
+      pergunta:"Com base no quadro clínico descrito, qual é o diagnóstico mais provável?",
+      opcoes:[
+        {letra:"A", texto:"Osteomielite crônica mandibular"},
+        {letra:"B", texto:"Alveolite seca (osteíte alveolar)"},
+        {letra:"C", texto:"Abscesso dentoalveolar agudo"},
+        {letra:"D", texto:"Pericoronarite no dente 37"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Osteomielite é uma infecção óssea profunda, de evolução mais lenta e com alterações radiográficas. Não se enquadra neste quadro de 3 dias pós-extração.",
+        B:"Correto. A alveolite seca ocorre quando o coágulo é prematuramente removido (por cigarro, bochechos etc.), expondo o osso alveolar. O quadro clínico — alvéolo sem coágulo, dor intensa, halitose e paredes expostas — é característico.",
+        C:"O abscesso apresenta coleção purulenta, edema e flutuação. Este caso não mostra esses achados.",
+        D:"Pericoronarite ocorre ao redor de dente parcialmente irrompido. Aqui o dente 38 foi extraído."
+      }
+    },
+    {
+      fase:"Conduta terapêutica",
+      pergunta:"Qual é o tratamento mais adequado para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Extração imediata do dente 37 adjacente para liberar a área"},
+        {letra:"B", texto:"Irrigação do alvéolo com soro fisiológico e curativo com Alvogyl"},
+        {letra:"C", texto:"Prescrever antibiótico isoladamente e dispensar o paciente"},
+        {letra:"D", texto:"Realizar curetagem agressiva do alvéolo para estimular novo coágulo"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extrair o dente 37 não tem indicação clínica neste contexto.",
+        B:"Correto. O protocolo da alveolite seca inclui irrigação suave com soro fisiológico para remover debris, seguida de curativo medicamentoso (Alvogyl, pasta de bismuto ou similar) que libera eugenol analgésico. Trocas a cada 2-3 dias até resolução.",
+        C:"Antibiótico isolado não trata a alveolite, pois não é uma infecção bacteriana típica — é uma falha de cicatrização.",
+        D:"Curetagem agressiva pode lesar as paredes ósseas e prolongar a cicatrização. A abordagem deve ser gentil."
+      }
+    },
+    {
+      fase:"Prevenção e orientação",
+      pergunta:"Qual orientação é MAIS importante para prevenir recorrência em futuras extrações neste paciente?",
+      opcoes:[
+        {letra:"A", texto:"Usar antibiótico profilático antes de qualquer extração futura"},
+        {letra:"B", texto:"Evitar tabagismo e bochechos nas primeiras 24-48 horas após extração"},
+        {letra:"C", texto:"Realizar extração sempre sob anestesia geral para melhor controle"},
+        {letra:"D", texto:"Solicitar hemograma completo antes de toda extração dental"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Antibiótico profilático não previne alveolite em pacientes saudáveis.",
+        B:"Correto. O tabagismo interfere diretamente na estabilidade do coágulo (vasoconstricção e sucção do cigarro). Bochechos vigorosos também podem deslocar o coágulo. A orientação pós-operatória adequada é a principal prevenção.",
+        C:"Anestesia geral não tem relação com a prevenção de alveolite.",
+        D:"Hemograma é indicado em casos específicos (anticoagulados, hemofílicos), não como rotina."
+      }
+    }
+  ],
+  competencias:[8,8,8,9,8,7,7,8]
+},
+
+{
+  id:"CC-02", titulo:"Paciente hipertenso com necessidade de extração",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente feminina, 58 anos, chega para extração do dente 46 (cárie extensa, irrestaurável). Ao aferir a pressão arterial antes do procedimento: 172/104 mmHg. A paciente relata que toma losartana 50 mg/dia, mas esqueceu de tomar esta manhã. Nega dor de cabeça, alterações visuais ou outros sintomas. Não tem alergias a medicamentos.`,
+  personagem:{nome:"Paciente hipertensa",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação pré-operatória",
+      pergunta:"Qual deve ser a conduta imediata antes de iniciar o procedimento cirúrgico?",
+      opcoes:[
+        {letra:"A", texto:"Iniciar a extração normalmente, pois a dor do dente eleva mais a PA do que a espera"},
+        {letra:"B", texto:"Adiar o procedimento eletivo, orientar a paciente a tomar o medicamento e retornar com PA controlada"},
+        {letra:"C", texto:"Encaminhar imediatamente ao SAMU por crise hipertensiva"},
+        {letra:"D", texto:"Realizar a extração com anestesia sem vasoconstritor para compensar a PA elevada"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Realizar procedimento cirúrgico eletivo com PA 172/104 aumenta o risco de eventos adversos cardiovasculares.",
+        B:"Correto. PA ≥ 160/100 contraindica procedimentos eletivos. A conduta correta é adiar, instruir a paciente sobre a importância da medicação e remarcar após controle pressórico adequado.",
+        C:"SAMU é indicado para PA ≥ 180/110 com sintomas de emergência hipertensiva (cefaleia intensa, confusão, déficit neurológico). Este caso não se enquadra.",
+        D:"Não usar vasoconstritor não substitui o controle da PA. Mepivacaína 3% é opção em urgência, mas o procedimento eletivo deve ser adiado."
+      }
+    },
+    {
+      fase:"Escolha do anestésico",
+      pergunta:"Em uma consulta futura, com PA controlada em 138/86 mmHg, qual anestésico é a escolha mais adequada?",
+      opcoes:[
+        {letra:"A", texto:"Mepivacaína 3% sem vasoconstritor — mais segura em hipertensos"},
+        {letra:"B", texto:"Lidocaína 2% com epinefrina 1:50.000 — dose máxima de vasoconstritor"},
+        {letra:"C", texto:"Articaína 4% com epinefrina 1:100.000 — dose baixa com vasoconstritor"},
+        {letra:"D", texto:"Prilocaína com felipressina — indicada para hipertensos"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Mepivacaína sem vasoconstritor é opção segura, mas tem menor duração e analgesia. Não é a escolha de primeira linha quando a PA está controlada.",
+        B:"Epinefrina 1:50.000 tem concentração mais alta de vasoconstritor — não indicada em hipertensos.",
+        C:"Correto. Com PA controlada (< 160/100), articaína 4% com epinefrina 1:100.000 em dose normal (até 3 tubetes) é segura e eficaz. A concentração padrão de vasoconstritor não gera risco cardiovascular significativo em hipertensos compensados.",
+        D:"Felipressina é um vasoconstritor alternativo, mas não tem vantagem comprovada sobre epinefrina em dose baixa para hipertensos."
+      }
+    }
+  ],
+  competencias:[9,8,9,9,8,7,7,9]
+},
+
+{
+  id:"CC-03", titulo:"Gengivite em paciente gestante",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
+  contexto:`Paciente de 29 anos, no 2º trimestre de gestação (23 semanas), comparece à clínica com queixa de gengiva que sangra ao escovar os dentes há cerca de 3 semanas. Ao exame: gengiva eritematosa generalizada, edemaciada e com sangramento fácil à sondagem. Sem bolsas > 4 mm. Escovação 2x/dia. Não usa fio dental. Sem alergias ou medicamentos além dos suplementos vitamínicos.`,
+  personagem:{nome:"Gestante",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico periodontal",
+      pergunta:"Qual é o diagnóstico periodontal mais preciso para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Periodontite gestacional estágio III"},
+        {letra:"B", texto:"Gengivite associada à placa, modificada por gestação (hormonal)"},
+        {letra:"C", texto:"Abscesso gengival agudo de origem bacteriana"},
+        {letra:"D", texto:"Granuloma piogênico (tumor da gestante) com inflamação difusa"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Periodontite implica perda óssea e destruição de inserção. Sem bolsas > 4 mm, esse diagnóstico não se aplica.",
+        B:"Correto. O aumento dos hormônios gestacionais (progesterona) exacerba a resposta inflamatória gengival à placa bacteriana. É uma gengivite associada à placa modificada por fator sistêmico (gestação).",
+        C:"Abscesso é uma lesão localizada com coleção purulenta. O quadro é difuso.",
+        D:"O granuloma piogênico (tumor da gestante) é uma lesão localizada, pediculada. Aqui o quadro é generalizado."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o tratamento periodontal mais indicado para esta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Adiar todo tratamento para o pós-parto, pois procedimentos na gestação são contraindicados"},
+        {letra:"B", texto:"Realizar cirurgia de gengivectomia para eliminar o tecido inflamado"},
+        {letra:"C", texto:"Raspagem e alisamento radicular manual + instrução de higiene, com posicionamento adequado"},
+        {letra:"D", texto:"Prescrever antibióticos sistêmicos como tratamento de primeira escolha"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"O 2º trimestre é o período mais seguro para tratamentos odontológicos na gestante. Adiar até o pós-parto é desnecessário e aumenta o risco de complicações.",
+        B:"Cirurgia eletiva está contraindicada durante a gestação. Gengivectomia não é indicada aqui.",
+        C:"Correto. Raspagem supragengival manual com curetas é segura no 2º trimestre. A cadeira deve ser inclinada a no máximo 45° para evitar compressão da veia cava. Instrução de higiene é fundamental.",
+        D:"Antibióticos sistêmicos não são de primeira escolha para gengivite. São reservados para situações de abscesso ou periodontite severa com risco sistêmico."
+      }
+    }
+  ],
+  competencias:[8,8,8,9,8,8,7,9]
+},
+
+{
+  id:"CC-04", titulo:"Criança com medo extremo na primeira consulta",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Odontopediatria",
+  contexto:`Paciente masculino, 5 anos, primeira consulta odontológica. Quando a mãe tenta sentar a criança na cadeira, ele chora intensamente, se debate e recusa qualquer aproximação. A mãe relata que ele já assistiu ao irmão mais velho sendo tratado e "ficou apavorado". Não há queixa de dor. O exame pretendido é apenas de rotina.`,
+  personagem:{nome:"Criança — primeira consulta",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Manejo comportamental",
+      pergunta:"Qual é a técnica de manejo comportamental mais indicada para iniciar o atendimento?",
+      opcoes:[
+        {letra:"A", texto:"Contenção física imediata por dois adultos para realizar o exame rapidamente"},
+        {letra:"B", texto:"Dizer-mostrar-fazer (Tell-Show-Do), com voz calma e aproximação gradual"},
+        {letra:"C", texto:"Sedação com midazolam oral antes de qualquer contato"},
+        {letra:"D", texto:"Pedir à mãe que saia da sala para a criança não ter apoio emocional"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Contenção física deve ser o último recurso e só para procedimentos inadiáveis. Para uma consulta de rotina, é totalmente inadequada e pode traumatizar a criança.",
+        B:"Correto. O Tell-Show-Do é a técnica básica e mais recomendada: explicar o que será feito (Tell), mostrar o instrumento ou ação (Show) e então executar (Do). A voz positiva e calma é fundamental.",
+        C:"Sedação farmacológica é reservada para casos de impossibilidade de cooperação após esgotamento das técnicas comportamentais.",
+        D:"A presença da mãe pode ser um fator de segurança para a criança. Pedir que ela saia deve ser decidido caso a caso, não como regra."
+      }
+    },
+    {
+      fase:"Estratégia da consulta",
+      pergunta:"Qual é a estratégia mais adequada para esta primeira consulta, considerando o grau de ansiedade?",
+      opcoes:[
+        {letra:"A", texto:"Realizar o exame completo, profilaxia e aplicação de flúor tudo na mesma sessão"},
+        {letra:"B", texto:"Limitar a consulta a um procedimento breve (ex.: explorar com espelho apenas), elogiar e encerrar positivamente"},
+        {letra:"C", texto:"Solicitar que a mãe force fisicamente a criança a sentar para habituar o comportamento"},
+        {letra:"D", texto:"Receitar diazepam para a próxima consulta sem tentar outras estratégias"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Acumular múltiplos procedimentos em criança com medo extremo tende a piorar a ansiedade nas consultas seguintes.",
+        B:"Correto. A primeira consulta em criança ansiosa deve ser curta, com objetivo de dessensibilização progressiva. Um contato breve e positivo constrói confiança para sessões futuras.",
+        C:"Forçar fisicamente sem indicação clínica urgente é contraindicado e eticamente inadequado.",
+        D:"Farmacoterapia não deve substituir as técnicas comportamentais quando não foram tentadas adequadamente."
+      }
+    }
+  ],
+  competencias:[9,7,8,7,7,8,8,9]
+},
+
+{
+  id:"CC-05", titulo:"Interpretação de radiografia periapical — lesão apical",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
+  contexto:`Paciente feminina, 40 anos, comparece para avaliação. Sem queixa de dor. A radiografia periapical do dente 36 evidencia: área radiolúcida periapical bem delimitada com cerca de 8 mm de diâmetro, imagem uniforme e com bordas definidas. O dente apresenta tratamento endodôntico prévio, com obturação aparentemente satisfatória. Nenhum sinal de fístula ou mobilidade ao exame clínico.`,
+  personagem:{nome:"Paciente assintomática",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Interpretação radiográfica",
+      pergunta:"Qual hipótese diagnóstica é mais compatível com a imagem radiográfica descrita?",
+      opcoes:[
+        {letra:"A", texto:"Abscesso dentoalveolar agudo"},
+        {letra:"B", texto:"Granuloma periapical ou cisto radicular"},
+        {letra:"C", texto:"Osteossarcoma de mandíbula"},
+        {letra:"D", texto:"Ameloblastoma unicístico"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"O abscesso agudo geralmente é radiolúcido com bordas mal definidas, e o paciente costuma ter dor e edema. Aqui o caso é assintomático com bordas definidas.",
+        B:"Correto. Lesão radiolúcida apical bem delimitada, assintomática, associada a dente com tratamento endodôntico prévio é classicamente compatível com granuloma ou cisto periapical. O diagnóstico diferencial exige tomografia e eventualmente biópsia.",
+        C:"Osteossarcoma é maligno, com imagem agressiva, bordas irregulares e não associado especificamente à periápice de dente tratado.",
+        D:"Ameloblastoma é mais frequente em ramos e corpos mandibulares, não tipicamente periapical."
+      }
+    },
+    {
+      fase:"Conduta clínica",
+      pergunta:"Considerando que o dente não apresenta sintomas e a obturação parece adequada radiograficamente, qual conduta é mais indicada inicialmente?",
+      opcoes:[
+        {letra:"A", texto:"Extração imediata para biópsia da lesão"},
+        {letra:"B", texto:"Retratamento endodôntico imediato sem nova avaliação"},
+        {letra:"C", texto:"Acompanhamento radiográfico semestral e solicitar CBCT para melhor avaliação"},
+        {letra:"D", texto:"Ignorar a lesão pois é assintomática e não precisa de atenção"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Extração imediata é conduta radical sem indicação neste momento, especialmente se o dente for estratégico.",
+        B:"Retratamento pode ser indicado, mas requer melhor avaliação 3D antes de qualquer procedimento.",
+        C:"Correto. Lesões assintomáticas pós-tratamento endodôntico podem ser acompanhadas. O CBCT permite avaliar volume, relação com estruturas anatômicas e decidir entre retratamento ou cirurgia parendodôntica.",
+        D:"Lesão periapical, mesmo assintomática, precisa de acompanhamento. Não pode ser negligenciada."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,7,7,6,8]
+},
+
+{
+  id:"CC-06", titulo:"Sangramento gengival persistente — investigação sistêmica",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
+  contexto:`Paciente masculino, 32 anos, queixa de sangramento gengival espontâneo e ao escovar há 2 meses. Ao exame: gengiva com sangramento difuso, mesmo sem sondagem, além de pequenas equimoses no palato e lábios. Higiene oral razoável. Sem histórico de trauma recente. O paciente nega uso de medicamentos e não tem histórico familiar de doenças hematológicas conhecidas.`,
+  personagem:{nome:"Paciente com sangramento gengival",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Raciocínio diagnóstico",
+      pergunta:"Além da causa periodontal, qual fator sistêmico deve ser investigado prioritariamente neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Diabetes mellitus tipo 2"},
+        {letra:"B", texto:"Distúrbio de coagulação ou alteração hematológica (ex.: trombocitopenia, leucemia)"},
+        {letra:"C", texto:"Hipotireoidismo"},
+        {letra:"D", texto:"Síndrome do intestino irritável"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Diabetes pode agravar doenças periodontais, mas não costuma causar equimoses em mucosa oral nem sangramento espontâneo tão expressivo.",
+        B:"Correto. Sangramento gengival espontâneo associado a equimoses em mucosa (sem trauma) é um sinal de alerta para distúrbios hemorrágicos — trombocitopenia, leucemia, deficiência de fatores de coagulação. É necessário encaminhamento médico urgente.",
+        C:"Hipotireoidismo pode causar edema gengival, mas não sangramento espontâneo com equimoses.",
+        D:"Síndrome do intestino irritável não tem relação com sangramento oral."
+      }
+    },
+    {
+      fase:"Conduta do cirurgião-dentista",
+      pergunta:"Qual é a conduta correta do cirurgião-dentista neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Realizar raspagem periodontal completa imediatamente para controlar o sangramento"},
+        {letra:"B", texto:"Encaminhar o paciente ao médico para investigação hematológica antes de qualquer procedimento invasivo"},
+        {letra:"C", texto:"Prescrever colutório com clorexidina e remarcar para 30 dias"},
+        {letra:"D", texto:"Solicitar apenas hemograma completo e aguardar resultado antes de acionar outra especialidade"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Procedimentos invasivos em paciente com possível distúrbio de coagulação podem provocar sangramento incontrolável.",
+        B:"Correto. O dentista deve reconhecer os sinais de alerta sistêmicos e encaminhar ao médico urgentemente. Procedimentos invasivos devem aguardar a liberação médica.",
+        C:"Colutório não trata a causa sistêmica e atrasa um diagnóstico potencialmente grave.",
+        D:"Solicitar hemograma é válido, mas não substitui o encaminhamento médico. O dentista não deve gerenciar isoladamente uma possível leucemia ou coagulopatia."
+      }
+    },
+    {
+      fase:"Reconhecimento de sinais sistêmicos",
+      pergunta:"Qual das opções a seguir representa um sinal de alerta que o cirurgião-dentista deve reconhecer como indicativo de doença sistêmica grave?",
+      opcoes:[
+        {letra:"A", texto:"Sangramento apenas ao fio dental em paciente com placa abundante"},
+        {letra:"B", texto:"Equimoses espontâneas em mucosa oral associadas a sangramento sem trauma"},
+        {letra:"C", texto:"Gengiva levemente eritematosa após 6 meses sem profilaxia"},
+        {letra:"D", texto:"Recessão gengival localizada em área de trauma por escovação"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Sangramento ao fio dental com placa abundante é esperado em gengivite comum — não é sinal de alerta sistêmico.",
+        B:"Correto. Equimoses espontâneas na mucosa oral, especialmente associadas a sangramento gengival sem causa mecânica evidente, são sinais clássicos de alerta para alterações hematológicas graves.",
+        C:"Eritema gengival pós-profilaxia é quadro clínico comum de gengivite associada à placa.",
+        D:"Recessão por trauma de escovação é uma causa local e mecânica, sem implicação sistêmica."
+      }
+    }
+  ],
+  competencias:[9,9,9,8,8,8,7,9]
+},
+
+{
+  id:"CC-07", titulo:"Fratura coronária com exposição pulpar — decisão clínica",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`Paciente masculino, 9 anos, levado pelos pais após queda no recreio. Fratura do dente 21 (incisivo central superior permanente) envolvendo esmalte, dentina e exposição pulpar de cerca de 2 mm de diâmetro. O acidente ocorreu há 1 hora. O dente está com vitalidade pulpar (teste de sensibilidade positivo). Não há mobilidade dental nem lesão óssea.`,
+  personagem:{nome:"Criança com trauma dental",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico da extensão do trauma",
+      pergunta:"Como se classifica este tipo de fratura dental, segundo a classificação de Andreasen?",
+      opcoes:[
+        {letra:"A", texto:"Fratura de esmalte (Ellis classe I)"},
+        {letra:"B", texto:"Fratura de esmalte-dentina sem exposição pulpar (Ellis classe II)"},
+        {letra:"C", texto:"Fratura corono-radicular"},
+        {letra:"D", texto:"Fratura coronária complicada com exposição pulpar (Ellis classe III)"}
+      ],
+      correta:"D",
+      feedback:{
+        A:"Fratura de esmalte puro não envolve dentina nem polpa.",
+        B:"Fratura classe II envolve dentina, mas sem exposição da polpa.",
+        C:"Fratura corono-radicular estende-se além da junção cemento-esmalte, geralmente visível na radiografia.",
+        D:"Correto. Fratura coronária complicada (Ellis classe III / Andreasen) é a que atinge esmalte, dentina e expõe a polpa dentária."
+      }
+    },
+    {
+      fase:"Tratamento de urgência",
+      pergunta:"Qual procedimento de urgência é mais indicado para este dente permanente jovem com exposição pulpar recente (1 hora) e vitalidade presente?",
+      opcoes:[
+        {letra:"A", texto:"Extração imediata do dente e confecção de mantenedor de espaço"},
+        {letra:"B", texto:"Pulpotomia parcial (capeamento pulpar direto com MTA) para preservar a vitalidade"},
+        {letra:"C", texto:"Tratamento endodôntico completo imediato (pulpectomia total)"},
+        {letra:"D", texto:"Aplicar amálgama de prata sobre a exposição e aguardar 30 dias"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extração é o último recurso em dente permanente jovem — especialmente incisivo com valor estético e funcional.",
+        B:"Correto. Dente permanente jovem com exposição pulpar recente e vitalidade é candidato ideal à pulpotomia parcial com MTA, que preserva a polpa e permite o fechamento apical completo (apicogênese).",
+        C:"Pulpectomia total pode ser necessária se houver necrose, mas com vitalidade pulpar e exposição recente, a conduta conservadora é preferida.",
+        D:"Amálgama não é material indicado para capeamento pulpar. Não tem biocompatibilidade com o tecido pulpar."
+      }
+    },
+    {
+      fase:"Acompanhamento",
+      pergunta:"Qual é o acompanhamento radiográfico correto após a pulpotomia parcial neste paciente?",
+      opcoes:[
+        {letra:"A", texto:"Apenas se o paciente sentir dor — sem prazo definido"},
+        {letra:"B", texto:"Radiografia a cada 3-6 meses para verificar vitalidade, apicogênese e sinais de reabsorção"},
+        {letra:"C", texto:"Radiografia apenas após 2 anos, quando o ápice estiver completamente fechado"},
+        {letra:"D", texto:"Nenhuma radiografia de controle é necessária em crianças menores de 12 anos"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Esperar sintomas é conduta passiva e pode atrasar o diagnóstico de falha do tratamento.",
+        B:"Correto. O acompanhamento periódico (3-6 meses) é fundamental para monitorar: progresso da apicogênese, sinais de reabsorção interna ou externa, e vitalidade pulpar.",
+        C:"Dois anos sem controle é tempo excessivo — complicações podem se instalar precocemente.",
+        D:"Controle radiográfico é obrigatório após traumas e procedimentos endodônticos independentemente da idade."
+      }
+    }
+  ],
+  competencias:[8,9,9,10,8,7,7,9]
+},
+
+{
+  id:"CC-08", titulo:"Paciente diabético com infecção periodontal",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
+  contexto:`Paciente masculino, 52 anos, com diabetes tipo 2. HbA1c: 9,2% (descompensado). Comparece com abscesso periodontal no dente 25, bolsa de 8 mm, sangramento à sondagem e supuração. Relata que não vai ao dentista há 3 anos. Faz uso de metformina e insulina NPH. PA: 138/88 mmHg. Temperatura: 37,8°C.`,
+  personagem:{nome:"Paciente diabético descompensado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Risco sistêmico e conduta",
+      pergunta:"Considerando o estado glicêmico descompensado (HbA1c 9,2%), qual é a principal preocupação clínica no manejo odontológico?",
+      opcoes:[
+        {letra:"A", texto:"Risco aumentado de reação alérgica ao anestésico local"},
+        {letra:"B", texto:"Cicatrização comprometida e maior risco de infecção e complicações pós-operatórias"},
+        {letra:"C", texto:"Necessidade de substituir o tratamento periodontal por antibioticoterapia exclusiva"},
+        {letra:"D", texto:"Contraindicação absoluta de qualquer procedimento odontológico até normalização da HbA1c"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Diabetes não aumenta o risco de alergia a anestésico.",
+        B:"Correto. Diabetes descompensado compromete a imunidade, a microcirculação e a cicatrização. Procedimentos invasivos têm maior risco de infecção pós-operatória e cicatrização lenta.",
+        C:"Antibiótico pode ser adjuvante, mas não substitui o desbridamento mecânico.",
+        D:"Não há contraindicação absoluta — urgências são tratadas mesmo com diabetes descompensado. Procedimentos eletivos complexos devem aguardar melhora do controle glicêmico."
+      }
+    },
+    {
+      fase:"Tratamento do abscesso",
+      pergunta:"Qual é a conduta terapêutica imediata para o abscesso periodontal?",
+      opcoes:[
+        {letra:"A", texto:"Antibiótico sistêmico isolado (amoxicilina 500 mg 8/8h) por 7 dias sem drenagem"},
+        {letra:"B", texto:"Drenagem do abscesso por acesso sulcular + antibioticoterapia adjuvante"},
+        {letra:"C", texto:"Extração imediata do dente 25 para eliminar o foco infeccioso"},
+        {letra:"D", texto:"Aguardar 30 dias pela normalização da glicemia antes de qualquer intervenção"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Antibiótico sem drenagem mecânica é insuficiente. O acúmulo de pus precisa ser esvaziado.",
+        B:"Correto. O abscesso periodontal exige drenagem imediata (via acesso sulcular ou incisão) para eliminar a coleção purulenta. Antibioticoterapia é adjuvante, especialmente em paciente diabético descompensado com febre.",
+        C:"Extração pode ser necessária se o dente não tiver prognóstico, mas não deve ser a primeira opção sem tentativa de tratamento.",
+        D:"Aguardar em caso de abscesso ativo com febre é uma conduta que pode permitir disseminação da infecção."
+      }
+    },
+    {
+      fase:"Relação bidirecional periodontite-diabetes",
+      pergunta:"Qual é a relação entre controle glicêmico e doença periodontal nos pacientes diabéticos?",
+      opcoes:[
+        {letra:"A", texto:"A doença periodontal não interfere no controle glicêmico — é apenas uma complicação da diabetes"},
+        {letra:"B", texto:"O tratamento periodontal pode melhorar os níveis de HbA1c, e a diabetes descompensada agrava a periodontite"},
+        {letra:"C", texto:"Apenas a diabetes tipo 1 tem relação com a doença periodontal"},
+        {letra:"D", texto:"Antibioticoterapia periodontal é mais eficaz que o controle glicêmico no manejo dessa relação"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A relação é bidirecional. A doença periodontal ativa mantém estado inflamatório sistêmico que piora a resistência à insulina.",
+        B:"Correto. Existe relação bidirecional: a periodontite agrava a diabetes (inflamação sistêmica → resistência à insulina), e a diabetes descompensada agrava a periodontite. O tratamento periodontal demonstrou redução de HbA1c em estudos controlados.",
+        C:"Tanto diabetes tipo 1 quanto tipo 2 têm relação com a doença periodontal.",
+        D:"O controle glicêmico e o tratamento periodontal são complementares — nenhum substitui o outro."
+      }
+    }
+  ],
+  competencias:[9,9,9,9,8,8,7,9]
+},
+
+{
+  id:"CC-09", titulo:"Cárie profunda em molar — decisão sobre base protetora",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
+  contexto:`Paciente feminina, 34 anos, assintomática. Durante profilaxia, o dentista detecta lesão de cárie classe I profunda no dente 36. Ao remover o tecido cariado, percebe-se dentina amolecida próxima à polpa, sem exposição pulpar. Teste de vitalidade pulpar positivo, sem dor espontânea, sem lesão periapical na radiografia.`,
+  personagem:{nome:"Paciente com cárie profunda",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico e risco pulpar",
+      pergunta:"Qual é a condição pulpar mais provável neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Necrose pulpar"},
+        {letra:"B", texto:"Pulpite irreversível sintomática"},
+        {letra:"C", texto:"Polpa vital sem sinais de inflamação irreversível (pulpite reversível ou polpa saudável)"},
+        {letra:"D", texto:"Periodontite apical crônica"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Necrose implica ausência de vitalidade. O teste de sensibilidade foi positivo.",
+        B:"Pulpite irreversível cursaria com dor espontânea, dor prolongada ao estímulo e possível lesão periapical.",
+        C:"Correto. Dente vital, assintomático, sem lesão periapical. A polpa pode estar reagindo à proximidade da cárie, mas os critérios de irreversibilidade não estão presentes.",
+        D:"Periodontite apical implica lesão periapical visível na radiografia."
+      }
+    },
+    {
+      fase:"Seleção do material protetor",
+      pergunta:"Qual material é mais indicado como base protetora/capeador pulpar indireto neste caso (cárie profunda, sem exposição, vitalidade presente)?",
+      opcoes:[
+        {letra:"A", texto:"Amálgama de prata como base — resistência mecânica superior"},
+        {letra:"B", texto:"MTA ou hidróxido de cálcio como proteção pulpar direta sobre a dentina remanescente"},
+        {letra:"C", texto:"Sem necessidade de base — restaurar diretamente com resina composta"},
+        {letra:"D", texto:"Cimento de ionômero de vidro como único material — sem resina"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Amálgama não tem biocompatibilidade com o tecido pulpar e não serve como base protetora pulpar.",
+        B:"Correto. Em cárie profunda com dentina próxima à polpa e sem exposição, o protocolo inclui aplicação de hidróxido de cálcio ou MTA sobre a dentina remanescente, seguido de forramento com CIV e restauração definitiva com resina.",
+        C:"Sem proteção pulpar em cárie profunda, o contato da resina composta com a dentina fina remanescente pode causar irritação pulpar.",
+        D:"O CIV pode ser usado como forramento, mas não substitui a proteção pulpar com hidróxido de cálcio/MTA quando há proximidade pulpar."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,8,7,6,8]
+},
+
+{
+  id:"CC-10", titulo:"Abscesso dentoalveolar agudo — conduta de urgência",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
+  contexto:`Paciente masculino, 41 anos, chega ao pronto-atendimento odontológico com dor intensa (EVA 9/10), edema facial difuso no lado esquerdo, febre (38,2°C) e trismo leve. O dente 37 apresenta cárie extensa, percussão vertical positiva e mobilidade grau I. Não tem alergias. Sem medicamentos contínuos. PA: 134/88 mmHg.`,
+  personagem:{nome:"Paciente com abscesso agudo",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação da gravidade",
+      pergunta:"Qual achado clínico indica que este caso pode evoluir para uma emergência médica?",
+      opcoes:[
+        {letra:"A", texto:"Mobilidade grau I no dente 37"},
+        {letra:"B", texto:"Febre associada a edema facial difuso com risco de progressão para espaços fasciais profundos"},
+        {letra:"C", texto:"EVA 9/10 — dor intensa mas sem correlação com risco sistêmico"},
+        {letra:"D", texto:"Percussão vertical positiva isolada"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Mobilidade grau I é uma consequência da inflamação periapical e não indica emergência por si só.",
+        B:"Correto. Edema facial difuso com febre pode indicar disseminação para espaços fasciais (pterigomandibular, parafaríngeo, submandibular). Angina de Ludwig, trombose de seio cavernoso e mediastinite são complicações graves de abscessos odontogênicos não tratados.",
+        C:"A dor é relevante, mas é o edema difuso e a febre que sinalizam risco sistêmico.",
+        D:"Percussão positiva indica inflamação periapical — é esperado no abscesso, mas não define risco de emergência isoladamente."
+      }
+    },
+    {
+      fase:"Conduta imediata",
+      pergunta:"Qual é o tratamento de urgência mais adequado para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Apenas prescrever analgésico e antibiótico e remarcar para 5 dias"},
+        {letra:"B", texto:"Drenagem do abscesso (via canal ou incisão) + antibioticoterapia + analgesia"},
+        {letra:"C", texto:"Extração imediata do dente sem anestesia para drenar rapidamente"},
+        {letra:"D", texto:"Solicitar tomografia de face e aguardar resultado antes de qualquer conduta"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Tratar apenas com medicamentos sem drenar o foco infeccioso não resolve o abscesso e pode permitir progressão.",
+        B:"Correto. A drenagem mecânica é o tratamento principal: via acesso endodôntico (abertura coronária) ou incisão extraoral/intraoral quando há flutuação. O antibiótico (amoxicilina ou clindamicina) e analgesia são adjuvantes fundamentais.",
+        C:"Extração sem anestesia é eticamente inaceitável e tecnicamente inadequada. A infecção dificulta a anestesia — usar bloqueio regional.",
+        D:"Tomografia é complementar e não deve atrasar a drenagem em abscesso com sintomas agudos."
+      }
+    }
+  ],
+  competencias:[9,9,9,9,8,7,7,9]
+},
+
+{
+  id:"CC-11", titulo:"Lesão branca na mucosa — diagnóstico diferencial",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Estomatologia",
+  contexto:`Paciente masculino, 60 anos, fumante há 35 anos (20 cigarros/dia), encaminhado pelo clínico geral com lesão esbranquiçada na mucosa jugal esquerda, assintomática, não raspável, com cerca de 1,5 cm, presente há 5 meses. Superfície levemente rugosa e espessada. Sem histórico de trauma local. Paciente consumidor moderado de álcool.`,
+  personagem:{nome:"Paciente com lesão oral",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico diferencial",
+      pergunta:"Qual diagnóstico deve ser considerado como principal suspeita neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Candidíase pseudomembranosa (sapinho)"},
+        {letra:"B", texto:"Leucoplasia — lesão potencialmente maligna"},
+        {letra:"C", texto:"Fibroma traumático reativo"},
+        {letra:"D", texto:"Herpes simples recorrente"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Candidíase pseudomembranosa é raspável e removível. Esta lesão NÃO é raspável.",
+        B:"Correto. Lesão branca não raspável, em paciente fumante e etilista de longa data, com mais de 4 semanas de evolução é leucoplasia até prova em contrário — lesão potencialmente maligna que exige biópsia.",
+        C:"Fibroma traumático é lesão nodular bem delimitada de origem reativa a trauma crônico. O quadro descrito não é compatível.",
+        D:"Herpes recorrente se apresenta como vesículas agrupadas com ardor/dor, de curta duração."
+      }
+    },
+    {
+      fase:"Conduta diagnóstica",
+      pergunta:"Qual é a conduta obrigatória para confirmar o diagnóstico neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Solicitar antifúngico tópico e reavaliar em 2 semanas"},
+        {letra:"B", texto:"Orientar cessação do tabagismo e aguardar remissão espontânea por 6 meses"},
+        {letra:"C", texto:"Biópsia incisional ou excisional para exame histopatológico"},
+        {letra:"D", texto:"Radiografia panorâmica para avaliar envolvimento ósseo"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Antifúngico é indicado para candidíase. Esta lesão não é raspável — não é candidíase.",
+        B:"Aguardar 6 meses sem biópsia em lesão suspeita é conduta inadequada e potencialmente perigosa.",
+        C:"Correto. Toda lesão branca não raspável com mais de 2-3 semanas de evolução, especialmente em paciente com fatores de risco (tabagismo + álcool), requer biópsia com exame histopatológico. É obrigatório para afastar displasia ou carcinoma.",
+        D:"Radiografia avalia osso, não tecidos moles. Não confirma diagnóstico de leucoplasia."
+      }
+    },
+    {
+      fase:"Fatores de risco e prevenção",
+      pergunta:"Qual combinação de fatores aumenta significativamente o risco de transformação maligna de leucoplasia?",
+      opcoes:[
+        {letra:"A", texto:"Tabagismo isolado sem álcool"},
+        {letra:"B", texto:"Tabagismo + consumo de álcool (efeito sinérgico)"},
+        {letra:"C", texto:"Consumo de café e chá"},
+        {letra:"D", texto:"Uso de prótese total mal adaptada como único fator"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Tabagismo isolado já é fator de risco significativo, mas sem o efeito multiplicador do álcool.",
+        B:"Correto. Tabagismo e álcool têm efeito carcinogênico sinérgico — combinados multiplicam o risco de câncer oral em até 15-30 vezes. É o perfil clássico de risco para carcinoma espinocelular oral.",
+        C:"Café e chá não são fatores de risco para transformação maligna.",
+        D:"Prótese mal adaptada pode causar úlcera traumática reativa, não leucoplasia potencialmente maligna."
+      }
+    }
+  ],
+  competencias:[8,9,9,9,7,7,7,9]
+},
+
+{
+  id:"CC-12", titulo:"Necrose de polpa — dente sem sintomas",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
+  contexto:`Paciente feminina, 27 anos, rotina. Ao exame radiográfico, o dente 11 apresenta lesão periapical radiolúcida com bordas difusas, sem sintomas. O dente apresenta coloração acinzentada. Teste de vitalidade negativo. Histórico de trauma dental há 3 anos (batida de bicicleta), sem tratamento realizado.`,
+  personagem:{nome:"Paciente assintomática — achado radiográfico",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico endodôntico",
+      pergunta:"Qual é o diagnóstico endodôntico correto para este dente?",
+      opcoes:[
+        {letra:"A", texto:"Pulpite reversível"},
+        {letra:"B", texto:"Pulpite irreversível assintomática"},
+        {letra:"C", texto:"Necrose pulpar com periodontite apical crônica"},
+        {letra:"D", texto:"Dente hígido com variação de cor fisiológica"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Pulpite reversível apresenta vitalidade pulpar e ausência de lesão periapical.",
+        B:"Pulpite irreversível assintomática implica polpa viva, porém inflamada. O teste negativo indica necrose.",
+        C:"Correto. Teste de vitalidade negativo + lesão periapical + coloração acinzentada + histórico de trauma = necrose pulpar com periodontite apical crônica. A necrose pós-trauma é um achado clássico.",
+        D:"Coloração acinzentada após trauma indica degeneração pulpar — não é variação fisiológica."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o tratamento indicado para este dente?",
+      opcoes:[
+        {letra:"A", texto:"Extração e implante imediato"},
+        {letra:"B", texto:"Tratamento endodôntico (pulpectomia + obturação) com clareamento interno posterior"},
+        {letra:"C", texto:"Apenas observação semestral, pois é assintomático"},
+        {letra:"D", texto:"Veneer cerâmico para mascarar a coloração sem tratamento endodôntico"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extração e implante imediato em incisivo permanente de jovem não é primeira escolha quando há possibilidade de tratamento conservador.",
+        B:"Correto. Tratamento endodôntico é obrigatório: remove os produtos da necrose, elimina a lesão periapical e permite clareamento interno (walking bleach) para corrigir a coloração acinzentada.",
+        C:"Lesão periapical ativa não deve ser observada sem tratamento — pode progredir silenciosamente.",
+        D:"Veneer sem tratamento endodôntico não elimina a causa (infecção) e a lesão continuará progredindo."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,7,7,6,8]
+},
+
+{
+  id:"CC-13", titulo:"Impacto de medicamentos na saúde bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  contexto:`Paciente feminino, 45 anos, transplantada renal há 2 anos. Em uso de ciclosporina (imunossupressor). Comparece com queixa de gengiva crescida e avermelhada progressivamente nos últimos 8 meses. Ao exame: hiperplasia gengival generalizada, principalmente nas papilas interproximais, com sangramento à sondagem. Higiene oral deficiente.`,
+  personagem:{nome:"Paciente transplantada",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Etiologia da hiperplasia",
+      pergunta:"Qual é a principal causa do crescimento gengival neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Gengivite associada exclusivamente à má higiene oral"},
+        {letra:"B", texto:"Hiperplasia gengival induzida por ciclosporina (medicamentosa)"},
+        {letra:"C", texto:"Tumor benigno gengival (fibroma)"},
+        {letra:"D", texto:"Granuloma piogênico por deficiência de vitamina C"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Má higiene pode agravar o quadro, mas não é a causa primária da hiperplasia em paciente usando ciclosporina.",
+        B:"Correto. Ciclosporina, nifedipina e fenitoína são os três medicamentos classicamente associados à hiperplasia gengival medicamentosa. O mecanismo envolve alteração do metabolismo do colágeno nos fibroblastos gengivais.",
+        C:"Fibroma é uma lesão localizada — não generalizada.",
+        D:"Granuloma piogênico por deficiência de vitamina C (escorbuto) é raro e se apresenta de forma diferente."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é a abordagem terapêutica mais adequada para esta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Gengivectomia imediata sob anestesia local sem comunicação com o nefrologista"},
+        {letra:"B", texto:"Raspagem periodontal + melhora da higiene oral + comunicação com nefrologista para avaliar substituição da ciclosporina"},
+        {letra:"C", texto:"Prescrever anti-inflamatório tópico e remarcar para 3 meses"},
+        {letra:"D", texto:"Extração de todos os dentes para eliminar o local de hiperplasia"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Cirurgia em paciente imunossuprimida sem comunicação com o médico é conduta arriscada — risco de infecção grave.",
+        B:"Correto. O tratamento inicia com controle da placa (raspagem + higiene). O médico deve ser consultado sobre a possibilidade de substituir a ciclosporina por outro imunossupressor (tacrolimus tem menor efeito gengival). Gengivectomia pode ser necessária se não houver remissão.",
+        C:"Anti-inflamatório tópico não trata hiperplasia medicamentosa.",
+        D:"Extração não é indicada para tratar hiperplasia gengival."
+      }
+    }
+  ],
+  competencias:[8,8,8,9,8,8,7,9]
+},
+
+{
+  id:"CC-14", titulo:"Urgência — dente avulsionado em adulto",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Urgência",
+  contexto:`Paciente masculino, 25 anos, chega ao consultório 35 minutos após avulsão traumática do dente 11 por acidente de moto. O dente foi colocado em um copo com leite pelo paramédico presente no local. Dente com ligamento periodontal aparentemente íntegro. O alvéolo está limpo, sem debris ou fratura. Paciente hemodinamicamente estável.`,
+  personagem:{nome:"Paciente com dente avulsionado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação do meio de armazenamento",
+      pergunta:"Como se avalia o armazenamento do dente em leite neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Inadequado — dente deveria ter sido colocado em soro fisiológico"},
+        {letra:"B", texto:"Adequado — leite é um meio de armazenamento recomendado para dentes avulsionados"},
+        {letra:"C", texto:"Irrelevante — o tempo extraoral (35 min) já inviabiliza qualquer tentativa de reimplante"},
+        {letra:"D", texto:"Inadequado — o dente deveria ter sido reinserido imediatamente no alvéolo pelo próprio paciente"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Soro fisiológico também é um meio adequado, mas o leite é igualmente recomendado na literatura.",
+        B:"Correto. Leite integral (ou desnatado) é reconhecido como meio de armazenamento adequado para dentes avulsionados: mantém a osmolaridade, evita a desidratação das células do ligamento periodontal e permite viabilidade celular por até 2-3 horas.",
+        C:"35 minutos em leite ainda permite tentativa de reimplante com prognóstico razoável.",
+        D:"Reimplante imediato no local do acidente é ideal quando possível e o alvéolo estiver limpo, mas em acidentes de moto com risco de contaminação, armazenar em leite e procurar o dentista é a opção mais segura."
+      }
+    },
+    {
+      fase:"Protocolo de reimplante",
+      pergunta:"Qual é a sequência correta de procedimentos para o reimplante neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Raspar a raiz para remover o ligamento periodontal antes do reimplante"},
+        {letra:"B", texto:"Irrigar o alvéolo com soro, não tocar na raiz com instrumentos, reimplantar gentilmente e imobilizar"},
+        {letra:"C", texto:"Tratar o canal radicular antes do reimplante para prevenir reabsorção"},
+        {letra:"D", texto:"Realizar extração do coágulo do alvéolo com cureta antes de reimplantar"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Nunca raspar a raiz — as células do ligamento periodontal são fundamentais para o sucesso do reimplante.",
+        B:"Correto. Sequência: irrigar alvéolo com soro (não curetas), segurar o dente pela coroa, implantar com pressão suave digital, confeccionar contenção semi-rígida e encaminhar para acompanhamento. Antibiótico e profilaxia antitetânica devem ser avaliados.",
+        C:"Tratamento endodôntico pode ser necessário 7-10 dias após o reimplante, não antes.",
+        D:"O coágulo no alvéolo pode ser deixado ou gentilmente irrigado — curetagem não é indicada."
+      }
+    },
+    {
+      fase:"Pós-reimplante",
+      pergunta:"Qual é o tipo de contenção (imobilização) indicada após reimplante de dente avulsionado?",
+      opcoes:[
+        {letra:"A", texto:"Contenção rígida por 2 meses (barra de aço de 1 mm)"},
+        {letra:"B", texto:"Contenção semi-rígida por 7-14 dias (fio 0,3-0,4 mm + resina)"},
+        {letra:"C", texto:"Nenhuma contenção — o dente reimplantado deve estar livre para estimular a regeneração"},
+        {letra:"D", texto:"Contenção com cimento de ionômero de vidro cobrindo toda a coroa"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Contenção rígida por tempo prolongado favorece a substituição radicular (anquilose) — deve ser evitada.",
+        B:"Correto. Contenção semi-rígida (fio ortodôntico flexível + resina) por 7-14 dias permite micromovimentos fisiológicos que favorecem a reinserção do ligamento periodontal e reduzem o risco de anquilose.",
+        C:"Alguma estabilização é necessária para permitir a cicatrização inicial.",
+        D:"CIV não é material adequado para contenção de trauma."
+      }
+    }
+  ],
+  competencias:[9,9,9,9,8,7,7,9]
+},
+
+{
+  id:"CC-15", titulo:"Diagnóstico de periodontite — estadiamento e gradação",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
+  contexto:`Paciente masculino, 48 anos, fumante (10 cigarros/dia), comparece para avaliação. Periodontograma: bolsas de 5-7 mm em múltiplos sítios nos dentes posteriores, sangramento à sondagem em 40% dos sítios, radiografias mostram perda óssea horizontal de 1/3 médio. Sem mobilidade dental. HbA1c: 5,8% (normal). Pai perdeu todos os dentes antes dos 50 anos.`,
+  personagem:{nome:"Paciente com periodontite",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Estadiamento da periodontite",
+      pergunta:"De acordo com a classificação de 2017 (AAP/EFP), qual é o estadiamento mais provável para esta periodontite?",
+      opcoes:[
+        {letra:"A", texto:"Estágio I — perda de inserção inicial"},
+        {letra:"B", texto:"Estágio II — periodontite moderada"},
+        {letra:"C", texto:"Estágio III — periodontite severa com perda complexa"},
+        {letra:"D", texto:"Estágio IV — periodontite avançada com disfunção mastigatória"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Estágio I: perda de inserção clínica de 1-2 mm e bolsas de até 4 mm. Este caso tem bolsas de 5-7 mm.",
+        B:"Correto. Estágio II: perda de inserção 3-4 mm, bolsas de 5-6 mm (ou até 7 mm em sítios isolados), perda óssea horizontal ≤ 1/3 do comprimento radicular. Os achados descritos são compatíveis.",
+        C:"Estágio III inclui perda óssea ≥ 1/3 radicular OU perda de dentes por periodontite. Aqui a perda é no 1/3 médio sem móveis.",
+        D:"Estágio IV implica disfunção mastigatória grave, colapso oclusal ou ≥ 20 dentes ausentes."
+      }
+    },
+    {
+      fase:"Gradação",
+      pergunta:"Qual é a gradação mais provável para esta periodontite, considerando o histórico de tabagismo e o histórico familiar?",
+      opcoes:[
+        {letra:"A", texto:"Grau A — progressão lenta, sem fatores de risco"},
+        {letra:"B", texto:"Grau B — progressão moderada, tabagismo moderado"},
+        {letra:"C", texto:"Grau C — progressão rápida, tabagismo + histórico familiar sugestivo de risco elevado"},
+        {letra:"D", texto:"Grau D — gradação não existe na classificação atual"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"Grau A implica ausência de fatores de risco e perda óssea mínima ao longo do tempo.",
+        B:"Grau B seria adequado se houvesse apenas tabagismo leve ou moderado sem outros modificadores.",
+        C:"Correto. Grau C indica progressão rápida. Os modificadores presentes: tabagismo (≥ 10 cigarros/dia eleva para grau C) e histórico familiar de perda dentária precoce (sugestivo de susceptibilidade genética aumentada).",
+        D:"A classificação tem graus A, B e C. Não existe grau D."
+      }
+    },
+    {
+      fase:"Plano de tratamento",
+      pergunta:"Qual é a sequência correta para o tratamento periodontal ativo desta periodontite?",
+      opcoes:[
+        {letra:"A", texto:"Cirurgia periodontal imediata + antibioticoterapia sistêmica como primeira linha"},
+        {letra:"B", texto:"Instrução de higiene oral + raspagem e alisamento radicular supra e subgengival + reavaliação após 6-8 semanas"},
+        {letra:"C", texto:"Exodontia de todos os dentes com bolsas ≥ 5 mm"},
+        {letra:"D", texto:"Apenas profilaxia supragengival semestral e acompanhamento"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Cirurgia periodontal é fase subsequente, após falha do tratamento não-cirúrgico. Antibiótico adjuvante pode ser indicado no grau C, mas não é primeira linha.",
+        B:"Correto. O tratamento periodontal ativo começa com a fase higiênica: instrução e motivação, remoção de fatores retentivos de placa e raspagem/alisamento radicular. Reavaliação 6-8 semanas após para decidir sobre necessidade de cirurgia.",
+        C:"Exodontia não é indicada em dentes com bolsas sem outros critérios de extração (fratura, cárie irrestaurável etc.).",
+        D:"Apenas profilaxia supragengival não controla periodontite estágio II com bolsas de 5-7 mm."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,8,7,6,8]
+},
+
+{
+  id:"CC-16", titulo:"Reabsorção radicular — diagnóstico por imagem",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
+  contexto:`Paciente feminina, 22 anos, em tratamento ortodôntico há 18 meses. Sem queixas. Radiografia panorâmica de controle evidencia encurtamento radicular nos dentes 12 e 11 em comparação ao Rx inicial. Os dentes apresentam vitalidade, sem lesão periapical. O ortodontista solicitou avaliação endodôntica.`,
+  personagem:{nome:"Paciente em tratamento ortodôntico",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Tipo de reabsorção",
+      pergunta:"Qual tipo de reabsorção radicular é mais compatível com este caso?",
+      opcoes:[
+        {letra:"A", texto:"Reabsorção interna idiopática"},
+        {letra:"B", texto:"Reabsorção externa apical associada ao tratamento ortodôntico"},
+        {letra:"C", texto:"Reabsorção por substituição (anquilose)"},
+        {letra:"D", texto:"Reabsorção inflamatória pós-trauma"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Reabsorção interna aparece como área radiolúcida dentro do canal, alargando-o. Aqui há encurtamento da raiz.",
+        B:"Correto. A reabsorção radicular apical externa é uma complicação conhecida do tratamento ortodôntico, especialmente em dentes anteriores superiores submetidos a movimentos de intrusão. O encurtamento progressivo na radiografia de controle é o achado típico.",
+        C:"Reabsorção por substituição (anquilose) está associada a trauma, não a ortodontia.",
+        D:"Reabsorção inflamatória pós-trauma é localizada e associada a histórico de avulsão/luxação."
+      }
+    },
+    {
+      fase:"Conduta",
+      pergunta:"Qual deve ser a conduta ao identificar esta reabsorção?",
+      opcoes:[
+        {letra:"A", texto:"Extrair os dentes imediatamente e substituir por implantes"},
+        {letra:"B", texto:"Comunicar ao ortodontista — avaliar pausa ou modificação da mecânica, com monitoramento radiográfico frequente"},
+        {letra:"C", texto:"Iniciar tratamento endodôntico preventivo nos dentes 11 e 12"},
+        {letra:"D", texto:"Ignorar o achado, pois pequenas reabsorções são fisiológicas e não requerem intervenção"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extração é medida extrema não indicada para reabsorção moderada com dentes vitais.",
+        B:"Correto. O endodontista deve comunicar formalmente ao ortodontista. A mecânica pode ser ajustada (redução de força, pausa no tratamento). Monitoramento radiográfico a cada 3-6 meses é fundamental.",
+        C:"Tratamento endodôntico não é indicado em dentes vitais sem outros critérios.",
+        D:"Ignorar pode permitir progressão para comprometimento grave da ancoragem dental."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,7,7,7,8]
+},
+
+{
+  id:"CC-17", titulo:"Paciente com anticoagulante — cirurgia oral",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente masculino, 67 anos, em uso de varfarina (anticoagulante oral) por fibrilação atrial. INR atual: 2,4 (faixa terapêutica: 2,0-3,0). Necessita de extração do dente 16 (cárie extensa, irrestaurável). Cardiologista foi consultado e liberou para procedimento sem suspender a varfarina. PA: 132/84 mmHg.`,
+  personagem:{nome:"Paciente anticoagulado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação do risco hemorrágico",
+      pergunta:"Qual é a conduta correta em relação ao anticoagulante antes da extração?",
+      opcoes:[
+        {letra:"A", texto:"Suspender a varfarina 5 dias antes da extração por conta própria"},
+        {letra:"B", texto:"Manter a varfarina conforme orientação do cardiologista — INR na faixa terapêutica permite procedimentos simples"},
+        {letra:"C", texto:"Reduzir a dose pela metade no dia anterior e retomar no pós-operatório"},
+        {letra:"D", texto:"Substituir varfarina por AAS 100 mg na semana da cirurgia"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Suspender varfarina sem autorização médica aumenta o risco de eventos tromboembólicos graves (AVC, embolia pulmonar). Nunca suspender por conta própria.",
+        B:"Correto. Para procedimentos dentários simples (extração de 1-3 dentes), INR ≤ 3,5 com paciente clinicamente estável e orientação médica permite a extração sem suspensão do anticoagulante. Medidas locais de hemostasia são essenciais.",
+        C:"Reduzir dose sem indicação médica é conduta inadequada.",
+        D:"AAS não tem o mesmo mecanismo de ação que a varfarina e não substitui a anticoagulação."
+      }
+    },
+    {
+      fase:"Hemostasia local",
+      pergunta:"Quais medidas locais são mais importantes para controle do sangramento pós-extração neste paciente?",
+      opcoes:[
+        {letra:"A", texto:"Cauterização elétrica do alvéolo após extração"},
+        {letra:"B", texto:"Sutura do alvéolo + compressa de gaze + orientação para morder por 30-60 min"},
+        {letra:"C", texto:"Irrigação do alvéolo com hipoclorito de sódio para limpar o coágulo"},
+        {letra:"D", texto:"Não é necessária nenhuma medida especial — aguardar hemostasia espontânea"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Cautério elétrico em paciente com marca-passo é contraindicado. Mesmo sem marca-passo, não é a primeira linha de hemostasia em alvéolo.",
+        B:"Correto. Sutura do alvéolo para aproximar os bordos + esponja hemostática de colágeno ou ácido tranexâmico local + compressa firme de gaze + instrução ao paciente são as medidas-padrão em anticoagulados.",
+        C:"Hipoclorito dissolve o coágulo — contraindicado no pós-operatório imediato.",
+        D:"Em anticoagulados, medidas proativas de hemostasia são obrigatórias."
+      }
+    },
+    {
+      fase:"Limiar de segurança do INR",
+      pergunta:"Acima de qual valor de INR a extração dentária simples deve ser adiada e o médico reavaliado?",
+      opcoes:[
+        {letra:"A", texto:"INR > 1,5"},
+        {letra:"B", texto:"INR > 2,0"},
+        {letra:"C", texto:"INR > 3,5"},
+        {letra:"D", texto:"INR > 5,0"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"INR > 1,5 é ainda considerado seguro para procedimentos simples.",
+        B:"INR > 2,0 é o limite inferior da faixa terapêutica usual — não é indicação de adiamento.",
+        C:"Correto. INR > 3,5 aumenta significativamente o risco de sangramento pós-operatório não controlável localmente. O consenso atual recomenda adiar e acionar o médico para ajuste se INR > 3,5.",
+        D:"INR > 5,0 representa supracoagulação grave — mas o limiar de segurança para procedimentos simples é considerado 3,5."
+      }
+    }
+  ],
+  competencias:[8,9,9,9,9,7,7,9]
+},
+
+{
+  id:"CC-18", titulo:"Erosão dental — diagnóstico e orientação",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
+  contexto:`Paciente feminina, 30 anos, comparece com queixa de sensibilidade dental generalizada e dentes "cada vez mais lisos". Ao exame: superfícies oclusais com perda de anatomia, faces palatinas dos incisivos superiores côncavas e lisas. Gengiva saudável. A paciente relata beber muito suco de limão natural e refrigerante diet diariamente. Anamnese: refluxo gastroesofágico não tratado.`,
+  personagem:{nome:"Paciente com erosão dental",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico etiológico",
+      pergunta:"Qual é a etiologia principal da erosão dental neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Bruxismo (parafunção) com desgaste mecânico"},
+        {letra:"B", texto:"Erosão de origem ácida — extrínseca (dieta) e intrínseca (refluxo)"},
+        {letra:"C", texto:"Abrasão por escovação excessiva"},
+        {letra:"D", texto:"Atrição fisiológica por envelhecimento"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Bruxismo causa desgaste com superfícies planas e facetas de atrito em áreas de contato. As faces palatinas côncavas e lisas não são compatíveis.",
+        B:"Correto. Erosão: dissolução química do esmalte por ácidos. Causas extrínsecas (suco de limão, refrigerante) + intrínsecas (refluxo gástrico) causam o padrão palatino nos superiores e oclusal em todos os dentes.",
+        C:"Abrasão afeta principalmente as cervicais. Não explica o padrão palatino e oclusal.",
+        D:"Atrição fisiológica é gradual e não explica o padrão côncavo palatino típico de erosão ácida."
+      }
+    },
+    {
+      fase:"Conduta e prevenção",
+      pergunta:"Qual é o conjunto de orientações mais completo para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Restaurar todos os dentes com resina imediatamente e orientar dieta"},
+        {letra:"B", texto:"Tratar o refluxo com médico, reduzir ácidos da dieta, usar flúor e aguardar estabilização antes de restaurar"},
+        {letra:"C", texto:"Apenas aplicar flúor tópico na clínica sem outras intervenções"},
+        {letra:"D", texto:"Indicar clareamento dental para remover a coloração da erosão"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Restaurar sem estabilizar a erosão levará à falha das restaurações pelo substrato continuamente degradado.",
+        B:"Correto. Sequência: 1) Tratar a causa (médico para refluxo, orientação dietética); 2) Estabilizar com flúor de alta concentração, selantes ou coberturas provisórias; 3) Restaurar definitivamente apenas quando a erosão estiver controlada.",
+        C:"Flúor sem eliminar a causa não é suficiente.",
+        D:"Clareamento em dentes com erosão pode agravar a sensibilidade e não trata a causa."
+      }
+    }
+  ],
+  competencias:[7,8,8,8,7,7,6,8]
+},
+
+{
+  id:"CC-19", titulo:"Paciente com necessidades especiais — Síndrome de Down",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Pacientes Especiais",
+  contexto:`Paciente feminina, 18 anos, Síndrome de Down (trissomia 21), comunicativa e cooperativa. Trazida pela mãe para profilaxia. Apresenta macroglossia, hipotonia muscular bucal e respiração predominantemente oral. Ao exame: placa supragengival abundante, cálculo em anteriores inferiores, gengiva eritematosa. A mãe relata dificuldade em escovar a boca da filha.`,
+  personagem:{nome:"Paciente com Síndrome de Down",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Achados clínicos associados à Síndrome de Down",
+      pergunta:"Qual característica da Síndrome de Down contribui DIRETAMENTE para o acúmulo de placa e doença periodontal neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Trissomia do cromossomo 21 causa diretamente periodontite"},
+        {letra:"B", texto:"Hipotonia muscular orofacial reduz a autolimpeza salivar e dificulta a higiene oral"},
+        {letra:"C", texto:"Macroglossia aumenta a produção de cálculo dental"},
+        {letra:"D", texto:"Respiração oral exclusivamente aumenta o risco de cárie, não de doença periodontal"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A trissomia não causa diretamente periodontite — é a combinação de fatores anatômicos e funcionais que aumenta o risco.",
+        B:"Correto. A hipotonia muscular dificulta a higiene oral independente (manuseio da escova) e reduz a autolimpeza natural da saliva. Respiração oral resseca a mucosa, e a macroglossia pode deslocar dentes. Todos esses fatores predispõem ao acúmulo de placa.",
+        C:"Macroglossia não aumenta diretamente a produção de cálculo.",
+        D:"Respiração oral aumenta o risco tanto de cárie quanto de inflamação gengival."
+      }
+    },
+    {
+      fase:"Estratégia de atendimento",
+      pergunta:"Qual estratégia é mais indicada para o atendimento odontológico desta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Sedação em todas as consultas por ser portadora de deficiência intelectual"},
+        {letra:"B", texto:"Usar técnicas de comunicação adaptadas, envolver a cuidadora e realizar sessões curtas e positivas"},
+        {letra:"C", texto:"Recusar o atendimento ambulatorial e encaminhar ao centro de referência hospitalar"},
+        {letra:"D", texto:"Realizar todos os procedimentos em uma única sessão longa para minimizar o número de visitas"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Sedação não é indicada rotineiramente para pacientes cooperativos com Síndrome de Down.",
+        B:"Correto. Pacientes com Síndrome de Down geralmente são cooperativos quando bem manejados. Comunicação adaptada (linguagem clara, reforço positivo), envolvimento da cuidadora na higiene domiciliar e sessões programadas são as melhores estratégias.",
+        C:"A maioria dos pacientes com Down pode ser atendida ambulatorialmente. Encaminhamento hospitalar é reservado para casos de baixa cooperação ou necessidade de sedação profunda.",
+        D:"Sessões longas são mais desgastantes para o paciente e a família."
+      }
+    }
+  ],
+  competencias:[9,8,8,8,7,9,8,9]
+},
+
+{
+  id:"CC-20", titulo:"Cárie interproximal — diagnóstico por imagem",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
+  contexto:`Paciente masculino, 35 anos, sem queixas. Radiografia interproximal (bite-wing) revela imagem radiolúcida em dentina, na face mesial do dente 46, sem exposição pulpar radiográfica. Ao exame clínico, a sonda não penetra e a lesão não é visível clinicamente. O paciente relata usar fio dental raramente.`,
+  personagem:{nome:"Paciente com cárie proximal",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Interpretação radiográfica",
+      pergunta:"Como se classifica a profundidade desta lesão de cárie, radiograficamente?",
+      opcoes:[
+        {letra:"A", texto:"Cárie incipiente de esmalte (mancha branca)"},
+        {letra:"B", texto:"Cárie de dentina (lesão radiolúcida atinge a dentina)"},
+        {letra:"C", texto:"Cárie com exposição pulpar"},
+        {letra:"D", texto:"Cárie de cemento (cárie radicular)"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Cárie incipiente de esmalte não é detectável radiograficamente como radiolúcida nítida em dentina.",
+        B:"Correto. Lesão radiolúcida que ultrapassa a junção amelodentinária e invade a dentina sem atingir a polpa é classificada como cárie de dentina.",
+        C:"Exposição pulpar seria visível na radiografia como continuidade da radiolucência com a câmara pulpar.",
+        D:"Cárie de cemento ocorre em região radicular exposta, abaixo da JAC. Este caso é em face proximal coronária."
+      }
+    },
+    {
+      fase:"Decisão terapêutica",
+      pergunta:"Qual é a conduta mais indicada para esta lesão de dentina proximal assintomática?",
+      opcoes:[
+        {letra:"A", texto:"Apenas orientar higiene oral com fio dental e aguardar regressão espontânea"},
+        {letra:"B", texto:"Restauração preventiva imediata — lesão de dentina não se remineraliza"},
+        {letra:"C", texto:"Monitoramento com Rx semestral e aplicar flúor — só restaurar se progredir para dentina profunda"},
+        {letra:"D", texto:"Tratamento endodôntico preventivo antes de restaurar"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Lesões de dentina não se remineralizam naturalmente. A progressão é inevitable sem intervenção.",
+        B:"Correto. Lesão de dentina proximal requer acesso cavitário e restauração com resina composta classe II. O atraso aumenta o risco de progressão pulpar.",
+        C:"Monitoramento é indicado para lesões de esmalte. Em dentina, a restauração não deve ser adiada.",
+        D:"Tratamento endodôntico é indicado para comprometimento pulpar — que não existe aqui."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,7,7,6,8]
+}
+
+
+
+// Remover linha de fechamento anterior e continuar
+,
+
+{
+  id:"CC-21", titulo:"Pulpotomia em molar decíduo",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Odontopediatria",
+  contexto:`Paciente masculino, 7 anos, chega com dor ao mastigar no dente 75 (segundo molar inferior decíduo esquerdo). Ao exame: cárie profunda com exposição pulpar visível, sem fístula, sem mobilidade patológica, sem reabsorção radicular ao Rx. Teste de vitalidade: positivo com dor leve. Dente ainda com raízes preservadas. Sem alergias. Peso: 22 kg.`,
+  personagem:{nome:"Criança com cárie profunda",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico pulpar",
+      pergunta:"Qual é o diagnóstico pulpar mais provável para o dente 75 neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Necrose pulpar total"},
+        {letra:"B", texto:"Pulpite irreversível localizada (polpa radicular saudável)"},
+        {letra:"C", texto:"Polpa hígida — falso positivo ao teste de vitalidade"},
+        {letra:"D", texto:"Periodontite apical aguda com reabsorção óssea"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Necrose implica ausência de resposta ao teste. Aqui a polpa é vital com dor leve.",
+        B:"Correto. Exposição pulpar com vitalidade presente, sem fístula nem reabsorção, sugere que a polpa radicular ainda é saudável. Este é o critério para indicação de pulpotomia.",
+        C:"A exposição pulpar visível confirma comprometimento — não é falso positivo.",
+        D:"Sem reabsorção radiográfica nem fístula, não há critério de periodontite apical."
+      }
+    },
+    {
+      fase:"Tratamento indicado",
+      pergunta:"Qual é o tratamento mais indicado para o dente 75 neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Pulpectomia total + obturação com pasta reabsorvível"},
+        {letra:"B", texto:"Pulpotomia com sulfato férrico ou MTA + restauração com coroa de aço"},
+        {letra:"C", texto:"Extração imediata do dente decíduo"},
+        {letra:"D", texto:"Capeamento pulpar direto com hidróxido de cálcio + resina composta"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Pulpectomia é indicada quando há necrose ou comprometimento radicular. Com polpa radicular vital, pulpotomia é preferível.",
+        B:"Correto. Pulpotomia: remoção da polpa coronária inflamada + medicação (MTA, sulfato férrico ou formocresol diluído) + restauração definitiva com coroa de aço pediátrica. É o padrão ouro em molar decíduo com polpa radicular vital.",
+        C:"Extração precoce de molar decíduo compromete o espaço para o sucessor permanente.",
+        D:"Capeamento direto em molar decíduo com exposição pulpar não é a conduta de primeira escolha — tem menor taxa de sucesso que a pulpotomia."
+      }
+    }
+  ],
+  competencias:[8,8,8,9,8,8,7,8]
+},
+
+{
+  id:"CC-22", titulo:"Paciente em uso de bifosfonatos — extração dental",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente feminina, 68 anos, com osteoporose. Faz uso de alendronato 70 mg/semana há 7 anos. Necessita de extração do dente 27 (cárie extensa, irrestaurável). A paciente não tem histórico de osteorradionecrose nem lesões expostas. PA: 138/86 mmHg. Sem alergias.`,
+  personagem:{nome:"Paciente com bifosfonato",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Risco de osteonecrose",
+      pergunta:"Qual é o principal risco a considerar antes de realizar a extração neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Risco de alergia ao anestésico local por uso prolongado de bifosfonato"},
+        {letra:"B", texto:"Risco de Osteonecrose dos Maxilares Associada a Medicamentos (MRONJ)"},
+        {letra:"C", texto:"Risco de hipoglicemia durante o procedimento"},
+        {letra:"D", texto:"Bifosfonato oral por 7 anos não apresenta risco — apenas bifosfonatos EV são preocupantes"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Bifosfonatos não causam alergia ao anestésico.",
+        B:"Correto. O uso prolongado de bifosfonatos (especialmente ≥ 4 anos ou IV) aumenta o risco de MRONJ — exposição óssea necrótica após trauma cirúrgico. O risco com bifosfonato oral é menor que com EV, mas existe após uso prolongado.",
+        C:"Bifosfonatos não alteram a glicemia.",
+        D:"Bifosfonato oral por 7 anos POSSUI risco de MRONJ, embora menor que o EV."
+      }
+    },
+    {
+      fase:"Conduta pré-operatória",
+      pergunta:"Qual é a conduta pré-operatória mais recomendada antes da extração?",
+      opcoes:[
+        {letra:"A", texto:"Suspender o alendronato por 2 dias antes da cirurgia"},
+        {letra:"B", texto:"Consultar o médico prescritor, avaliar a necessidade de drug holiday e otimizar a cicatrização"},
+        {letra:"C", texto:"Realizar a extração normalmente — bifosfonato oral não requer precauções cirúrgicas"},
+        {letra:"D", texto:"Substituir extração por tratamento endodôntico em todos os casos de usuários de bifosfonato"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Suspender por apenas 2 dias não é suficiente — o alendronato permanece no osso por anos.",
+        B:"Correto. O protocolo inclui: consulta médica para avaliar drug holiday (pausa terapêutica de 2-3 meses se baixo risco sistêmico), higienização rigorosa pré-operatória, técnica atraumática, cobertura com antibiótico profilático e acompanhamento pós-operatório intensivo.",
+        C:"Usuários de bifosfonato oral por > 4 anos têm risco aumentado e requerem cuidados especiais.",
+        D:"Tratar endodonticamente dente irrestaurável não é viável e pode manter foco infeccioso."
+      }
+    },
+    {
+      fase:"Sinais de MRONJ",
+      pergunta:"Qual sinal clínico indica o diagnóstico de Osteonecrose dos Maxilares Associada a Medicamentos?",
+      opcoes:[
+        {letra:"A", texto:"Dor óssea difusa sem exposição de osso"},
+        {letra:"B", texto:"Exposição óssea intraoral não cicatrizada por mais de 8 semanas em paciente em uso de bifosfonato"},
+        {letra:"C", texto:"Edema pós-operatório com eritema local nos primeiros 3 dias"},
+        {letra:"D", texto:"Parestesia do lábio inferior sem lesão visível"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Dor difusa pode ocorrer, mas não é o critério diagnóstico definitivo.",
+        B:"Correto. O critério diagnóstico de MRONJ (AAOMS) é: exposição óssea OR sondagem óssea através de fístula, em região maxilofacial, em paciente que usa/usou agente antirreabsortivo ou antiangiogênico, sem remissão após 8 semanas de tratamento.",
+        C:"Edema pós-operatório é esperado e transitório — não é MRONJ.",
+        D:"Parestesia pode ser sintoma tardio, mas não é critério diagnóstico."
+      }
+    }
+  ],
+  competencias:[8,9,9,9,9,7,7,9]
+},
+
+{
+  id:"CC-23", titulo:"Cálculo da dose de anestésico em criança",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Anestesiologia",
+  contexto:`Paciente feminina, 6 anos, peso de 20 kg. Necessita de exodontia do dente 64 (segundo molar decíduo superior esquerdo, cárie extensa com fístula). O dentista planeja usar lidocaína 2% com epinefrina 1:100.000. A dose máxima de lidocaína em crianças é de 4,4 mg/kg. Cada tubete contém 1,8 mL = 36 mg de lidocaína.`,
+  personagem:{nome:"Criança — cálculo de dose",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Cálculo da dose máxima",
+      pergunta:"Qual é a dose máxima de lidocaína permitida para esta criança de 20 kg?",
+      opcoes:[
+        {letra:"A", texto:"44 mg (1,2 tubetes)"},
+        {letra:"B", texto:"72 mg (2 tubetes completos)"},
+        {letra:"C", texto:"88 mg (2,4 tubetes)"},
+        {letra:"D", texto:"180 mg (5 tubetes)"}
+      ],
+      correta:"C",
+      feedback:{
+        A:"44 mg = 4,4 mg/kg × 10 kg. Cálculo incorreto para 20 kg.",
+        B:"72 mg = 2 tubetes × 36 mg. Incorreto — não é baseado no peso.",
+        C:"Correto. Dose máxima = 4,4 mg/kg × 20 kg = 88 mg = 88 ÷ 36 = 2,4 tubetes. Para exodontia de um único dente decíduo, geralmente 0,5-1 tubete é suficiente — mas o limite de segurança é 2,4 tubetes.",
+        D:"180 mg ultrapassaria muito o limite para esta criança — seria dose de adulto."
+      }
+    },
+    {
+      fase:"Escolha da agulha e técnica",
+      pergunta:"Qual combinação de agulha e técnica anestésica é mais adequada para exodontia do dente 64?",
+      opcoes:[
+        {letra:"A", texto:"Agulha longa + bloqueio do nervo alveolar inferior"},
+        {letra:"B", texto:"Agulha curta + infiltração vestibular e palatina"},
+        {letra:"C", texto:"Agulha extra-curta + bloqueio do nervo mentual"},
+        {letra:"D", texto:"Nenhuma anestesia — criança com fístula já tem necrose e não sente dor"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Bloqueio do nervo alveolar inferior é para dentes inferiores. O dente 64 é superior.",
+        B:"Correto. Para exodontia de molar superior decíduo: infiltração vestibular (nervo alveolar superior posterior) + infiltração palatina (nervo palatino maior). Agulha curta é mais adequada em crianças.",
+        C:"Bloqueio mentual é para região de incisivos e pré-molares inferiores.",
+        D:"Mesmo dentes com necrose e fístula podem ter sensibilidade periodontal durante a exodontia. Anestesia é obrigatória."
+      }
+    }
+  ],
+  competencias:[7,8,9,9,9,7,6,8]
+},
+
+{
+  id:"CC-24", titulo:"Halitose — investigação e conduta",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  contexto:`Paciente masculino, 38 anos, queixa de mau hálito persistente relatado por familiares. Ao exame: saburra lingual posterior abundante, sangramento à sondagem em 4 sítios (gengivite leve), cáries ausentes. Sem xerostomia, sem próteses. O paciente é fumante. Sem refluxo, sinusite ou doenças sistêmicas conhecidas.`,
+  personagem:{nome:"Paciente com halitose",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Etiologia da halitose",
+      pergunta:"Qual é a principal origem da halitose neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Cárie nos dentes posteriores"},
+        {letra:"B", texto:"Saburra lingual + tabagismo + gengivite leve"},
+        {letra:"C", texto:"Refluxo gastroesofágico (hálito sistêmico)"},
+        {letra:"D", texto:"Prótese dentária contaminada"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Não há cáries ao exame.",
+        B:"Correto. Cerca de 85-90% dos casos de halitose têm origem oral. A saburra lingual é o principal reservatório de compostos sulfurados voláteis (CSV), responsáveis pelo odor fétido. Tabagismo e gengivite são fatores agravantes.",
+        C:"Halitose de origem digestiva é possível, mas a origem oral deve ser investigada e tratada primeiro.",
+        D:"Não há prótese relatada."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o plano de tratamento mais completo para este paciente?",
+      opcoes:[
+        {letra:"A", texto:"Prescrever apenas enxaguante bucal com clorexidina sem orientações adicionais"},
+        {letra:"B", texto:"Higiene da língua com raspador + tratamento periodontal + cessação do tabagismo + instrução de higiene"},
+        {letra:"C", texto:"Encaminhar diretamente ao gastroenterologista sem tratar a origem oral"},
+        {letra:"D", texto:"Extrair todos os dentes e colocar prótese total para eliminar a origem bacteriana"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Clorexidina isolada sem higiene mecânica da língua é insuficiente.",
+        B:"Correto. Tratamento da halitose de origem oral: higienização mecânica da língua com raspador lingual, raspagem periodontal (gengivite leve), cessação do tabagismo, orientação de hidratação adequada e higiene oral completa.",
+        C:"Sem investigar e tratar a origem oral, encaminhar ao gastro é prematuro.",
+        D:"Extração total não é indicada para halitose e causaria dano desnecessário."
+      }
+    }
+  ],
+  competencias:[7,7,7,8,7,7,7,8]
+},
+
+{
+  id:"CC-25", titulo:"Trismo pós-anestesia — complicação",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente masculino, 30 anos, retorna 2 dias após extração do dente 48 com queixa de limitação de abertura bucal (abertura máxima: 18 mm). Sem febre nem edema. Refere que a extração foi longa (50 minutos) com múltiplas reinjeções de anestésico. Ao exame: sensibilidade à palpação do pterigóideo medial. Sem sinal de infecção.`,
+  personagem:{nome:"Paciente com trismo pós-operatório",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico da complicação",
+      pergunta:"Qual é a causa mais provável do trismo neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Abscesso pterigomandibular por infecção pós-operatória"},
+        {letra:"B", texto:"Hematoma e espasmo muscular do pterigóideo medial por trauma anestésico repetido"},
+        {letra:"C", texto:"Fratura mandibular durante a extração"},
+        {letra:"D", texto:"Anquilose temporomandibular pós-cirúrgica"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Abscesso cursaria com febre, edema e sinais inflamatórios. Aqui não há infecção.",
+        B:"Correto. Múltiplas injeções no espaço pterigomandibular podem causar hematoma intramuscular e espasmo reflexo do pterigóideo medial, levando ao trismo mecânico sem infecção.",
+        C:"Fratura mandibular durante extração causaria dor intensa, crepitação e instabilidade.",
+        D:"Anquilose verdadeira é complicação tardia e rara — não ocorre em 2 dias."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o tratamento mais indicado para este trismo muscular sem infecção?",
+      opcoes:[
+        {letra:"A", texto:"Antibioticoterapia sistêmica imediata"},
+        {letra:"B", texto:"Calor local + AINE/miorrelaxante + fisioterapia com exercícios de abertura progressiva"},
+        {letra:"C", texto:"Abertura forçada sob anestesia geral"},
+        {letra:"D", texto:"Infiltração de corticoide diretamente no músculo masséter"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Antibiótico não é indicado para trismo de causa muscular sem infecção.",
+        B:"Correto. Trismo muscular pós-anestesia: compressas quentes (vasodilatação, relaxamento muscular), anti-inflamatório não-esteroidal, eventualmente miorrelaxante, e exercícios de abertura gradual orientados. Melhora em 7-14 dias na maioria dos casos.",
+        C:"Abertura forçada pode romper fibras musculares e piorar o quadro.",
+        D:"Infiltração de corticoide não é a primeira escolha e pode complicar sem indicação precisa."
+      }
+    }
+  ],
+  competencias:[7,8,8,8,8,7,7,8]
+},
+
+{
+  id:"CC-26", titulo:"Diagnóstico de cárie por ICDAS — decisão de tratar",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
+  contexto:`Paciente feminina, 20 anos, sem queixas. Ao exame com espelho, secagem com jato de ar e iluminação adequada, o dente 16 apresenta: mancha branca opaca visível seca e úmida, sem cavitação, na face oclusal. Teste de flúor: dente de alto risco. A paciente usa flúor em creme dental, tem baixa ingestão de açúcar e higiene razoável.`,
+  personagem:{nome:"Paciente em avaliação preventiva",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Classificação ICDAS",
+      pergunta:"Qual é o código ICDAS mais provável para esta lesão?",
+      opcoes:[
+        {letra:"A", texto:"ICDAS 0 — dente hígido"},
+        {letra:"B", texto:"ICDAS 1-2 — lesão inicial de esmalte (mancha branca sem cavitação)"},
+        {letra:"C", texto:"ICDAS 4-5 — sombra de dentina sob esmalte"},
+        {letra:"D", texto:"ICDAS 6 — cavitação extensa com dentina exposta"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Dente hígido não apresenta manchas brancas.",
+        B:"Correto. ICDAS 1: mancha branca visível apenas após secagem. ICDAS 2: mancha branca visível sem secagem. A descrição se encaixa em ICDAS 2 — lesão ativa de esmalte sem cavitação.",
+        C:"ICDAS 4-5 implica sombra de dentina translúcida através do esmalte ou cavidade detectável.",
+        D:"ICDAS 6 implica cavidade franca com dentina exposta — não é o caso."
+      }
+    },
+    {
+      fase:"Decisão terapêutica",
+      pergunta:"Qual é a conduta mais adequada para esta lesão ICDAS 2 ativa?",
+      opcoes:[
+        {letra:"A", texto:"Restauração imediata com resina composta"},
+        {letra:"B", texto:"Tratamento não-operatório: flúor verniz + selante de fissura + controle de dieta + reavaliação"},
+        {letra:"C", texto:"Aguardar até haver cavitação antes de qualquer intervenção"},
+        {letra:"D", texto:"Extração preventiva do dente para evitar progressão"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Lesão ICDAS 2 sem cavitação pode ser revertida ou paralisada sem preparação cavitária.",
+        B:"Correto. Lesões ativas de esmalte sem cavitação respondem ao tratamento não-operatório: aplicação de flúor verniz, selamento preventivo da fissura, controle de dieta e reavaliação periódica. Abordagem minimamente invasiva.",
+        C:"Aguardar cavitação é conduta inadequada quando se pode atuar preventivamente.",
+        D:"Extração de dente com lesão reversível é totalmente descabida."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,8,7,6,8]
+},
+
+{
+  id:"CC-27", titulo:"Reação vasovagal durante atendimento odontológico",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Urgência",
+  contexto:`Paciente masculino, 22 anos, durante a anestesia para extração do siso. Após a injeção, o paciente relata tontura, náusea e visão escura. Ao exame: palidez, sudorese fria, pulso lento e fraco. PA: 85/50 mmHg. Está consciente mas muito sonolento. Sem histórico de cardiopatia.`,
+  personagem:{nome:"Paciente com reação vasovagal",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico da emergência",
+      pergunta:"Qual é o diagnóstico mais provável neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Reação alérgica ao anestésico local (anafilaxia)"},
+        {letra:"B", texto:"Síncope vasovagal (lipotímia) — a emergência mais comum no consultório odontológico"},
+        {letra:"C", texto:"Hipoglicemia severa"},
+        {letra:"D", texto:"Infarto agudo do miocárdio"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Anafilaxia cursaria com urticária, broncoespasmo, edema de laringe e hipotensão mais severa. Palidez e bradicardia são mais compatíveis com vasovagal.",
+        B:"Correto. A síncope vasovagal é a emergência médica mais frequente em consultórios odontológicos. O quadro típico: ansiedade → estímulo vagal → bradicardia + vasodilatação periférica → hipoperfusão cerebral transitória → palidez, sudorese, náusea, tontura.",
+        C:"Hipoglicemia cursaria com tremores, confusão, sudorese quente, e o paciente seria diabético.",
+        D:"IAM cursaria com dor precordial irradiada, alterações no ECG, e o paciente seria mais velho com fatores de risco cardiovasculares."
+      }
+    },
+    {
+      fase:"Conduta imediata",
+      pergunta:"Qual é a sequência correta de manejo da síncope vasovagal?",
+      opcoes:[
+        {letra:"A", texto:"Injetar adrenalina 1:1000 intramuscular imediatamente"},
+        {letra:"B", texto:"Interromper o procedimento, reclinar a cadeira (Trendelenburg), elevar as pernas e monitorar sinais vitais"},
+        {letra:"C", texto:"Chamar o SAMU e aguardar sem intervir"},
+        {letra:"D", texto:"Administrar glicose oral imediatamente"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Adrenalina é indicada para anafilaxia — não para síncope vasovagal.",
+        B:"Correto. Manejo da síncope vasovagal: interromper o procedimento, colocar o paciente em Trendelenburg (cabeça abaixo, pernas elevadas — melhora o retorno venoso cerebral), afrouxar roupas, monitorar PA e pulso. O paciente costuma se recuperar rapidamente.",
+        C:"Na maioria dos casos de síncope vasovagal o SAMU não é necessário — o paciente se recupera com manejo postural.",
+        D:"Glicose é para hipoglicemia. A síncope vasovagal não tem relação com glicemia."
+      }
+    }
+  ],
+  competencias:[9,9,9,8,8,7,7,9]
+},
+
+{
+  id:"CC-28", titulo:"Fratura de instrumento endodôntico — conduta",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`Durante o tratamento endodôntico do dente 36, a lima rotativa fraturou no terço médio do canal mésio-lingual. O fragmento tem aproximadamente 3 mm e está firmemente retido. O canal estava desbridado até o terço médio. O dente não tem lesão periapical prévia e o paciente é assintomático.`,
+  personagem:{nome:"Paciente — instrumento fraturado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação do prognóstico",
+      pergunta:"Qual fator tem MAIOR influência no prognóstico do dente após fratura de instrumento endodôntico?",
+      opcoes:[
+        {letra:"A", texto:"A marca do instrumento (nacional vs. importado)"},
+        {letra:"B", texto:"A posição do fragmento, presença ou não de lesão periapical e a possibilidade de bypass"},
+        {letra:"C", texto:"A idade do paciente"},
+        {letra:"D", texto:"O tipo de coroa do dente (natural vs. protética)"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A marca do instrumento não determina o prognóstico após a fratura.",
+        B:"Correto. Os fatores determinantes são: localização do fragmento (apical = pior prognóstico), presença de lesão periapical (piora significativamente), possibilidade de realizar bypass do fragmento e contaminação prévia do canal.",
+        C:"Idade não é o fator primário de prognóstico endodôntico.",
+        D:"Tipo de coroa não influencia o sucesso do tratamento de canal."
+      }
+    },
+    {
+      fase:"Conduta clínica",
+      pergunta:"Qual é a conduta mais indicada para este caso (fragmento no terço médio, sem lesão periapical, canal já instrumentado até o terço médio)?",
+      opcoes:[
+        {letra:"A", texto:"Extração imediata do dente e instalação de implante"},
+        {letra:"B", texto:"Tentar bypass do fragmento, irrigar abundantemente e obturar até o fragmento se não for possível remover"},
+        {letra:"C", texto:"Encerrar o caso sem tratamento adicional"},
+        {letra:"D", texto:"Iniciar antibioticoterapia sistêmica para prevenir infecção apical"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extração é o último recurso — o dente ainda tem prognóstico razoável.",
+        B:"Correto. A primeira tentativa é realizar o bypass do fragmento com lima fina (08 ou 10) e irrigação. Se não for possível remover o fragmento, obtura-se até o nível do fragmento com cimento e guta-percha. O prognóstico sem lesão periapical é favorável.",
+        C:"Encerrar sem tratamento deixa o canal não obturado, predispondo à infecção.",
+        D:"Antibiótico não tem indicação para fratura de instrumento assintomática sem lesão periapical."
+      }
+    },
+    {
+      fase:"Comunicação com o paciente",
+      pergunta:"Qual é a conduta ética do cirurgião-dentista após a fratura de instrumento?",
+      opcoes:[
+        {letra:"A", texto:"Não informar ao paciente para evitar preocupação desnecessária"},
+        {letra:"B", texto:"Registrar no prontuário, informar ao paciente sobre o ocorrido, as implicações e as opções de conduta"},
+        {letra:"C", texto:"Encaminhar ao especialista sem explicar o motivo ao paciente"},
+        {letra:"D", texto:"Reiniciar o tratamento em outro dente para compensar o erro"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Omitir informação ao paciente é uma violação ética e legal. O paciente tem direito à informação completa.",
+        B:"Correto. O dever ético do cirurgião-dentista é informar ao paciente sobre qualquer intercorrência durante o tratamento, registrar no prontuário, explicar as opções de conduta e, se necessário, encaminhar ao especialista em endodontia.",
+        C:"Encaminhar sem explicação priva o paciente de tomar decisões informadas.",
+        D:"A situação deve ser gerenciada profissionalmente — não dissimulada com outra conduta."
+      }
+    }
+  ],
+  competencias:[7,9,9,9,8,7,8,9]
+},
+
+{
+  id:"CC-29", titulo:"Mucocele — diagnóstico e tratamento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente masculino, 16 anos, com nódulo azulado no lábio inferior há 3 meses, crescimento lento, sem dor, consistência flutuante à palpação. A mãe relata que ele tem hábito de morder o lábio inferior frequentemente. Ao exame: lesão de 1,2 cm, séssil, bem delimitada, mucosa íntegra sobrejacente de coloração translúcida-azulada.`,
+  personagem:{nome:"Adolescente com nódulo labial",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico",
+      pergunta:"Qual é o diagnóstico mais provável para esta lesão?",
+      opcoes:[
+        {letra:"A", texto:"Fibroma traumático"},
+        {letra:"B", texto:"Mucocele de retenção (pseudocisto ou cisto de extravasamento)"},
+        {letra:"C", texto:"Lipoma labial"},
+        {letra:"D", texto:"Hemangioma venoso"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Fibroma é firme, cor da mucosa normal e não flutuante.",
+        B:"Correto. Mucocele: extravasamento de muco por ruptura de glândula salivar menor (hábito de morder), formando coleção translúcida-azulada, flutuante, no lábio inferior. É a lesão não-cariosa mais comum de glândula salivar menor.",
+        C:"Lipoma é amarelado, de consistência mais firme e não tem história de trauma.",
+        D:"Hemangioma é vermelho-vináceo e apresenta vitropressão positiva (palidece à pressão)."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o tratamento de escolha para a mucocele?",
+      opcoes:[
+        {letra:"A", texto:"Punção e drenagem do conteúdo — cura definitiva"},
+        {letra:"B", texto:"Excisão cirúrgica da lesão com a glândula salivar associada"},
+        {letra:"C", texto:"Apenas orientar a interromper o hábito de morder o lábio e aguardar resolução"},
+        {letra:"D", texto:"Tratamento com antibióticos por 10 dias"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A punção simples tem alta taxa de recidiva — o conteúdo se refaz pois a glândula não foi removida.",
+        B:"Correto. A excisão cirúrgica incluindo a lesão e a glândula salivar menor associada é o tratamento definitivo com menor taxa de recidiva.",
+        C:"Interromper o hábito é importante, mas lesões de 3 meses de evolução raramente regridem espontaneamente.",
+        D:"Mucocele não tem origem infecciosa — antibióticos não são indicados."
+      }
+    }
+  ],
+  competencias:[7,7,8,8,8,7,7,8]
+},
+
+{
+  id:"CC-30", titulo:"Periodontite agressiva em jovem",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
+  contexto:`Paciente feminino, 19 anos, encaminhado pelo ortondontista. Ao exame: bolsas periodontais de 6-8 mm nos incisivos superiores e primeiros molares bilateralmente (lesão em arco invertido), perda óssea angular radiográfica nos mesmos dentes, sangramento à sondagem. Higiene oral satisfatória — sem placa abundante. Sem doenças sistêmicas. Não fuma.`,
+  personagem:{nome:"Jovem com periodontite agressiva",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico diferencial",
+      pergunta:"A distribuição da perda óssea (primeiros molares + incisivos, bilateral e simétrica) é típica de qual condição?",
+      opcoes:[
+        {letra:"A", texto:"Periodontite crônica generalizada"},
+        {letra:"B", texto:"Periodontite localizada em jovens (anteriormente 'agressiva localizada')"},
+        {letra:"C", texto:"Gengivite ulceronecrosante aguda (GUNA)"},
+        {letra:"D", texto:"Periodontite associada a diabetes descompensado"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Periodontite crônica generalizada é difusa, não tem o padrão localizado em molares e incisivos.",
+        B:"Correto. Periodontite localizada em jovens tem padrão clássico: perda óssea nos primeiros molares e incisivos (padrão de arco invertido), em pacientes jovens, com higiene relativamente boa, progressão rápida e possível componente genético/familiar.",
+        C:"GUNA é uma lesão necrótica aguda, dolorosa, com papilas em 'colarinho' e halitose intensa — quadro diferente.",
+        D:"Diabetes descompensado causaria periodontite generalizada, não localizada com este padrão."
+      }
+    },
+    {
+      fase:"Tratamento e adjuvantes",
+      pergunta:"Qual abordagem terapêutica é mais indicada para periodontite localizada agressiva em jovem?",
+      opcoes:[
+        {letra:"A", texto:"Apenas profilaxia supragengival mensal por 6 meses"},
+        {letra:"B", texto:"Raspagem e alisamento radicular + antibioticoterapia sistêmica adjuvante (amoxicilina + metronidazol)"},
+        {letra:"C", texto:"Extração de todos os dentes afetados e implantes imediatos"},
+        {letra:"D", texto:"Corticoterapia sistêmica para controlar a resposta inflamatória"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Profilaxia supragengival isolada não controla a periodontite com bolsas profundas.",
+        B:"Correto. A associação de raspagem subgengival com antibioticoterapia sistêmica (amoxicilina 500 mg + metronidazol 400 mg, ambos 3x/dia por 7 dias) é o protocolo de evidência para periodontite agressiva. A flora específica (A. actinomycetemcomitans) requer tratamento sistêmico.",
+        C:"Extração não é indicada em dentes com prognóstico que podem ser tratados periodontalmente.",
+        D:"Corticoterapia sistêmica não tem indicação no tratamento periodontal padrão."
+      }
+    },
+    {
+      fase:"Rastreamento familiar",
+      pergunta:"Qual conduta adicional é recomendada considerando que esta periodontite pode ter componente genético?",
+      opcoes:[
+        {letra:"A", texto:"Solicitar teste genético de rotina ao paciente"},
+        {letra:"B", texto:"Recomendar avaliação periodontal dos familiares diretos (pais e irmãos)"},
+        {letra:"C", texto:"Informar que é doença adquirida sem necessidade de rastreamento familiar"},
+        {letra:"D", texto:"Indicar flúor sistêmico para prevenção genética"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Teste genético não é conduta de rotina para esta condição.",
+        B:"Correto. A periodontite agressiva localizada tem forte associação familiar. É fundamental orientar o paciente a indicar avaliação periodontal para pais e irmãos, que podem ter a mesma susceptibilidade sem sintomas ainda.",
+        C:"O componente genético é bem estabelecido — o rastreamento familiar é uma responsabilidade clínica.",
+        D:"Flúor sistêmico previne cárie, não doença periodontal."
+      }
+    }
+  ],
+  competencias:[8,9,9,9,8,8,7,9]
+},
+
+{
+  id:"CC-31", titulo:"Odontossecção e extração complexa — dente 48",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
+  contexto:`Paciente masculino, 26 anos, encaminhado para exodontia do dente 48 incluso mesioangular. Radiografia panorâmica: raízes em contato com o canal mandibular (sinal de interrupção da cortical), angulação mesioangular grau IIB (Winter). Sem inflamação ativa. Sem alergias. Não usa medicamentos. PA: 122/78 mmHg.`,
+  personagem:{nome:"Paciente — extração de siso incluso",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Planejamento pré-operatório",
+      pergunta:"Qual exame de imagem complementar deve ser solicitado antes da cirurgia, considerando o sinal de interrupção da cortical do canal mandibular?",
+      opcoes:[
+        {letra:"A", texto:"Nenhum — a panorâmica é suficiente para qualquer extração de siso"},
+        {letra:"B", texto:"Tomografia computadorizada de feixe cônico (CBCT) — para avaliar a relação real raiz-canal mandibular"},
+        {letra:"C", texto:"Ressonância magnética de mandíbula"},
+        {letra:"D", texto:"Cintilografia óssea"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"O sinal de interrupção da cortical indica proximidade ou contato com o nervo alveolar inferior — risco de parestesia. A panorâmica não permite avaliação tridimensional adequada.",
+        B:"Correto. O CBCT fornece avaliação tridimensional da relação raiz-canal mandibular, permite planejar a odontossecção mais segura e quantificar o risco de parestesia pós-operatória do nervo alveolar inferior.",
+        C:"Ressonância não é o exame de escolha para estruturas ósseas e dentais.",
+        D:"Cintilografia óssea não é indicada para planejamento cirúrgico de siso."
+      }
+    },
+    {
+      fase:"Técnica cirúrgica",
+      pergunta:"Considerando a angulação mesioangular e o contato com o canal, qual técnica é mais adequada?",
+      opcoes:[
+        {letra:"A", texto:"Luxação simples com fórceps sem osteotomia"},
+        {letra:"B", texto:"Odontossecção (corte cervical ou coroa-raiz) com turbina + remoção em fragmentos para reduzir pressão sobre o canal"},
+        {letra:"C", texto:"Avulsão total do dente em bloco com osso para evitar fragmentação"},
+        {letra:"D", texto:"Extração química com ácido para amolecer o osso"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Luxação simples com fórceps em dente mesioangular com contato com canal mandibular imporia força de alavanca direta sobre o nervo.",
+        B:"Correto. A odontossecção divide o dente em fragmentos (coroa + raiz, ou coroa separada da raiz), reduzindo drasticamente a força necessária e o risco de lesão ao nervo alveolar inferior.",
+        C:"Remoção em bloco com osso é uma complicação — não uma técnica cirúrgica.",
+        D:"Extração química não existe em odontologia."
+      }
+    },
+    {
+      fase:"Complicação pós-operatória",
+      pergunta:"O paciente retorna 1 semana após a cirurgia com relato de dormência no lábio inferior e mento esquerdo. Qual é a conduta correta?",
+      opcoes:[
+        {letra:"A", texto:"Informar que é normal e dispensar sem acompanhamento"},
+        {letra:"B", texto:"Registrar no prontuário, tranquilizar o paciente e realizar acompanhamento regular — encaminhar ao circomaxilofacial se não houver melhora em 6 meses"},
+        {letra:"C", texto:"Reoperação imediata para verificar o nervo"},
+        {letra:"D", texto:"Prescrever corticoide em dose de ataque por 1 semana como rotina"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Dispensar sem acompanhamento é inadequado — o paciente precisa ser monitorado.",
+        B:"Correto. Parestesia do nervo alveolar inferior pós-extração de siso é complicação conhecida. Na maioria dos casos há recuperação espontânea em semanas a meses. Documentar, tranquilizar, acompanhar e encaminhar ao cirurgião bucomaxilofacial se sem melhora em 6 meses.",
+        C:"Reoperação não está indicada para neuropraxia/axonotmese — pode agravar.",
+        D:"Corticoide pode ser indicado no pós-operatório imediato para reduzir edema, não após 1 semana de parestesia estabelecida."
+      }
+    }
+  ],
+  competencias:[8,9,9,9,9,7,8,9]
+},
+
+{
+  id:"CC-32", titulo:"Clareamento dental — indicações e contraindicações",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Estética",
+  contexto:`Paciente feminina, 32 anos, solicita clareamento dental para tratar manchamento generalizado amarelo-acastanhado. Ao exame: esmalte íntegro, gengiva saudável, sem cáries ativas, sem restaurações em dentes anteriores. Não é gestante. Nega sensibilidade. Faz uso de contraceptivo oral. PA normal.`,
+  personagem:{nome:"Paciente solicitando clareamento",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Indicação do método",
+      pergunta:"Qual é a modalidade de clareamento mais indicada para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Clareamento em consultório (peróxido de hidrogênio 35%) em sessão única"},
+        {letra:"B", texto:"Clareamento caseiro supervisionado com moldeiras + peróxido de carbamida 10-16%"},
+        {letra:"C", texto:"Clareamento com dentifrícios abrasivos (pasta clareadora) aplicados 3x/dia"},
+        {letra:"D", texto:"Microabrasão com ácido clorídrico 18% e pedra-pomes"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Clareamento em consultório é mais rápido, mas a literatura mostra resultados similares ao caseiro com menos sensibilidade. Para manchamento generalizado, o caseiro é igualmente eficaz e mais custo-efetivo.",
+        B:"Correto. Clareamento caseiro supervisionado com moldeiras individualizadas e peróxido de carbamida 10-16% tem alta eficácia, menor sensibilidade e excelente controle pelo paciente. É a primeira escolha para manchamento extrínseco/intrínseco generalizado.",
+        C:"Dentifrício abrasivo clarea apenas extrinsecamente (manchas superficiais) — não trata manchamento intrínseco.",
+        D:"Microabrasão é indicada para manchas de fluorose ou hipomineralização localizadas, não para clareamento geral."
+      }
+    },
+    {
+      fase:"Contraindicações",
+      pergunta:"Qual situação clínica representa uma contraindicação ao clareamento dental?",
+      opcoes:[
+        {letra:"A", texto:"Dentes com esmalte íntegro e gengiva saudável"},
+        {letra:"B", texto:"Paciente gestante ou em amamentação"},
+        {letra:"C", texto:"Paciente adulto com restaurações antigas em dentes posteriores"},
+        {letra:"D", texto:"Paciente em uso de anticoncepcional oral"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Esmalte íntegro e gengiva saudável são pré-requisitos para clareamento — sem contraindicação.",
+        B:"Correto. Gestação e amamentação são contraindicações ao clareamento dental — o peróxido pode ser absorvido e os efeitos no feto/lactente são desconhecidos. Clareamento deve ser postergado.",
+        C:"Restaurações antigas não contraindicam clareamento. Podem precisar ser substituídas após o procedimento (cor residual).",
+        D:"Anticoncepcional oral não contraindica clareamento dental."
+      }
+    }
+  ],
+  competencias:[7,7,8,8,7,7,7,8]
+},
+
+{
+  id:"CC-33", titulo:"Prótese total — estabilidade e retenção",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Prótese",
+  contexto:`Paciente masculino, 74 anos, edêntulo total há 5 anos. Chega com queixa de prótese total inferior que "solta toda hora" ao falar e mastigar. Ao exame: rebord alveolar inferior extremamente reabsorvido (lâmina basal), mucosa íntegra. A prótese apresenta selamento periférico deficiente na região posterior. Arcada superior com prótese bem adaptada.`,
+  personagem:{nome:"Paciente com prótese instável",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico da instabilidade",
+      pergunta:"Qual é o principal fator responsável pela instabilidade da prótese total inferior neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Má higiene da prótese"},
+        {letra:"B", texto:"Reabsorção óssea avançada + selamento periférico deficiente"},
+        {letra:"C", texto:"Uso de adesivo de prótese em excesso"},
+      {letra:"D", texto:"Prótese superior bem adaptada que empurra a inferior"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Higiene deficiente não causa instabilidade mecânica.",
+        B:"Correto. A retenção da prótese total inferior depende do reborde, da selagem periférica e da ação muscular. Reborde muito reabsorvido + selamento periférico deficiente comprometem diretamente a estabilidade.",
+        C:"Adesivo é paliativo — não diagnostica nem trata a causa.",
+        D:"A prótese superior não empurra mecanicamente a inferior."
+      }
+    },
+    {
+      fase:"Solução clínica",
+      pergunta:"Qual é a solução mais definitiva para a prótese inferior instável com reborde muito reabsorvido?",
+      opcoes:[
+        {letra:"A", texto:"Aplicar mais adesivo para prótese diariamente"},
+        {letra:"B", texto:"Reembasamento da prótese (rebasamento) para melhor adaptação ao reborde atual"},
+        {letra:"C", texto:"Nova prótese total convencional sem outras intervenções"},
+        {letra:"D", texto:"Implantes zigomáticos para fixação da prótese inferior"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Adesivo é paliativo e não resolve o problema de adaptação a longo prazo.",
+        B:"Correto. O rebasamento (reembasamento direto ou indireto) readapta a base da prótese ao reborde atual. Para casos de reabsorção severa, podem ser indicados implantes osseointegrados de suporte (prótese overdenture sobre 2 implantes), que é o padrão-ouro para prótese inferior.",
+        C:"Nova prótese sem melhorar o reborde ou adicionar suporte de implante terá o mesmo problema.",
+        D:"Implantes zigomáticos são para maxila edêntula com atrofia severa — não para mandíbula."
+      }
+    }
+  ],
+  competencias:[7,8,8,8,7,7,6,8]
+},
+
+{
+  id:"CC-34", titulo:"Xerostomia — causas e manejo",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  contexto:`Paciente feminina, 62 anos, queixa de boca seca constante há 1 ano, dificuldade de engolir alimentos secos e múltiplas cáries cervicais novas. Ao exame: mucosa ressecada, saliva espessa, múltiplas raízes cariadas. Faz uso de: amitriptilina (depressão), atenolol (hipertensão), hidroclorotiazida e lorazepam (ansiedade).`,
+  personagem:{nome:"Paciente com xerostomia",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Etiologia",
+      pergunta:"Qual é a causa mais provável de xerostomia neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Síndrome de Sjögren — doença autoimune que acomete glândulas salivares"},
+        {letra:"B", texto:"Polifarmácia com múltiplos medicamentos xerogênicos"},
+        {letra:"C", texto:"Diabetes descompensado com hiperglicemia severa"},
+        {letra:"D", texto:"Ansiedade isolada sem causa orgânica"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Síndrome de Sjögren é possível, mas o quadro com múltiplos medicamentos xerogênicos é mais provável como causa primária.",
+        B:"Correto. Amitriptilina (antidepressivo tricíclico), atenolol, hidroclorotiazida e lorazepam são todos medicamentos com propriedade anticolinérgica ou xerogênica. A combinação potencializa a redução do fluxo salivar.",
+        C:"Diabetes pode causar xerostomia, mas o quadro farmacológico é muito mais evidente.",
+        D:"Ansiedade pode reduzir discretamente a saliva — não justifica o quadro severo aqui."
+      }
+    },
+    {
+      fase:"Manejo odontológico",
+      pergunta:"Qual é o conjunto de medidas odontológicas mais indicado para esta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Extrair todos os dentes cariados e instalar prótese total"},
+        {letra:"B", texto:"Flúor de alta concentração + saliva artificial + orientação de hidratação + tratar cáries ativas + comunicar médico sobre medicamentos xerogênicos"},
+        {letra:"C", texto:"Apenas aplicar flúor verniz semestral sem outras medidas"},
+        {letra:"D", texto:"Suspender todos os medicamentos por conta própria para resolver a xerostomia"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Extração não é a abordagem para xerostomia — a causa deve ser tratada.",
+        B:"Correto. Gestão multidisciplinar: dentista aplica flúor de alta concentração para proteger raízes expostas, prescreve saliva artificial, orienta hidratação frequente e mastiga chiclete sem açúcar para estimular a saliva residual. O médico deve ser comunicado para avaliar substituição dos medicamentos xerogênicos.",
+        C:"Flúor isolado sem outras medidas é insuficiente para o quadro.",
+        D:"Suspender medicamentos sem orientação médica pode causar crises de depressão, hipertensão ou ansiedade."
+      }
+    }
+  ],
+  competencias:[8,8,8,8,7,7,7,9]
+},
+
+{
+  id:"CC-35", titulo:"Urgência pediátrica — abscesso em dente decíduo",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Odontopediatria",
+  contexto:`Paciente feminina, 4 anos, trazida pela mãe com queixa de dor intensa e inchaço na gengiva superior esquerda há 2 dias. Ao exame: abscesso gengival sobre o dente 64 (segundo pré-molar decíduo superior esquerdo), fístula ativa, cárie extensa, mobilidade grau II. Temperatura: 37,2°C. Sem alergias. Peso: 16 kg.`,
+  personagem:{nome:"Criança com abscesso",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Indicação de tratamento",
+      pergunta:"Qual é a decisão clínica mais adequada para o dente 64 neste caso?",
+      opcoes:[
+        {letra:"A", texto:"Pulpotomia + restauração imediata na mesma sessão"},
+        {letra:"B", texto:"Exodontia do dente 64 — cárie extensa, fístula, mobilidade grau II indica mau prognóstico"},
+        {letra:"C", texto:"Apenas prescrever antibiótico e remarcar para após 7 dias"},
+        {letra:"D", texto:"Iniciar pulpectomia sem anestesia para evitar medicamentos"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Dente com fístula, mobilidade grau II e cárie extensa não tem prognóstico favorável para pulpotomia.",
+        B:"Correto. Os critérios de extração em dente decíduo incluem: fístula ativa, mobilidade patológica grau II-III, reabsorção radicular interna ou externa avançada, e cárie irrestaurável. O dente 64 preenche múltiplos critérios.",
+        C:"Antibiótico isolado sem eliminar o foco infeccioso não resolve o abscesso e pode permitir progressão.",
+        D:"Toda intervenção odontológica invasiva em criança requer anestesia adequada — há obrigação ética."
+      }
+    },
+    {
+      fase:"Manejo pós-extração",
+      pergunta:"Após a extração do dente 64 em criança de 4 anos, qual conduta é necessária para preservar o espaço do sucessor permanente?",
+      opcoes:[
+        {letra:"A", texto:"Nenhuma — dentes decíduos anteriores ao molar permanente não precisam de mantenedor de espaço"},
+        {letra:"B", texto:"Instalar mantenedor de espaço (bandas com alça ou removível) — o dente 24 ainda está a anos de irromper"},
+        {letra:"C", texto:"Extrair o dente contralateral (dente 54) para manter a simetria"},
+        {letra:"D", texto:"Instalar implante dentário imediato para manter o espaço"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A extração precoce de molares decíduos causa migração dos dentes adjacentes e perda de espaço para o permanente.",
+        B:"Correto. Com a extração prematura do dente 64, o espaço para o dente 24 (pré-molar permanente que irrompe por volta dos 11-12 anos) deve ser mantido com mantenedor de espaço. É uma conduta preventiva indispensável.",
+        C:"Extrair dente saudável contralateral é conduta eticamente inadequada.",
+        D:"Implantes em crianças em crescimento são contraindicados — o osso ainda está em desenvolvimento."
+      }
+    }
+  ],
+  competencias:[8,8,8,9,8,8,7,9]
+},
+
+{
+  id:"CC-36", titulo:"Endodontia em dente com ápice incompleto (apicificação)",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
+  contexto:`Paciente masculino, 11 anos, com trauma dental no dente 11 há 3 semanas. Ao exame: teste de vitalidade negativo, dente escurecido. Radiografia: ápice incompleto (dente imaturo), sem lesão periapical ainda. O dente está necrosado mas sem sintomas. Sem alergias. Peso: 38 kg.`,
+  personagem:{nome:"Criança com dente imaturo necrosado",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico e indicação",
+      pergunta:"O ápice incompleto impede a obturação convencional com guta-percha. Qual procedimento é indicado para este caso?",
+      opcoes:[
+        {letra:"A", texto:"Extração e implante imediato"},
+        {letra:"B", texto:"Apicificação com MTA ou hidróxido de cálcio para criar barreira apical"},
+        {letra:"C", texto:"Obturar normalmente com guta-percha aquecida até o ápice aberto"},
+        {letra:"D", texto:"Aguardar o fechamento natural do ápice sem tratamento"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Implante em criança de 11 anos é contraindicado — o osso ainda está em crescimento.",
+        B:"Correto. Dente imaturo necrosado com ápice aberto requer apicificação: limpeza/desinfecção do canal + barreira apical com MTA (apicificação em 1-2 sessões) para permitir a obturação definitiva. MTA cria barreira artificial que substitui o ápice.",
+        C:"Obturar com ápice aberto causaria extrusão de material para os tecidos periapicais.",
+        D:"Sem vitalidade, o ápice não fechará — é necessário tratamento ativo."
+      }
+    },
+    {
+      fase:"Técnica de irrigação no dente imaturo",
+      pergunta:"Qual concentração de hipoclorito de sódio é mais indicada para irrigação neste caso (dente imaturo com paredes delgadas)?",
+      opcoes:[
+        {letra:"A", texto:"Hipoclorito de sódio 5,25% para máxima ação antimicrobiana"},
+        {letra:"B", texto:"Hipoclorito de sódio 1-1,5% — eficaz e menos agressivo às paredes delgadas"},
+        {letra:"C", texto:"Água oxigenada 10 volumes"},
+        {letra:"D", texto:"Álcool 70% para desinfecção rápida"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"NaOCl 5,25% pode comprometer as paredes delgadas dos dentes imaturos, tornando-as mais frágeis.",
+        B:"Correto. Em dentes imaturos, a concentração menor de NaOCl (1-1,5%) é preferida para preservar as paredes delgadas do canal, mantendo ação antimicrobiana adequada.",
+        C:"Água oxigenada não é o irrigante de escolha em endodontia pelas limitações de ação antimicrobiana.",
+        D:"Álcool não é indicado para irrigação endodôntica."
+      }
+    },
+    {
+      fase:"Prognóstico e comunicação",
+      pergunta:"Qual informação é fundamental comunicar aos pais sobre o prognóstico deste dente?",
+      opcoes:[
+        {letra:"A", texto:"O dente ficará completamente normal após a apicificação, sem nenhuma limitação"},
+        {letra:"B", texto:"O dente tratado terá paredes mais delgadas e maior risco de fratura — pode necessitar de coroa protetora futuramente"},
+        {letra:"C", texto:"O tratamento garante que o dente não precisará de nenhuma intervenção pelos próximos 20 anos"},
+        {letra:"D", texto:"O dente irá cair naturalmente nos próximos 2 anos independentemente do tratamento"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Dente imaturo necrosado tratado tem limitações — não é idêntico ao dente vital.",
+        B:"Correto. Dentes imaturos necrosados têm paredes mais frágeis mesmo após tratamento. A comunicação com os responsáveis deve incluir: risco de fratura, possível necessidade de coroa ou fibra de vidro protetora e acompanhamento regular.",
+        C:"Nenhum tratamento garante ausência de intercorrências por 20 anos.",
+        D:"Dente permanente tratado endodonticamente mantém sua função — não cai naturalmente."
+      }
+    }
+  ],
+  competencias:[8,9,9,10,8,8,8,9]
+},
+
+{
+  id:"CC-37", titulo:"Periodontia — cirurgia de retalho mucoperiósteo",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
+  contexto:`Paciente masculino, 50 anos, com periodontite estágio III grau B. Após 3 meses de tratamento periodontal não-cirúrgico, reavaliação mostra: bolsas residuais de 6-7 mm nos dentes 36 e 37, sangramento à sondagem persistente, sem resposta adequada ao tratamento. Paciente não fuma. Sem doenças sistêmicas. PA: 124/80 mmHg.`,
+  personagem:{nome:"Paciente para cirurgia periodontal",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Indicação cirúrgica",
+      pergunta:"Por que a cirurgia periodontal está indicada neste caso após o tratamento não-cirúrgico?",
+      opcoes:[
+        {letra:"A", texto:"O paciente não seguiu as instruções de higiene — cirurgia é punitiva"},
+        {letra:"B", texto:"Bolsas residuais > 5 mm com sangramento persistente após tratamento não-cirúrgico indicam necessidade de acesso cirúrgico para desbridamento mais eficaz"},
+        {letra:"C", texto:"A cirurgia periodontal sempre é indicada como primeira linha de tratamento"},
+        {letra:"D", texto:"Bolsas de 6-7 mm podem ser tratadas apenas com antibiótico sem cirurgia"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"A cirurgia não é punitiva — é uma indicação técnica.",
+        B:"Correto. Bolsas residuais > 5 mm com sangramento persistente após fase de higiene indicam que o desbridamento não-cirúrgico foi insuficiente. A cirurgia (retalho de acesso) permite visualização direta e instrumentação mais eficaz.",
+        C:"A cirurgia é fase subsequente, não primeira linha.",
+        D:"Antibiótico não substitui o acesso cirúrgico em bolsas residuais após tratamento não-cirúrgico completo."
+      }
+    },
+    {
+      fase:"Técnica cirúrgica",
+      pergunta:"Qual é o tipo de retalho mais indicado para a cirurgia de acesso periodontal nestes dentes posteriores?",
+      opcoes:[
+        {letra:"A", texto:"Retalho de Widman Modificado (incisão sulcular, manutenção das papilas)"},
+        {letra:"B", texto:"Gengivectomia (excisão do tecido gengival)"},
+        {letra:"C", texto:"Frenectomia labial"},
+        {letra:"D", texto:"Retalho de espessura parcial sem descolar o periósteo"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. O retalho de Widman Modificado é o padrão para cirurgia de acesso em dentes posteriores com periodontite: incisão interna biselada, manutenção das papilas, acesso ao tecido de granulação e cemento contaminado, seguido de sutura.",
+        B:"Gengivectomia é indicada para excesso de tecido gengival (hiperplasia), não para acesso a bolsas com perda óssea.",
+        C:"Frenectomia é para bridas mucosas — não relacionada com bolsas periodontais.",
+        D:"Retalho de espessura parcial sem periósteo é usado em cirurgias mucogengivais, não para acesso periodontal padrão."
+      }
+    },
+    {
+      fase:"Pós-operatório",
+      pergunta:"Qual é o período de reavaliação e sondagem após a cirurgia periodontal?",
+      opcoes:[
+        {letra:"A", texto:"Imediatamente após a cirurgia (no dia seguinte)"},
+        {letra:"B", texto:"4-6 semanas pós-operatório (remoção de sutura) e nova sondagem completa após 3-6 meses"},
+        {letra:"C", texto:"Apenas 1 ano após a cirurgia"},
+        {letra:"D", texto:"Não é necessário reavaliar se o paciente não tiver dor"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Sondagem no dia seguinte é inadequada — os tecidos ainda estão edemaciados.",
+        B:"Correto. A sutura é removida em 7-14 dias. A sondagem pós-cirúrgica deve ser realizada após 3-6 meses, quando a cicatrização e a reorganização dos tecidos estiver completa, para avaliar o resultado clínico.",
+        C:"Aguardar 1 ano sem reavaliação pode permitir progressão de bolsas residuais.",
+        D:"Reavaliação pós-cirúrgica é parte obrigatória do protocolo periodontal."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,8,7,7,8]
+},
+
+{
+  id:"CC-38", titulo:"Hipersensibilidade dentinária — diagnóstico e tratamento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
+  contexto:`Paciente feminina, 36 anos, queixa de sensibilidade intensa e rápida em dentes posteriores inferiores ao beber água fria e gelada. A sensibilidade cessa imediatamente ao remover o estímulo. Ao exame: recessão gengival de 2 mm nos dentes 35 e 45, raízes parcialmente expostas. Sem cáries. Escovação horizontal vigorosa.`,
+  personagem:{nome:"Paciente com hipersensibilidade",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Diagnóstico diferencial",
+      pergunta:"O que diferencia a hipersensibilidade dentinária da pulpite irreversível?",
+      opcoes:[
+        {letra:"A", texto:"A pulpite causa sensibilidade ao frio, enquanto a hipersensibilidade só ocorre ao quente"},
+        {letra:"B", texto:"Na hipersensibilidade dentinária a dor é breve e cessa imediatamente com a remoção do estímulo; na pulpite irreversível a dor persiste e pode ser espontânea"},
+        {letra:"C", texto:"Hipersensibilidade só ocorre em dentes posteriores"},
+        {letra:"D", texto:"Não há diferença clínica — os dois requerem tratamento endodôntico"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Tanto hipersensibilidade quanto pulpite podem responder ao frio.",
+        B:"Correto. O critério diferenciador principal é a duração da dor após o estímulo: hipersensibilidade — dor breve, cessa ao remover o estímulo; pulpite irreversível — dor prolongada (> 30 segundos), espontânea, pulsátil.",
+        C:"Hipersensibilidade ocorre em qualquer dente com dentina exposta.",
+        D:"Hipersensibilidade NÃO requer tratamento endodôntico."
+      }
+    },
+    {
+      fase:"Tratamento",
+      pergunta:"Qual é o tratamento mais indicado para esta hipersensibilidade com recessão gengival e escovação inadequada?",
+      opcoes:[
+        {letra:"A", texto:"Tratamento endodôntico dos dentes 35 e 45 imediatamente"},
+        {letra:"B", texto:"Dessensibilizante tópico (verniz de fluoreto ou oxalato de potássio) + orientação de técnica de escovação correta + avaliar cobertura radicular cirúrgica se necessário"},
+        {letra:"C", texto:"Restauração com resina cobrindo toda a raiz exposta sem outras orientações"},
+        {letra:"D", texto:"Extração dos dentes sensíveis e instalação de implantes"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Tratamento endodôntico não tem indicação para hipersensibilidade dentinária.",
+        B:"Correto. Tratamento: dessensibilizante tópico (flúor verniz 5% ou oxalato de potássio), orientação de técnica de escovação suave (Bass modificada, escova extra-macia), creme dental dessensibilizante. Em recessões > 3 mm, cirurgia mucogengival de cobertura (enxerto de tecido conjuntivo) pode ser indicada.",
+        C:"Restaurar a raiz sem corrigir a causa (escovação inadequada) levará à progressão da recessão ao redor da restauração.",
+        D:"Extração é totalmente inadequada para hipersensibilidade dentinária sem outros critérios."
+      }
+    }
+  ],
+  competencias:[7,7,8,8,7,7,6,8]
+},
+
+{
+  id:"CC-39", titulo:"Implante osseointegrado — avaliação pré-cirúrgica",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Implantodontia",
+  contexto:`Paciente masculino, 45 anos, deseja implante na região do dente 36 (ausente há 2 anos). CBCT mostra: altura óssea de 8 mm, largura de 6 mm, distância ao canal mandibular de 7 mm. PA: 128/80 mmHg. Sem alergias. Glicemia: 92 mg/dL. Fumante (10 cigarros/dia). Não usa medicamentos contínuos.`,
+  personagem:{nome:"Paciente para implante",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Avaliação de viabilidade",
+      pergunta:"Com base no CBCT, o implante é viável sem enxerto ósseo?",
+      opcoes:[
+        {letra:"A", texto:"Sim — 8 mm de altura e 6 mm de largura permitem implante padrão sem enxerto"},
+        {letra:"B", texto:"Não — é necessário enxerto ósseo pela distância ao canal mandibular menor que 10 mm"},
+        {letra:"C", texto:"Não — largura de 6 mm é insuficiente para qualquer implante"},
+        {letra:"D", texto:"Sim — a distância ao canal mandibular não é relevante para planejamento"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Implantes padrão (comprimento 8-10 mm, diâmetro 3,75-4 mm) são viáveis com 8 mm de altura óssea e 6 mm de largura. A distância de 7 mm ao canal mandibular permite implante de 8 mm com margem de segurança de 2 mm (implante 5-6 mm ficaria mais seguro). Planejamento com guia cirúrgico é recomendado.",
+        B:"A distância ao canal é importante, mas 7 mm com implante de 5-6 mm de comprimento ainda é viável com protocolo cuidadoso.",
+        C:"6 mm de largura permite implante de diâmetro padrão (3,75-4 mm) com margem adequada.",
+        D:"A distância ao canal mandibular é ALTAMENTE relevante — risco de lesão do nervo alveolar inferior."
+      }
+    },
+    {
+      fase:"Fator de risco modificável",
+      pergunta:"Qual fator de risco presente exige abordagem antes da cirurgia de implante?",
+      opcoes:[
+        {letra:"A", texto:"Hipertensão — contraindicação absoluta para implante"},
+        {letra:"B", texto:"Tabagismo — aumenta significativamente o risco de falha do implante por comprometimento da osseointegração"},
+        {letra:"C", texto:"Glicemia de 92 mg/dL — hipoglicemia grave"},
+        {letra:"D", texto:"Ausência do dente há 2 anos — período longo demais para implante"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Hipertensão controlada (128/80) não contraindica implante.",
+        B:"Correto. Tabagismo é o principal fator de risco modificável para falha de implante: compromete a vascularização, retarda a cicatrização e aumenta o risco de peri-implantite. O paciente deve ser orientado a cessar o tabagismo antes e após a cirurgia.",
+        C:"Glicemia de 92 mg/dL é normal — não é hipoglicemia.",
+        D:"Dois anos de ausência dentária podem causar alguma reabsorção óssea, mas não é período impeditivo."
+      }
+    }
+  ],
+  competencias:[7,8,9,9,8,7,6,8]
+},
+
+{
+  id:"CC-40", titulo:"Caso multidisciplinar — planejamento integrado",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Planejamento",
+  contexto:`Paciente feminina, 52 anos, chega para avaliação odontológica completa. Queixa principal: estética (dentes "amarelos" e "soltos"). Ao exame: periodontite estágio III, dentes 12 e 22 com mobilidade grau I, dente 36 ausente há 3 anos, cárie no dente 16 em dentina. Paciente fumante (5 cigarros/dia). Faz uso de anlodipino 5 mg. PA: 134/86 mmHg. Sem alergias. Motivada para tratamento.`,
+  personagem:{nome:"Paciente complexa — planejamento integral",avatar:"paciente"},
+  passos:[
+    {
+      fase:"Prioridade de tratamento",
+      pergunta:"Qual é a sequência correta de prioridades no plano de tratamento desta paciente?",
+      opcoes:[
+        {letra:"A", texto:"Clareamento dental → implante no 36 → tratamento periodontal → restauração do 16"},
+        {letra:"B", texto:"Tratamento periodontal (controle da infecção) → restauração do 16 → estabilização → implante/clareamento (fase reabilitadora)"},
+        {letra:"C", texto:"Extração de todos os dentes com mobilidade → prótese total → clareamento"},
+        {letra:"D", texto:"Tratar apenas o dente sintomático (16) e ignorar o quadro periodontal"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Iniciar com clareamento antes de controlar a infecção periodontal é erro de planejamento — o substrato está comprometido.",
+        B:"Correto. A sequência lógica é: 1. Fase higiênica periodontal (controle da infecção — base de todo o tratamento); 2. Reavaliação e tratamento restaurador (cárie 16); 3. Fase reabilitadora (implante 36); 4. Fase estética (clareamento) — somente após estabilização.",
+        C:"Mobilidade grau I não indica extração. Periodontite pode ser tratada.",
+        D:"Ignorar a periodontite permitirá progressão da perda óssea e comprometimento dos demais dentes."
+      }
+    },
+    {
+      fase:"Impacto do anlodipino",
+      pergunta:"O anlodipino (bloqueador de canal de cálcio) pode causar qual alteração bucal relevante para o plano de tratamento?",
+      opcoes:[
+        {letra:"A", texto:"Aumento do risco de cárie por redução do fluxo salivar"},
+        {letra:"B", texto:"Hiperplasia gengival medicamentosa — pode mascarar a profundidade real das bolsas periodontais"},
+        {letra:"C", texto:"Pigmentação preta nos dentes"},
+        {letra:"D", texto:"Amálgama de prata deve ser evitada em usuários de anlodipino"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Anlodipino não é xerogênico.",
+        B:"Correto. Bloqueadores de canal de cálcio (anlodipino, nifedipina, diltiazem) podem causar hiperplasia gengival medicamentosa, que aumenta o volume gengival e pode mascarar a profundidade real das bolsas periodontais. O tratamento periodontal pode ter resposta diferente e gengivoplastia pode ser necessária.",
+        C:"Anlodipino não causa pigmentação dentária.",
+        D:"Não há contraindicação ao amálgama em usuários de anlodipino."
+      }
+    },
+    {
+      fase:"Abordagem da mobilidade dental",
+      pergunta:"Os dentes 12 e 22 com mobilidade grau I por periodontite devem receber qual conduta?",
+      opcoes:[
+        {letra:"A", texto:"Extração imediata — mobilidade grau I indica prognóstico ruim"},
+        {letra:"B", texto:"Tratamento periodontal ativo — mobilidade grau I por periodontite frequentemente reverte com o controle da inflamação"},
+        {letra:"C", texto:"Contenção semi-rígida imediata sem tratar a periodontite"},
+        {letra:"D", texto:"Nenhuma intervenção — mobilidade grau I é fisiológica e não precisa de tratamento"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Mobilidade grau I por periodontite não é critério de extração isolado.",
+        B:"Correto. Mobilidade dental grau I causada por periodontite frequentemente regride após tratamento periodontal eficaz, quando a inflamação é controlada e o suporte ósseo remanescente é adequado. Extração prematura deve ser evitada.",
+        C:"Contenção sem tratar a causa (periodontite) é paliativo sem eficácia.",
+        D:"Mobilidade grau I POR PERIODONTITE não é fisiológica — é patológica e requer tratamento."
+      }
+    }
+  ],
+  competencias:[9,9,9,9,8,8,8,9]
+}
+
 ];
