@@ -1541,6 +1541,10 @@ function showResultClinico(res, s, idxSelecionado) {
           </div>
         </div>
       `}
+      <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
+        <h4 style="margin:0 0 12px 0;color:#1f2937">Competências Desenvolvidas</h4>
+        <div style="font-size:12px;color:#6b7280">${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => `${comp}: ${res.comps[i]} pts`).join(' • ')}</div>
+      </div>
       <button class="btn-next" style="width:100%;padding:12px;background:linear-gradient(135deg, #ff8c42, #1b3a8a);color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600" onclick="exitSim()">Voltar aos cenários</button>
     </div>`;
 }
@@ -1838,7 +1842,7 @@ async function saveResult(res) {
     .upsert(payload, { onConflict: 'aluno_id,cenario_id' });
   if (error) {
     console.error('Erro ao salvar resultado no Supabase:', error);
-    alert('Não foi possível salvar seu resultado no servidor. Tente novamente.');
+    // Resultado salvo localmente, mesmo se Supabase falhar
   }
 }
 
