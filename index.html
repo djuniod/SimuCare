@@ -1432,7 +1432,117 @@ function startSim(s) {
   document.getElementById('sim-id-label').textContent = s.id;
   document.getElementById('sim-title-label').textContent = s.titulo;
   showScreen('sim-screen');
-  renderSimStep();
+
+  // Detecta se é um cenário simples (CC) ou com múltiplos passos
+  if (!s.passos && s.opcoes) {
+    // Cenário simples de múltipla escolha (Caso Clínico)
+    renderSimMultiplaEscolha();
+  } else {
+    // Cenário com múltiplos passos
+    renderSimStep();
+  }
+}
+function renderSimMultiplaEscolha() {
+  const s = state.currentSim;
+  const opcoes = s.opcoes || [];
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in" style="max-width:820px;margin:0 auto">
+      <div class="scenario-phase">Caso Clínico — Múltipla Escolha</div>
+      <div class="scenario-title">${s.titulo}</div>
+      <div class="context-box">
+        <div class="context-label">📋 Contexto</div>
+        <div class="context-text">${s.contexto}</div>
+      </div>
+      <div class="question-section">
+        <h3 style="margin-bottom:16px;color:#1f2937">Qual é a resposta correta?</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          ${opcoes.map((opt, idx) => {
+            const letra = String.fromCharCode(65 + idx); // A, B, C, D
+            return `<div class="option-card" onclick="selecionarOpcaoClinicio(${idx})" style="padding:14px 16px;border:2px solid #ddd;border-radius:8px;cursor:pointer;transition:all 0.2s;display:flex;gap:12px;align-items:flex-start">
+              <div style="min-width:32px;height:32px;background:#f3f4f6;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:600;color:#4b5563">${letra}</div>
+              <div style="flex:1">${opt.texto}</div>
+            </div>`;
+          }).join('')}
+        </div>
+        <button class="btn-next" style="margin-top:24px;width:100%;padding:12px" onclick="avaliarClinico()">Responder</button>
+      </div>
+    </div>`;
+}
+function selecionarOpcaoClinicio(idx) {
+  state.selectedOpcionClinico = idx;
+  // Destaca a opção selecionada (UI update é feita no clique)
+  document.querySelectorAll('.option-card').forEach((el, i) => {
+    if (i === idx) {
+      el.style.borderColor = '#3b82f6';
+      el.style.background = '#eff6ff';
+    } else {
+      el.style.borderColor = '#ddd';
+      el.style.background = 'transparent';
+    }
+  });
+}
+function avaliarClinico() {
+  const s = state.currentSim;
+  const idx = state.selectedOpcionClinico;
+  if (idx === undefined) {
+    alert('Selecione uma opção!');
+    return;
+  }
+
+  const opcao = s.opcoes[idx];
+  const acertou = opcao.correto;
+  const letra = String.fromCharCode(65 + idx);
+  const pontuacao = acertou ? 100 : 0;
+  const comps = (s.competencias || [5,5,5,5,5,5,5,5]).map(c => acertou ? c : Math.round(c * 0.5));
+
+  const res = {
+    cenarioId: s.id,
+    titulo: s.titulo,
+    area: s.area || 'Clínico',
+    modalidade: 'clinico',
+    pontuacao,
+    comps,
+    dados_enviados: {
+      resposta: letra,
+      correta: acertou,
+      explicacao: opcao.explicacao || (acertou ? 'Resposta correta!' : 'Resposta incorreta.')
+    },
+    data: new Date().toISOString()
+  };
+
+  saveResult(res);
+  showResultClinico(res, s, idx);
+}
+function showResultClinico(res, s, idxSelecionado) {
+  const opcao = s.opcoes[idxSelecionado];
+  const letra = String.fromCharCode(65 + idxSelecionado);
+  const acertou = opcao.correto;
+
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in">
+      <div class="scenario-phase">Resultado — Caso Clínico</div>
+      <div class="scenario-title">${s.titulo}</div>
+      <div style="background:${acertou?'#f0fdf4':'#fef2f2'};border-left:4px solid ${acertou?'#22c55e':'#ef4444'};padding:16px;margin-bottom:20px;border-radius:6px">
+        <div style="font-size:28px;font-weight:700;color:${acertou?'#22c55e':'#ef4444'}">${res.pontuacao}%</div>
+        <div style="color:#4b5563;margin-top:4px">${acertou ? 'Excelente!' : 'Tente novamente'}</div>
+      </div>
+      <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:20px">
+        <h4 style="margin:0 0 12px 0;color:#1f2937">Sua Resposta</h4>
+        <div style="padding:10px;background:${acertou?'#f0fdf4':'#fef2f2'};border-left:3px solid ${acertou?'#22c55e':'#ef4444'};border-radius:4px">
+          <div style="font-weight:600;color:#1f2937">Alternativa ${letra}</div>
+          <div style="color:#4b5563;font-size:13px;margin-top:4px">${s.opcoes[idxSelecionado].texto}</div>
+        </div>
+      </div>
+      ${acertou ? '' : `
+        <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 8px 0;color:#92400e">Resposta Correta</h4>
+          <div style="color:#78350f;font-size:13px">
+            ${s.opcoes.find(o => o.correto) ? `<div style="font-weight:600">${s.opcoes.find(o => o.correto).texto}</div>` : ''}
+          </div>
+        </div>
+      `}
+      <button class="btn-next" style="width:100%;padding:12px;background:linear-gradient(135deg, #ff8c42, #1b3a8a);color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600" onclick="exitSim()">Voltar aos cenários</button>
+    </div>`;
 }
 function exitSim() {
   state.currentSim = null; state.currentAg = null;
@@ -2069,26 +2179,26 @@ function renderMatScreen() {
         <h3>Selecione os materiais apropriados</h3>
         <div class="hint">Marque todos os materiais necessários para este caso. Existem itens desnecessários (distratores) na lista.</div>
         <div class="material-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
-          ${m.opcoes.map(mat => `<div class="material-item ${sel.includes(mat.id)?'selected':''}" onclick="toggleMaterialSelected('${mat.id}')" style="padding:14px;border:2px solid #ddd;border-radius:8px;cursor:pointer;transition:all 0.2s;${sel.includes(mat.id)?'border-color:#3b82f6;background:#eff6ff':''}">
-            <div class="material-checkbox" style="font-size:18px;margin-bottom:8px">${sel.includes(mat.id)?'✓':''}</div>
-            <div style="font-weight:500">${mat.nome}</div>
+          ${m.opcoes.map((mat, idx) => `<div class="material-item ${sel.includes(idx)?'selected':''}" onclick="toggleMaterialSelected(${idx})" style="padding:14px;border:2px solid #ddd;border-radius:8px;cursor:pointer;transition:all 0.2s;${sel.includes(idx)?'border-color:#3b82f6;background:#eff6ff':''}">
+            <div class="material-checkbox" style="font-size:18px;margin-bottom:8px">${sel.includes(idx)?'✓':''}</div>
+            <div style="font-weight:500">${mat.texto || mat.nome}</div>
           </div>`).join('')}
         </div>
         <button class="btn-next" style="margin-top:20px;width:100%;padding:12px" onclick="avaliarMateriais()">Finalizar e ver resultado</button>
       </div>
     </div>`;
 }
-function toggleMaterialSelected(matId) {
+function toggleMaterialSelected(matIdx) {
   const sel = state.matSelecionados;
-  const i = sel.indexOf(matId);
+  const i = sel.indexOf(matIdx);
   if (i >= 0) sel.splice(i, 1);
-  else sel.push(matId);
+  else sel.push(matIdx);
   renderMatScreen();
 }
 function avaliarMateriais() {
   const m = state.currentMat;
   const sel = state.matSelecionados;
-  const corretos = m.opcoes.filter(o => o.correto).map(o => o.id);
+  const corretos = m.opcoes.map((o, idx) => o.correto ? idx : -1).filter(i => i >= 0);
   const acertos = sel.filter(s => corretos.includes(s)).length;
   const erros_comissao = sel.filter(s => !corretos.includes(s)).length;
   const erros_omissao = corretos.filter(c => !sel.includes(c)).length;
@@ -2131,11 +2241,11 @@ function showResultMateriais(res, m) {
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div>
             <div style="font-weight:600;color:#22c55e;margin-bottom:8px">✓ Corretos (${acertos}/${corretos.length})</div>
-            ${sel.filter(s => corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === s)?.nome}</div>`).join('')}
+            ${sel.filter(s => corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes[s]?.texto || m.opcoes[s]?.nome}</div>`).join('')}
           </div>
           <div>
             <div style="font-weight:600;color:#ef4444;margin-bottom:8px">✗ Incorretos (${res.dados_enviados.erros_comissao})</div>
-            ${sel.filter(s => !corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === s)?.nome}</div>`).join('')}
+            ${sel.filter(s => !corretos.includes(s)).map(s => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes[s]?.texto || m.opcoes[s]?.nome}</div>`).join('')}
           </div>
         </div>
         ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes.find(o => o.id === c)?.nome}</div>`).join('')}</div>` : ''}
