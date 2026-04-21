@@ -3312,152 +3312,135 @@ window.CENARIOS = [
 // BLOCO 3: CASOS CLÍNICOS (CC-01 a CC-40)
 // ════════════════════════════════════════════
 {
-  id:"CC-01", titulo:"Dor pós-extração com sinais de alveolite",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente masculino, 24 anos, retorna à clínica 3 dias após extração do dente 38. Relata dor intensa e constante que não cede com analgésico. Ao exame: alvéolo sem coágulo visível, paredes ósseas expostas, halitose intensa e dor à sondagem leve. O paciente admite ter fumado no dia seguinte à cirurgia e que fez bochechos com água morna para "limpar o local".`,
-  personagem:{nome:"Paciente pós-extração",avatar:"paciente"},
+  id:"CC-01", titulo:"Preparo da bandeja para extração simples",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista informa que o próximo atendimento será uma extração simples do dente 36 em paciente adulto sem complicações. O auxiliar precisa preparar a bandeja antes de o paciente entrar. Os materiais disponíveis no armário são: espelho, sonda, pinça, seringa Carpule, agulha curta, agulha longa, fórceps 151, fórceps 17, alavanca Seldin reta, alavanca Seldin curva, porta-agulha, tesoura, cureta, gaze, algodão, carpule de mepivacaína 2%, carpule de articaína 4%.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico",
-      pergunta:"Com base no quadro clínico descrito, qual é o diagnóstico mais provável?",
+      fase:"Seleção de materiais",
+      pergunta:"Quais itens devem compor a bandeja básica para essa extração simples?",
       opcoes:[
-        {letra:"A", texto:"Osteomielite crônica mandibular"},
-        {letra:"B", texto:"Alveolite seca (osteíte alveolar)"},
-        {letra:"C", texto:"Abscesso dentoalveolar agudo"},
-        {letra:"D", texto:"Pericoronarite no dente 37"}
+        {letra:"A",texto:"Espelho, sonda, pinça, seringa Carpule com agulha curta, fórceps 151, alavanca Seldin reta, gaze e carpule de mepivacaína 2%"},
+        {letra:"B",texto:"Apenas fórceps 151 e gaze — os demais o dentista pega sozinho"},
+        {letra:"C",texto:"Espelho, sonda, porta-agulha, tesoura, fórceps 17, agulha longa e carpule de articaína 4%"},
+        {letra:"D",texto:"Todo o instrumental disponível, pois é melhor ter excesso do que falta"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Osteomielite é uma infecção óssea profunda, de evolução mais lenta e com alterações radiográficas. Não se enquadra neste quadro de 3 dias pós-extração.",
-        B:"Correto. A alveolite seca ocorre quando o coágulo é prematuramente removido (por cigarro, bochechos etc.), expondo o osso alveolar. O quadro clínico — alvéolo sem coágulo, dor intensa, halitose e paredes expostas — é característico.",
-        C:"O abscesso apresenta coleção purulenta, edema e flutuação. Este caso não mostra esses achados.",
-        D:"Pericoronarite ocorre ao redor de dente parcialmente irrompido. Aqui o dente 38 foi extraído."
+        A:"Correto. A bandeja básica de extração simples inclui exame (espelho/sonda/pinça), anestesia (seringa Carpule + agulha curta + anestésico), fórceps adequado ao dente (151 para inferiores posteriores), sindesmótomo ou alavanca reta para luxação inicial e gaze para hemostasia.",
+        B:"Incompleto. O auxiliar deve antecipar toda a necessidade do procedimento para não interromper o atendimento a cada momento.",
+        C:"Fórceps 17 é para molares superiores e a agulha longa é indicada para bloqueios regionais — não para extração simples de 36.",
+        D:"Selecionar todo o instrumental sem critério gera confusão na bandeja e risco de contaminação cruzada entre itens não utilizados."
       }
     },
     {
-      fase:"Conduta terapêutica",
-      pergunta:"Qual é o tratamento mais adequado para este caso?",
+      fase:"Organização e biossegurança",
+      pergunta:"Após montar a bandeja, qual a conduta correta do auxiliar em relação aos EPIs?",
       opcoes:[
-        {letra:"A", texto:"Extração imediata do dente 37 adjacente para liberar a área"},
-        {letra:"B", texto:"Irrigação do alvéolo com soro fisiológico e curativo com Alvogyl"},
-        {letra:"C", texto:"Prescrever antibiótico isoladamente e dispensar o paciente"},
-        {letra:"D", texto:"Realizar curetagem agressiva do alvéolo para estimular novo coágulo"}
+        {letra:"A",texto:"Usar luvas, máscara, gorro e óculos de proteção — o auxiliar deve estar com EPI completo antes de o paciente entrar"},
+        {letra:"B",texto:"Só colocar as luvas na hora em que o dentista solicitar auxílio direto"},
+        {letra:"C",texto:"EPI completo é obrigação apenas do dentista; o auxiliar que não toca no paciente não precisa"},
+        {letra:"D",texto:"Máscara e luvas são suficientes; gorro e óculos são opcionais em extração simples"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Extrair o dente 37 não tem indicação clínica neste contexto.",
-        B:"Correto. O protocolo da alveolite seca inclui irrigação suave com soro fisiológico para remover debris, seguida de curativo medicamentoso (Alvogyl, pasta de bismuto ou similar) que libera eugenol analgésico. Trocas a cada 2-3 dias até resolução.",
-        C:"Antibiótico isolado não trata a alveolite, pois não é uma infecção bacteriana típica — é uma falha de cicatrização.",
-        D:"Curetagem agressiva pode lesar as paredes ósseas e prolongar a cicatrização. A abordagem deve ser gentil."
-      }
-    },
-    {
-      fase:"Prevenção e orientação",
-      pergunta:"Qual orientação é MAIS importante para prevenir recorrência em futuras extrações neste paciente?",
-      opcoes:[
-        {letra:"A", texto:"Usar antibiótico profilático antes de qualquer extração futura"},
-        {letra:"B", texto:"Evitar tabagismo e bochechos nas primeiras 24-48 horas após extração"},
-        {letra:"C", texto:"Realizar extração sempre sob anestesia geral para melhor controle"},
-        {letra:"D", texto:"Solicitar hemograma completo antes de toda extração dental"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Antibiótico profilático não previne alveolite em pacientes saudáveis.",
-        B:"Correto. O tabagismo interfere diretamente na estabilidade do coágulo (vasoconstricção e sucção do cigarro). Bochechos vigorosos também podem deslocar o coágulo. A orientação pós-operatória adequada é a principal prevenção.",
-        C:"Anestesia geral não tem relação com a prevenção de alveolite.",
-        D:"Hemograma é indicado em casos específicos (anticoagulados, hemofílicos), não como rotina."
+        A:"Correto. O auxiliar deve estar com EPI completo (luvas, máscara, gorro, óculos) antes da entrada do paciente. Aerossóis, sangue e saliva contaminam o ambiente durante todo o procedimento.",
+        B:"Aguardar o momento de auxílio direto para colocar luvas atrasa o atendimento e expõe o profissional desnecessariamente.",
+        C:"A NR-32 e as normas do CFO determinam que todos os profissionais da equipe odontológica devem usar EPI completo durante atendimentos.",
+        D:"Gorro e óculos são obrigatórios — o gorro evita contaminação por aerossóis no cabelo e os óculos protegem de respingos de sangue e saliva."
       }
     }
   ],
-  competencias:[8,8,8,9,8,7,7,8]
+  competencias:[7,8,8,8,10,7,7,8]
 },
 
 {
-  id:"CC-02", titulo:"Paciente hipertenso com necessidade de extração",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente feminina, 58 anos, chega para extração do dente 46 (cárie extensa, irrestaurável). Ao aferir a pressão arterial antes do procedimento: 172/104 mmHg. A paciente relata que toma losartana 50 mg/dia, mas esqueceu de tomar esta manhã. Nega dor de cabeça, alterações visuais ou outros sintomas. Não tem alergias a medicamentos.`,
-  personagem:{nome:"Paciente hipertensa",avatar:"paciente"},
+  id:"CC-02", titulo:"Triagem de urgência por telefone — dor intensa",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`São 14h de uma segunda-feira. O telefone toca e uma mulher liga dizendo: "Estou com uma dor de dente insuportável desde ontem à noite, não consigo dormir nem comer. O lado do rosto está inchado." A agenda do dia já está cheia. O próximo horário disponível para encaixe seria às 17h30.`,
+  personagem:{nome:"Recepcionista/Auxiliar",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Avaliação pré-operatória",
-      pergunta:"Qual deve ser a conduta imediata antes de iniciar o procedimento cirúrgico?",
+      fase:"Triagem de urgência",
+      pergunta:"Como o auxiliar deve classificar e responder a essa ligação?",
       opcoes:[
-        {letra:"A", texto:"Iniciar a extração normalmente, pois a dor do dente eleva mais a PA do que a espera"},
-        {letra:"B", texto:"Adiar o procedimento eletivo, orientar a paciente a tomar o medicamento e retornar com PA controlada"},
-        {letra:"C", texto:"Encaminhar imediatamente ao SAMU por crise hipertensiva"},
-        {letra:"D", texto:"Realizar a extração com anestesia sem vasoconstritor para compensar a PA elevada"}
+        {letra:"A",texto:"Informar que a agenda está cheia e pedir que a paciente ligue amanhã cedo para agendar"},
+        {letra:"B",texto:"Perguntar se há inchaço facial, febre ou dificuldade para engolir — se sim, priorizar como urgência e comunicar ao dentista imediatamente"},
+        {letra:"C",texto:"Orientar a tomar um analgésico e marcar para daqui a 3 dias, pois dor de dente é rotina"},
+        {letra:"D",texto:"Pedir que a paciente vá direto à UPA, pois o consultório não atende urgências sem agendamento prévio"}
       ],
       correta:"B",
       feedback:{
-        A:"Realizar procedimento cirúrgico eletivo com PA 172/104 aumenta o risco de eventos adversos cardiovasculares.",
-        B:"Correto. PA ≥ 160/100 contraindica procedimentos eletivos. A conduta correta é adiar, instruir a paciente sobre a importância da medicação e remarcar após controle pressórico adequado.",
-        C:"SAMU é indicado para PA ≥ 180/110 com sintomas de emergência hipertensiva (cefaleia intensa, confusão, déficit neurológico). Este caso não se enquadra.",
-        D:"Não usar vasoconstritor não substitui o controle da PA. Mepivacaína 3% é opção em urgência, mas o procedimento eletivo deve ser adiado."
+        A:"Incorreto. Dor intensa com inchaço facial pode indicar infecção grave que não pode aguardar até o dia seguinte sem avaliação.",
+        B:"Correto. Inchaço facial, febre e dificuldade de deglutição são sinais de alerta para infecção odontogênica com potencial de disseminação. O auxiliar deve colher essas informações e comunicar o dentista para decidir a conduta.",
+        C:"Automedicar sem avaliação pode mascarar sintomas de infecção grave. Não é papel do auxiliar prescrever ou recomendar medicamentos.",
+        D:"Encaminhar à UPA sem triagem adequada é inadequado. O consultório tem obrigação ética de atender urgências — pelo menos avaliar e, se necessário, referenciar com orientação."
       }
     },
     {
-      fase:"Escolha do anestésico",
-      pergunta:"Em uma consulta futura, com PA controlada em 138/86 mmHg, qual anestésico é a escolha mais adequada?",
+      fase:"Comunicação com o dentista",
+      pergunta:"O dentista está atendendo. Como o auxiliar deve proceder para comunicar a situação?",
       opcoes:[
-        {letra:"A", texto:"Mepivacaína 3% sem vasoconstritor — mais segura em hipertensos"},
-        {letra:"B", texto:"Lidocaína 2% com epinefrina 1:50.000 — dose máxima de vasoconstritor"},
-        {letra:"C", texto:"Articaína 4% com epinefrina 1:100.000 — dose baixa com vasoconstritor"},
-        {letra:"D", texto:"Prilocaína com felipressina — indicada para hipertensos"}
+        {letra:"A",texto:"Interromper o atendimento atual batendo na porta e entrando na sala"},
+        {letra:"B",texto:"Aguardar o dentista sair da sala no intervalo, anotar os dados da paciente e relatar resumidamente a situação para que o dentista decida"},
+        {letra:"C",texto:"Decidir sozinho que é urgência e marcar para 17h30 sem consultar o dentista"},
+        {letra:"D",texto:"Deixar recado na secretária eletrônica e continuar atendendo o telefone"}
       ],
-      correta:"C",
+      correta:"B",
       feedback:{
-        A:"Mepivacaína sem vasoconstritor é opção segura, mas tem menor duração e analgesia. Não é a escolha de primeira linha quando a PA está controlada.",
-        B:"Epinefrina 1:50.000 tem concentração mais alta de vasoconstritor — não indicada em hipertensos.",
-        C:"Correto. Com PA controlada (< 160/100), articaína 4% com epinefrina 1:100.000 em dose normal (até 3 tubetes) é segura e eficaz. A concentração padrão de vasoconstritor não gera risco cardiovascular significativo em hipertensos compensados.",
-        D:"Felipressina é um vasoconstritor alternativo, mas não tem vantagem comprovada sobre epinefrina em dose baixa para hipertensos."
+        A:"Interromper bruscamente o atendimento pode comprometer a segurança do paciente na cadeira e é desrespeitoso.",
+        B:"Correto. O auxiliar deve anotar os dados (nome, sintomas, contato) e comunicar ao dentista no primeiro intervalo disponível, apresentando as informações de forma resumida para que ele tome a decisão clínica.",
+        C:"A decisão de encaixe em urgência e avaliação clínica é responsabilidade do dentista, não do auxiliar.",
+        D:"Deixar recado sem comunicar pessoalmente atrasa a tomada de decisão e pode prejudicar a paciente."
       }
     }
   ],
-  competencias:[9,8,9,9,8,7,7,9]
+  competencias:[9,8,8,7,7,8,7,8]
 },
 
 {
-  id:"CC-03", titulo:"Gengivite em paciente gestante",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
-  contexto:`Paciente de 29 anos, no 2º trimestre de gestação (23 semanas), comparece à clínica com queixa de gengiva que sangra ao escovar os dentes há cerca de 3 semanas. Ao exame: gengiva eritematosa generalizada, edemaciada e com sangramento fácil à sondagem. Sem bolsas > 4 mm. Escovação 2x/dia. Não usa fio dental. Sem alergias ou medicamentos além dos suplementos vitamínicos.`,
-  personagem:{nome:"Gestante",avatar:"paciente"},
+  id:"CC-03", titulo:"Orientação de higiene bucal para gestante",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`Mariana Silva, 26 anos, 2º trimestre de gestação, comparece à consulta de rotina. O dentista realizou a avaliação clínica e constatou gengivite gravídica leve. O dentista pede ao auxiliar que oriente a paciente sobre higiene bucal antes de ela sair. Mariana diz estar com medo de escovar os dentes porque sangra muito.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico periodontal",
-      pergunta:"Qual é o diagnóstico periodontal mais preciso para este caso?",
+      fase:"Orientação de higiene",
+      pergunta:"O que o auxiliar deve orientar corretamente sobre a gengivite durante a gestação?",
       opcoes:[
-        {letra:"A", texto:"Periodontite gestacional estágio III"},
-        {letra:"B", texto:"Gengivite associada à placa, modificada por gestação (hormonal)"},
-        {letra:"C", texto:"Abscesso gengival agudo de origem bacteriana"},
-        {letra:"D", texto:"Granuloma piogênico (tumor da gestante) com inflamação difusa"}
+        {letra:"A",texto:"Parar de escovar os dentes até o bebê nascer para não agravar o sangramento"},
+        {letra:"B",texto:"Escovar os dentes 3x ao dia com escova macia, usar fio dental diariamente e informar que o sangramento tende a diminuir com a higiene adequada — não parar de escovar por causa do sangramento"},
+        {letra:"C",texto:"Usar enxaguante bucal com álcool duas vezes ao dia em vez de escovar, pois é mais suave"},
+        {letra:"D",texto:"Dizer que o sangramento é perigoso para o bebê e que ela deve ir ao médico imediatamente"}
       ],
       correta:"B",
       feedback:{
-        A:"Periodontite implica perda óssea e destruição de inserção. Sem bolsas > 4 mm, esse diagnóstico não se aplica.",
-        B:"Correto. O aumento dos hormônios gestacionais (progesterona) exacerba a resposta inflamatória gengival à placa bacteriana. É uma gengivite associada à placa modificada por fator sistêmico (gestação).",
-        C:"Abscesso é uma lesão localizada com coleção purulenta. O quadro é difuso.",
-        D:"O granuloma piogênico (tumor da gestante) é uma lesão localizada, pediculada. Aqui o quadro é generalizado."
+        A:"Parar de escovar piora a gengivite. A placa bacteriana é a causa principal — sem remoção, o sangramento aumenta.",
+        B:"Correto. A gengivite gravídica tem componente hormonal, mas a higiene adequada controla a inflamação. Escovar com escova macia e usar fio dental são as orientações corretas. O sangramento ao escovar é sinal de inflamação, não indicação de parar.",
+        C:"Enxaguantes com álcool não são recomendados na gestação e não substituem a escovação mecânica.",
+        D:"Extrapola o papel do auxiliar e causa alarme desnecessário. O dentista já avaliou a situação — o auxiliar deve reforçar as orientações de higiene."
       }
     },
     {
-      fase:"Tratamento",
-      pergunta:"Qual é o tratamento periodontal mais indicado para esta paciente?",
+      fase:"Registro e encaminhamento",
+      pergunta:"Ao final da orientação, Mariana pergunta se pode tomar ibuprofeno para a dor de cabeça. Como o auxiliar deve responder?",
       opcoes:[
-        {letra:"A", texto:"Adiar todo tratamento para o pós-parto, pois procedimentos na gestação são contraindicados"},
-        {letra:"B", texto:"Realizar cirurgia de gengivectomia para eliminar o tecido inflamado"},
-        {letra:"C", texto:"Raspagem e alisamento radicular manual + instrução de higiene, com posicionamento adequado"},
-        {letra:"D", texto:"Prescrever antibióticos sistêmicos como tratamento de primeira escolha"}
+        {letra:"A",texto:"\"Pode tomar, é fraco e não faz mal ao bebê\""},
+        {letra:"B",texto:"\"Ibuprofeno e AINEs são contraindicados na gestação — consulte seu obstetra antes de tomar qualquer medicamento. Posso registrar essa dúvida no prontuário para o dentista comentar?\""},
+        {letra:"C",texto:"\"Tome paracetamol, é seguro na gestação\" — orientar a dose correta"},
+        {letra:"D",texto:"Ignorar a pergunta pois é sobre dor de cabeça, não dor de dente"}
       ],
-      correta:"C",
+      correta:"B",
       feedback:{
-        A:"O 2º trimestre é o período mais seguro para tratamentos odontológicos na gestante. Adiar até o pós-parto é desnecessário e aumenta o risco de complicações.",
-        B:"Cirurgia eletiva está contraindicada durante a gestação. Gengivectomia não é indicada aqui.",
-        C:"Correto. Raspagem supragengival manual com curetas é segura no 2º trimestre. A cadeira deve ser inclinada a no máximo 45° para evitar compressão da veia cava. Instrução de higiene é fundamental.",
-        D:"Antibióticos sistêmicos não são de primeira escolha para gengivite. São reservados para situações de abscesso ou periodontite severa com risco sistêmico."
+        A:"Incorreto. Ibuprofeno é contraindicado na gestação (risco fetal comprovado). Nunca indicar medicamentos sem prescrição.",
+        B:"Correto. O auxiliar deve informar que AINEs são contraindicados na gestação, orientar a consultar o obstetra e registrar a dúvida. Não cabe ao auxiliar recomendar nenhum medicamento específico.",
+        C:"Mesmo o paracetamol deve ser indicado pelo médico ou dentista com prescrição — o auxiliar não tem atribuição para indicar dose de medicamento.",
+        D:"A paciente fez uma pergunta de saúde legítima que o auxiliar deve responder de forma segura, orientando a buscar o profissional adequado."
       }
     }
   ],
-  competencias:[8,8,8,9,8,8,7,9]
+  competencias:[9,7,8,7,7,7,7,9]
 },
 
 {
@@ -3505,423 +3488,355 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-05", titulo:"Interpretação de radiografia periapical — lesão apical",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
-  contexto:`Paciente feminina, 40 anos, comparece para avaliação. Sem queixa de dor. A radiografia periapical do dente 36 evidencia: área radiolúcida periapical bem delimitada com cerca de 8 mm de diâmetro, imagem uniforme e com bordas definidas. O dente apresenta tratamento endodôntico prévio, com obturação aparentemente satisfatória. Nenhum sinal de fístula ou mobilidade ao exame clínico.`,
-  personagem:{nome:"Paciente assintomática",avatar:"paciente"},
+  id:"CC-05", titulo:"Posicionamento do filme para radiografia periapical",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Radiologia Odontológica",
+  contexto:`O dentista solicita uma radiografia periapical do dente 11 (incisivo central superior direito) de um paciente adulto. O auxiliar é responsável pelo posicionamento do filme/sensor e pela tomada radiográfica. O consultório usa radiografia convencional com filme periapical tamanho 2.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Interpretação radiográfica",
-      pergunta:"Qual hipótese diagnóstica é mais compatível com a imagem radiográfica descrita?",
+      fase:"Posicionamento do filme",
+      pergunta:"Como o filme periapical deve ser posicionado para o dente 11?",
       opcoes:[
-        {letra:"A", texto:"Abscesso dentoalveolar agudo"},
-        {letra:"B", texto:"Granuloma periapical ou cisto radicular"},
-        {letra:"C", texto:"Osteossarcoma de mandíbula"},
-        {letra:"D", texto:"Ameloblastoma unicístico"}
+        {letra:"A",texto:"Filme posicionado horizontalmente, superfície ativa (branca) voltada para o dente, cobrindo do 13 ao 21, com a borda inferior a 3mm além da borda incisal"},
+        {letra:"B",texto:"Filme posicionado verticalmente, superfície colorida voltada para o dente, borda superior tocando o palato"},
+        {letra:"C",texto:"Filme posicionado horizontalmente com superfície ativa voltada para o tubo de raios X"},
+        {letra:"D",texto:"O paciente segura o filme onde achar mais confortável — o posicionamento exato não é crítico"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"O abscesso agudo geralmente é radiolúcido com bordas mal definidas, e o paciente costuma ter dor e edema. Aqui o caso é assintomático com bordas definidas.",
-        B:"Correto. Lesão radiolúcida apical bem delimitada, assintomática, associada a dente com tratamento endodôntico prévio é classicamente compatível com granuloma ou cisto periapical. O diagnóstico diferencial exige tomografia e eventualmente biópsia.",
-        C:"Osteossarcoma é maligno, com imagem agressiva, bordas irregulares e não associado especificamente à periápice de dente tratado.",
-        D:"Ameloblastoma é mais frequente em ramos e corpos mandibulares, não tipicamente periapical."
+        A:"Correto. Para incisivos superiores usa-se o filme em posição vertical, mas a orientação da superfície ativa (branca/lisa) voltada para o dente e cobertura da coroa + ápice radicular são os pontos fundamentais. O filme deve cobrir os dentes de interesse e ultrapassar a borda incisal.",
+        B:"A superfície colorida (com o logotipo do fabricante) deve ficar voltada para o tubo — nunca para o dente. A superfície ativa capta a imagem e deve estar voltada para a fonte de radiação.",
+        C:"Superfície ativa voltada para o tubo resultaria em imagem com densidade invertida (número de Coombes), inutilizando a radiografia.",
+        D:"O posicionamento incorreto exige nova tomada, aumentando a dose de radiação do paciente desnecessariamente."
       }
     },
     {
-      fase:"Conduta clínica",
-      pergunta:"Considerando que o dente não apresenta sintomas e a obturação parece adequada radiograficamente, qual conduta é mais indicada inicialmente?",
+      fase:"Proteção radiológica",
+      pergunta:"Quais medidas de proteção radiológica o auxiliar deve adotar durante a tomada radiográfica?",
       opcoes:[
-        {letra:"A", texto:"Extração imediata para biópsia da lesão"},
-        {letra:"B", texto:"Retratamento endodôntico imediato sem nova avaliação"},
-        {letra:"C", texto:"Acompanhamento radiográfico semestral e solicitar CBCT para melhor avaliação"},
-        {letra:"D", texto:"Ignorar a lesão pois é assintomática e não precisa de atenção"}
+        {letra:"A",texto:"Colocar avental de chumbo no paciente, afastar-se do tubo pelo menos 2 metros ou sair da sala, e nunca segurar o filme com as mãos durante a exposição"},
+        {letra:"B",texto:"O avental de chumbo é opcional — só é necessário em crianças e gestantes"},
+        {letra:"C",texto:"Ficar ao lado do tubo segurando o filme para garantir o posicionamento correto"},
+        {letra:"D",texto:"Usar apenas avental de chumbo próprio e ficar a 50 cm do tubo"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. O avental plumbífero é obrigatório para todos os pacientes. O operador deve se afastar ≥2m do feixe primário ou sair da sala. Nunca segurar o filme com as mãos — usar um posicionador ou pedir ao paciente que segure.",
+        B:"O avental de chumbo é obrigatório para todos os pacientes, independentemente da idade ou condição.",
+        C:"Segurar o filme durante a exposição submete as mãos do profissional a dose cumulativa de radiação — prática proibida.",
+        D:"50 cm é insuficiente. A distância mínima segura é 2 metros do feixe primário, ou sair da sala."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,9,7,7,8]
+},
+
+{
+  id:"CC-06", titulo:"Reconhecimento de síncope vasovagal durante atendimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Urgências e Emergências",
+  contexto:`Durante uma restauração de rotina, o auxiliar percebe que o paciente (homem, 45 anos) para de responder, a pele fica pálida e suada, e ele parece prestes a perder a consciência. O dentista está com a broca na mão. O paciente não tem histórico de cardiopatia registrado no prontuário.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Reconhecimento da emergência",
+      pergunta:"O que o auxiliar deve fazer IMEDIATAMENTE ao perceber os sinais de síncope vasovagal?",
+      opcoes:[
+        {letra:"A",texto:"Alertar o dentista verbalmente de imediato, remover o material da boca do paciente com a cureta e posicionar o paciente em Trendelenburg (pernas elevadas)"},
+        {letra:"B",texto:"Dar um copo de água ao paciente e pedir que ele respire fundo"},
+        {letra:"C",texto:"Chamar o SAMU imediatamente sem comunicar o dentista primeiro"},
+        {letra:"D",texto:"Aguardar o dentista perceber sozinho para não interromper o procedimento"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. A síncope vasovagal exige: alertar o dentista, remover instrumentos da boca (segurança airway), reclinar a cadeira com pernas elevadas (Trendelenburg) para aumentar o retorno venoso cerebral. O auxiliar tem papel ativo nessa emergência.",
+        B:"Oferecer água a paciente com rebaixamento de consciência é perigoso — risco de broncoaspiração.",
+        C:"O dentista deve ser o primeiro a ser comunicado — é ele quem conduz o manejo da emergência. O SAMU é acionado se o quadro não reverter.",
+        D:"Aguardar é negligência. O auxiliar atento deve agir imediatamente."
+      }
+    },
+    {
+      fase:"Conduta após posicionamento",
+      pergunta:"Após posicionar o paciente em Trendelenburg, o paciente recupera a consciência em 30 segundos. Qual é a conduta correta a seguir?",
+      opcoes:[
+        {letra:"A",texto:"Retomar o procedimento imediatamente — o paciente já está bem"},
+        {letra:"B",texto:"Monitorar o paciente, oferecer água ou suco de frutas quando ele estiver totalmente consciente e orientado, registrar o episódio no prontuário e o dentista decide se continua ou não"},
+        {letra:"C",texto:"Chamar o SAMU mesmo após a recuperação completa — qualquer síncope exige hospitalização"},
+        {letra:"D",texto:"Deixar o paciente descansar sozinho na sala enquanto o dentista atende o próximo"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"Retomar imediatamente após síncope é inadequado — o paciente precisa de recuperação e o episódio deve ser registrado.",
+        B:"Correto. Após recuperação da síncope vasovagal: monitorar, hidratar quando totalmente consciente, registrar no prontuário. O dentista avalia se o procedimento pode ser continuado naquele dia ou deve ser remarcado.",
+        C:"Síncope vasovagal simples com recuperação espontânea em segundos não requer hospitalização. O SAMU seria acionado se não houvesse recuperação ou surgissem outros sintomas.",
+        D:"Deixar o paciente sozinho após episódio sincopal é contra-indicado — pode recidivar."
+      }
+    }
+  ],
+  competencias:[8,9,9,8,9,8,7,8]
+},
+
+{
+  id:"CC-07", titulo:"Instrumento cai na boca do paciente durante procedimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Urgências e Emergências",
+  contexto:`Durante uma restauração, uma ponta de resina pequena cai da bandeja e o auxiliar percebe que o paciente a engoliu ou pode ter aspirado. O paciente está reclinado e começa a tossir. O dentista está concentrado e ainda não percebeu.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Resposta imediata",
+      pergunta:"Qual deve ser a primeira ação do auxiliar?",
+      opcoes:[
+        {letra:"A",texto:"Alertar o dentista imediatamente, colocar o paciente em posição ereta e verificar se ele consegue respirar e falar"},
+        {letra:"B",texto:"Pedir ao paciente que engula a saliva para ver se o objeto desceu"},
+        {letra:"C",texto:"Fazer a manobra de Heimlich imediatamente, sem comunicar o dentista"},
+        {letra:"D",texto:"Ignorar a tosse — é normal após procedimentos odontológicos"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Alertar o dentista é sempre o primeiro passo. Sentar o paciente aumenta a chance de o objeto cair para o esôfago em vez de aspirar. Verificar se respira e fala é fundamental para diferenciar engolimento de aspiração.",
+        B:"Pedir para engolir pode induzir aspiração se o objeto ainda estiver na faringe.",
+        C:"Heimlich só é indicada em obstrução completa das vias aéreas confirmada (paciente não consegue falar, tossir ou respirar). A decisão é do dentista.",
+        D:"Tosse após queda de objeto na boca é sinal sério e não deve ser ignorada."
+      }
+    },
+    {
+      fase:"Registro e conduta",
+      pergunta:"O paciente consegue respirar e falar normalmente. O dentista confirma que provavelmente engoliu o objeto. O que deve acontecer a seguir?",
+      opcoes:[
+        {letra:"A",texto:"Registrar o incidente no prontuário, orientar o paciente a procurar avaliação médica/radiográfica para confirmação e o paciente recebe documentação do ocorrido"},
+        {letra:"B",texto:"Tranquilizar o paciente dizendo que não tem problema, que vai sair naturalmente, e continuar o procedimento"},
+        {letra:"C",texto:"Não registrar para evitar problemas legais para a clínica"},
+        {letra:"D",texto:"Chamar o SAMU imediatamente mesmo com o paciente estável e sem sintomas"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Qualquer incidente deve ser documentado no prontuário. O paciente deve ser orientado a buscar avaliação médica (radiografia de abdômen) para confirmar o trajeto do objeto e garantir que não há complicação.",
+        B:"Minimizar incidentes com paciente é antiético e potencialmente perigoso — nem todo objeto engolido sai naturalmente sem intercorrências.",
+        C:"Omitir do prontuário é falsidade ideológica. O registro protege o paciente E a equipe legalmente.",
+        D:"Paciente estável sem obstrução não necessita de SAMU — necessita de avaliação médica eletiva."
+      }
+    }
+  ],
+  competencias:[8,9,9,8,9,7,7,9]
+},
+
+{
+  id:"CC-08", titulo:"Reconhecimento de hipoglicemia durante o atendimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Urgências e Emergências",
+  contexto:`Carlos, 58 anos, diabético tipo 1 em uso de insulina, está sendo atendido para uma profilaxia de rotina. Após 20 minutos de procedimento, o auxiliar percebe que o paciente fica suado, confuso, começa a tremer e diz que está "estranhando". O dentista está com o ultrassom em funcionamento.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Reconhecimento da emergência",
+      pergunta:"O auxiliar suspeita de hipoglicemia. Qual sinal clínico NÃO é típico de hipoglicemia?",
+      opcoes:[
+        {letra:"A",texto:"Tremor, sudorese fria e confusão mental"},
+        {letra:"B",texto:"Palidez, fraqueza e sensação de fome intensa"},
+        {letra:"C",texto:"Pele vermelha quente, sede excessiva e odor de acetona na respiração"},
+        {letra:"D",texto:"Ansiedade, palpitações e dificuldade de concentração"}
       ],
       correta:"C",
       feedback:{
-        A:"Extração imediata é conduta radical sem indicação neste momento, especialmente se o dente for estratégico.",
-        B:"Retratamento pode ser indicado, mas requer melhor avaliação 3D antes de qualquer procedimento.",
-        C:"Correto. Lesões assintomáticas pós-tratamento endodôntico podem ser acompanhadas. O CBCT permite avaliar volume, relação com estruturas anatômicas e decidir entre retratamento ou cirurgia parendodôntica.",
-        D:"Lesão periapical, mesmo assintomática, precisa de acompanhamento. Não pode ser negligenciada."
+        A:"Tremor, sudorese fria e confusão são clássicos da hipoglicemia — resultam da descarga adrenérgica.",
+        B:"Palidez, fraqueza e fome intensa são típicos de hipoglicemia — o organismo sinaliza falta de glicose.",
+        C:"Correto — pele quente, sede excessiva e odor de acetona são sinais de HIPERGLICEMIA (cetoacidose diabética), não de hipoglicemia. Identificar a diferença é crucial para a conduta correta.",
+        D:"Ansiedade e palpitações são sintomas adrenérgicos clássicos da hipoglicemia."
+      }
+    },
+    {
+      fase:"Conduta de emergência",
+      pergunta:"Confirmada a suspeita de hipoglicemia e o paciente ainda está consciente e consegue engolir. O dentista pede ao auxiliar para agir. Qual é a conduta correta?",
+      opcoes:[
+        {letra:"A",texto:"Oferecer 15g de carboidrato simples (um copo de suco de laranja, gel de glicose ou 3 sachês de açúcar dissolvidos em água), sentar o paciente e chamar o SAMU imediatamente"},
+        {letra:"B",texto:"Oferecer carboidrato simples, aguardar 15 minutos e reavaliar — se não melhorar, acionar emergência. Não continuar o procedimento"},
+        {letra:"C",texto:"Aplicar insulina para estabilizar o quadro"},
+        {letra:"D",texto:"Deitar o paciente e aguardar que a hipoglicemia passe sozinha"}
+      ],
+      correta:"B",
+      feedback:{
+        A:"O SAMU imediato é indicado apenas se o paciente perder a consciência ou não responder ao açúcar. Com paciente consciente, oferece-se glicose primeiro.",
+        B:"Correto. Regra 15-15: 15g de carboidrato rápido → aguardar 15 minutos → reavaliar. O procedimento não deve ser reiniciado. Se não houver melhora ou paciente perder consciência, acionar emergência.",
+        C:"Insulina em hipoglicemia é o oposto do que se precisa — agravaria o quadro drasticamente.",
+        D:"Hipoglicemia sem tratamento pode evoluir para coma — nunca aguardar sem intervir."
       }
     }
   ],
-  competencias:[7,8,8,9,7,7,6,8]
+  competencias:[8,9,9,8,10,8,7,8]
 },
 
 {
-  id:"CC-06", titulo:"Sangramento gengival persistente — investigação sistêmica",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
-  contexto:`Paciente masculino, 32 anos, queixa de sangramento gengival espontâneo e ao escovar há 2 meses. Ao exame: gengiva com sangramento difuso, mesmo sem sondagem, além de pequenas equimoses no palato e lábios. Higiene oral razoável. Sem histórico de trauma recente. O paciente nega uso de medicamentos e não tem histórico familiar de doenças hematológicas conhecidas.`,
-  personagem:{nome:"Paciente com sangramento gengival",avatar:"paciente"},
+  id:"CC-09", titulo:"Proporção e manipulação correta do alginato",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista solicita uma moldagem de estudo do arco superior de um paciente adulto para confecção de modelo de estudo. O auxiliar vai preparar o alginato. Na embalagem lê: proporção pó/água = 1 medida de pó para 1 medida de água (20ml). A temperatura ambiente está em 28°C.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Raciocínio diagnóstico",
-      pergunta:"Além da causa periodontal, qual fator sistêmico deve ser investigado prioritariamente neste caso?",
+      fase:"Manipulação do material",
+      pergunta:"Como o auxiliar deve preparar o alginato para garantir a qualidade da moldagem?",
       opcoes:[
-        {letra:"A", texto:"Diabetes mellitus tipo 2"},
-        {letra:"B", texto:"Distúrbio de coagulação ou alteração hematológica (ex.: trombocitopenia, leucemia)"},
-        {letra:"C", texto:"Hipotireoidismo"},
-        {letra:"D", texto:"Síndrome do intestino irritável"}
+        {letra:"A",texto:"Pesar o pó na embalagem, medir a água em temperatura ambiente (25°C), adicionar o pó à água e espatular por 30-45 segundos até obter consistência cremosa e homogênea"},
+        {letra:"B",texto:"Misturar de olho, colocando pó até a mistura parecer consistente — a medida exata não importa"},
+        {letra:"C",texto:"Usar água quente para acelerar a presa e ganhar tempo"},
+        {letra:"D",texto:"Espatular por 2 minutos para garantir mistura completa"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Diabetes pode agravar doenças periodontais, mas não costuma causar equimoses em mucosa oral nem sangramento espontâneo tão expressivo.",
-        B:"Correto. Sangramento gengival espontâneo associado a equimoses em mucosa (sem trauma) é um sinal de alerta para distúrbios hemorrágicos — trombocitopenia, leucemia, deficiência de fatores de coagulação. É necessário encaminhamento médico urgente.",
-        C:"Hipotireoidismo pode causar edema gengival, mas não sangramento espontâneo com equimoses.",
-        D:"Síndrome do intestino irritável não tem relação com sangramento oral."
+        A:"Correto. A proporção exata pó/água é fundamental para precisão dimensional. A temperatura da água afeta o tempo de presa — água fria retarda, água quente acelera. Com 28°C ambiente, usar água em temperatura ambiente (25°C) é adequado. Espatulação vigorosa por 30-45s garante homogeneidade sem incorporar bolhas em excesso.",
+        B:"Proporção imprecisa altera tempo de presa, resistência e precisão da moldagem.",
+        C:"Água quente a 28°C de temperatura ambiente aceleraria demais a presa — o alginato pode prender antes de ser inserido na moldeira.",
+        D:"Espatulação excessiva (>60s) incorpora bolhas e pode iniciar a presa prematura do material."
       }
     },
     {
-      fase:"Conduta do cirurgião-dentista",
-      pergunta:"Qual é a conduta correta do cirurgião-dentista neste caso?",
+      fase:"Cuidados após a moldagem",
+      pergunta:"Após a moldagem, o dentista remove a moldeira. Qual o cuidado correto com a moldagem de alginato até chegar ao laboratório?",
       opcoes:[
-        {letra:"A", texto:"Realizar raspagem periodontal completa imediatamente para controlar o sangramento"},
-        {letra:"B", texto:"Encaminhar o paciente ao médico para investigação hematológica antes de qualquer procedimento invasivo"},
-        {letra:"C", texto:"Prescrever colutório com clorexidina e remarcar para 30 dias"},
-        {letra:"D", texto:"Solicitar apenas hemograma completo e aguardar resultado antes de acionar outra especialidade"}
+        {letra:"A",texto:"Lavar em água corrente, desinfetar por imersão em hipoclorito 1% por 10 minutos, envolver em gaze úmida e encaminhar ao laboratório em saco plástico o mais rápido possível"},
+        {letra:"B",texto:"Deixar a moldagem exposta ao ar para secar antes de encaminhar ao laboratório"},
+        {letra:"C",texto:"Colocar a moldagem em água para conservar — pode aguardar até o dia seguinte"},
+        {letra:"D",texto:"Não é necessário desinfetar a moldagem — o gesso que o técnico colocar vai esterilizar"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Procedimentos invasivos em paciente com possível distúrbio de coagulação podem provocar sangramento incontrolável.",
-        B:"Correto. O dentista deve reconhecer os sinais de alerta sistêmicos e encaminhar ao médico urgentemente. Procedimentos invasivos devem aguardar a liberação médica.",
-        C:"Colutório não trata a causa sistêmica e atrasa um diagnóstico potencialmente grave.",
-        D:"Solicitar hemograma é válido, mas não substitui o encaminhamento médico. O dentista não deve gerenciar isoladamente uma possível leucemia ou coagulopatia."
-      }
-    },
-    {
-      fase:"Reconhecimento de sinais sistêmicos",
-      pergunta:"Qual das opções a seguir representa um sinal de alerta que o cirurgião-dentista deve reconhecer como indicativo de doença sistêmica grave?",
-      opcoes:[
-        {letra:"A", texto:"Sangramento apenas ao fio dental em paciente com placa abundante"},
-        {letra:"B", texto:"Equimoses espontâneas em mucosa oral associadas a sangramento sem trauma"},
-        {letra:"C", texto:"Gengiva levemente eritematosa após 6 meses sem profilaxia"},
-        {letra:"D", texto:"Recessão gengival localizada em área de trauma por escovação"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Sangramento ao fio dental com placa abundante é esperado em gengivite comum — não é sinal de alerta sistêmico.",
-        B:"Correto. Equimoses espontâneas na mucosa oral, especialmente associadas a sangramento gengival sem causa mecânica evidente, são sinais clássicos de alerta para alterações hematológicas graves.",
-        C:"Eritema gengival pós-profilaxia é quadro clínico comum de gengivite associada à placa.",
-        D:"Recessão por trauma de escovação é uma causa local e mecânica, sem implicação sistêmica."
+        A:"Correto. A moldagem de alginato deve ser desinfetada (hipoclorito 0,5-1% por 10 min), mantida úmida (gaze úmida + saco plástico) e vazada pelo técnico o mais rápido possível — o alginato perde dimensão com desidratação ou absorve água com sinérese.",
+        B:"O alginato seca e contrai, distorcendo a moldagem irreversivelmente.",
+        C:"Imersão prolongada causa sinérese (absorção de água) e expansão dimensional — moldagem imprecisa.",
+        D:"Moldagens contaminadas são veículo de transmissão de patógenos ao técnico de laboratório. A desinfecção é obrigatória."
       }
     }
   ],
-  competencias:[9,9,9,8,8,8,7,9]
+  competencias:[7,8,8,10,9,7,7,8]
 },
 
 {
-  id:"CC-07", titulo:"Fratura coronária com exposição pulpar — decisão clínica",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
-  contexto:`Paciente masculino, 9 anos, levado pelos pais após queda no recreio. Fratura do dente 21 (incisivo central superior permanente) envolvendo esmalte, dentina e exposição pulpar de cerca de 2 mm de diâmetro. O acidente ocorreu há 1 hora. O dente está com vitalidade pulpar (teste de sensibilidade positivo). Não há mobilidade dental nem lesão óssea.`,
-  personagem:{nome:"Criança com trauma dental",avatar:"paciente"},
+  id:"CC-10", titulo:"Gestão da sala de espera em momento de superlotação",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`São 10h da manhã. A clínica tem 3 pacientes agendados que já estão na sala de espera, mais 2 que chegaram sem agendamento pedindo encaixe. O dentista está atrasado 40 minutos por uma emergência com o paciente anterior. Os pacientes agendados estão visivelmente irritados. Um deles, Sr. Antônio, 67 anos, se levanta e diz em voz alta: "Isso é um absurdo, não vim aqui para perder o dia inteiro!"`,
+  personagem:{nome:"Auxiliar/Recepcionista",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico da extensão do trauma",
-      pergunta:"Como se classifica este tipo de fratura dental, segundo a classificação de Andreasen?",
+      fase:"Gestão do conflito na sala de espera",
+      pergunta:"Como o auxiliar deve abordar o Sr. Antônio?",
       opcoes:[
-        {letra:"A", texto:"Fratura de esmalte (Ellis classe I)"},
-        {letra:"B", texto:"Fratura de esmalte-dentina sem exposição pulpar (Ellis classe II)"},
-        {letra:"C", texto:"Fratura corono-radicular"},
-        {letra:"D", texto:"Fratura coronária complicada com exposição pulpar (Ellis classe III)"}
+        {letra:"A",texto:"Chamar o Sr. Antônio discretamente ao lado, explicar o motivo do atraso com empatia, apresentar a previsão de espera e perguntar se deseja reagendar sem ônus"},
+        {letra:"B",texto:"Pedir que ele abaixe a voz na frente dos outros pacientes — não pode fazer escândalo"},
+        {letra:"C",texto:"Ignorar a reclamação e continuar trabalhando para não alimentar o conflito"},
+        {letra:"D",texto:"Dizer que se ele não quiser esperar pode ir embora, pois não é obrigado a ficar"}
       ],
-      correta:"D",
+      correta:"A",
       feedback:{
-        A:"Fratura de esmalte puro não envolve dentina nem polpa.",
-        B:"Fratura classe II envolve dentina, mas sem exposição da polpa.",
-        C:"Fratura corono-radicular estende-se além da junção cemento-esmalte, geralmente visível na radiografia.",
-        D:"Correto. Fratura coronária complicada (Ellis classe III / Andreasen) é a que atinge esmalte, dentina e expõe a polpa dentária."
+        A:"Correto. Abordar individualmente preserva a dignidade do paciente e evita constrangimento coletivo. Explicar o motivo com transparência, apresentar prazo estimado e oferecer reagendamento demonstra respeito e profissionalismo.",
+        B:"Repreender o paciente publicamente é desrespeitoso e escala o conflito.",
+        C:"Ignorar a reclamação aumenta a insatisfação e pode gerar reclamações formais.",
+        D:"Resposta descuidada que pode ser interpretada como descaso — prejudica a relação paciente-clínica."
       }
     },
     {
-      fase:"Tratamento de urgência",
-      pergunta:"Qual procedimento de urgência é mais indicado para este dente permanente jovem com exposição pulpar recente (1 hora) e vitalidade presente?",
+      fase:"Comunicação com todos os pacientes",
+      pergunta:"Após atender o Sr. Antônio, como o auxiliar deve comunicar o atraso aos demais pacientes na sala de espera?",
       opcoes:[
-        {letra:"A", texto:"Extração imediata do dente e confecção de mantenedor de espaço"},
-        {letra:"B", texto:"Pulpotomia parcial (capeamento pulpar direto com MTA) para preservar a vitalidade"},
-        {letra:"C", texto:"Tratamento endodôntico completo imediato (pulpectomia total)"},
-        {letra:"D", texto:"Aplicar amálgama de prata sobre a exposição e aguardar 30 dias"}
+        {letra:"A",texto:"Dirigir-se à sala de espera, apresentar-se, explicar brevemente que houve uma emergência clínica, informar a previsão de espera e agradecer a compreensão"},
+        {letra:"B",texto:"Não falar nada — quem quiser saber pergunta"},
+        {letra:"C",texto:"Dizer que o dentista está atrasado por motivos pessoais, sem dar mais detalhes"},
+        {letra:"D",texto:"Colocar um bilhete no mural e voltar ao trabalho"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Extração é o último recurso em dente permanente jovem — especialmente incisivo com valor estético e funcional.",
-        B:"Correto. Dente permanente jovem com exposição pulpar recente e vitalidade é candidato ideal à pulpotomia parcial com MTA, que preserva a polpa e permite o fechamento apical completo (apicogênese).",
-        C:"Pulpectomia total pode ser necessária se houver necrose, mas com vitalidade pulpar e exposição recente, a conduta conservadora é preferida.",
-        D:"Amálgama não é material indicado para capeamento pulpar. Não tem biocompatibilidade com o tecido pulpar."
-      }
-    },
-    {
-      fase:"Acompanhamento",
-      pergunta:"Qual é o acompanhamento radiográfico correto após a pulpotomia parcial neste paciente?",
-      opcoes:[
-        {letra:"A", texto:"Apenas se o paciente sentir dor — sem prazo definido"},
-        {letra:"B", texto:"Radiografia a cada 3-6 meses para verificar vitalidade, apicogênese e sinais de reabsorção"},
-        {letra:"C", texto:"Radiografia apenas após 2 anos, quando o ápice estiver completamente fechado"},
-        {letra:"D", texto:"Nenhuma radiografia de controle é necessária em crianças menores de 12 anos"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Esperar sintomas é conduta passiva e pode atrasar o diagnóstico de falha do tratamento.",
-        B:"Correto. O acompanhamento periódico (3-6 meses) é fundamental para monitorar: progresso da apicogênese, sinais de reabsorção interna ou externa, e vitalidade pulpar.",
-        C:"Dois anos sem controle é tempo excessivo — complicações podem se instalar precocemente.",
-        D:"Controle radiográfico é obrigatório após traumas e procedimentos endodônticos independentemente da idade."
+        A:"Correto. Comunicação proativa e transparente reduz a ansiedade coletiva. Mencionar emergência clínica (sem detalhes do caso por sigilo) é honesto e compreensível para a maioria dos pacientes.",
+        B:"Silêncio em situação de espera prolongada alimenta especulações e insatisfação.",
+        C:"Motivos pessoais podem gerar julgamentos negativos. Emergência clínica é a informação correta e profissional.",
+        D:"Bilhete impessoal em sala de espera é frio e ineficaz para gestão do conflito."
       }
     }
   ],
-  competencias:[8,9,9,10,8,7,7,9]
+  competencias:[9,8,8,7,7,8,9,8]
 },
 
 {
-  id:"CC-08", titulo:"Paciente diabético com infecção periodontal",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
-  contexto:`Paciente masculino, 52 anos, com diabetes tipo 2. HbA1c: 9,2% (descompensado). Comparece com abscesso periodontal no dente 25, bolsa de 8 mm, sangramento à sondagem e supuração. Relata que não vai ao dentista há 3 anos. Faz uso de metformina e insulina NPH. PA: 138/88 mmHg. Temperatura: 37,8°C.`,
-  personagem:{nome:"Paciente diabético descompensado",avatar:"paciente"},
+  id:"CC-11", titulo:"Descarte correto de resíduos odontológicos",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`Ao final de uma tarde de atendimentos, o auxiliar precisa realizar o descarte dos resíduos gerados. Os itens a descartar são: 1 agulha usada, 1 carpule de anestésico vazio, gazes com sangue, luvas descartáveis usadas, resíduo de gesso de laboratório, embalagem de sterilização aberta (sem uso do material), e fragmento de dente extraído.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Risco sistêmico e conduta",
-      pergunta:"Considerando o estado glicêmico descompensado (HbA1c 9,2%), qual é a principal preocupação clínica no manejo odontológico?",
+      fase:"Classificação de resíduos",
+      pergunta:"Segundo a RDC ANVISA 222/2018, como devem ser classificados esses resíduos?",
       opcoes:[
-        {letra:"A", texto:"Risco aumentado de reação alérgica ao anestésico local"},
-        {letra:"B", texto:"Cicatrização comprometida e maior risco de infecção e complicações pós-operatórias"},
-        {letra:"C", texto:"Necessidade de substituir o tratamento periodontal por antibioticoterapia exclusiva"},
-        {letra:"D", texto:"Contraindicação absoluta de qualquer procedimento odontológico até normalização da HbA1c"}
+        {letra:"A",texto:"Agulha e carpule → Grupo E (perfurocortante); gazes com sangue, luvas e dente extraído → Grupo A (biológico); gesso e embalagem → Grupo D (comum)"},
+        {letra:"B",texto:"Tudo vai no lixo comum — os resíduos odontológicos de consultório não são perigosos"},
+        {letra:"C",texto:"Tudo vai no lixo hospitalar infectante — é mais seguro generalizar"},
+        {letra:"D",texto:"Agulha vai no lixo comum se for embrulhada em papel; carpule no lixo reciclável"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Diabetes não aumenta o risco de alergia a anestésico.",
-        B:"Correto. Diabetes descompensado compromete a imunidade, a microcirculação e a cicatrização. Procedimentos invasivos têm maior risco de infecção pós-operatória e cicatrização lenta.",
-        C:"Antibiótico pode ser adjuvante, mas não substitui o desbridamento mecânico.",
-        D:"Não há contraindicação absoluta — urgências são tratadas mesmo com diabetes descompensado. Procedimentos eletivos complexos devem aguardar melhora do controle glicêmico."
+        A:"Correto. RDC 222/2018: Grupo E (perfurocortante): agulhas, lâminas, carpules. Grupo A (biológico infectante): gazes com sangue, luvas contaminadas, fragmentos de tecido/dente. Grupo D (comum): embalagens de esterilização limpas, gesso sem contaminação biológica.",
+        B:"Resíduos com sangue e perfurocortantes são classificados como biológico/infectante — descarte incorreto viola a legislação e representa risco sanitário.",
+        C:"Generalizar tudo como infectante gera custo desnecessário e não está em conformidade com a legislação.",
+        D:"Embrulhar agulha em papel não a transforma em lixo comum — perfurocortantes sempre vão em coletor rígido (Grupo E)."
       }
     },
     {
-      fase:"Tratamento do abscesso",
-      pergunta:"Qual é a conduta terapêutica imediata para o abscesso periodontal?",
+      fase:"Acondicionamento correto",
+      pergunta:"O coletor de perfurocortantes (caixa amarela) está com 3/4 do volume preenchido. O auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Antibiótico sistêmico isolado (amoxicilina 500 mg 8/8h) por 7 dias sem drenagem"},
-        {letra:"B", texto:"Drenagem do abscesso por acesso sulcular + antibioticoterapia adjuvante"},
-        {letra:"C", texto:"Extração imediata do dente 25 para eliminar o foco infeccioso"},
-        {letra:"D", texto:"Aguardar 30 dias pela normalização da glicemia antes de qualquer intervenção"}
+        {letra:"A",texto:"Fechar o coletor quando atingir 2/3 do volume — nunca ultrapassar essa marca. Selar, identificar com data/responsável e encaminhar conforme o plano de gerenciamento de resíduos da clínica"},
+        {letra:"B",texto:"Continuar usando até encher completamente para não desperdiçar a caixa"},
+        {letra:"C",texto:"Comprimir o conteúdo para caber mais material"},
+        {letra:"D",texto:"Transferir as agulhas para um frasco de vidro se a caixa estiver cheia"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Antibiótico sem drenagem mecânica é insuficiente. O acúmulo de pus precisa ser esvaziado.",
-        B:"Correto. O abscesso periodontal exige drenagem imediata (via acesso sulcular ou incisão) para eliminar a coleção purulenta. Antibioticoterapia é adjuvante, especialmente em paciente diabético descompensado com febre.",
-        C:"Extração pode ser necessária se o dente não tiver prognóstico, mas não deve ser a primeira opção sem tentativa de tratamento.",
-        D:"Aguardar em caso de abscesso ativo com febre é uma conduta que pode permitir disseminação da infecção."
-      }
-    },
-    {
-      fase:"Relação bidirecional periodontite-diabetes",
-      pergunta:"Qual é a relação entre controle glicêmico e doença periodontal nos pacientes diabéticos?",
-      opcoes:[
-        {letra:"A", texto:"A doença periodontal não interfere no controle glicêmico — é apenas uma complicação da diabetes"},
-        {letra:"B", texto:"O tratamento periodontal pode melhorar os níveis de HbA1c, e a diabetes descompensada agrava a periodontite"},
-        {letra:"C", texto:"Apenas a diabetes tipo 1 tem relação com a doença periodontal"},
-        {letra:"D", texto:"Antibioticoterapia periodontal é mais eficaz que o controle glicêmico no manejo dessa relação"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"A relação é bidirecional. A doença periodontal ativa mantém estado inflamatório sistêmico que piora a resistência à insulina.",
-        B:"Correto. Existe relação bidirecional: a periodontite agrava a diabetes (inflamação sistêmica → resistência à insulina), e a diabetes descompensada agrava a periodontite. O tratamento periodontal demonstrou redução de HbA1c em estudos controlados.",
-        C:"Tanto diabetes tipo 1 quanto tipo 2 têm relação com a doença periodontal.",
-        D:"O controle glicêmico e o tratamento periodontal são complementares — nenhum substitui o outro."
+        A:"Correto. O coletor de perfurocortante deve ser fechado ao atingir 2/3 da capacidade — nunca completamente cheio, para evitar acidentes ao fechar. Deve ser identificado e encaminhado para coleta conforme PGRSS.",
+        B:"Coletor cheio representa risco de perfuração ao fechar e ao transportar.",
+        C:"Comprimir conteúdo de coletor de perfurocortante é extremamente perigoso — risco máximo de acidente com material biológico.",
+        D:"Transferir agulhas manualmente para qualquer recipiente é proibido — risco grave de acidente perfurocortante."
       }
     }
   ],
-  competencias:[9,9,9,9,8,8,7,9]
+  competencias:[7,8,8,8,10,7,7,9]
 },
 
 {
-  id:"CC-09", titulo:"Cárie profunda em molar — decisão sobre base protetora",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
-  contexto:`Paciente feminina, 34 anos, assintomática. Durante profilaxia, o dentista detecta lesão de cárie classe I profunda no dente 36. Ao remover o tecido cariado, percebe-se dentina amolecida próxima à polpa, sem exposição pulpar. Teste de vitalidade pulpar positivo, sem dor espontânea, sem lesão periapical na radiografia.`,
-  personagem:{nome:"Paciente com cárie profunda",avatar:"paciente"},
+  id:"CC-12", titulo:"Verificação da eficácia da esterilização em autoclave",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Biossegurança e Controle de Infecção",
+  contexto:`O auxiliar realizou um ciclo de esterilização na autoclave. Ao retirar as embalagens, percebe que o indicador químico externo de algumas embalagens NÃO mudou de cor conforme esperado. O ciclo indicado na autoclave mostra que completou normalmente.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico e risco pulpar",
-      pergunta:"Qual é a condição pulpar mais provável neste caso?",
+      fase:"Interpretação do indicador",
+      pergunta:"O que significa o indicador químico externo NÃO ter mudado de cor após o ciclo?",
       opcoes:[
-        {letra:"A", texto:"Necrose pulpar"},
-        {letra:"B", texto:"Pulpite irreversível sintomática"},
-        {letra:"C", texto:"Polpa vital sem sinais de inflamação irreversível (pulpite reversível ou polpa saudável)"},
-        {letra:"D", texto:"Periodontite apical crônica"}
-      ],
-      correta:"C",
-      feedback:{
-        A:"Necrose implica ausência de vitalidade. O teste de sensibilidade foi positivo.",
-        B:"Pulpite irreversível cursaria com dor espontânea, dor prolongada ao estímulo e possível lesão periapical.",
-        C:"Correto. Dente vital, assintomático, sem lesão periapical. A polpa pode estar reagindo à proximidade da cárie, mas os critérios de irreversibilidade não estão presentes.",
-        D:"Periodontite apical implica lesão periapical visível na radiografia."
-      }
-    },
-    {
-      fase:"Seleção do material protetor",
-      pergunta:"Qual material é mais indicado como base protetora/capeador pulpar indireto neste caso (cárie profunda, sem exposição, vitalidade presente)?",
-      opcoes:[
-        {letra:"A", texto:"Amálgama de prata como base — resistência mecânica superior"},
-        {letra:"B", texto:"MTA ou hidróxido de cálcio como proteção pulpar direta sobre a dentina remanescente"},
-        {letra:"C", texto:"Sem necessidade de base — restaurar diretamente com resina composta"},
-        {letra:"D", texto:"Cimento de ionômero de vidro como único material — sem resina"}
+        {letra:"A",texto:"Indica que o material está estéril — o indicador é apenas decorativo"},
+        {letra:"B",texto:"Indica que o processo de esterilização não foi adequado para aquelas embalagens — o material NÃO deve ser usado e o problema deve ser investigado"},
+        {letra:"C",texto:"O indicador pode falhar aleatoriamente — se o ciclo completou, o material está estéril"},
+        {letra:"D",texto:"Significa apenas que as embalagens ficaram na borda da câmara — basta reposicionar e usar normalmente"}
       ],
       correta:"B",
       feedback:{
-        A:"Amálgama não tem biocompatibilidade com o tecido pulpar e não serve como base protetora pulpar.",
-        B:"Correto. Em cárie profunda com dentina próxima à polpa e sem exposição, o protocolo inclui aplicação de hidróxido de cálcio ou MTA sobre a dentina remanescente, seguido de forramento com CIV e restauração definitiva com resina.",
-        C:"Sem proteção pulpar em cárie profunda, o contato da resina composta com a dentina fina remanescente pode causar irritação pulpar.",
-        D:"O CIV pode ser usado como forramento, mas não substitui a proteção pulpar com hidróxido de cálcio/MTA quando há proximidade pulpar."
+        A:"O indicador químico é um parâmetro de controle de processo — não é decorativo. Sua mudança de cor confirma que o ciclo atingiu as condições necessárias.",
+        B:"Correto. Indicador sem mudança de cor = falha no processo para aquelas embalagens. O material NÃO está seguro para uso. Deve-se investigar a causa (carga excessiva, vapor não chegou ao pacote, falha na autoclave) e repetir o ciclo.",
+        C:"O indicador é justamente o controle que detecta falhas que o painel da autoclave não mostra — uma leitura normal no display não garante que cada embalagem foi processada corretamente.",
+        D:"Mesmo que o posicionamento seja a causa, o material não processado corretamente não pode ser usado sem novo ciclo confirmado."
+      }
+    },
+    {
+      fase:"Tipos de controle de esterilização",
+      pergunta:"Além do indicador químico externo, quais outros controles devem ser usados regularmente para monitorar a autoclave?",
+      opcoes:[
+        {letra:"A",texto:"Indicador químico interno (dentro da embalagem), indicador biológico periódico (esporos de B. stearothermophilus) e manutenção preventiva regular da autoclave"},
+        {letra:"B",texto:"Apenas verificar se o painel da autoclave mostra 'ciclo completo' — isso é suficiente"},
+        {letra:"C",texto:"Indicador biológico diário é obrigatório; o indicador químico é opcional"},
+        {letra:"D",texto:"Não é necessário nenhum controle adicional — a autoclave é um equipamento confiável"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. O controle de esterilização exige três níveis: indicador químico externo (visível sem abrir a embalagem), indicador químico interno (confirma que o processo atingiu o interior) e indicador biológico periódico (esporos testam a efetividade real de destruição). Manutenção preventiva complementa o sistema.",
+        B:"O painel indica que o ciclo ocorreu — não que foi eficaz para cada embalagem individualmente.",
+        C:"A frequência do indicador biológico varia por protocolo — a legislação RDC 15/2012 estabelece os parâmetros. O indicador químico não é opcional.",
+        D:"Qualquer equipamento pode falhar. O monitoramento sistemático é exigência legal e de segurança do paciente."
       }
     }
   ],
-  competencias:[7,8,8,9,8,7,6,8]
-},
-
-{
-  id:"CC-10", titulo:"Abscesso dentoalveolar agudo — conduta de urgência",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
-  contexto:`Paciente masculino, 41 anos, chega ao pronto-atendimento odontológico com dor intensa (EVA 9/10), edema facial difuso no lado esquerdo, febre (38,2°C) e trismo leve. O dente 37 apresenta cárie extensa, percussão vertical positiva e mobilidade grau I. Não tem alergias. Sem medicamentos contínuos. PA: 134/88 mmHg.`,
-  personagem:{nome:"Paciente com abscesso agudo",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Avaliação da gravidade",
-      pergunta:"Qual achado clínico indica que este caso pode evoluir para uma emergência médica?",
-      opcoes:[
-        {letra:"A", texto:"Mobilidade grau I no dente 37"},
-        {letra:"B", texto:"Febre associada a edema facial difuso com risco de progressão para espaços fasciais profundos"},
-        {letra:"C", texto:"EVA 9/10 — dor intensa mas sem correlação com risco sistêmico"},
-        {letra:"D", texto:"Percussão vertical positiva isolada"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Mobilidade grau I é uma consequência da inflamação periapical e não indica emergência por si só.",
-        B:"Correto. Edema facial difuso com febre pode indicar disseminação para espaços fasciais (pterigomandibular, parafaríngeo, submandibular). Angina de Ludwig, trombose de seio cavernoso e mediastinite são complicações graves de abscessos odontogênicos não tratados.",
-        C:"A dor é relevante, mas é o edema difuso e a febre que sinalizam risco sistêmico.",
-        D:"Percussão positiva indica inflamação periapical — é esperado no abscesso, mas não define risco de emergência isoladamente."
-      }
-    },
-    {
-      fase:"Conduta imediata",
-      pergunta:"Qual é o tratamento de urgência mais adequado para este caso?",
-      opcoes:[
-        {letra:"A", texto:"Apenas prescrever analgésico e antibiótico e remarcar para 5 dias"},
-        {letra:"B", texto:"Drenagem do abscesso (via canal ou incisão) + antibioticoterapia + analgesia"},
-        {letra:"C", texto:"Extração imediata do dente sem anestesia para drenar rapidamente"},
-        {letra:"D", texto:"Solicitar tomografia de face e aguardar resultado antes de qualquer conduta"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Tratar apenas com medicamentos sem drenar o foco infeccioso não resolve o abscesso e pode permitir progressão.",
-        B:"Correto. A drenagem mecânica é o tratamento principal: via acesso endodôntico (abertura coronária) ou incisão extraoral/intraoral quando há flutuação. O antibiótico (amoxicilina ou clindamicina) e analgesia são adjuvantes fundamentais.",
-        C:"Extração sem anestesia é eticamente inaceitável e tecnicamente inadequada. A infecção dificulta a anestesia — usar bloqueio regional.",
-        D:"Tomografia é complementar e não deve atrasar a drenagem em abscesso com sintomas agudos."
-      }
-    }
-  ],
-  competencias:[9,9,9,9,8,7,7,9]
-},
-
-{
-  id:"CC-11", titulo:"Lesão branca na mucosa — diagnóstico diferencial",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Estomatologia",
-  contexto:`Paciente masculino, 60 anos, fumante há 35 anos (20 cigarros/dia), encaminhado pelo clínico geral com lesão esbranquiçada na mucosa jugal esquerda, assintomática, não raspável, com cerca de 1,5 cm, presente há 5 meses. Superfície levemente rugosa e espessada. Sem histórico de trauma local. Paciente consumidor moderado de álcool.`,
-  personagem:{nome:"Paciente com lesão oral",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Diagnóstico diferencial",
-      pergunta:"Qual diagnóstico deve ser considerado como principal suspeita neste caso?",
-      opcoes:[
-        {letra:"A", texto:"Candidíase pseudomembranosa (sapinho)"},
-        {letra:"B", texto:"Leucoplasia — lesão potencialmente maligna"},
-        {letra:"C", texto:"Fibroma traumático reativo"},
-        {letra:"D", texto:"Herpes simples recorrente"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Candidíase pseudomembranosa é raspável e removível. Esta lesão NÃO é raspável.",
-        B:"Correto. Lesão branca não raspável, em paciente fumante e etilista de longa data, com mais de 4 semanas de evolução é leucoplasia até prova em contrário — lesão potencialmente maligna que exige biópsia.",
-        C:"Fibroma traumático é lesão nodular bem delimitada de origem reativa a trauma crônico. O quadro descrito não é compatível.",
-        D:"Herpes recorrente se apresenta como vesículas agrupadas com ardor/dor, de curta duração."
-      }
-    },
-    {
-      fase:"Conduta diagnóstica",
-      pergunta:"Qual é a conduta obrigatória para confirmar o diagnóstico neste caso?",
-      opcoes:[
-        {letra:"A", texto:"Solicitar antifúngico tópico e reavaliar em 2 semanas"},
-        {letra:"B", texto:"Orientar cessação do tabagismo e aguardar remissão espontânea por 6 meses"},
-        {letra:"C", texto:"Biópsia incisional ou excisional para exame histopatológico"},
-        {letra:"D", texto:"Radiografia panorâmica para avaliar envolvimento ósseo"}
-      ],
-      correta:"C",
-      feedback:{
-        A:"Antifúngico é indicado para candidíase. Esta lesão não é raspável — não é candidíase.",
-        B:"Aguardar 6 meses sem biópsia em lesão suspeita é conduta inadequada e potencialmente perigosa.",
-        C:"Correto. Toda lesão branca não raspável com mais de 2-3 semanas de evolução, especialmente em paciente com fatores de risco (tabagismo + álcool), requer biópsia com exame histopatológico. É obrigatório para afastar displasia ou carcinoma.",
-        D:"Radiografia avalia osso, não tecidos moles. Não confirma diagnóstico de leucoplasia."
-      }
-    },
-    {
-      fase:"Fatores de risco e prevenção",
-      pergunta:"Qual combinação de fatores aumenta significativamente o risco de transformação maligna de leucoplasia?",
-      opcoes:[
-        {letra:"A", texto:"Tabagismo isolado sem álcool"},
-        {letra:"B", texto:"Tabagismo + consumo de álcool (efeito sinérgico)"},
-        {letra:"C", texto:"Consumo de café e chá"},
-        {letra:"D", texto:"Uso de prótese total mal adaptada como único fator"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Tabagismo isolado já é fator de risco significativo, mas sem o efeito multiplicador do álcool.",
-        B:"Correto. Tabagismo e álcool têm efeito carcinogênico sinérgico — combinados multiplicam o risco de câncer oral em até 15-30 vezes. É o perfil clássico de risco para carcinoma espinocelular oral.",
-        C:"Café e chá não são fatores de risco para transformação maligna.",
-        D:"Prótese mal adaptada pode causar úlcera traumática reativa, não leucoplasia potencialmente maligna."
-      }
-    }
-  ],
-  competencias:[8,9,9,9,7,7,7,9]
-},
-
-{
-  id:"CC-12", titulo:"Necrose de polpa — dente sem sintomas",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
-  contexto:`Paciente feminina, 27 anos, rotina. Ao exame radiográfico, o dente 11 apresenta lesão periapical radiolúcida com bordas difusas, sem sintomas. O dente apresenta coloração acinzentada. Teste de vitalidade negativo. Histórico de trauma dental há 3 anos (batida de bicicleta), sem tratamento realizado.`,
-  personagem:{nome:"Paciente assintomática — achado radiográfico",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Diagnóstico endodôntico",
-      pergunta:"Qual é o diagnóstico endodôntico correto para este dente?",
-      opcoes:[
-        {letra:"A", texto:"Pulpite reversível"},
-        {letra:"B", texto:"Pulpite irreversível assintomática"},
-        {letra:"C", texto:"Necrose pulpar com periodontite apical crônica"},
-        {letra:"D", texto:"Dente hígido com variação de cor fisiológica"}
-      ],
-      correta:"C",
-      feedback:{
-        A:"Pulpite reversível apresenta vitalidade pulpar e ausência de lesão periapical.",
-        B:"Pulpite irreversível assintomática implica polpa viva, porém inflamada. O teste negativo indica necrose.",
-        C:"Correto. Teste de vitalidade negativo + lesão periapical + coloração acinzentada + histórico de trauma = necrose pulpar com periodontite apical crônica. A necrose pós-trauma é um achado clássico.",
-        D:"Coloração acinzentada após trauma indica degeneração pulpar — não é variação fisiológica."
-      }
-    },
-    {
-      fase:"Tratamento",
-      pergunta:"Qual é o tratamento indicado para este dente?",
-      opcoes:[
-        {letra:"A", texto:"Extração e implante imediato"},
-        {letra:"B", texto:"Tratamento endodôntico (pulpectomia + obturação) com clareamento interno posterior"},
-        {letra:"C", texto:"Apenas observação semestral, pois é assintomático"},
-        {letra:"D", texto:"Veneer cerâmico para mascarar a coloração sem tratamento endodôntico"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Extração e implante imediato em incisivo permanente de jovem não é primeira escolha quando há possibilidade de tratamento conservador.",
-        B:"Correto. Tratamento endodôntico é obrigatório: remove os produtos da necrose, elimina a lesão periapical e permite clareamento interno (walking bleach) para corrigir a coloração acinzentada.",
-        C:"Lesão periapical ativa não deve ser observada sem tratamento — pode progredir silenciosamente.",
-        D:"Veneer sem tratamento endodôntico não elimina a causa (infecção) e a lesão continuará progredindo."
-      }
-    }
-  ],
-  competencias:[7,8,8,9,7,7,6,8]
+  competencias:[7,7,8,9,10,7,7,8]
 },
 
 {
@@ -3969,274 +3884,223 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-14", titulo:"Urgência — dente avulsionado em adulto",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Urgência",
-  contexto:`Paciente masculino, 25 anos, chega ao consultório 35 minutos após avulsão traumática do dente 11 por acidente de moto. O dente foi colocado em um copo com leite pelo paramédico presente no local. Dente com ligamento periodontal aparentemente íntegro. O alvéolo está limpo, sem debris ou fratura. Paciente hemodinamicamente estável.`,
-  personagem:{nome:"Paciente com dente avulsionado",avatar:"paciente"},
+  id:"CC-14", titulo:"Paciente traz dente avulsionado — conduta do auxiliar",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Urgências e Emergências",
+  contexto:`Uma mãe entra correndo na clínica com seu filho Pedro, 9 anos, segurando um dente que caiu após uma queda de bicicleta há cerca de 20 minutos. O dente está na mão da mãe. O dentista está em atendimento. O auxiliar é o primeiro a atender.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Avaliação do meio de armazenamento",
-      pergunta:"Como se avalia o armazenamento do dente em leite neste caso?",
+      fase:"Conduta imediata com o dente avulsionado",
+      pergunta:"O que o auxiliar deve fazer IMEDIATAMENTE com o dente avulsionado enquanto chama o dentista?",
       opcoes:[
-        {letra:"A", texto:"Inadequado — dente deveria ter sido colocado em soro fisiológico"},
-        {letra:"B", texto:"Adequado — leite é um meio de armazenamento recomendado para dentes avulsionados"},
-        {letra:"C", texto:"Irrelevante — o tempo extraoral (35 min) já inviabiliza qualquer tentativa de reimplante"},
-        {letra:"D", texto:"Inadequado — o dente deveria ter sido reinserido imediatamente no alvéolo pelo próprio paciente"}
+        {letra:"A",texto:"Pegar o dente pela coroa (não pela raiz), lavar em água corrente por 10 segundos sem esfregar, e manter em leite integral, soro fisiológico ou na saliva da própria criança até o dentista avaliar"},
+        {letra:"B",texto:"Lavar o dente com sabão e esfregar a raiz para remover sujidade, depois guardar em papel toalha"},
+        {letra:"C",texto:"Guardar o dente em água filtrada em copo limpo"},
+        {letra:"D",texto:"Não tocar no dente — deixar que o dentista manuseie quando sair do atendimento"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Soro fisiológico também é um meio adequado, mas o leite é igualmente recomendado na literatura.",
-        B:"Correto. Leite integral (ou desnatado) é reconhecido como meio de armazenamento adequado para dentes avulsionados: mantém a osmolaridade, evita a desidratação das células do ligamento periodontal e permite viabilidade celular por até 2-3 horas.",
-        C:"35 minutos em leite ainda permite tentativa de reimplante com prognóstico razoável.",
-        D:"Reimplante imediato no local do acidente é ideal quando possível e o alvéolo estiver limpo, mas em acidentes de moto com risco de contaminação, armazenar em leite e procurar o dentista é a opção mais segura."
+        A:"Correto. Pegar pela coroa preserva o ligamento periodontal residual na raiz. Água corrente por 10s remove sujidade sem danificar as células. Leite integral, SF 0,9% ou saliva são meios de armazenamento adequados — mantêm a vitalidade das células do ligamento.",
+        B:"Esfregar a raiz destrói o ligamento periodontal — inviabiliza o reimplante. Sabão é tóxico para as células.",
+        C:"Água destilada/filtrada é hipotônica e causa lise das células do ligamento — pior opção de armazenamento.",
+        D:"Deixar o dente seco por mais tempo reduz drasticamente o prognóstico. O auxiliar deve agir imediatamente."
       }
     },
     {
-      fase:"Protocolo de reimplante",
-      pergunta:"Qual é a sequência correta de procedimentos para o reimplante neste caso?",
+      fase:"Comunicação com o dentista",
+      pergunta:"O que o auxiliar deve comunicar ao dentista ao interromper o atendimento?",
       opcoes:[
-        {letra:"A", texto:"Raspar a raiz para remover o ligamento periodontal antes do reimplante"},
-        {letra:"B", texto:"Irrigar o alvéolo com soro, não tocar na raiz com instrumentos, reimplantar gentilmente e imobilizar"},
-        {letra:"C", texto:"Tratar o canal radicular antes do reimplante para prevenir reabsorção"},
-        {letra:"D", texto:"Realizar extração do coágulo do alvéolo com cureta antes de reimplantar"}
+        {letra:"A",texto:"\"Dentista, urgência: criança com dente avulsionado, tempo de avulsão 20 minutos, dente armazenado em leite. Precisa de avaliação imediata.\""},
+        {letra:"B",texto:"\"Tem uma criança aqui que caiu e perdeu um dente\" — sem mais detalhes"},
+        {letra:"C",texto:"Não interromper — esperar o dentista terminar o atendimento atual"},
+        {letra:"D",texto:"Dizer à mãe que é preciso ir à UPA pois a clínica não faz reimplante"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Nunca raspar a raiz — as células do ligamento periodontal são fundamentais para o sucesso do reimplante.",
-        B:"Correto. Sequência: irrigar alvéolo com soro (não curetas), segurar o dente pela coroa, implantar com pressão suave digital, confeccionar contenção semi-rígida e encaminhar para acompanhamento. Antibiótico e profilaxia antitetânica devem ser avaliados.",
-        C:"Tratamento endodôntico pode ser necessário 7-10 dias após o reimplante, não antes.",
-        D:"O coágulo no alvéolo pode ser deixado ou gentilmente irrigado — curetagem não é indicada."
-      }
-    },
-    {
-      fase:"Pós-reimplante",
-      pergunta:"Qual é o tipo de contenção (imobilização) indicada após reimplante de dente avulsionado?",
-      opcoes:[
-        {letra:"A", texto:"Contenção rígida por 2 meses (barra de aço de 1 mm)"},
-        {letra:"B", texto:"Contenção semi-rígida por 7-14 dias (fio 0,3-0,4 mm + resina)"},
-        {letra:"C", texto:"Nenhuma contenção — o dente reimplantado deve estar livre para estimular a regeneração"},
-        {letra:"D", texto:"Contenção com cimento de ionômero de vidro cobrindo toda a coroa"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Contenção rígida por tempo prolongado favorece a substituição radicular (anquilose) — deve ser evitada.",
-        B:"Correto. Contenção semi-rígida (fio ortodôntico flexível + resina) por 7-14 dias permite micromovimentos fisiológicos que favorecem a reinserção do ligamento periodontal e reduzem o risco de anquilose.",
-        C:"Alguma estabilização é necessária para permitir a cicatrização inicial.",
-        D:"CIV não é material adequado para contenção de trauma."
+        A:"Correto. A comunicação deve ser objetiva: tipo de emergência, tempo de avulsão (prognóstico piora após 30-60 min) e condição do dente. Isso permite ao dentista tomar decisão rápida sobre interromper ou não o atendimento.",
+        B:"Informação insuficiente — o dentista não consegue dimensionar a urgência.",
+        C:"Avulsão dental é emergência com janela de tempo crítica. Cada minuto reduz o prognóstico do reimplante.",
+        D:"Decidir encaminhar sem apresentar ao dentista é ultrapassar a competência do auxiliar."
       }
     }
   ],
-  competencias:[9,9,9,9,8,7,7,9]
+  competencias:[8,9,9,8,9,8,7,8]
 },
 
 {
-  id:"CC-15", titulo:"Diagnóstico de periodontite — estadiamento e gradação",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
-  contexto:`Paciente masculino, 48 anos, fumante (10 cigarros/dia), comparece para avaliação. Periodontograma: bolsas de 5-7 mm em múltiplos sítios nos dentes posteriores, sangramento à sondagem em 40% dos sítios, radiografias mostram perda óssea horizontal de 1/3 médio. Sem mobilidade dental. HbA1c: 5,8% (normal). Pai perdeu todos os dentes antes dos 50 anos.`,
-  personagem:{nome:"Paciente com periodontite",avatar:"paciente"},
+  id:"CC-15", titulo:"Fluxo de material contaminado na clínica",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`O auxiliar terminou um atendimento e precisa fazer o processamento dos instrumentais. Na clínica, há uma área de trabalho suja (onde chegam os instrumentais usados) e uma área limpa (onde ficam os instrumentais esterilizados prontos para uso). O auxiliar precisa transportar a bandeja usada, lavar os instrumentais e reempacotar para esterilização.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Estadiamento da periodontite",
-      pergunta:"De acordo com a classificação de 2017 (AAP/EFP), qual é o estadiamento mais provável para esta periodontite?",
+      fase:"Fluxo de material",
+      pergunta:"Qual é a sequência correta para o processamento dos instrumentais?",
       opcoes:[
-        {letra:"A", texto:"Estágio I — perda de inserção inicial"},
-        {letra:"B", texto:"Estágio II — periodontite moderada"},
-        {letra:"C", texto:"Estágio III — periodontite severa com perda complexa"},
-        {letra:"D", texto:"Estágio IV — periodontite avançada com disfunção mastigatória"}
+        {letra:"A",texto:"Pré-lavagem na área suja com EPI completo → limpeza mecânica/ultrassônica → enxágue → secagem → inspeção → embalagem → esterilização → armazenamento na área limpa"},
+        {letra:"B",texto:"Levar os instrumentais diretamente para a autoclave sem lavar — o calor vai esterilizar mesmo com matéria orgânica"},
+        {letra:"C",texto:"Lavar na área limpa para usar a pia grande — a área suja tem pia menor"},
+        {letra:"D",texto:"Lavar os instrumentais juntos com os materiais de consumo (gazes, luvas) para economizar tempo"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Estágio I: perda de inserção clínica de 1-2 mm e bolsas de até 4 mm. Este caso tem bolsas de 5-7 mm.",
-        B:"Correto. Estágio II: perda de inserção 3-4 mm, bolsas de 5-6 mm (ou até 7 mm em sítios isolados), perda óssea horizontal ≤ 1/3 do comprimento radicular. Os achados descritos são compatíveis.",
-        C:"Estágio III inclui perda óssea ≥ 1/3 radicular OU perda de dentes por periodontite. Aqui a perda é no 1/3 médio sem móveis.",
-        D:"Estágio IV implica disfunção mastigatória grave, colapso oclusal ou ≥ 20 dentes ausentes."
+        A:"Correto. O fluxo unidirecional (suja → limpa) é princípio fundamental de controle de infecção. Matéria orgânica precisa ser removida ANTES da esterilização — proteínas coaguladas pelo calor bloqueiam a penetração do vapor.",
+        B:"Matéria orgânica residual forma barreira que impede a ação do vapor de esterilização. O instrumental pode sair do ciclo sem estar estéril.",
+        C:"O fluxo deve ser sempre da área suja para a área limpa — nunca o contrário. Levar material contaminado para a área limpa contamina toda aquela área.",
+        D:"Materiais de consumo usados (gazes, luvas) são descartáveis e não reprocessados com instrumentais."
       }
     },
     {
-      fase:"Gradação",
-      pergunta:"Qual é a gradação mais provável para esta periodontite, considerando o histórico de tabagismo e o histórico familiar?",
+      fase:"EPI durante processamento",
+      pergunta:"Quais EPIs o auxiliar DEVE usar durante a lavagem dos instrumentais na área suja?",
       opcoes:[
-        {letra:"A", texto:"Grau A — progressão lenta, sem fatores de risco"},
-        {letra:"B", texto:"Grau B — progressão moderada, tabagismo moderado"},
-        {letra:"C", texto:"Grau C — progressão rápida, tabagismo + histórico familiar sugestivo de risco elevado"},
-        {letra:"D", texto:"Grau D — gradação não existe na classificação atual"}
+        {letra:"A",texto:"Luvas grossas (não descartáveis), máscara, avental impermeável, gorro e óculos/protetor facial — os EPIs do atendimento (luvas finas) não são adequados para o processamento"},
+        {letra:"B",texto:"As mesmas luvas descartáveis do atendimento são suficientes"},
+        {letra:"C",texto:"Não precisa de EPI para lavar instrumentais — só para atender paciente"},
+        {letra:"D",texto:"Apenas avental — as mãos ficam sob a água corrente o tempo todo"}
       ],
-      correta:"C",
+      correta:"A",
       feedback:{
-        A:"Grau A implica ausência de fatores de risco e perda óssea mínima ao longo do tempo.",
-        B:"Grau B seria adequado se houvesse apenas tabagismo leve ou moderado sem outros modificadores.",
-        C:"Correto. Grau C indica progressão rápida. Os modificadores presentes: tabagismo (≥ 10 cigarros/dia eleva para grau C) e histórico familiar de perda dentária precoce (sugestivo de susceptibilidade genética aumentada).",
-        D:"A classificação tem graus A, B e C. Não existe grau D."
-      }
-    },
-    {
-      fase:"Plano de tratamento",
-      pergunta:"Qual é a sequência correta para o tratamento periodontal ativo desta periodontite?",
-      opcoes:[
-        {letra:"A", texto:"Cirurgia periodontal imediata + antibioticoterapia sistêmica como primeira linha"},
-        {letra:"B", texto:"Instrução de higiene oral + raspagem e alisamento radicular supra e subgengival + reavaliação após 6-8 semanas"},
-        {letra:"C", texto:"Exodontia de todos os dentes com bolsas ≥ 5 mm"},
-        {letra:"D", texto:"Apenas profilaxia supragengival semestral e acompanhamento"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Cirurgia periodontal é fase subsequente, após falha do tratamento não-cirúrgico. Antibiótico adjuvante pode ser indicado no grau C, mas não é primeira linha.",
-        B:"Correto. O tratamento periodontal ativo começa com a fase higiênica: instrução e motivação, remoção de fatores retentivos de placa e raspagem/alisamento radicular. Reavaliação 6-8 semanas após para decidir sobre necessidade de cirurgia.",
-        C:"Exodontia não é indicada em dentes com bolsas sem outros critérios de extração (fratura, cárie irrestaurável etc.).",
-        D:"Apenas profilaxia supragengival não controla periodontite estágio II com bolsas de 5-7 mm."
+        A:"Correto. Luvas grossas de borracha são obrigatórias na lavagem — protegem de cortes por instrumentais perfurocortantes. As luvas finas de procedimento rasgam facilmente ao manusear instrumentos. Óculos e máscara protegem de aerossóis da lavagem.",
+        B:"Luvas descartáveis finas não protegem adequadamente contra cortes de bisturis, brocas e instrumentos de periodontia.",
+        C:"A lavagem de instrumentais representa um dos maiores riscos de acidente perfurocortante para auxiliares.",
+        D:"Avental sozinho não protege mãos, olhos e vias aéreas dos aerossóis gerados durante a lavagem."
       }
     }
   ],
-  competencias:[7,8,8,9,8,7,6,8]
+  competencias:[7,8,8,8,10,7,7,9]
 },
 
 {
-  id:"CC-16", titulo:"Reabsorção radicular — diagnóstico por imagem",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Endodontia",
-  contexto:`Paciente feminina, 22 anos, em tratamento ortodôntico há 18 meses. Sem queixas. Radiografia panorâmica de controle evidencia encurtamento radicular nos dentes 12 e 11 em comparação ao Rx inicial. Os dentes apresentam vitalidade, sem lesão periapical. O ortodontista solicitou avaliação endodôntica.`,
-  personagem:{nome:"Paciente em tratamento ortodôntico",avatar:"paciente"},
+  id:"CC-16", titulo:"Revelação de radiografia pelo método convencional",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Radiologia Odontológica",
+  contexto:`O auxiliar precisa revelar uma radiografia periapical pelo método convencional em câmara escura. Os químicos disponíveis são revelador, fixador e água de lavagem. A temperatura dos químicos está em 20°C. O auxiliar nunca havia revelado radiografias antes e pergunta ao dentista sobre a sequência.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Tipo de reabsorção",
-      pergunta:"Qual tipo de reabsorção radicular é mais compatível com este caso?",
+      fase:"Sequência de revelação",
+      pergunta:"Qual é a sequência correta para a revelação convencional de radiografia?",
       opcoes:[
-        {letra:"A", texto:"Reabsorção interna idiopática"},
-        {letra:"B", texto:"Reabsorção externa apical associada ao tratamento ortodôntico"},
-        {letra:"C", texto:"Reabsorção por substituição (anquilose)"},
-        {letra:"D", texto:"Reabsorção inflamatória pós-trauma"}
+        {letra:"A",texto:"Revelador (20°C → 4,5 minutos) → lavagem em água (30 segundos) → fixador (dobro do tempo de revelação) → lavagem final (20 minutos) → secagem"},
+        {letra:"B",texto:"Fixador primeiro para enrijecer o filme → revelador → lavagem"},
+        {letra:"C",texto:"Revelador → fixador diretamente sem lavagem intermediária — a lavagem faz diferença apenas no final"},
+        {letra:"D",texto:"Revelador por 1 minuto independente da temperatura — tempo padronizado"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Reabsorção interna aparece como área radiolúcida dentro do canal, alargando-o. Aqui há encurtamento da raiz.",
-        B:"Correto. A reabsorção radicular apical externa é uma complicação conhecida do tratamento ortodôntico, especialmente em dentes anteriores superiores submetidos a movimentos de intrusão. O encurtamento progressivo na radiografia de controle é o achado típico.",
-        C:"Reabsorção por substituição (anquilose) está associada a trauma, não a ortodontia.",
-        D:"Reabsorção inflamatória pós-trauma é localizada e associada a histórico de avulsão/luxação."
+        A:"Correto. A sequência é: revelador (tempo conforme temperatura — a 20°C são 4,5min pela tabela tempo-temperatura) → lavagem intermediária (30s para interromper o revelador e evitar contaminar o fixador) → fixador (dobro do tempo de revelação) → lavagem final (20min para remover químicos) → secagem.",
+        B:"Fixador antes do revelador impede o desenvolvimento da imagem latente — o filme ficará transparente ou com imagem muito fraca.",
+        C:"Sem a lavagem intermediária, o revelador mistura com o fixador, neutralizando os dois e comprometendo a qualidade da imagem.",
+        D:"O tempo no revelador varia com a temperatura. Usar tempo fixo sem considerar temperatura resulta em imagem sub ou superrevelada."
       }
     },
     {
-      fase:"Conduta",
-      pergunta:"Qual deve ser a conduta ao identificar esta reabsorção?",
+      fase:"Avaliação da qualidade da imagem",
+      pergunta:"Ao sair do fixador, a imagem radiográfica está muito clara (quase transparente). Qual o provável problema?",
       opcoes:[
-        {letra:"A", texto:"Extrair os dentes imediatamente e substituir por implantes"},
-        {letra:"B", texto:"Comunicar ao ortodontista — avaliar pausa ou modificação da mecânica, com monitoramento radiográfico frequente"},
-        {letra:"C", texto:"Iniciar tratamento endodôntico preventivo nos dentes 11 e 12"},
-        {letra:"D", texto:"Ignorar o achado, pois pequenas reabsorções são fisiológicas e não requerem intervenção"}
+        {letra:"A",texto:"Sub-revelação: tempo insuficiente no revelador ou revelador exausto/contaminado. A radiografia precisa ser repetida."},
+        {letra:"B",texto:"A imagem clara significa boa qualidade — menos dose de radiação usada"},
+        {letra:"C",texto:"Super-fixação: ficou tempo demais no fixador. Repetir a revelação no revelador"},
+        {letra:"D",texto:"O paciente se moveu durante a tomada — a imagem clara é sinal de movimento"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Extração é medida extrema não indicada para reabsorção moderada com dentes vitais.",
-        B:"Correto. O endodontista deve comunicar formalmente ao ortodontista. A mecânica pode ser ajustada (redução de força, pausa no tratamento). Monitoramento radiográfico a cada 3-6 meses é fundamental.",
-        C:"Tratamento endodôntico não é indicado em dentes vitais sem outros critérios.",
-        D:"Ignorar pode permitir progressão para comprometimento grave da ancoragem dental."
+        A:"Correto. Imagem muito clara (densidade baixa) = sub-revelação. Causas: tempo curto no revelador, temperatura baixa, ou revelador degradado. A radiografia precisa ser repetida — não há como recuperar uma imagem sub-revelada.",
+        B:"Imagem clara não é qualidade — é falta de densidade que impede diagnóstico.",
+        C:"Excesso de fixação não clareia a imagem — a fixação remove apenas a prata não reduzida (área sem imagem). A sobre-fixação pode remover imagem ao longo do tempo.",
+        D:"Movimento do paciente causa imagem borrada, não imagem clara."
       }
     }
   ],
-  competencias:[7,8,8,9,7,7,7,8]
+  competencias:[7,8,8,9,8,7,7,8]
 },
 
 {
-  id:"CC-17", titulo:"Paciente com anticoagulante — cirurgia oral",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente masculino, 67 anos, em uso de varfarina (anticoagulante oral) por fibrilação atrial. INR atual: 2,4 (faixa terapêutica: 2,0-3,0). Necessita de extração do dente 16 (cárie extensa, irrestaurável). Cardiologista foi consultado e liberou para procedimento sem suspender a varfarina. PA: 132/84 mmHg.`,
-  personagem:{nome:"Paciente anticoagulado",avatar:"paciente"},
+  id:"CC-17", titulo:"Orientação pós-operatória após extração dental",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`O dentista acabou de realizar a extração do dente 46 de uma paciente, Sra. Beatriz, 42 anos. O dentista pede ao auxiliar que oriente a paciente sobre os cuidados pós-operatórios antes de ela sair. Beatriz está com gaze mordendo e parece ansiosa com as instruções.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Avaliação do risco hemorrágico",
-      pergunta:"Qual é a conduta correta em relação ao anticoagulante antes da extração?",
+      fase:"Orientação pós-operatória",
+      pergunta:"Quais são as orientações pós-operatórias corretas que o auxiliar deve transmitir?",
       opcoes:[
-        {letra:"A", texto:"Suspender a varfarina 5 dias antes da extração por conta própria"},
-        {letra:"B", texto:"Manter a varfarina conforme orientação do cardiologista — INR na faixa terapêutica permite procedimentos simples"},
-        {letra:"C", texto:"Reduzir a dose pela metade no dia anterior e retomar no pós-operatório"},
-        {letra:"D", texto:"Substituir varfarina por AAS 100 mg na semana da cirurgia"}
+        {letra:"A",texto:"Manter pressão com gaze por 30-60 minutos, não cuspir nem bochechar nas primeiras horas, não fumar por 24-48h, alimentação fria/morna e pastosa, evitar esforço físico no dia, e retornar se tiver dor intensa, inchaço aumentando após 48h ou febre"},
+        {letra:"B",texto:"Bochechar com água morna e sal logo ao chegar em casa para limpar o local"},
+        {letra:"C",texto:"Escovar normalmente a região da extração a partir do dia seguinte com escova dura"},
+        {letra:"D",texto:"Pode comer qualquer alimento após 1 hora — o coágulo já estará formado"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Suspender varfarina sem autorização médica aumenta o risco de eventos tromboembólicos graves (AVC, embolia pulmonar). Nunca suspender por conta própria.",
-        B:"Correto. Para procedimentos dentários simples (extração de 1-3 dentes), INR ≤ 3,5 com paciente clinicamente estável e orientação médica permite a extração sem suspensão do anticoagulante. Medidas locais de hemostasia são essenciais.",
-        C:"Reduzir dose sem indicação médica é conduta inadequada.",
-        D:"AAS não tem o mesmo mecanismo de ação que a varfarina e não substitui a anticoagulação."
+        A:"Correto. As orientações protegem o coágulo: pressão com gaze (hemostasia), sem bochechos/cuspir nas primeiras horas (não desprender coágulo), sem fumar (vasoconstrição prejudica cicatrização + alveolite), dieta fria/pastosa, sem esforço físico (↑pressão sanguínea). Sinais de alerta para retorno são importantes.",
+        B:"Bochechos imediatos desprendem o coágulo, podendo causar alveolite seca — uma das complicações mais dolorosas pós-extração.",
+        C:"Escova dura na região pode traumatizar os tecidos e deslocar o coágulo. Escova macia, sem pressão direta, somente após 24h.",
+        D:"Uma hora é insuficiente para coágulo estável. Alimentos duros/quentes podem traumatizar ou dissolver o coágulo."
       }
     },
     {
-      fase:"Hemostasia local",
-      pergunta:"Quais medidas locais são mais importantes para controle do sangramento pós-extração neste paciente?",
+      fase:"Comunicação com paciente ansiosa",
+      pergunta:"Beatriz diz que não conseguiu entender tudo que o auxiliar falou porque estava nervosa. O que o auxiliar deve fazer?",
       opcoes:[
-        {letra:"A", texto:"Cauterização elétrica do alvéolo após extração"},
-        {letra:"B", texto:"Sutura do alvéolo + compressa de gaze + orientação para morder por 30-60 min"},
-        {letra:"C", texto:"Irrigação do alvéolo com hipoclorito de sódio para limpar o coágulo"},
-        {letra:"D", texto:"Não é necessária nenhuma medida especial — aguardar hemostasia espontânea"}
+        {letra:"A",texto:"Repetir as instruções com calma, usar linguagem simples, e entregar um folheto ou anotar as instruções por escrito para ela levar para casa"},
+        {letra:"B",texto:"Dizer que as instruções já foram dadas e ela deve prestar mais atenção na próxima vez"},
+        {letra:"C",texto:"Pedir que ela pesquise na internet os cuidados pós-extração"},
+        {letra:"D",texto:"Orientar apenas os 2 pontos mais importantes e ignorar o restante para não confundir"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Cautério elétrico em paciente com marca-passo é contraindicado. Mesmo sem marca-passo, não é a primeira linha de hemostasia em alvéolo.",
-        B:"Correto. Sutura do alvéolo para aproximar os bordos + esponja hemostática de colágeno ou ácido tranexâmico local + compressa firme de gaze + instrução ao paciente são as medidas-padrão em anticoagulados.",
-        C:"Hipoclorito dissolve o coágulo — contraindicado no pós-operatório imediato.",
-        D:"Em anticoagulados, medidas proativas de hemostasia são obrigatórias."
-      }
-    },
-    {
-      fase:"Limiar de segurança do INR",
-      pergunta:"Acima de qual valor de INR a extração dentária simples deve ser adiada e o médico reavaliado?",
-      opcoes:[
-        {letra:"A", texto:"INR > 1,5"},
-        {letra:"B", texto:"INR > 2,0"},
-        {letra:"C", texto:"INR > 3,5"},
-        {letra:"D", texto:"INR > 5,0"}
-      ],
-      correta:"C",
-      feedback:{
-        A:"INR > 1,5 é ainda considerado seguro para procedimentos simples.",
-        B:"INR > 2,0 é o limite inferior da faixa terapêutica usual — não é indicação de adiamento.",
-        C:"Correto. INR > 3,5 aumenta significativamente o risco de sangramento pós-operatório não controlável localmente. O consenso atual recomenda adiar e acionar o médico para ajuste se INR > 3,5.",
-        D:"INR > 5,0 representa supracoagulação grave — mas o limiar de segurança para procedimentos simples é considerado 3,5."
+        A:"Correto. Paciente ansiosa não retém bem as informações verbais. Repetir com calma + material escrito garante que ela terá as informações em casa quando precisar. Instrução escrita também é forma de documentação.",
+        B:"Paciente ansiosa não é culpa — o auxiliar deve adaptar a comunicação às necessidades do paciente.",
+        C:"Informações da internet são variadas e podem contradizer as orientações do dentista.",
+        D:"Omitir orientações por julgamento sobre o que é mais ou menos importante pode resultar em complicações e insatisfação."
       }
     }
   ],
-  competencias:[8,9,9,9,9,7,7,9]
+  competencias:[9,7,8,7,7,8,7,9]
 },
 
 {
-  id:"CC-18", titulo:"Erosão dental — diagnóstico e orientação",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
-  contexto:`Paciente feminina, 30 anos, comparece com queixa de sensibilidade dental generalizada e dentes "cada vez mais lisos". Ao exame: superfícies oclusais com perda de anatomia, faces palatinas dos incisivos superiores côncavas e lisas. Gengiva saudável. A paciente relata beber muito suco de limão natural e refrigerante diet diariamente. Anamnese: refluxo gastroesofágico não tratado.`,
-  personagem:{nome:"Paciente com erosão dental",avatar:"paciente"},
+  id:"CC-18", titulo:"Auxílio no isolamento absoluto",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista vai realizar uma restauração com resina no dente 25 e solicita isolamento absoluto. O auxiliar deve preparar os materiais e auxiliar na instalação do isolamento. Os materiais disponíveis incluem: lençol de borracha, arco de Young, grampos variados (212, 14, 7, 1), pinça porta-grampo, fio dental e punch.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico etiológico",
-      pergunta:"Qual é a etiologia principal da erosão dental neste caso?",
+      fase:"Preparo do isolamento",
+      pergunta:"O que o auxiliar deve preparar para o isolamento absoluto do dente 25 (pré-molar superior)?",
       opcoes:[
-        {letra:"A", texto:"Bruxismo (parafunção) com desgaste mecânico"},
-        {letra:"B", texto:"Erosão de origem ácida — extrínseca (dieta) e intrínseca (refluxo)"},
-        {letra:"C", texto:"Abrasão por escovação excessiva"},
-        {letra:"D", texto:"Atrição fisiológica por envelhecimento"}
+        {letra:"A",texto:"Lençol de borracha (tamanho adequado), grampo para pré-molar (ex: grampo 7 ou 14), arco de Young, pinça porta-grampo, punch para perfurar o lençol e fio dental para verificar os contatos"},
+        {letra:"B",texto:"Apenas o lençol de borracha — o dentista pega o restante sozinho"},
+        {letra:"C",texto:"Grampo 212 (de asa) que é universal e serve para todos os dentes"},
+        {letra:"D",texto:"Não é necessário preparar nada — o isolamento absoluto é montado direto pelo dentista sem auxílio"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Bruxismo causa desgaste com superfícies planas e facetas de atrito em áreas de contato. As faces palatinas côncavas e lisas não são compatíveis.",
-        B:"Correto. Erosão: dissolução química do esmalte por ácidos. Causas extrínsecas (suco de limão, refrigerante) + intrínsecas (refluxo gástrico) causam o padrão palatino nos superiores e oclusal em todos os dentes.",
-        C:"Abrasão afeta principalmente as cervicais. Não explica o padrão palatino e oclusal.",
-        D:"Atrição fisiológica é gradual e não explica o padrão côncavo palatino típico de erosão ácida."
+        A:"Correto. O auxiliar deve preparar todos os componentes do isolamento: lençol de borracha perfurado no punch, grampo adequado ao dente (para pré-molar superior: 7 ou 14), pinça porta-grampo, arco de Young para tensionar o lençol, e fio dental para testar e ajustar.",
+        B:"Preparar apenas o lençol demonstra desconhecimento do procedimento e atrasa o atendimento.",
+        C:"Grampo 212 (Ivory) é para incisivos — não é adequado para pré-molares. Grampo inadequado não clampa corretamente e compromete o isolamento.",
+        D:"O isolamento absoluto é instalado em equipe. O auxiliar tem papel ativo na instalação e manutenção."
       }
     },
     {
-      fase:"Conduta e prevenção",
-      pergunta:"Qual é o conjunto de orientações mais completo para este caso?",
+      fase:"Cuidado durante o procedimento",
+      pergunta:"Durante o procedimento, o grampo se solta e cai na boca do paciente. Qual a conduta do auxiliar?",
       opcoes:[
-        {letra:"A", texto:"Restaurar todos os dentes com resina imediatamente e orientar dieta"},
-        {letra:"B", texto:"Tratar o refluxo com médico, reduzir ácidos da dieta, usar flúor e aguardar estabilização antes de restaurar"},
-        {letra:"C", texto:"Apenas aplicar flúor tópico na clínica sem outras intervenções"},
-        {letra:"D", texto:"Indicar clareamento dental para remover a coloração da erosão"}
+        {letra:"A",texto:"Alertar o dentista imediatamente, pedir ao paciente para não engolir e ficar quieto, e o dentista recupera o grampo com a pinça — o fio de segurança deveria estar instalado"},
+        {letra:"B",texto:"Pedir ao paciente que cuspir o grampo na cuba"},
+        {letra:"C",texto:"Deixar o dentista perceber sozinho — o auxiliar não deve intervir"},
+        {letra:"D",texto:"Pedir ao paciente que incline a cabeça para o lado para o grampo sair sozinho"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Restaurar sem estabilizar a erosão levará à falha das restaurações pelo substrato continuamente degradado.",
-        B:"Correto. Sequência: 1) Tratar a causa (médico para refluxo, orientação dietética); 2) Estabilizar com flúor de alta concentração, selantes ou coberturas provisórias; 3) Restaurar definitivamente apenas quando a erosão estiver controlada.",
-        C:"Flúor sem eliminar a causa não é suficiente.",
-        D:"Clareamento em dentes com erosão pode agravar a sensibilidade e não trata a causa."
+        A:"Correto. Grampo solto é risco de engolimento ou aspiração. Alertar o dentista e pedir ao paciente para não se mover é a conduta correta. O fio de segurança (passado pelo orifício do grampo e preso externamente) é medida preventiva obrigatória.",
+        B:"Pedir que cuspa pode provocar movimento que leva o grampo para a faringe.",
+        C:"O auxiliar atento deve alertar o dentista imediatamente — não aguardar.",
+        D:"Inclinar a cabeça sem controlar o grampo pode piorara situação."
       }
     }
   ],
-  competencias:[7,8,8,8,7,7,6,8]
+  competencias:[7,8,8,9,9,7,7,8]
 },
 
 {
@@ -4284,47 +4148,47 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-20", titulo:"Cárie interproximal — diagnóstico por imagem",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
-  contexto:`Paciente masculino, 35 anos, sem queixas. Radiografia interproximal (bite-wing) revela imagem radiolúcida em dentina, na face mesial do dente 46, sem exposição pulpar radiográfica. Ao exame clínico, a sonda não penetra e a lesão não é visível clinicamente. O paciente relata usar fio dental raramente.`,
-  personagem:{nome:"Paciente com cárie proximal",avatar:"paciente"},
+  id:"CC-20", titulo:"Preparo de materiais para restauração com resina composta",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista vai realizar uma restauração classe II (proximal) com resina composta no dente 36. O auxiliar deve preparar a bandeja com todos os materiais necessários antes do paciente entrar. O consultório tem resinas das cores A1, A2, A3, B2 e uma resina de esmalte translúcido.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Interpretação radiográfica",
-      pergunta:"Como se classifica a profundidade desta lesão de cárie, radiograficamente?",
+      fase:"Seleção de materiais",
+      pergunta:"Quais materiais devem estar na bandeja para essa restauração?",
       opcoes:[
-        {letra:"A", texto:"Cárie incipiente de esmalte (mancha branca)"},
-        {letra:"B", texto:"Cárie de dentina (lesão radiolúcida atinge a dentina)"},
-        {letra:"C", texto:"Cárie com exposição pulpar"},
-        {letra:"D", texto:"Cárie de cemento (cárie radicular)"}
+        {letra:"A",texto:"Espelho, sonda, pinça, seringa Carpule + agulha + anestésico, ácido fosfórico 37%, sistema adesivo, resina (cor conforme seleção prévia), matriz metálica + cunha + porta-matriz (Tofflemire ou matriz seccional), fotopolimerizador verificado, espátula de resina, tira de lixa e discos de acabamento"},
+        {letra:"B",texto:"Apenas a resina e o fotopolimerizador — o restante o dentista busca durante o procedimento"},
+        {letra:"C",texto:"Todas as cores de resina disponíveis colocadas abertas na bandeja para o dentista escolher na hora"},
+        {letra:"D",texto:"Amálgama em vez de resina — é mais fácil de manipular para o auxiliar"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Cárie incipiente de esmalte não é detectável radiograficamente como radiolúcida nítida em dentina.",
-        B:"Correto. Lesão radiolúcida que ultrapassa a junção amelodentinária e invade a dentina sem atingir a polpa é classificada como cárie de dentina.",
-        C:"Exposição pulpar seria visível na radiografia como continuidade da radiolucência com a câmara pulpar.",
-        D:"Cárie de cemento ocorre em região radicular exposta, abaixo da JAC. Este caso é em face proximal coronária."
+        A:"Correto. Restauração com resina composta requer: protocolo de anestesia, condicionamento (ácido + adesivo), resina na cor correta, sistema de matriz para restaurações proximais (impede flash de resina interproximal), fotopolimerizador e acabamento/polimento. Antecipar todos os materiais evita interrupções.",
+        B:"Buscar materiais durante o procedimento contamina a área limpa e aumenta o tempo de boca aberta do paciente.",
+        C:"Deixar resinas abertas expõe ao ambiente e à luz — a resina fotopolimerizável pode ser ativada prematuramente. Apenas a cor selecionada deve estar disponível.",
+        D:"O material a ser usado é decisão do dentista, não do auxiliar."
       }
     },
     {
-      fase:"Decisão terapêutica",
-      pergunta:"Qual é a conduta mais indicada para esta lesão de dentina proximal assintomática?",
+      fase:"Cuidados com o fotopolimerizador",
+      pergunta:"Antes de usar o fotopolimerizador, o auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Apenas orientar higiene oral com fio dental e aguardar regressão espontânea"},
-        {letra:"B", texto:"Restauração preventiva imediata — lesão de dentina não se remineraliza"},
-        {letra:"C", texto:"Monitoramento com Rx semestral e aplicar flúor — só restaurar se progredir para dentina profunda"},
-        {letra:"D", texto:"Tratamento endodôntico preventivo antes de restaurar"}
+        {letra:"A",texto:"Verificar se a bateria está carregada, testar a intensidade de luz com o radiômetro (se disponível), e cobrir a ponta com barreira protetora plástica descartável entre pacientes"},
+        {letra:"B",texto:"Usar o fotopolimerizador sem qualquer preparo — ele é de uso único por paciente e já vem pronto"},
+        {letra:"C",texto:"Desinfetar a ponta do fotopolimerizador com álcool 70% imediatamente antes do uso, sem cobertura"},
+        {letra:"D",texto:"Não é necessário nenhum cuidado — o fotopolimerizador não tem contato com o paciente"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Lesões de dentina não se remineralizam naturalmente. A progressão é inevitable sem intervenção.",
-        B:"Correto. Lesão de dentina proximal requer acesso cavitário e restauração com resina composta classe II. O atraso aumenta o risco de progressão pulpar.",
-        C:"Monitoramento é indicado para lesões de esmalte. Em dentina, a restauração não deve ser adiada.",
-        D:"Tratamento endodôntico é indicado para comprometimento pulpar — que não existe aqui."
+        A:"Correto. Bateria fraca compromete a polimerização da resina. O radiômetro verifica a intensidade luminosa. A barreira plástica descartável é o método de controle de infecção padrão para o fotopolimerizador — mais prático e seguro que desinfetar a ponta entre cada paciente.",
+        B:"O fotopolimerizador não é descartável e requer higienização/barreira entre pacientes.",
+        C:"Desinfetar com álcool pode danificar a ponteira e não garante limpeza adequada de irregularidades. A barreira plástica é superior.",
+        D:"A ponteira do fotopolimerizador entra na boca do paciente e contata saliva e resina — tem risco de contaminação cruzada."
       }
     }
   ],
-  competencias:[7,8,8,9,7,7,6,8]
+  competencias:[7,8,8,9,9,7,7,8]
 }
 
 
@@ -4333,152 +4197,135 @@ window.CENARIOS = [
 ,
 
 {
-  id:"CC-21", titulo:"Pulpotomia em molar decíduo",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Odontopediatria",
-  contexto:`Paciente masculino, 7 anos, chega com dor ao mastigar no dente 75 (segundo molar inferior decíduo esquerdo). Ao exame: cárie profunda com exposição pulpar visível, sem fístula, sem mobilidade patológica, sem reabsorção radicular ao Rx. Teste de vitalidade: positivo com dor leve. Dente ainda com raízes preservadas. Sem alergias. Peso: 22 kg.`,
-  personagem:{nome:"Criança com cárie profunda",avatar:"paciente"},
+  id:"CC-21", titulo:"Comunicação com criança ansiosa durante procedimento",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`Sofia, 7 anos, está na cadeira odontológica para selamento de fossas e fissuras. É sua segunda consulta. Na primeira consulta ficou assustada mas cooperou. Quando o auxiliar aproxima o sugador, Sofia começa a chorar e diz "não quero, tá doendo". O dentista pede ao auxiliar que tente tranquilizá-la.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico pulpar",
-      pergunta:"Qual é o diagnóstico pulpar mais provável para o dente 75 neste caso?",
+      fase:"Abordagem da criança ansiosa",
+      pergunta:"Como o auxiliar deve abordar Sofia para ajudá-la a cooperar?",
       opcoes:[
-        {letra:"A", texto:"Necrose pulpar total"},
-        {letra:"B", texto:"Pulpite irreversível localizada (polpa radicular saudável)"},
-        {letra:"C", texto:"Polpa hígida — falso positivo ao teste de vitalidade"},
-        {letra:"D", texto:"Periodontite apical aguda com reabsorção óssea"}
+        {letra:"A",texto:"Abaixar ao nível da criança, falar em tom calmo e acolhedor, validar o sentimento ('Eu entendo que você ficou assustada'), explicar o que está fazendo com linguagem infantil ('esse é o aspirador de saliva, ele só suga a água') e elogiar cada avanço pequeno"},
+        {letra:"B",texto:"Dizer firmemente que não dói nada e que ela está exagerando — a criança precisa entender que é rápido"},
+        {letra:"C",texto:"Ignorar o choro e continuar — crianças pequenas sempre choram no dentista"},
+        {letra:"D",texto:"Dizer que se ela não cooperar vai precisar de uma injeção maior"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Necrose implica ausência de resposta ao teste. Aqui a polpa é vital com dor leve.",
-        B:"Correto. Exposição pulpar com vitalidade presente, sem fístula nem reabsorção, sugere que a polpa radicular ainda é saudável. Este é o critério para indicação de pulpotomia.",
-        C:"A exposição pulpar visível confirma comprometimento — não é falso positivo.",
-        D:"Sem reabsorção radiográfica nem fístula, não há critério de periodontite apical."
+        A:"Correto. A técnica dizer-mostrar-fazer e a validação emocional são abordagens consagradas em odontopediatria. Linguagem adaptada à idade, tom calmo e reforço positivo reduzem a ansiedade. O auxiliar tem papel fundamental no manejo comportamental.",
+        B:"Invalidar o sentimento da criança aumenta a desconfiança e o medo. 'Não dói nada' é mentiroso se causar desconforto.",
+        C:"Ignorar o choro de uma criança é desrespeitoso e vai piorar consultas futuras — criando o paciente odontofóbico.",
+        D:"Ameaças são técnicas proibidas em odontopediatria — causam trauma psicológico e associação negativa com o dentista."
       }
     },
     {
-      fase:"Tratamento indicado",
-      pergunta:"Qual é o tratamento mais indicado para o dente 75 neste caso?",
+      fase:"Postura durante o procedimento",
+      pergunta:"Sofia acalmou e o procedimento continua. Qual deve ser a postura do auxiliar durante o restante da consulta?",
       opcoes:[
-        {letra:"A", texto:"Pulpectomia total + obturação com pasta reabsorvível"},
-        {letra:"B", texto:"Pulpotomia com sulfato férrico ou MTA + restauração com coroa de aço"},
-        {letra:"C", texto:"Extração imediata do dente decíduo"},
-        {letra:"D", texto:"Capeamento pulpar direto com hidróxido de cálcio + resina composta"}
+        {letra:"A",texto:"Manter conversa tranquila e encorajadora ('Você está indo muito bem, Sofia!'), anticipar as necessidades do dentista (sugador, iluminação, materiais) e ficar atento ao conforto da criança"},
+        {letra:"B",texto:"Ficar em silêncio para não distrair a criança do procedimento"},
+        {letra:"C",texto:"Usar o celular durante o procedimento enquanto espera ser solicitado"},
+        {letra:"D",texto:"Conversar com o dentista sobre assuntos pessoais para tornar o ambiente mais leve"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Pulpectomia é indicada quando há necrose ou comprometimento radicular. Com polpa radicular vital, pulpotomia é preferível.",
-        B:"Correto. Pulpotomia: remoção da polpa coronária inflamada + medicação (MTA, sulfato férrico ou formocresol diluído) + restauração definitiva com coroa de aço pediátrica. É o padrão ouro em molar decíduo com polpa radicular vital.",
-        C:"Extração precoce de molar decíduo compromete o espaço para o sucessor permanente.",
-        D:"Capeamento direto em molar decíduo com exposição pulpar não é a conduta de primeira escolha — tem menor taxa de sucesso que a pulpotomia."
+        A:"Correto. O auxiliar em odontopediatria tem dupla função: suporte ao dentista (instrumentação) e suporte à criança (manejo comportamental). Elogios contínuos reforçam a cooperação e constroem uma relação positiva com o dentista.",
+        B:"Silêncio total pode aumentar a ansiedade da criança — a conversa tranquila é parte do manejo comportamental.",
+        C:"Usar celular durante o atendimento é falta de profissionalismo e pode gerar acidentes.",
+        D:"Conversa entre profissionais sobre assuntos não relacionados ao atendimento é inadequada na presença do paciente."
       }
     }
   ],
-  competencias:[8,8,8,9,8,8,7,8]
+  competencias:[10,7,8,7,7,8,7,9]
 },
 
 {
-  id:"CC-22", titulo:"Paciente em uso de bifosfonatos — extração dental",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente feminina, 68 anos, com osteoporose. Faz uso de alendronato 70 mg/semana há 7 anos. Necessita de extração do dente 27 (cárie extensa, irrestaurável). A paciente não tem histórico de osteorradionecrose nem lesões expostas. PA: 138/86 mmHg. Sem alergias.`,
-  personagem:{nome:"Paciente com bifosfonato",avatar:"paciente"},
+  id:"CC-22", titulo:"Identificação e uso correto dos EPIs",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Biossegurança e Controle de Infecção",
+  contexto:`O auxiliar vai começar o turno de atendimentos. Antes do primeiro paciente, precisa montar seu EPI. Na sala de materiais estão disponíveis: luvas de procedimento P/M/G, luvas grossas de borracha, máscara cirúrgica, máscara N95, gorro descartável, óculos de proteção, avental de manga comprida e protetor facial (face shield).`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Risco de osteonecrose",
-      pergunta:"Qual é o principal risco a considerar antes de realizar a extração neste caso?",
+      fase:"Seleção do EPI para atendimento clínico",
+      pergunta:"Qual combinação de EPIs o auxiliar deve usar para um atendimento odontológico rotineiro com geração de aerossóis (uso de alta rotação)?",
       opcoes:[
-        {letra:"A", texto:"Risco de alergia ao anestésico local por uso prolongado de bifosfonato"},
-        {letra:"B", texto:"Risco de Osteonecrose dos Maxilares Associada a Medicamentos (MRONJ)"},
-        {letra:"C", texto:"Risco de hipoglicemia durante o procedimento"},
-        {letra:"D", texto:"Bifosfonato oral por 7 anos não apresenta risco — apenas bifosfonatos EV são preocupantes"}
+        {letra:"A",texto:"Luvas de procedimento + máscara cirúrgica + gorro + óculos de proteção ou face shield + avental de manga comprida"},
+        {letra:"B",texto:"Apenas luvas e máscara — o restante é exagero para procedimento rotineiro"},
+        {letra:"C",texto:"Máscara N95 obrigatória para todos os atendimentos odontológicos"},
+        {letra:"D",texto:"Face shield sozinho substitui óculos + máscara — é mais prático"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Bifosfonatos não causam alergia ao anestésico.",
-        B:"Correto. O uso prolongado de bifosfonatos (especialmente ≥ 4 anos ou IV) aumenta o risco de MRONJ — exposição óssea necrótica após trauma cirúrgico. O risco com bifosfonato oral é menor que com EV, mas existe após uso prolongado.",
-        C:"Bifosfonatos não alteram a glicemia.",
-        D:"Bifosfonato oral por 7 anos POSSUI risco de MRONJ, embora menor que o EV."
+        A:"Correto. O EPI padrão para atendimentos com aerossol inclui: luvas (barreira para sangue/saliva), máscara cirúrgica (barreira contra gotículas grandes), gorro (protege cabelo de aerossóis), proteção ocular (óculos ou face shield — contra respingos) e avental (protege roupa/pele). Tudo obrigatório.",
+        B:"Gorro, óculos e avental são obrigatórios pela NR-32 e pelas normas do CFO — não são opcionais.",
+        C:"Máscara N95 tem indicações específicas (TB ativa, aerossóis de alto risco, pacientes com suspeita de infecção respiratória). Para atendimento rotineiro sem paciente com infecção respiratória ativa, máscara cirúrgica é adequada.",
+        D:"Face shield protege olhos e face mas não filtra partículas inaladas — não substitui a máscara."
       }
     },
     {
-      fase:"Conduta pré-operatória",
-      pergunta:"Qual é a conduta pré-operatória mais recomendada antes da extração?",
+      fase:"Troca de luvas entre pacientes",
+      pergunta:"Após atender o primeiro paciente, o auxiliar remove as luvas. Qual o próximo passo antes de colocar as luvas do próximo paciente?",
       opcoes:[
-        {letra:"A", texto:"Suspender o alendronato por 2 dias antes da cirurgia"},
-        {letra:"B", texto:"Consultar o médico prescritor, avaliar a necessidade de drug holiday e otimizar a cicatrização"},
-        {letra:"C", texto:"Realizar a extração normalmente — bifosfonato oral não requer precauções cirúrgicas"},
-        {letra:"D", texto:"Substituir extração por tratamento endodôntico em todos os casos de usuários de bifosfonato"}
+        {letra:"A",texto:"Lavar as mãos com água e sabão ou usar álcool gel 70% (pelo menos 20-30 segundos), secá-las completamente e só então colocar as luvas novas"},
+        {letra:"B",texto:"Colocar as luvas novas diretamente — as luvas que serão usadas vão proteger de qualquer modo"},
+        {letra:"C",texto:"Lavar as luvas antigas e reutilizar para o próximo paciente se estiverem íntegras — economia de material"},
+        {letra:"D",texto:"Apenas trocar as luvas sem higienizar as mãos — as luvas são a barreira principal"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Suspender por apenas 2 dias não é suficiente — o alendronato permanece no osso por anos.",
-        B:"Correto. O protocolo inclui: consulta médica para avaliar drug holiday (pausa terapêutica de 2-3 meses se baixo risco sistêmico), higienização rigorosa pré-operatória, técnica atraumática, cobertura com antibiótico profilático e acompanhamento pós-operatório intensivo.",
-        C:"Usuários de bifosfonato oral por > 4 anos têm risco aumentado e requerem cuidados especiais.",
-        D:"Tratar endodonticamente dente irrestaurável não é viável e pode manter foco infeccioso."
-      }
-    },
-    {
-      fase:"Sinais de MRONJ",
-      pergunta:"Qual sinal clínico indica o diagnóstico de Osteonecrose dos Maxilares Associada a Medicamentos?",
-      opcoes:[
-        {letra:"A", texto:"Dor óssea difusa sem exposição de osso"},
-        {letra:"B", texto:"Exposição óssea intraoral não cicatrizada por mais de 8 semanas em paciente em uso de bifosfonato"},
-        {letra:"C", texto:"Edema pós-operatório com eritema local nos primeiros 3 dias"},
-        {letra:"D", texto:"Parestesia do lábio inferior sem lesão visível"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Dor difusa pode ocorrer, mas não é o critério diagnóstico definitivo.",
-        B:"Correto. O critério diagnóstico de MRONJ (AAOMS) é: exposição óssea OR sondagem óssea através de fístula, em região maxilofacial, em paciente que usa/usou agente antirreabsortivo ou antiangiogênico, sem remissão após 8 semanas de tratamento.",
-        C:"Edema pós-operatório é esperado e transitório — não é MRONJ.",
-        D:"Parestesia pode ser sintoma tardio, mas não é critério diagnóstico."
+        A:"Correto. A higiene das mãos é a medida mais importante de controle de infecção. Luvas podem ter microperfurações invisíveis. As mãos devem ser higienizadas APÓS remover as luvas e ANTES de colocar o próximo par.",
+        B:"Luvas sobre mãos não higienizadas transferem contaminação da luva para o interior da nova luva ao calçar.",
+        C:"Luvas descartáveis nunca devem ser reprocessadas — rasgam, perfuram e perdem barreira de proteção.",
+        D:"As luvas não dispensam a higiene das mãos — as duas medidas são complementares, não excludentes."
       }
     }
   ],
-  competencias:[8,9,9,9,9,7,7,9]
+  competencias:[7,7,8,7,10,7,7,9]
 },
 
 {
-  id:"CC-23", titulo:"Cálculo da dose de anestésico em criança",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Anestesiologia",
-  contexto:`Paciente feminina, 6 anos, peso de 20 kg. Necessita de exodontia do dente 64 (segundo molar decíduo superior esquerdo, cárie extensa com fístula). O dentista planeja usar lidocaína 2% com epinefrina 1:100.000. A dose máxima de lidocaína em crianças é de 4,4 mg/kg. Cada tubete contém 1,8 mL = 36 mg de lidocaína.`,
-  personagem:{nome:"Criança — cálculo de dose",avatar:"paciente"},
+  id:"CC-23", titulo:"Organização e sigilo do prontuário — LGPD",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Ética e Profissionalismo",
+  contexto:`Um familiar do paciente João, 35 anos, liga para a clínica pedindo informações sobre o tratamento de João, dizendo que é o irmão e quer saber "o que o dentista encontrou". O auxiliar está sozinho na recepção. O dentista está em atendimento.`,
+  personagem:{nome:"Recepcionista/Auxiliar",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Cálculo da dose máxima",
-      pergunta:"Qual é a dose máxima de lidocaína permitida para esta criança de 20 kg?",
+      fase:"Sigilo do prontuário",
+      pergunta:"Como o auxiliar deve responder a essa solicitação?",
       opcoes:[
-        {letra:"A", texto:"44 mg (1,2 tubetes)"},
-        {letra:"B", texto:"72 mg (2 tubetes completos)"},
-        {letra:"C", texto:"88 mg (2,4 tubetes)"},
-        {letra:"D", texto:"180 mg (5 tubetes)"}
+        {letra:"A",texto:"Informar gentilmente que os dados do prontuário são sigilosos e só podem ser fornecidos ao próprio paciente ou mediante autorização escrita dele — não é possível fornecer informações por telefone sem essa autorização"},
+        {letra:"B",texto:"Contar o diagnóstico e tratamento — afinal é o irmão e a família deve saber"},
+        {letra:"C",texto:"Dizer que vai perguntar ao dentista e passar todas as informações por e-mail"},
+        {letra:"D",texto:"Pedir que o irmão venha pessoalmente à clínica para receber as informações verbalmente"}
       ],
-      correta:"C",
+      correta:"A",
       feedback:{
-        A:"44 mg = 4,4 mg/kg × 10 kg. Cálculo incorreto para 20 kg.",
-        B:"72 mg = 2 tubetes × 36 mg. Incorreto — não é baseado no peso.",
-        C:"Correto. Dose máxima = 4,4 mg/kg × 20 kg = 88 mg = 88 ÷ 36 = 2,4 tubetes. Para exodontia de um único dente decíduo, geralmente 0,5-1 tubete é suficiente — mas o limite de segurança é 2,4 tubetes.",
-        D:"180 mg ultrapassaria muito o limite para esta criança — seria dose de adulto."
+        A:"Correto. O sigilo profissional e a LGPD (Lei Geral de Proteção de Dados) protegem os dados de saúde do paciente. Mesmo que seja familiar, o auxiliar não pode fornecer informações sem autorização explícita do titular. A orientação é: o paciente deve entrar em contato diretamente ou fornecer autorização escrita.",
+        B:"Fornecer dados de saúde sem autorização do paciente viola o Código de Ética Odontológico e a LGPD — sujeito a sanções.",
+        C:"Enviar dados por e-mail a terceiro sem autorização é violação ainda mais grave de privacidade.",
+        D:"Receber pessoalmente não muda o problema — ainda seria violação de sigilo sem autorização do paciente."
       }
     },
     {
-      fase:"Escolha da agulha e técnica",
-      pergunta:"Qual combinação de agulha e técnica anestésica é mais adequada para exodontia do dente 64?",
+      fase:"Organização do arquivo de prontuários",
+      pergunta:"O auxiliar percebe que prontuários físicos de pacientes estão em uma prateleira visível na recepção, onde qualquer visitante pode ver os nomes. O que deve ser feito?",
       opcoes:[
-        {letra:"A", texto:"Agulha longa + bloqueio do nervo alveolar inferior"},
-        {letra:"B", texto:"Agulha curta + infiltração vestibular e palatina"},
-        {letra:"C", texto:"Agulha extra-curta + bloqueio do nervo mentual"},
-        {letra:"D", texto:"Nenhuma anestesia — criança com fístula já tem necrose e não sente dor"}
+        {letra:"A",texto:"Comunicar ao dentista/responsável e propor mover os prontuários para área restrita, ou usar identificação por código numérico em vez do nome completo na capa externa"},
+        {letra:"B",texto:"Não é problema — o nome sozinho não é dado sensível"},
+        {letra:"C",texto:"Cobrir os nomes com fita adesiva antes de cada visita e descobrir depois — improviso aceitável"},
+        {letra:"D",texto:"Ignorar — a clínica sempre foi assim e nunca houve reclamação"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Bloqueio do nervo alveolar inferior é para dentes inferiores. O dente 64 é superior.",
-        B:"Correto. Para exodontia de molar superior decíduo: infiltração vestibular (nervo alveolar superior posterior) + infiltração palatina (nervo palatino maior). Agulha curta é mais adequada em crianças.",
-        C:"Bloqueio mentual é para região de incisivos e pré-molares inferiores.",
-        D:"Mesmo dentes com necrose e fístula podem ter sensibilidade periodontal durante a exodontia. Anestesia é obrigatória."
+        A:"Correto. Exposição de nomes de pacientes na recepção viola a privacidade — a associação nome+clínica já revela dado de saúde (o fato de ser paciente). A LGPD exige medidas técnicas e organizacionais para proteger dados pessoais. O auxiliar deve comunicar e propor solução.",
+        B:"Nome completo em contexto de clínica de saúde é dado pessoal sensível conforme LGPD.",
+        C:"Improviso não é conformidade com a LGPD — a clínica precisa de procedimento sistemático.",
+        D:"Ausência de reclamação não é conformidade legal. A obrigação existe independentemente de denúncias."
       }
     }
   ],
-  competencias:[7,8,9,9,9,7,6,8]
+  competencias:[8,7,8,7,7,7,7,10]
 },
 
 {
@@ -4526,91 +4373,91 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-25", titulo:"Trismo pós-anestesia — complicação",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente masculino, 30 anos, retorna 2 dias após extração do dente 48 com queixa de limitação de abertura bucal (abertura máxima: 18 mm). Sem febre nem edema. Refere que a extração foi longa (50 minutos) com múltiplas reinjeções de anestésico. Ao exame: sensibilidade à palpação do pterigóideo medial. Sem sinal de infecção.`,
-  personagem:{nome:"Paciente com trismo pós-operatório",avatar:"paciente"},
+  id:"CC-25", titulo:"Reconhecimento de reação alérgica ao látex",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Urgências e Emergências",
+  contexto:`Durante uma restauração, a auxiliar nota que a paciente Carla, 30 anos, começa a apresentar urticária (manchas vermelhas e erupção na pele do pescoço e braços), queixa de coceira intensa e olhos lacrimejando. Carla não declarou alergia ao látex na ficha. O auxiliar usa luvas de látex.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico da complicação",
-      pergunta:"Qual é a causa mais provável do trismo neste caso?",
+      fase:"Reconhecimento e conduta imediata",
+      pergunta:"O auxiliar suspeita de reação alérgica ao látex. Qual é a conduta imediata correta?",
       opcoes:[
-        {letra:"A", texto:"Abscesso pterigomandibular por infecção pós-operatória"},
-        {letra:"B", texto:"Hematoma e espasmo muscular do pterigóideo medial por trauma anestésico repetido"},
-        {letra:"C", texto:"Fratura mandibular durante a extração"},
-        {letra:"D", texto:"Anquilose temporomandibular pós-cirúrgica"}
+        {letra:"A",texto:"Alertar o dentista imediatamente, remover as luvas de látex (e qualquer material de látex em contato com a paciente), interromper o procedimento e monitorar os sinais vitais da paciente"},
+        {letra:"B",texto:"Continuar o procedimento e pedir que a paciente tome um anti-histamínico depois em casa"},
+        {letra:"C",texto:"Trocar as luvas por outro par de látex — o problema pode ser sujo nas luvas, não o látex em si"},
+        {letra:"D",texto:"Dizer à paciente que a urticária é normal e passa sozinha em alguns minutos"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Abscesso cursaria com febre, edema e sinais inflamatórios. Aqui não há infecção.",
-        B:"Correto. Múltiplas injeções no espaço pterigomandibular podem causar hematoma intramuscular e espasmo reflexo do pterigóideo medial, levando ao trismo mecânico sem infecção.",
-        C:"Fratura mandibular durante extração causaria dor intensa, crepitação e instabilidade.",
-        D:"Anquilose verdadeira é complicação tardia e rara — não ocorre em 2 dias."
+        A:"Correto. Reação alérgica ao látex pode progredir para anafilaxia. A conduta é: remover o agente causador (luvas de látex), interromper o procedimento, alertar o dentista que conduzirá o manejo. O auxiliar monitora sintomas enquanto o dentista avalia e decide sobre medicação (anti-histamínico, epinefrina em anafilaxia).",
+        B:"Reação alérgica em progressão não pode aguardar — pode evoluir para broncoespasmo e anafilaxia.",
+        C:"Trocar por outro par de látex mantém o contato com o agente causador — piora a reação.",
+        D:"Normalizar sintomas de alergia é perigoso — a paciente precisa de avaliação médica."
       }
     },
     {
-      fase:"Tratamento",
-      pergunta:"Qual é o tratamento mais indicado para este trismo muscular sem infecção?",
+      fase:"Prevenção e documentação",
+      pergunta:"Após o episódio, o que deve ser feito para evitar recorrência?",
       opcoes:[
-        {letra:"A", texto:"Antibioticoterapia sistêmica imediata"},
-        {letra:"B", texto:"Calor local + AINE/miorrelaxante + fisioterapia com exercícios de abertura progressiva"},
-        {letra:"C", texto:"Abertura forçada sob anestesia geral"},
-        {letra:"D", texto:"Infiltração de corticoide diretamente no músculo masséter"}
+        {letra:"A",texto:"Registrar a alergia confirmada no prontuário, orientar a paciente a comunicar alergia ao látex em todos os atendimentos de saúde futuros, e a clínica deve adotar protocolo de ambiente livre de látex para essa paciente"},
+        {letra:"B",texto:"Não registrar — foi um susto mas passou e a paciente está bem"},
+        {letra:"C",texto:"Apenas pedir que a paciente traga anti-histamínico nas próximas consultas"},
+        {letra:"D",texto:"Orientar a paciente a buscar outro dentista que use luvas sem látex"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Antibiótico não é indicado para trismo de causa muscular sem infecção.",
-        B:"Correto. Trismo muscular pós-anestesia: compressas quentes (vasodilatação, relaxamento muscular), anti-inflamatório não-esteroidal, eventualmente miorrelaxante, e exercícios de abertura gradual orientados. Melhora em 7-14 dias na maioria dos casos.",
-        C:"Abertura forçada pode romper fibras musculares e piorar o quadro.",
-        D:"Infiltração de corticoide não é a primeira escolha e pode complicar sem indicação precisa."
+        A:"Correto. O registro no prontuário é obrigatório para segurança da paciente em futuras consultas. Ambiente livre de látex para pacientes alérgicos inclui: luvas sem látex, lençol de borracha sintético, seringas sem componente de látex. A paciente deve ser orientada a informar sempre nos prontuários de saúde.",
+        B:"Omitir do prontuário coloca a paciente em risco na próxima consulta.",
+        C:"Anti-histamínico não previne anafilaxia — o protocolo certo é eliminar o agente causador.",
+        D:"A clínica tem condição de atender a paciente com segurança com protocolo livre de látex — não é necessário encaminhar."
       }
     }
   ],
-  competencias:[7,8,8,8,8,7,7,8]
+  competencias:[8,9,9,8,10,8,7,9]
 },
 
 {
-  id:"CC-26", titulo:"Diagnóstico de cárie por ICDAS — decisão de tratar",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
-  contexto:`Paciente feminina, 20 anos, sem queixas. Ao exame com espelho, secagem com jato de ar e iluminação adequada, o dente 16 apresenta: mancha branca opaca visível seca e úmida, sem cavitação, na face oclusal. Teste de flúor: dente de alto risco. A paciente usa flúor em creme dental, tem baixa ingestão de açúcar e higiene razoável.`,
-  personagem:{nome:"Paciente em avaliação preventiva",avatar:"paciente"},
+  id:"CC-26", titulo:"Posicionamento ergonômico do auxiliar — trabalho a 4 mãos",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Ergonomia e Auxílio Clínico",
+  contexto:`O dentista vai iniciar uma restauração no dente 46 usando técnica a 4 mãos. O consultório tem mocho para auxiliar com encosto e regulagem de altura. A cadeira do paciente está reclinada e o dentista está posicionado às 11h (em relação ao paciente deitado). O auxiliar precisa se posicionar.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Classificação ICDAS",
-      pergunta:"Qual é o código ICDAS mais provável para esta lesão?",
+      fase:"Posicionamento correto do auxiliar",
+      pergunta:"Onde e como o auxiliar deve se posicionar para o trabalho a 4 mãos nessa situação?",
       opcoes:[
-        {letra:"A", texto:"ICDAS 0 — dente hígido"},
-        {letra:"B", texto:"ICDAS 1-2 — lesão inicial de esmalte (mancha branca sem cavitação)"},
-        {letra:"C", texto:"ICDAS 4-5 — sombra de dentina sob esmalte"},
-        {letra:"D", texto:"ICDAS 6 — cavitação extensa com dentina exposta"}
+        {letra:"A",texto:"Auxiliar posicionado entre as posições 2h e 4h (em relação ao paciente), no mesmo nível ou 10-15cm acima do dentista, mocho regulado, coluna reta, visão direta do campo operatório"},
+        {letra:"B",texto:"Auxiliar fica em pé atrás do dentista para ter melhor visão do campo operatório"},
+        {letra:"C",texto:"Auxiliar senta em qualquer posição confortável — o posicionamento exato não influencia no trabalho"},
+        {letra:"D",texto:"Auxiliar deve ficar do mesmo lado que o dentista (também às 11h) para facilitar a passagem de instrumentos"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Dente hígido não apresenta manchas brancas.",
-        B:"Correto. ICDAS 1: mancha branca visível apenas após secagem. ICDAS 2: mancha branca visível sem secagem. A descrição se encaixa em ICDAS 2 — lesão ativa de esmalte sem cavitação.",
-        C:"ICDAS 4-5 implica sombra de dentina translúcida através do esmalte ou cavidade detectável.",
-        D:"ICDAS 6 implica cavidade franca com dentina exposta — não é o caso."
+        A:"Correto. O auxiliar posiciona-se no lado oposto ao dentista, entre 2h e 4h. O mocho deve estar 10-15cm mais alto que o dentista para visão privilegiada do campo. Coluna ereta no mocho ergonômico previne lombalgias e cervicalgias que são causa frequente de afastamento em auxiliares.",
+        B:"Ficar em pé atrás do dentista dificulta a passagem de instrumentos e gera postura inadequada com sobrecarga cervical.",
+        C:"O posicionamento correto é treinado e fundamental — previne LER/DORT e otimiza a eficiência do atendimento.",
+        D:"Ambos do mesmo lado inviabiliza o trabalho a 4 mãos e cria obstáculo para a passagem de instrumentos."
       }
     },
     {
-      fase:"Decisão terapêutica",
-      pergunta:"Qual é a conduta mais adequada para esta lesão ICDAS 2 ativa?",
+      fase:"Passagem de instrumentos",
+      pergunta:"Durante o procedimento, o dentista precisa do explorador. Como o auxiliar deve fazer a passagem correta do instrumento?",
       opcoes:[
-        {letra:"A", texto:"Restauração imediata com resina composta"},
-        {letra:"B", texto:"Tratamento não-operatório: flúor verniz + selante de fissura + controle de dieta + reavaliação"},
-        {letra:"C", texto:"Aguardar até haver cavitação antes de qualquer intervenção"},
-        {letra:"D", texto:"Extração preventiva do dente para evitar progressão"}
+        {letra:"A",texto:"Segurar o instrumento pela parte não funcional (cabo), aproximar da mão do dentista na zona de transferência (próxima ao queixo do paciente) e entregar quando o dentista estiver pronto para receber, sem interrupção brusca"},
+        {letra:"B",texto:"Colocar o instrumento na bandeja para o dentista pegar sozinho"},
+        {letra:"C",texto:"Entregar o instrumento pela ponta ativa (ponta funcional) para o dentista pegar pelo cabo"},
+        {letra:"D",texto:"Jogar o instrumento sobre a bandeja e avisar o dentista"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Lesão ICDAS 2 sem cavitação pode ser revertida ou paralisada sem preparação cavitária.",
-        B:"Correto. Lesões ativas de esmalte sem cavitação respondem ao tratamento não-operatório: aplicação de flúor verniz, selamento preventivo da fissura, controle de dieta e reavaliação periódica. Abordagem minimamente invasiva.",
-        C:"Aguardar cavitação é conduta inadequada quando se pode atuar preventivamente.",
-        D:"Extração de dente com lesão reversível é totalmente descabida."
+        A:"Correto. A passagem de instrumentos na zona de transferência é uma das habilidades centrais do auxiliar. Segurar pelo cabo (não pela ponta ativa) garante que o dentista receba o instrumento pronto para usar. A zona de transferência (mandíbula/queixo do paciente) evita movimento desnecessário do dentista.",
+        B:"Abandonar o instrumento na bandeja e o dentista buscar interrompe o ritmo do procedimento e aumenta o tempo de trabalho.",
+        C:"Entregar pela ponta ativa é perigoso — risco de acidente perfurocortante para o dentista.",
+        D:"Instrumentos não devem ser jogados — risco de queda, contaminação e acidente."
       }
     }
   ],
-  competencias:[7,8,8,9,8,7,6,8]
+  competencias:[7,8,8,9,8,7,7,8]
 },
 
 {
@@ -4658,318 +4505,267 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-28", titulo:"Fratura de instrumento endodôntico — conduta",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
-  contexto:`Durante o tratamento endodôntico do dente 36, a lima rotativa fraturou no terço médio do canal mésio-lingual. O fragmento tem aproximadamente 3 mm e está firmemente retido. O canal estava desbridado até o terço médio. O dente não tem lesão periapical prévia e o paciente é assintomático.`,
-  personagem:{nome:"Paciente — instrumento fraturado",avatar:"paciente"},
+  id:"CC-28", titulo:"Controle de infecção — paciente com hepatite B",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`O dentista informa ao auxiliar que o próximo paciente, Sr. Marcelo, 50 anos, é portador de hepatite B e tem carga viral indetectável (controlada). O auxiliar precisa preparar a sala e adotar as precauções adequadas. Um colega auxiliar sugere: "Coloca ele para esperar o final do turno e joga tudo fora depois."`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Avaliação do prognóstico",
-      pergunta:"Qual fator tem MAIOR influência no prognóstico do dente após fratura de instrumento endodôntico?",
+      fase:"Precauções para paciente com hepatite B",
+      pergunta:"Qual é a conduta correta do auxiliar para o atendimento de um paciente com hepatite B?",
       opcoes:[
-        {letra:"A", texto:"A marca do instrumento (nacional vs. importado)"},
-        {letra:"B", texto:"A posição do fragmento, presença ou não de lesão periapical e a possibilidade de bypass"},
-        {letra:"C", texto:"A idade do paciente"},
-        {letra:"D", texto:"O tipo de coroa do dente (natural vs. protética)"}
+        {letra:"A",texto:"As precauções-padrão (EPI completo, esterilização dos instrumentais, descarte correto) são suficientes e as mesmas usadas para todos os pacientes — não há necessidade de tratamento diferenciado nem de discriminar o paciente"},
+        {letra:"B",texto:"Usar EPI duplo (duas luvas, duas máscaras) e desinfetar a sala com produto especial após o atendimento"},
+        {letra:"C",texto:"Encaminhar o paciente para clínica especializada — consultório geral não deve atender pacientes com hepatite B"},
+        {letra:"D",texto:"Colocar o paciente no final do turno e descartar todos os instrumentais sem reutilizar"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"A marca do instrumento não determina o prognóstico após a fratura.",
-        B:"Correto. Os fatores determinantes são: localização do fragmento (apical = pior prognóstico), presença de lesão periapical (piora significativamente), possibilidade de realizar bypass do fragmento e contaminação prévia do canal.",
-        C:"Idade não é o fator primário de prognóstico endodôntico.",
-        D:"Tipo de coroa não influencia o sucesso do tratamento de canal."
+        A:"Correto. As precauções-padrão, se aplicadas corretamente a TODOS os pacientes, são suficientes para hepatite B. Carga viral indetectável tem risco praticamente zero de transmissão. Discriminar o paciente é antiético e viola o Código de Ética e a Lei Antidiscriminação.",
+        B:"EPI duplo não tem respaldo científico e pode criar falsa sensação de segurança. As precauções-padrão corretas são a proteção adequada.",
+        C:"Consultórios gerais atendem pacientes com hepatite B — não há contraindicação com precauções-padrão.",
+        D:"Deixar para o final ou descartar instrumentais sem critério é discriminatório e aumenta custos sem justificativa técnica."
       }
     },
     {
-      fase:"Conduta clínica",
-      pergunta:"Qual é a conduta mais indicada para este caso (fragmento no terço médio, sem lesão periapical, canal já instrumentado até o terço médio)?",
+      fase:"Resposta ao colega",
+      pergunta:"Como o auxiliar deve responder ao colega que sugeriu tratamento discriminatório ao paciente?",
       opcoes:[
-        {letra:"A", texto:"Extração imediata do dente e instalação de implante"},
-        {letra:"B", texto:"Tentar bypass do fragmento, irrigar abundantemente e obturar até o fragmento se não for possível remover"},
-        {letra:"C", texto:"Encerrar o caso sem tratamento adicional"},
-        {letra:"D", texto:"Iniciar antibioticoterapia sistêmica para prevenir infecção apical"}
+        {letra:"A",texto:"Explicar que as precauções-padrão são suficientes para todos os pacientes, que discriminar o paciente é antiético e ilegal, e se necessário comunicar ao dentista responsável"},
+        {letra:"B",texto:"Concordar com o colega — melhor prevenir com excesso do que arriscar"},
+        {letra:"C",texto:"Avisar ao paciente que o colega quis discriminá-lo"},
+        {letra:"D",texto:"Ignorar — cada um trabalha do jeito que quiser"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Extração é o último recurso — o dente ainda tem prognóstico razoável.",
-        B:"Correto. A primeira tentativa é realizar o bypass do fragmento com lima fina (08 ou 10) e irrigação. Se não for possível remover o fragmento, obtura-se até o nível do fragmento com cimento e guta-percha. O prognóstico sem lesão periapical é favorável.",
-        C:"Encerrar sem tratamento deixa o canal não obturado, predispondo à infecção.",
-        D:"Antibiótico não tem indicação para fratura de instrumento assintomática sem lesão periapical."
-      }
-    },
-    {
-      fase:"Comunicação com o paciente",
-      pergunta:"Qual é a conduta ética do cirurgião-dentista após a fratura de instrumento?",
-      opcoes:[
-        {letra:"A", texto:"Não informar ao paciente para evitar preocupação desnecessária"},
-        {letra:"B", texto:"Registrar no prontuário, informar ao paciente sobre o ocorrido, as implicações e as opções de conduta"},
-        {letra:"C", texto:"Encaminhar ao especialista sem explicar o motivo ao paciente"},
-        {letra:"D", texto:"Reiniciar o tratamento em outro dente para compensar o erro"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Omitir informação ao paciente é uma violação ética e legal. O paciente tem direito à informação completa.",
-        B:"Correto. O dever ético do cirurgião-dentista é informar ao paciente sobre qualquer intercorrência durante o tratamento, registrar no prontuário, explicar as opções de conduta e, se necessário, encaminhar ao especialista em endodontia.",
-        C:"Encaminhar sem explicação priva o paciente de tomar decisões informadas.",
-        D:"A situação deve ser gerenciada profissionalmente — não dissimulada com outra conduta."
+        A:"Correto. O auxiliar tem responsabilidade ética de corrigir práticas discriminatórias. A explicação técnica (precauções-padrão são suficientes) associada à orientação ética é a abordagem adequada. Persistindo a conduta, comunicar ao responsável.",
+        B:"Concordar com discriminação é conivência — sujeito às mesmas sanções éticas.",
+        C:"Comunicar ao paciente sem resolver internamente gera conflito e constrangimento desnecessários.",
+        D:"Ignorar práticas antiéticas de colegas é omissão — o auxiliar é parte da equipe e tem responsabilidade coletiva."
       }
     }
   ],
-  competencias:[7,9,9,9,8,7,8,9]
+  competencias:[7,8,8,8,10,8,7,10]
 },
 
 {
-  id:"CC-29", titulo:"Mucocele — diagnóstico e tratamento",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente masculino, 16 anos, com nódulo azulado no lábio inferior há 3 meses, crescimento lento, sem dor, consistência flutuante à palpação. A mãe relata que ele tem hábito de morder o lábio inferior frequentemente. Ao exame: lesão de 1,2 cm, séssil, bem delimitada, mucosa íntegra sobrejacente de coloração translúcida-azulada.`,
-  personagem:{nome:"Adolescente com nódulo labial",avatar:"paciente"},
+  id:"CC-29", titulo:"Preparo da bandeja para cirurgia periodontal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista solicitou que o auxiliar prepare a bandeja para um procedimento de raspagem e alisamento radicular subgengival (RAR) com acesso cirúrgico simples no sextante inferior esquerdo. O dentista informará ao paciente sobre o procedimento.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico",
-      pergunta:"Qual é o diagnóstico mais provável para esta lesão?",
+      fase:"Montagem da bandeja cirúrgica",
+      pergunta:"Quais instrumentos devem compor a bandeja para a RAR cirúrgica?",
       opcoes:[
-        {letra:"A", texto:"Fibroma traumático"},
-        {letra:"B", texto:"Mucocele de retenção (pseudocisto ou cisto de extravasamento)"},
-        {letra:"C", texto:"Lipoma labial"},
-        {letra:"D", texto:"Hemangioma venoso"}
+        {letra:"A",texto:"Espelho, sonda periodontal milimetrada, pinça, seringa Carpule + agulha + anestésico, bisturi + cabo, descoladores periostais (Molt 9 e/ou Freer), curetas Gracey (específicas por área), irrigação com soro, fio de sutura com agulha, porta-agulha, tesoura, gaze"},
+        {letra:"B",texto:"Apenas curetas e sonda — o dentista não precisa de mais nada para raspagem"},
+        {letra:"C",texto:"Fórceps e alavancas — toda cirurgia odontológica usa os mesmos instrumentos"},
+        {letra:"D",texto:"Bandeja de restauração com resina — o dentista vai restaurar o dente depois de raspar"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Fibroma é firme, cor da mucosa normal e não flutuante.",
-        B:"Correto. Mucocele: extravasamento de muco por ruptura de glândula salivar menor (hábito de morder), formando coleção translúcida-azulada, flutuante, no lábio inferior. É a lesão não-cariosa mais comum de glândula salivar menor.",
-        C:"Lipoma é amarelado, de consistência mais firme e não tem história de trauma.",
-        D:"Hemangioma é vermelho-vináceo e apresenta vitropressão positiva (palidece à pressão)."
+        A:"Correto. RAR com acesso cirúrgico inclui: anestesia (Carpule + agulha + anestésico), incisão (bisturi), descolamento (descoladores), instrumentação periodontal (curetas Gracey específicas por área), irrigação, e sutura (fio + porta-agulha + tesoura). O auxiliar deve antecipar todo o instrumental.",
+        B:"Com acesso cirúrgico, o procedimento exige incisão, descolamento e sutura — não apenas curetas.",
+        C:"Fórceps e alavancas são para exodontia — não têm nenhuma aplicação em cirurgia periodontal.",
+        D:"RAR é procedimento periodontal, não restaurador."
       }
     },
     {
-      fase:"Tratamento",
-      pergunta:"Qual é o tratamento de escolha para a mucocele?",
+      fase:"Durante o procedimento",
+      pergunta:"Durante a sutura, o dentista pede para o auxiliar segurar o retalho com o descolador enquanto ele passa o fio. O que o auxiliar deve fazer?",
       opcoes:[
-        {letra:"A", texto:"Punção e drenagem do conteúdo — cura definitiva"},
-        {letra:"B", texto:"Excisão cirúrgica da lesão com a glândula salivar associada"},
-        {letra:"C", texto:"Apenas orientar a interromper o hábito de morder o lábio e aguardar resolução"},
-        {letra:"D", texto:"Tratamento com antibióticos por 10 dias"}
+        {letra:"A",texto:"Segurar o descolador com firmeza e delicadeza na posição indicada pelo dentista, manter o campo seco com gaze/aspiração e acompanhar o ritmo do procedimento sem movimentos bruscos"},
+        {letra:"B",texto:"Recusar — auxiliar não pode tocar no campo cirúrgico"},
+        {letra:"C",texto:"Segurar com a mão enluvada diretamente no tecido sem instrumento"},
+        {letra:"D",texto:"Afastar para ver melhor e esperar o dentista terminar sozinho"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"A punção simples tem alta taxa de recidiva — o conteúdo se refaz pois a glândula não foi removida.",
-        B:"Correto. A excisão cirúrgica incluindo a lesão e a glândula salivar menor associada é o tratamento definitivo com menor taxa de recidiva.",
-        C:"Interromper o hábito é importante, mas lesões de 3 meses de evolução raramente regridem espontaneamente.",
-        D:"Mucocele não tem origem infecciosa — antibióticos não são indicados."
+        A:"Correto. O auxiliar cirúrgico tem papel ativo no campo operatório. Segurar retratores, manter o campo seco e acompanhar o dentista são funções específicas do auxiliar em procedimentos cirúrgicos.",
+        B:"O auxiliar de saúde bucal tem atribuição legal de auxiliar em procedimentos cirúrgicos usando instrumental — é parte do seu escopo de atuação.",
+        C:"Toque direto do auxiliar no tecido sem instrumento adequado compromete a biossegurança.",
+        D:"Recuar durante a sutura compromete a visibilidade do dentista e a qualidade do procedimento."
       }
     }
   ],
-  competencias:[7,7,8,8,8,7,7,8]
+  competencias:[7,8,8,9,9,7,7,8]
 },
 
 {
-  id:"CC-30", titulo:"Periodontite agressiva em jovem",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
-  contexto:`Paciente feminino, 19 anos, encaminhado pelo ortondontista. Ao exame: bolsas periodontais de 6-8 mm nos incisivos superiores e primeiros molares bilateralmente (lesão em arco invertido), perda óssea angular radiográfica nos mesmos dentes, sangramento à sondagem. Higiene oral satisfatória — sem placa abundante. Sem doenças sistêmicas. Não fuma.`,
-  personagem:{nome:"Jovem com periodontite agressiva",avatar:"paciente"},
+  id:"CC-30", titulo:"Descarte de resíduos com amálgama — risco do mercúrio",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`O dentista removeu uma restauração antiga de amálgama do dente 47. Ao final do procedimento, há fragmentos de amálgama na bandeja, no sugador e nos instrumentais. O auxiliar precisa fazer o descarte correto. A clínica tem um frasco coletor de amálgama de mercúrio no armário.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico diferencial",
-      pergunta:"A distribuição da perda óssea (primeiros molares + incisivos, bilateral e simétrica) é típica de qual condição?",
+      fase:"Descarte do amálgama",
+      pergunta:"Como o auxiliar deve fazer o descarte correto dos resíduos de amálgama?",
       opcoes:[
-        {letra:"A", texto:"Periodontite crônica generalizada"},
-        {letra:"B", texto:"Periodontite localizada em jovens (anteriormente 'agressiva localizada')"},
-        {letra:"C", texto:"Gengivite ulceronecrosante aguda (GUNA)"},
-        {letra:"D", texto:"Periodontite associada a diabetes descompensado"}
+        {letra:"A",texto:"Coletar os fragmentos de amálgama em frasco coletor específico com tampa vedada (under water — submerso em água ou glicerina para evitar volatilização do mercúrio), armazenar em local ventilado e encaminhar para empresa licenciada de gerenciamento de resíduos de mercúrio"},
+        {letra:"B",texto:"Jogar no lixo comum — amálgama antigo já não tem mercúrio livre"},
+        {letra:"C",texto:"Descartar no lixo infectante (saco branco) junto com gazes contaminadas"},
+        {letra:"D",texto:"Jogar na pia — a água vai diluir e não causa problema"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Periodontite crônica generalizada é difusa, não tem o padrão localizado em molares e incisivos.",
-        B:"Correto. Periodontite localizada em jovens tem padrão clássico: perda óssea nos primeiros molares e incisivos (padrão de arco invertido), em pacientes jovens, com higiene relativamente boa, progressão rápida e possível componente genético/familiar.",
-        C:"GUNA é uma lesão necrótica aguda, dolorosa, com papilas em 'colarinho' e halitose intensa — quadro diferente.",
-        D:"Diabetes descompensado causaria periodontite generalizada, não localizada com este padrão."
+        A:"Correto. Amálgama dental contém 50% de mercúrio que pode se volatilizar. O descarte correto exige frasco coletor específico com água ou glicerina (impede volatilização), armazenamento adequado e coleta por empresa especializada. Exigência da Resolução CONAMA 358/2005 e RDC 222/2018.",
+        B:"Amálgama de qualquer idade contém mercúrio. Descarte em lixo comum contamina solo e água.",
+        C:"O saco infectante não é adequado para resíduos químicos como mercúrio — são categorias diferentes.",
+        D:"Mercúrio no esgoto contamina a cadeia hídrica e é bioacumulável em organismos aquáticos — proibido por lei."
       }
     },
     {
-      fase:"Tratamento e adjuvantes",
-      pergunta:"Qual abordagem terapêutica é mais indicada para periodontite localizada agressiva em jovem?",
+      fase:"Segurança pessoal durante manipulação",
+      pergunta:"Ao limpar o sugador com fragmentos de amálgama, o auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Apenas profilaxia supragengival mensal por 6 meses"},
-        {letra:"B", texto:"Raspagem e alisamento radicular + antibioticoterapia sistêmica adjuvante (amoxicilina + metronidazol)"},
-        {letra:"C", texto:"Extração de todos os dentes afetados e implantes imediatos"},
-        {letra:"D", texto:"Corticoterapia sistêmica para controlar a resposta inflamatória"}
+        {letra:"A",texto:"Usar luvas grossas, máscara e operar em área ventilada. Não usar aquecimento ou compressão no amálgama (libera vapor de mercúrio). Coletar os fragmentos com colher ou espátula, nunca com as mãos nuas"},
+        {letra:"B",texto:"Limpar com pano seco sem EPI — o amálgama já foi removido da boca, não tem mais risco"},
+        {letra:"C",texto:"Usar secador de cabelo para facilitar a limpeza dos fragmentos do sugador"},
+        {letra:"D",texto:"Jogar água quente para dissolver os fragmentos mais facilmente"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Profilaxia supragengival isolada não controla a periodontite com bolsas profundas.",
-        B:"Correto. A associação de raspagem subgengival com antibioticoterapia sistêmica (amoxicilina 500 mg + metronidazol 400 mg, ambos 3x/dia por 7 dias) é o protocolo de evidência para periodontite agressiva. A flora específica (A. actinomycetemcomitans) requer tratamento sistêmico.",
-        C:"Extração não é indicada em dentes com prognóstico que podem ser tratados periodontalmente.",
-        D:"Corticoterapia sistêmica não tem indicação no tratamento periodontal padrão."
-      }
-    },
-    {
-      fase:"Rastreamento familiar",
-      pergunta:"Qual conduta adicional é recomendada considerando que esta periodontite pode ter componente genético?",
-      opcoes:[
-        {letra:"A", texto:"Solicitar teste genético de rotina ao paciente"},
-        {letra:"B", texto:"Recomendar avaliação periodontal dos familiares diretos (pais e irmãos)"},
-        {letra:"C", texto:"Informar que é doença adquirida sem necessidade de rastreamento familiar"},
-        {letra:"D", texto:"Indicar flúor sistêmico para prevenção genética"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Teste genético não é conduta de rotina para esta condição.",
-        B:"Correto. A periodontite agressiva localizada tem forte associação familiar. É fundamental orientar o paciente a indicar avaliação periodontal para pais e irmãos, que podem ter a mesma susceptibilidade sem sintomas ainda.",
-        C:"O componente genético é bem estabelecido — o rastreamento familiar é uma responsabilidade clínica.",
-        D:"Flúor sistêmico previne cárie, não doença periodontal."
+        A:"Correto. Vapor de mercúrio é neurotóxico. Qualquer ação que aqueça o amálgama (secador, água quente, autoclave sem coletor) aumenta a volatilização. Luvas e ventilação são proteções básicas. Fragmentos nunca devem ser manipulados com as mãos.",
+        B:"Fragmentos de amálgama fora da boca continuam contendo mercúrio que pode contaminar a pele e ser inalado.",
+        C:"Calor do secador volatiliza o mercúrio — risco grave de intoxicação por inalação.",
+        D:"Água quente tem o mesmo problema — aumenta a volatilização do mercúrio."
       }
     }
   ],
-  competencias:[8,9,9,9,8,8,7,9]
+  competencias:[7,7,8,8,10,7,7,9]
 },
 
 {
-  id:"CC-31", titulo:"Odontossecção e extração complexa — dente 48",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
-  contexto:`Paciente masculino, 26 anos, encaminhado para exodontia do dente 48 incluso mesioangular. Radiografia panorâmica: raízes em contato com o canal mandibular (sinal de interrupção da cortical), angulação mesioangular grau IIB (Winter). Sem inflamação ativa. Sem alergias. Não usa medicamentos. PA: 122/78 mmHg.`,
-  personagem:{nome:"Paciente — extração de siso incluso",avatar:"paciente"},
+  id:"CC-31", titulo:"Auxílio em exodontia — aspiração e compressa",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Ergonomia e Auxílio Clínico",
+  contexto:`O dentista está realizando a extração do dente 38 (siso inferior). Durante o procedimento cirúrgico, há sangramento moderado e o campo operatório fica com pouca visibilidade. O dentista solicita ao auxiliar: "Aspira e me segura a compressa aí."`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Planejamento pré-operatório",
-      pergunta:"Qual exame de imagem complementar deve ser solicitado antes da cirurgia, considerando o sinal de interrupção da cortical do canal mandibular?",
+      fase:"Técnica de aspiração",
+      pergunta:"Qual é a técnica correta de aspiração durante a cirurgia?",
       opcoes:[
-        {letra:"A", texto:"Nenhum — a panorâmica é suficiente para qualquer extração de siso"},
-        {letra:"B", texto:"Tomografia computadorizada de feixe cônico (CBCT) — para avaliar a relação real raiz-canal mandibular"},
-        {letra:"C", texto:"Ressonância magnética de mandíbula"},
-        {letra:"D", texto:"Cintilografia óssea"}
+        {letra:"A",texto:"Posicionar a cânula de aspiração na periferia do campo, nunca obstruindo a visão do dentista, aspirar o sangue e saliva continuamente, mantendo o campo limpo, sem tocar nos tecidos moles com a ponta do sugador"},
+        {letra:"B",texto:"Aspirar apenas quando o dentista pedir — segurar o sugador parado na boca para não atrapalhar"},
+        {letra:"C",texto:"Colocar o sugador diretamente sobre o alvéolo para aspirar o sangramento"},
+        {letra:"D",texto:"Usar compressa para secar o campo em vez do sugador — é mais eficiente"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"O sinal de interrupção da cortical indica proximidade ou contato com o nervo alveolar inferior — risco de parestesia. A panorâmica não permite avaliação tridimensional adequada.",
-        B:"Correto. O CBCT fornece avaliação tridimensional da relação raiz-canal mandibular, permite planejar a odontossecção mais segura e quantificar o risco de parestesia pós-operatória do nervo alveolar inferior.",
-        C:"Ressonância não é o exame de escolha para estruturas ósseas e dentais.",
-        D:"Cintilografia óssea não é indicada para planejamento cirúrgico de siso."
+        A:"Correto. A aspiração contínua e periférica ao campo operatório mantém a visibilidade sem interferir nos movimentos do dentista. A ponta não deve tocar diretamente no alvéolo — pode comprometer o coágulo em formação.",
+        B:"Aspiração passiva não mantém o campo limpo — o dentista perde visibilidade.",
+        C:"Aspirar diretamente sobre o alvéolo pode remover o coágulo em formação e prolongar o sangramento.",
+        D:"Compressa e aspiração têm funções complementares — a compressa pressiona para hemostasia após o procedimento, o sugador aspira fluidos durante."
       }
     },
     {
-      fase:"Técnica cirúrgica",
-      pergunta:"Considerando a angulação mesioangular e o contato com o canal, qual técnica é mais adequada?",
+      fase:"Após a extração",
+      pergunta:"O dente foi removido. O dentista pede para o auxiliar preparar a compressa para hemostasia. O que o auxiliar faz?",
       opcoes:[
-        {letra:"A", texto:"Luxação simples com fórceps sem osteotomia"},
-        {letra:"B", texto:"Odontossecção (corte cervical ou coroa-raiz) com turbina + remoção em fragmentos para reduzir pressão sobre o canal"},
-        {letra:"C", texto:"Avulsão total do dente em bloco com osso para evitar fragmentação"},
-        {letra:"D", texto:"Extração química com ácido para amolecer o osso"}
+        {letra:"A",texto:"Dobrar a gaze em 4 (formando almofada firme), umedecida levemente se necessário, e entregar ao dentista para posicionar sobre o alvéolo. Orientar a paciente a morder com pressão constante por 30-60 minutos"},
+        {letra:"B",texto:"Entregar a gaze aberta e dobrada em 1 camada — ocupa mais espaço e faz mais pressão"},
+        {letra:"C",texto:"Enrolar a gaze em bolinhas pequenas e colocar várias dentro do alvéolo"},
+        {letra:"D",texto:"Cobrir o alvéolo com algodão — é mais absorvente que gaze"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Luxação simples com fórceps em dente mesioangular com contato com canal mandibular imporia força de alavanca direta sobre o nervo.",
-        B:"Correto. A odontossecção divide o dente em fragmentos (coroa + raiz, ou coroa separada da raiz), reduzindo drasticamente a força necessária e o risco de lesão ao nervo alveolar inferior.",
-        C:"Remoção em bloco com osso é uma complicação — não uma técnica cirúrgica.",
-        D:"Extração química não existe em odontologia."
-      }
-    },
-    {
-      fase:"Complicação pós-operatória",
-      pergunta:"O paciente retorna 1 semana após a cirurgia com relato de dormência no lábio inferior e mento esquerdo. Qual é a conduta correta?",
-      opcoes:[
-        {letra:"A", texto:"Informar que é normal e dispensar sem acompanhamento"},
-        {letra:"B", texto:"Registrar no prontuário, tranquilizar o paciente e realizar acompanhamento regular — encaminhar ao circomaxilofacial se não houver melhora em 6 meses"},
-        {letra:"C", texto:"Reoperação imediata para verificar o nervo"},
-        {letra:"D", texto:"Prescrever corticoide em dose de ataque por 1 semana como rotina"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Dispensar sem acompanhamento é inadequado — o paciente precisa ser monitorado.",
-        B:"Correto. Parestesia do nervo alveolar inferior pós-extração de siso é complicação conhecida. Na maioria dos casos há recuperação espontânea em semanas a meses. Documentar, tranquilizar, acompanhar e encaminhar ao cirurgião bucomaxilofacial se sem melhora em 6 meses.",
-        C:"Reoperação não está indicada para neuropraxia/axonotmese — pode agravar.",
-        D:"Corticoide pode ser indicado no pós-operatório imediato para reduzir edema, não após 1 semana de parestesia estabelecida."
+        A:"Correto. A compressa de gaze dobrada em 4 cria pressão localizada sobre o alvéolo. A pressão constante pelo paciente é fundamental para a hemostasia. O auxiliar orienta o paciente sobre a técnica correta.",
+        B:"Gaze em camada única é menos eficaz para pressão e absorção.",
+        C:"Bolinhas soltas não fazem pressão adequada e podem se desprender e ser engolidas.",
+        D:"Algodão adere ao coágulo e pode removê-lo ao ser retirado — contraindicado para compressa de hemostasia."
       }
     }
   ],
-  competencias:[8,9,9,9,9,7,8,9]
+  competencias:[7,8,8,9,9,7,7,8]
 },
 
 {
-  id:"CC-32", titulo:"Clareamento dental — indicações e contraindicações",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Estética",
-  contexto:`Paciente feminina, 32 anos, solicita clareamento dental para tratar manchamento generalizado amarelo-acastanhado. Ao exame: esmalte íntegro, gengiva saudável, sem cáries ativas, sem restaurações em dentes anteriores. Não é gestante. Nega sensibilidade. Faz uso de contraceptivo oral. PA normal.`,
-  personagem:{nome:"Paciente solicitando clareamento",avatar:"paciente"},
+  id:"CC-32", titulo:"Esterilização vs desinfecção — quando usar cada nível",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`O auxiliar precisa processar os seguintes itens ao final do turno: brocas (alta e baixa rotação), espelhos clínicos, sonda periodontal, goteira de clareamento de plástico duro do paciente, mocho do dentista, tampo da bancada e fotopolimerizador. Ele precisa decidir qual processo é adequado para cada item.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Indicação do método",
-      pergunta:"Qual é a modalidade de clareamento mais indicada para este caso?",
+      fase:"Classificação dos itens",
+      pergunta:"Segundo a classificação de Spaulding, como classificar esses artigos e qual processamento cada um exige?",
       opcoes:[
-        {letra:"A", texto:"Clareamento em consultório (peróxido de hidrogênio 35%) em sessão única"},
-        {letra:"B", texto:"Clareamento caseiro supervisionado com moldeiras + peróxido de carbamida 10-16%"},
-        {letra:"C", texto:"Clareamento com dentifrícios abrasivos (pasta clareadora) aplicados 3x/dia"},
-        {letra:"D", texto:"Microabrasão com ácido clorídrico 18% e pedra-pomes"}
+        {letra:"A",texto:"Brocas, espelhos, sonda → críticos (penetram tecido) → esterilização obrigatória. Goteira do paciente → semicrítico (contato com mucosa) → desinfecção de alto nível ou esterilização. Mocho, bancada → não-críticos (superfície) → desinfecção de nível intermediário. Fotopolimerizador → barreira protetora + desinfecção"},
+        {letra:"B",texto:"Todos os itens vão para a autoclave — é mais seguro generalizar a esterilização"},
+        {letra:"C",texto:"Álcool 70% em todos os itens — é prático e suficiente para todos"},
+        {letra:"D",texto:"Apenas brocas e instrumentos cortantes precisam de cuidado; o restante pode ser limpo com água"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Clareamento em consultório é mais rápido, mas a literatura mostra resultados similares ao caseiro com menos sensibilidade. Para manchamento generalizado, o caseiro é igualmente eficaz e mais custo-efetivo.",
-        B:"Correto. Clareamento caseiro supervisionado com moldeiras individualizadas e peróxido de carbamida 10-16% tem alta eficácia, menor sensibilidade e excelente controle pelo paciente. É a primeira escolha para manchamento extrínseco/intrínseco generalizado.",
-        C:"Dentifrício abrasivo clarea apenas extrinsecamente (manchas superficiais) — não trata manchamento intrínseco.",
-        D:"Microabrasão é indicada para manchas de fluorose ou hipomineralização localizadas, não para clareamento geral."
+        A:"Correto. A classificação de Spaulding define o processamento pelo risco de infecção: críticos (penetram tecido estéril) exigem esterilização; semicríticos (contato com mucosa) exigem no mínimo desinfecção de alto nível; não-críticos (superfícies) exigem desinfecção de nível intermediário. Fotopolimerizador usa barreira + desinfecção da ponteira.",
+        B:"Autoclave de tudo causa dano em artigos sensíveis ao calor (goteira de plástico mole, alguns componentes eletrônicos) e é desnecessário para superfícies.",
+        C:"Álcool 70% é desinfetante de nível intermediário — insuficiente para artigos críticos e para alguns semicríticos.",
+        D:"Água sem produto desinfetante não é processamento adequado para nenhum artigo odontológico."
       }
     },
     {
-      fase:"Contraindicações",
-      pergunta:"Qual situação clínica representa uma contraindicação ao clareamento dental?",
+      fase:"Aplicação prática",
+      pergunta:"A goteira de clareamento de plástico duro foi retornada pelo paciente. O que o auxiliar deve fazer?",
       opcoes:[
-        {letra:"A", texto:"Dentes com esmalte íntegro e gengiva saudável"},
-        {letra:"B", texto:"Paciente gestante ou em amamentação"},
-        {letra:"C", texto:"Paciente adulto com restaurações antigas em dentes posteriores"},
-        {letra:"D", texto:"Paciente em uso de anticoncepcional oral"}
+        {letra:"A",texto:"Lavar com escova e sabão neutro para remover resíduos, desinfetar por imersão em solução de ácido peracético ou glutaraldeído 2% pelo tempo recomendado (desinfecção de alto nível), enxaguar em água estéril ou filtrada e embalar para devolver ao paciente"},
+        {letra:"B",texto:"Lavar com água e secar — a goteira é individual e o paciente que sabe se quer mais cuidado"},
+        {letra:"C",texto:"Autoclavar a 134°C — toda goteira pode ir na autoclave"},
+        {letra:"D",texto:"Descartar a goteira e fazer uma nova — não vale o trabalho de processar"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Esmalte íntegro e gengiva saudável são pré-requisitos para clareamento — sem contraindicação.",
-        B:"Correto. Gestação e amamentação são contraindicações ao clareamento dental — o peróxido pode ser absorvido e os efeitos no feto/lactente são desconhecidos. Clareamento deve ser postergado.",
-        C:"Restaurações antigas não contraindicam clareamento. Podem precisar ser substituídas após o procedimento (cor residual).",
-        D:"Anticoncepcional oral não contraindica clareamento dental."
+        A:"Correto. A goteira é semicrítica (contato com mucosa oral). Desinfecção de alto nível com glutaraldeído 2% (30 min) ou ácido peracético elimina bactérias, vírus e a maioria dos esporos. Enxágue em água estéril evita recontaminação.",
+        B:"Lavagem simples não garante eliminação de agentes patogênicos — artigo semicrítico exige desinfecção de alto nível.",
+        C:"Goteiras de plástico não suportam autoclave a 134°C — deformam e tornam-se inutilizáveis.",
+        D:"Goteiras são confeccionadas sob medida e têm custo — o processamento correto preserva o artigo com segurança."
       }
     }
   ],
-  competencias:[7,7,8,8,7,7,7,8]
+  competencias:[7,8,8,9,10,7,7,8]
 },
 
 {
-  id:"CC-33", titulo:"Prótese total — estabilidade e retenção",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Prótese",
-  contexto:`Paciente masculino, 74 anos, edêntulo total há 5 anos. Chega com queixa de prótese total inferior que "solta toda hora" ao falar e mastigar. Ao exame: rebord alveolar inferior extremamente reabsorvido (lâmina basal), mucosa íntegra. A prótese apresenta selamento periférico deficiente na região posterior. Arcada superior com prótese bem adaptada.`,
-  personagem:{nome:"Paciente com prótese instável",avatar:"paciente"},
+  id:"CC-33", titulo:"Comunicação de intercorrência ao dentista responsável",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Comunicação e Humanização",
+  contexto:`O auxiliar está organizando a sala entre atendimentos quando o paciente da cadeira (que ficou sozinho por 2 minutos enquanto o dentista foi ao banheiro) chama e diz que está com dor intensa e formigamento no braço. O auxiliar fica com o paciente e o dentista retorna em seguida.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico da instabilidade",
-      pergunta:"Qual é o principal fator responsável pela instabilidade da prótese total inferior neste caso?",
+      fase:"Comunicação ao dentista",
+      pergunta:"Como o auxiliar deve comunicar a situação ao dentista que retorna?",
       opcoes:[
-        {letra:"A", texto:"Má higiene da prótese"},
-        {letra:"B", texto:"Reabsorção óssea avançada + selamento periférico deficiente"},
-        {letra:"C", texto:"Uso de adesivo de prótese em excesso"},
-      {letra:"D", texto:"Prótese superior bem adaptada que empurra a inferior"}
+        {letra:"A",texto:"\"Dentista, o Sr. José relatou dor intensa e formigamento no braço esquerdo há cerca de 2 minutos, após você sair. Ele está consciente e com PA que medi: 160/100. Achei importante informar antes de continuar.\""},
+        {letra:"B",texto:"\"O paciente está reclamando de alguma coisa, acho que é o anestésico\" — sem informações precisas"},
+        {letra:"C",texto:"Esperar o paciente relatar pessoalmente ao dentista sem comunicar antes"},
+        {letra:"D",texto:"Chamar o SAMU diretamente sem consultar o dentista"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Higiene deficiente não causa instabilidade mecânica.",
-        B:"Correto. A retenção da prótese total inferior depende do reborde, da selagem periférica e da ação muscular. Reborde muito reabsorvido + selamento periférico deficiente comprometem diretamente a estabilidade.",
-        C:"Adesivo é paliativo — não diagnostica nem trata a causa.",
-        D:"A prótese superior não empurra mecanicamente a inferior."
+        A:"Correto. Comunicação precisa de intercorrência: sintoma específico (dor + formigamento no braço esquerdo), tempo de início, dados objetivos (PA) e alerta antes de retomar o procedimento. Dor no peito irradiando para o braço esquerdo é sinal clássico de síndrome coronariana — o dentista deve avaliar imediatamente.",
+        B:"Informação vaga dificulta a tomada de decisão do dentista.",
+        C:"Aguardar o paciente relatar pode atrasar a decisão clínica em uma potencial emergência.",
+        D:"Acionar SAMU sem consultar o dentista é ultrapassar a competência do auxiliar — o dentista conduz a emergência."
       }
     },
     {
-      fase:"Solução clínica",
-      pergunta:"Qual é a solução mais definitiva para a prótese inferior instável com reborde muito reabsorvido?",
+      fase:"Documentação da intercorrência",
+      pergunta:"Após o episódio ser resolvido (o dentista avaliou e encaminhou o paciente para avaliação cardiológica), o auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Aplicar mais adesivo para prótese diariamente"},
-        {letra:"B", texto:"Reembasamento da prótese (rebasamento) para melhor adaptação ao reborde atual"},
-        {letra:"C", texto:"Nova prótese total convencional sem outras intervenções"},
-        {letra:"D", texto:"Implantes zigomáticos para fixação da prótese inferior"}
+        {letra:"A",texto:"Registrar no prontuário a intercorrência com horário, sintomas relatados, dados de PA, conduta do dentista e encaminhamento realizado — o registro é parte do cuidado e proteção legal"},
+        {letra:"B",texto:"Não registrar — pode gerar processo para a clínica"},
+        {letra:"C",texto:"Registrar apenas que o paciente passou mal, sem detalhes, para não complicar"},
+        {letra:"D",texto:"O registro é responsabilidade exclusiva do dentista — o auxiliar não anota intercorrências"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Adesivo é paliativo e não resolve o problema de adaptação a longo prazo.",
-        B:"Correto. O rebasamento (reembasamento direto ou indireto) readapta a base da prótese ao reborde atual. Para casos de reabsorção severa, podem ser indicados implantes osseointegrados de suporte (prótese overdenture sobre 2 implantes), que é o padrão-ouro para prótese inferior.",
-        C:"Nova prótese sem melhorar o reborde ou adicionar suporte de implante terá o mesmo problema.",
-        D:"Implantes zigomáticos são para maxila edêntula com atrofia severa — não para mandíbula."
+        A:"Correto. O registro completo de intercorrências protege o paciente (continuidade do cuidado) e a equipe (documentação de conduta adequada). Omitir ou registrar de forma vaga é tanto antiético quanto juridicamente arriscado.",
+        B:"Não registrar não protege a clínica — pelo contrário, a ausência de registro em caso de complicação posterior é evidência contra a equipe.",
+        C:"Registro incompleto não serve como documentação adequada do ocorrido.",
+        D:"Auxiliares contribuem para o prontuário com dados como sinais vitais aferidos e relatos observados — dentro do seu escopo."
       }
     }
   ],
-  competencias:[7,8,8,8,7,7,6,8]
+  competencias:[9,8,9,8,8,8,7,9]
 },
 
 {
@@ -5061,274 +4857,223 @@ window.CENARIOS = [
 },
 
 {
-  id:"CC-36", titulo:"Endodontia em dente com ápice incompleto (apicificação)",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Endodontia",
-  contexto:`Paciente masculino, 11 anos, com trauma dental no dente 11 há 3 semanas. Ao exame: teste de vitalidade negativo, dente escurecido. Radiografia: ápice incompleto (dente imaturo), sem lesão periapical ainda. O dente está necrosado mas sem sintomas. Sem alergias. Peso: 38 kg.`,
-  personagem:{nome:"Criança com dente imaturo necrosado",avatar:"paciente"},
+  id:"CC-36", titulo:"Sequência de limpeza e preparo da sala entre pacientes",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Biossegurança e Controle de Infecção",
+  contexto:`O atendimento terminou. O paciente saiu. A sala precisa ser preparada para o próximo atendimento em 15 minutos. Na sala há: instrumental usado na bandeja, barreiras protetoras (plástico) em superfícies, escarro de sangue na saboneteira, equipamentos (cadeira, mocho, refletor) e materiais descartados (gaze, luva, agulha).`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Diagnóstico e indicação",
-      pergunta:"O ápice incompleto impede a obturação convencional com guta-percha. Qual procedimento é indicado para este caso?",
+      fase:"Sequência de limpeza da sala",
+      pergunta:"Qual é a sequência correta para o preparo da sala entre atendimentos?",
       opcoes:[
-        {letra:"A", texto:"Extração e implante imediato"},
-        {letra:"B", texto:"Apicificação com MTA ou hidróxido de cálcio para criar barreira apical"},
-        {letra:"C", texto:"Obturar normalmente com guta-percha aquecida até o ápice aberto"},
-        {letra:"D", texto:"Aguardar o fechamento natural do ápice sem tratamento"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Implante em criança de 11 anos é contraindicado — o osso ainda está em crescimento.",
-        B:"Correto. Dente imaturo necrosado com ápice aberto requer apicificação: limpeza/desinfecção do canal + barreira apical com MTA (apicificação em 1-2 sessões) para permitir a obturação definitiva. MTA cria barreira artificial que substitui o ápice.",
-        C:"Obturar com ápice aberto causaria extrusão de material para os tecidos periapicais.",
-        D:"Sem vitalidade, o ápice não fechará — é necessário tratamento ativo."
-      }
-    },
-    {
-      fase:"Técnica de irrigação no dente imaturo",
-      pergunta:"Qual concentração de hipoclorito de sódio é mais indicada para irrigação neste caso (dente imaturo com paredes delgadas)?",
-      opcoes:[
-        {letra:"A", texto:"Hipoclorito de sódio 5,25% para máxima ação antimicrobiana"},
-        {letra:"B", texto:"Hipoclorito de sódio 1-1,5% — eficaz e menos agressivo às paredes delgadas"},
-        {letra:"C", texto:"Água oxigenada 10 volumes"},
-        {letra:"D", texto:"Álcool 70% para desinfecção rápida"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"NaOCl 5,25% pode comprometer as paredes delgadas dos dentes imaturos, tornando-as mais frágeis.",
-        B:"Correto. Em dentes imaturos, a concentração menor de NaOCl (1-1,5%) é preferida para preservar as paredes delgadas do canal, mantendo ação antimicrobiana adequada.",
-        C:"Água oxigenada não é o irrigante de escolha em endodontia pelas limitações de ação antimicrobiana.",
-        D:"Álcool não é indicado para irrigação endodôntica."
-      }
-    },
-    {
-      fase:"Prognóstico e comunicação",
-      pergunta:"Qual informação é fundamental comunicar aos pais sobre o prognóstico deste dente?",
-      opcoes:[
-        {letra:"A", texto:"O dente ficará completamente normal após a apicificação, sem nenhuma limitação"},
-        {letra:"B", texto:"O dente tratado terá paredes mais delgadas e maior risco de fratura — pode necessitar de coroa protetora futuramente"},
-        {letra:"C", texto:"O tratamento garante que o dente não precisará de nenhuma intervenção pelos próximos 20 anos"},
-        {letra:"D", texto:"O dente irá cair naturalmente nos próximos 2 anos independentemente do tratamento"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Dente imaturo necrosado tratado tem limitações — não é idêntico ao dente vital.",
-        B:"Correto. Dentes imaturos necrosados têm paredes mais frágeis mesmo após tratamento. A comunicação com os responsáveis deve incluir: risco de fratura, possível necessidade de coroa ou fibra de vidro protetora e acompanhamento regular.",
-        C:"Nenhum tratamento garante ausência de intercorrências por 20 anos.",
-        D:"Dente permanente tratado endodonticamente mantém sua função — não cai naturalmente."
-      }
-    }
-  ],
-  competencias:[8,9,9,10,8,8,8,9]
-},
-
-{
-  id:"CC-37", titulo:"Periodontia — cirurgia de retalho mucoperiósteo",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Periodontia",
-  contexto:`Paciente masculino, 50 anos, com periodontite estágio III grau B. Após 3 meses de tratamento periodontal não-cirúrgico, reavaliação mostra: bolsas residuais de 6-7 mm nos dentes 36 e 37, sangramento à sondagem persistente, sem resposta adequada ao tratamento. Paciente não fuma. Sem doenças sistêmicas. PA: 124/80 mmHg.`,
-  personagem:{nome:"Paciente para cirurgia periodontal",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Indicação cirúrgica",
-      pergunta:"Por que a cirurgia periodontal está indicada neste caso após o tratamento não-cirúrgico?",
-      opcoes:[
-        {letra:"A", texto:"O paciente não seguiu as instruções de higiene — cirurgia é punitiva"},
-        {letra:"B", texto:"Bolsas residuais > 5 mm com sangramento persistente após tratamento não-cirúrgico indicam necessidade de acesso cirúrgico para desbridamento mais eficaz"},
-        {letra:"C", texto:"A cirurgia periodontal sempre é indicada como primeira linha de tratamento"},
-        {letra:"D", texto:"Bolsas de 6-7 mm podem ser tratadas apenas com antibiótico sem cirurgia"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"A cirurgia não é punitiva — é uma indicação técnica.",
-        B:"Correto. Bolsas residuais > 5 mm com sangramento persistente após fase de higiene indicam que o desbridamento não-cirúrgico foi insuficiente. A cirurgia (retalho de acesso) permite visualização direta e instrumentação mais eficaz.",
-        C:"A cirurgia é fase subsequente, não primeira linha.",
-        D:"Antibiótico não substitui o acesso cirúrgico em bolsas residuais após tratamento não-cirúrgico completo."
-      }
-    },
-    {
-      fase:"Técnica cirúrgica",
-      pergunta:"Qual é o tipo de retalho mais indicado para a cirurgia de acesso periodontal nestes dentes posteriores?",
-      opcoes:[
-        {letra:"A", texto:"Retalho de Widman Modificado (incisão sulcular, manutenção das papilas)"},
-        {letra:"B", texto:"Gengivectomia (excisão do tecido gengival)"},
-        {letra:"C", texto:"Frenectomia labial"},
-        {letra:"D", texto:"Retalho de espessura parcial sem descolar o periósteo"}
+        {letra:"A",texto:"1) Com EPI completo: retirar barreiras plásticas e descartar; 2) Encaminhar instrumental à área de processamento; 3) Limpar escarro com papel + produto desinfetante; 4) Desinfetar superfícies (cadeira, mocho, refletor, bancada) com álcool 70% ou quaternário de amônio; 5) Colocar novas barreiras protetoras; 6) Repor materiais; 7) Remover EPI e higienizar as mãos"},
+        {letra:"B",texto:"Colocar novas barreiras por cima das antigas — economiza tempo"},
+        {letra:"C",texto:"Apenas varrer o chão e tirar o lixo — as superfícies não precisam de desinfecção rotineira"},
+        {letra:"D",texto:"Desinfetar primeiro e depois retirar as barreiras — para não sujar as superfícies limpas"}
       ],
       correta:"A",
       feedback:{
-        A:"Correto. O retalho de Widman Modificado é o padrão para cirurgia de acesso em dentes posteriores com periodontite: incisão interna biselada, manutenção das papilas, acesso ao tecido de granulação e cemento contaminado, seguido de sutura.",
-        B:"Gengivectomia é indicada para excesso de tecido gengival (hiperplasia), não para acesso a bolsas com perda óssea.",
-        C:"Frenectomia é para bridas mucosas — não relacionada com bolsas periodontais.",
-        D:"Retalho de espessura parcial sem periósteo é usado em cirurgias mucogengivais, não para acesso periodontal padrão."
+        A:"Correto. A sequência do sujo para o limpo é o princípio básico. Remover barreiras (que estão contaminadas) → processar instrumental → limpar contaminações visíveis → desinfetar → rebarrar → repor materiais. EPI durante todo o processo de limpeza, removido ao final.",
+        B:"Acumular barreiras sem trocar compromete a proteção — a barreira nova sobre a antiga não elimina a contaminação embaixo.",
+        C:"Superfícies clínicas são contaminadas por aerossóis e respingos durante todo o procedimento — desinfecção entre pacientes é obrigatória.",
+        D:"Desinfetar antes de retirar as barreiras não elimina a contaminação sob as barreiras — a sequência correta é remover primeiro."
       }
     },
     {
-      fase:"Pós-operatório",
-      pergunta:"Qual é o período de reavaliação e sondagem após a cirurgia periodontal?",
+      fase:"Desinfecção do equipamento",
+      pergunta:"Para desinfetar a cadeira odontológica (encosto, braços, apoio de cabeça), o auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Imediatamente após a cirurgia (no dia seguinte)"},
-        {letra:"B", texto:"4-6 semanas pós-operatório (remoção de sutura) e nova sondagem completa após 3-6 meses"},
-        {letra:"C", texto:"Apenas 1 ano após a cirurgia"},
-        {letra:"D", texto:"Não é necessário reavaliar se o paciente não tiver dor"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Sondagem no dia seguinte é inadequada — os tecidos ainda estão edemaciados.",
-        B:"Correto. A sutura é removida em 7-14 dias. A sondagem pós-cirúrgica deve ser realizada após 3-6 meses, quando a cicatrização e a reorganização dos tecidos estiver completa, para avaliar o resultado clínico.",
-        C:"Aguardar 1 ano sem reavaliação pode permitir progressão de bolsas residuais.",
-        D:"Reavaliação pós-cirúrgica é parte obrigatória do protocolo periodontal."
-      }
-    }
-  ],
-  competencias:[7,8,8,9,8,7,7,8]
-},
-
-{
-  id:"CC-38", titulo:"Hipersensibilidade dentinária — diagnóstico e tratamento",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Dentística",
-  contexto:`Paciente feminina, 36 anos, queixa de sensibilidade intensa e rápida em dentes posteriores inferiores ao beber água fria e gelada. A sensibilidade cessa imediatamente ao remover o estímulo. Ao exame: recessão gengival de 2 mm nos dentes 35 e 45, raízes parcialmente expostas. Sem cáries. Escovação horizontal vigorosa.`,
-  personagem:{nome:"Paciente com hipersensibilidade",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Diagnóstico diferencial",
-      pergunta:"O que diferencia a hipersensibilidade dentinária da pulpite irreversível?",
-      opcoes:[
-        {letra:"A", texto:"A pulpite causa sensibilidade ao frio, enquanto a hipersensibilidade só ocorre ao quente"},
-        {letra:"B", texto:"Na hipersensibilidade dentinária a dor é breve e cessa imediatamente com a remoção do estímulo; na pulpite irreversível a dor persiste e pode ser espontânea"},
-        {letra:"C", texto:"Hipersensibilidade só ocorre em dentes posteriores"},
-        {letra:"D", texto:"Não há diferença clínica — os dois requerem tratamento endodôntico"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Tanto hipersensibilidade quanto pulpite podem responder ao frio.",
-        B:"Correto. O critério diferenciador principal é a duração da dor após o estímulo: hipersensibilidade — dor breve, cessa ao remover o estímulo; pulpite irreversível — dor prolongada (> 30 segundos), espontânea, pulsátil.",
-        C:"Hipersensibilidade ocorre em qualquer dente com dentina exposta.",
-        D:"Hipersensibilidade NÃO requer tratamento endodôntico."
-      }
-    },
-    {
-      fase:"Tratamento",
-      pergunta:"Qual é o tratamento mais indicado para esta hipersensibilidade com recessão gengival e escovação inadequada?",
-      opcoes:[
-        {letra:"A", texto:"Tratamento endodôntico dos dentes 35 e 45 imediatamente"},
-        {letra:"B", texto:"Dessensibilizante tópico (verniz de fluoreto ou oxalato de potássio) + orientação de técnica de escovação correta + avaliar cobertura radicular cirúrgica se necessário"},
-        {letra:"C", texto:"Restauração com resina cobrindo toda a raiz exposta sem outras orientações"},
-        {letra:"D", texto:"Extração dos dentes sensíveis e instalação de implantes"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Tratamento endodôntico não tem indicação para hipersensibilidade dentinária.",
-        B:"Correto. Tratamento: dessensibilizante tópico (flúor verniz 5% ou oxalato de potássio), orientação de técnica de escovação suave (Bass modificada, escova extra-macia), creme dental dessensibilizante. Em recessões > 3 mm, cirurgia mucogengival de cobertura (enxerto de tecido conjuntivo) pode ser indicada.",
-        C:"Restaurar a raiz sem corrigir a causa (escovação inadequada) levará à progressão da recessão ao redor da restauração.",
-        D:"Extração é totalmente inadequada para hipersensibilidade dentinária sem outros critérios."
-      }
-    }
-  ],
-  competencias:[7,7,8,8,7,7,6,8]
-},
-
-{
-  id:"CC-39", titulo:"Implante osseointegrado — avaliação pré-cirúrgica",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Implantodontia",
-  contexto:`Paciente masculino, 45 anos, deseja implante na região do dente 36 (ausente há 2 anos). CBCT mostra: altura óssea de 8 mm, largura de 6 mm, distância ao canal mandibular de 7 mm. PA: 128/80 mmHg. Sem alergias. Glicemia: 92 mg/dL. Fumante (10 cigarros/dia). Não usa medicamentos contínuos.`,
-  personagem:{nome:"Paciente para implante",avatar:"paciente"},
-  passos:[
-    {
-      fase:"Avaliação de viabilidade",
-      pergunta:"Com base no CBCT, o implante é viável sem enxerto ósseo?",
-      opcoes:[
-        {letra:"A", texto:"Sim — 8 mm de altura e 6 mm de largura permitem implante padrão sem enxerto"},
-        {letra:"B", texto:"Não — é necessário enxerto ósseo pela distância ao canal mandibular menor que 10 mm"},
-        {letra:"C", texto:"Não — largura de 6 mm é insuficiente para qualquer implante"},
-        {letra:"D", texto:"Sim — a distância ao canal mandibular não é relevante para planejamento"}
+        {letra:"A",texto:"Aplicar álcool 70% com papel absorvente, friccionando ativamente por pelo menos 30 segundos, aguardar a superfície secar completamente antes de recolocar a barreira protetora"},
+        {letra:"B",texto:"Borrifar álcool e não secar — o acúmulo de líquido aumenta o tempo de contato e melhora a desinfecção"},
+        {letra:"C",texto:"Passar pano úmido com água apenas — o álcool pode danificar o couro da cadeira"},
+        {letra:"D",texto:"Usar somente hipoclorito de sódio nas superfícies da cadeira"}
       ],
       correta:"A",
       feedback:{
-        A:"Correto. Implantes padrão (comprimento 8-10 mm, diâmetro 3,75-4 mm) são viáveis com 8 mm de altura óssea e 6 mm de largura. A distância de 7 mm ao canal mandibular permite implante de 8 mm com margem de segurança de 2 mm (implante 5-6 mm ficaria mais seguro). Planejamento com guia cirúrgico é recomendado.",
-        B:"A distância ao canal é importante, mas 7 mm com implante de 5-6 mm de comprimento ainda é viável com protocolo cuidadoso.",
-        C:"6 mm de largura permite implante de diâmetro padrão (3,75-4 mm) com margem adequada.",
-        D:"A distância ao canal mandibular é ALTAMENTE relevante — risco de lesão do nervo alveolar inferior."
-      }
-    },
-    {
-      fase:"Fator de risco modificável",
-      pergunta:"Qual fator de risco presente exige abordagem antes da cirurgia de implante?",
-      opcoes:[
-        {letra:"A", texto:"Hipertensão — contraindicação absoluta para implante"},
-        {letra:"B", texto:"Tabagismo — aumenta significativamente o risco de falha do implante por comprometimento da osseointegração"},
-        {letra:"C", texto:"Glicemia de 92 mg/dL — hipoglicemia grave"},
-        {letra:"D", texto:"Ausência do dente há 2 anos — período longo demais para implante"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Hipertensão controlada (128/80) não contraindica implante.",
-        B:"Correto. Tabagismo é o principal fator de risco modificável para falha de implante: compromete a vascularização, retarda a cicatrização e aumenta o risco de peri-implantite. O paciente deve ser orientado a cessar o tabagismo antes e após a cirurgia.",
-        C:"Glicemia de 92 mg/dL é normal — não é hipoglicemia.",
-        D:"Dois anos de ausência dentária podem causar alguma reabsorção óssea, mas não é período impeditivo."
+        A:"Correto. A ação mecânica (fricção) associada ao álcool 70% é fundamental para a eficácia da desinfecção. O álcool precisa secar completamente para agir (tempo de contato). Aplicar e deixar úmido sem fricção tem eficácia reduzida.",
+        B:"Borrifar sem frição reduz a ação mecânica que remove contaminantes. O excesso de líquido não melhora a desinfecção.",
+        C:"Água sem desinfetante não elimina patógenos — apenas remove sujidade visível.",
+        D:"Hipoclorito pode corroer superfícies metálicas e degradar o couro/vinil da cadeira — não é indicado para esse substrato."
       }
     }
   ],
-  competencias:[7,8,9,9,8,7,6,8]
+  competencias:[7,8,8,8,10,7,7,9]
 },
 
 {
-  id:"CC-40", titulo:"Caso multidisciplinar — planejamento integrado",
-  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:3, area:"Planejamento",
-  contexto:`Paciente feminina, 52 anos, chega para avaliação odontológica completa. Queixa principal: estética (dentes "amarelos" e "soltos"). Ao exame: periodontite estágio III, dentes 12 e 22 com mobilidade grau I, dente 36 ausente há 3 anos, cárie no dente 16 em dentina. Paciente fumante (5 cigarros/dia). Faz uso de anlodipino 5 mg. PA: 134/86 mmHg. Sem alergias. Motivada para tratamento.`,
-  personagem:{nome:"Paciente complexa — planejamento integral",avatar:"paciente"},
+  id:"CC-37", titulo:"Auxílio em sutura — material e papel do auxiliar",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista vai realizar sutura após exodontia múltipla no quadrante inferior direito. O auxiliar precisa preparar o material de sutura e auxiliar durante o procedimento. O dentista usa fio de nylon 4-0 agulhado com agulha triangular e porta-agulha Mathieu.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
   passos:[
     {
-      fase:"Prioridade de tratamento",
-      pergunta:"Qual é a sequência correta de prioridades no plano de tratamento desta paciente?",
+      fase:"Preparo do material de sutura",
+      pergunta:"Como o auxiliar deve preparar e entregar o porta-agulha com o fio para o dentista?",
       opcoes:[
-        {letra:"A", texto:"Clareamento dental → implante no 36 → tratamento periodontal → restauração do 16"},
-        {letra:"B", texto:"Tratamento periodontal (controle da infecção) → restauração do 16 → estabilização → implante/clareamento (fase reabilitadora)"},
-        {letra:"C", texto:"Extração de todos os dentes com mobilidade → prótese total → clareamento"},
-        {letra:"D", texto:"Tratar apenas o dente sintomático (16) e ignorar o quadro periodontal"}
+        {letra:"A",texto:"Abrir a embalagem do fio de forma asséptica, montar a agulha no porta-agulha a 2/3 do comprimento (não na ponta nem no cabo), fechar o trinco e entregar ao dentista pela parte do cabo (não pela agulha)"},
+        {letra:"B",texto:"Entregar a embalagem fechada para o dentista abrir e montar sozinho"},
+        {letra:"C",texto:"Segurar a agulha com a mão enluvada e entregar diretamente ao dentista"},
+        {letra:"D",texto:"Montar a agulha bem na ponta do porta-agulha para maior controle do dentista"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Iniciar com clareamento antes de controlar a infecção periodontal é erro de planejamento — o substrato está comprometido.",
-        B:"Correto. A sequência lógica é: 1. Fase higiênica periodontal (controle da infecção — base de todo o tratamento); 2. Reavaliação e tratamento restaurador (cárie 16); 3. Fase reabilitadora (implante 36); 4. Fase estética (clareamento) — somente após estabilização.",
-        C:"Mobilidade grau I não indica extração. Periodontite pode ser tratada.",
-        D:"Ignorar a periodontite permitirá progressão da perda óssea e comprometimento dos demais dentes."
+        A:"Correto. A agulha posicionada a 2/3 do comprimento (na curvatura) dá melhor controle durante a sutura. Entregar pelo cabo preserva a posição e evita acidente perfurocortante. O auxiliar deve abrir a embalagem de forma asséptica (sem contaminar o fio estéril).",
+        B:"Entregar embalagem fechada durante procedimento cirúrgico atrasa e rompe o ritmo da sutura.",
+        C:"Entregar a agulha com a mão é risco máximo de acidente perfurocortante.",
+        D:"Agulha na ponta do porta-agulha escorrega durante a passagem pelo tecido e compromete a sutura."
       }
     },
     {
-      fase:"Impacto do anlodipino",
-      pergunta:"O anlodipino (bloqueador de canal de cálcio) pode causar qual alteração bucal relevante para o plano de tratamento?",
+      fase:"Durante e após a sutura",
+      pergunta:"Após a sutura ser completada, o auxiliar deve:",
       opcoes:[
-        {letra:"A", texto:"Aumento do risco de cárie por redução do fluxo salivar"},
-        {letra:"B", texto:"Hiperplasia gengival medicamentosa — pode mascarar a profundidade real das bolsas periodontais"},
-        {letra:"C", texto:"Pigmentação preta nos dentes"},
-        {letra:"D", texto:"Amálgama de prata deve ser evitada em usuários de anlodipino"}
+        {letra:"A",texto:"Cortar o fio quando solicitado pelo dentista (a 2-3mm do nó), aspirar o campo, preparar a compressa de hemostasia e orientar o paciente sobre os cuidados com a sutura e data de remoção"},
+        {letra:"B",texto:"Não cortar o fio — deixar o dentista fazer tudo para não errar a medida"},
+        {letra:"C",texto:"Cortar o mais rente possível ao nó para não restar fio que possa incomodar"},
+        {letra:"D",texto:"Só orientar o paciente se o dentista estiver ocupado"}
       ],
-      correta:"B",
+      correta:"A",
       feedback:{
-        A:"Anlodipino não é xerogênico.",
-        B:"Correto. Bloqueadores de canal de cálcio (anlodipino, nifedipina, diltiazem) podem causar hiperplasia gengival medicamentosa, que aumenta o volume gengival e pode mascarar a profundidade real das bolsas periodontais. O tratamento periodontal pode ter resposta diferente e gengivoplastia pode ser necessária.",
-        C:"Anlodipino não causa pigmentação dentária.",
-        D:"Não há contraindicação ao amálgama em usuários de anlodipino."
-      }
-    },
-    {
-      fase:"Abordagem da mobilidade dental",
-      pergunta:"Os dentes 12 e 22 com mobilidade grau I por periodontite devem receber qual conduta?",
-      opcoes:[
-        {letra:"A", texto:"Extração imediata — mobilidade grau I indica prognóstico ruim"},
-        {letra:"B", texto:"Tratamento periodontal ativo — mobilidade grau I por periodontite frequentemente reverte com o controle da inflamação"},
-        {letra:"C", texto:"Contenção semi-rígida imediata sem tratar a periodontite"},
-        {letra:"D", texto:"Nenhuma intervenção — mobilidade grau I é fisiológica e não precisa de tratamento"}
-      ],
-      correta:"B",
-      feedback:{
-        A:"Mobilidade grau I por periodontite não é critério de extração isolado.",
-        B:"Correto. Mobilidade dental grau I causada por periodontite frequentemente regride após tratamento periodontal eficaz, quando a inflamação é controlada e o suporte ósseo remanescente é adequado. Extração prematura deve ser evitada.",
-        C:"Contenção sem tratar a causa (periodontite) é paliativo sem eficácia.",
-        D:"Mobilidade grau I POR PERIODONTITE não é fisiológica — é patológica e requer tratamento."
+        A:"Correto. Cortar a 2-3mm preserva o nó sem comprometer a aparência. Aspiração limpa o campo para inspeção final do dentista. A orientação pós-operatória (cuidados com a sutura, quando voltar para remoção) é parte das atribuições do auxiliar.",
+        B:"Cortar o fio após sutura é atribuição do auxiliar — faz parte do procedimento a 4 mãos.",
+        C:"Cortar rente ao nó pode soltar a sutura se o nó deslizar.",
+        D:"A orientação pós-operatória não é condicional — é responsabilidade do auxiliar em todos os atendimentos."
       }
     }
   ],
-  competencias:[9,9,9,9,8,8,8,9]
+  competencias:[7,8,8,9,9,7,7,8]
+},
+
+{
+  id:"CC-38", titulo:"Documentação de acidente ocupacional — CAT",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Ética e Profissionalismo",
+  contexto:`A auxiliar Fernanda sofreu um acidente perfurocortante com agulha após atendimento a um paciente com HIV positivo declarado. Ela estava retampando a agulha (recapping) quando se picou no dedo. Após primeiros socorros (lavagem abundante e notificação ao dentista), ela fica em dúvida sobre o que fazer a seguir.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Procedimentos após acidente perfurocortante",
+      pergunta:"Além dos primeiros socorros, quais são os próximos passos obrigatórios após o acidente?",
+      opcoes:[
+        {letra:"A",texto:"Emitir a CAT (Comunicação de Acidente de Trabalho) no dia do acidente, ir a serviço de saúde para avaliação, sorologia basal do paciente-fonte (com consentimento) e coleta de sangue da auxiliar, avaliação de profilaxia pós-exposição (PEP) com antirretrovirais (idealmente até 2 horas após o acidente)"},
+        {letra:"B",texto:"Aguardar 3 meses para fazer exame de HIV — se aparecer algum sintoma, então ir ao médico"},
+        {letra:"C",texto:"Não há necessidade de CAT para acidente com perfurocortante em serviço odontológico"},
+        {letra:"D",texto:"Tomar antibiótico por conta própria e observar a ferida por alguns dias"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. O protocolo pós-exposição ocupacional é urgente: CAT imediata (direito trabalhista + notificação compulsória), avaliação médica precoce para PEP (janela ideal de 2h, máximo 72h), sorologia basal de ambos (base para acompanhamento). A PEP reduz drasticamente o risco de soroconversão para HIV.",
+        B:"Aguardar 3 meses sem PEP e sem acompanhamento é perigoso — a janela para a profilaxia já teria passado.",
+        C:"CAT é obrigatória para qualquer acidente de trabalho com afastamento ou risco potencial de adoecimento — perfurocortante com fonte HIV+ se enquadra.",
+        D:"Antibiótico não tem ação contra HIV. Automedicação não substitui avaliação médica especializada."
+      }
+    },
+    {
+      fase:"Prevenção de novos acidentes",
+      pergunta:"A causa do acidente foi o recapping (retampar a agulha). Como esse acidente poderia ter sido prevenido?",
+      opcoes:[
+        {letra:"A",texto:"Nunca reencapar agulha usada com as duas mãos. A única técnica aceitável é o recapping com uma mão (técnica da colher/scoop). Idealmente, não reencapar e descartar diretamente no coletor de perfurocortante"},
+        {letra:"B",texto:"Reencapar com mais cuidado e devagar — o problema foi a pressa"},
+        {letra:"C",texto:"Usar luvas mais grossas para reencapar com segurança"},
+        {letra:"D",texto:"Pedir ao dentista que descarte as agulhas — auxiliar não deve manusear agulhas usadas"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Recapping com duas mãos é a principal causa de acidentes perfurocortantes em saúde. A norma NR-32 e as diretrizes do MS determinam que agulhas não devem ser reencapadas com as duas mãos. O descarte direto no coletor após o uso é a prática mais segura.",
+        B:"Cuidado e velocidade não eliminam o risco do recapping com duas mãos — a técnica em si é o problema.",
+        C:"Luvas de procedimento não protegem contra perfuração — a prevenção está na técnica, não no EPI.",
+        D:"O auxiliar manuseia agulhas durante o atendimento — a questão é a técnica segura, não a eliminação do manuseio."
+      }
+    }
+  ],
+  competencias:[7,8,8,8,10,7,7,10]
+},
+
+{
+  id:"CC-39", titulo:"Preparo de materiais para moldagem de prótese",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Instrumentação e Biomateriais",
+  contexto:`O dentista vai realizar uma moldagem funcional para prótese total em um paciente edêntulo. O material escolhido é o alginato para a moldagem de estudo e pasta zincoenólica (ZOE) para a moldagem funcional. O auxiliar precisa preparar os materiais para as duas etapas.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Preparo da pasta ZOE",
+      pergunta:"Como o auxiliar deve preparar a pasta zinco-enólica (ZOE) para a moldagem funcional?",
+      opcoes:[
+        {letra:"A",texto:"Dispensar proporções iguais de pasta base e pasta catalisadora no bloco de papel, espatular com espátula rígida fazendo movimentos de incorporação circulares + lineares até obter cor e consistência uniformes (sem estrias), em superfície fria para retardar a presa se necessário"},
+        {letra:"B",texto:"Misturar em seringa com mais base do que catalisador — fica mais suave e fácil de inserir"},
+        {letra:"C",texto:"Aquecer levemente a pasta base para ela ficar mais fluida e fácil de manipular"},
+        {letra:"D",texto:"ZOE não precisa de proporção específica — misturar até parecer homogêneo"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. A proporção 1:1 (base:catalisador) é fundamental para a reação de presa adequada. Espatulação com movimentos de incorporação e espalhamento elimina estrias. Superfície fria (placa de vidro gelada) retarda a presa e aumento o tempo de trabalho em ambiente quente.",
+        B:"Alterar a proporção afeta a viscosidade, o tempo de presa e a precisão da moldagem.",
+        C:"Calor acelera drasticamente a presa da ZOE — o material pode endurecer antes de ser inserido.",
+        D:"Proporção incorreta pode resultar em material muito duro (excesso de catalisador) ou que não endurece (excesso de base)."
+      }
+    },
+    {
+      fase:"Higienização das moldeiras",
+      pergunta:"As moldeiras individuais usadas na moldagem são de plástico rígido e serão reutilizadas. Como devem ser processadas?",
+      opcoes:[
+        {letra:"A",texto:"Remover os resíduos do material de moldagem, lavar com escova e sabão, desinfetar em solução de glutaraldeído 2% ou ácido peracético (desinfecção de alto nível), enxaguar e armazenar limpa para o próximo uso"},
+        {letra:"B",texto:"Passar álcool 70% e guardar — moldeiras de plástico não precisam de cuidado especial"},
+        {letra:"C",texto:"Autoclavar a 134°C — é o processo mais confiável"},
+        {letra:"D",texto:"Descartar após cada uso — moldeiras individuais são para uso único"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Moldeiras rígidas reprocessáveis são artigos semicríticos (contato com mucosa). Exigem desinfecção de alto nível. Remoção completa do material de moldagem antes da desinfecção é essencial — resíduos podem inativar o desinfetante.",
+        B:"Álcool 70% é desinfetante de nível intermediário — insuficiente para artigos semicríticos.",
+        C:"Moldeiras de plástico rígido podem deformar ou rachar na autoclave a 134°C.",
+        D:"Moldeiras individuais reprocessáveis são confeccionadas para reutilização — o descarte seria desperdício sem justificativa técnica."
+      }
+    }
+  ],
+  competencias:[7,8,8,9,9,7,7,8]
+},
+
+{
+  id:"CC-40", titulo:"Paciente pede procedimento que é competência exclusiva do dentista",
+  tipo:"multipla", modalidade:"multipla", complexidade:3, tempo:4, area:"Ética e Profissionalismo",
+  contexto:`O dentista saiu para uma emergência e pediu ao auxiliar para esperar o consultório com os pacientes agendados. Um paciente, Sr. Paulo, 55 anos, chega para extração e diz: "Meu dente está doendo muito. Você não pode tirar enquanto o dentista não chega? Vi um vídeo na internet de auxiliar fazendo extração." O auxiliar está sozinho.`,
+  personagem:{nome:"Auxiliar de saúde bucal",avatar:"auxiliar"},
+  passos:[
+    {
+      fase:"Limite de competência",
+      pergunta:"Como o auxiliar deve responder ao pedido do Sr. Paulo?",
+      opcoes:[
+        {letra:"A",texto:"Explicar com empatia que extração é procedimento exclusivo do dentista (Lei 5.081/66), que realizar o procedimento sem habilitação seria ilegal e colocaria o paciente em risco, e que vai verificar a previsão de chegada do dentista para minimizar a espera"},
+        {letra:"B",texto:"Tentar fazer a extração — o paciente está sofrendo e autorizou"},
+        {letra:"C",texto:"Aplicar anestesia e deixar tudo pronto para quando o dentista chegar"},
+        {letra:"D",texto:"Dizer ao paciente que não pode ajudar de nenhuma forma e que ele deve ir embora"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Extração dental é ato privativo do cirurgião-dentista (Lei 5.081/66). Realizá-la sem habilitação configura exercício ilegal da odontologia e coloca o paciente em risco. O auxiliar deve ser empático, explicar os limites legais e buscar minimizar o desconforto dentro do seu escopo.",
+        B:"Autorização do paciente não confere habilitação ao auxiliar — exercício ilegal é crime independentemente do consentimento.",
+        C:"Anestesia local também é ato privativo do dentista — igualmente vedado ao auxiliar.",
+        D:"Dizer que não pode ajudar de nenhuma forma é descuidado. O auxiliar pode orientar o paciente, verificar com o dentista e oferecer o que está no seu escopo (posicionar, conversar, medir PA)."
+      }
+    },
+    {
+      fase:"Conduta dentro do escopo",
+      pergunta:"O dentista informa que chegará em 30 minutos. O que o auxiliar pode fazer pelo Sr. Paulo nesse intervalo?",
+      opcoes:[
+        {letra:"A",texto:"Acolher o paciente, medir a pressão arterial, anotar os dados no prontuário, oferecer água e orientar que o dentista chegará em 30 minutos — isso é acolhimento dentro do escopo do auxiliar"},
+        {letra:"B",texto:"Dar um analgésico ao paciente para aliviar a dor enquanto espera"},
+        {letra:"C",texto:"Deixar o paciente sozinho na sala de espera sem interação — o auxiliar não tem nada para fazer até o dentista chegar"},
+        {letra:"D",texto:"Examinar o dente com sonda e explorador para ter o diagnóstico pronto quando o dentista chegar"}
+      ],
+      correta:"A",
+      feedback:{
+        A:"Correto. Acolhimento, sinais vitais e registro são atribuições do auxiliar. Receber o paciente com atenção, medir PA e anotar já agrega valor ao atendimento e prepara informações para o dentista.",
+        B:"Indicar medicamento é prescrição — ato privativo do dentista. Auxiliar não pode indicar dose ou tipo de analgésico.",
+        C:"Deixar o paciente ansioso e com dor sem acolhimento é abandono — incompatível com o papel do auxiliar.",
+        D:"Exame clínico com instrumental (sonda/explorador) para diagnóstico também é ato privativo do dentista. O auxiliar pode fazer inspeção visual básica, mas não exame diagnóstico com instrumental."
+      }
+    }
+  ],
+  competencias:[9,7,8,7,7,8,8,10]
 },
 
 {
