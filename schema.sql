@@ -63,6 +63,25 @@ create index if not exists resultados_aluno_idx on public.resultados (aluno_id);
 create index if not exists resultados_cenario_idx on public.resultados (cenario_id);
 
 -- ------------------------------------------------------------------
+-- TABELA: cenarios_editados
+-- ------------------------------------------------------------------
+--  Armazena edições de cenários feitas pelos professores.
+--  O cenário original + edições = versão final exibida aos alunos.
+-- ------------------------------------------------------------------
+create table if not exists public.cenarios_editados (
+  id uuid primary key default gen_random_uuid(),
+  cenario_id text not null unique,       -- Ex: AG-01, MAT-05, CC-20
+  titulo text,
+  contexto text,
+  dados jsonb,                           -- Qualquer campo editado
+  editado_por text,                      -- Email/username do professor
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists cenarios_editados_id_idx on public.cenarios_editados (cenario_id);
+
+-- ------------------------------------------------------------------
 -- NOTA DE SEGURANÇA
 -- ------------------------------------------------------------------
 --  Neste beta, a senha do aluno é armazenada em texto simples para
