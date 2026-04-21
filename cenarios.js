@@ -259,7 +259,8 @@ window.CENARIOS = [
       8,
       8,
       9
-    ]
+    ],
+    "area": "Odontopediatria"
   },
   {
     "id": "AG-02",
@@ -407,7 +408,8 @@ window.CENARIOS = [
       8,
       6,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-03",
@@ -554,7 +556,8 @@ window.CENARIOS = [
       7,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-04",
@@ -694,7 +697,8 @@ window.CENARIOS = [
       8,
       7,
       9
-    ]
+    ],
+    "area": "Estética"
   },
   {
     "id": "AG-05",
@@ -837,7 +841,8 @@ window.CENARIOS = [
       8,
       8,
       9
-    ]
+    ],
+    "area": "Cirurgia Oral"
   },
   {
     "id": "AG-06",
@@ -975,7 +980,8 @@ window.CENARIOS = [
       8,
       6,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-07",
@@ -1114,7 +1120,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Periodontia"
   },
   {
     "id": "AG-08",
@@ -1239,7 +1246,8 @@ window.CENARIOS = [
       7,
       6,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-09",
@@ -1359,7 +1367,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Prótese Dentária"
   },
   {
     "id": "AG-10",
@@ -1499,7 +1508,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Odontopediatria"
   },
   {
     "id": "AG-11",
@@ -1622,7 +1632,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-12",
@@ -1748,7 +1759,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Endodontia"
   },
   {
     "id": "AG-13",
@@ -1871,7 +1883,8 @@ window.CENARIOS = [
       8,
       7,
       9
-    ]
+    ],
+    "area": "Estética"
   },
   {
     "id": "AG-14",
@@ -1992,7 +2005,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-15",
@@ -2116,7 +2130,8 @@ window.CENARIOS = [
       7,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-16",
@@ -2245,7 +2260,8 @@ window.CENARIOS = [
       8,
       6,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-17",
@@ -2375,7 +2391,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-18",
@@ -2502,7 +2519,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-19",
@@ -2630,7 +2648,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Periodontia"
   },
   {
     "id": "AG-20",
@@ -2759,7 +2778,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Periodontia"
   },
   {
     "id": "AG-21",
@@ -2887,7 +2907,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Estética"
   },
   {
     "id": "AG-22",
@@ -3010,7 +3031,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Prótese Dentária"
   },
   {
     "id": "AG-23",
@@ -3128,7 +3150,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Ortodontia"
   },
   {
     "id": "AG-24",
@@ -3253,7 +3276,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-25",
@@ -3382,7 +3406,8 @@ window.CENARIOS = [
       8,
       9,
       9
-    ]
+    ],
+    "area": "Implantologia"
   },
   {
     "id": "AG-26",
@@ -3501,7 +3526,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Implantologia"
   },
   {
     "id": "AG-27",
@@ -3637,7 +3663,8 @@ window.CENARIOS = [
       8,
       9,
       9
-    ]
+    ],
+    "area": "Urgência/Trauma"
   },
   {
     "id": "AG-28",
@@ -3764,7 +3791,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Urgência/Trauma"
   },
   {
     "id": "AG-29",
@@ -3882,7 +3910,8 @@ window.CENARIOS = [
       8,
       8,
       9
-    ]
+    ],
+    "area": "Cirurgia Oral"
   },
   {
     "id": "AG-30",
@@ -4011,7 +4040,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Prótese Dentária"
   },
   {
     "id": "AG-31",
@@ -4136,7 +4166,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Odontopediatria"
   },
   {
     "id": "AG-32",
@@ -4263,7 +4294,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Odontopediatria"
   },
   {
     "id": "AG-33",
@@ -4385,7 +4417,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Odontopediatria"
   },
   {
     "id": "AG-34",
@@ -4510,7 +4543,8 @@ window.CENARIOS = [
       8,
       8,
       9
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-35",
@@ -4633,7 +4667,8 @@ window.CENARIOS = [
       8,
       7,
       8
-    ]
+    ],
+    "area": "Implantologia"
   },
   {
     "id": "AG-36",
@@ -4765,7 +4800,8 @@ window.CENARIOS = [
       8,
       8,
       9
-    ]
+    ],
+    "area": "Endodontia"
   },
   {
     "id": "AG-37",
@@ -4892,7 +4928,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-38",
@@ -5020,7 +5057,8 @@ window.CENARIOS = [
       7,
       7,
       8
-    ]
+    ],
+    "area": "Prótese Dentária"
   },
   {
     "id": "AG-39",
@@ -5147,7 +5185,8 @@ window.CENARIOS = [
       8,
       8,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-40",
@@ -5284,7 +5323,8 @@ window.CENARIOS = [
       7,
       7,
       8
-    ]
+    ],
+    "area": "Clínica Geral"
   },
   {
     "id": "AG-41",
@@ -6267,7 +6307,7 @@ window.CENARIOS = [
         "m8"
       ]
     },
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "competencias": [
       8,
       8,
@@ -6756,7 +6796,7 @@ window.CENARIOS = [
         "m9"
       ]
     },
-    "area": "Estética",
+    "area": "Clínica Geral",
     "competencias": [
       8,
       8,
@@ -7730,7 +7770,7 @@ window.CENARIOS = [
         "m8"
       ]
     },
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "competencias": [
       8,
       8,
@@ -8913,7 +8953,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Coroa cerâmica sobre preparação unitária em dente 14 está pronta. Você fará cimentação definitiva. Quais materiais são necessários?",
     "opcoes": [
       {
@@ -9203,7 +9243,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Paciente edêntulo superior. Primeira consulta para moldagem anátômica. Quais materiais você precisa para esta etapa?",
     "opcoes": [
       {
@@ -9783,7 +9823,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 1,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Coroa protética em processamento está pronta para prova. Você vai avaliar adaptação e oclusão. Quais materiais?",
     "opcoes": [
       {
@@ -10015,7 +10055,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Endodontia + Prostodontia",
+    "area": "Endodontia, Prótese Dentária",
     "contexto": "Dente endodonticamente tratado precisa de reabilitação com pino + núcleo + coroa. Quais são os materiais para cimentação?",
     "opcoes": [
       {
@@ -10131,7 +10171,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 1,
     "tempo": 1,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Prótese removível está causando irritação em mucosa linha do pescoço. Você fará reembasamento localizado. Quais materiais?",
     "opcoes": [
       {
@@ -10305,7 +10345,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Prótese parcial removível com fratura na sela. Você fará reparo. Quais materiais e técnicas?",
     "opcoes": [
       {
@@ -10595,7 +10635,7 @@ window.CENARIOS = [
     "tipo": "Caso Clínico - Materiais",
     "complexidade": 2,
     "tempo": 2,
-    "area": "Prostodontia",
+    "area": "Prótese Dentária",
     "contexto": "Dente 14 preparado para coroa. Primeira etapa: moldagem de precisão. Quais materiais e técnicas?",
     "opcoes": [
       {
