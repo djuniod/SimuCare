@@ -651,8 +651,12 @@
     <!-- CENÁRIOS -->
     <div id="page-cenarios" class="page fade-in">
       <div class="dash-header">
-        <h2>Cenários disponíveis</h2>
+        <h2>Cenários</h2>
         <p>Escolha um cenário para simular. Em cada um você praticará sua tomada de decisão até dominar a conduta ideal.</p>
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap">
+        <button class="btn-sm primary-sm" style="flex:1;min-width:180px" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
+        <button class="btn-sm primary-sm" style="flex:1;min-width:180px" onclick="showPage('page-editar-cenarios')">Editar Cenário</button>
       </div>
       <div class="filter-bar">
         <select class="filter-select" id="f-modalidade" onchange="renderScenarios()">
@@ -703,23 +707,13 @@
         </div>
       </div>
       <div class="section-title with-action">
-        <span>Gerenciamento</span>
+        <span>Ferramentas</span>
       </div>
       <div class="action-btns">
         <button class="btn-sm primary-sm" onclick="showPage('page-turmas')">Gerenciar Turmas</button>
         <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">Gerenciar Alunos</button>
         <button class="btn-sm" onclick="showPage('page-reflexoes')">Ver Reflexões</button>
         <button class="btn-sm" onclick="exportarCSV()">Exportar CSV</button>
-      </div>
-
-      <div class="section-title with-action">
-        <span>Cenários</span>
-      </div>
-      <div class="big-card" style="margin-bottom:0">
-        <div class="card-body" style="display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn-sm primary-sm" style="flex:1;min-width:160px" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
-          <button class="btn-sm primary-sm" style="flex:1;min-width:160px" onclick="showPage('page-editar-cenarios')">Editar Cenário</button>
-        </div>
       </div>
     </div>
 
@@ -1229,8 +1223,7 @@ async function enterApp() {
       <button class="nav-btn" data-page="page-turmas" onclick="showPage('page-turmas')">Turmas</button>
       <button class="nav-btn" data-page="page-alunos" onclick="showPage('page-alunos')">Alunos</button>
       <button class="nav-btn" data-page="page-reflexoes" onclick="showPage('page-reflexoes')">Reflexões</button>
-      <button class="nav-btn" data-page="page-cenarios" onclick="showPage('page-cenarios')">Ver Cenários</button>
-      <button class="nav-btn" data-page="page-criar-cenario" onclick="showPage('page-criar-cenario')">Novo Cenário</button>
+      <button class="nav-btn" data-page="page-cenarios" onclick="showPage('page-cenarios')">Cenários</button>
       ${btnModerador}
       ${btnAdmin}`;
     showScreen('app-screen');
