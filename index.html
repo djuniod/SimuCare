@@ -1368,10 +1368,10 @@ function generateBadgeSVG(level) {
 // -- DASHBOARD ALUNO ------------------------------------------------
 function calculateLevel(totalPoints) {
   const levels = [
-    { name: 'Bronze', badge: 'SVG', minPoints: 0, maxPoints: 100, color: 'bronze' },
-    { name: 'Prata', badge: 'SVG', minPoints: 101, maxPoints: 200, color: 'prata' },
-    { name: 'Ouro', badge: 'SVG', minPoints: 201, maxPoints: 350, color: 'ouro' },
-    { name: 'Diamante', badge: 'SVG', minPoints: 351, maxPoints: Infinity, color: 'diamante' }
+    { name: 'Bronze', badge: 'SVG', minPoints: 0, maxPoints: 75, color: 'bronze' },
+    { name: 'Prata', badge: 'SVG', minPoints: 76, maxPoints: 200, color: 'prata' },
+    { name: 'Ouro', badge: 'SVG', minPoints: 201, maxPoints: 500, color: 'ouro' },
+    { name: 'Diamante', badge: 'SVG', minPoints: 501, maxPoints: Infinity, color: 'diamante' }
   ];
   const currentLevel = levels.find(l => totalPoints >= l.minPoints && totalPoints <= l.maxPoints);
   const nextLevel = levels.find(l => l.minPoints > totalPoints);
@@ -1388,8 +1388,8 @@ function renderDashboard() {
     : `Sua turma ainda não foi atribuída. Peça ao professor. Você pode começar os cenários mesmo assim.`;
   const rs = getResultsForUser(u.id);
   document.getElementById('st-count').textContent = rs.length;
-  // Normalizar pontuações para escala 0-10
-  const notasNormalizadas = rs.map(r => r.modalidade === 'clinico' ? r.pontuacao / 10 : r.pontuacao);
+  // Normalizar pontuações para escala 0-10 usando função helper
+  const notasNormalizadas = rs.map(r => normalizarNota(r.pontuacao, r.modalidade));
   document.getElementById('st-avg').textContent = rs.length ? (notasNormalizadas.reduce((a,n)=>a+n,0)/rs.length).toFixed(1) : '—';
   document.getElementById('st-best').textContent = rs.length ? Math.max(...notasNormalizadas).toFixed(1) : '—';
   const totalReflexoes = rs.reduce((a,r)=>a + ((r.reflexoes||[]).filter(x=>x && x.trim()).length), 0);
