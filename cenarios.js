@@ -5330,7 +5330,6 @@ window.CENARIOS = [
   competencias:[9,9,9,9,8,8,8,9]
 }
 
-];
 
 // ════════════════════════════════════════════════════════════════════
 // 30 NOVOS CENÁRIOS — Situações Difíceis e Desafiadoras
@@ -6192,7 +6191,7 @@ window.CENARIOS = [
     opcoes:[
       {id:"m1",nome:"Radiografia (confirmar profundidade)"},
       {id:"m2",nome:"Anestésico tópico + lidocaína"},
-      {id:"m3",nome:"Broca diamantada para acesso"}},
+      {id:"m3",nome:"Broca diamantada para acesso"},
       {id:"m4",nome:"Resina para restauração simples (25)"},
       {id:"m5",nome:"Material para curativo provisório (26 — se RCT necessário)"},
       {id:"m6",nome:"Isolamento com borracha"},
