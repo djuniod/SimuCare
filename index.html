@@ -1368,10 +1368,10 @@ function generateBadgeSVG(level) {
 // -- DASHBOARD ALUNO ------------------------------------------------
 function calculateLevel(totalPoints) {
   const levels = [
-    { name: 'Bronze', badge: 'SVG', minPoints: 0, maxPoints: 75, color: 'bronze' },
-    { name: 'Prata', badge: 'SVG', minPoints: 76, maxPoints: 200, color: 'prata' },
-    { name: 'Ouro', badge: 'SVG', minPoints: 201, maxPoints: 500, color: 'ouro' },
-    { name: 'Diamante', badge: 'SVG', minPoints: 501, maxPoints: Infinity, color: 'diamante' }
+    { name: 'Bronze', badge: 'SVG', minPoints: 0, maxPoints: 250, color: 'bronze' },
+    { name: 'Prata', badge: 'SVG', minPoints: 251, maxPoints: 750, color: 'prata' },
+    { name: 'Ouro', badge: 'SVG', minPoints: 751, maxPoints: 1750, color: 'ouro' },
+    { name: 'Diamante', badge: 'SVG', minPoints: 1751, maxPoints: Infinity, color: 'diamante' }
   ];
   const currentLevel = levels.find(l => totalPoints >= l.minPoints && totalPoints <= l.maxPoints);
   const nextLevel = levels.find(l => l.minPoints > totalPoints);
@@ -1672,7 +1672,8 @@ function avaliarClinico() {
   const acertou = opcao.correto;
   const letra = String.fromCharCode(65 + idx);
   const pontuacao = acertou ? 100 : 0;
-  const comps = (s.competencias || [5,5,5,5,5,5,5,5]).map(c => acertou ? c : Math.round(c * 0.5));
+  // Se acertou: 10 em cada competência. Se errou: 5 (metade)
+  const comps = [10,10,10,10,10,10,10,10].map(c => acertou ? c : Math.round(c * 0.5));
 
   const res = {
     cenarioId: s.id,
@@ -2260,10 +2261,9 @@ function renderAgErroCritico(info) {
 }
 
 function calcAgComps(a, dadosPct, agendaPct, matScore) {
-  // distribui em 8 comps com pesos por caso
-  const base = a.competenciasBase || [7,7,7,7,7,7,7,7];
-  const mix = (dadosPct * 3 + agendaPct * 3 + matScore * 4);
-  const resultado = base.map(b => Math.round(Math.min(10, Math.max(0, b * 0.4 + mix * 6))));
+  // Competências proporcionais ao desempenho: 10 se 100%, 5 se 50%, etc.
+  const avgPct = (dadosPct * 0.25 + agendaPct * 0.25 + matScore * 0.5);
+  const resultado = [10,10,10,10,10,10,10,10].map(() => Math.round((avgPct / 100) * 10));
   return resultado;
 }
 
@@ -2412,7 +2412,8 @@ function avaliarMateriais() {
   const erros_omissao = corretos.filter(c => !sel.includes(c)).length;
   const totalCorretos = corretos.length;
   const pontos = Math.max(0, Math.round((acertos / (totalCorretos || 1)) * 100 - erros_comissao * 10 - erros_omissao * 10));
-  const comps = (m.competencias || [5,5,5,5,5,5,5,5]).map(c => Math.round((c / 10) * (pontos / 100) * 10));
+  // Competências proporcionais ao desempenho: 10 se 100%, 5 se 50%, etc.
+  const comps = [10,10,10,10,10,10,10,10].map(c => Math.round((pontos / 100) * c));
   const res = {
     cenarioId: m.id,
     titulo: m.titulo,
