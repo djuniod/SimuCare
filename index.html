@@ -3502,11 +3502,14 @@ function renderMapaCompetencias(competencias) {
 }
 
 // Renderiza o brasão (medal) com SVG - EXATAMENTE igual ao do aluno
+// Brasões padronizados - EXATAMENTE igual ao painel do aluno
 function renderBrasao(level) {
   const badgesByLevel = {
     'Bronze': `<svg width="80" height="80" viewBox="0 0 90 90" style="display:inline-block">
       <circle cx="45" cy="45" r="40" fill="#cd7f32" stroke="#8b5a2b" stroke-width="2"/>
-      <polygon points="45,25 50,40 65,40 53,50 58,65 45,55 32,65 37,50 25,40 40,40" fill="#ffd700"/>
+      <polygon points="45,20 50,32 63,32 52,42 57,55 45,45 33,55 38,42 27,32 40,32" fill="#d4af37"/>
+      <polygon points="35,25 39,35 49,35 41,42 44,55 35,48 26,55 29,42 21,35 31,35" fill="#d4af37"/>
+      <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#d4af37"/>
     </svg>`,
     'Prata': `<svg width="80" height="80" viewBox="0 0 90 90" style="display:inline-block">
       <circle cx="45" cy="45" r="40" fill="#c0c0c0" stroke="#666666" stroke-width="2"/>
@@ -3521,7 +3524,7 @@ function renderBrasao(level) {
       <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#ffed4e"/>
     </svg>`,
     'Diamante': `<svg width="80" height="80" viewBox="0 0 90 90" style="display:inline-block">
-      <polygon points="45,20 65,45 45,70 25,45" fill="#00d4ff" stroke="#0066aa" stroke-width="2"/>
+      <circle cx="45" cy="45" r="40" fill="#00d4ff" stroke="#0066aa" stroke-width="2"/>
       <polygon points="45,20 50,32 63,32 52,42 57,55 45,45 33,55 38,42 27,32 40,32" fill="#ffffff"/>
       <polygon points="35,25 39,35 49,35 41,42 44,55 35,48 26,55 29,42 21,35 31,35" fill="#ffffff"/>
       <polygon points="55,25 59,35 69,35 61,42 64,55 55,48 46,55 49,42 41,35 51,35" fill="#ffffff"/>
