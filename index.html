@@ -1313,21 +1313,16 @@ async function enterApp() {
 
 // -- HELPERS --------------------------------------------------------
 function getAllScenarios() {
-  // cenarios.js contém todos os 140 cenários (Agendamento + Materiais + Caso Clínico)
+  // cenarios.js contém todos os cenários (Agendamento + Materiais + Caso Clínico)
   return (window.CENARIOS || []).map(s => {
-    // Usa modalidade definida, senão detecta por ID
+    // Normaliza modalidade sempre pelo prefixo do ID (fonte de verdade)
     let modalidade = s.modalidade;
-    if (!modalidade) {
-      if (s.id && s.id.startsWith('AG-')) {
-        modalidade = 'agendamento';
-      } else if (s.id && s.id.startsWith('MAT-')) {
-        modalidade = 'materiais';
-      } else if (s.id && s.id.startsWith('CC-')) {
-        modalidade = 'clinico';
-      } else {
-        modalidade = 'multipla';
-      }
+    if (s.id) {
+      if (s.id.startsWith('AG-'))  modalidade = 'agendamento';
+      else if (s.id.startsWith('MAT-')) modalidade = 'materiais';
+      else if (s.id.startsWith('CC-'))  modalidade = 'clinico';
     }
+    if (!modalidade) modalidade = 'clinico';
     return { ...s, modalidade };
   });
 }
@@ -1838,16 +1833,43 @@ function selectOption(idx) {
   const s = state.currentSim;
   const step = s.passos[state.currentStep];
   const op = step.opcoes[realIdx];
-  const fb = step.feedbacks[op.qualidade];
-  const optBtns = document.querySelectorAll('#options-area .option-btn');
 
-  // Quadro de feedback
+  // ── Normaliza formato: suporta tanto o novo CC (letra/correta/feedback)
+  //    quanto o formato antigo (qualidade/pontos/comps/feedbacks) ──────────
+  let opQualidade, opPontos, opComps, fb;
+  const novoFormato = op.letra !== undefined && step.correta !== undefined;
+
+  if (novoFormato) {
+    const isCorrect = op.letra === step.correta;
+    opQualidade = isCorrect ? 'good' : 'bad';
+    opPontos    = isCorrect ? 10 : 0;
+    opComps     = isCorrect
+      ? (s.competencias || [8,8,8,8,8,8,8,8])
+      : new Array(8).fill(0);
+    const textoFb = (step.feedback || {})[op.letra] || (isCorrect ? 'Resposta correta!' : 'Resposta incorreta.');
+    fb = {
+      titulo: isCorrect ? 'Correto!' : 'Resposta incorreta',
+      texto: textoFb,
+      positivos: [], negativos: [], consequencia: null
+    };
+  } else {
+    opQualidade = op.qualidade;
+    opPontos    = op.pontos;
+    opComps     = op.comps;
+    fb = step.feedbacks[opQualidade];
+  }
+
+  // Cria cópia normalizada da opção para renderFeedbackBox
+  const opNorm = { ...op, qualidade: opQualidade, pontos: opPontos, comps: opComps };
+
+  const optBtns = document.querySelectorAll('#options-area .option-btn');
   const feedbackEl = document.getElementById('feedback-area');
-  if (op.qualidade === 'bad') {
+
+  if (opQualidade === 'bad') {
     // Marca como errada e mostra banner de retentativa
     state.attemptedIdx.push(idx);
     optBtns.forEach(b => { b.disabled = true; if (parseInt(b.dataset.idx) === idx) b.classList.add('already-wrong'); });
-    feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'bad') + `
+    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'bad') + `
       <div class="retry-banner fade-in">
         <div class="retry-banner-icon">🔄</div>
         <div class="retry-banner-text"><strong>Vamos refazer esse passo juntos.</strong><br>Releia o contexto e escolha qual seria a conduta <strong>ideal</strong>. Você precisa praticá-la antes de avançar.</div>
@@ -1855,30 +1877,25 @@ function selectOption(idx) {
     // Habilita novamente as outras opções
     optBtns.forEach(b => { if (!b.classList.contains('already-wrong')) b.disabled = false; });
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
-  } else if (op.qualidade === 'ok') {
+  } else if (opQualidade === 'ok') {
     // Conduta aceitável mas não ideal — mostra o ideal e permite seguir
     optBtns.forEach(b => b.disabled = true);
     optBtns[idx].style.borderColor = 'var(--warning)';
     optBtns[idx].style.background = 'rgba(245,158,11,0.08)';
     const idealIdxOriginal = step.opcoes.findIndex(o => o.qualidade === 'good');
-    // Converter índice original para visual
     const idealIdxVisual = idealIdxOriginal >= 0 ? Object.keys(state.optionIndexMap).find(k => state.optionIndexMap[k] === idealIdxOriginal) : -1;
     if (idealIdxVisual >= 0) optBtns[idealIdxVisual].classList.add('try-again-ideal');
-    // registra pontuação da OK como a última do passo, incluindo detalhes da resposta
     state.stepScores[state.currentStep] = {
-      pontuacao: op.pontos,
-      comps: op.comps,
+      pontuacao: opPontos, comps: opComps,
       tentativas: (state.attemptedIdx.length+1),
-      respostaSelecionada: op.texto,
-      qualidade: op.qualidade,
-      opcaoIndex: realIdx
+      respostaSelecionada: op.texto, qualidade: opQualidade, opcaoIndex: realIdx
     };
-    feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'ok') +
+    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'ok') +
       (idealIdxOriginal >= 0 ? `<div class="ideal-hint fade-in">💡 <div><strong>A conduta ideal seria a opção ${LETTERS[idealIdxVisual]}.</strong> Observe o que ela contempla que sua escolha deixou passar: ${step.opcoes[idealIdxOriginal].texto}</div></div>` : '') +
       renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   } else {
-    // good
+    // good / best
     optBtns.forEach(b => b.disabled = true);
     optBtns[idx].style.borderColor = 'var(--success)';
     optBtns[idx].style.background = 'rgba(16,185,129,0.08)';
@@ -1886,14 +1903,11 @@ function selectOption(idx) {
       ? 'Excelente! Agora você internalizou a conduta ideal. Essa vai ser a resposta registrada neste passo.'
       : 'Excelente escolha de primeira!';
     state.stepScores[state.currentStep] = {
-      pontuacao: op.pontos,
-      comps: op.comps,
+      pontuacao: opPontos, comps: opComps,
       tentativas: (state.attemptedIdx.length+1),
-      respostaSelecionada: op.texto,
-      qualidade: op.qualidade,
-      opcaoIndex: realIdx
+      respostaSelecionada: op.texto, qualidade: opQualidade, opcaoIndex: realIdx
     };
-    feedbackEl.innerHTML = renderFeedbackBox(op, fb, 'good', mensagem) + renderReflexaoCard(s, step);
+    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'good', mensagem) + renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   }
   updateCompetenciasSidebar();
