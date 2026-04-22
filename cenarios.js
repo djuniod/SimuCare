@@ -909,7 +909,7 @@ window.CENARIOS = [
 
 {
   id:"AG-26", titulo:"Profilaxia — paciente com Síndrome de Down",
-  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Paciente Especial",
+  tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Pacientes Especiais",
   contexto:`FELIPE DUARTE, 18 anos, portador de Síndrome de Down (trisomia 21), é trazido pela mãe para profilaxia semestral. A mãe relata que Felipe escova os dentes 2 VEZES AO DIA com supervisão dela e USA FIO DENTAL 3 vezes por semana com ajuda. Apresenta hipotonicidade lingual típica da síndrome, que favorece acúmulo de biofilme. A mãe informa alergia a AAS (ácido acetilsalicílico). Faz uso de levotiroxina (hipotireoidismo associado). Felipe aceita bem o atendimento mas precisa de comunicação simples e pausada.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["felipe duarte","felipe"]},
@@ -3841,7 +3841,7 @@ window.CENARIOS = [
 
 {
   id:"CC-13", titulo:"Impacto de medicamentos na saúde bucal",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente feminino, 45 anos, transplantada renal há 2 anos. Em uso de ciclosporina (imunossupressor). Comparece com queixa de gengiva crescida e avermelhada progressivamente nos últimos 8 meses. Ao exame: hiperplasia gengival generalizada, principalmente nas papilas interproximais, com sangramento à sondagem. Higiene oral deficiente.`,
   personagem:{nome:"Paciente transplantada",avatar:"paciente"},
   passos:[
@@ -4330,7 +4330,7 @@ window.CENARIOS = [
 
 {
   id:"CC-24", titulo:"Halitose — investigação e conduta",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente masculino, 38 anos, queixa de mau hálito persistente relatado por familiares. Ao exame: saburra lingual posterior abundante, sangramento à sondagem em 4 sítios (gengivite leve), cáries ausentes. Sem xerostomia, sem próteses. O paciente é fumante. Sem refluxo, sinusite ou doenças sistêmicas conhecidas.`,
   personagem:{nome:"Paciente com halitose",avatar:"paciente"},
   passos:[
@@ -4770,7 +4770,7 @@ window.CENARIOS = [
 
 {
   id:"CC-34", titulo:"Xerostomia — causas e manejo",
-  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Medicina Bucal",
+  tipo:"multipla", modalidade:"multipla", complexidade:2, tempo:3, area:"Periodontia",
   contexto:`Paciente feminina, 62 anos, queixa de boca seca constante há 1 ano, dificuldade de engolir alimentos secos e múltiplas cáries cervicais novas. Ao exame: mucosa ressecada, saliva espessa, múltiplas raízes cariadas. Faz uso de: amitriptilina (depressão), atenolol (hipertensão), hidroclorotiazida e lorazepam (ansiedade).`,
   personagem:{nome:"Paciente com xerostomia",avatar:"paciente"},
   passos:[

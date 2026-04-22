@@ -1064,9 +1064,9 @@ function capitalize(s) { return (s||"").trim().split(' ').map(w => w.charAt(0).t
 
 // Normalizar pontuação para escala 0-10
 function normalizarNota(pontuacao, modalidade) {
-  // Casos Clínicos: 0-100 → 0-10
-  if (modalidade === 'clinico') return pontuacao / 10;
-  // Materiais/Agendamentos: já estão em 0-10
+  // Materiais: 0-100 → 0-10
+  if (modalidade === 'materiais') return pontuacao / 10;
+  // CC e Agendamentos: já estão em 0-10
   return pontuacao;
 }
 
@@ -1379,7 +1379,7 @@ function calculateLevel(totalPoints) {
 
 function renderDashboard() {
   const u = state.user;
-  document.getElementById('dash-name').textContent = u.primeiro || u.nome.split(' ')[0];
+  document.getElementById('dash-name').textContent = capitalize(u.primeiro || u.nome.split(' ')[0]);
   const aluno = state.alunos.find(a => a.id === u.id);
   const turmaNome = aluno && aluno.turma ? getTurmaNome(aluno.turma) : null;
   document.getElementById('dash-subtitle').textContent = turmaNome
@@ -1977,9 +1977,8 @@ function updateCompetenciasSidebar() {
 function showResultMultipla() {
   const s = state.currentSim;
   const scores = state.stepScores.filter(Boolean);
-  // Normalizar para 0-10 (Casos Clínicos estão em 0-100)
-  const notasNormalizadas = scores.map(r => normalizarNota(r.pontuacao, 'clinico'));
-  const avgScore = notasNormalizadas.length ? parseFloat((notasNormalizadas.reduce((a,r)=>a+r,0)/notasNormalizadas.length).toFixed(1)) : 0;
+  // pontuacao dos passos já está em 0-10 — não normalizar
+  const avgScore = scores.length ? parseFloat((scores.reduce((a,r)=>a+(r.pontuacao||0),0)/scores.length).toFixed(1)) : 0;
   const avgComps = COMPETENCIAS.map((_,i) => Math.round(scores.reduce((a,r)=>a + (r.comps[i]||0),0)/scores.length));
   const reflexoes = scores.map(sc => sc.reflexao || '');
   saveResult({
@@ -3498,15 +3497,18 @@ function renderProfDashboard() {
 // Calcula pontos totais e nível do aluno (IGUAL ao calculateLevel do aluno)
 function calcularPontosELevel(alunoId) {
   const rs = getResultsForUser(alunoId);
-  const totalPontos = rs.reduce((sum, r) => sum + (r.pontuacao || 0), 0);
+  // Normaliza todos os resultados para escala 0-10 antes de somar
+  const totalPontos = Math.round(rs.reduce((sum, r) => sum + normalizarNota(r.pontuacao || 0, r.modalidade), 0));
 
+  // Thresholds: max teórico = 170 cenários × 10 pts = 1700
+  // Bronze 0-199 | Prata 200-499 | Ouro 500-899 | Diamante 900+
   let level = 'Bronze', levelNum = 1, emoji = '🥉';
-  if (totalPontos >= 351) { level = 'Diamante'; levelNum = 4; emoji = '💎'; }
-  else if (totalPontos >= 201) { level = 'Ouro'; levelNum = 3; emoji = '🏆'; }
-  else if (totalPontos >= 101) { level = 'Prata'; levelNum = 2; emoji = '🥈'; }
+  if (totalPontos >= 900) { level = 'Diamante'; levelNum = 4; emoji = '💎'; }
+  else if (totalPontos >= 500) { level = 'Ouro'; levelNum = 3; emoji = '🏆'; }
+  else if (totalPontos >= 200) { level = 'Prata'; levelNum = 2; emoji = '🥈'; }
 
-  const proximoLevel = [101, 201, 351, 999999][levelNum];
-  const nivelAnterior = [0, 101, 201, 351][levelNum - 1];
+  const proximoLevel = [200, 500, 900, 999999][levelNum - 1];
+  const nivelAnterior = [0, 200, 500, 900][levelNum - 1];
   const progressoNivel = ((totalPontos - nivelAnterior) / (proximoLevel - nivelAnterior)) * 100;
 
   return { totalPontos, level, levelNum, emoji, progressoNivel: Math.min(100, progressoNivel) };
