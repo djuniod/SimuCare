@@ -654,6 +654,10 @@
         <h2>Cenários</h2>
         <p>Escolha um cenário para simular. Em cada um você praticará sua tomada de decisão até dominar a conduta ideal.</p>
       </div>
+      <div id="cenarios-prof-btns" style="display:none;gap:8px;margin-bottom:12px;" class="action-btns">
+        <button class="btn-sm primary-sm" onclick="showPage('page-editar-cenarios')">Editar Cenários</button>
+        <button class="btn-sm primary-sm" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
+      </div>
       <div class="filter-bar">
         <select class="filter-select" id="f-modalidade" onchange="renderScenarios()">
           <option value="">Todos os tipos</option>
@@ -710,8 +714,6 @@
         <button class="btn-sm primary-sm" onclick="showPage('page-alunos')">Gerenciar Alunos</button>
         <button class="btn-sm" onclick="showPage('page-reflexoes')">Ver Reflexões</button>
         <button class="btn-sm" onclick="exportarCSV()">Exportar CSV</button>
-        <button class="btn-sm primary-sm" onclick="showPage('page-editar-cenarios')">✏️ Editar Cenários</button>
-        <button class="btn-sm primary-sm" onclick="showPage('page-criar-cenario')">+ Novo Cenário</button>
       </div>
     </div>
 
@@ -1543,6 +1545,8 @@ function populateAreaFilter() {
 }
 
 function renderScenarios() {
+  const profBtns = document.getElementById('cenarios-prof-btns');
+  if (profBtns) profBtns.style.display = state.user?.tipo === 'professor' ? 'flex' : 'none';
   populateAreaFilter();
   const uid = state.user?.id;
   const done = (getResultsForUser(uid)||[]).map(r => r.cenarioId);
