@@ -1870,16 +1870,31 @@ function selectOption(idx) {
   const feedbackEl = document.getElementById('feedback-area');
 
   if (opQualidade === 'bad') {
-    // Marca como errada e mostra banner de retentativa
-    state.attemptedIdx.push(idx);
-    optBtns.forEach(b => { b.disabled = true; if (parseInt(b.dataset.idx) === idx) b.classList.add('already-wrong'); });
-    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'bad') + `
-      <div class="retry-banner fade-in">
-        <div class="retry-banner-icon">🔄</div>
-        <div class="retry-banner-text"><strong>Vamos refazer esse passo juntos.</strong><br>Releia o contexto e escolha qual seria a conduta <strong>ideal</strong>. Você precisa praticá-la antes de avançar.</div>
-      </div>`;
-    // Habilita novamente as outras opções
-    optBtns.forEach(b => { if (!b.classList.contains('already-wrong')) b.disabled = false; });
+    // Desabilita todos os botões — sem retentativa
+    optBtns.forEach(b => b.disabled = true);
+    optBtns[idx].classList.add('already-wrong');
+
+    // Mostra a resposta correta para o aluno aprender
+    let correctHint = '';
+    if (novoFormato) {
+      const correctOp = step.opcoes.find(o => o.letra === step.correta);
+      const correctFbText = (step.feedback || {})[step.correta] || 'Esta era a conduta correta.';
+      correctHint = `<div class="ideal-hint fade-in">✅ <div><strong>A resposta correta era a opção ${step.correta}: ${correctOp?.texto || ''}</strong><br>${correctFbText}</div></div>`;
+    } else {
+      const correctOp = step.opcoes.find(o => o.qualidade === 'good');
+      if (correctOp) {
+        const correctFb = step.feedbacks?.['good'];
+        correctHint = `<div class="ideal-hint fade-in">✅ <div><strong>A conduta correta seria: ${correctOp.texto}</strong><br>${correctFb?.texto || ''}</div></div>`;
+      }
+    }
+
+    // Salva pontuação 0 para este passo imediatamente
+    state.stepScores[state.currentStep] = {
+      pontuacao: 0, comps: new Array(8).fill(0),
+      tentativas: 1, respostaSelecionada: op.texto, qualidade: 'bad', opcaoIndex: realIdx
+    };
+
+    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'bad') + correctHint + renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   } else if (opQualidade === 'ok') {
     // Conduta aceitável mas não ideal — mostra o ideal e permite seguir
@@ -1899,19 +1914,18 @@ function selectOption(idx) {
       renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   } else {
-    // good / best
+    // good / best — só salva se este passo ainda não foi registrado como errado
     optBtns.forEach(b => b.disabled = true);
     optBtns[idx].style.borderColor = 'var(--success)';
     optBtns[idx].style.background = 'rgba(16,185,129,0.08)';
-    const mensagem = state.attemptedIdx.length > 0
-      ? 'Excelente! Agora você internalizou a conduta ideal. Essa vai ser a resposta registrada neste passo.'
-      : 'Excelente escolha de primeira!';
-    state.stepScores[state.currentStep] = {
-      pontuacao: opPontos, comps: opComps,
-      tentativas: (state.attemptedIdx.length+1),
-      respostaSelecionada: op.texto, qualidade: opQualidade, opcaoIndex: realIdx
-    };
-    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'good', mensagem) + renderReflexaoCard(s, step);
+    if (!state.stepScores[state.currentStep]) {
+      // Primeira tentativa correta — pontuação cheia
+      state.stepScores[state.currentStep] = {
+        pontuacao: opPontos, comps: opComps,
+        tentativas: 1, respostaSelecionada: op.texto, qualidade: 'good', opcaoIndex: realIdx
+      };
+    }
+    feedbackEl.innerHTML = renderFeedbackBox(opNorm, fb, 'good', 'Excelente escolha!') + renderReflexaoCard(s, step);
     feedbackEl.scrollIntoView({behavior:'smooth', block:'start'});
   }
   updateCompetenciasSidebar();
@@ -1980,10 +1994,11 @@ function updateCompetenciasSidebar() {
 
 function showResultMultipla() {
   const s = state.currentSim;
+  const totalPassos = s.passos.length;
   const scores = state.stepScores.filter(Boolean);
-  // pontuacao dos passos já está em 0-10 — não normalizar
-  const avgScore = scores.length ? parseFloat((scores.reduce((a,r)=>a+(r.pontuacao||0),0)/scores.length).toFixed(1)) : 0;
-  const avgComps = COMPETENCIAS.map((_,i) => Math.round(scores.reduce((a,r)=>a + (r.comps[i]||0),0)/scores.length));
+  // Usa total de passos como denominador (passos não respondidos = 0)
+  const avgScore = parseFloat((scores.reduce((a,r)=>a+(r.pontuacao||0),0) / totalPassos).toFixed(1));
+  const avgComps = COMPETENCIAS.map((_,i) => parseFloat((scores.reduce((a,r)=>a + (r.comps[i]||0),0) / totalPassos).toFixed(1)));
   const reflexoes = scores.map(sc => sc.reflexao || '');
   saveResult({
     cenarioId: s.id,
