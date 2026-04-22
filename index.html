@@ -2043,6 +2043,7 @@ function renderResultScreen(avgScore, avgComps, scenario, reflexoes, scores) {
 }
 
 async function saveResult(res) {
+  if (state.user?.tipo === 'professor') return; // modo teste: professor não gamifica
   const alunoId = state.user.id;
   // Atualiza cache em memória imediatamente (UI fica responsiva)
   if (!state.resultados[alunoId]) state.resultados[alunoId] = [];
@@ -2250,16 +2251,15 @@ function avaliarAgendamento() {
   // penalidade por sobrando (mas limitada)
   matScore -= Math.min(0.4, sobrando.length * 0.05);
   matScore = Math.max(0, matScore);
+  // Penalidade extra por material crítico esquecido (reduz matScore)
+  if (criticosEsquecidos.length) {
+    matScore = Math.max(0, matScore - criticosEsquecidos.length * 0.25);
+  }
   // pesos: dados 0.25, agenda 0.25, materiais 0.5
   const total10 = (dadosPct * 0.25 + agendaPct * 0.25 + matScore * 0.5) * 10;
-  // Se faltou crítico ou sala errada → obriga refazer etapa correspondente
-  if (criticosEsquecidos.length || !salaOk) {
-    renderAgErroCritico({criticosEsquecidos, salaOk, a});
-    return;
-  }
-  // Sem erros críticos → mostrar resultado direto
+  // Sempre mostra resultado — aluno pode concluir mesmo com erros
   const comps = calcAgComps(a, dadosPct, agendaPct, matScore);
-  renderAgResultado({total10, dadosPct, agendaPct, matScore, acertos, faltando, sobrando, salaOk, diaOk, horaOk, a, comps});
+  renderAgResultado({total10, dadosPct, agendaPct, matScore, acertos, faltando, sobrando, salaOk, diaOk, horaOk, a, comps, criticosEsquecidos});
 }
 
 function renderAgErroCritico(info) {
@@ -2286,12 +2286,12 @@ function calcAgComps(a, dadosPct, agendaPct, matScore) {
   // Competências proporcionais ao desempenho usando pesos do cenário
   const avgPct = (dadosPct * 0.25 + agendaPct * 0.25 + matScore * 0.5);
   const competenciasBase = a.competencias || [10,10,10,10,10,10,10,10];
-  const resultado = competenciasBase.map(c => Math.round((avgPct / 100) * c));
+  const resultado = competenciasBase.map(c => parseFloat((avgPct * c).toFixed(1)));
   return resultado;
 }
 
 function renderAgResultado(info) {
-  const {total10, dadosPct, agendaPct, matScore, acertos, faltando, sobrando, salaOk, diaOk, horaOk, a, comps} = info;
+  const {total10, dadosPct, agendaPct, matScore, acertos, faltando, sobrando, salaOk, diaOk, horaOk, a, comps, criticosEsquecidos=[]} = info;
   const total = parseFloat(total10.toFixed(1));
   const pct = Math.round((total/10)*100);
   const grade = total >= 8.5 ? {label:'Excelente!', emoji:'🏆', color:'var(--success)'}
@@ -2329,6 +2329,7 @@ function renderAgResultado(info) {
       </div>
       <div class="ag-fb-section">
         <div class="section-title">3 · Materiais (50%)</div>
+        ${criticosEsquecidos.length ? `<div style="background:#fef2f2;border-left:3px solid #ef4444;padding:10px 12px;border-radius:6px;margin-bottom:10px;font-size:13px"><strong style="color:#ef4444">⚠ Material(is) crítico(s) não selecionado(s):</strong> ${criticosEsquecidos.map(nomeFromId).join(', ')} — esses itens são indispensáveis para o procedimento. Penalidade aplicada na pontuação.</div>` : ''}
         ${acertos.length ? `<div style="margin-bottom:8px"><strong style="color:var(--success);font-size:12px">✓ Selecionados corretamente:</strong><br>${acertos.map(nomeFromId).join(', ')}</div>`:''}
         ${faltando.length ? `<div style="margin-bottom:8px"><strong style="color:var(--danger);font-size:12px">✗ Esqueceu de separar:</strong><br>${faltando.map(nomeFromId).join(', ')}</div>`:''}
         ${sobrando.length ? `<div><strong style="color:var(--warning);font-size:12px">⚠ Separou sem necessidade:</strong><br>${sobrando.map(nomeFromId).join(', ')}</div>`:''}
@@ -2434,10 +2435,11 @@ function avaliarMateriais() {
   const erros_comissao = sel.filter(s => !corretos.includes(s)).length;
   const erros_omissao = corretos.filter(c => !sel.includes(c)).length;
   const totalCorretos = corretos.length;
-  const pontos = Math.max(0, Math.round((acertos / (totalCorretos || 1)) * 100 - erros_comissao * 10 - erros_omissao * 10));
+  // Pontuação proporcional: crédito por cada acerto, pequena penalidade por seleção errada
+  const pontos = Math.max(0, Math.round((acertos / (totalCorretos || 1)) * 100 - erros_comissao * 5));
   // Competências proporcionais ao desempenho usando pesos do cenário
   const competenciasBase = m.competencias || [10,10,10,10,10,10,10,10];
-  const comps = competenciasBase.map(c => Math.round((pontos / 100) * c));
+  const comps = competenciasBase.map(c => parseFloat(((pontos / 100) * c).toFixed(1)));
   const res = {
     cenarioId: m.id,
     titulo: m.titulo,
