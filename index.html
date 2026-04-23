@@ -1028,17 +1028,19 @@ function calcularDesempenhoUC(alunoId, formacao) {
   return ucs.map(uc => {
     const cenariosUc = allScenarios.filter(s => getUcsPrimarias(s).includes(uc));
     const resultados = rs.filter(r => cenariosUc.some(s => s.id === r.cenarioId));
-    let totalPct = 0;
+    let somaNotas = 0;
     resultados.forEach(r => {
       const p = Number(r.pontuacao) || 0;
       const m = r.modalidade || '';
-      // Normaliza para 0-100%
-      if (m === 'materiais') totalPct += p;
-      else if (m === 'clinico') totalPct += p; // 0 ou 100
-      else totalPct += Math.min(100, p * 10);  // 0-10 → 0-100
+      if (m === 'materiais') somaNotas += p;
+      else if (m === 'clinico') somaNotas += p;
+      else somaNotas += Math.min(100, p * 10);
     });
-    const pct = resultados.length > 0 ? Math.round(totalPct / resultados.length) : 0;
-    return { uc, pct, total: resultados.length, info: UC_INFO[uc] };
+    // Proporcional: soma das notas ÷ (total de cenários disponíveis × 100)
+    // Cresce devagar — reflete quantidade E qualidade
+    const totalDisp = cenariosUc.length || 1;
+    const pct = Math.round(somaNotas / totalDisp);
+    return { uc, pct, total: resultados.length, totalDisp, info: UC_INFO[uc] };
   });
 }
 
@@ -3821,16 +3823,18 @@ function calcularDesempenhoUCDetalhado(alunoId, formacao) {
   return ucs.map(uc => {
     const cenariosUc = allScenarios.filter(s => getUcsPrimarias(s).includes(uc));
     const resultados = rs.filter(r => cenariosUc.some(s => s.id === r.cenarioId));
-    let totalPct = 0;
+    let somaNotas = 0;
     const itens = resultados.map(r => {
       const p = Number(r.pontuacao) || 0;
       const m = r.modalidade || '';
       const nota = m === 'materiais' || m === 'clinico' ? p : Math.min(100, p * 10);
-      totalPct += nota;
+      somaNotas += nota;
       return { cenarioId: r.cenarioId, titulo: r.titulo || r.cenarioId, nota: nota / 10, data: r.data, modalidade: m };
     });
-    const pct = itens.length > 0 ? Math.round(totalPct / itens.length) : 0;
-    return { uc, pct, total: itens.length, info: UC_INFO[uc], itens };
+    // Proporcional: soma ÷ total disponível (quantidade + qualidade)
+    const totalDisp = cenariosUc.length || 1;
+    const pct = Math.round(somaNotas / totalDisp);
+    return { uc, pct, total: itens.length, totalDisp, info: UC_INFO[uc], itens };
   });
 }
 
@@ -3862,7 +3866,7 @@ function renderTabelaUCProf(ucData) {
     return `
       <tr class="uc-row" onclick="toggleUcRow(${idx})">
         <td><span class="uc-chevron" id="chev-${idx}">▶</span><strong>${c.uc}</strong> <span style="color:var(--text3);font-weight:400">· ${c.info ? c.info.curto : c.uc}</span></td>
-        <td>${c.total > 0 ? c.total : '—'}</td>
+        <td>${c.total > 0 ? `${c.total}/${c.totalDisp||'?'}` : `0/${c.totalDisp||'?'}`}</td>
         <td>${mediaStr}</td>
         <td><span class="nivel-badge ${nivel.cls}">${nivel.label}</span></td>
       </tr>
