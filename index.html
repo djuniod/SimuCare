@@ -239,6 +239,33 @@
   .tag.clinico { background: rgba(139,92,246,0.1); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); }
   .tag.materiais { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
   .tag.time { background: var(--bg2); color: var(--text2); border: 1px solid var(--border); }
+  .tag.uc  { background: rgba(99,102,241,0.08); color: #6366f1; border: 1px solid rgba(99,102,241,0.2); font-size:10px; padding:2px 6px; border-radius:4px; font-weight:700; }
+  /* ── Tabela accordion UC (perfil aluno / visão professor) ── */
+  .uc-table { width:100%; border-collapse:collapse; font-size:13px; margin-top:6px; }
+  .uc-table th { background:var(--bg2); color:var(--text3); font-size:11px; text-transform:uppercase; letter-spacing:0.5px; padding:8px 12px; text-align:left; border-bottom:1px solid var(--border); }
+  .uc-table th:not(:first-child) { text-align:center; }
+  .uc-row { cursor:pointer; transition:background 0.15s; border-bottom:1px solid var(--border); }
+  .uc-row:hover { background:var(--bg2); }
+  .uc-row td { padding:11px 12px; vertical-align:middle; }
+  .uc-row td:not(:first-child) { text-align:center; }
+  .uc-chevron { display:inline-block; transition:transform 0.2s; margin-right:6px; color:var(--text3); font-size:11px; }
+  .uc-chevron.open { transform:rotate(90deg); }
+  .uc-detail-row { display:none; background:rgba(99,102,241,0.03); border-bottom:1px solid var(--border); }
+  .uc-detail-row.open { display:table-row; }
+  .uc-detail-inner { padding:8px 12px 12px 32px; }
+  .uc-detail-item { display:flex; align-items:center; gap:10px; padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.04); font-size:12px; }
+  .uc-detail-item:last-child { border-bottom:none; }
+  .uc-detail-id { font-weight:700; color:var(--text3); min-width:54px; }
+  .uc-detail-titulo { flex:1; color:var(--text2); }
+  .uc-detail-data { color:var(--text3); min-width:80px; text-align:right; }
+  .uc-detail-nota { font-weight:700; min-width:36px; text-align:right; }
+  .nivel-badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:11px; font-weight:700; }
+  .nivel-otimo   { background:rgba(16,185,129,0.12); color:#065f46; }
+  .nivel-bom     { background:rgba(52,211,153,0.12); color:#047857; }
+  .nivel-regular { background:rgba(245,158,11,0.12); color:#92400e; }
+  .nivel-insuf   { background:rgba(239,68,68,0.12);  color:#991b1b; }
+  .nivel-vazio   { background:var(--bg2); color:var(--text3); }
+  /* ── Fim tabela accordion ── */
   .card-done { position: absolute; top: 12px; right: 12px; font-size: 18px; }
 
   /* SIMULATION */
@@ -1706,6 +1733,8 @@ function renderScenarios() {
     const tipoCls = s.modalidade === 'agendamento' ? 'agendamento' :
                     s.modalidade === 'clinico' ? 'clinico' :
                     s.modalidade === 'materiais' ? 'materiais' : 'normal';
+    const isProf = state.user?.tipo === 'professor';
+    const ucTags = isProf ? getUcsPrimarias(s).map(u => `<span class="tag uc">${u}</span>`).join('') : '';
     return `<div class="scenario-card complexidade-${s.complexidade||2} ${isDone?'completed':''}" onclick="startScenario('${s.id}')">
       ${isDone ? '<span class="card-done">✓</span>' : ''}
       <div class="card-top"><span class="card-id">${s.id}</span>${renderComplexityBar(s.complexidade)}</div>
@@ -1714,6 +1743,7 @@ function renderScenarios() {
       <div class="card-meta">
         <span class="tag ${tipoCls}">${modalidadeLabel}</span>
         ${s.tempo ? `<span class="tag time">${s.tempo} min</span>` : ''}
+        ${ucTags}
       </div>
     </div>`;
   }).join('');
@@ -3783,6 +3813,85 @@ function calcularCompetencias(alunoId) {
   return calcularDesempenhoUC(alunoId, formacao);
 }
 
+// Cálculo detalhado por UC — inclui cenários individuais (para tabela accordion do professor)
+function calcularDesempenhoUCDetalhado(alunoId, formacao) {
+  const rs = getResultsForUser(alunoId);
+  const allScenarios = getAllScenarios();
+  const ucs = (formacao || 'ASB') === 'TSB' ? UCS_TSB : UCS_ASB;
+  return ucs.map(uc => {
+    const cenariosUc = allScenarios.filter(s => getUcsPrimarias(s).includes(uc));
+    const resultados = rs.filter(r => cenariosUc.some(s => s.id === r.cenarioId));
+    let totalPct = 0;
+    const itens = resultados.map(r => {
+      const p = Number(r.pontuacao) || 0;
+      const m = r.modalidade || '';
+      const nota = m === 'materiais' || m === 'clinico' ? p : Math.min(100, p * 10);
+      totalPct += nota;
+      return { cenarioId: r.cenarioId, titulo: r.titulo || r.cenarioId, nota: nota / 10, data: r.data, modalidade: m };
+    });
+    const pct = itens.length > 0 ? Math.round(totalPct / itens.length) : 0;
+    return { uc, pct, total: itens.length, info: UC_INFO[uc], itens };
+  });
+}
+
+function ucNivel(pct, total) {
+  if (total === 0) return { label: '—', cls: 'nivel-vazio' };
+  if (pct >= 90) return { label: 'Ótimo',        cls: 'nivel-otimo' };
+  if (pct >= 75) return { label: 'Bom',           cls: 'nivel-bom' };
+  if (pct >= 60) return { label: 'Regular',       cls: 'nivel-regular' };
+  return           { label: 'Insuficiente',       cls: 'nivel-insuf' };
+}
+
+// Tabela accordion de UCs — exclusiva da visão professor no perfil do aluno
+function renderTabelaUCProf(ucData) {
+  const itens = Array.isArray(ucData) ? ucData : [];
+  const rows = itens.map((c, idx) => {
+    const nivel = ucNivel(c.pct, c.total);
+    const mediaStr = c.total > 0 ? (c.pct / 10).toFixed(1) : '—';
+    const detailRows = c.itens && c.itens.length ? c.itens.map(it => {
+      const nota = it.nota.toFixed(1);
+      const cor = it.nota >= 8.5 ? 'var(--success)' : it.nota >= 6 ? 'var(--warning)' : 'var(--danger)';
+      const data = it.data ? new Date(it.data).toLocaleDateString('pt-BR') : '—';
+      return `<div class="uc-detail-item">
+        <span class="uc-detail-id">${it.cenarioId}</span>
+        <span class="uc-detail-titulo">${it.titulo}</span>
+        <span class="uc-detail-data">${data}</span>
+        <span class="uc-detail-nota" style="color:${cor}">${nota}</span>
+      </div>`;
+    }).join('') : `<div style="font-size:12px;color:var(--text3);padding:6px 0">Nenhum cenário realizado nesta UC ainda.</div>`;
+    return `
+      <tr class="uc-row" onclick="toggleUcRow(${idx})">
+        <td><span class="uc-chevron" id="chev-${idx}">▶</span><strong>${c.uc}</strong> <span style="color:var(--text3);font-weight:400">· ${c.info ? c.info.curto : c.uc}</span></td>
+        <td>${c.total > 0 ? c.total : '—'}</td>
+        <td>${mediaStr}</td>
+        <td><span class="nivel-badge ${nivel.cls}">${nivel.label}</span></td>
+      </tr>
+      <tr class="uc-detail-row" id="ucdet-${idx}">
+        <td colspan="4"><div class="uc-detail-inner">${detailRows}</div></td>
+      </tr>`;
+  }).join('');
+  return `<div style="margin-bottom:20px">
+    <div class="section-title">Desempenho por Competências</div>
+    <table class="uc-table">
+      <thead><tr>
+        <th>Competência</th>
+        <th>Cenários</th>
+        <th>Média</th>
+        <th>Nível</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+
+function toggleUcRow(idx) {
+  const det = document.getElementById('ucdet-' + idx);
+  const chev = document.getElementById('chev-' + idx);
+  if (!det) return;
+  det.classList.toggle('open');
+  if (chev) chev.classList.toggle('open');
+}
+
 // Renderiza desempenho por UC (painel professor e painel aluno)
 function renderMapaCompetencias(ucData) {
   // Aceita tanto o formato novo (array de {uc, pct, info}) quanto o antigo
@@ -3874,7 +3983,7 @@ function openAlunoDetail(alunoId) {
     const avg = notasNormAluno.length ? (notasNormAluno.reduce((a,r)=>a+r,0)/notasNormAluno.length).toFixed(1) : '—';
 
     // Calcular competências e gamificação
-    const competencias = calcularCompetencias(alunoId);
+    const competencias = calcularDesempenhoUCDetalhado(alunoId, al.formacao || 'ASB');
     const pontosELevel = calcularPontosELevel(alunoId);
 
   const body = `
@@ -3887,7 +3996,7 @@ function openAlunoDetail(alunoId) {
 
     ${rs.length ? renderGamificacao(pontosELevel) : '<div class="empty-state" style="margin-bottom:20px">Aluno ainda não tem pontos.</div>'}
 
-    ${rs.length ? renderMapaCompetencias(competencias) : ''}
+    ${rs.length ? renderTabelaUCProf(competencias) : ''}
 
     <div class="section-title">Atividades</div>
     ${rs.length ? rs.slice().reverse().map(r => {
