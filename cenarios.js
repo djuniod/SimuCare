@@ -14,7 +14,7 @@ window.CENARIOS = [
   id:"AG-01", titulo:"Urgência: trauma dental em criança",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`O Sr. Rogério Mendonça liga em pânico às 10h20. Ele informa que a filha SOFIA MENDONÇA, 8 anos, caiu da bicicleta no pátio da escola e fraturou o dente da frente. Está com sangramento leve na gengiva, chorando muito, mas não bateu a cabeça. Ele está a 10 minutos da clínica e pergunta se pode vir agora. Sofia escova os dentes 2 VEZES AO DIA (manhã e noite) e USA FIO DENTAL diariamente com ajuda dos pais. O pai não sabe informar sobre alergias da criança.`,
+  contexto:`O Sr. Rogério Mendonça liga em pânico às 10h20. Ele informa que a filha SOFIA MENDONÇA, 8 anos, caiu da bicicleta no pátio da escola e fraturou o dente da frente. Está com sangramento leve na gengiva, chorando muito, mas não bateu a cabeça. Ele está a 10 minutos da clínica e pergunta se pode vir agora. Sofia escova os dentes 2 VEZES AO DIA (manhã e noite) e USA FIO DENTAL diariamente com ajuda dos pais. O pai não sabe informar sobre alergias da criança. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo da paciente",obrigatorio:true,validacao:["sofia mendonça","sofia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
@@ -54,7 +54,7 @@ window.CENARIOS = [
   id:"AG-02", titulo:"Profilaxia semestral — adulto jovem",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 07:30 e 08:30. Não pode às terças.",
-  contexto:`CARLA OLIVEIRA SANTOS, 28 anos, liga para agendar sua profilaxia semestral de rotina. Ela informa que escova os dentes 3 VEZES AO DIA (após as refeições) e USA FIO DENTAL diariamente. Sua última limpeza foi há 6 meses. Não relata dores nem sensibilidades. Não tem alergias a medicamentos. Não faz uso de nenhum medicamento contínuo. Ela prefere horário de manhã e não pode às quintas-feiras.`,
+  contexto:`CARLA OLIVEIRA SANTOS, 28 anos, liga para agendar sua profilaxia semestral de rotina. Ela informa que escova os dentes 3 VEZES AO DIA (após as refeições) e USA FIO DENTAL diariamente. Sua últ ima limpeza foi há 6 meses. Não relata dores nem sensibilidades. Não tem alergias a medicamentos. Não faz uso de nenhum medicamento contínuo. Prefere manhã entre 07:30 e 08:30. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carla oliveira santos","carla oliveira","carla"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["28","28 anos"]},
@@ -91,7 +91,7 @@ window.CENARIOS = [
   id:"AG-03", titulo:"Restauração de cárie Classe II — primeiro molar inferior",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Dentística",
   restricoesPaciente:"Prefere manhã entre 08:00 e 09:00. Não pode às segundas.",
-  contexto:`MARCOS AURELIO FERREIRA, 35 anos, foi encaminhado da triagem após radiografia que revelou cárie interproximal no dente 36 (primeiro molar inferior esquerdo). Ele relata sensibilidade ao frio e ao doce há 3 semanas. Escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. Não tem alergias conhecidas. Não usa medicamentos. A cárie é de profundidade moderada, sem sintomas espontâneos.`,
+  contexto:`MARCOS AURELIO FERREIRA, 35 anos, foi encaminhado da triagem após radiografia que revelou cárie interproximal no dente 36 (primeiro molar inferior esquerdo). Ele relata sensibilidade ao frio e ao doce há 3 semanas. Escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. Não tem alergias conhecidas. Não usa medicamentos. A cárie é de profundidade moderada, sem sintomas espontâneos. Prefere manhã entre 08:00 e 09:00. Não pode às segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marcos aurelio ferreira","marcos aurelio","marcos"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
@@ -129,7 +129,7 @@ window.CENARIOS = [
   id:"AG-04", titulo:"Extração simples de pré-molar para ortodontia",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Cirurgia",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ANDREA SANTOS, 22 anos, chega com encaminhamento do ortodontista para extração do dente 14 (primeiro pré-molar superior direito) como parte do planejamento ortodôntico. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias a medicamentos. Não usa anticoagulantes. Não é gestante. A pressão arterial foi aferida e está normal (120/80 mmHg). O dente está hígido, sem cárie.`,
+  contexto:`ANDREA SANTOS, 22 anos, chega com encaminhamento do ortodontista para extração do dente 14 (primeiro pré-molar superior direito) como parte do planejamento ortodôntico. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias a medicamentos. Não usa anticoagulantes. Não é gestante. A pressão arterial foi aferida e está normal (120/80 mmHg). O dente está hígido, sem cárie. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andrea santos","andrea"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["22","22 anos"]},
@@ -168,7 +168,7 @@ window.CENARIOS = [
   id:"AG-05", titulo:"Urgência — abscesso dentoalveolar agudo",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`PAULO HENRIQUE ROCHA, 45 anos, liga às 8h relatando dor intensa e pulsátil no dente inferior esquerdo há 2 dias, com inchaço na bochecha, febre de 38°C e dificuldade para abrir a boca. Escova os dentes 1 VEZ AO DIA (somente à noite) e NÃO USA FIO DENTAL. Ele informa que tem alergia à PENICILINA. Faz uso de losartana 50mg para hipertensão. Pressão aferida: 145/90 mmHg. Precisa de atendimento imediato.`,
+  contexto:`PAULO HENRIQUE ROCHA, 45 anos, liga às 8h relatando dor intensa e pulsátil no dente inferior esquerdo há 2 dias, com inchaço na bochecha, febre de 38°C e dificuldade para abrir a boca. Escova os dentes 1 VEZ AO DIA (somente à noite) e NÃO USA FIO DENTAL. Ele informa que tem alergia à PENICILINA. Faz uso de losartana 50mg para hipertensão. Pressão aferida: 145/90 mmHg. Precisa de atendimento imediato. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["paulo henrique rocha","paulo henrique","paulo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["45","45 anos"]},
@@ -207,7 +207,7 @@ window.CENARIOS = [
   id:"AG-06", titulo:"Profilaxia e orientação de higiene — adolescente",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às segundas.",
-  contexto:`LUCAS RODRIGUES, 15 anos, é trazido pela mãe para profilaxia semestral. A mãe relata que Lucas escova os dentes APENAS 1 VEZ AO DIA (geralmente à noite) e NUNCA USA FIO DENTAL. Apresenta gengivite leve e acúmulo moderado de biofilme, especialmente na região dos molares. Lucas não tem alergias e não usa nenhum medicamento. A mãe também pede que alguém oriente Lucas sobre a técnica correta de escovação pois ele está com aparelho ortodôntico fixo há 6 meses.`,
+  contexto:`LUCAS RODRIGUES, 15 anos, é trazido pela mãe para profilaxia semestral. A mãe relata que Lucas escova os dentes APENAS 1 VEZ AO DIA (geralmente à noite) e NUNCA USA FIO DENTAL. Apresenta gengivite leve e acúmulo moderado de biofilme, especialmente na região dos molares. Lucas não tem alergias e não usa nenhum medicamento. A mãe também pede que alguém oriente Lucas sobre a técnica correta de escovação pois ele está com aparelho ortodôntico fixo há 6 meses. Prefere manhã entre 07:30 e 09:00. Não pode às segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["lucas rodrigues","lucas"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["15","15 anos"]},
@@ -244,7 +244,7 @@ window.CENARIOS = [
   id:"AG-07", titulo:"Restauração estética — fratura de ângulo incisal",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Dentística",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças.",
-  contexto:`FERNANDA LIMA, 19 anos, universitária, fraturou o ângulo mesioincisal do dente 11 (incisivo central superior direito) ao morder um objeto duro ontem. O fragmento não foi encontrado. O dente apresenta vitalidade preservada e sem dor espontânea. Fernanda escova os dentes 3 VEZES AO DIA e USA FIO DENTAL ao menos uma vez por dia. Não tem alergias. Não usa medicamentos. Está muito preocupada com a estética e tem um evento importante em 5 dias.`,
+  contexto:`FERNANDA LIMA, 19 anos, universitária, fraturou o ângulo mesioincisal do dente 11 (incisivo central superior direito) ao morder um objeto duro ontem. O fragmento não foi encontrado. O dente apresenta vitalidade preservada e sem dor espontânea. Fernanda escova os dentes 3 VEZES AO DIA e USA FIO DENTAL ao menos uma vez por dia. Não tem alergias. Não usa medicamentos. Está muito preocupada com a estética e tem um evento importante em 5 dias. Prefere manhã entre 08:00 e 10:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fernanda lima","fernanda"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["19","19 anos"]},
@@ -281,7 +281,7 @@ window.CENARIOS = [
   id:"AG-08", titulo:"Raspagem subgengival — periodontite moderada",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Periodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças.",
-  contexto:`ROBERTO MENEZES, 52 anos, retorna para início do tratamento de raspagem e alisamento radicular (RAR) após diagnóstico de periodontite generalizada estágio II. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) mas NÃO USA FIO DENTAL há anos. Apresenta bolsas periodontais de 4 a 6 mm em posteriores. Não tem alergias. Faz uso de metformina para diabetes tipo 2 — glicemia controlada (última: 115 mg/dL). A sessão de hoje é o quadrante inferior esquerdo.`,
+  contexto:`ROBERTO MENEZES, 52 anos, retorna para início do tratamento de raspagem e alisamento radicular (RAR) após diagnóstico de periodontite generalizada estágio II. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) mas NÃO USA FIO DENTAL há anos. Apresenta bolsas periodontais de 4 a 6 mm em posteriores. Não tem alergias. Faz uso de metformina para diabetes tipo 2 — glicemia controlada (última: 115 mg/dL). A sessão de hoje é o quadrante inferior esquerdo. Prefere manhã entre 08:00 e 10:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["roberto menezes","roberto"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["52","52 anos"]},
@@ -318,7 +318,7 @@ window.CENARIOS = [
   id:"AG-09", titulo:"Urgência endodôntica — dor intensa pulsátil",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às terças.",
-  contexto:`CRISTINA ALVES, 38 anos, liga às 7h30 relatando dor espontânea intensa e pulsátil no dente inferior esquerdo há 2 noites, sem alivio com dipirona. Não conseguiu dormir. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente (2 ou 3 vezes por semana). Não tem alergias. Não usa medicamentos contínuos. A dor piora muito com o calor (como em bebidas quentes) e tem leve melhora com frio. Suspeita de pulpite irreversível.`,
+  contexto:`CRISTINA ALVES, 38 anos, liga às 7h30 relatando dor espontânea intensa e pulsátil no dente inferior esquerdo há 2 noites, sem alivio com dipirona. Não conseguiu dormir. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente (2 ou 3 vezes por semana). Não tem alergias. Não usa medicamentos contínuos. A dor piora muito com o calor (como em bebidas quentes) e tem leve melhora com frio. Suspeita de pulpite irreversível. Prefere manhã entre 07:30 e 09:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["cristina alves","cristina"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
@@ -356,7 +356,7 @@ window.CENARIOS = [
   id:"AG-10", titulo:"Clareamento dental em consultório",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Estética",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas e segundas.",
-  contexto:`VANESSA PEREIRA, 31 anos, deseja realizar clareamento dental em consultório para eliminar manchas extrínsecas por café e chá que a incomodam estéticamente. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem histórico de sensibilidade dentinária. Não está grávida. Não está amamentando. Não tem restaurações no sorriso que precisem ser substituídas após o clareamento. A dentista solicitou profilaxia prévia na mesma sessão.`,
+  contexto:`VANESSA PEREIRA, 31 anos, deseja realizar clareamento dental em consultório para eliminar manchas extrínsecas por café e chá que a incomodam estéticamente. Ela escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem histórico de sensibilidade dentinária. Não está grávida. Não está amamentando. Não tem restaurações no sorriso que precisem ser substituídas após o clareamento. A dentista solicitou profilaxia prévia na mesma sessão. Prefere manhã entre 08:00 e 10:00. Não pode às quartas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["vanessa pereira","vanessa"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["31","31 anos"]},
@@ -392,7 +392,7 @@ window.CENARIOS = [
   id:"AG-11", titulo:"Confecção de PPR — moldagem e plano de tratamento",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas e quintas.",
-  contexto:`MARIA APARECIDA ROCHA, 67 anos, é encaminhada para confecção de prótese parcial removível inferior. Ela perdeu os dentes 35, 36 e 37 (Classe III de Kennedy modificada). Os dentes remanescentes têm boa condição. Ela escova os dentes SOMENTE 1 VEZ AO DIA (à noite) e USA FIO DENTAL raramente (menos de uma vez por semana). Não tem alergias. Faz uso de AAS 100mg e enalapril 10mg diariamente. A pressão arterial está controlada: 130/85 mmHg.`,
+  contexto:`MARIA APARECIDA ROCHA, 67 anos, é encaminhada para confecção de prótese parcial removível inferior. Ela perdeu os dentes 35, 36 e 37 (Classe III de Kennedy modificada). Os dentes remanescentes têm boa condição. Ela escova os dentes SOMENTE 1 VEZ AO DIA (à noite) e USA FIO DENTAL raramente (menos de uma vez por semana). Não tem alergias. Faz uso de AAS 100mg e enalapril 10mg diariamente. A pressão arterial está controlada: 130/85 mmHg. Prefere manhã entre 08:00 e 10:00. Não pode às sextas e quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["maria aparecida rocha","maria aparecida","dona maria"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["67","67 anos"]},
@@ -427,7 +427,7 @@ window.CENARIOS = [
   id:"AG-12", titulo:"Restauração de cárie em dente decíduo — criança",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Odontopediatria",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às terças e quartas.",
-  contexto:`TOMÁS FERREIRA, 7 anos, é trazido pela mãe Sra. Andréia Ferreira para restauração de cárie no dente 74 (primeiro molar decíduo inferior esquerdo). A mãe relata que Tomás escova os dentes 2 VEZES AO DIA com ajuda dela e NÃO USA FIO DENTAL. Tomás tem histórico de comportamento ansioso no consultório. Não tem alergias a medicamentos. Não usa nenhum medicamento. Peso: 24 kg (importante para dose de anestésico). A cárie é moderada, sem envolvimento pulpar.`,
+  contexto:`TOMÁS FERREIRA, 7 anos, é trazido pela mãe Sra. Andréia Ferreira para restauração de cárie no dente 74 (primeiro molar decíduo inferior esquerdo). A mãe relata que Tomás escova os dentes 2 VEZES AO DIA com ajuda dela e NÃO USA FIO DENTAL. Tomás tem histórico de comportamento ansioso no consultório. Não tem alergias a medicamentos. Não usa nenhum medicamento. Peso: 24 kg (importante para dose de anestésico). A cárie é moderada, sem envolvimento pulpar. Prefere manhã entre 07:30 e 09:00. Não pode às terças e quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["tomás ferreira","tomás","tomas"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["7","7 anos"]},
@@ -464,7 +464,7 @@ window.CENARIOS = [
   id:"AG-13", titulo:"Primeira consulta odontopediatria — bebê de 1 ano",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Odontopediatria",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.",
-  contexto:`A Sra. JULIANA MATOS liga para agendar a PRIMEIRA CONSULTA ODONTOLÓGICA do filho ENZO MATOS, 1 ANO E 2 MESES. Ela está preocupada pois percebeu uma mancha branca em um dentinho. Enzo está amamentando e a mãe diz que escova os dentes do bebê 2 VEZES AO DIA com dedeira. Não usa fio dental ainda (bebê). Enzo não tem alergias conhecidas. A mãe tem muitas dúvidas sobre alimentação, fluorterapia e hábitos de sucção.`,
+  contexto:`A Sra. JULIANA MATOS liga para agendar a PRIMEIRA CONSULTA ODONTOLÓGICA do filho ENZO MATOS, 1 ANO E 2 MESES. Ela está preocupada pois percebeu uma mancha branca em um dentinho. Enzo está amamentando e a mãe diz que escova os dentes do bebê 2 VEZES AO DIA com dedeira. Não usa fio dental ainda (bebê). Enzo não tem alergias conhecidas. A mãe tem muitas dúvidas sobre alimentação, fluorterapia e hábitos de sucção. Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do bebê",obrigatorio:true,validacao:["enzo matos","enzo"]},
     {chave:"idade",label:"Idade do bebê",obrigatorio:true,validacao:["1 ano","1 ano e 2","14 meses"]},
@@ -500,7 +500,7 @@ window.CENARIOS = [
   id:"AG-14", titulo:"Profilaxia em gestante — segundo trimestre",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas e terças.",
-  contexto:`ANA BEATRIZ SOUZA, 26 anos, grávida de 18 semanas (2º trimestre), liga para agendar profilaxia. O obstetra já autorizou o atendimento odontológico. Ela relata sangramento gengival ao escovar, o que a preocupa. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Toma sulfato ferroso e ácido fólico. Sua pressão arterial está normal (110/70 mmHg). Não pode ficar muito tempo em posição supina.`,
+  contexto:`ANA BEATRIZ SOUZA, 26 anos, grávida de 18 semanas (2º trimestre), liga para agendar profilaxia. O obstetra já autorizou o atendimento odontológico. Ela relata sangramento gengival ao escovar, o que a preocupa. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Toma sulfato ferroso e ácido fólico. Sua pressão arterial está normal (110/70 mmHg). Não pode ficar muito tempo em posição supina. Prefere manhã entre 08:00 e 10:00. Não pode às quartas e terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["ana beatriz souza","ana beatriz","ana"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["26","26 anos"]},
@@ -536,7 +536,7 @@ window.CENARIOS = [
   id:"AG-15", titulo:"Urgência — alveolite seca pós-extração",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`RENATO COSTA, 41 anos, liga 3 dias após extração do dente 38 relatando dor intensa e crescente no local (não cedeu com ibuprofeno), mau cheiro na boca e alvéolo com aparência esbranquiçada sem coágulo visível. Diagnóstico clínico suspeito: ALVEOLITE SECA. Renato escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente. Não tem alergias. Ele confessa que fumou cigarros no dia da extração (contraindicado). Não usa medicamentos contínuos.`,
+  contexto:`RENATO COSTA, 41 anos, liga 3 dias após extração do dente 38 relatando dor intensa e crescente no local (não cedeu com ibuprofeno), mau cheiro na boca e alvéolo com aparência esbranquiçada sem coágulo visível. Diagnóstico clínico suspeito: ALVEOLITE SECA. Renato escova os dentes 2 VEZES AO DIA e USA FIO DENTAL eventualmente. Não tem alergias. Ele confessa que fumou cigarros no dia da extração (contraindicado). Não usa medicamentos contínuos. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["renato costa","renato"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["41","41 anos"]},
@@ -571,7 +571,7 @@ window.CENARIOS = [
   id:"AG-16", titulo:"Exodontia de terceiro molar incluso",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ISABELA CARVALHO, 23 anos, chega com encaminhamento para extração do dente 38 (terceiro molar inferior esquerdo incluso em posição mesioangular), confirmado em radiografia panorâmica. Ela relata episódios repetidos de pericoronarite (inflamação da gengiva ao redor do siso). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 115/75 mmHg. A extração requerirá retalho, osteotomia e odontossecção.`,
+  contexto:`ISABELA CARVALHO, 23 anos, chega com encaminhamento para extração do dente 38 (terceiro molar inferior esquerdo incluso em posição mesioangular), confirmado em radiografia panorâmica. Ela relata episódios repetidos de pericoronarite (inflamação da gengiva ao redor do siso). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 115/75 mmHg. A extração requerirá retalho, osteotomia e odontossecção. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["isabela carvalho","isabela"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["23","23 anos"]},
@@ -610,7 +610,7 @@ window.CENARIOS = [
   id:"AG-17", titulo:"Radiografia panorâmica — avaliação ortodôntica",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Radiologia",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às quartas e segundas.",
-  contexto:`GUSTAVO MACHADO, 17 anos, é trazido pelos pais para início de tratamento ortodôntico. O ortodontista solicitou radiografia panorâmica para avaliação completa dos dentes permanentes, presença de terceiros molares e desenvolvimento ósseo. Gustavo escova os dentes 2 VEZES AO DIA e USA FIO DENTAL ocasionalmente (1 ou 2 vezes por semana). Não tem alergias. Não usa medicamentos. Não há relato de sintomas ou dores.`,
+  contexto:`GUSTAVO MACHADO, 17 anos, é trazido pelos pais para início de tratamento ortodôntico. O ortodontista solicitou radiografia panorâmica para avaliação completa dos dentes permanentes, presença de terceiros molares e desenvolvimento ósseo. Gustavo escova os dentes 2 VEZES AO DIA e USA FIO DENTAL ocasionalmente (1 ou 2 vezes por semana). Não tem alergias. Não usa medicamentos. Não há relato de sintomas ou dores. Prefere manhã entre 07:30 e 09:00. Não pode às quartas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["gustavo machado","gustavo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["17","17 anos"]},
@@ -644,7 +644,7 @@ window.CENARIOS = [
   id:"AG-18", titulo:"Profilaxia — paciente diabético tipo 2",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças e quintas.",
-  contexto:`JOSÉ DOS SANTOS, 61 anos, chega para profilaxia semestral. Ele é diabético tipo 2 há 8 anos, com glicemia controlada (última glicemia: 130 mg/dL). Escova os dentes 2 VEZES AO DIA (manhã e após o jantar) e USA FIO DENTAL de 2 a 3 vezes por semana. Faz uso de metformina 850mg e glibenclamida 5mg. Não tem alergias. O exame periodontal revelou gengivite leve generalizada — o diabetes aumenta a susceptibilidade periodontal. PA: 128/82 mmHg (adequada).`,
+  contexto:`JOSÉ DOS SANTOS, 61 anos, chega para profilaxia semestral. Ele é diabético tipo 2 há 8 anos, com glicemia controlada (última glicemia: 130 mg/dL). Escova os dentes 2 VEZES AO DIA (manhã e após o jantar) e USA FIO DENTAL de 2 a 3 vezes por semana. Faz uso de metformina 850mg e glibenclamida 5mg. Não tem alergias. O exame periodontal revelou gengivite leve generalizada — o diabetes aumenta a susceptibilidade periodontal. PA: 128/82 mmHg (adequada). Prefere manhã entre 08:00 e 10:00. Não pode às terças e quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["josé dos santos","jose dos santos","josé","seu josé"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["61","61 anos"]},
@@ -681,7 +681,7 @@ window.CENARIOS = [
   id:"AG-19", titulo:"Avaliação e controle de PA — paciente hipertenso",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Clínica Geral",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças e quartas.",
-  contexto:`LÚCIA FERREIRA, 58 anos, chegou para consulta de restauração mas ao aferir a pressão arterial na recepção obteve PA de 165/100 mmHg. A paciente relata que esqueceu de tomar o remédio esta manhã. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL de vez em quando (cerca de 2 vezes por semana). Faz uso de losartana 50mg e hidroclorotiazida 25mg diariamente. Não tem alergias. A conduta será: orientar a paciente, aguardar repouso de 10 minutos e reaferir a PA antes de decidir sobre o procedimento.`,
+  contexto:`LÚCIA FERREIRA, 58 anos, chegou para consulta de restauração mas ao aferir a pressão arterial na recepção obteve PA de 165/100 mmHg. A paciente relata que esqueceu de tomar o remédio esta manhã. Ela escova os dentes 2 VEZES AO DIA e USA FIO DENTAL de vez em quando (cerca de 2 vezes por semana). Faz uso de losartana 50mg e hidroclorotiazida 25mg diariamente. Não tem alergias. A conduta será: orientar a paciente, aguardar repouso de 10 minutos e reaferir a PA antes de decidir sobre o procedimento. Prefere manhã entre 08:00 e 10:00. Não pode às terças e quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["lúcia ferreira","lucia ferreira","lúcia","dona lúcia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["58","58 anos"]},
@@ -716,7 +716,7 @@ window.CENARIOS = [
   id:"AG-20", titulo:"Extração em paciente em uso de anticoagulante oral",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Cirurgia",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ANTÔNIO BATISTA, 70 anos, precisa extrair o dente 45 (segundo pré-molar inferior direito) que está comprometido. Ele faz uso de VARFARINA (warfarina) por fibrilação atrial, com INR de 2,8 (dentro do intervalo terapêutico de 2-3). Seu cardiologista foi consultado e AUTORIZOU a extração SEM SUSPENDER a varfarina, desde que com medidas hemostáticas locais. Ele escova os dentes 2 VEZES AO DIA e USA FIO DENTAL raramente (1 vez por semana). Não tem alergias.`,
+  contexto:`ANTÔNIO BATISTA, 70 anos, precisa extrair o dente 45 (segundo pré-molar inferior direito) que está comprometido. Ele faz uso de VARFARINA (warfarina) por fibrilação atrial, com INR de 2,8 (dentro do intervalo terapêutico de 2-3). Seu cardiologista foi consultado e AUTORIZOU a extração SEM SUSPENDER a varfarina, desde que com medidas hemostáticas locais. Ele escova os dentes 2 VEZES AO DIA e USA FIO DENTAL raramente (1 vez por semana). Não tem alergias. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["antônio batista","antonio batista","antônio","seu antônio"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["70","70 anos"]},
@@ -754,7 +754,7 @@ window.CENARIOS = [
   id:"AG-21", titulo:"Frenectomia labial superior — criança com diastema",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Cirurgia",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`MIGUEL OLIVEIRA, 9 anos, é trazido pela mãe após indicação ortodôntica para FRENECTOMIA LABIAL SUPERIOR. O freio inserido baixo está causando diastema entre os incisivos centrais superiores permanentes. Após a frenectomia, o ortodontista dará continuidade ao fechamento do diastema com aparelho. Miguel escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 31 kg.`,
+  contexto:`MIGUEL OLIVEIRA, 9 anos, é trazido pela mãe após indicação ortodôntica para FRENECTOMIA LABIAL SUPERIOR. O freio inserido baixo está causando diastema entre os incisivos centrais superiores permanentes. Após a frenectomia, o ortodontista dará continuidade ao fechamento do diastema com aparelho. Miguel escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 31 kg. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["miguel oliveira","miguel"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["9","9 anos"]},
@@ -790,7 +790,7 @@ window.CENARIOS = [
   id:"AG-22", titulo:"Raspagem supragengival — gengivite com tártaro moderado",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Periodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas.",
-  contexto:`SANDRA TEIXEIRA, 44 anos, retorna após 1 ano sem profilaxia. Apresenta cálculo supragengival moderado generalizado com sangramento gengival difuso ao exame. Bolsas de até 3 mm (gengivite). Ela escova os dentes SOMENTE 2 VEZES AO DIA (sem técnica adequada) e USA FIO DENTAL apenas 2 vezes por semana. Não tem alergias. Não usa medicamentos. Refere que o sangramento ao escovar já dura 4 meses.`,
+  contexto:`SANDRA TEIXEIRA, 44 anos, retorna após 1 ano sem profilaxia. Apresenta cálculo supragengival moderado generalizado com sangramento gengival difuso ao exame. Bolsas de até 3 mm (gengivite). Ela escova os dentes SOMENTE 2 VEZES AO DIA (sem técnica adequada) e USA FIO DENTAL apenas 2 vezes por semana. Não tem alergias. Não usa medicamentos. Refere que o sangramento ao escovar já dura 4 meses. Prefere manhã entre 08:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["sandra teixeira","sandra"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
@@ -826,7 +826,7 @@ window.CENARIOS = [
   id:"AG-23", titulo:"Retratamento endodôntico — insucesso de canal anterior",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às segundas.",
-  contexto:`FLÁVIO RIBEIRO, 47 anos, foi encaminhado pelo dentista após radiografia mostrar lesão periapical em crescimento no dente 25 (segundo pré-molar superior esquerdo), tratado endodonticamente há 4 anos. Não sente dor, mas o exame mostra abaulamento periapical. Indica-se retratamento endodôntico. Flávio escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 120/80 mmHg.`,
+  contexto:`FLÁVIO RIBEIRO, 47 anos, foi encaminhado pelo dentista após radiografia mostrar lesão periapical em crescimento no dente 25 (segundo pré-molar superior esquerdo), tratado endodonticamente há 4 anos. Não sente dor, mas o exame mostra abaulamento periapical. Indica-se retratamento endodôntico. Flávio escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 120/80 mmHg. Prefere manhã entre 07:30 e 09:00. Não pode às segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["flávio ribeiro","flavio ribeiro","flávio","flavio"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["47","47 anos"]},
@@ -863,7 +863,7 @@ window.CENARIOS = [
   id:"AG-24", titulo:"Instalação de coroa total — cimentação definitiva",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas.",
-  contexto:`CÉLIA MONTEIRO, 55 anos, retorna para cimentação definitiva da coroa metal-cerâmica no dente 36 (primeiro molar inferior esquerdo). O provisório foi instalado há 3 semanas e o protético entregou a peça definitiva. Célia escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de atorvastatina 20mg. PA: 125/80 mmHg. A paciente está satisfeita com o provisório e sem dores.`,
+  contexto:`CÉLIA MONTEIRO, 55 anos, retorna para cimentação definitiva da coroa metal-cerâmica no dente 36 (primeiro molar inferior esquerdo). O provisório foi instalado há 3 semanas e o protético entregou a peça definitiva. Célia escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de atorvastatina 20mg. PA: 125/80 mmHg. A paciente está satisfeita com o provisório e sem dores. Prefere manhã entre 08:00 e 10:00. Não pode às quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["célia monteiro","celia monteiro","célia","celia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["55","55 anos"]},
@@ -899,7 +899,7 @@ window.CENARIOS = [
   id:"AG-25", titulo:"Pulpotomia em molar decíduo — criança com exposição pulpar",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Odontopediatria",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às terças.",
-  contexto:`HEITOR NASCIMENTO, 6 anos, chega com a avó relatando que ele acordou com dor no dente do fundo. O exame clínico mostra cárie profunda no dente 75 (segundo molar decíduo inferior esquerdo) com exposição pulpar confirmada e sangramento vivo ao toque. Indicado: PULPOTOMIA com formocresol. Heitor escova os dentes 2 VEZES AO DIA (com ajuda) e NÃO USA FIO DENTAL. Não tem alergias. Peso: 20 kg. A avó é a responsável hoje.`,
+  contexto:`HEITOR NASCIMENTO, 6 anos, chega com a avó relatando que ele acordou com dor no dente do fundo. O exame clínico mostra cárie profunda no dente 75 (segundo molar decíduo inferior esquerdo) com exposição pulpar confirmada e sangramento vivo ao toque. Indicado: PULPOTOMIA com formocresol. Heitor escova os dentes 2 VEZES AO DIA (com ajuda) e NÃO USA FIO DENTAL. Não tem alergias. Peso: 20 kg. A avó é a responsável hoje. Prefere manhã entre 07:30 e 09:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["heitor nascimento","heitor"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["6","6 anos"]},
@@ -936,7 +936,7 @@ window.CENARIOS = [
   id:"AG-26", titulo:"Profilaxia — paciente com Síndrome de Down",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Pacientes Especiais",
   restricoesPaciente:"Prefere manhã entre 09:00 e 11:00. Não pode às terças.",
-  contexto:`FELIPE DUARTE, 18 anos, portador de Síndrome de Down (trisomia 21), é trazido pela mãe para profilaxia semestral. A mãe relata que Felipe escova os dentes 2 VEZES AO DIA com supervisão dela e USA FIO DENTAL 3 vezes por semana com ajuda. Apresenta hipotonicidade lingual típica da síndrome, que favorece acúmulo de biofilme. A mãe informa alergia a AAS (ácido acetilsalicílico). Faz uso de levotiroxina (hipotireoidismo associado). Felipe aceita bem o atendimento mas precisa de comunicação simples e pausada.`,
+  contexto:`FELIPE DUARTE, 18 anos, portador de Síndrome de Down (trisomia 21), é trazido pela mãe para profilaxia semestral. A mãe relata que Felipe escova os dentes 2 VEZES AO DIA com supervisão dela e USA FIO DENTAL 3 vezes por semana com ajuda. Apresenta hipotonicidade lingual típica da síndrome, que favorece acúmulo de biofilme. A mãe informa alergia a AAS (ácido acetilsalicílico). Faz uso de levotiroxina (hipotireoidismo associado). Felipe aceita bem o atendimento mas precisa de comunicação simples e pausada. Prefere manhã entre 09:00 e 11:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["felipe duarte","felipe"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["18","18 anos"]},
@@ -972,7 +972,7 @@ window.CENARIOS = [
   id:"AG-27", titulo:"Selante de fissuras — primeiros molares permanentes",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às terças.",
-  contexto:`LARA QUEIRÓS, 8 anos, é trazida pela mãe para aplicação de SELANTE DE FISSURAS nos primeiros molares permanentes recém-erupcionados (dentes 16, 26, 36 e 46). A criança tem alto risco de cárie por dieta rica em carboidratos. Lara escova os dentes 2 VEZES AO DIA com ajuda dos pais e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 26 kg. Os dentes estão hígidos — sem cárie.`,
+  contexto:`LARA QUEIRÓS, 8 anos, é trazida pela mãe para aplicação de SELANTE DE FISSURAS nos primeiros molares permanentes recém-erupcionados (dentes 16, 26, 36 e 46). A criança tem alto risco de cárie por dieta rica em carboidratos. Lara escova os dentes 2 VEZES AO DIA com ajuda dos pais e USA FIO DENTAL com ajuda da mãe 3 vezes por semana. Não tem alergias. Não usa medicamentos. Peso: 26 kg. Os dentes estão hígidos — sem cárie. Prefere manhã entre 07:30 e 09:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["lara queirós","lara queiros","lara"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
@@ -1008,7 +1008,7 @@ window.CENARIOS = [
   id:"AG-28", titulo:"Remoção de ponto de sutura pós-cirurgia",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:1, area:"Cirurgia",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`PAULO SÉRGIO MEDEIROS, 35 anos, retorna 7 dias após extração do dente 48 (terceiro molar inferior direito incluso) para remoção dos pontos de sutura e avaliação da cicatrização. Ele relata que a dor melhorou progressivamente e está bem. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente (evitando a área operada). Não tem alergias. Não usa antibióticos. O alvéolo está com boa aparência clínica, sem sinais de infecção.`,
+  contexto:`PAULO SÉRGIO MEDEIROS, 35 anos, retorna 7 dias após extração do dente 48 (terceiro molar inferior direito incluso) para remoção dos pontos de sutura e avaliação da cicatrização. Ele relata que a dor melhorou progressivamente e está bem. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente (evitando a área operada). Não tem alergias. Não usa antibióticos. O alvéolo está com boa aparência clínica, sem sinais de infecção. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["paulo sérgio medeiros","paulo sergio medeiros","paulo sérgio","paulo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
@@ -1043,7 +1043,7 @@ window.CENARIOS = [
   id:"AG-29", titulo:"Clareamento caseiro — moldagem e orientação",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Estética",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças.",
-  contexto:`AMANDA VASCONCELOS, 24 anos, solicita clareamento caseiro supervisionado com moldeiras individualizadas. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não está grávida. Não está amamentando. Não tem histórico de sensibilidade. Não tem restaurações no sorriso (ou já planeja substituí-las após o clareamento). A dentista aprovará o plano de tratamento com peróxido de carbamida 10% em moldeira por 2 horas/dia por 3 semanas.`,
+  contexto:`AMANDA VASCONCELOS, 24 anos, solicita clareamento caseiro supervisionado com moldeiras individualizadas. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não está grávida. Não está amamentando. Não tem histórico de sensibilidade. Não tem restaurações no sorriso (ou já planeja substituí-las após o clareamento). A dentista aprovará o plano de tratamento com peróxido de carbamida 10% em moldeira por 2 horas/dia por 3 semanas. Prefere manhã entre 08:00 e 10:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["amanda vasconcelos","amanda"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["24","24 anos"]},
@@ -1077,7 +1077,7 @@ window.CENARIOS = [
   id:"AG-30", titulo:"Aplicação de flúor e orientação — criança com alto risco de cárie",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e terças.",
-  contexto:`SOFIA HELENA MARQUES, 5 anos, é trazida pela mãe para aplicação de flúor e orientação de higiene. A mãe relata que Sofia come muito doce e escova os dentes APENAS 1 VEZ AO DIA (antes de dormir) e NÃO USA FIO DENTAL. Já teve 2 cáries tratadas neste ano. Não tem alergias. Não usa medicamentos. Peso: 18 kg. A mãe está motivada a melhorar os hábitos da criança.`,
+  contexto:`SOFIA HELENA MARQUES, 5 anos, é trazida pela mãe para aplicação de flúor e orientação de higiene. A mãe relata que Sofia come muito doce e escova os dentes APENAS 1 VEZ AO DIA (antes de dormir) e NÃO USA FIO DENTAL. Já teve 2 cáries tratadas neste ano. Não tem alergias. Não usa medicamentos. Peso: 18 kg. A mãe está motivada a melhorar os hábitos da criança. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["sofia helena marques","sofia helena","sofia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["5","5 anos"]},
@@ -1115,7 +1115,7 @@ window.CENARIOS = [
   id:"AG-31", titulo:"Urgência: reação alérgica ao anestésico",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ALBERTO SANTOS FERREIRA, 42 anos, liga relatando que está com o rosto inchado e urticária no pescoço após receber anestesia em outra clínica há 40 minutos. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. É ALÉRGICO À LIDOCAÍNA (reação documentada). Faz uso contínuo de enalapril (hipertensão) e loratadina (rinite). PA de base: 130/85 mmHg. Não tem histórico de asma.`,
+  contexto:`ALBERTO SANTOS FERREIRA, 42 anos, liga relatando que está com o rosto inchado e urticária no pescoço após receber anestesia em outra clínica há 40 minutos. Ele escova os dentes 2 VEZES AO DIA (manhã e noite) e NÃO USA FIO DENTAL. É ALÉRGICO À LIDOCAÍNA (reação documentada). Faz uso contínuo de enalapril (hipertensão) e loratadina (rinite). PA de base: 130/85 mmHg. Não tem histórico de asma. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["alberto santos ferreira","alberto santos","alberto"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["42","42 anos"]},
@@ -1154,7 +1154,7 @@ window.CENARIOS = [
   id:"AG-32", titulo:"Confecção de placa miorrelaxante — bruxismo",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Disfunção Temporomandibular",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e segundas.",
-  contexto:`PATRICIA FONTES RIBEIRO, 37 anos, foi encaminhada pelo médico com queixa de bruxismo noturno e cefaleia matinal. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). Relata dor muscular bilateral na região de masseter e temporal ao acordar. Não tem alergias. Faz uso de clonazepam 0,5 mg à noite (prescrito há 3 meses). PA: 118/76 mmHg. Não tem histórico de próteses ou implantes.`,
+  contexto:`PATRICIA FONTES RIBEIRO, 37 anos, foi encaminhada pelo médico com queixa de bruxismo noturno e cefaleia matinal. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). Relata dor muscular bilateral na região de masseter e temporal ao acordar. Não tem alergias. Faz uso de clonazepam 0,5 mg à noite (prescrito há 3 meses). PA: 118/76 mmHg. Não tem histórico de próteses ou implantes. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["patricia fontes ribeiro","patricia fontes","patricia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["37","37 anos"]},
@@ -1192,7 +1192,7 @@ window.CENARIOS = [
   id:"AG-33", titulo:"Radiografia periapical e diagnóstico — dor em molar",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Radiologia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.",
-  contexto:`EDMILSON CAVALCANTE LIMA, 50 anos, liga com queixa de dor latejante no lado esquerdo inferior há 4 dias, que piora ao deitar. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de metformina (diabetes tipo 2) e sinvastatina. Glicemia de jejum recente: 142 mg/dL (controlada). PA: 135/88 mmHg.`,
+  contexto:`EDMILSON CAVALCANTE LIMA, 50 anos, liga com queixa de dor latejante no lado esquerdo inferior há 4 dias, que piora ao deitar. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de metformina (diabetes tipo 2) e sinvastatina. Glicemia de jejum recente: 142 mg/dL (controlada). PA: 135/88 mmHg. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["edmilson cavalcante lima","edmilson cavalcante","edmilson"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["50","50 anos"]},
@@ -1229,7 +1229,7 @@ window.CENARIOS = [
   id:"AG-34", titulo:"Restauração urgente em gestante — 2º trimestre",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Dentística",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas e segundas.",
-  contexto:`MÔNICA ANDRADE SOUSA, 28 anos, liga com dor em dente superior direito. Está GESTANTE de 22 SEMANAS (2º trimestre). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Pré-natal em dia, sem intercorrências. Não tem alergias. Faz uso de sulfato ferroso e ácido fólico (suplementação gestacional). PA: 110/70 mmHg. Relata dor ao mastigar no dente da frente superior direito.`,
+  contexto:`MÔNICA ANDRADE SOUSA, 28 anos, liga com dor em dente superior direito. Está GESTANTE de 22 SEMANAS (2º trimestre). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Pré-natal em dia, sem intercorrências. Não tem alergias. Faz uso de sulfato ferroso e ácido fólico (suplementação gestacional). PA: 110/70 mmHg. Relata dor ao mastigar no dente da frente superior direito. Prefere manhã entre 08:00 e 10:00. Não pode às quartas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["mônica andrade sousa","monica andrade sousa","mônica andrade","monica andrade"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["28","28 anos"]},
@@ -1269,7 +1269,7 @@ window.CENARIOS = [
   id:"AG-35", titulo:"Moldagem para prótese parcial removível (PPR)",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Prótese",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.",
-  contexto:`NELSON BRAGA CARDOSO, 65 anos, é encaminhado para confecção de PPR superior (falta os dentes 14, 15, 16, 17, 24, 25, 26). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Tem histórico de periodontite tratada. Não tem alergias. Faz uso de atorvastatina e AAS 100 mg (cardiopatia isquêmica leve, controlada). PA: 138/82 mmHg. Dentes remanescentes estão estáveis sem mobilidade.`,
+  contexto:`NELSON BRAGA CARDOSO, 65 anos, é encaminhado para confecção de PPR superior (falta os dentes 14, 15, 16, 17, 24, 25, 26). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Tem histórico de periodontite tratada. Não tem alergias. Faz uso de atorvastatina e AAS 100 mg (cardiopatia isquêmica leve, controlada). PA: 138/82 mmHg. Dentes remanescentes estão estáveis sem mobilidade. Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["nelson braga cardoso","nelson braga","nelson"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["65","65 anos"]},
@@ -1306,7 +1306,7 @@ window.CENARIOS = [
   id:"AG-36", titulo:"Urgência — dor pós-extração (alveolite seca)",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`THIAGO MENDES FERREIRA, 25 anos, liga 3 dias após a extração do dente 38 com dor intensa e fétida. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. Relata que fez bochecho com água quente e fumou no dia seguinte à extração. O analgésico prescrito parou de fazer efeito.`,
+  contexto:`THIAGO MENDES FERREIRA, 25 anos, liga 3 dias após a extração do dente 38 com dor intensa e fétida. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. Relata que fez bochecho com água quente e fumou no dia seguinte à extração. O analgésico prescrito parou de fazer efeito. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["thiago mendes ferreira","thiago mendes","thiago"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["25","25 anos"]},
@@ -1344,7 +1344,7 @@ window.CENARIOS = [
   id:"AG-37", titulo:"Avaliação de DTM e confecção de placa oclusal",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Disfunção Temporomandibular",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças e quintas.",
-  contexto:`BEATRIZ FRANCO ALVES, 29 anos, vem encaminhada por clínica geral com queixa de estalido na ATM esquerda, dificuldade de abrir a boca e dor de cabeça frequente ao acordar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de anticoncepcional oral (etinilestradiol + levonorgestrel). PA: 115/72 mmHg. Relata hábito de morder as bochechas quando está ansiosa.`,
+  contexto:`BEATRIZ FRANCO ALVES, 29 anos, vem encaminhada por clínica geral com queixa de estalido na ATM esquerda, dificuldade de abrir a boca e dor de cabeça frequente ao acordar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de anticoncepcional oral (etinilestradiol + levonorgestrel). PA: 115/72 mmHg. Relata hábito de morder as bochechas quando está ansiosa. Prefere manhã entre 08:00 e 10:00. Não pode às terças e quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["beatriz franco alves","beatriz franco","beatriz"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["29","29 anos"]},
@@ -1381,7 +1381,7 @@ window.CENARIOS = [
   id:"AG-38", titulo:"Profilaxia em idoso com xerostomia",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.",
-  contexto:`DJALMA RODRIGUES SANTOS, 72 anos, é trazido pelo filho para profilaxia de rotina. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Apresenta boca seca frequente (xerostomia) e múltiplas raízes expostas. Faz uso contínuo de: amitriptilina (depressão), hidroclorotiazida (hipertensão), metoprolol e omeprazol. PA: 148/88 mmHg. Sem alergias. Última profilaxia: há mais de 1 ano.`,
+  contexto:`DJALMA RODRIGUES SANTOS, 72 anos, é trazido pelo filho para profilaxia de rotina. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Apresenta boca seca frequente (xerostomia) e múltiplas raízes expostas. Faz uso contínuo de: amitriptilina (depressão), hidroclorotiazida (hipertensão), metoprolol e omeprazol. PA: 148/88 mmHg. Sem alergias. Última profilaxia: há mais de 1 ano. Prefere manhã entre 08:00 e 10:00. Não pode às segundas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["djalma rodrigues santos","djalma rodrigues","djalma"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["72","72 anos"]},
@@ -1419,7 +1419,7 @@ window.CENARIOS = [
   id:"AG-39", titulo:"Atendimento odontológico — paciente HIV positivo",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Pacientes Especiais",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças e segundas.",
-  contexto:`PEDRO AUGUSTO LOPES, 40 anos, solicita consulta de profilaxia e revisão. Informa que é HIV POSITIVO e está em TARV (tenofovir + lamivudina + dolutegravir) há 3 anos. CD4: 620 células/mm³ (controlado). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. PA: 120/80 mmHg. Relata leve sensação de ardência na língua eventualmente. Última carga viral indetectável.`,
+  contexto:`PEDRO AUGUSTO LOPES, 40 anos, solicita consulta de profilaxia e revisão. Informa que é HIV POSITIVO e está em TARV (tenofovir + lamivudina + dolutegravir) há 3 anos. CD4: 620 células/mm³ (controlado). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. PA: 120/80 mmHg. Relata leve sensação de ardência na língua eventualmente. Última carga viral indetectável. Prefere manhã entre 08:00 e 10:00. Não pode às terças e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["pedro augusto lopes","pedro augusto","pedro"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["40","40 anos"]},
@@ -1457,7 +1457,7 @@ window.CENARIOS = [
   id:"AG-40", titulo:"Extração de terceiro molar incluso — avaliação pré-cirúrgica",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`RENATA OLIVEIRA PINTO, 22 anos, chega com queixa de dor na região do siso inferior esquerdo e inchaço local há 2 dias (pericoronarite). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 112/70 mmHg. Radiografia panorâmica recente mostra dente 38 incluso em posição mesioangular com ausência de espaço. Temperatura oral: 37,4°C.`,
+  contexto:`RENATA OLIVEIRA PINTO, 22 anos, chega com queixa de dor na região do siso inferior esquerdo e inchaço local há 2 dias (pericoronarite). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 112/70 mmHg. Radiografia panorâmica recente mostra dente 38 incluso em posição mesioangular com ausência de espaço. Temperatura oral: 37,4°C. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["renata oliveira pinto","renata oliveira","renata"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["22","22 anos"]},
@@ -1497,7 +1497,7 @@ window.CENARIOS = [
   id:"AG-41", titulo:"Gengivite gestacional — 3º trimestre",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Periodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas.",
-  contexto:`AMANDA CRISTINA MELO, 31 anos, GESTANTE de 32 SEMANAS (3º trimestre), chega com queixa de gengiva sangrando ao escovar. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Faz uso de sulfato ferroso, ácido fólico e carbonato de cálcio. PA: 108/65 mmHg. Placa visível, gengiva eritematosa generalizada. Nega dor ou abscesso.`,
+  contexto:`AMANDA CRISTINA MELO, 31 anos, GESTANTE de 32 SEMANAS (3º trimestre), chega com queixa de gengiva sangrando ao escovar. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Faz uso de sulfato ferroso, ácido fólico e carbonato de cálcio. PA: 108/65 mmHg. Placa visível, gengiva eritematosa generalizada. Nega dor ou abscesso. Prefere manhã entre 08:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["amanda cristina melo","amanda cristina","amanda"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["31","31 anos"]},
@@ -1535,7 +1535,7 @@ window.CENARIOS = [
   id:"AG-42", titulo:"Tratamento de canal — molar inferior sintomático",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas.",
-  contexto:`CARLOS ALBERTO NUNES, 44 anos, chega com dor espontânea intensa no molar inferior esquerdo (dente 36), piora à noite e ao deitar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos contínuos. PA: 128/82 mmHg. Radiografia mostra lesão periapical incipiente. O dentista clínico avaliou e indicou tratamento endodôntico.`,
+  contexto:`CARLOS ALBERTO NUNES, 44 anos, chega com dor espontânea intensa no molar inferior esquerdo (dente 36), piora à noite e ao deitar. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos contínuos. PA: 128/82 mmHg. Radiografia mostra lesão periapical incipiente. O dentista clínico avaliou e indicou tratamento endodôntico. Prefere manhã entre 08:00 e 10:00. Não pode às sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carlos alberto nunes","carlos alberto","carlos"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
@@ -1577,7 +1577,7 @@ window.CENARIOS = [
   id:"AG-43", titulo:"Cimentação de coroa cerâmica unitária — dente 21",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Prótese",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas.",
-  contexto:`FERNANDA LIMA COSTA, 38 anos, retorna para cimentação definitiva da coroa cerâmica do dente 21 (incisivo central superior esquerdo). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de levotiroxina (hipotireoidismo). PA: 120/78 mmHg. A coroa foi confeccionada no laboratório e chegou para prova e cimentação. Provisória instalada há 3 semanas.`,
+  contexto:`FERNANDA LIMA COSTA, 38 anos, retorna para cimentação definitiva da coroa cerâmica do dente 21 (incisivo central superior esquerdo). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de levotiroxina (hipotireoidismo). PA: 120/78 mmHg. A coroa foi confeccionada no laboratório e chegou para prova e cimentação. Provisória instalada há 3 semanas. Prefere manhã entre 08:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fernanda lima costa","fernanda lima","fernanda"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
@@ -1617,7 +1617,7 @@ window.CENARIOS = [
   id:"AG-44", titulo:"Profilaxia em paciente portador de marca-passo",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Pacientes Especiais",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas.",
-  contexto:`OSWALDO TEIXEIRA VIEIRA, 68 anos, chega para profilaxia de rotina. Portador de MARCA-PASSO CARDÍACO (implantado há 2 anos por bloqueio AV total). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Faz uso de varfarina (INR: 2,1 — controlado), amiodarona e espironolactona. PA: 134/80 mmHg. Sem alergias. Cardiologista autorizou atendimento odontológico de rotina.`,
+  contexto:`OSWALDO TEIXEIRA VIEIRA, 68 anos, chega para profilaxia de rotina. Portador de MARCA-PASSO CARDÍACO (implantado há 2 anos por bloqueio AV total). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Faz uso de varfarina (INR: 2,1 — controlado), amiodarona e espironolactona. PA: 134/80 mmHg. Sem alergias. Cardiologista autorizou atendimento odontológico de rotina. Prefere manhã entre 08:00 e 10:00. Não pode às sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["oswaldo teixeira vieira","oswaldo teixeira","oswaldo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["68","68 anos"]},
@@ -1655,7 +1655,7 @@ window.CENARIOS = [
   id:"AG-45", titulo:"Biópsia de lesão em mucosa jugal",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Cirurgia Oral Menor",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`LUIZA BEATRIZ MOURA, 55 anos, foi encaminhada pelo clínico geral com lesão esbranquiçada em mucosa jugal direita, presente há 4 meses, assintomática, não raspável. Diagnóstico diferencial: leucoplasia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Fumante (20 cigarros/dia há 25 anos). Não tem alergias. Faz uso de losartana e atenolol. PA: 142/88 mmHg.`,
+  contexto:`LUIZA BEATRIZ MOURA, 55 anos, foi encaminhada pelo clínico geral com lesão esbranquiçada em mucosa jugal direita, presente há 4 meses, assintomática, não raspável. Diagnóstico diferencial: leucoplasia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Fumante (20 cigarros/dia há 25 anos). Não tem alergias. Faz uso de losartana e atenolol. PA: 142/88 mmHg. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["luiza beatriz moura","luiza beatriz","luiza"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["55","55 anos"]},
@@ -1696,7 +1696,7 @@ window.CENARIOS = [
   id:"AG-46", titulo:"Urgência — celulite facial odontogênica",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ROBERTO FARIA MACHADO, 35 anos, chega ao consultório com inchaço facial difuso do lado direito, febre (38,6°C) e dificuldade leve de abrir a boca há 2 dias. Refere dor em dente inferior direito há 1 semana sem procurar atendimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. PA: 126/82 mmHg. Radiografia mostra lesão periapical extensa no dente 46.`,
+  contexto:`ROBERTO FARIA MACHADO, 35 anos, chega ao consultório com inchaço facial difuso do lado direito, febre (38,6°C) e dificuldade leve de abrir a boca há 2 dias. Refere dor em dente inferior direito há 1 semana sem procurar atendimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Não usa medicamentos contínuos. PA: 126/82 mmHg. Radiografia mostra lesão periapical extensa no dente 46. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["roberto faria machado","roberto faria","roberto"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
@@ -1734,7 +1734,7 @@ window.CENARIOS = [
   id:"AG-47", titulo:"Radiografia panorâmica — avaliação geral adulto",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Radiologia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas.",
-  contexto:`SIMONE APARECIDA FONSECA, 33 anos, vem para consulta inicial com solicitação de radiografia panorâmica para avaliação geral (presença de terceiros molares, implantes futuros e cáries ocultas). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 115/72 mmHg. Não tem histórico cirúrgico ou protético.`,
+  contexto:`SIMONE APARECIDA FONSECA, 33 anos, vem para consulta inicial com solicitação de radiografia panorâmica para avaliação geral (presença de terceiros molares, implantes futuros e cáries ocultas). Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos contínuos. PA: 115/72 mmHg. Não tem histórico cirúrgico ou protético. Prefere manhã entre 08:00 e 10:00. Não pode às quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["simone aparecida fonseca","simone aparecida","simone"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["33","33 anos"]},
@@ -1769,7 +1769,7 @@ window.CENARIOS = [
   id:"AG-48", titulo:"Raspagem subgengival — periodontite moderada",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Periodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas.",
-  contexto:`MARCO AURÉLIO CUNHA, 47 anos, retorna para segunda sessão de raspagem subgengival (quadrantes posteriores direitos). Diagnóstico: periodontite estágio II, grau B. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de metformina e glibenclamida (diabetes tipo 2, HbA1c: 7,8%). PA: 134/86 mmHg. Boa resposta ao tratamento nos quadrantes anteriores tratados na semana passada.`,
+  contexto:`MARCO AURÉLIO CUNHA, 47 anos, retorna para segunda sessão de raspagem subgengival (quadrantes posteriores direitos). Diagnóstico: periodontite estágio II, grau B. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Faz uso de metformina e glibenclamida (diabetes tipo 2, HbA1c: 7,8%). PA: 134/86 mmHg. Boa resposta ao tratamento nos quadrantes anteriores tratados na semana passada. Prefere manhã entre 08:00 e 10:00. Não pode às segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marco aurélio cunha","marco aurelio cunha","marco aurélio","marco"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["47","47 anos"]},
@@ -1807,7 +1807,7 @@ window.CENARIOS = [
   id:"AG-49", titulo:"Consulta preventiva — adolescente com aparelho ortodôntico",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas.",
-  contexto:`GABRIEL SOUZA ANDRADE, 15 anos, vem para consulta preventiva semestral. Usa aparelho ortodôntico fixo há 8 meses. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL (usa apenas escova interdental). O responsável informa que o ortodontista indicou manutenção preventiva paralela. Não tem alergias. Não usa medicamentos. O paciente está sob responsabilidade da mãe, ROSA ANDRADE, que está presente.`,
+  contexto:`GABRIEL SOUZA ANDRADE, 15 anos, vem para consulta preventiva semestral. Usa aparelho ortodôntico fixo há 8 meses. Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL (usa apenas escova interdental). O responsável informa que o ortodontista indicou manutenção preventiva paralela. Não tem alergias. Não usa medicamentos. O paciente está sob responsabilidade da mãe, ROSA ANDRADE, que está presente. Prefere manhã entre 08:00 e 10:00. Não pode às segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["gabriel souza andrade","gabriel souza","gabriel"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["15","15 anos"]},
@@ -1843,7 +1843,7 @@ window.CENARIOS = [
   id:"AG-50", titulo:"Urgência — avulsão de dente permanente (trauma)",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`A mãe de LUCAS BARBOSA TELES, 10 anos, liga em pânico após queda da bicicleta. O dente 11 saiu inteiro e ela está segurando pela coroa, embrulhado em guardanapo seco. O acidente ocorreu há 20 minutos. Lucas escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe. Não tem alergias. Não usa medicamentos. A mãe deseja saber se é possível reimplantar o dente.`,
+  contexto:`A mãe de LUCAS BARBOSA TELES, 10 anos, liga em pânico após queda da bicicleta. O dente 11 saiu inteiro e ela está segurando pela coroa, embrulhado em guardanapo seco. O acidente ocorreu há 20 minutos. Lucas escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe. Não tem alergias. Não usa medicamentos. A mãe deseja saber se é possível reimplantar o dente. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["lucas barbosa teles","lucas barbosa","lucas"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["10","10 anos"]},
@@ -1882,7 +1882,7 @@ window.CENARIOS = [
   id:"AG-51", titulo:"Frenectomia lingual — limitação de mobilidade",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Cirurgia Oral Menor",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`HÉLIO AUGUSTO PRADO, 8 anos, é trazido pelos pais com queixa de dificuldade na fala (trocas fonéticas) e avaliação fonoaudiológica confirmando anquiloglossia grau III. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda dos pais. Não tem alergias. Não usa medicamentos. A fonoaudióloga encaminhou para frenectomia lingual. Peso: 28 kg.`,
+  contexto:`HÉLIO AUGUSTO PRADO, 8 anos, é trazido pelos pais com queixa de dificuldade na fala (trocas fonéticas) e avaliação fonoaudiológica confirmando anquiloglossia grau III. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda dos pais. Não tem alergias. Não usa medicamentos. A fonoaudióloga encaminhou para frenectomia lingual. Peso: 28 kg. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente",obrigatorio:true,validacao:["hélio augusto prado","helio augusto prado","hélio augusto","helio augusto"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["8","8 anos"]},
@@ -1921,7 +1921,7 @@ window.CENARIOS = [
   id:"AG-52", titulo:"Retratamento endodôntico — dente com insucesso",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Endodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas e segundas.",
-  contexto:`IVANA CRISTINA BORGES, 48 anos, encaminhada com dente 26 (primeiro molar superior esquerdo) com histórico de tratamento de canal há 5 anos e dor à percussão, fístula ativa há 2 meses. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de sertralina 50 mg (depressão) e omeprazol 20 mg. PA: 122/78 mmHg. Radiografia mostra lesão periapical com subobturação dos canais.`,
+  contexto:`IVANA CRISTINA BORGES, 48 anos, encaminhada com dente 26 (primeiro molar superior esquerdo) com histórico de tratamento de canal há 5 anos e dor à percussão, fístula ativa há 2 meses. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Faz uso de sertralina 50 mg (depressão) e omeprazol 20 mg. PA: 122/78 mmHg. Radiografia mostra lesão periapical com subobturação dos canais. Prefere manhã entre 08:00 e 10:00. Não pode às sextas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["ivana cristina borges","ivana cristina","ivana"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["48","48 anos"]},
@@ -1961,7 +1961,7 @@ window.CENARIOS = [
   id:"AG-53", titulo:"Profilaxia e aplicação de flúor — paciente diabético controlado",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.",
-  contexto:`MARCOS VINÍCIUS CAVALCANTI, 58 anos, diabético tipo 2, vem para profilaxia semestral. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). HbA1c: 7,2% (controlado). Faz uso de glipizida e metformina. PA: 138/84 mmHg. Sem alergias. Última profilaxia há 7 meses. Apresenta raízes expostas nos dentes posteriores inferiores bilateralmente.`,
+  contexto:`MARCOS VINÍCIUS CAVALCANTI, 58 anos, diabético tipo 2, vem para profilaxia semestral. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA (à noite). HbA1c: 7,2% (controlado). Faz uso de glipizida e metformina. PA: 138/84 mmHg. Sem alergias. Última profilaxia há 7 meses. Apresenta raízes expostas nos dentes posteriores inferiores bilateralmente. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["marcos vinícius cavalcanti","marcos vinicius cavalcanti","marcos vinícius","marcos vinicius"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["58","58 anos"]},
@@ -1999,7 +1999,7 @@ window.CENARIOS = [
   id:"AG-54", titulo:"Instalação de prótese total superior e inferior",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Prótese",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas e terças.",
-  contexto:`BENEDITA SOUZA FERREIRA, 71 anos, retorna para instalação das próteses totais superior e inferior confeccionadas. Escova os dentes 2 VEZES AO DIA (prótese total anterior) e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de losartana e hidroclorotiazida (hipertensão) e AAS 100 mg. PA: 144/86 mmHg. As próteses estão prontas no laboratório. Paciente edêntula total há 3 anos.`,
+  contexto:`BENEDITA SOUZA FERREIRA, 71 anos, retorna para instalação das próteses totais superior e inferior confeccionadas. Escova os dentes 2 VEZES AO DIA (prótese total anterior) e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de losartana e hidroclorotiazida (hipertensão) e AAS 100 mg. PA: 144/86 mmHg. As próteses estão prontas no laboratório. Paciente edêntula total há 3 anos. Prefere manhã entre 08:00 e 10:00. Não pode às sextas e terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["benedita souza ferreira","benedita souza","benedita"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["71","71 anos"]},
@@ -2036,7 +2036,7 @@ window.CENARIOS = [
   id:"AG-55", titulo:"Urgência — fratura coronária em incisivo adulto",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:2, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`VINICIUS ROCHA LIMA, 27 anos, chega ao consultório após queda de skate com fratura coronária do dente 11 envolvendo esmalte e dentina, sem exposição pulpar visível, sensível ao toque. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos. PA: 120/78 mmHg. Traz o fragmento dental consigo, embalado em lenço úmido.`,
+  contexto:`VINICIUS ROCHA LIMA, 27 anos, chega ao consultório após queda de skate com fratura coronária do dente 11 envolvendo esmalte e dentina, sem exposição pulpar visível, sensível ao toque. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 3 VEZES POR SEMANA. Não tem alergias. Não usa medicamentos. PA: 120/78 mmHg. Traz o fragmento dental consigo, embalado em lenço úmido. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["vinicius rocha lima","vinicius rocha","vinicius"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["27","27 anos"]},
@@ -2074,7 +2074,7 @@ window.CENARIOS = [
   id:"AG-56", titulo:"Selante oclusal — criança de alto risco de cárie",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas e quartas.",
-  contexto:`ISABELA FERREIRA GOMES, 7 anos, vem para aplicação de selante nos primeiros molares permanentes recém-irrompidos (dentes 16 e 26). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Responsável: PAI — JORGE FERREIRA. Alto risco de cárie (3 lesões de cárie em dentes decíduos). Não tem alergias. Não usa medicamentos. Peso: 23 kg.`,
+  contexto:`ISABELA FERREIRA GOMES, 7 anos, vem para aplicação de selante nos primeiros molares permanentes recém-irrompidos (dentes 16 e 26). Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Responsável: PAI — JORGE FERREIRA. Alto risco de cárie (3 lesões de cárie em dentes decíduos). Não tem alergias. Não usa medicamentos. Peso: 23 kg. Prefere manhã entre 08:00 e 10:00. Não pode às segundas e quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome da paciente",obrigatorio:true,validacao:["isabela ferreira gomes","isabela ferreira","isabela"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["7","7 anos"]},
@@ -2111,7 +2111,7 @@ window.CENARIOS = [
   id:"AG-57", titulo:"Jato de bicarbonato e polimento — manchas extrínsecas",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças e sextas.",
-  contexto:`FLAVIA REGINA TOSTA, 30 anos, vem para remoção de manchas externas por café e chá. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 112/70 mmHg. Não é gestante. Não tem sensibilidade dentinária. Nenhuma raiz exposta. Gengiva saudável.`,
+  contexto:`FLAVIA REGINA TOSTA, 30 anos, vem para remoção de manchas externas por café e chá. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 112/70 mmHg. Não é gestante. Não tem sensibilidade dentinária. Nenhuma raiz exposta. Gengiva saudável. Prefere manhã entre 08:00 e 10:00. Não pode às terças e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["flavia regina tosta","flávia regina tosta","flavia regina","flávia regina"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["30","30 anos"]},
@@ -2148,7 +2148,7 @@ window.CENARIOS = [
   id:"AG-58", titulo:"Consulta de manutenção periodontal — pós-tratamento",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Periodontia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às segundas e terças.",
-  contexto:`ANDRÉIA LIMA SANTOS, 42 anos, retorna para consulta de manutenção periodontal (protocolo de 3 em 3 meses). Diagnóstico anterior: periodontite estágio III, grau C. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Fumante (10 cigarros/dia — relatou redução). Faz uso de amlodipina (hipertensão). PA: 126/80 mmHg. Sem alergias. Boa higiene e manutenção na última consulta.`,
+  contexto:`ANDRÉIA LIMA SANTOS, 42 anos, retorna para consulta de manutenção periodontal (protocolo de 3 em 3 meses). Diagnóstico anterior: periodontite estágio III, grau C. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Fumante (10 cigarros/dia — relatou redução). Faz uso de amlodipina (hipertensão). PA: 126/80 mmHg. Sem alergias. Boa higiene e manutenção na última consulta. Prefere manhã entre 08:00 e 10:00. Não pode às segundas e terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andréia lima santos","andreia lima santos","andréia lima","andreia lima"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["42","42 anos"]},
@@ -2185,7 +2185,7 @@ window.CENARIOS = [
   id:"AG-59", titulo:"Urgência — dor de dente em paciente hipertenso descompensado",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`GERALDO ALVES CUNHA, 62 anos, chega com dor intensa em dente inferior esquerdo. Aferição na recepção: PA 178/108 mmHg. Diz que está em uso de enalapril mas não tomou hoje por esquecimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias a medicamentos. Relata que a dor o impediu de dormir. Nenhum médico foi consultado recentemente.`,
+  contexto:`GERALDO ALVES CUNHA, 62 anos, chega com dor intensa em dente inferior esquerdo. Aferição na recepção: PA 178/108 mmHg. Diz que está em uso de enalapril mas não tomou hoje por esquecimento. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias a medicamentos. Relata que a dor o impediu de dormir. Nenhum médico foi consultado recentemente. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["geraldo alves cunha","geraldo alves","geraldo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["62","62 anos"]},
@@ -2222,7 +2222,7 @@ window.CENARIOS = [
   id:"AG-60", titulo:"Tomografia computadorizada de feixe cônico (CBCT) — planejamento de implante",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Radiologia",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas.",
-  contexto:`ANDREA MARQUES TAVARES, 46 anos, foi encaminhada para tomografia de feixe cônico (CBCT) para planejamento de implante na região do dente 36 (ausente há 4 anos). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 118/76 mmHg. Não é gestante. O implantodontista solicitou avaliação do volume ósseo e distância ao canal mandibular.`,
+  contexto:`ANDREA MARQUES TAVARES, 46 anos, foi encaminhada para tomografia de feixe cônico (CBCT) para planejamento de implante na região do dente 36 (ausente há 4 anos). Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. PA: 118/76 mmHg. Não é gestante. O implantodontista solicitou avaliação do volume ósseo e distância ao canal mandibular. Prefere manhã entre 08:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andrea marques tavares","andréa marques tavares","andrea marques","andréa marques"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["46","46 anos"]},
@@ -5140,7 +5140,7 @@ window.CENARIOS = [
   id:"AG-61", titulo:"Paciente atrasado — reorganização da agenda",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gestão de Conflito",
   restricoesPaciente:"Prefere tarde entre 14:30 e 17:00. Não pode às sextas.",
-  contexto:`MARIA FERNANDA AZEVEDO, 35 anos, tinha consulta de profilaxia agendada para as 14h00. São 14h27 e ela acaba de chegar, pedindo desculpas e dizendo que o trânsito estava muito intenso. A próxima paciente está agendada para as 15h00. Maria escova os dentes 2 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias nem medicamentos. Está visivelmente constrangida com o atraso.`,
+  contexto:`MARIA FERNANDA AZEVEDO, 35 anos, tinha consulta de profilaxia agendada para as 14h00. São 14h27 e ela acaba de chegar, pedindo desculpas e dizendo que o trânsito estava muito intenso. A próxima paciente está agendada para as 15h00. Maria escova os dentes 2 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias nem medicamentos. Está visivelmente constrangida com o atraso. Prefere tarde entre 14:30 e 17:00. Não pode às sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["maria fernanda azevedo","maria fernanda","maria"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["35","35 anos"]},
@@ -5176,7 +5176,7 @@ window.CENARIOS = [
   id:"AG-62", titulo:"Material indisponível — resina na cor correta em falta",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gestão de Conflito",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas.",
-  contexto:`CARLOS HENRIQUE BORGES, 41 anos, tem consulta agendada para restauração de resina composta no dente 14. Ao preparar a bandeja, a auxiliar informa que a resina na cor A2 (cor do dente do paciente) acabou no estoque. Carlos escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Não usa medicamentos. Ele já se deslocou 40 minutos para a consulta e está esperando na recepção.`,
+  contexto:`CARLOS HENRIQUE BORGES, 41 anos, tem consulta agendada para restauração de resina composta no dente 14. Ao preparar a bandeja, a auxiliar informa que a resina na cor A2 (cor do dente do paciente) acabou no estoque. Carlos escova os dentes 3 VEZES AO DIA e USA FIO DENTAL 1 VEZ AO DIA. Não tem alergias. Não usa medicamentos. Ele já se deslocou 40 minutos para a consulta e está esperando na recepção. Prefere manhã entre 08:00 e 10:00. Não pode às quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["carlos henrique borges","carlos henrique","carlos"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["41","41 anos"]},
@@ -5211,7 +5211,7 @@ window.CENARIOS = [
   id:"AG-63", titulo:"Paciente questiona a esterilização dos instrumentos",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Biossegurança",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas.",
-  contexto:`ANDRESSA LIMA PINTO, 29 anos, ao sentar na cadeira para sua restauração de rotina, olha para a bandeja de instrumentos e diz: "Tenho certeza que esses instrumentos foram usados em outro paciente antes de mim. Não confio na esterilização daqui." Andressa escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. Ela está visivelmente agitada e com os braços cruzados.`,
+  contexto:`ANDRESSA LIMA PINTO, 29 anos, ao sentar na cadeira para sua restauração de rotina, olha para a bandeja de instrumentos e diz: "Tenho certeza que esses instrumentos foram usados em outro paciente antes de mim. Não confio na esterilização daqui." Andressa escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias. Não usa medicamentos. Ela está visivelmente agitada e com os braços cruzados. Prefere manhã entre 08:00 e 10:00. Não pode às quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["andressa lima pinto","andressa lima","andressa"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["29","29 anos"]},
@@ -5246,7 +5246,7 @@ window.CENARIOS = [
   id:"AG-64", titulo:"Urgência sem vaga — paciente com dor intensa",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`ROGÉRIO ALVES SOUSA, 48 anos, aparece sem agendamento às 10h30, com dor intensa (relata EVA 8/10) no molar inferior direito. A agenda do dia está completamente cheia. Ele escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de losartana (hipertensão). PA: 146/90 mmHg. Está visivelmente sofrendo e pede para ser atendido.`,
+  contexto:`ROGÉRIO ALVES SOUSA, 48 anos, aparece sem agendamento às 10h30, com dor intensa (relata EVA 8/10) no molar inferior direito. A agenda do dia está completamente cheia. Ele escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Não tem alergias. Faz uso de losartana (hipertensão). PA: 146/90 mmHg. Está visivelmente sofrendo e pede para ser atendido. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["rogério alves sousa","rogerio alves sousa","rogério alves","rogerio alves"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["48","48 anos"]},
@@ -5282,7 +5282,7 @@ window.CENARIOS = [
   id:"AG-65", titulo:"Duplo agendamento no mesmo horário — erro administrativo",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gestão de Conflito",
   restricoesPaciente:"Prefere manhã entre 09:00 e 10:00. Não pode às quintas.",
-  contexto:`PATRICIA MENEZES COSTA, 44 anos, e JOÃO VICTOR SANTOS, 31 anos, chegam ao mesmo tempo às 09h00 e ambos têm o mesmo horário agendado no mesmo consultório. Foi um erro da recepção. Patricia está agendada para consulta periodontal (raspagem) e João para radiografia periapical de rotina. Patrícia escova os dentes 2 VEZES AO DIA e USA FIO DENTAL. João escova 2 VEZES AO DIA e NÃO USA FIO DENTAL.`,
+  contexto:`PATRICIA MENEZES COSTA, 44 anos, e JOÃO VICTOR SANTOS, 31 anos, chegam ao mesmo tempo às 09h00 e ambos têm o mesmo horário agendado no mesmo consultório. Foi um erro da recepção. Patricia está agendada para consulta periodontal (raspagem) e João para radiografia periapical de rotina. Patrícia escova os dentes 2 VEZES AO DIA e USA FIO DENTAL. João escova 2 VEZES AO DIA e NÃO USA FIO DENTAL. Prefere manhã entre 09:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome do paciente prioritário",obrigatorio:true,validacao:["patricia menezes costa","patricia menezes","patricia"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["44","44 anos"]},
@@ -5317,7 +5317,7 @@ window.CENARIOS = [
   id:"AG-66", titulo:"Paciente recusa assinar o Termo de Consentimento Informado",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Ética e Comunicação",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas.",
-  contexto:`HELENA VIEIRA TEIXEIRA, 52 anos, chegou para exodontia do dente 17. Quando a auxiliar apresenta o Termo de Consentimento Informado (TCLE), Helena diz: "Não assino nada. Se confio no dentista, não preciso de papel." Helena escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Faz uso de AAS 100 mg (cardiopatia leve). PA: 130/82 mmHg. Sem alergias.`,
+  contexto:`HELENA VIEIRA TEIXEIRA, 52 anos, chegou para exodontia do dente 17. Quando a auxiliar apresenta o Termo de Consentimento Informado (TCLE), Helena diz: "Não assino nada. Se confio no dentista, não preciso de papel." Helena escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Faz uso de AAS 100 mg (cardiopatia leve). PA: 130/82 mmHg. Sem alergias. Prefere manhã entre 08:00 e 10:00. Não pode às quintas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["helena vieira teixeira","helena vieira","helena"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["52","52 anos"]},
@@ -5353,7 +5353,7 @@ window.CENARIOS = [
   id:"AG-67", titulo:"Paciente sem exame solicitado insiste em atendimento",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Gestão de Conflito",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quartas.",
-  contexto:`FABIANO LOPES CORREIA, 57 anos, chega para consulta de planejamento de implante. Na consulta anterior foi solicitada tomografia CBCT para avaliação óssea. Fabiano não fez o exame ("era caro e não tive tempo") e insiste em continuar o planejamento sem a tomografia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Faz uso de sinvastatina.`,
+  contexto:`FABIANO LOPES CORREIA, 57 anos, chega para consulta de planejamento de implante. Na consulta anterior foi solicitada tomografia CBCT para avaliação óssea. Fabiano não fez o exame ("era caro e não tive tempo") e insiste em continuar o planejamento sem a tomografia. Escova os dentes 2 VEZES AO DIA e USA FIO DENTAL 2 VEZES POR SEMANA. Não tem alergias. Faz uso de sinvastatina. Prefere manhã entre 08:00 e 10:00. Não pode às quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["fabiano lopes correia","fabiano lopes","fabiano"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["57","57 anos"]},
@@ -5389,7 +5389,7 @@ window.CENARIOS = [
   id:"AG-68", titulo:"Paciente faltou 3 vezes — como reagendar",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Gestão de Conflito",
   restricoesPaciente:"Prefere manhã entre 08:00 e 09:00.",
-  contexto:`JOANA CRISTINA MARQUES, 38 anos, está sendo contatada pela clínica para reagendar. Ela já faltou sem aviso 3 vezes consecutivas para raspagem periodontal indicada. Quando ligam, ela diz que sempre esquece. Joana escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Tem periodontite moderada com bolsas de 5-6 mm. Não tem alergias nem medicamentos. Ela diz que quer ser atendida, mas pede horário à noite ou sábado.`,
+  contexto:`JOANA CRISTINA MARQUES, 38 anos, está sendo contatada pela clínica para reagendar. Ela já faltou sem aviso 3 vezes consecutivas para raspagem periodontal indicada. Quando ligam, ela diz que sempre esquece. Joana escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Tem periodontite moderada com bolsas de 5-6 mm. Não tem alergias nem medicamentos. Ela diz que quer ser atendida, mas pede horário à noite ou sábado. Prefere manhã entre 08:00 e 09:00.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["joana cristina marques","joana cristina","joana"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["38","38 anos"]},
@@ -5425,7 +5425,7 @@ window.CENARIOS = [
   id:"AG-69", titulo:"Paciente diabético não tomou medicação no dia da cirurgia",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Pacientes Especiais",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às terças.",
-  contexto:`OSVALDO MENDES BRITO, 60 anos, chegou para extração do dente 45. Ao preencher a ficha na recepção, informa que hoje ESQUECEU DE TOMAR A METFORMINA. Relata glicemia de 210 mg/dL pela manhã (habitual 140-160). Osvaldo escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. PA: 136/84 mmHg. Está levemente cansado mas sem sintomas de hipoglicemia.`,
+  contexto:`OSVALDO MENDES BRITO, 60 anos, chegou para extração do dente 45. Ao preencher a ficha na recepção, informa que hoje ESQUECEU DE TOMAR A METFORMINA. Relata glicemia de 210 mg/dL pela manhã (habitual 140-160). Osvaldo escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias. PA: 136/84 mmHg. Está levemente cansado mas sem sintomas de hipoglicemia. Prefere manhã entre 08:00 e 10:00. Não pode às terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["osvaldo mendes brito","osvaldo mendes","osvaldo"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["60","60 anos"]},
@@ -5461,7 +5461,7 @@ window.CENARIOS = [
   id:"AG-70", titulo:"Responsável recusa tratamento indicado para filho",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:3, area:"Ética e Comunicação",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.",
-  contexto:`LUCAS FERREIRA NEVES, 8 anos, foi avaliado e o dentista indicou a extração do dente 85 (molar decíduo com abscesso e raiz comprometida). A mãe, CLÁUDIA NEVES, 34 anos, recusa a extração dizendo: "Não vou deixar tirar dente de criança. Dê um antibiótico." Lucas escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe. O dente tem fístula ativa e mobilidade grau III.`,
+  contexto:`LUCAS FERREIRA NEVES, 8 anos, foi avaliado e o dentista indicou a extração do dente 85 (molar decíduo com abscesso e raiz comprometida). A mãe, CLÁUDIA NEVES, 34 anos, recusa a extração dizendo: "Não vou deixar tirar dente de criança. Dê um antibiótico." Lucas escova os dentes 2 VEZES AO DIA e USA FIO DENTAL com ajuda da mãe. O dente tem fístula ativa e mobilidade grau III. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e sextas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome da criança",obrigatorio:true,validacao:["lucas ferreira neves","lucas ferreira","lucas"]},
     {chave:"idade",label:"Idade da criança",obrigatorio:true,validacao:["8","8 anos"]},
@@ -5497,7 +5497,7 @@ window.CENARIOS = [
   id:"AG-71", titulo:"Paciente alega dor ao anestésico durante procedimento",
   tipo:"agendamento", modalidade:"agendamento", complexidade:3, tempo:3, area:"Urgência",
   restricoesPaciente:"Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.",
-  contexto:`SANDRA MARA BASTOS, 46 anos, está na cadeira para restauração no dente 26 quando, após a injeção do anestésico, diz que sente dor na gengiva e formigamento nos lábios. Não tem histórico de alergia documentado. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não usa medicamentos. PA: 122/76 mmHg. Faz a segunda consulta na clínica. Ela está agitada.`,
+  contexto:`SANDRA MARA BASTOS, 46 anos, está na cadeira para restauração no dente 26 quando, após a injeção do anestésico, diz que sente dor na gengiva e formigamento nos lábios. Não tem histórico de alergia documentado. Escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não usa medicamentos. PA: 122/76 mmHg. Faz a segunda consulta na clínica. Ela está agitada. Urgente — precisa ser atendido o mais breve possível, qualquer horário disponível serve.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["sandra mara bastos","sandra mara","sandra"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["46","46 anos"]},
@@ -5532,7 +5532,7 @@ window.CENARIOS = [
   id:"AG-72", titulo:"Paciente com higiene precária — abordagem empática",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Preventivo",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às quintas e quartas.",
-  contexto:`WELLINGTON SOUZA RAMOS, 27 anos, chega para uma consulta de rotina. Ao abrir a boca, há placa abundante em todos os dentes, cálculo supragengival extenso, hálito intenso e gengiva muito inflamada. Wellington escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Ao ser questionado, diz que "não gosta de escovar" e acha que "dente é dente mesmo, vai cair um dia." Não tem alergias. Não usa medicamentos.`,
+  contexto:`WELLINGTON SOUZA RAMOS, 27 anos, chega para uma consulta de rotina. Ao abrir a boca, há placa abundante em todos os dentes, cálculo supragengival extenso, hálito intenso e gengiva muito inflamada. Wellington escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Ao ser questionado, diz que "não gosta de escovar" e acha que "dente é dente mesmo, vai cair um dia." Não tem alergias. Não usa medicamentos. Prefere manhã entre 08:00 e 10:00. Não pode às quintas e quartas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["wellington souza ramos","wellington souza","wellington"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["27","27 anos"]},
@@ -5568,7 +5568,7 @@ window.CENARIOS = [
   id:"AG-73", titulo:"Paciente fotografa procedimento sem autorização",
   tipo:"agendamento", modalidade:"agendamento", complexidade:1, tempo:2, area:"Ética e Comunicação",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas e terças.",
-  contexto:`BRUNA CARVALHO LIMA, 25 anos, está na cadeira para uma restauração estética no dente 11. Enquanto aguarda a polimerização da resina, ela pega o celular e começa a fotografar o interior da sua boca e a bancada de instrumentos. A auxiliar percebe que ela está também fotografando o dentista sem aviso. Bruna escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias nem medicamentos.`,
+  contexto:`BRUNA CARVALHO LIMA, 25 anos, está na cadeira para uma restauração estética no dente 11. Enquanto aguarda a polimerização da resina, ela pega o celular e começa a fotografar o interior da sua boca e a bancada de instrumentos. A auxiliar percebe que ela está também fotografando o dentista sem aviso. Bruna escova os dentes 3 VEZES AO DIA e USA FIO DENTAL diariamente. Não tem alergias nem medicamentos. Prefere manhã entre 08:00 e 10:00. Não pode às sextas e terças.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["bruna carvalho lima","bruna carvalho","bruna"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["25","25 anos"]},
@@ -5603,7 +5603,7 @@ window.CENARIOS = [
   id:"AG-74", titulo:"Idoso com dificuldade cognitiva leve — familiar ausente",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Pacientes Especiais",
   restricoesPaciente:"Prefere manhã entre 08:00 e 10:00. Não pode às sextas e segundas.",
-  contexto:`SEBASTIÃO GOMES LEITE, 78 anos, chegou sozinho para consulta de avaliação. Ao preencher a ficha, demonstra dificuldade de recordar o nome dos medicamentos e confunde datas. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Traz uma sacola com caixas de remédios (losartana, enalapril e donepezila — medicamento para Alzheimer). PA: 150/88 mmHg. Sem alergias conhecidas.`,
+  contexto:`SEBASTIÃO GOMES LEITE, 78 anos, chegou sozinho para consulta de avaliação. Ao preencher a ficha, demonstra dificuldade de recordar o nome dos medicamentos e confunde datas. Escova os dentes 1 VEZ AO DIA e NÃO USA FIO DENTAL. Traz uma sacola com caixas de remédios (losartana, enalapril e donepezila — medicamento para Alzheimer). PA: 150/88 mmHg. Sem alergias conhecidas. Prefere manhã entre 08:00 e 10:00. Não pode às sextas e segundas.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["sebastião gomes leite","sebastiao gomes leite","sebastião gomes","sebastiao gomes"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["78","78 anos"]},
@@ -5639,7 +5639,7 @@ window.CENARIOS = [
   id:"AG-75", titulo:"Paciente pede receita de antibiótico sem consulta",
   tipo:"agendamento", modalidade:"agendamento", complexidade:2, tempo:2, area:"Ética e Comunicação",
   restricoesPaciente:"Prefere manhã entre 07:30 e 09:00. Não pode às quintas e sábados.",
-  contexto:`ROBERTO HENRIQUE FONSECA, 33 anos, entra na recepção sem agendamento e diz: "Preciso de uma receita de amoxicilina. Meu dente está doendo há 3 dias, já sei que é infecção. Só precisava de uma receita rápida." Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias conhecidas. Não usa medicamentos. Nenhum exame clínico foi realizado. Ele parece apressado.`,
+  contexto:`ROBERTO HENRIQUE FONSECA, 33 anos, entra na recepção sem agendamento e diz: "Preciso de uma receita de amoxicilina. Meu dente está doendo há 3 dias, já sei que é infecção. Só precisava de uma receita rápida." Escova os dentes 2 VEZES AO DIA e NÃO USA FIO DENTAL. Não tem alergias conhecidas. Não usa medicamentos. Nenhum exame clínico foi realizado. Ele parece apressado. Prefere manhã entre 07:30 e 09:00. Não pode às quintas e sábados.`,
   dadosPaciente:{campos:[
     {chave:"nome",label:"Nome completo",obrigatorio:true,validacao:["roberto henrique fonseca","roberto henrique","roberto"]},
     {chave:"idade",label:"Idade",obrigatorio:true,validacao:["33","33 anos"]},
