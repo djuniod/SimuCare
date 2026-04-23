@@ -472,6 +472,10 @@
   .ag-cal-legend { display: flex; gap: 14px; margin: 8px 0 14px; font-size: 11px; color: var(--text3); }
   .ag-cal-legend span { display: flex; align-items: center; gap: 5px; }
   .ag-cal-legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+  .restricoes-card { display:flex; align-items:flex-start; gap:10px; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.3); border-radius:10px; padding:12px 16px; margin-top:10px; }
+  .restricoes-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .restricoes-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:rgba(180,120,0,0.8); margin-bottom:3px; }
+  .restricoes-texto { font-size:13px; color:#92400e; line-height:1.5; font-weight:500; }
   /* ── Fim mini-agenda ── */
   .ag-fb-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
   .ag-fb-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 0; }
@@ -2251,6 +2255,13 @@ function renderAgStep() {
         <div class="context-label">📞 Contato recebido</div>
         <div class="context-text">${formatContextoWithInfo(a.contexto)}</div>
       </div>
+      ${a.restricoesPaciente ? `<div class="restricoes-card">
+        <div class="restricoes-icon">📅</div>
+        <div>
+          <div class="restricoes-label">Preferências e restrições do paciente</div>
+          <div class="restricoes-texto">${a.restricoesPaciente}</div>
+        </div>
+      </div>` : ''}
       ${tracker}
       ${body}
     </div>`;
@@ -4015,8 +4026,10 @@ function copiarCodigo(codigo) {
 
 function renderAlunosAdmin() {
   const body = document.getElementById('alunos-body');
+  const alertDiv = document.getElementById('alunos-alert');
   if (!state.alunos.length) {
     body.innerHTML = '<tr><td colspan="5" class="muted" style="text-align:center;padding:24px">Nenhum aluno cadastrado. Os alunos se cadastram pela tela de login.</td></tr>';
+    if (alertDiv) alertDiv.innerHTML = '';
     return;
   }
 
