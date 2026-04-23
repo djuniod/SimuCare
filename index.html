@@ -669,7 +669,7 @@
           <canvas id="radar-canvas" width="260" height="260" style="max-width:100%"></canvas>
         </div>
         <div class="comp-bars">
-          <div class="section-title">Desempenho por UC (SENAC)</div>
+          <div class="section-title">Desempenho por Competências</div>
           <div id="comp-bars-content"></div>
         </div>
       </div>
@@ -3788,7 +3788,7 @@ function renderMapaCompetencias(ucData) {
   // Aceita tanto o formato novo (array de {uc, pct, info}) quanto o antigo
   const itens = Array.isArray(ucData) ? ucData : [];
   return `<div style="margin-bottom:20px">
-    <div class="section-title">Desempenho por UC (SENAC)</div>
+    <div class="section-title">Desempenho por Competências</div>
     <div style="display:flex;flex-direction:column;gap:14px">
       ${itens.map(c => {
         const pct = c.pct !== undefined ? c.pct : (parseFloat(c.media) || 0) * 10;
