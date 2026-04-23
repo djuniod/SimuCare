@@ -921,8 +921,13 @@
 // ════════════════════════════════════════════════════════════════════
 
 // -- CONFIG ----------------------------------------------------------
-// Professores vêm de config.js (window.SIMUCARE_CONFIG.PROFESSORES)
+// Professores: config.js (base) + localStorage (adicionados pela UI) + Supabase (cross-browser)
 const PROFESSORES = (window.SIMUCARE_CONFIG && window.SIMUCARE_CONFIG.PROFESSORES) || {};
+// Mescla professores salvos no localStorage (adicionados via UI)
+try {
+  const _lsProfs = JSON.parse(localStorage.getItem('simucare_professores') || '{}');
+  Object.assign(PROFESSORES, _lsProfs);
+} catch(e) {}
 
 // Cliente Supabase (banco online compartilhado)
 const SB_URL = window.SIMUCARE_CONFIG && window.SIMUCARE_CONFIG.SUPABASE_URL;
@@ -1130,6 +1135,16 @@ async function loadAllFromSupabase() {
     // Carregar cenários editados e mesclar
     const cenarioEditados = (cenarioEditadosRes.data || []);
     applyEditedScenariosToDefaultList(cenarioEditados);
+
+    // Carregar professores do Supabase (graceful — tabela pode não existir ainda)
+    try {
+      const { data: profsData, error: profsErr } = await sb.from('professores').select('*');
+      if (!profsErr && profsData) {
+        profsData.forEach(p => {
+          PROFESSORES[p.username] = { nome: p.nome, senha: p.senha };
+        });
+      }
+    } catch(e) { /* tabela professores ainda não criada */ }
   } catch (err) {
     console.error('Erro ao carregar dados do Supabase:', err);
     alert('Não foi possível carregar dados do servidor. Verifique sua conexão e as configurações do Supabase.');
@@ -3598,6 +3613,21 @@ function adicionarProfessor(e) {
   const senha = gerarSenhaAleatoria();
   PROFESSORES[user] = { nome: `Prof. ${nome}`, senha: senha };
 
+  // Persistir no localStorage (funciona imediatamente, sem migration)
+  try {
+    const _ls = JSON.parse(localStorage.getItem('simucare_professores') || '{}');
+    _ls[user] = { nome: `Prof. ${nome}`, senha };
+    localStorage.setItem('simucare_professores', JSON.stringify(_ls));
+  } catch(e) {}
+
+  // Tentar salvar no Supabase (persiste entre navegadores/computadores)
+  if (sb) {
+    sb.from('professores').insert({ username: user, nome: `Prof. ${nome}`, senha })
+      .then(({ error }) => {
+        if (error) console.warn('Supabase: professor não salvo remotamente —', error.message);
+      });
+  }
+
   // Mostrar sucesso
   const statusEl = document.getElementById('admin-status');
   statusEl.innerHTML = `
@@ -3645,6 +3675,17 @@ function confirmarExcluirProf(user) {
   }
   if (confirm(`Excluir ${PROFESSORES[user].nome}?`)) {
     delete PROFESSORES[user];
+    // Remover do localStorage
+    try {
+      const _ls = JSON.parse(localStorage.getItem('simucare_professores') || '{}');
+      delete _ls[user];
+      localStorage.setItem('simucare_professores', JSON.stringify(_ls));
+    } catch(e) {}
+    // Remover do Supabase
+    if (sb) {
+      sb.from('professores').delete().eq('username', user)
+        .then(({ error }) => { if (error) console.warn('Supabase: prof não removido remotamente', error.message); });
+    }
     atualizarListaProfessores();
   }
 }
