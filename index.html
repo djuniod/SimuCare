@@ -453,6 +453,26 @@
     display: flex; align-items: center; justify-content: center; color: var(--accent); background: var(--bg); flex-shrink: 0; }
   .material-item.selected .material-checkbox { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+  /* ── Mini-agenda visual ── */
+  .ag-cal-wrapper { overflow-x: auto; margin: 16px 0 8px; }
+  .ag-cal-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ag-cal-table th, .ag-cal-table td { border: 1px solid var(--border); padding: 0; }
+  .ag-cal-corner { background: transparent; min-width: 58px; }
+  .ag-cal-dayhead { background: var(--bg2); text-align: center; padding: 9px 6px; font-weight: 700; font-size: 12px; color: var(--text-sub); min-width: 84px; letter-spacing: 0.5px; }
+  .ag-cal-time { background: var(--bg2); color: var(--text-sub); font-size: 12px; padding: 10px 12px; white-space: nowrap; font-weight: 600; text-align: right; }
+  .ag-cal-period td { background: var(--bg2); color: var(--text3); font-size: 11px; padding: 5px 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .ag-cal-cell { text-align: center; padding: 10px 6px; font-size: 12px; vertical-align: middle; min-width: 84px; }
+  .ag-cal-cell.livre { background: rgba(16,185,129,0.07); color: #059669; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+  .ag-cal-cell.livre:hover { background: rgba(16,185,129,0.18); font-weight: 700; }
+  .ag-cal-cell.ocupado { background: rgba(107,114,128,0.07); color: var(--text3); cursor: not-allowed; font-size: 11px; }
+  .ag-cal-cell.ag-selected { background: var(--primary) !important; color: #fff !important; font-weight: 700; cursor: pointer; }
+  .ag-ocup-nome { display: block; font-size: 11px; color: var(--text3); }
+  .ag-cal-cell.livre::before { content: ''; }
+  .ag-sel-info { margin-top: 10px; padding: 10px 16px; background: rgba(99,102,241,0.1); border-radius: 8px; color: var(--primary); font-size: 13px; border: 1px solid rgba(99,102,241,0.2); }
+  .ag-cal-legend { display: flex; gap: 14px; margin: 8px 0 14px; font-size: 11px; color: var(--text3); }
+  .ag-cal-legend span { display: flex; align-items: center; gap: 5px; }
+  .ag-cal-legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+  /* ── Fim mini-agenda ── */
   .ag-fb-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
   .ag-fb-row { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 0; }
   .ag-fb-ok { color: var(--success); }
@@ -582,6 +602,14 @@
       <input type="password" id="cad-pass2" placeholder="Repita a senha" maxlength="6">
     </div>
     <div class="field">
+      <label>Formação <span style="color:#ef4444">*</span></label>
+      <select id="cad-form" style="width:100%;padding:10px 12px;border:1px solid #374151;border-radius:8px;background:#1f2937;color:#f9fafb;font-size:14px">
+        <option value="">— Selecione sua formação —</option>
+        <option value="ASB">ASB — Auxiliar em Saúde Bucal</option>
+        <option value="TSB">TSB — Técnico em Saúde Bucal</option>
+      </select>
+    </div>
+    <div class="field">
       <label>Código da turma (opcional)</label>
       <input type="text" id="cad-codigo" placeholder="Deixe em branco se não tiver código">
     </div>
@@ -640,7 +668,7 @@
           <canvas id="radar-canvas" width="260" height="260" style="max-width:100%"></canvas>
         </div>
         <div class="comp-bars">
-          <div class="section-title">Desempenho por competência</div>
+          <div class="section-title">Desempenho por UC (SENAC)</div>
           <div id="comp-bars-content"></div>
         </div>
       </div>
@@ -905,16 +933,84 @@ const sb = window.supabase && SB_URL && SB_KEY
   ? window.supabase.createClient(SB_URL, SB_KEY)
   : null;
 
-const COMPETENCIAS = [
-  "Comunicação empática",
-  "Resolução de problemas",
-  "Tomada de decisão",
-  "Conhecimento técnico",
-  "Biossegurança",
-  "Trabalho em equipe",
-  "Gestão de conflito",
-  "Profissionalismo"
-];
+// ── Estrutura de UCs do SENAC ─────────────────────────────────
+const UCS_ASB = ['UC1','UC2','UC3'];
+const UCS_TSB = ['UC1','UC2','UC3','UC5','UC6','UC7','UC8','UC9','UC10'];
+const UC_INFO = {
+  UC1:  { curto:'Organizar Ambiente',       completo:'UC1 · Organizar o ambiente de trabalho odontológico' },
+  UC2:  { curto:'Orientar Paciente',        completo:'UC2 · Orientar o paciente sobre higiene bucal' },
+  UC3:  { curto:'Auxiliar Clínico',         completo:'UC3 · Auxiliar na realização do trabalho clínico' },
+  UC5:  { curto:'Ações Educativas',         completo:'UC5 · Ações educativas de saúde bucal' },
+  UC6:  { curto:'Prevenção',                completo:'UC6 · Prevenção da cárie e doença periodontal' },
+  UC7:  { curto:'Radiologia',               completo:'UC7 · Radiologia e fotografia odontológicas' },
+  UC8:  { curto:'Reabilitação Oral',        completo:'UC8 · Auxiliar na reabilitação oral' },
+  UC9:  { curto:'Treinamento ASB',          completo:'UC9 · Treinamento do auxiliar em saúde bucal' },
+  UC10: { curto:'Instrumentação Hospitalar',completo:'UC10 · Instrumentação cirúrgica hospitalar' }
+};
+
+// Mapeamento automático de área → UCs primárias
+const UC_POR_AREA = {
+  'Dentística':                        ['UC3','UC8'],
+  'Endodontia':                        ['UC3','UC8'],
+  'Prótese':                           ['UC3','UC8'],
+  'Estética':                          ['UC3','UC8'],
+  'Disfunção Temporomandibular':       ['UC3','UC8'],
+  'Periodontia':                       ['UC3','UC6'],
+  'Preventivo':                        ['UC2','UC3'],
+  'Radiologia':                        ['UC3','UC7'],
+  'Radiologia Odontológica':           ['UC3','UC7'],
+  'Biossegurança e Controle de Infecção':['UC1','UC3'],
+  'Biossegurança':                     ['UC1','UC3'],
+  'Cirurgia':                          ['UC3','UC10'],
+  'Cirurgia Oral Menor':               ['UC3','UC10'],
+  'Urgência':                          ['UC3','UC8'],
+  'Urgências e Emergências':           ['UC3','UC8'],
+  'Ética e Comunicação':               ['UC2','UC3'],
+  'Ética e Profissionalismo':          ['UC2','UC3'],
+  'Gestão de Conflito':                ['UC2','UC9'],
+  'Pacientes Especiais':               ['UC2','UC3'],
+  'Comunicação e Humanização':         ['UC2','UC3'],
+  'Odontopediatria':                   ['UC2','UC3'],
+  'Instrumentação e Biomateriais':     ['UC1','UC3'],
+  'Ergonomia e Auxílio Clínico':       ['UC1','UC3'],
+  'Clínica Geral':                     ['UC1','UC3'],
+};
+
+function getUcsPrimarias(cenario) {
+  if (cenario.ucsPrimarias && cenario.ucsPrimarias.length) return cenario.ucsPrimarias;
+  const mod = cenario.modalidade || cenario.tipo || '';
+  if (mod === 'agendamento') return ['UC1','UC2'];
+  return UC_POR_AREA[cenario.area] || ['UC1','UC3'];
+}
+
+function getUcsDoAluno() {
+  const form = (state.user && state.user.formacao) || 'ASB';
+  return form === 'TSB' ? UCS_TSB : UCS_ASB;
+}
+
+function calcularDesempenhoUC(alunoId, formacao) {
+  const rs = getResultsForUser(alunoId);
+  const allScenarios = getAllScenarios();
+  const ucs = (formacao || 'ASB') === 'TSB' ? UCS_TSB : UCS_ASB;
+  return ucs.map(uc => {
+    const cenariosUc = allScenarios.filter(s => getUcsPrimarias(s).includes(uc));
+    const resultados = rs.filter(r => cenariosUc.some(s => s.id === r.cenarioId));
+    let totalPct = 0;
+    resultados.forEach(r => {
+      const p = Number(r.pontuacao) || 0;
+      const m = r.modalidade || '';
+      // Normaliza para 0-100%
+      if (m === 'materiais') totalPct += p;
+      else if (m === 'clinico') totalPct += p; // 0 ou 100
+      else totalPct += Math.min(100, p * 10);  // 0-10 → 0-100
+    });
+    const pct = resultados.length > 0 ? Math.round(totalPct / resultados.length) : 0;
+    return { uc, pct, total: resultados.length, info: UC_INFO[uc] };
+  });
+}
+
+// Mantém COMPETENCIAS para compatibilidade com CSV
+const COMPETENCIAS = UCS_TSB.map(k => UC_INFO[k].curto);
 
 const AREAS = ["Sala de Espera", "Agendamento", "Consultório", "Estoque", "Financeiro", "Relacionamento", "Saúde e Segurança"];
 
@@ -982,7 +1078,10 @@ const state = {
 // Converte uma linha do Postgres (snake_case) num objeto "aluno"
 // no formato que o resto do código espera.
 function rowToAluno(r) {
-  return { id: r.id, primeiro: r.primeiro, sobrenome: r.sobrenome, senha: r.senha, turma: r.turma_id, createdAt: r.created_at };
+  // formacao: lê do Supabase (se coluna existir) ou do localStorage como fallback
+  const localKey = 'simucare_form_' + norm(r.primeiro||'') + '_' + norm(r.sobrenome||'');
+  const formacao = r.formacao || localStorage.getItem(localKey) || 'ASB';
+  return { id: r.id, primeiro: r.primeiro, sobrenome: r.sobrenome, senha: r.senha, turma: r.turma_id, formacao, createdAt: r.created_at };
 }
 function rowToTurma(r) {
   return { id: r.id, nome: r.nome, codigo: r.codigo, criadaPor: r.criada_por, createdAt: r.created_at };
@@ -1183,7 +1282,7 @@ async function doLoginAluno() {
   const aluno = state.alunos.find(a => norm(a.primeiro)===pri && norm(a.sobrenome)===sob);
   if (!aluno) return showErr('login-err', 'Aluno não encontrado. Verifique o cadastro.');
   if (aluno.senha !== pass) return showErr('login-err', 'Senha incorreta.');
-  state.user = { tipo: 'aluno', id: aluno.id, nome: capitalize(aluno.primeiro) + ' ' + capitalize(aluno.sobrenome), primeiro: aluno.primeiro, sobrenome: aluno.sobrenome, turmaId: aluno.turma };
+  state.user = { tipo: 'aluno', id: aluno.id, nome: capitalize(aluno.primeiro) + ' ' + capitalize(aluno.sobrenome), primeiro: aluno.primeiro, sobrenome: aluno.sobrenome, turmaId: aluno.turma, formacao: aluno.formacao || 'ASB' };
   enterApp();
 }
 function doLoginProf() {
@@ -1204,13 +1303,19 @@ async function doCadastroAluno() {
   const sob = document.getElementById('cad-sob').value.trim();
   const p1 = document.getElementById('cad-pass').value;
   const p2 = document.getElementById('cad-pass2').value;
+  const formacao = document.getElementById('cad-form').value;
   const codigo = document.getElementById('cad-codigo').value.trim();
   if (!pri || !sob) return showErr('cad-err', 'Informe primeiro nome e sobrenome.');
   if (!/^[a-zA-Z\u00C0-\u017F' -]{2,}$/.test(pri) || !/^[a-zA-Z\u00C0-\u017F' -]{2,}$/.test(sob)) return showErr('cad-err', 'Nome e sobrenome devem ter ao menos 2 letras, sem números.');
   if (!/^\d{4,6}$/.test(p1)) return showErr('cad-err', 'A senha deve ter de 4 a 6 dígitos numéricos.');
   if (p1 !== p2) return showErr('cad-err', 'As senhas não conferem.');
+  if (!formacao) return showErr('cad-err', 'Selecione sua formação (ASB ou TSB).');
 
   if (!sb) return showErr('cad-err', 'Servidor não configurado. Avise o responsável pelo SimuCare.');
+
+  // Salva formação no localStorage imediatamente como backup confiável
+  const localKey = 'simucare_form_' + norm(pri) + '_' + norm(sob);
+  localStorage.setItem(localKey, formacao);
 
   // Valida código de turma (se fornecido)
   let turmaId = null;
@@ -1221,9 +1326,14 @@ async function doCadastroAluno() {
     turmaId = turma.id;
   }
 
-  // Insere aluno no Supabase
-  const payload = { primeiro: pri, sobrenome: sob, senha: p1, turma_id: turmaId };
-  const { error: insErr } = await sb.from('alunos').insert(payload);
+  // Tenta inserir com formacao; se a coluna não existir no Supabase, reinsere sem ela
+  let payload = { primeiro: pri, sobrenome: sob, senha: p1, turma_id: turmaId, formacao };
+  let { error: insErr } = await sb.from('alunos').insert(payload);
+  if (insErr && /column|formacao/i.test(insErr.message || '')) {
+    // Coluna formacao ainda não existe → insere sem ela (localStorage já foi salvo)
+    const { error: insErr2 } = await sb.from('alunos').insert({ primeiro: pri, sobrenome: sob, senha: p1, turma_id: turmaId });
+    insErr = insErr2;
+  }
   if (insErr) {
     if (insErr.code === '23505' || /duplicate|unique/i.test(insErr.message||'')) {
       return showErr('cad-err', 'Já existe um aluno com esse nome. Peça ajuda ao seu professor.');
@@ -1238,11 +1348,12 @@ async function doCadastroAluno() {
   document.getElementById('cad-sob').value='';
   document.getElementById('cad-pass').value='';
   document.getElementById('cad-pass2').value='';
+  document.getElementById('cad-form').value='';
   document.getElementById('cad-codigo').value='';
   if (turmaId) {
-    showOk('cad-ok', 'Cadastro criado e turma atribuída! Agora faça o login com seus dados.');
+    showOk('cad-ok', `Cadastro ${formacao} criado e turma atribuída! Agora faça o login.`);
   } else {
-    showOk('cad-ok', 'Cadastro criado! Agora faça o login com seus dados.');
+    showOk('cad-ok', `Cadastro ${formacao} criado! Agora faça o login com seus dados.`);
   }
   setTimeout(()=>showAuth('login'), 1400);
 }
@@ -1470,18 +1581,17 @@ function renderDashboard() {
       ${levelsHtml}
     </div>
   `;
-  // comps
-  const compAvg = COMPETENCIAS.map((_,i) => {
-    const vals = rs.map(r => r.comps && r.comps[i]).filter(v => v !== undefined);
-    return vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : 0;
-  });
-  document.getElementById('comp-bars-content').innerHTML = COMPETENCIAS.map((n,i) => {
-    const v = compAvg[i];
-    return `<div class="comp-bar-row"><div class="comp-name">${n}</div>
-      <div class="comp-track"><div class="comp-fill" style="width:${v*10}%"></div></div>
-      <div class="comp-score">${v ? v.toFixed(1) : '—'}</div></div>`;
+  // UCs do SENAC
+  const formacaoAluno = (state.user && state.user.formacao) || 'ASB';
+  const ucDesempenho = calcularDesempenhoUC(state.user.id, formacaoAluno);
+  document.getElementById('comp-bars-content').innerHTML = ucDesempenho.map(u => {
+    const v = u.pct;
+    return `<div class="comp-bar-row">
+      <div class="comp-name" title="${u.info.completo}">${u.info.curto}</div>
+      <div class="comp-track"><div class="comp-fill" style="width:${v}%"></div></div>
+      <div class="comp-score">${u.total > 0 ? v + '%' : '—'}</div></div>`;
   }).join('');
-  drawRadar(compAvg);
+  drawRadar(ucDesempenho.map(u => u.pct / 10));
   // atividade
   const act = document.getElementById('activity-list');
   if (!rs.length) {
@@ -1733,16 +1843,16 @@ function showResultClinico(res, s, idxSelecionado) {
         </div>
       `}
       <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
-        <h4 style="margin:0 0 16px 0;color:#1f2937">Desempenho por Competência</h4>
+        <h4 style="margin:0 0 16px 0;color:#1f2937">UCs praticadas neste cenário</h4>
         <div style="display:flex;flex-direction:column;gap:12px">
-          ${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => {
-            const score = res.comps[i] || 0;
-            const percent = (score / 10) * 100;
+          ${getUcsPrimarias(s).map(uc => {
+            const info = UC_INFO[uc] || { curto: uc, completo: uc };
+            const percent = res.pontuacao || 0;
             return `
               <div>
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                  <span style="font-size:13px;font-weight:500;color:#1f2937">${comp}</span>
-                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${score.toFixed(1)}</span>
+                  <span style="font-size:13px;font-weight:500;color:#1f2937" title="${info.completo}">${info.curto}</span>
+                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${percent}%</span>
                 </div>
                 <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden">
                   <div style="height:100%;width:${percent}%;background:linear-gradient(90deg, #1b3a8a, #ff8c42);border-radius:3px"></div>
@@ -1769,12 +1879,15 @@ function renderSimStep(showRetryBanner) {
   document.getElementById('sim-prog-fill').style.width = pct + '%';
   document.getElementById('sim-prog-label').textContent = `${state.currentStep}/${total}`;
   const color = AREA_COLORS[s.area] || 'var(--accent)';
-  const compsHtml = COMPETENCIAS.map((name,i) => {
-    const scores = state.stepScores.map(sc => sc.comps[i]);
-    const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
+  const ucsCenarioAtual = getUcsPrimarias(s);
+  const acertosAteAgora = state.stepScores.filter(sc => sc && (sc.pontuacao||0) > 0).length;
+  const totalRespondidosAteAgora = state.stepScores.filter(Boolean).length;
+  const pctAteAgora = totalRespondidosAteAgora > 0 ? Math.round((acertosAteAgora / totalRespondidosAteAgora) * 100) : 0;
+  const compsHtml = ucsCenarioAtual.map(uc => {
+    const info = UC_INFO[uc] || { curto: uc };
     return `<div class="comp-mini">
-      <div class="comp-mini-row"><span class="comp-mini-name">${name}</span><span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace">${avg||'—'}</span></div>
-      <div class="comp-mini-track"><div class="comp-mini-fill" style="width:${avg*10}%"></div></div>
+      <div class="comp-mini-row"><span class="comp-mini-name">${info.curto}</span><span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace">${totalRespondidosAteAgora > 0 ? pctAteAgora+'%' : '—'}</span></div>
+      <div class="comp-mini-track"><div class="comp-mini-fill" style="width:${pctAteAgora}%"></div></div>
     </div>`;
   }).join('');
 
@@ -1980,16 +2093,21 @@ function submitReflexao() {
 function updateCompetenciasSidebar() {
   const sidebar = document.querySelector('.sim-sidebar');
   if (!sidebar) return;
-  const html = COMPETENCIAS.map((name,i) => {
-    const scores = state.stepScores.filter(Boolean).map(sc => sc.comps[i]);
-    const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : 0;
+  // Mostra UCs primárias do cenário atual com progresso parcial
+  const s = state.currentSim;
+  const ucsCenario = s ? getUcsPrimarias(s) : getUcsDoAluno();
+  const acertos = state.stepScores.filter(Boolean).filter(sc => sc.pontuacao > 0).length;
+  const totalRespondidos = state.stepScores.filter(Boolean).length;
+  const pctAtual = totalRespondidos > 0 ? Math.round((acertos / totalRespondidos) * 100) : 0;
+  const html = ucsCenario.map(uc => {
+    const info = UC_INFO[uc] || { curto: uc };
     return `<div class="comp-mini">
-      <div class="comp-mini-row"><span class="comp-mini-name">${name}</span><span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace">${avg||'—'}</span></div>
-      <div class="comp-mini-track"><div class="comp-mini-fill" style="width:${avg*10}%"></div></div>
+      <div class="comp-mini-row"><span class="comp-mini-name">${info.curto}</span><span style="color:var(--accent);font-size:10px;font-family:'JetBrains Mono',monospace">${totalRespondidos > 0 ? pctAtual+'%' : '—'}</span></div>
+      <div class="comp-mini-track"><div class="comp-mini-fill" style="width:${pctAtual}%"></div></div>
     </div>`;
   }).join('');
   const cards = sidebar.querySelectorAll('.sidebar-card');
-  if (cards[1]) cards[1].innerHTML = `<h4>Competências acumuladas</h4>${html}`;
+  if (cards[1]) cards[1].innerHTML = `<h4>UCs deste cenário</h4>${html}`;
 }
 
 function showResultMultipla() {
@@ -1998,7 +2116,7 @@ function showResultMultipla() {
   const scores = state.stepScores.filter(Boolean);
   // Usa total de passos como denominador (passos não respondidos = 0)
   const avgScore = parseFloat((scores.reduce((a,r)=>a+(r.pontuacao||0),0) / totalPassos).toFixed(1));
-  const avgComps = COMPETENCIAS.map((_,i) => parseFloat((scores.reduce((a,r)=>a + (r.comps[i]||0),0) / totalPassos).toFixed(1)));
+  const avgComps = []; // comps legado (não mais usado para exibição, mantido para compat)
   const reflexoes = scores.map(sc => sc.reflexao || '');
   saveResult({
     cenarioId: s.id,
@@ -2029,10 +2147,17 @@ function renderResultScreen(avgScore, avgComps, scenario, reflexoes, scores) {
               : avgScore >= 7   ? {label:'Bom trabalho!', emoji:'✅', color:'var(--accent)'}
               : avgScore >= 5   ? {label:'Pode melhorar', emoji:'💪', color:'var(--warning)'}
               : {label:'Precisa praticar', emoji:'📚', color:'var(--danger)'};
-  const compBars = COMPETENCIAS.map((n,i) => `
-    <div class="comp-bar-row"><div class="comp-name">${n}</div>
-      <div class="comp-track"><div class="comp-fill" style="width:${(avgComps[i]||0)*10}%"></div></div>
-      <div class="comp-score">${avgComps[i]||0}</div></div>`).join('');
+  // Barras de UC para este cenário (mostra apenas as UCs primárias deste cenário)
+  const ucsCenario = getUcsPrimarias(scenario);
+  const acertosPassos = (scores||[]).filter(sc => (sc.pontuacao||0) > 0).length;
+  const pctCenario = scores && scores.length ? Math.round((acertosPassos / scores.length) * 100) : 0;
+  const compBars = ucsCenario.map(uc => {
+    const info = UC_INFO[uc] || { curto: uc, completo: uc };
+    return `<div class="comp-bar-row">
+      <div class="comp-name" title="${info.completo}">${info.curto}</div>
+      <div class="comp-track"><div class="comp-fill" style="width:${pctCenario}%"></div></div>
+      <div class="comp-score">${pctCenario}%</div></div>`;
+  }).join('');
   const reflHtml = (scores||[]).map((sc,i) => sc.reflexao ? `
     <div class="reflection-item"><div class="r-fase">${scenario.passos[i].fase}</div>${sc.reflexao}</div>` : '').join('');
   document.getElementById('sim-content').innerHTML = `
@@ -2048,7 +2173,7 @@ function renderResultScreen(avgScore, avgComps, scenario, reflexoes, scores) {
         <div class="result-title">${grade.label}</div>
         <div class="result-subtitle">${scenario.titulo}</div>
       </div>
-      <div class="result-comps"><div class="section-title">Competências praticadas</div>${compBars}</div>
+      <div class="result-comps"><div class="section-title">UCs praticadas neste cenário</div>${compBars}</div>
       ${reflHtml ? `<div class="result-reflections"><h4>✍️ Suas reflexões deste cenário</h4>${reflHtml}</div>` : ''}
       <div class="result-actions">
         <button class="btn-secondary" onclick="exitSim()">Voltar aos cenários</button>
@@ -2096,6 +2221,7 @@ function startAgendamento(a) {
   state.currentAg = a;
   state.agStep = 0;
   state.agData = { dados: {}, agenda: null, materiais: [] };
+  state._agOcupados = null; // regenera a grade para cada cenário
   document.getElementById('sim-id-label').textContent = a.id;
   document.getElementById('sim-title-label').textContent = a.titulo;
   showScreen('sim-screen');
@@ -2165,25 +2291,100 @@ function submitAgDados() {
   state.agStep = 1; renderAgStep();
 }
 
+// ── Gera slots ocupados (seed por ID do cenário, sempre igual) ──────────────
+function gerarOcupados(a) {
+  let hh = 0;
+  const sid = a.id || 'X';
+  for (let i = 0; i < sid.length; i++) hh = (Math.imul(hh, 31) + sid.charCodeAt(i)) | 0;
+  const rand = () => {
+    hh ^= hh << 13; hh ^= hh >> 17; hh ^= hh << 5;
+    return (hh >>> 0) / 4294967296;
+  };
+  const fakeNomes = ['M.S.','J.F.','A.P.','R.C.','L.M.','C.B.','T.N.','F.O.','G.R.','P.L.',
+                     'H.D.','Y.K.','E.V.','W.B.','S.T.','N.Q.','I.X.','D.Z.'];
+  const ocupados = {};
+  const dias = a.agenda.diasDisponiveis;
+  const horarios = a.agenda.horariosDisponiveis;
+  // Gera ocupações aleatórias (~38% dos slots)
+  dias.forEach(dia => {
+    horarios.forEach(hor => {
+      if (rand() < 0.38) {
+        if (!ocupados[dia]) ocupados[dia] = {};
+        ocupados[dia][hor] = fakeNomes[Math.floor(rand() * fakeNomes.length)];
+      }
+    });
+  });
+  // Garante que pelo menos 1 slot correto fica livre
+  const corrDias = a.agenda.correto.dias;
+  const corrHors = a.agenda.correto.horarios;
+  const temLivreCorreto = corrDias.some(d => corrHors.some(h => !(ocupados[d] && ocupados[d][h])));
+  if (!temLivreCorreto && corrDias.length && corrHors.length) {
+    const d0 = corrDias[0], h0 = corrHors[0];
+    if (ocupados[d0]) delete ocupados[d0][h0];
+  }
+  return ocupados;
+}
+
 function renderAgAgenda(a) {
   const sel = state.agData.agenda || {dia:null, horario:null, sala:null};
+  if (!state._agOcupados) state._agOcupados = gerarOcupados(a);
+  const ocup = state._agOcupados;
+  const dias = a.agenda.diasDisponiveis;
+  const horarios = a.agenda.horariosDisponiveis;
+  const diaAbrev = {segunda:'SEG',terça:'TER',quarta:'QUA',quinta:'QUI',sexta:'SEX',sábado:'SÁB',domingo:'DOM'};
+  const manha = horarios.filter(h => parseInt(h.split(':')[0]) < 12);
+  const tarde  = horarios.filter(h => parseInt(h.split(':')[0]) >= 12);
+
+  const buildRow = (hor) => {
+    const cells = dias.map(dia => {
+      const isOcup = !!(ocup[dia] && ocup[dia][hor]);
+      const isSel  = sel.dia === dia && sel.horario === hor;
+      const cls = isSel ? 'ag-cal-cell ag-selected'
+                : isOcup ? 'ag-cal-cell ocupado'
+                : 'ag-cal-cell livre';
+      const onclick = isOcup ? '' : `onclick="selectSlotAgenda('${dia}','${hor}')"`;
+      const content = isSel   ? '✓ Selecionado'
+                    : isOcup  ? `<span class="ag-ocup-nome">🔒 ${ocup[dia][hor]}</span>`
+                    : '+ Livre';
+      return `<td class="${cls}" ${onclick}>${content}</td>`;
+    }).join('');
+    return `<tr><td class="ag-cal-time">${hor}</td>${cells}</tr>`;
+  };
+
+  const periodoRow = (label) =>
+    `<tr class="ag-cal-period"><td colspan="${dias.length + 1}">${label}</td></tr>`;
+
+  const gridHTML = `
+    <div class="ag-cal-wrapper">
+      <table class="ag-cal-table">
+        <thead>
+          <tr>
+            <th class="ag-cal-corner"></th>
+            ${dias.map(d => `<th class="ag-cal-dayhead">${diaAbrev[d] || d.toUpperCase().slice(0,3)}</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${manha.length ? periodoRow('☀️ Manhã') + manha.map(buildRow).join('') : ''}
+          ${tarde.length  ? periodoRow('🌤️ Tarde')  + tarde.map(buildRow).join('')  : ''}
+        </tbody>
+      </table>
+    </div>
+    <div class="ag-cal-legend">
+      <span><span class="ag-cal-legend-dot" style="background:rgba(16,185,129,0.3)"></span>Livre (clique para selecionar)</span>
+      <span><span class="ag-cal-legend-dot" style="background:rgba(107,114,128,0.2)"></span>Ocupado</span>
+      <span><span class="ag-cal-legend-dot" style="background:var(--primary)"></span>Selecionado</span>
+    </div>`;
+
+  const infoSel = sel.dia && sel.horario
+    ? `<div class="ag-sel-info">📅 Agendado para: <strong>${sel.dia} às ${sel.horario}</strong></div>`
+    : `<div class="ag-sel-info" style="opacity:0.5">Nenhum horário selecionado ainda — clique em um slot livre acima.</div>`;
+
   return `<div class="ag-section">
-    <h3>Etapa 2 — Agendar</h3>
-    <div class="hint">Escolha dia, horário e a sala mais apropriada para o procedimento.</div>
-    <div class="field">
-      <label>Dia</label>
-      <select class="filter-select" style="width:100%;padding:12px 14px" id="ag-dia" onchange="state.agData.agenda=Object.assign(state.agData.agenda||{},{dia:this.value})">
-        <option value="">— Selecione um dia —</option>
-        ${a.agenda.diasDisponiveis.map(d => `<option value="${d}" ${sel.dia===d?'selected':''}>${d}</option>`).join('')}
-      </select>
-    </div>
-    <div class="field">
-      <label>Horário</label>
-      <div class="time-grid">
-        ${a.agenda.horariosDisponiveis.map(h => `<div class="time-slot ${sel.horario===h?'selected':''}" onclick="selectHorario('${h}')">${h}</div>`).join('')}
-      </div>
-    </div>
-    <div class="field">
+    <h3>Etapa 2 — Agendamento</h3>
+    <div class="hint">Visualize a agenda da semana e clique em um slot <strong>livre</strong> para agendar. Em seguida, selecione a sala adequada ao procedimento.</div>
+    ${gridHTML}
+    ${infoSel}
+    <div class="field" style="margin-top:16px">
       <label>Sala / especialidade</label>
       <select class="filter-select" style="width:100%;padding:12px 14px" id="ag-sala" onchange="state.agData.agenda=Object.assign(state.agData.agenda||{},{sala:this.value})">
         <option value="">— Selecione uma sala —</option>
@@ -2196,10 +2397,15 @@ function renderAgAgenda(a) {
     </div>
   </div>`;
 }
-function selectHorario(h) {
+
+function selectSlotAgenda(dia, horario) {
   state.agData.agenda = state.agData.agenda || {};
-  state.agData.agenda.horario = h;
+  state.agData.agenda.dia = dia;
+  state.agData.agenda.horario = horario;
   renderAgStep();
+}
+function selectHorario(h) { // mantido por compatibilidade
+  selectSlotAgenda(state.agData.agenda && state.agData.agenda.dia || '', h);
 }
 function submitAgAgenda() {
   const ag = state.agData.agenda || {};
@@ -2501,16 +2707,16 @@ function showResultMateriais(res, m) {
         ${res.dados_enviados.erros_omissao > 0 ? `<div style="margin-top:12px;padding-top:12px;border-top:1px solid #e5e7eb"><div style="font-weight:600;color:#f59e0b;margin-bottom:8px">⚠ Faltaram (${res.dados_enviados.erros_omissao})</div>${corretos.filter(c => !sel.includes(c)).map(c => `<div style="padding:6px 0;font-size:13px">• ${m.opcoes[c]?.texto || m.opcoes[c]?.nome}</div>`).join('')}</div>` : ''}
       </div>
       <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
-        <h4 style="margin:0 0 16px 0;color:#1f2937">Desempenho por Competência</h4>
+        <h4 style="margin:0 0 16px 0;color:#1f2937">UCs praticadas neste cenário</h4>
         <div style="display:flex;flex-direction:column;gap:12px">
-          ${['Comunicação empática', 'Resolução de problemas', 'Tomada de decisão', 'Conhecimento técnico', 'Biossegurança', 'Trabalho em equipe', 'Gestão de conflito', 'Profissionalismo'].map((comp, i) => {
-            const score = res.comps[i] || 0;
-            const percent = (score / 10) * 100;
+          ${getUcsPrimarias(m).map(uc => {
+            const info = UC_INFO[uc] || { curto: uc, completo: uc };
+            const percent = res.pontuacao || 0;
             return `
               <div>
                 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
-                  <span style="font-size:13px;font-weight:500;color:#1f2937">${comp}</span>
-                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${score.toFixed(1)}</span>
+                  <span style="font-size:13px;font-weight:500;color:#1f2937" title="${info.completo}">${info.curto}</span>
+                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${percent}%</span>
                 </div>
                 <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden">
                   <div style="height:100%;width:${percent}%;background:linear-gradient(90deg, #1b3a8a, #ff8c42);border-radius:3px"></div>
@@ -2909,16 +3115,8 @@ function atualizarCompetenciaAgendamento(idx, valor) {
 // FUNÇÕES PARA CASO CLÍNICO
 // ═══════════════════════════════════════════════════════════════════
 
-const competenciasLabels = [
-  'Comunicação empática',
-  'Resolução de problemas',
-  'Tomada de decisão',
-  'Conhecimento técnico',
-  'Biossegurança',
-  'Trabalho em equipe',
-  'Gestão de conflito',
-  'Profissionalismo'
-];
+// Labels para o painel do professor (UCs do SENAC)
+const competenciasLabels = UCS_TSB.map(k => UC_INFO[k].curto);
 
 function atualizarPassosCasoClinico() {
   const radios = document.querySelectorAll('input[name="cc-passos"]');
@@ -3536,47 +3734,28 @@ function calcularPontosELevel(alunoId) {
 }
 
 // Calcula média de cada competência do aluno
+// calcularCompetencias: agora delega para calcularDesempenhoUC
 function calcularCompetencias(alunoId) {
-  const rs = getResultsForUser(alunoId);
-  const competencias = [
-    { idx: 0, nome: 'Comunicação empática' },
-    { idx: 1, nome: 'Resolução de problemas' },
-    { idx: 2, nome: 'Tomada de decisão' },
-    { idx: 3, nome: 'Conhecimento técnico' },
-    { idx: 4, nome: 'Biossegurança' },
-    { idx: 5, nome: 'Trabalho em equipe' },
-    { idx: 6, nome: 'Gestão de conflito' },
-    { idx: 7, nome: 'Profissionalismo' }
-  ];
-
-  return competencias.map(comp => {
-    const scores = [];
-    rs.forEach(r => {
-      // As competências estão em r.comps (array de 8 números)
-      if (r.comps && Array.isArray(r.comps)) {
-        const valor = r.comps[comp.idx];
-        if (valor !== undefined && valor !== null) {
-          scores.push(Number(valor));
-        }
-      }
-    });
-    const media = scores.length ? (scores.reduce((a, b) => a + b) / scores.length).toFixed(1) : 0;
-    return { ...comp, media, total: scores.length };
-  });
+  const aluno = state.alunos.find(a => a.id === alunoId);
+  const formacao = (aluno && aluno.formacao) || 'ASB';
+  return calcularDesempenhoUC(alunoId, formacao);
 }
 
-// Renderiza o mapa de competências (igual ao painel do professor)
-function renderMapaCompetencias(competencias) {
+// Renderiza desempenho por UC (painel professor e painel aluno)
+function renderMapaCompetencias(ucData) {
+  // Aceita tanto o formato novo (array de {uc, pct, info}) quanto o antigo
+  const itens = Array.isArray(ucData) ? ucData : [];
   return `<div style="margin-bottom:20px">
-    <div class="section-title">Desempenho por competência</div>
+    <div class="section-title">Desempenho por UC (SENAC)</div>
     <div style="display:flex;flex-direction:column;gap:14px">
-      ${competencias.map(c => {
-        const mediaNum = parseFloat(c.media) || 0;
-        const barWidth = Math.min(100, (mediaNum / 10) * 100);
+      ${itens.map(c => {
+        const pct = c.pct !== undefined ? c.pct : (parseFloat(c.media) || 0) * 10;
+        const label = c.info ? c.info.curto : (c.nome || c.uc || '');
+        const fullLabel = c.info ? c.info.completo : label;
         return `<div class="comp-bar-row">
-          <div class="comp-name">${c.nome}</div>
-          <div class="comp-track"><div class="comp-fill" style="width:${barWidth}%"></div></div>
-          <div class="comp-score">${mediaNum > 0 ? mediaNum.toFixed(1) : '—'}</div>
+          <div class="comp-name" title="${fullLabel}">${label}</div>
+          <div class="comp-track"><div class="comp-fill" style="width:${pct}%"></div></div>
+          <div class="comp-score">${c.total > 0 ? pct + '%' : '—'}</div>
         </div>`;
       }).join('')}
     </div>
@@ -3658,6 +3837,7 @@ function openAlunoDetail(alunoId) {
 
   const body = `
     <div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap">
+      <div class="stat-card" style="flex:1;min-width:120px"><div class="stat-label">Formação</div><div style="font-size:14px;font-weight:700;margin-top:4px;color:${al.formacao==='TSB'?'#1d4ed8':'#065f46'}">${al.formacao||'ASB'}</div></div>
       <div class="stat-card" style="flex:1;min-width:120px"><div class="stat-label">Turma</div><div style="font-size:14px;font-weight:700;margin-top:4px">${turma||'—'}</div></div>
       <div class="stat-card" style="flex:1;min-width:120px"><div class="stat-label">Cenários</div><div class="stat-value teal" style="font-size:22px">${rs.length}</div></div>
       <div class="stat-card" style="flex:1;min-width:120px"><div class="stat-label">Média</div><div class="stat-value green" style="font-size:22px">${avg}</div></div>
@@ -3862,8 +4042,11 @@ function renderAlunosAdmin() {
       state.turmas.map(t => `<option value="${t.id}" ${al.turma===t.id?'selected':''}>${t.nome}</option>`)
     ).join('');
     const highlight = !al.turma ? ' style="background:rgba(245,158,11,0.05)"' : '';
+    const formBadge = al.formacao === 'TSB'
+      ? `<span style="font-size:10px;background:#dbeafe;color:#1d4ed8;border-radius:4px;padding:1px 5px;margin-left:6px;font-weight:600">TSB</span>`
+      : `<span style="font-size:10px;background:#d1fae5;color:#065f46;border-radius:4px;padding:1px 5px;margin-left:6px;font-weight:600">ASB</span>`;
     return `<tr${highlight}>
-      <td class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}</td>
+      <td class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}${formBadge}</td>
       <td>${new Date(al.createdAt).toLocaleDateString('pt-BR')}</td>
       <td><select class="inline-select" onchange="atribuirTurma('${al.id}', this.value)">${options}</select></td>
       <td class="td-score">${rs.length}</td>
@@ -3938,13 +4121,17 @@ function updateReflFilters() {
 }
 
 function exportarCSV() {
-  let csv = 'Aluno,Turma,CenárioID,Título,Área,Modalidade,Pontuação,Data,' + COMPETENCIAS.join(',') + ',Reflexões\n';
+  let csv = 'Aluno,Formação,Turma,CenárioID,Título,Área,Modalidade,Pontuação,UCs Primárias,Data,Reflexões\n';
   state.alunos.forEach(al => {
     const rs = getResultsForUser(al.id);
     const t = al.turma ? getTurmaNome(al.turma) : '';
+    const form = al.formacao || 'ASB';
     rs.forEach(r => {
       const refl = (r.reflexoes||[]).filter(x=>x&&x.trim()).join(' | ').replace(/"/g,"'");
-      csv += `"${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}","${t}","${r.cenarioId}","${(r.titulo||'').replace(/"/g,"'")}","${r.area||''}","${r.modalidade||''}",${r.pontuacao},"${new Date(r.data).toLocaleDateString('pt-BR')}",${(r.comps||[]).join(',')},"${refl}"\n`;
+      const allSc = getAllScenarios();
+      const sc = allSc.find(s => s.id === r.cenarioId);
+      const ucs = sc ? getUcsPrimarias(sc).join(';') : '';
+      csv += `"${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}","${form}","${t}","${r.cenarioId}","${(r.titulo||'').replace(/"/g,"'")}","${r.area||''}","${r.modalidade||''}",${r.pontuacao},"${ucs}","${new Date(r.data).toLocaleDateString('pt-BR')}","${refl}"\n`;
     });
   });
   const blob = new Blob([csv], {type:'text/csv'});
