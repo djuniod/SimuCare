@@ -2830,39 +2830,39 @@ function renderOdontogramaScreen() {
   var S = 44, H = S/2, q = Math.round(S/4);
 
   function faceColor(td, face) {
-    if (!td) return '#f5f5f5';
+    if (!td) return 'white';
     if (td._w && TOOL_MAP[td._w]) return TOOL_MAP[td._w].cor;
     if (td[face] && TOOL_MAP[td[face]]) return TOOL_MAP[td[face]].cor;
-    return '#f5f5f5';
+    return 'white';
   }
 
   function toothSVG(n) {
     var td = ts[n] || {};
     var hasWhole = !!td._w;
-    var bg = hasWhole ? (TOOL_MAP[td._w] ? TOOL_MAP[td._w].cor : '#f5f5f5') : '#f5f5f5';
+    var bg = hasWhole ? (TOOL_MAP[td._w] ? TOOL_MAP[td._w].cor : 'white') : 'white';
     var tc = hasWhole ? bg : faceColor(td,'t');
     var bc = hasWhole ? bg : faceColor(td,'b');
     var lc = hasWhole ? bg : faceColor(td,'l');
     var rc = hasWhole ? bg : faceColor(td,'r');
     var cc = hasWhole ? bg : faceColor(td,'c');
     var hasMark = hasWhole || td.t || td.b || td.l || td.r || td.c;
-    var bw = hasMark ? 1.5 : 0.75;
-    var bc2 = hasMark ? '#444' : '#bbb';
+    var bord = hasMark ? '#444' : '#bbb';
+    var bw = hasMark ? 1.5 : 1;
     var cw = 'onclick="selectToothOD('+n+',\'_w\')"';
     function cf(f){ return (isWholeActive||hasWhole)?cw:'onclick="selectToothOD('+n+',\''+f+'\')"'; }
     var letra = (hasWhole && TOOL_MAP[td._w]) ? TOOL_MAP[td._w].letra : '';
-    return '<svg width="'+S+'" height="'+S+'" style="cursor:pointer;display:block" xmlns="http://www.w3.org/2000/svg">'
-      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="'+bg+'" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1"/>'
+    return '<svg width="'+S+'" height="'+S+'" style="cursor:pointer;display:block;overflow:hidden" xmlns="http://www.w3.org/2000/svg">'
+      +'<rect x="0" y="0" width="'+S+'" height="'+S+'" fill="'+bg+'"/>'
       +(hasWhole
         ? (letra?'<text x="'+H+'" y="'+(H+3.5)+'" text-anchor="middle" font-size="9" font-weight="900" fill="white" style="pointer-events:none">'+letra+'</text>':'')
-          +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="transparent" '+cw+'/>'
-        : '<rect x="'+q+'" y="0" width="'+(S-2*q)+'" height="'+q+'" fill="'+tc+'" stroke="#ccc" stroke-width="0.5" '+cf('t')+' style="cursor:pointer"/>'
-          +'<rect x="'+q+'" y="'+(S-q)+'" width="'+(S-2*q)+'" height="'+q+'" fill="'+bc+'" stroke="#ccc" stroke-width="0.5" '+cf('b')+' style="cursor:pointer"/>'
-          +'<rect x="0" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+lc+'" stroke="#ccc" stroke-width="0.5" '+cf('l')+' style="cursor:pointer"/>'
-          +'<rect x="'+(S-q)+'" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+rc+'" stroke="#ccc" stroke-width="0.5" '+cf('r')+' style="cursor:pointer"/>'
-          +'<rect x="'+q+'" y="'+q+'" width="'+(S-2*q)+'" height="'+(S-2*q)+'" fill="'+cc+'" stroke="#ccc" stroke-width="0.5" '+cf('c')+' style="cursor:pointer"/>'
+          +'<rect x="0" y="0" width="'+S+'" height="'+S+'" fill="transparent" '+cw+'/>'
+        : '<rect x="'+q+'" y="0" width="'+(S-2*q)+'" height="'+q+'" fill="'+tc+'" stroke="#ddd" stroke-width="0.5" '+cf('t')+' style="cursor:pointer"/>'
+          +'<rect x="'+q+'" y="'+(S-q)+'" width="'+(S-2*q)+'" height="'+q+'" fill="'+bc+'" stroke="#ddd" stroke-width="0.5" '+cf('b')+' style="cursor:pointer"/>'
+          +'<rect x="0" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+lc+'" stroke="#ddd" stroke-width="0.5" '+cf('l')+' style="cursor:pointer"/>'
+          +'<rect x="'+(S-q)+'" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+rc+'" stroke="#ddd" stroke-width="0.5" '+cf('r')+' style="cursor:pointer"/>'
+          +'<rect x="'+q+'" y="'+q+'" width="'+(S-2*q)+'" height="'+(S-2*q)+'" fill="'+cc+'" stroke="#ddd" stroke-width="0.5" '+cf('c')+' style="cursor:pointer"/>'
       )
-      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="none" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1" style="pointer-events:none"/>'
+      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="none" stroke="'+bord+'" stroke-width="'+bw+'" style="pointer-events:none"/>'
       +'</svg>';
   }
 
@@ -3108,40 +3108,42 @@ function showResultOdontograma(res, od) {
   tools.forEach(function(t){ TOOL_MAP_R[t.id] = t; });
 
   function resultToothColor(marks, face) {
-    if (!marks) return '#f9f9f9';
+    if (!marks) return 'white';
     if (marks._w && TOOL_MAP_R[marks._w]) return TOOL_MAP_R[marks._w].cor;
     if (marks[face] && TOOL_MAP_R[marks[face]]) return TOOL_MAP_R[marks[face]].cor;
-    return '#f9f9f9';
+    return 'white';
   }
 
   function renderResultTooth(n, expMark, userMark, status) {
     // status: 'correct', 'wrong', 'missed', 'extra'
-    var borderColors = {correct:'#22c55e', wrong:'#f59e0b', missed:'#ef4444', extra:'#ef4444', none:'#ddd'};
+    var borderColors = {correct:'#22c55e', wrong:'#f59e0b', missed:'#ef4444', extra:'#ef4444', none:'#bbb'};
     var symbols = {correct:'✓', wrong:'≈', missed:'✗', extra:'✕', none:''};
     var borderColor = borderColors[status] || borderColors.none;
     var symbol = symbols[status] || '';
     var sourceMark = expMark || userMark || {};
     var S = 44, H = S/2, q = Math.round(S/4);
-    var bg = resultToothColor(sourceMark, 'c');
+    var bg = (sourceMark._w && TOOL_MAP_R[sourceMark._w]) ? TOOL_MAP_R[sourceMark._w].cor : 'white';
     var tc = resultToothColor(sourceMark, 't');
     var bc = resultToothColor(sourceMark, 'b');
     var lc = resultToothColor(sourceMark, 'l');
     var rc = resultToothColor(sourceMark, 'r');
     var cc = resultToothColor(sourceMark, 'c');
     var hasWhole = !!(sourceMark._w);
+    var letra = (hasWhole && TOOL_MAP_R[sourceMark._w]) ? TOOL_MAP_R[sourceMark._w].letra : '';
     return '<div style="display:flex;flex-direction:column;align-items:center;gap:2px">'
       + '<span style="font-size:9px;font-weight:700;color:#555">' + n + '</span>'
       + '<div style="position:relative">'
-      + '<svg width="' + S + '" height="' + S + '" xmlns="http://www.w3.org/2000/svg">'
-      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="' + bg + '" stroke="#ddd" stroke-width="1" rx="2"/>'
-      + (hasWhole ? '' :
-          '<rect x="' + q + '" y="0" width="' + (S-2*q) + '" height="' + q + '" fill="' + tc + '" stroke="#ccc" stroke-width="0.5"/>'
-        + '<rect x="' + q + '" y="' + (S-q) + '" width="' + (S-2*q) + '" height="' + q + '" fill="' + bc + '" stroke="#ccc" stroke-width="0.5"/>'
-        + '<rect x="0" y="' + q + '" width="' + q + '" height="' + (S-2*q) + '" fill="' + lc + '" stroke="#ccc" stroke-width="0.5"/>'
-        + '<rect x="' + (S-q) + '" y="' + q + '" width="' + q + '" height="' + (S-2*q) + '" fill="' + rc + '" stroke="#ccc" stroke-width="0.5"/>'
-        + '<rect x="' + q + '" y="' + q + '" width="' + (S-2*q) + '" height="' + (S-2*q) + '" fill="' + cc + '" stroke="#ccc" stroke-width="0.5"/>'
+      + '<svg width="' + S + '" height="' + S + '" style="overflow:hidden" xmlns="http://www.w3.org/2000/svg">'
+      + '<rect x="0" y="0" width="' + S + '" height="' + S + '" fill="' + bg + '"/>'
+      + (hasWhole
+        ? (letra ? '<text x="' + H + '" y="' + (H+3.5) + '" text-anchor="middle" font-size="9" font-weight="900" fill="white" style="pointer-events:none">' + letra + '</text>' : '')
+        :   '<rect x="' + q + '" y="0" width="' + (S-2*q) + '" height="' + q + '" fill="' + tc + '" stroke="#ddd" stroke-width="0.5"/>'
+          + '<rect x="' + q + '" y="' + (S-q) + '" width="' + (S-2*q) + '" height="' + q + '" fill="' + bc + '" stroke="#ddd" stroke-width="0.5"/>'
+          + '<rect x="0" y="' + q + '" width="' + q + '" height="' + (S-2*q) + '" fill="' + lc + '" stroke="#ddd" stroke-width="0.5"/>'
+          + '<rect x="' + (S-q) + '" y="' + q + '" width="' + q + '" height="' + (S-2*q) + '" fill="' + rc + '" stroke="#ddd" stroke-width="0.5"/>'
+          + '<rect x="' + q + '" y="' + q + '" width="' + (S-2*q) + '" height="' + (S-2*q) + '" fill="' + cc + '" stroke="#ddd" stroke-width="0.5"/>'
         )
-      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="none" stroke="' + borderColor + '" stroke-width="2.5" rx="2"/>'
+      + '<rect x="0.5" y="0.5" width="' + (S-1) + '" height="' + (S-1) + '" fill="none" stroke="' + borderColor + '" stroke-width="2" style="pointer-events:none"/>'
       + '</svg>'
       + (symbol ? '<span style="position:absolute;top:-4px;right:-4px;font-size:13px;font-weight:900;color:' + borderColor + ';text-shadow:0 0 2px #fff;line-height:1">' + symbol + '</span>' : '')
       + '</div></div>';
@@ -4926,34 +4928,34 @@ function renderEditOdSVG() {
   var S=36, H=S/2, q=Math.round(S/4);
 
   function fc(td,face){
-    if(!td) return '#f5f5f5';
+    if(!td) return 'white';
     if(td._w && OD_TOOL_MAP[td._w]) return OD_TOOL_MAP[td._w].cor;
     if(td[face] && OD_TOOL_MAP[td[face]]) return OD_TOOL_MAP[td[face]].cor;
-    return '#f5f5f5';
+    return 'white';
   }
 
   function edTooth(n){
     var td=ts[n]||{};
     var hasW=!!td._w;
-    var bg=hasW?(OD_TOOL_MAP[td._w]?OD_TOOL_MAP[td._w].cor:'#f5f5f5'):'#f5f5f5';
+    var bg=hasW?(OD_TOOL_MAP[td._w]?OD_TOOL_MAP[td._w].cor:'white'):'white';
     var tc=hasW?bg:fc(td,'t'),bc=hasW?bg:fc(td,'b');
     var lc=hasW?bg:fc(td,'l'),rc=hasW?bg:fc(td,'r'),cc=hasW?bg:fc(td,'c');
     var hasMark=hasW||td.t||td.b||td.l||td.r||td.c;
-    var bw=hasMark?1.5:0.75, bc2=hasMark?'#444':'#bbb';
+    var bord=hasMark?'#444':'#bbb', bw=hasMark?1.5:1;
     var cw='onclick="selectEditToothOD('+n+',\'_w\')"';
     function cf(f){return(isWhole||hasW)?cw:'onclick="selectEditToothOD('+n+',\''+f+'\')"';}
     var letra=(hasW&&OD_TOOL_MAP[td._w])?OD_TOOL_MAP[td._w].letra:'';
-    return '<svg width="'+S+'" height="'+S+'" style="cursor:pointer;display:block" xmlns="http://www.w3.org/2000/svg">'
-      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="'+bg+'" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1"/>'
+    return '<svg width="'+S+'" height="'+S+'" style="cursor:pointer;display:block;overflow:hidden" xmlns="http://www.w3.org/2000/svg">'
+      +'<rect x="0" y="0" width="'+S+'" height="'+S+'" fill="'+bg+'"/>'
       +(hasW?(letra?'<text x="'+H+'" y="'+(H+3)+'" text-anchor="middle" font-size="10" font-weight="900" fill="white" style="pointer-events:none">'+letra+'</text>':'')
-          +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="transparent" '+cw+'/>'
-        :'<rect x="'+q+'" y="0" width="'+(S-2*q)+'" height="'+q+'" fill="'+tc+'" stroke="#ccc" stroke-width="0.5" '+cf('t')+' style="cursor:pointer"/>'
-          +'<rect x="'+q+'" y="'+(S-q)+'" width="'+(S-2*q)+'" height="'+q+'" fill="'+bc+'" stroke="#ccc" stroke-width="0.5" '+cf('b')+' style="cursor:pointer"/>'
-          +'<rect x="0" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+lc+'" stroke="#ccc" stroke-width="0.5" '+cf('l')+' style="cursor:pointer"/>'
-          +'<rect x="'+(S-q)+'" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+rc+'" stroke="#ccc" stroke-width="0.5" '+cf('r')+' style="cursor:pointer"/>'
-          +'<rect x="'+q+'" y="'+q+'" width="'+(S-2*q)+'" height="'+(S-2*q)+'" fill="'+cc+'" stroke="#ccc" stroke-width="0.5" '+cf('c')+' style="cursor:pointer"/>'
+          +'<rect x="0" y="0" width="'+S+'" height="'+S+'" fill="transparent" '+cw+'/>'
+        :'<rect x="'+q+'" y="0" width="'+(S-2*q)+'" height="'+q+'" fill="'+tc+'" stroke="#ddd" stroke-width="0.5" '+cf('t')+' style="cursor:pointer"/>'
+          +'<rect x="'+q+'" y="'+(S-q)+'" width="'+(S-2*q)+'" height="'+q+'" fill="'+bc+'" stroke="#ddd" stroke-width="0.5" '+cf('b')+' style="cursor:pointer"/>'
+          +'<rect x="0" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+lc+'" stroke="#ddd" stroke-width="0.5" '+cf('l')+' style="cursor:pointer"/>'
+          +'<rect x="'+(S-q)+'" y="'+q+'" width="'+q+'" height="'+(S-2*q)+'" fill="'+rc+'" stroke="#ddd" stroke-width="0.5" '+cf('r')+' style="cursor:pointer"/>'
+          +'<rect x="'+q+'" y="'+q+'" width="'+(S-2*q)+'" height="'+(S-2*q)+'" fill="'+cc+'" stroke="#ddd" stroke-width="0.5" '+cf('c')+' style="cursor:pointer"/>'
       )
-      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="none" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1" style="pointer-events:none"/>'
+      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="none" stroke="'+bord+'" stroke-width="'+bw+'" style="pointer-events:none"/>'
       +'</svg>';
   }
 
