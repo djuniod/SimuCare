@@ -861,7 +861,7 @@
                   <option value="">Todos</option>
                   <option value="agendamento">Agendamento (AG)</option>
                   <option value="materiais">Materiais (MAT)</option>
-                  <option value="clinico">Caso Clínico (CC)</option>
+                  <option value="multipla">Caso Clínico (CC)</option>
                 </select>
               </div>
               <div class="field"><label>Área</label>
@@ -1099,7 +1099,9 @@ const state = {
   // agendamento
   currentAg: null,
   agStep: 0,                // 0=dados, 1=agenda, 2=materiais, 3=resultado
-  agData: {}                // dados preenchidos pelo aluno
+  agData: {},               // dados preenchidos pelo aluno
+  // editor de cenários
+  cenariosEditados: []      // [{cenario_id, editado_por, updated_at}] — rastreia quem editou o quê
 };
 
 // -- PERSISTÊNCIA (SUPABASE) -----------------------------------------
@@ -1180,8 +1182,15 @@ async function loadAllFromSupabase() {
   }
 }
 
-// Mesclar cenários editados com os padrão
+// Mesclar cenários editados com os padrão e registrar quem editou
 function applyEditedScenariosToDefaultList(editedScenarios) {
+  // Guardar no state para uso na lista do editor (badge "editado por")
+  state.cenariosEditados = (editedScenarios || []).map(e => ({
+    cenario_id: e.cenario_id,
+    editado_por: e.editado_por || 'professor',
+    updated_at: e.updated_at || e.created_at || ''
+  }));
+
   editedScenarios.forEach(edit => {
     const idx = window.CENARIOS.findIndex(s => s.id === edit.cenario_id);
     if (idx >= 0 && edit.dados) {
@@ -4327,16 +4336,22 @@ function renderEditCenariosList() {
 
   document.getElementById('edit-count').textContent = filtered.length;
 
+  const editados = state.cenariosEditados || [];
   const lista = document.getElementById('edit-cenarios-lista');
-  lista.innerHTML = filtered.map(s => `
-    <div style="padding:12px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;cursor:pointer;hover:background:#f9fafb" onclick="openEditModal('${s.id}')">
-      <div>
-        <div style="font-weight:600;color:#1f2937">${s.id}</div>
-        <div style="font-size:13px;color:#4b5563;margin-top:4px">${s.titulo}</div>
+  lista.innerHTML = filtered.map(s => {
+    const editInfo = editados.find(e => e.cenario_id === s.id);
+    const badge = editInfo
+      ? `<span style="font-size:11px;background:#dcfce7;color:#166534;padding:3px 10px;border-radius:12px;white-space:nowrap;font-weight:500">✏️ ${editInfo.editado_por}</span>`
+      : `<span style="font-size:11px;background:#f3f4f6;color:#9ca3af;padding:3px 10px;border-radius:12px;white-space:nowrap">Original</span>`;
+    return `
+    <div style="padding:12px 16px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:background 0.15s" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background=''" onclick="openEditModal('${s.id}')">
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:600;color:#1f2937">${s.id} <span style="font-weight:400;color:#6b7280;font-size:12px">${s.area||''}</span></div>
+        <div style="font-size:13px;color:#4b5563;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.titulo}</div>
       </div>
-      <div style="font-size:12px;color:#9ca3af">${s.area||''}</div>
-    </div>
-  `).join('');
+      <div style="margin-left:12px;flex-shrink:0">${badge}</div>
+    </div>`;
+  }).join('');
 }
 
 function openEditModal(scenarioId) {
@@ -4369,20 +4384,21 @@ function renderEditForm(s) {
     </div>
     <div class="field">
       <label>Título</label>
-      <input type="text" class="edit-field" data-field="titulo" value="${s.titulo}">
+      <input type="text" class="edit-field" data-field="titulo" value="${escHtml(s.titulo)}">
     </div>
     <div class="field">
       <label>Contexto</label>
-      <textarea class="edit-field" data-field="contexto" style="min-height:120px;font-family:monospace;font-size:12px">${s.contexto}</textarea>
+      <textarea class="edit-field" data-field="contexto" style="min-height:120px;font-family:monospace;font-size:12px">${escHtml(s.contexto)}</textarea>
     </div>
   `;
 
   // Campos específicos por modalidade
+  // Nota: CC usa modalidade 'multipla' no cenarios.js
   if (s.modalidade === 'agendamento') {
     html += renderEditAgendamento(s);
   } else if (s.modalidade === 'materiais') {
     html += renderEditMateriais(s);
-  } else if (s.modalidade === 'clinico') {
+  } else if (s.modalidade === 'multipla' || s.modalidade === 'clinico' || s.id?.startsWith('CC-')) {
     html += renderEditClinico(s);
   }
 
@@ -4390,47 +4406,211 @@ function renderEditForm(s) {
   return html;
 }
 
+function escHtml(str) {
+  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function renderEditAgendamento(s) {
-  let html = `<div style="border-top:2px solid #e5e7eb;padding-top:20px">
-    <h4 style="margin:0 0 16px 0">Etapa 2: Agendamento</h4>
+  const DIAS_SEMANA = ['segunda','terça','quarta','quinta','sexta','sábado'];
+  const diasDisp   = s.agenda?.diasDisponiveis  || [];
+  const diasCorr   = s.agenda?.correto?.dias    || [];
+  const horasDisp  = (s.agenda?.horariosDisponiveis || []).join('\n');
+  const horasCorr  = (s.agenda?.correto?.horarios  || []).join('\n');
+  const salas      = s.agenda?.salas || [];
+  const salaCorr   = s.agenda?.correto?.sala || '';
+  const mats       = s.materiais?.opcoes    || [];
+  const corretos   = s.materiais?.corretos  || [];
+
+  // --- Etapa 1: Restrições do paciente ---
+  let html = `
+  <div style="border-top:2px solid #e5e7eb;padding-top:20px">
+    <h4 style="margin:0 0 14px 0;color:#374151">📋 Restrições do Paciente</h4>
     <div class="field">
-      <label>Salas disponíveis (uma por linha)</label>
-      <textarea class="edit-field" data-field="agenda.salas" style="min-height:100px;font-family:monospace;font-size:12px">${(s.agenda?.salas || []).join('\n')}</textarea>
-      <div style="font-size:11px;color:#666;margin-top:4px">Será convertido em array automaticamente</div>
-    </div>
-    <div class="field">
-      <label>Sala correta</label>
-      <input type="text" class="edit-field" data-field="agenda.correto.sala" value="${s.agenda?.correto?.sala || ''}">
+      <label>Texto de restrição (aparece em destaque laranja para o aluno)</label>
+      <textarea class="edit-field" data-field="restricoesPaciente" style="min-height:80px">${escHtml(s.restricoesPaciente || '')}</textarea>
     </div>
   </div>`;
 
-  html += `<div style="border-top:2px solid #e5e7eb;padding-top:20px;margin-top:20px">
-    <h4 style="margin:0 0 16px 0">Etapa 3: Materiais</h4>
-    <div style="background:#fef3c7;border:1px solid #fcd34d;padding:12px;border-radius:8px;margin-bottom:16px;font-size:12px;color:#92400e">
-      ℹ️ Edite os materiais diretamente no código JSON abaixo. Este editor suporta formatação avançada.
+  // --- Etapa 2: Agenda ---
+  const diasDispChecks = DIAS_SEMANA.map(d =>
+    `<label style="display:inline-flex;align-items:center;gap:4px;margin-right:10px;cursor:pointer;font-size:13px">
+      <input type="checkbox" data-ag-dia-disp="${d}" ${diasDisp.includes(d) ? 'checked' : ''}>
+      ${d.charAt(0).toUpperCase() + d.slice(1)}
+    </label>`).join('');
+
+  const diasCorrChecks = DIAS_SEMANA.map(d =>
+    `<label style="display:inline-flex;align-items:center;gap:4px;margin-right:10px;cursor:pointer;font-size:13px">
+      <input type="checkbox" data-ag-dia-corr="${d}" ${diasCorr.includes(d) ? 'checked' : ''}>
+      ${d.charAt(0).toUpperCase() + d.slice(1)}
+    </label>`).join('');
+
+  const salasOpts = salas.map(sl =>
+    `<option value="${escHtml(sl)}" ${sl === salaCorr ? 'selected' : ''}>${escHtml(sl)}</option>`
+  ).join('');
+
+  html += `
+  <div style="border-top:2px solid #e5e7eb;padding-top:20px;margin-top:4px">
+    <h4 style="margin:0 0 14px 0;color:#374151">📅 Etapa 2: Agenda</h4>
+
+    <div class="field">
+      <label>Dias disponíveis (que aparecem na grade)</label>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;padding:10px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px">${diasDispChecks}</div>
     </div>
+
+    <div class="field">
+      <label>Horários disponíveis (um por linha, ex: 07:30)</label>
+      <textarea data-ag-horas-disp style="min-height:90px;font-family:monospace;font-size:12px">${escHtml(horasDisp)}</textarea>
+    </div>
+
+    <div class="field">
+      <label>Salas disponíveis (uma por linha)</label>
+      <textarea data-ag-salas style="min-height:90px;font-family:monospace;font-size:12px">${escHtml(salas.join('\n'))}</textarea>
+      <div style="font-size:11px;color:#6b7280;margin-top:4px">⚠️ Ao alterar as salas, atualize também a "Sala correta" abaixo</div>
+    </div>
+
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px;margin-top:8px">
+      <div style="font-weight:600;color:#1d4ed8;margin-bottom:12px;font-size:13px">✅ Respostas Corretas</div>
+
+      <div class="field" style="margin-bottom:10px">
+        <label>Sala correta</label>
+        <select data-ag-sala-corr style="width:100%;padding:8px;border:1px solid #d1d5db;border-radius:6px;font-size:13px">
+          ${salasOpts || `<option value="${escHtml(salaCorr)}">${escHtml(salaCorr)}</option>`}
+        </select>
+        <div style="font-size:11px;color:#6b7280;margin-top:4px">Se a lista estiver vazia, salve as salas primeiro e reabra o editor</div>
+      </div>
+
+      <div class="field" style="margin-bottom:10px">
+        <label>Dias corretos</label>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;padding:10px;background:white;border:1px solid #e5e7eb;border-radius:8px">${diasCorrChecks}</div>
+      </div>
+
+      <div class="field" style="margin-bottom:0">
+        <label>Horários corretos (um por linha)</label>
+        <textarea data-ag-horas-corr style="min-height:80px;font-family:monospace;font-size:12px">${escHtml(horasCorr)}</textarea>
+      </div>
+    </div>
+  </div>`;
+
+  // --- Etapa 3: Materiais ---
+  const matsHtml = mats.map((m, i) => {
+    const ehCorreto = corretos.includes(m.id);
+    return `
+    <div data-ag-mat-row style="display:flex;align-items:center;gap:8px;padding:8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:6px">
+      <input type="hidden" data-ag-mat-id value="${escHtml(m.id)}">
+      <input type="checkbox" data-ag-mat-corr title="Marcar como correto" ${ehCorreto ? 'checked' : ''} style="width:16px;height:16px;flex-shrink:0;accent-color:#16a34a">
+      <input type="text" data-ag-mat-nome value="${escHtml(m.nome)}" style="flex:1;padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:13px">
+      <button onclick="removeAgMat(this)" style="background:#fee2e2;border:none;color:#dc2626;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:14px;flex-shrink:0" title="Remover">✕</button>
+    </div>`;
+  }).join('');
+
+  html += `
+  <div style="border-top:2px solid #e5e7eb;padding-top:20px;margin-top:4px">
+    <h4 style="margin:0 0 6px 0;color:#374151">🧰 Etapa 3: Materiais</h4>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px">☑️ = material correto para este cenário &nbsp;|&nbsp; ✕ = remover da lista</div>
+    <div id="ag-mats-container">${matsHtml}</div>
+    <button onclick="addAgMat()" style="margin-top:8px;background:#f0fdf4;border:1px solid #86efac;color:#15803d;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500">+ Adicionar material</button>
   </div>`;
 
   return html;
 }
 
+function addAgMat() {
+  const container = document.getElementById('ag-mats-container');
+  const newId = 'm' + Date.now();
+  const div = document.createElement('div');
+  div.setAttribute('data-ag-mat-row', '');
+  div.style.cssText = 'display:flex;align-items:center;gap:8px;padding:8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:6px';
+  div.innerHTML = `
+    <input type="hidden" data-ag-mat-id value="${newId}">
+    <input type="checkbox" data-ag-mat-corr title="Marcar como correto" style="width:16px;height:16px;flex-shrink:0;accent-color:#16a34a">
+    <input type="text" data-ag-mat-nome value="" placeholder="Nome do material..." style="flex:1;padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:13px">
+    <button onclick="removeAgMat(this)" style="background:#fee2e2;border:none;color:#dc2626;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:14px;flex-shrink:0" title="Remover">✕</button>`;
+  container.appendChild(div);
+}
+
+function removeAgMat(btn) {
+  btn.closest('[data-ag-mat-row]').remove();
+}
+
 function renderEditMateriais(s) {
-  return `<div style="border-top:2px solid #e5e7eb;padding-top:20px">
-    <h4 style="margin:0 0 16px 0">Materiais</h4>
-    <div style="background:#f0fdf4;border:1px solid #86efac;padding:12px;border-radius:8px;margin-bottom:16px;font-size:12px;color:#15803d">
-      ℹ️ Para editar opções e corretos, use o editor JSON avançado (não disponível nesta versão).
-    </div>
+  const opcoes = s.opcoes || [];
+
+  const itensHtml = opcoes.map((op, i) => `
+    <div data-mat-row style="display:flex;align-items:center;gap:8px;padding:8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:6px">
+      <input type="checkbox" data-mat-corr title="Marcar como correto" ${op.correto ? 'checked' : ''} style="width:16px;height:16px;flex-shrink:0;accent-color:#16a34a">
+      <input type="text" data-mat-texto value="${escHtml(op.texto)}" style="flex:1;padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:13px">
+      <button onclick="removeMatItem(this)" style="background:#fee2e2;border:none;color:#dc2626;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:14px;flex-shrink:0" title="Remover">✕</button>
+    </div>`).join('');
+
+  return `
+  <div style="border-top:2px solid #e5e7eb;padding-top:20px">
+    <h4 style="margin:0 0 6px 0;color:#374151">🧰 Lista de Materiais</h4>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px">☑️ = material correto (o aluno deve selecionar) &nbsp;|&nbsp; ✕ = remover da lista</div>
+    <div id="mat-lista-container">${itensHtml}</div>
+    <button onclick="addMatItem()" style="margin-top:8px;background:#f0fdf4;border:1px solid #86efac;color:#15803d;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500">+ Adicionar material</button>
   </div>`;
 }
 
+function addMatItem() {
+  const container = document.getElementById('mat-lista-container');
+  const div = document.createElement('div');
+  div.setAttribute('data-mat-row', '');
+  div.style.cssText = 'display:flex;align-items:center;gap:8px;padding:8px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;margin-bottom:6px';
+  div.innerHTML = `
+    <input type="checkbox" data-mat-corr title="Marcar como correto" style="width:16px;height:16px;flex-shrink:0;accent-color:#16a34a">
+    <input type="text" data-mat-texto value="" placeholder="Nome do material..." style="flex:1;padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:13px">
+    <button onclick="removeMatItem(this)" style="background:#fee2e2;border:none;color:#dc2626;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:14px;flex-shrink:0" title="Remover">✕</button>`;
+  container.appendChild(div);
+}
+
+function removeMatItem(btn) {
+  btn.closest('[data-mat-row]').remove();
+}
+
 function renderEditClinico(s) {
-  return `<div style="border-top:2px solid #e5e7eb;padding-top:20px">
-    <h4 style="margin:0 0 16px 0">Opções de Resposta (ABCD)</h4>
-    <div class="field">
-      <label>Opções (JSON)</label>
-      <textarea class="edit-field" data-field="opcoes" style="min-height:150px;font-family:monospace;font-size:11px">${JSON.stringify(s.opcoes || [], null, 2)}</textarea>
-      <div style="font-size:11px;color:#666;margin-top:4px">Formato: cada objeto deve ter "texto" e "correto" (boolean)</div>
-    </div>
+  const passos = s.passos || [];
+  const LETRAS = ['A','B','C','D'];
+
+  const passosHtml = passos.map((passo, pi) => {
+    const optHtml = LETRAS.map(l => {
+      const op = (passo.opcoes || []).find(o => o.letra === l) || {};
+      const fbk = (passo.feedback || {})[l] || '';
+      const isCorreta = passo.correta === l;
+      return `
+      <div style="background:${isCorreta ? '#f0fdf4' : '#fafafa'};border:1px solid ${isCorreta ? '#86efac' : '#e5e7eb'};border-radius:8px;padding:12px;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+          <span style="font-weight:700;font-size:15px;color:#374151;width:20px;flex-shrink:0">${l}</span>
+          <input type="radio" name="cc-correta-${pi}" data-cc-correta value="${l}" ${isCorreta ? 'checked' : ''}
+            style="width:16px;height:16px;accent-color:#16a34a;flex-shrink:0" title="Marcar como resposta correta">
+          <label style="font-size:12px;color:#6b7280;margin:0">Resposta correta</label>
+        </div>
+        <div class="field" style="margin-bottom:8px">
+          <label style="font-size:12px">Texto da opção ${l}</label>
+          <textarea data-cc-op-texto="${l}" style="min-height:60px;font-size:13px">${escHtml(op.texto || '')}</textarea>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label style="font-size:12px">Feedback para quem escolher ${l}</label>
+          <textarea data-cc-op-fbk="${l}" style="min-height:60px;font-size:13px;background:#fffbeb">${escHtml(fbk)}</textarea>
+        </div>
+      </div>`;
+    }).join('');
+
+    return `
+    <div data-cc-passo="${pi}" style="border:1px solid #e5e7eb;border-radius:10px;padding:16px;margin-bottom:16px;background:white">
+      <div style="font-weight:600;color:#1d4ed8;margin-bottom:10px;font-size:13px">Pergunta ${pi + 1} — ${escHtml(passo.fase || '')}</div>
+      <div class="field" style="margin-bottom:14px">
+        <label>Enunciado da pergunta</label>
+        <textarea data-cc-pergunta style="min-height:70px;font-size:13px">${escHtml(passo.pergunta || '')}</textarea>
+      </div>
+      <div>${optHtml}</div>
+    </div>`;
+  }).join('');
+
+  return `
+  <div style="border-top:2px solid #e5e7eb;padding-top:20px">
+    <h4 style="margin:0 0 14px 0;color:#374151">❓ Perguntas e Respostas (ABCD)</h4>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:14px">Para cada pergunta: edite o texto das opções, os feedbacks e selecione qual é a <strong>resposta correta</strong>.</div>
+    <div id="cc-passos-container">${passosHtml}</div>
   </div>`;
 }
 
@@ -4438,32 +4618,111 @@ async function saveEditCenario() {
   if (!state_currentEditCenario) return;
 
   const form = document.getElementById('edit-modal-content');
-  const fields = form.querySelectorAll('.edit-field');
+  const mod = state_currentEditCenario.modalidade;
 
-  fields.forEach(field => {
-    const fieldPath = field.dataset.field;
-    const value = field.value;
-
-    if (fieldPath === 'agenda.salas') {
-      const salas = value.split('\n').map(s => s.trim()).filter(s => s);
-      state_currentEditCenario.agenda.salas = salas;
-    } else if (fieldPath === 'agenda.correto.sala') {
-      if (!state_currentEditCenario.agenda.correto) state_currentEditCenario.agenda.correto = {};
-      state_currentEditCenario.agenda.correto.sala = value;
-    } else if (fieldPath === 'opcoes') {
-      try {
-        state_currentEditCenario.opcoes = JSON.parse(value);
-      } catch (e) {
-        alert('Erro ao parsear opciones: ' + e.message);
-        return;
-      }
-    } else if (fieldPath.includes('.')) {
-      // Nested field (ex: titulo, contexto)
-      state_currentEditCenario[fieldPath] = value;
-    } else {
-      state_currentEditCenario[fieldPath] = value;
-    }
+  // 1. Campos simples (.edit-field com data-field)
+  form.querySelectorAll('.edit-field').forEach(field => {
+    const fp = field.dataset.field;
+    const v  = field.value;
+    if (fp === 'titulo')  state_currentEditCenario.titulo  = v;
+    else if (fp === 'contexto') state_currentEditCenario.contexto = v;
+    else if (fp === 'restricoesPaciente') state_currentEditCenario.restricoesPaciente = v;
   });
+
+  // 2. Campos específicos por modalidade
+  if (mod === 'agendamento') {
+    // 2a. Dias disponíveis (checkboxes)
+    state_currentEditCenario.agenda.diasDisponiveis =
+      [...form.querySelectorAll('[data-ag-dia-disp]:checked')].map(cb => cb.dataset.agDiaDisp);
+
+    // 2b. Horários disponíveis (textarea)
+    const horasDispo = form.querySelector('[data-ag-horas-disp]');
+    if (horasDispo) {
+      state_currentEditCenario.agenda.horariosDisponiveis =
+        horasDispo.value.split('\n').map(h => h.trim()).filter(h => h);
+    }
+
+    // 2c. Salas disponíveis (textarea)
+    const salasEl = form.querySelector('[data-ag-salas]');
+    if (salasEl) {
+      state_currentEditCenario.agenda.salas =
+        salasEl.value.split('\n').map(s => s.trim()).filter(s => s);
+    }
+
+    // 2d. Correto: sala (select)
+    if (!state_currentEditCenario.agenda.correto) state_currentEditCenario.agenda.correto = {};
+    const salaCorr = form.querySelector('[data-ag-sala-corr]');
+    if (salaCorr) state_currentEditCenario.agenda.correto.sala = salaCorr.value;
+
+    // 2e. Correto: dias (checkboxes)
+    state_currentEditCenario.agenda.correto.dias =
+      [...form.querySelectorAll('[data-ag-dia-corr]:checked')].map(cb => cb.dataset.agDiaCorr);
+
+    // 2f. Correto: horários (textarea)
+    const horasCorr = form.querySelector('[data-ag-horas-corr]');
+    if (horasCorr) {
+      state_currentEditCenario.agenda.correto.horarios =
+        horasCorr.value.split('\n').map(h => h.trim()).filter(h => h);
+    }
+
+    // 2g. Materiais (lista dinâmica)
+    const matRows = form.querySelectorAll('[data-ag-mat-row]');
+    const novasOpcoes  = [];
+    const novosCorretos = [];
+    matRows.forEach(row => {
+      const id   = row.querySelector('[data-ag-mat-id]')?.value  || ('m' + Date.now() + Math.random());
+      const nome = row.querySelector('[data-ag-mat-nome]')?.value || '';
+      const corr = row.querySelector('[data-ag-mat-corr]')?.checked || false;
+      if (nome.trim()) {
+        novasOpcoes.push({ id, nome });
+        if (corr) novosCorretos.push(id);
+      }
+    });
+    if (!state_currentEditCenario.materiais) state_currentEditCenario.materiais = {};
+    state_currentEditCenario.materiais.opcoes   = novasOpcoes;
+    state_currentEditCenario.materiais.corretos = novosCorretos;
+
+  } else if (mod === 'materiais') {
+    // 3. Materiais MAT: lista de {texto, correto boolean}
+    const matRows = form.querySelectorAll('[data-mat-row]');
+    const novasOpcoes = [];
+    matRows.forEach(row => {
+      const texto = row.querySelector('[data-mat-texto]')?.value || '';
+      const corr  = row.querySelector('[data-mat-corr]')?.checked || false;
+      if (texto.trim()) novasOpcoes.push({ texto, correto: corr });
+    });
+    state_currentEditCenario.opcoes = novasOpcoes;
+
+  } else if (mod === 'multipla') {
+    // 4. Caso Clínico CC: passos com A/B/C/D
+    const LETRAS = ['A','B','C','D'];
+    const passoEls = form.querySelectorAll('[data-cc-passo]');
+    const novoPassos = [];
+    passoEls.forEach((el, pi) => {
+      const passoOriginal = (state_currentEditCenario.passos || [])[pi] || {};
+      const pergunta = el.querySelector('[data-cc-pergunta]')?.value || passoOriginal.pergunta || '';
+      const corretaEl = el.querySelector('[data-cc-correta]:checked');
+      const correta = corretaEl ? corretaEl.value : (passoOriginal.correta || 'A');
+
+      const opcoes = LETRAS.map(l => ({
+        letra: l,
+        texto: el.querySelector(`[data-cc-op-texto="${l}"]`)?.value || ''
+      }));
+      const feedback = {};
+      LETRAS.forEach(l => {
+        feedback[l] = el.querySelector(`[data-cc-op-fbk="${l}"]`)?.value || '';
+      });
+
+      novoPassos.push({
+        ...passoOriginal,
+        pergunta,
+        opcoes,
+        correta,
+        feedback
+      });
+    });
+    state_currentEditCenario.passos = novoPassos;
+  }
 
   // Tentar salvar em Supabase
   try {
@@ -4493,11 +4752,23 @@ async function saveEditCenario() {
     alert('⚠️ Erro de conexão. Alterações foram salvas localmente.');
   }
 
-  // Atualizar localmente
+  // Atualizar localmente — cenário e registro de "editado por"
+  const cenarioId = state_currentEditCenario.id;
   const allScenarios = getAllScenarios();
-  const idx = allScenarios.findIndex(s => s.id === state_currentEditCenario.id);
+  const idx = allScenarios.findIndex(s => s.id === cenarioId);
   if (idx >= 0) {
     window.CENARIOS[idx] = state_currentEditCenario;
+  }
+
+  // Atualizar state.cenariosEditados para o badge aparecer imediatamente
+  const professor = state.user?.username || 'professor';
+  const existIdx = (state.cenariosEditados || []).findIndex(e => e.cenario_id === cenarioId);
+  const novoRegistro = { cenario_id: cenarioId, editado_por: professor, updated_at: new Date().toISOString() };
+  if (existIdx >= 0) {
+    state.cenariosEditados[existIdx] = novoRegistro;
+  } else {
+    if (!state.cenariosEditados) state.cenariosEditados = [];
+    state.cenariosEditados.push(novoRegistro);
   }
 
   closeEditModal();
