@@ -6386,243 +6386,639 @@ window.CENARIOS = [
 // ════════════════════════════════════════════════════════════════════
 
 {
-  id:"OD-01", titulo:"Paciente adulto — restauração existente e planejada",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 35 anos, apresenta restauração de classe I no dente 16 (oclusal, restauração existente em bom estado). Necessita nova restauração de classe II no dente 26 (faces mesial e distal), com extensa cárie proximal. O exame clínico confirma: 16 restaurado, 26 requer restauração planejada.`,
-  correto:{16:{c:'re'},26:{l:'rp',r:'rp'}},
+  id:"OD-01", tipo:"odontograma", modalidade:"odontograma", titulo:"Levantamento completo — adulto jovem",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"José Carlos Ferreira, 38 anos",
+  dentes:[
+    {n:16, descricao:"restauração oclusal existente (amálgama)"},
+    {n:17, descricao:"cárie oclusal a restaurar"},
+    {n:26, descricao:"restauração mesial existente + cárie distal a restaurar"},
+    {n:14, descricao:"exodontia indicada (cárie irrestaurável)"},
+    {n:24, descricao:"restauração mesial existente (resina)"},
+    {n:25, descricao:"cárie vestibular a restaurar"},
+    {n:36, descricao:"ausente (exodontia prévia)"},
+    {n:37, descricao:"cárie oclusal a restaurar"},
+    {n:46, descricao:"tratamento de canal indicado"},
+    {n:47, descricao:"coroa protética indicada"},
+    {n:11, descricao:"restauração incisal existente (resina)"},
+    {n:21, descricao:"cárie incisal a restaurar"}
+  ],
+  correto:{16:{c:'re'}, 17:{c:'rp'}, 26:{l:'re',r:'rp'}, 14:{_w:'ex'}, 24:{l:'re'}, 25:{t:'rp'}, 36:{_w:'au'}, 37:{c:'rp'}, 46:{_w:'ca'}, 47:{_w:'co'}, 11:{c:'re'}, 21:{c:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-02", tipo:"odontograma", modalidade:"odontograma", titulo:"Dentição mista — criança em fase de troca",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Isabela Nunes, 8 anos",
+  dentes:[
+    {n:55, descricao:"restauração oclusal existente (decíduo)"},
+    {n:65, descricao:"restauração oclusal existente (decíduo)"},
+    {n:75, descricao:"cárie oclusal a restaurar (decíduo)"},
+    {n:85, descricao:"cárie oclusal a restaurar (decíduo)"},
+    {n:16, descricao:"restauração oclusal existente (primeiro molar permanente)"},
+    {n:46, descricao:"cárie oclusal a restaurar (primeiro molar permanente)"},
+    {n:51, descricao:"ausente (exfoliado naturalmente)"},
+    {n:61, descricao:"ausente (exfoliado naturalmente)"}
+  ],
+  correto:{55:{c:'re'}, 65:{c:'re'}, 75:{c:'rp'}, 85:{c:'rp'}, 16:{c:'re'}, 46:{c:'rp'}, 51:{_w:'au'}, 61:{_w:'au'}},
+  competencias:[8,8,7,7,8,8,8,8]
+},
+
+{
+  id:"OD-03", tipo:"odontograma", modalidade:"odontograma", titulo:"Reabilitação com implantes — múltiplas ausências",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Roberto Alves, 55 anos",
+  dentes:[
+    {n:18, descricao:"ausente"},
+    {n:17, descricao:"coroa protética existente"},
+    {n:16, descricao:"implante osseointegrado"},
+    {n:26, descricao:"implante osseointegrado"},
+    {n:27, descricao:"coroa sobre implante"},
+    {n:36, descricao:"ausente"},
+    {n:37, descricao:"ausente"},
+    {n:38, descricao:"ausente"},
+    {n:46, descricao:"ausente"},
+    {n:47, descricao:"exodontia indicada"},
+    {n:45, descricao:"tratamento de canal indicado"},
+    {n:44, descricao:"restauração oclusal existente"},
+    {n:35, descricao:"restauração mesial existente"}
+  ],
+  correto:{18:{_w:'au'}, 17:{_w:'co'}, 16:{_w:'im'}, 26:{_w:'im'}, 27:{_w:'co'}, 36:{_w:'au'}, 37:{_w:'au'}, 38:{_w:'au'}, 46:{_w:'au'}, 47:{_w:'ex'}, 45:{_w:'ca'}, 44:{c:'re'}, 35:{l:'re'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-04", tipo:"odontograma", modalidade:"odontograma", titulo:"Múltiplas restaurações — quadrantes mistos",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Carla Mendes, 42 anos",
+  dentes:[
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:17, descricao:"restauração disto-oclusal existente"},
+    {n:26, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"cárie mesio-oclusal a restaurar"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:46, descricao:"restauração oclusal existente"},
+    {n:15, descricao:"cárie oclusal a restaurar"},
+    {n:25, descricao:"cárie oclusal a restaurar"},
+    {n:35, descricao:"restauração oclusal existente"},
+    {n:45, descricao:"cárie distal a restaurar"},
+    {n:13, descricao:"restauração distal existente"}
+  ],
+  correto:{16:{c:'re'}, 17:{l:'re',c:'re'}, 26:{c:'re'}, 27:{l:'rp',c:'rp'}, 36:{_w:'ca'}, 46:{c:'re'}, 15:{c:'rp'}, 25:{c:'rp'}, 35:{c:'re'}, 45:{l:'rp'}, 13:{l:'re'}},
   competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-02", titulo:"Criança com dente decíduo restaurado",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 7 anos, apresenta restauração em resina na face oclusal do dente 75 (decíduo, segundo molar superior direito). A restauração está adequada e sem sinais de lesão. Avaliação odontológica confirma presença de restauração existente apenas neste dente.`,
-  correto:{75:{c:'re'}},
-  competencias:[8,7,7,7,8,8,8,8]
+  id:"OD-05", tipo:"odontograma", modalidade:"odontograma", titulo:"Cáries nos primeiros molares — adulto jovem",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Pedro Oliveira, 25 anos",
+  dentes:[
+    {n:16, descricao:"cárie oclusal a restaurar"},
+    {n:26, descricao:"cárie oclusal a restaurar"},
+    {n:36, descricao:"cárie oclusal a restaurar"},
+    {n:46, descricao:"cárie oclusal a restaurar"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"restauração oclusal existente"},
+    {n:12, descricao:"restauração incisal existente"},
+    {n:22, descricao:"restauração incisal existente"}
+  ],
+  correto:{16:{c:'rp'}, 26:{c:'rp'}, 36:{c:'rp'}, 46:{c:'rp'}, 17:{c:'re'}, 47:{c:'re'}, 12:{c:'re'}, 22:{c:'re'}},
+  competencias:[8,8,7,7,8,8,8,8]
 },
 
 {
-  id:"OD-03", titulo:"Múltiplas restaurações - quadrante anterior",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 42 anos, com histórico de restaurações nas faces oclusais dos dentes 11 e 21 (incisivos superiores). Ambas apresentam restaurações de resina em bom estado. O dente 12 também requer restauração planejada na face incisal devido a desgaste dentário.`,
-  correto:{11:{c:'re'},21:{c:'re'},12:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
+  id:"OD-06", tipo:"odontograma", modalidade:"odontograma", titulo:"Idosa — perdas dentárias e reabilitação complexa",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Márcia Santos, 67 anos",
+  dentes:[
+    {n:18, descricao:"ausente"},
+    {n:17, descricao:"exodontia indicada"},
+    {n:16, descricao:"tratamento de canal indicado"},
+    {n:15, descricao:"restauração mesio-oclusal existente"},
+    {n:28, descricao:"ausente"},
+    {n:27, descricao:"ausente"},
+    {n:26, descricao:"implante osseointegrado"},
+    {n:25, descricao:"restauração oclusal existente"},
+    {n:48, descricao:"ausente"},
+    {n:47, descricao:"ausente"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:38, descricao:"ausente"},
+    {n:37, descricao:"ausente"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:35, descricao:"coroa protética indicada"}
+  ],
+  correto:{18:{_w:'au'}, 17:{_w:'ex'}, 16:{_w:'ca'}, 15:{r:'re',c:'re'}, 28:{_w:'au'}, 27:{_w:'au'}, 26:{_w:'im'}, 25:{c:'re'}, 48:{_w:'au'}, 47:{_w:'au'}, 46:{_w:'im'}, 38:{_w:'au'}, 37:{_w:'au'}, 36:{_w:'ca'}, 35:{_w:'co'}},
+  competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-04", titulo:"Dente ausente e implante planejado",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 58 anos, apresenta ausência do dente 36 (primeiro molar inferior esquerdo) há três anos. Radiografia e exame clínico confirmam perda óssea moderada. Paciente foi encaminhado para colocação de implante dentário. Planejamento inclui a documentação da ausência e a futura prótese sobre implante.`,
-  correto:{36:{_w:'au'},46:{_w:'im'}},
-  competencias:[8,7,8,8,7,8,8,8]
-},
-
-{
-  id:"OD-05", titulo:"Paciente com cárie em desenvolvimento",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente infantil, 9 anos, apresenta pequena lesão de cárie na face oclusal do dente 46 (primeiro molar inferior direito). A lesão é superficial e foi identificada em exame preventivo. Recomendação é restauração preventiva com resina fotopolimerizável para evitar progressão. Diagnóstico: necessidade de restauração.`,
-  correto:{46:{c:'rp'}},
+  id:"OD-07", tipo:"odontograma", modalidade:"odontograma", titulo:"Múltiplos canais radiculares — adulto",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Felipe Costa, 33 anos",
+  dentes:[
+    {n:16, descricao:"tratamento de canal indicado"},
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:46, descricao:"tratamento de canal indicado"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:37, descricao:"restauração disto-oclusal existente"},
+    {n:47, descricao:"restauração mesio-oclusal existente"}
+  ],
+  correto:{16:{_w:'ca'}, 26:{_w:'ca'}, 36:{_w:'ca'}, 46:{_w:'ca'}, 17:{c:'re'}, 27:{c:'rp'}, 37:{r:'re',c:'re'}, 47:{r:'re',c:'re'}},
   competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-06", titulo:"Restauração e canal radicular planejados",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 51 anos, com dente 16 apresentando restauração grande, antiga e comprometida (retração marginal, pigmentação). Radiografia revela lesão periapical sugestiva de necrose pulpar. Diagnóstico: dente necessita endodontia (tratamento de canal) e posterior restauração definitiva. Planejamento inclui tanto o procedimento endodôntico quanto a restauração.`,
-  correto:{16:{_w:'ca'}},
-  competencias:[8,8,8,8,8,7,8,8]
+  id:"OD-08", tipo:"odontograma", modalidade:"odontograma", titulo:"Adolescente — dentição mista em fase final",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Luísa Martins, 12 anos",
+  dentes:[
+    {n:55, descricao:"ausente (exfoliado)"},
+    {n:65, descricao:"ausente (exfoliado)"},
+    {n:85, descricao:"restauração oclusal existente (decíduo)"},
+    {n:75, descricao:"restauração oclusal existente (decíduo)"},
+    {n:16, descricao:"restauração oclusal existente (selante)"},
+    {n:26, descricao:"cárie oclusal a restaurar"},
+    {n:36, descricao:"restauração oclusal existente"},
+    {n:46, descricao:"restauração oclusal existente"}
+  ],
+  correto:{55:{_w:'au'}, 65:{_w:'au'}, 85:{c:'re'}, 75:{c:'re'}, 16:{c:'re'}, 26:{c:'rp'}, 36:{c:'re'}, 46:{c:'re'}},
+  competencias:[8,8,7,7,8,8,8,7]
 },
 
 {
-  id:"OD-07", titulo:"Coroa protética planejada",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 63 anos, com dente 26 apresentando grande restauração de amálgama, com múltiplas fraturas marginais e comprometimento estrutural severo. Avaliação clínica e radiográfica indica que a estrutura dentária residual é insuficiente para nova restauração. Indicação é substituição por coroa protética (total ou parcial).`,
-  correto:{26:{_w:'co'}},
+  id:"OD-09", tipo:"odontograma", modalidade:"odontograma", titulo:"Paciente geriátrico — reabilitação extensa",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Antonio Lima, 71 anos",
+  dentes:[
+    {n:18, descricao:"ausente"},
+    {n:17, descricao:"ausente"},
+    {n:16, descricao:"coroa protética existente"},
+    {n:15, descricao:"exodontia indicada"},
+    {n:28, descricao:"ausente"},
+    {n:27, descricao:"coroa protética existente"},
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:48, descricao:"ausente"},
+    {n:47, descricao:"ausente"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:38, descricao:"ausente"},
+    {n:37, descricao:"ausente"},
+    {n:36, descricao:"implante osseointegrado"},
+    {n:35, descricao:"tratamento de canal indicado"}
+  ],
+  correto:{18:{_w:'au'}, 17:{_w:'au'}, 16:{_w:'co'}, 15:{_w:'ex'}, 28:{_w:'au'}, 27:{_w:'co'}, 26:{_w:'ca'}, 48:{_w:'au'}, 47:{_w:'au'}, 46:{_w:'im'}, 38:{_w:'au'}, 37:{_w:'au'}, 36:{_w:'im'}, 35:{_w:'ca'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-10", tipo:"odontograma", modalidade:"odontograma", titulo:"Consequências periodontais — múltiplas extrações",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Renata Carvalho, 48 anos",
+  dentes:[
+    {n:16, descricao:"exodontia indicada (doença periodontal avançada)"},
+    {n:26, descricao:"exodontia indicada (doença periodontal avançada)"},
+    {n:36, descricao:"ausente (extraído previamente)"},
+    {n:46, descricao:"exodontia indicada"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:15, descricao:"restauração mesial existente"},
+    {n:25, descricao:"cárie mesial a restaurar"}
+  ],
+  correto:{16:{_w:'ex'}, 26:{_w:'ex'}, 36:{_w:'au'}, 46:{_w:'ex'}, 17:{c:'re'}, 27:{c:'rp'}, 37:{c:'re'}, 47:{c:'rp'}, 15:{r:'re'}, 25:{l:'rp'}},
   competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-08", titulo:"Exodontia indicada por cárie severa",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminino, 45 anos, com dente 37 apresentando extensa lesão de cárie que envolve múltiplas faces (oclusal, vestibular, lingual), com comprometimento do tecido pulpar. Radiografia mostra destruição coronária > 60%. Estrutura dentária insuficiente para restauração. Indicação: extração dentária.`,
-  correto:{37:{_w:'ex'}},
-  competencias:[8,7,8,8,8,7,8,8]
+  id:"OD-11", tipo:"odontograma", modalidade:"odontograma", titulo:"Cáries em terceiros molares — adulto jovem",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Thiago Rocha, 22 anos",
+  dentes:[
+    {n:18, descricao:"cárie oclusal a restaurar"},
+    {n:28, descricao:"cárie oclusal a restaurar"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"restauração oclusal existente"},
+    {n:38, descricao:"cárie oclusal a restaurar"},
+    {n:48, descricao:"restauração oclusal existente"},
+    {n:36, descricao:"restauração mesio-oclusal existente"}
+  ],
+  correto:{18:{c:'rp'}, 28:{c:'rp'}, 17:{c:'re'}, 27:{c:'re'}, 38:{c:'rp'}, 48:{c:'re'}, 36:{l:'re',c:'re'}},
+  competencias:[8,8,7,7,8,8,8,8]
 },
 
 {
-  id:"OD-09", titulo:"Dentição mista — dente decíduo restaurado",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 8 anos (dentição mista), com dente 55 (canino decíduo superior direito) apresentando restauração de resina em bom estado cobrindo a face oclusal. Exame clínico confirma restauração adequada, sem necessidade de substituição no momento. Próximo acompanhamento em 6 meses.`,
-  correto:{55:{c:'re'}},
-  competencias:[8,7,7,8,8,8,8,8]
+  id:"OD-12", tipo:"odontograma", modalidade:"odontograma", titulo:"Canal e prótese — pré-molares acometidos",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Fernanda Souza, 35 anos",
+  dentes:[
+    {n:14, descricao:"tratamento de canal indicado"},
+    {n:24, descricao:"tratamento de canal indicado"},
+    {n:15, descricao:"coroa protética indicada (pós canal)"},
+    {n:25, descricao:"restauração oclusal existente"},
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:26, descricao:"cárie disto-oclusal a restaurar"},
+    {n:36, descricao:"restauração mesio-oclusal existente"},
+    {n:46, descricao:"tratamento de canal indicado"},
+    {n:47, descricao:"restauração oclusal existente"},
+    {n:35, descricao:"cárie oclusal a restaurar"}
+  ],
+  correto:{14:{_w:'ca'}, 24:{_w:'ca'}, 15:{_w:'co'}, 25:{c:'re'}, 16:{c:'re'}, 26:{r:'rp',c:'rp'}, 36:{l:'re',c:'re'}, 46:{_w:'ca'}, 47:{c:'re'}, 35:{c:'rp'}},
+  competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-10", titulo:"Paciente edêntulo parcial — múltiplas ausências",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 67 anos, com ausência dos dentes 27 e 37 (segundos molares superiores esquerdo e inferior esquerdo) há 5 anos. As ausências resultaram de extrações por cárie severa e doença periodontal. Radiografia confirma reabsorção óssea moderada. Paciente está em acompanhamento periodontal antes de planejamento protético.`,
-  correto:{27:{_w:'au'},37:{_w:'au'}},
-  competencias:[8,7,7,8,8,8,8,8]
-},
-
-{
-  id:"OD-11", titulo:"Fácil — Restauração simples oclusal",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 28 anos, com pequena lesão de cárie na face oclusal do dente 17 (segundo molar superior direito). Cárie é superficial, limitada ao esmalte e dentina superficial. Radiografia periapical confirma lesão pequena, sem envolvimento pulpar. Restauração simples com resina ou ionômero de vidro está indicada.`,
-  correto:{17:{c:'rp'}},
-  competencias:[8,8,8,7,7,7,8,8]
-},
-
-{
-  id:"OD-12", titulo:"Fácil — Restauração única em incisivo",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 19 anos, com restauração de resina na face incisal do dente 21 (incisivo central superior esquerdo). A restauração está em bom estado, sem sinais de recidiva ou desadaptação. Acompanhamento periódico recomendado. Nenhuma mudança necessária no momento.`,
-  correto:{21:{c:'re'}},
-  competencias:[8,7,7,8,8,8,8,8]
-},
-
-{
-  id:"OD-13", titulo:"Médio — Duas restaurações proximais",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 33 anos, com lesões de cárie proximais nos dentes 14 (pré-molar superior direito) afetando faces mesial e distal, e dente 24 (pré-molar superior esquerdo) afetando face distal. Radiografia confirma lesões em dentina. Restaurações de resina classe II/III estão indicadas para ambos os dentes.`,
-  correto:{14:{l:'rp',r:'rp'},24:{r:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-14", titulo:"Médio — Canal e dente decíduo",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente infantil, 10 anos (dentição mista), com pulpite no dente 65 (primeiro molar decíduo superior direito) e cárie profunda no dente 75 (segundo molar decíduo superior direito). Diagnóstico: o dente 65 necessita tratamento endodôntico (pulpotomia), enquanto o dente 75 requer restauração. Ambas intervenções estão indicadas para manutenção funcional da dentição.`,
-  correto:{65:{_w:'ca'},75:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-15", titulo:"Médio — Ausência e restauração combinadas",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 47 anos, com ausência do dente 35 (pré-molar inferior esquerdo) há 2 anos e restauração deficiente no dente 45 (pré-molar inferior direito). A restauração no dente 45 apresenta margens desadaptadas e pigmentação. Planejamento: substituir restauração do 45 (restauração planejada) e considerar reabilitação do espaço do 35 (ausência).`,
-  correto:{35:{_w:'au'},45:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-16", título:"Fácil — Dente com múltiplas faces a restaurar",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 39 anos, com dente 16 apresentando cárie extensa envolvendo faces oclusal, mesial e distal. A cárie é profunda, mas sem envolvimento pulpar confirmado. Radiografia e testes de vitalidade confirmam dente vital. Indicação: restauração de classe II com extensão oclusal.`,
-  correto:{16:{c:'rp',l:'rp',r:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-17", titulo:"Difícil — Paciente com múltiplos comprometimentos",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 72 anos, com diagnóstico de diabetes mellitus descontrolado. Apresenta: ausência dos dentes 37 e 47 (molares inferiores) há 7 anos, restauração deficiente e desadaptada no dente 36, inflamação gengival em múltiplos sítios, e cárie inicial no dente 46. Avaliação periodontal necessária. Prognóstico: requer controle metabólico antes de planejamento reabilitador.`,
-  correto:{37:{_w:'au'},47:{_w:'au'},36:{c:'rp'},46:{c:'rp'}},
+  id:"OD-13", tipo:"odontograma", modalidade:"odontograma", titulo:"Reabilitação com múltiplos implantes",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"João Paulo Dias, 59 anos",
+  dentes:[
+    {n:16, descricao:"implante osseointegrado"},
+    {n:26, descricao:"implante osseointegrado"},
+    {n:36, descricao:"implante osseointegrado"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:17, descricao:"coroa sobre implante adjacente"},
+    {n:27, descricao:"ausente"},
+    {n:37, descricao:"ausente"},
+    {n:47, descricao:"tratamento de canal indicado"},
+    {n:48, descricao:"exodontia indicada"},
+    {n:15, descricao:"restauração oclusal existente"},
+    {n:25, descricao:"restauração oclusal existente"},
+    {n:35, descricao:"cárie oclusal a restaurar"},
+    {n:45, descricao:"restauração mesio-oclusal existente"},
+    {n:14, descricao:"exodontia indicada"}
+  ],
+  correto:{16:{_w:'im'}, 26:{_w:'im'}, 36:{_w:'im'}, 46:{_w:'im'}, 17:{_w:'co'}, 27:{_w:'au'}, 37:{_w:'au'}, 47:{_w:'ca'}, 48:{_w:'ex'}, 15:{c:'re'}, 25:{c:'re'}, 35:{c:'rp'}, 45:{r:'re',c:'re'}, 14:{_w:'ex'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-18", titulo:"Difícil — Endodontia, coroa e ausências",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 58 anos, com dente 26 apresentando necrose pulpar confirmada por testes de vitalidade ausentes e radiografia com lesão periapical. Dente 25 apresenta restauração inadequada com infiltração. Dentes 27 e 37 estão ausentes. Planejamento multidisciplinar: tratamento endodôntico do 26, coroa protética posterior, reabilitação dos espaços ausentes.`,
-  correto:{26:{_w:'ca'},26:{c:'co'},25:{c:'rp'},27:{_w:'au'},37:{_w:'au'}},
+  id:"OD-14", tipo:"odontograma", modalidade:"odontograma", titulo:"Criança — troca dentária e cáries em decíduos",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Beatriz Ferreira, 9 anos",
+  dentes:[
+    {n:52, descricao:"ausente (exfoliado)"},
+    {n:51, descricao:"ausente (exfoliado)"},
+    {n:61, descricao:"ausente (exfoliado)"},
+    {n:62, descricao:"ausente (exfoliado)"},
+    {n:55, descricao:"cárie oclusal a restaurar (decíduo)"},
+    {n:65, descricao:"cárie oclusal a restaurar (decíduo)"},
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:46, descricao:"cárie oclusal a restaurar"}
+  ],
+  correto:{52:{_w:'au'}, 51:{_w:'au'}, 61:{_w:'au'}, 62:{_w:'au'}, 55:{c:'rp'}, 65:{c:'rp'}, 16:{c:'re'}, 46:{c:'rp'}},
+  competencias:[8,8,7,7,8,8,8,7]
+},
+
+{
+  id:"OD-15", tipo:"odontograma", modalidade:"odontograma", titulo:"Sisos problemáticos e canais indicados",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Eduardo Nunes, 44 anos",
+  dentes:[
+    {n:18, descricao:"exodontia indicada"},
+    {n:28, descricao:"ausente"},
+    {n:38, descricao:"ausente"},
+    {n:48, descricao:"exodontia indicada"},
+    {n:17, descricao:"cárie oclusal a restaurar"},
+    {n:27, descricao:"restauração oclusal existente"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:46, descricao:"tratamento de canal indicado"},
+    {n:35, descricao:"cárie distal a restaurar"},
+    {n:45, descricao:"cárie distal a restaurar"}
+  ],
+  correto:{18:{_w:'ex'}, 28:{_w:'au'}, 38:{_w:'au'}, 48:{_w:'ex'}, 17:{c:'rp'}, 27:{c:'re'}, 37:{c:'re'}, 47:{c:'rp'}, 36:{_w:'ca'}, 46:{_w:'ca'}, 35:{r:'rp'}, 45:{l:'rp'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-16", tipo:"odontograma", modalidade:"odontograma", titulo:"Reabilitação oral completa — implantes e coroas",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Cristina Oliveira, 63 anos",
+  dentes:[
+    {n:17, descricao:"coroa protética existente"},
+    {n:16, descricao:"implante osseointegrado"},
+    {n:15, descricao:"restauração mesial existente"},
+    {n:26, descricao:"implante osseointegrado"},
+    {n:27, descricao:"coroa sobre implante"},
+    {n:28, descricao:"ausente"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:37, descricao:"exodontia indicada"},
+    {n:38, descricao:"ausente"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:47, descricao:"ausente"},
+    {n:48, descricao:"ausente"},
+    {n:14, descricao:"exodontia indicada"},
+    {n:24, descricao:"tratamento de canal indicado"},
+    {n:25, descricao:"coroa protética indicada"}
+  ],
+  correto:{17:{_w:'co'}, 16:{_w:'im'}, 15:{r:'re'}, 26:{_w:'im'}, 27:{_w:'co'}, 28:{_w:'au'}, 36:{_w:'ca'}, 37:{_w:'ex'}, 38:{_w:'au'}, 46:{_w:'im'}, 47:{_w:'au'}, 48:{_w:'au'}, 14:{_w:'ex'}, 24:{_w:'ca'}, 25:{_w:'co'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-19", titulo:"Difícil — Dentição decídua completa com múltiplas lesões",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 4 anos, com dentição totalmente decídua. Apresenta cáries em múltiplos dentes: 55 (restauração existente), 65 (cárie proximal requer restauração), 75 (cárie oclusal requer restauração), e 85 (cárie oclusal requer restauração). Radiografia periapical mostra lesões em dentina. Controle de dieta e higiene oral recomendado urgentemente.`,
-  correto:{55:{c:'re'},65:{l:'rp',r:'rp'},75:{c:'rp'},85:{c:'rp'}},
+  id:"OD-17", tipo:"odontograma", modalidade:"odontograma", titulo:"Jovem — sisos em erupção com cárie",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Gabriel Alves, 18 anos",
+  dentes:[
+    {n:18, descricao:"cárie oclusal a restaurar (terceiro molar irrompido)"},
+    {n:28, descricao:"cárie oclusal a restaurar (terceiro molar irrompido)"},
+    {n:38, descricao:"cárie oclusal a restaurar (terceiro molar irrompido)"},
+    {n:48, descricao:"cárie oclusal a restaurar (terceiro molar irrompido)"},
+    {n:16, descricao:"restauração oclusal existente (selante)"},
+    {n:26, descricao:"restauração oclusal existente (selante)"},
+    {n:36, descricao:"restauração oclusal existente (selante)"},
+    {n:46, descricao:"restauração oclusal existente (selante)"}
+  ],
+  correto:{18:{c:'rp'}, 28:{c:'rp'}, 38:{c:'rp'}, 48:{c:'rp'}, 16:{c:'re'}, 26:{c:'re'}, 36:{c:'re'}, 46:{c:'re'}},
+  competencias:[8,8,7,7,8,8,8,7]
+},
+
+{
+  id:"OD-18", tipo:"odontograma", modalidade:"odontograma", titulo:"Cáries proximais anteriores e canais em pré-molares",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Ana Paula Costa, 38 anos",
+  dentes:[
+    {n:13, descricao:"restauração distal existente"},
+    {n:23, descricao:"restauração distal existente"},
+    {n:12, descricao:"cárie mesial a restaurar"},
+    {n:22, descricao:"cárie mesial a restaurar"},
+    {n:14, descricao:"tratamento de canal indicado"},
+    {n:24, descricao:"tratamento de canal indicado"},
+    {n:36, descricao:"restauração oclusal existente"},
+    {n:46, descricao:"restauração oclusal existente"},
+    {n:37, descricao:"cárie oclusal a restaurar"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:26, descricao:"restauração oclusal existente"}
+  ],
+  correto:{13:{l:'re'}, 23:{r:'re'}, 12:{r:'rp'}, 22:{l:'rp'}, 14:{_w:'ca'}, 24:{_w:'ca'}, 36:{c:'re'}, 46:{c:'re'}, 37:{c:'rp'}, 47:{c:'rp'}, 16:{c:'re'}, 26:{c:'re'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-19", tipo:"odontograma", modalidade:"odontograma", titulo:"Adulto de meia-idade — procedimentos variados",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Marcos Pereira, 51 anos",
+  dentes:[
+    {n:18, descricao:"ausente"},
+    {n:17, descricao:"restauração disto-oclusal existente"},
+    {n:16, descricao:"coroa protética existente"},
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:28, descricao:"ausente"},
+    {n:46, descricao:"restauração mesio-oclusal existente"},
+    {n:47, descricao:"ausente"},
+    {n:36, descricao:"exodontia indicada"},
+    {n:37, descricao:"cárie oclusal a restaurar"},
+    {n:35, descricao:"cárie distal a restaurar"},
+    {n:45, descricao:"restauração oclusal existente"}
+  ],
+  correto:{18:{_w:'au'}, 17:{l:'re',c:'re'}, 16:{_w:'co'}, 26:{_w:'ca'}, 27:{c:'rp'}, 28:{_w:'au'}, 46:{r:'re',c:'re'}, 47:{_w:'au'}, 36:{_w:'ex'}, 37:{c:'rp'}, 35:{r:'rp'}, 45:{c:'re'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-20", tipo:"odontograma", modalidade:"odontograma", titulo:"Idosa — múltiplas próteses, implantes e extrações",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Sônia Meireles, 69 anos",
+  dentes:[
+    {n:17, descricao:"coroa protética existente"},
+    {n:16, descricao:"ausente"},
+    {n:15, descricao:"exodontia indicada"},
+    {n:14, descricao:"coroa protética existente"},
+    {n:27, descricao:"ausente"},
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:25, descricao:"coroa protética indicada"},
+    {n:48, descricao:"ausente"},
+    {n:47, descricao:"exodontia indicada"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:45, descricao:"tratamento de canal indicado"},
+    {n:38, descricao:"ausente"},
+    {n:37, descricao:"ausente"},
+    {n:36, descricao:"implante osseointegrado"},
+    {n:35, descricao:"coroa protética existente"}
+  ],
+  correto:{17:{_w:'co'}, 16:{_w:'au'}, 15:{_w:'ex'}, 14:{_w:'co'}, 27:{_w:'au'}, 26:{_w:'ca'}, 25:{_w:'co'}, 48:{_w:'au'}, 47:{_w:'ex'}, 46:{_w:'im'}, 45:{_w:'ca'}, 38:{_w:'au'}, 37:{_w:'au'}, 36:{_w:'im'}, 35:{_w:'co'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-20", titulo:"Médio — Implante e restauração combinados",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 52 anos, com ausência do dente 37 (molar inferior esquerdo) há 4 anos e cárie no dente 36. Foi indicado implante no sítio do 37 e restauração do 36. Radiografia pré-operatória confirma volume ósseo adequado. Paciente está inserida em protocolo de reabilitação protética. Fases: implante, osseointegração e prótese.`,
-  correto:{37:{_w:'im'},36:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
+  id:"OD-21", tipo:"odontograma", modalidade:"odontograma", titulo:"Cáries em molares — adulto jovem assintomático",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Diego Tavares, 27 anos",
+  dentes:[
+    {n:36, descricao:"cárie mesio-oclusal a restaurar"},
+    {n:46, descricao:"restauração oclusal existente"},
+    {n:17, descricao:"cárie oclusal a restaurar"},
+    {n:27, descricao:"restauração oclusal existente"},
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:26, descricao:"cárie oclusal a restaurar"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"}
+  ],
+  correto:{36:{l:'rp',c:'rp'}, 46:{c:'re'}, 17:{c:'rp'}, 27:{c:'re'}, 16:{c:'re'}, 26:{c:'rp'}, 37:{c:'re'}, 47:{c:'rp'}},
+  competencias:[8,8,7,7,8,8,8,8]
 },
 
 {
-  id:"OD-21", titulo:"Fácil — Dente com restauração e controle",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 25 anos, com restauração de resina no dente 17 na face oclusal realizada há 2 anos. Controle periódico de 6 meses mostra restauração íntegra, sem sinais de recidiva ou desadaptação. Nenhuma mudança está indicada neste momento. Próximo acompanhamento recomendado em 6 meses.`,
-  correto:{17:{c:'re'}},
-  competencias:[8,7,7,8,8,8,8,8]
+  id:"OD-22", tipo:"odontograma", modalidade:"odontograma", titulo:"Canais em todos os pré-molares + coroas",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Patrícia Gomes, 46 anos",
+  dentes:[
+    {n:14, descricao:"tratamento de canal indicado"},
+    {n:24, descricao:"tratamento de canal indicado"},
+    {n:34, descricao:"tratamento de canal indicado"},
+    {n:44, descricao:"tratamento de canal indicado"},
+    {n:13, descricao:"restauração distal existente"},
+    {n:23, descricao:"restauração distal existente"},
+    {n:15, descricao:"coroa protética indicada (pós canal)"},
+    {n:25, descricao:"coroa protética indicada (pós canal)"},
+    {n:16, descricao:"restauração oclusal existente"},
+    {n:26, descricao:"restauração oclusal existente"}
+  ],
+  correto:{14:{_w:'ca'}, 24:{_w:'ca'}, 34:{_w:'ca'}, 44:{_w:'ca'}, 13:{l:'re'}, 23:{r:'re'}, 15:{_w:'co'}, 25:{_w:'co'}, 16:{c:'re'}, 26:{c:'re'}},
+  competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-22", titulo:"Médio — Dois pré-molares com tratamento",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 41 anos, com dentes 14 e 15 (pré-molares superiores direitos) ambos apresentando cárie oclusal. Dente 14 é pequeno e será restaurado. Dente 15 apresenta cárie profunda com envolvimento pulpar, necessitando tratamento endodôntico. Diagnóstico confirmado por radiografia periapical e testes de vitalidade.`,
-  correto:{14:{c:'rp'},15:{_w:'ca'},15:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-23", titulo:"Fácil — Criança com dente restaurado",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 6 anos, com restauração de ionômero de vidro no dente 85 (segundo molar decíduo inferior direito). A restauração foi realizada há 6 meses e está em bom estado. Exame clínico confirma restauração íntegra e bem adaptada. Dente deve ser mantido até esfoliação fisiológica. Próximo acompanhamento em 6 meses.`,
-  correto:{85:{c:'re'}},
-  competencias:[8,7,7,8,8,8,8,8]
-},
-
-{
-  id:"OD-24", titulo:"Médio — Quadrante com múltiplas patologias",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 50 anos, com comprometimento do quadrante superior direito: dente 17 com cárie oclusal (restauração planejada), dente 16 com restauração deficiente (substituição planejada), e dente 18 com cárie extensa oclusal e proximal (restauração planejada). Radiografia panorâmica mostra comprometimento de três dentes do mesmo quadrante. Planejamento de tratamento sequencial necessário.`,
-  correto:{17:{c:'rp'},16:{c:'rp'},18:{c:'rp',l:'rp',r:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
-},
-
-{
-  id:"OD-25", titulo:"Difícil — Paciente edêntulo parcial complexo",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 65 anos, com ausências múltiplas: dentes 27, 37, 47 (molares esquerdo superior e inferior direito e esquerdo). Além das ausências, apresenta cárie no 36 e restauração deficiente no 26. Radiografia mostra reabsorção óssea moderada em sítios de ausência. Avaliação de implantes versus prótese removível necessária. Diagnóstico complexo com múltiplas opções de tratamento.`,
-  correto:{27:{_w:'au'},37:{_w:'au'},47:{_w:'au'},36:{c:'rp'},26:{c:'rp'}},
+  id:"OD-23", tipo:"odontograma", modalidade:"odontograma", titulo:"Levantamento complexo — adulto com histórico extenso",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Nelson Barbosa, 56 anos",
+  dentes:[
+    {n:18, descricao:"ausente"},
+    {n:17, descricao:"tratamento de canal indicado"},
+    {n:16, descricao:"coroa protética existente"},
+    {n:15, descricao:"exodontia indicada"},
+    {n:14, descricao:"restauração mesio-oclusal existente"},
+    {n:24, descricao:"cárie distal a restaurar"},
+    {n:25, descricao:"tratamento de canal indicado"},
+    {n:26, descricao:"coroa protética existente"},
+    {n:27, descricao:"ausente"},
+    {n:28, descricao:"ausente"},
+    {n:38, descricao:"ausente"},
+    {n:37, descricao:"exodontia indicada"},
+    {n:36, descricao:"implante osseointegrado"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:47, descricao:"ausente"},
+    {n:48, descricao:"ausente"}
+  ],
+  correto:{18:{_w:'au'}, 17:{_w:'ca'}, 16:{_w:'co'}, 15:{_w:'ex'}, 14:{r:'re',c:'re'}, 24:{r:'rp'}, 25:{_w:'ca'}, 26:{_w:'co'}, 27:{_w:'au'}, 28:{_w:'au'}, 38:{_w:'au'}, 37:{_w:'ex'}, 36:{_w:'im'}, 46:{_w:'im'}, 47:{_w:'au'}, 48:{_w:'au'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-26", titulo:"Fácil — Incisivo anterior com restauração",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 31 anos, com restauração de resina no dente 11 na face incisal realizada há 1 ano por desgaste dentário. A restauração está em excelente estado, bem adaptada, com cor compatível. Exame clínico e radiográfico confirmam ausência de patologia. Acompanhamento de rotina recomendado anualmente.`,
-  correto:{11:{c:'re'}},
-  competencias:[8,7,7,8,8,8,8,8]
+  id:"OD-24", tipo:"odontograma", modalidade:"odontograma", titulo:"Adolescente — última fase de troca dentária",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Camila Ramos, 14 anos",
+  dentes:[
+    {n:55, descricao:"ausente (exfoliado)"},
+    {n:65, descricao:"ausente (exfoliado)"},
+    {n:85, descricao:"ausente (exfoliado)"},
+    {n:75, descricao:"ausente (exfoliado)"},
+    {n:14, descricao:"cárie oclusal a restaurar"},
+    {n:24, descricao:"cárie oclusal a restaurar"},
+    {n:34, descricao:"cárie oclusal a restaurar"},
+    {n:44, descricao:"cárie oclusal a restaurar"},
+    {n:16, descricao:"restauração oclusal existente (selante)"},
+    {n:26, descricao:"cárie oclusal a restaurar"}
+  ],
+  correto:{55:{_w:'au'}, 65:{_w:'au'}, 85:{_w:'au'}, 75:{_w:'au'}, 14:{c:'rp'}, 24:{c:'rp'}, 34:{c:'rp'}, 44:{c:'rp'}, 16:{c:'re'}, 26:{c:'rp'}},
+  competencias:[8,8,7,7,8,8,8,7]
 },
 
 {
-  id:"OD-27", titulo:"Médio — Criança em transição com múltiplos dentes",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 9 anos (dentição mista em transição), com restauração existente no dente 65 (molar decíduo superior direito) e cáries em desenvolvimento nos dentes 46 e 47 (molares permanentes inferiores direitos). O dente 65 está próximo de esfoliar. Radiografia mostra desenvolvimento adequado dos molares permanentes. Estratégia: manter 65, restaurar 46 e 47 preventivamente.`,
-  correto:{65:{c:'re'},46:{c:'rp'},47:{c:'rp'}},
-  competencias:[8,8,8,8,8,7,8,8]
+  id:"OD-25", tipo:"odontograma", modalidade:"odontograma", titulo:"Múltiplos canais e coroas — molares e pré-molares",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Ricardo Medeiros, 39 anos",
+  dentes:[
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:46, descricao:"tratamento de canal indicado"},
+    {n:16, descricao:"coroa protética indicada (pós canal anterior)"},
+    {n:25, descricao:"coroa protética indicada"},
+    {n:35, descricao:"coroa protética indicada"},
+    {n:45, descricao:"coroa protética indicada"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"ausente"}
+  ],
+  correto:{26:{_w:'ca'}, 36:{_w:'ca'}, 46:{_w:'ca'}, 16:{_w:'co'}, 25:{_w:'co'}, 35:{_w:'co'}, 45:{_w:'co'}, 17:{c:'re'}, 47:{c:'rp'}, 37:{c:'re'}, 27:{_w:'au'}},
+  competencias:[8,8,8,8,7,7,8,8]
 },
 
 {
-  id:"OD-28", titulo:"Difícil — Endodontia, implante e múltiplas restaurações",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 60 anos, com histórico de doença periodontal e perdas dentárias múltiplas. Ausências de dentes 37 (será substituído por implante) e 35 (será substituído por prótese removível parcial). Dente 36 apresenta necrose pulpar confirmada (necessita endodontia e posterior coroa). Dente 46 apresenta cárie proximal (restauração planejada). Dente 47 está restaurado adequadamente. Planejamento multidisciplinar complexo necessário.`,
-  correto:{37:{_w:'im'},35:{_w:'au'},36:{_w:'ca'},36:{c:'co'},46:{l:'rp',r:'rp'},47:{c:'re'}},
+  id:"OD-26", tipo:"odontograma", modalidade:"odontograma", titulo:"Paciente idosa — reabilitação oral avançada",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Maria das Graças, 74 anos",
+  dentes:[
+    {n:17, descricao:"coroa protética existente"},
+    {n:16, descricao:"ausente"},
+    {n:15, descricao:"exodontia indicada"},
+    {n:27, descricao:"coroa protética existente"},
+    {n:26, descricao:"ausente"},
+    {n:25, descricao:"ausente"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:47, descricao:"ausente"},
+    {n:48, descricao:"ausente"},
+    {n:45, descricao:"tratamento de canal indicado"},
+    {n:44, descricao:"coroa protética indicada"},
+    {n:34, descricao:"coroa protética indicada"},
+    {n:35, descricao:"tratamento de canal indicado"},
+    {n:36, descricao:"ausente"},
+    {n:37, descricao:"ausente"}
+  ],
+  correto:{17:{_w:'co'}, 16:{_w:'au'}, 15:{_w:'ex'}, 27:{_w:'co'}, 26:{_w:'au'}, 25:{_w:'au'}, 46:{_w:'im'}, 47:{_w:'au'}, 48:{_w:'au'}, 45:{_w:'ca'}, 44:{_w:'co'}, 34:{_w:'co'}, 35:{_w:'ca'}, 36:{_w:'au'}, 37:{_w:'au'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-29", titulo:"Médio — Quadrante anterior com cáries múltiplas",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente feminina, 37 anos, com cáries em incisivos superiores: dente 11 (cárie mesial e distal), dente 12 (cárie incisal), dente 21 (restauração existente), dente 22 (cárie distal). Histórico de dieta com bebidas ácidas. Radiografia periapical confirma lesões em dentina. Recomendação: restaurações de classe III/IV em 11 e 12, restauração de classe III em 22, manutenção de 21. Orientação nutricional necessária.`,
-  correto:{11:{l:'rp',r:'rp'},12:{c:'rp'},21:{c:'re'},22:{r:'rp'}},
+  id:"OD-27", tipo:"odontograma", modalidade:"odontograma", titulo:"Adulta jovem — cáries em sisos e incisivo",
+  complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  paciente:"Larissa Teixeira, 21 anos",
+  dentes:[
+    {n:18, descricao:"cárie oclusal a restaurar"},
+    {n:28, descricao:"restauração oclusal existente"},
+    {n:38, descricao:"cárie oclusal a restaurar"},
+    {n:48, descricao:"restauração oclusal existente"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:11, descricao:"cárie incisal a restaurar"}
+  ],
+  correto:{18:{c:'rp'}, 28:{c:'re'}, 38:{c:'rp'}, 48:{c:'re'}, 17:{c:'re'}, 27:{c:'rp'}, 37:{c:'re'}, 47:{c:'rp'}, 11:{c:'rp'}},
+  competencias:[8,8,7,7,8,8,8,8]
+},
+
+{
+  id:"OD-28", tipo:"odontograma", modalidade:"odontograma", titulo:"Implantes existentes e ausências a reabilitar",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Celso Vieira, 53 anos",
+  dentes:[
+    {n:16, descricao:"implante osseointegrado"},
+    {n:26, descricao:"implante osseointegrado"},
+    {n:36, descricao:"ausente (planejamento de implante)"},
+    {n:46, descricao:"ausente (planejamento de implante)"},
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:15, descricao:"restauração mesio-oclusal existente"},
+    {n:25, descricao:"restauração mesio-oclusal existente"},
+    {n:37, descricao:"cárie oclusal a restaurar"},
+    {n:47, descricao:"restauração oclusal existente"}
+  ],
+  correto:{16:{_w:'im'}, 26:{_w:'im'}, 36:{_w:'au'}, 46:{_w:'au'}, 17:{c:'re'}, 27:{c:'rp'}, 15:{r:'re',c:'re'}, 25:{l:'re',c:'re'}, 37:{c:'rp'}, 47:{c:'re'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-29", tipo:"odontograma", modalidade:"odontograma", titulo:"Reabilitação complexa — implantes, canais e coroas",
+  complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  paciente:"Helena Rodrigues, 62 anos",
+  dentes:[
+    {n:18, descricao:"exodontia indicada"},
+    {n:17, descricao:"tratamento de canal indicado"},
+    {n:16, descricao:"coroa protética indicada"},
+    {n:26, descricao:"tratamento de canal indicado"},
+    {n:27, descricao:"coroa protética indicada"},
+    {n:28, descricao:"ausente"},
+    {n:48, descricao:"ausente"},
+    {n:47, descricao:"implante osseointegrado"},
+    {n:46, descricao:"implante osseointegrado"},
+    {n:38, descricao:"ausente"},
+    {n:37, descricao:"exodontia indicada"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:35, descricao:"coroa protética indicada"},
+    {n:34, descricao:"restauração disto-oclusal existente"},
+    {n:44, descricao:"restauração disto-oclusal existente"}
+  ],
+  correto:{18:{_w:'ex'}, 17:{_w:'ca'}, 16:{_w:'co'}, 26:{_w:'ca'}, 27:{_w:'co'}, 28:{_w:'au'}, 48:{_w:'au'}, 47:{_w:'im'}, 46:{_w:'im'}, 38:{_w:'au'}, 37:{_w:'ex'}, 36:{_w:'ca'}, 35:{_w:'co'}, 34:{r:'re',c:'re'}, 44:{l:'re',c:'re'}},
   competencias:[8,8,8,8,8,8,8,8]
 },
 
 {
-  id:"OD-30", titulo:"Difícil — Paciente pediátrico com múltiplas ausências decíduas",
-  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
-  contexto:`Paciente masculino, 5 anos, com dentição decídua completa comprometida: ausência congênita do dente 52 (incisivo lateral decíduo superior esquerdo), restauração no dente 55 (em bom estado), cáries múltiplas nos dentes 65, 75, 85 (molares decíduos superiores e inferiores). Ausência congênita requer monitoramento de espaço. Cáries requerem restauração preventiva. Prognóstico: acompanhamento periódico de 3 meses e controle de higiene rigoroso pela família.`,
-  correto:{52:{_w:'au'},55:{c:'re'},65:{c:'rp'},75:{c:'rp'},85:{c:'rp'}},
-  competencias:[8,8,8,8,8,8,8,8]
+  id:"OD-30", tipo:"odontograma", modalidade:"odontograma", titulo:"Adulto — canais, restaurações e cáries proximais",
+  complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  paciente:"Paulo Henrique Faria, 31 anos",
+  dentes:[
+    {n:17, descricao:"restauração oclusal existente"},
+    {n:16, descricao:"tratamento de canal indicado"},
+    {n:26, descricao:"restauração disto-oclusal existente"},
+    {n:27, descricao:"cárie oclusal a restaurar"},
+    {n:36, descricao:"tratamento de canal indicado"},
+    {n:46, descricao:"restauração mesio-oclusal existente"},
+    {n:37, descricao:"restauração oclusal existente"},
+    {n:47, descricao:"cárie oclusal a restaurar"},
+    {n:15, descricao:"cárie mesial a restaurar"},
+    {n:25, descricao:"restauração oclusal existente"},
+    {n:35, descricao:"cárie distal a restaurar"},
+    {n:45, descricao:"restauração oclusal existente"}
+  ],
+  correto:{17:{c:'re'}, 16:{_w:'ca'}, 26:{r:'re',c:'re'}, 27:{c:'rp'}, 36:{_w:'ca'}, 46:{r:'re',c:'re'}, 37:{c:'re'}, 47:{c:'rp'}, 15:{r:'rp'}, 25:{c:'re'}, 35:{r:'rp'}, 45:{c:'re'}},
+  competencias:[8,8,8,8,7,7,8,8]
 }
 
 ];

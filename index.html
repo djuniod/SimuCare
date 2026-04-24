@@ -238,6 +238,7 @@
   .tag.agendamento { background: rgba(0,153,204,0.1); color: var(--accent2); border: 1px solid rgba(0,153,204,0.2); }
   .tag.clinico { background: rgba(139,92,246,0.1); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.2); }
   .tag.materiais { background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.2); }
+  .tag.odontograma { background: rgba(239,159,39,0.12); color: #b45309; border: 1px solid rgba(239,159,39,0.3); }
   .tag.time { background: var(--bg2); color: var(--text2); border: 1px solid var(--border); }
   .tag.uc  { background: rgba(99,102,241,0.08); color: #6366f1; border: 1px solid rgba(99,102,241,0.2); font-size:10px; padding:2px 6px; border-radius:4px; font-weight:700; }
   /* ── Tabela accordion UC (perfil aluno / visão professor) ── */
@@ -1743,10 +1744,12 @@ function renderScenarios() {
     const isDone = done.includes(s.id);
     const modalidadeLabel = s.modalidade === 'agendamento' ? 'Agendamento' :
                             s.modalidade === 'clinico' ? 'Caso Clínico' :
-                            s.modalidade === 'materiais' ? 'Materiais' : 'Caso Clínico';
+                            s.modalidade === 'materiais' ? 'Materiais' :
+                            s.modalidade === 'odontograma' ? 'Odontograma' : 'Caso Clínico';
     const tipoCls = s.modalidade === 'agendamento' ? 'agendamento' :
                     s.modalidade === 'clinico' ? 'clinico' :
-                    s.modalidade === 'materiais' ? 'materiais' : 'normal';
+                    s.modalidade === 'materiais' ? 'materiais' :
+                    s.modalidade === 'odontograma' ? 'odontograma' : 'normal';
     const isProf = state.user?.tipo === 'professor';
     const ucTags = isProf ? getUcsPrimarias(s).map(u => `<span class="tag uc">${u}</span>`).join('') : '';
     return `<div class="scenario-card complexidade-${s.complexidade||2} ${isDone?'completed':''}" onclick="startScenario('${s.id}')">
@@ -2805,96 +2808,129 @@ function startOdontograma(od) {
 }
 
 function renderOdontogramaScreen() {
-  const od = state.currentOd;
-  const ts = state.odTS || {};
-  const activeTool = state.odActiveTool;
+  var od = state.currentOd;
+  var ts = state.odTS || {};
+  var activeTool = state.odActiveTool;
 
-  const TOOLS = [
-    {id:'re', nome:'Restauração Existente', cor:'#E24B4A'},
-    {id:'rp', nome:'Restauração a Realizar', cor:'#378ADD'},
-    {id:'ca', nome:'Canal',                  cor:'#EF9F27'},
-    {id:'co', nome:'Coroa',                  cor:'#D4537E'},
-    {id:'im', nome:'Implante',               cor:'#639922'},
-    {id:'au', nome:'Ausente',                cor:'#888780'},
-    {id:'ex', nome:'Exodontia',              cor:'#7F77DD'}
+  var TOOLS = [
+    {id:'re', nome:'Restauração Existente', cor:'#E24B4A', letra:''},
+    {id:'rp', nome:'Restauração a Realizar', cor:'#378ADD', letra:''},
+    {id:'ca', nome:'Canal',    cor:'#EF9F27', letra:'C'},
+    {id:'co', nome:'Coroa',    cor:'#D4537E', letra:'P'},
+    {id:'im', nome:'Implante', cor:'#639922', letra:'I'},
+    {id:'au', nome:'Ausente',  cor:'#888780', letra:'X'},
+    {id:'ex', nome:'Exodontia',cor:'#7F77DD', letra:'E'}
   ];
-  const TOOL_MAP = {};
+  var TOOL_MAP = {};
   TOOLS.forEach(function(t){ TOOL_MAP[t.id] = t; });
-  const WHOLE_TOOLS = ['ca','co','im','au','ex'];
-  const isWholeActive = activeTool && WHOLE_TOOLS.indexOf(activeTool) >= 0;
+  var WHOLE_TOOLS = ['ca','co','im','au','ex'];
+  var isWholeActive = activeTool && WHOLE_TOOLS.indexOf(activeTool) >= 0;
 
-  function getFaceColor(td, face) {
-    if (!td) return '#f9f9f9';
+  // S=tooth square size, inn=margin to center region
+  var S = 28, inn = 8, H = S/2;
+
+  function faceColor(td, face) {
+    if (!td) return '#f5f5f5';
     if (td._w && TOOL_MAP[td._w]) return TOOL_MAP[td._w].cor;
     if (td[face] && TOOL_MAP[td[face]]) return TOOL_MAP[td[face]].cor;
-    return '#f9f9f9';
+    return '#f5f5f5';
   }
 
-  function renderTooth(n) {
-    var td  = ts[n] || {};
+  function toothSVG(n) {
+    var td = ts[n] || {};
     var hasWhole = !!td._w;
-    var S   = 46;
-    var inn = 14;
-    var H   = S / 2;
-    var bg  = hasWhole ? (TOOL_MAP[td._w] ? TOOL_MAP[td._w].cor : '#f9f9f9') : '#f9f9f9';
-    var tc  = hasWhole ? bg : getFaceColor(td, 't');
-    var bc  = hasWhole ? bg : getFaceColor(td, 'b');
-    var lc  = hasWhole ? bg : getFaceColor(td, 'l');
-    var rc  = hasWhole ? bg : getFaceColor(td, 'r');
-    var cc  = hasWhole ? bg : getFaceColor(td, 'c');
-    var cw  = 'onclick="selectToothOD(' + n + ',\'_w\')"';
-    function cf(f) { return (isWholeActive || hasWhole) ? cw : 'onclick="selectToothOD(' + n + ',\'' + f + '\')"'; }
+    var bg = hasWhole ? (TOOL_MAP[td._w] ? TOOL_MAP[td._w].cor : '#f5f5f5') : '#f5f5f5';
+    var tc = hasWhole ? bg : faceColor(td,'t');
+    var bc = hasWhole ? bg : faceColor(td,'b');
+    var lc = hasWhole ? bg : faceColor(td,'l');
+    var rc = hasWhole ? bg : faceColor(td,'r');
+    var cc = hasWhole ? bg : faceColor(td,'c');
     var hasMark = hasWhole || td.t || td.b || td.l || td.r || td.c;
-    var borderColor = hasMark ? '#444' : '#ccc';
-    var borderW = hasMark ? 2 : 1;
-    return '<div style="display:flex;flex-direction:column;align-items:center;gap:2px">'
-      + '<span style="font-size:9px;font-weight:700;color:#555;line-height:1">' + n + '</span>'
-      + '<svg width="' + S + '" height="' + S + '" style="cursor:pointer;display:block" xmlns="http://www.w3.org/2000/svg">'
-      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="' + bg + '" stroke="#ddd" stroke-width="1" rx="2"/>'
-      + (hasWhole
-          ? '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="transparent" ' + cw + '/>'
-          : '<polygon points="' + inn + ',' + inn + ' ' + (S-inn) + ',' + inn + ' ' + H + ',1" fill="' + tc + '" stroke="#ddd" stroke-width="0.5" ' + cf('t') + ' style="cursor:pointer"/>'
-          + '<polygon points="' + inn + ',' + (S-inn) + ' ' + (S-inn) + ',' + (S-inn) + ' ' + H + ',' + (S-1) + '" fill="' + bc + '" stroke="#ddd" stroke-width="0.5" ' + cf('b') + ' style="cursor:pointer"/>'
-          + '<polygon points="1,' + H + ' ' + inn + ',' + inn + ' ' + inn + ',' + (S-inn) + '" fill="' + lc + '" stroke="#ddd" stroke-width="0.5" ' + cf('l') + ' style="cursor:pointer"/>'
-          + '<polygon points="' + (S-1) + ',' + H + ' ' + (S-inn) + ',' + inn + ' ' + (S-inn) + ',' + (S-inn) + '" fill="' + rc + '" stroke="#ddd" stroke-width="0.5" ' + cf('r') + ' style="cursor:pointer"/>'
-          + '<rect x="' + inn + '" y="' + inn + '" width="' + (S-2*inn) + '" height="' + (S-2*inn) + '" fill="' + cc + '" stroke="#ddd" stroke-width="0.5" ' + cf('c') + ' style="cursor:pointer"/>'
-        )
-      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="none" stroke="' + borderColor + '" stroke-width="' + borderW + '" rx="2" style="pointer-events:none"/>'
-      + '</svg></div>';
+    var bw = hasMark ? 1.5 : 0.75;
+    var bc2 = hasMark ? '#444' : '#bbb';
+    var cw = 'onclick="selectToothOD('+n+',\'_w\')"';
+    function cf(f){ return (isWholeActive||hasWhole)?cw:'onclick="selectToothOD('+n+',\''+f+'\')"'; }
+    var letra = (hasWhole && TOOL_MAP[td._w]) ? TOOL_MAP[td._w].letra : '';
+    return '<svg width="'+S+'" height="'+S+'" style="cursor:pointer;display:block" xmlns="http://www.w3.org/2000/svg">'
+      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="'+bg+'" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1"/>'
+      +(hasWhole
+        ? (letra?'<text x="'+H+'" y="'+(H+3.5)+'" text-anchor="middle" font-size="9" font-weight="900" fill="white" style="pointer-events:none">'+letra+'</text>':'')
+          +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="transparent" '+cw+'/>'
+        : '<polygon points="'+inn+','+inn+' '+(S-inn)+','+inn+' '+H+',1" fill="'+tc+'" stroke="#ddd" stroke-width="0.5" '+cf('t')+' style="cursor:pointer"/>'
+          +'<polygon points="'+inn+','+(S-inn)+' '+(S-inn)+','+(S-inn)+' '+H+','+(S-1)+'" fill="'+bc+'" stroke="#ddd" stroke-width="0.5" '+cf('b')+' style="cursor:pointer"/>'
+          +'<polygon points="1,'+H+' '+inn+','+inn+' '+inn+','+(S-inn)+'" fill="'+lc+'" stroke="#ddd" stroke-width="0.5" '+cf('l')+' style="cursor:pointer"/>'
+          +'<polygon points="'+(S-1)+','+H+' '+(S-inn)+','+inn+' '+(S-inn)+','+(S-inn)+'" fill="'+rc+'" stroke="#ddd" stroke-width="0.5" '+cf('r')+' style="cursor:pointer"/>'
+          +'<rect x="'+inn+'" y="'+inn+'" width="'+(S-2*inn)+'" height="'+(S-2*inn)+'" fill="'+cc+'" stroke="#ddd" stroke-width="0.5" '+cf('c')+' style="cursor:pointer"/>'
+      )
+      +'<rect x="0.5" y="0.5" width="'+(S-1)+'" height="'+(S-1)+'" fill="none" stroke="'+bc2+'" stroke-width="'+bw+'" rx="1" style="pointer-events:none"/>'
+      +'</svg>';
   }
 
-  function renderRow(teeth) {
-    return '<div style="display:flex;gap:3px;justify-content:center;align-items:flex-start;flex-wrap:nowrap">'
-      + teeth.map(function(n){ return renderTooth(n); }).join('') + '</div>';
+  // Upper: number BELOW tooth; Lower: number ABOVE tooth
+  function upperCell(n){
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px">'
+      +toothSVG(n)+'<span style="font-size:8px;font-weight:700;color:#666;line-height:1">'+n+'</span>'+'</div>';
+  }
+  function lowerCell(n){
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px">'
+      +'<span style="font-size:8px;font-weight:700;color:#666;line-height:1">'+n+'</span>'+toothSVG(n)+'</div>';
+  }
+  // Deciduous: same direction but slightly smaller font
+  function upperDecCell(n){
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px">'
+      +toothSVG(n)+'<span style="font-size:7px;font-weight:700;color:#b45309;line-height:1">'+n+'</span>'+'</div>';
+  }
+  function lowerDecCell(n){
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px">'
+      +'<span style="font-size:7px;font-weight:700;color:#b45309;line-height:1">'+n+'</span>'+toothSVG(n)+'</div>';
   }
 
-  // Does this scenario use deciduous teeth?
+  // Row with vertical center divider between quadrants
+  function archRow(qLeft, qRight, cellFn) {
+    return '<div style="display:flex;align-items:stretch;gap:0">'
+      +'<div style="display:flex;gap:2px">'+qLeft.map(cellFn).join('')+'</div>'
+      +'<div style="width:2px;background:#666;margin:0 3px;border-radius:1px"></div>'
+      +'<div style="display:flex;gap:2px">'+qRight.map(cellFn).join('')+'</div>'
+      +'</div>';
+  }
+
   var correto = od.correto || {};
   var hasDeciduous = Object.keys(correto).some(function(t){
-    var n = parseInt(t); return n >= 51 && n <= 85;
+    var n=parseInt(t); return n>=51&&n<=85;
   });
 
-  var upperRow    = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
-  var lowerRow    = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
-  var upperDecRow = [55,54,53,52,51,61,62,63,64,65];
-  var lowerDecRow = [85,84,83,82,81,71,72,73,74,75];
+  // Standard FDI layout
+  var upQ1=[18,17,16,15,14,13,12,11], upQ2=[21,22,23,24,25,26,27,28];
+  var loQ4=[48,47,46,45,44,43,42,41], loQ3=[31,32,33,34,35,36,37,38];
+  var upQ5=[55,54,53,52,51],          upQ6=[61,62,63,64,65];
+  var loQ8=[85,84,83,82,81],          loQ7=[71,72,73,74,75];
 
-  var odHTML = '<div style="overflow-x:auto;padding:4px 0"><div style="min-width:740px">'
-    + '<div style="text-align:center;font-size:10px;color:#aaa;margin-bottom:4px">← Q1 (18→11) | Q2 (21→28) →  Superior</div>'
-    + renderRow(upperRow)
-    + '<div style="border-top:2px dashed #d1d5db;margin:6px 0"></div>'
-    + renderRow(lowerRow)
-    + '<div style="text-align:center;font-size:10px;color:#aaa;margin-top:4px">← Q4 (48→41) | Q3 (31→38) →  Inferior</div>'
-    + (hasDeciduous
-        ? '<div style="border-top:2px solid #fde68a;margin:14px 0 6px"></div>'
-        + '<div style="text-align:center;font-size:10px;color:#b45309;font-weight:600;margin-bottom:6px">Dentição Decídua</div>'
-        + '<div style="text-align:center;font-size:10px;color:#aaa;margin-bottom:4px">← Q5 (55→51) | Q6 (61→65) →  Superior</div>'
-        + renderRow(upperDecRow)
-        + '<div style="border-top:1px dashed #d1d5db;margin:6px 0"></div>'
-        + renderRow(lowerDecRow)
-        + '<div style="text-align:center;font-size:10px;color:#aaa;margin-top:4px">← Q8 (85→81) | Q7 (71→75) →  Inferior</div>'
-        : '')
-    + '</div></div>';
+  var odHTML = '<div style="overflow-x:auto;padding:6px 0">'
+    +'<div style="display:inline-block;min-width:max-content">'
+    +(hasDeciduous?'<div style="display:flex;justify-content:center;margin-bottom:3px">'+archRow(upQ5,upQ6,upperDecCell)+'</div>':'')
+    +'<div style="display:flex;justify-content:center">'+archRow(upQ1,upQ2,upperCell)+'</div>'
+    +'<div style="height:3px;background:#555;margin:3px 0;border-radius:1px"></div>'
+    +'<div style="display:flex;justify-content:center">'+archRow(loQ4,loQ3,lowerCell)+'</div>'
+    +(hasDeciduous?'<div style="display:flex;justify-content:center;margin-top:3px">'+archRow(loQ8,loQ7,lowerDecCell)+'</div>':'')
+    +'</div></div>';
+
+  // Context: use structured dentes array if present, else fallback
+  var contextHTML;
+  if (od.dentes && od.dentes.length) {
+    var half = Math.ceil(od.dentes.length/2);
+    var col1 = od.dentes.slice(0,half), col2 = od.dentes.slice(half);
+    var rows = '';
+    for (var i=0; i<Math.max(col1.length,col2.length); i++) {
+      var d1 = col1[i] ? '<td style="padding:3px 20px 3px 0;font-size:13px;vertical-align:top"><b>'+col1[i].n+'</b> — '+col1[i].descricao+'</td>' : '<td></td>';
+      var d2 = col2[i] ? '<td style="padding:3px 0;font-size:13px;vertical-align:top"><b>'+col2[i].n+'</b> — '+col2[i].descricao+'</td>' : '<td></td>';
+      rows += '<tr>'+d1+d2+'</tr>';
+    }
+    contextHTML = '<p style="font-size:14px;font-weight:700;margin:0 0 4px;color:#1f2937">'+(od.paciente||od.titulo)+'</p>'
+      +'<p style="font-size:13px;color:#555;margin:0 0 10px">Realize o levantamento completo no odontograma com base no exame clínico a seguir:</p>'
+      +'<table style="border-collapse:collapse">'+rows+'</table>';
+  } else {
+    contextHTML = formatContextoWithInfo(od.contexto);
+  }
 
   document.getElementById('sim-content').innerHTML = `
     <div class="sim-main fade-in" style="max-width:960px;margin:0 auto">
@@ -2902,13 +2938,11 @@ function renderOdontogramaScreen() {
       <div class="scenario-title">${od.titulo}</div>
       <div class="context-box">
         <div class="context-label">📋 Cenário Clínico</div>
-        <div class="context-text">${formatContextoWithInfo(od.contexto)}</div>
+        <div class="context-text">${contextHTML}</div>
       </div>
-
       <div class="ag-section">
-        <h3 style="margin-bottom:8px">Marque os dentes conforme o diagnóstico</h3>
-        <p class="hint" style="margin-bottom:14px">Selecione uma ferramenta e clique na face correta do dente. Para canal, coroa, implante, ausente e exodontia, clique em qualquer parte do dente.</p>
-
+        <h3 style="margin-bottom:8px">Preencha o odontograma</h3>
+        <p class="hint" style="margin-bottom:14px">Selecione a ferramenta e clique na face do dente. Para canal, coroa, implante, ausente e exodontia basta clicar no dente.</p>
         <!-- Toolbar -->
         <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap">
           ${TOOLS.map(tool => `
@@ -2918,10 +2952,8 @@ function renderOdontogramaScreen() {
                      color:${activeTool===tool.id ? 'white' : '#333'};transition:all 0.15s">${tool.nome}</button>
           `).join('')}
         </div>
-
         <!-- Odontogram -->
         ${odHTML}
-
         <button class="btn-next" style="margin-top:22px;width:100%;padding:14px" onclick="avaliarOdontograma()">Verificar resposta</button>
       </div>
     </div>`;
