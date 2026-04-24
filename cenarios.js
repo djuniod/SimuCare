@@ -6379,6 +6379,250 @@ window.CENARIOS = [
     }
   ],
   competencias:[7,7,8,7,7,7,9,9]
+},
+
+// ════════════════════════════════════════════════════════════════════
+//   ODONTOGRAMA - 30 CENÁRIOS (OD-01 a OD-30)
+// ════════════════════════════════════════════════════════════════════
+
+{
+  id:"OD-01", titulo:"Paciente adulto — restauração existente e planejada",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 35 anos, apresenta restauração de classe I no dente 16 (oclusal, restauração existente em bom estado). Necessita nova restauração de classe II no dente 26 (faces mesial e distal), com extensa cárie proximal. O exame clínico confirma: 16 restaurado, 26 requer restauração planejada.`,
+  correto:{16:{c:'re'},26:{l:'rp',r:'rp'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-02", titulo:"Criança com dente decíduo restaurado",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 7 anos, apresenta restauração em resina na face oclusal do dente 75 (decíduo, segundo molar superior direito). A restauração está adequada e sem sinais de lesão. Avaliação odontológica confirma presença de restauração existente apenas neste dente.`,
+  correto:{75:{c:'re'}},
+  competencias:[8,7,7,7,8,8,8,8]
+},
+
+{
+  id:"OD-03", titulo:"Múltiplas restaurações - quadrante anterior",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 42 anos, com histórico de restaurações nas faces oclusais dos dentes 11 e 21 (incisivos superiores). Ambas apresentam restaurações de resina em bom estado. O dente 12 também requer restauração planejada na face incisal devido a desgaste dentário.`,
+  correto:{11:{c:'re'},21:{c:'re'},12:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-04", titulo:"Dente ausente e implante planejado",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 58 anos, apresenta ausência do dente 36 (primeiro molar inferior esquerdo) há três anos. Radiografia e exame clínico confirmam perda óssea moderada. Paciente foi encaminhado para colocação de implante dentário. Planejamento inclui a documentação da ausência e a futura prótese sobre implante.`,
+  correto:{36:{_w:'au'},46:{_w:'im'}},
+  competencias:[8,7,8,8,7,8,8,8]
+},
+
+{
+  id:"OD-05", titulo:"Paciente com cárie em desenvolvimento",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente infantil, 9 anos, apresenta pequena lesão de cárie na face oclusal do dente 46 (primeiro molar inferior direito). A lesão é superficial e foi identificada em exame preventivo. Recomendação é restauração preventiva com resina fotopolimerizável para evitar progressão. Diagnóstico: necessidade de restauração.`,
+  correto:{46:{c:'rp'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-06", titulo:"Restauração e canal radicular planejados",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 51 anos, com dente 16 apresentando restauração grande, antiga e comprometida (retração marginal, pigmentação). Radiografia revela lesão periapical sugestiva de necrose pulpar. Diagnóstico: dente necessita endodontia (tratamento de canal) e posterior restauração definitiva. Planejamento inclui tanto o procedimento endodôntico quanto a restauração.`,
+  correto:{16:{_w:'ca'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-07", titulo:"Coroa protética planejada",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 63 anos, com dente 26 apresentando grande restauração de amálgama, com múltiplas fraturas marginais e comprometimento estrutural severo. Avaliação clínica e radiográfica indica que a estrutura dentária residual é insuficiente para nova restauração. Indicação é substituição por coroa protética (total ou parcial).`,
+  correto:{26:{_w:'co'}},
+  competencias:[8,8,8,8,7,7,8,8]
+},
+
+{
+  id:"OD-08", titulo:"Exodontia indicada por cárie severa",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminino, 45 anos, com dente 37 apresentando extensa lesão de cárie que envolve múltiplas faces (oclusal, vestibular, lingual), com comprometimento do tecido pulpar. Radiografia mostra destruição coronária > 60%. Estrutura dentária insuficiente para restauração. Indicação: extração dentária.`,
+  correto:{37:{_w:'ex'}},
+  competencias:[8,7,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-09", titulo:"Dentição mista — dente decíduo restaurado",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 8 anos (dentição mista), com dente 55 (canino decíduo superior direito) apresentando restauração de resina em bom estado cobrindo a face oclusal. Exame clínico confirma restauração adequada, sem necessidade de substituição no momento. Próximo acompanhamento em 6 meses.`,
+  correto:{55:{c:'re'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-10", titulo:"Paciente edêntulo parcial — múltiplas ausências",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 67 anos, com ausência dos dentes 27 e 37 (segundos molares superiores esquerdo e inferior esquerdo) há 5 anos. As ausências resultaram de extrações por cárie severa e doença periodontal. Radiografia confirma reabsorção óssea moderada. Paciente está em acompanhamento periodontal antes de planejamento protético.`,
+  correto:{27:{_w:'au'},37:{_w:'au'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-11", titulo:"Fácil — Restauração simples oclusal",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 28 anos, com pequena lesão de cárie na face oclusal do dente 17 (segundo molar superior direito). Cárie é superficial, limitada ao esmalte e dentina superficial. Radiografia periapical confirma lesão pequena, sem envolvimento pulpar. Restauração simples com resina ou ionômero de vidro está indicada.`,
+  correto:{17:{c:'rp'}},
+  competencias:[8,8,8,7,7,7,8,8]
+},
+
+{
+  id:"OD-12", titulo:"Fácil — Restauração única em incisivo",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 19 anos, com restauração de resina na face incisal do dente 21 (incisivo central superior esquerdo). A restauração está em bom estado, sem sinais de recidiva ou desadaptação. Acompanhamento periódico recomendado. Nenhuma mudança necessária no momento.`,
+  correto:{21:{c:'re'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-13", titulo:"Médio — Duas restaurações proximais",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 33 anos, com lesões de cárie proximais nos dentes 14 (pré-molar superior direito) afetando faces mesial e distal, e dente 24 (pré-molar superior esquerdo) afetando face distal. Radiografia confirma lesões em dentina. Restaurações de resina classe II/III estão indicadas para ambos os dentes.`,
+  correto:{14:{l:'rp',r:'rp'},24:{r:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-14", titulo:"Médio — Canal e dente decíduo",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente infantil, 10 anos (dentição mista), com pulpite no dente 65 (primeiro molar decíduo superior direito) e cárie profunda no dente 75 (segundo molar decíduo superior direito). Diagnóstico: o dente 65 necessita tratamento endodôntico (pulpotomia), enquanto o dente 75 requer restauração. Ambas intervenções estão indicadas para manutenção funcional da dentição.`,
+  correto:{65:{_w:'ca'},75:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-15", titulo:"Médio — Ausência e restauração combinadas",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 47 anos, com ausência do dente 35 (pré-molar inferior esquerdo) há 2 anos e restauração deficiente no dente 45 (pré-molar inferior direito). A restauração no dente 45 apresenta margens desadaptadas e pigmentação. Planejamento: substituir restauração do 45 (restauração planejada) e considerar reabilitação do espaço do 35 (ausência).`,
+  correto:{35:{_w:'au'},45:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-16", título:"Fácil — Dente com múltiplas faces a restaurar",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 39 anos, com dente 16 apresentando cárie extensa envolvendo faces oclusal, mesial e distal. A cárie é profunda, mas sem envolvimento pulpar confirmado. Radiografia e testes de vitalidade confirmam dente vital. Indicação: restauração de classe II com extensão oclusal.`,
+  correto:{16:{c:'rp',l:'rp',r:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-17", titulo:"Difícil — Paciente com múltiplos comprometimentos",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 72 anos, com diagnóstico de diabetes mellitus descontrolado. Apresenta: ausência dos dentes 37 e 47 (molares inferiores) há 7 anos, restauração deficiente e desadaptada no dente 36, inflamação gengival em múltiplos sítios, e cárie inicial no dente 46. Avaliação periodontal necessária. Prognóstico: requer controle metabólico antes de planejamento reabilitador.`,
+  correto:{37:{_w:'au'},47:{_w:'au'},36:{c:'rp'},46:{c:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-18", titulo:"Difícil — Endodontia, coroa e ausências",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 58 anos, com dente 26 apresentando necrose pulpar confirmada por testes de vitalidade ausentes e radiografia com lesão periapical. Dente 25 apresenta restauração inadequada com infiltração. Dentes 27 e 37 estão ausentes. Planejamento multidisciplinar: tratamento endodôntico do 26, coroa protética posterior, reabilitação dos espaços ausentes.`,
+  correto:{26:{_w:'ca'},26:{c:'co'},25:{c:'rp'},27:{_w:'au'},37:{_w:'au'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-19", titulo:"Difícil — Dentição decídua completa com múltiplas lesões",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 4 anos, com dentição totalmente decídua. Apresenta cáries em múltiplos dentes: 55 (restauração existente), 65 (cárie proximal requer restauração), 75 (cárie oclusal requer restauração), e 85 (cárie oclusal requer restauração). Radiografia periapical mostra lesões em dentina. Controle de dieta e higiene oral recomendado urgentemente.`,
+  correto:{55:{c:'re'},65:{l:'rp',r:'rp'},75:{c:'rp'},85:{c:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-20", titulo:"Médio — Implante e restauração combinados",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 52 anos, com ausência do dente 37 (molar inferior esquerdo) há 4 anos e cárie no dente 36. Foi indicado implante no sítio do 37 e restauração do 36. Radiografia pré-operatória confirma volume ósseo adequado. Paciente está inserida em protocolo de reabilitação protética. Fases: implante, osseointegração e prótese.`,
+  correto:{37:{_w:'im'},36:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-21", titulo:"Fácil — Dente com restauração e controle",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 25 anos, com restauração de resina no dente 17 na face oclusal realizada há 2 anos. Controle periódico de 6 meses mostra restauração íntegra, sem sinais de recidiva ou desadaptação. Nenhuma mudança está indicada neste momento. Próximo acompanhamento recomendado em 6 meses.`,
+  correto:{17:{c:'re'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-22", titulo:"Médio — Dois pré-molares com tratamento",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 41 anos, com dentes 14 e 15 (pré-molares superiores direitos) ambos apresentando cárie oclusal. Dente 14 é pequeno e será restaurado. Dente 15 apresenta cárie profunda com envolvimento pulpar, necessitando tratamento endodôntico. Diagnóstico confirmado por radiografia periapical e testes de vitalidade.`,
+  correto:{14:{c:'rp'},15:{_w:'ca'},15:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-23", titulo:"Fácil — Criança com dente restaurado",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 6 anos, com restauração de ionômero de vidro no dente 85 (segundo molar decíduo inferior direito). A restauração foi realizada há 6 meses e está em bom estado. Exame clínico confirma restauração íntegra e bem adaptada. Dente deve ser mantido até esfoliação fisiológica. Próximo acompanhamento em 6 meses.`,
+  correto:{85:{c:'re'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-24", titulo:"Médio — Quadrante com múltiplas patologias",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 50 anos, com comprometimento do quadrante superior direito: dente 17 com cárie oclusal (restauração planejada), dente 16 com restauração deficiente (substituição planejada), e dente 18 com cárie extensa oclusal e proximal (restauração planejada). Radiografia panorâmica mostra comprometimento de três dentes do mesmo quadrante. Planejamento de tratamento sequencial necessário.`,
+  correto:{17:{c:'rp'},16:{c:'rp'},18:{c:'rp',l:'rp',r:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-25", titulo:"Difícil — Paciente edêntulo parcial complexo",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 65 anos, com ausências múltiplas: dentes 27, 37, 47 (molares esquerdo superior e inferior direito e esquerdo). Além das ausências, apresenta cárie no 36 e restauração deficiente no 26. Radiografia mostra reabsorção óssea moderada em sítios de ausência. Avaliação de implantes versus prótese removível necessária. Diagnóstico complexo com múltiplas opções de tratamento.`,
+  correto:{27:{_w:'au'},37:{_w:'au'},47:{_w:'au'},36:{c:'rp'},26:{c:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-26", titulo:"Fácil — Incisivo anterior com restauração",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:1, tempo:3, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 31 anos, com restauração de resina no dente 11 na face incisal realizada há 1 ano por desgaste dentário. A restauração está em excelente estado, bem adaptada, com cor compatível. Exame clínico e radiográfico confirmam ausência de patologia. Acompanhamento de rotina recomendado anualmente.`,
+  correto:{11:{c:'re'}},
+  competencias:[8,7,7,8,8,8,8,8]
+},
+
+{
+  id:"OD-27", titulo:"Médio — Criança em transição com múltiplos dentes",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 9 anos (dentição mista em transição), com restauração existente no dente 65 (molar decíduo superior direito) e cáries em desenvolvimento nos dentes 46 e 47 (molares permanentes inferiores direitos). O dente 65 está próximo de esfoliar. Radiografia mostra desenvolvimento adequado dos molares permanentes. Estratégia: manter 65, restaurar 46 e 47 preventivamente.`,
+  correto:{65:{c:'re'},46:{c:'rp'},47:{c:'rp'}},
+  competencias:[8,8,8,8,8,7,8,8]
+},
+
+{
+  id:"OD-28", titulo:"Difícil — Endodontia, implante e múltiplas restaurações",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 60 anos, com histórico de doença periodontal e perdas dentárias múltiplas. Ausências de dentes 37 (será substituído por implante) e 35 (será substituído por prótese removível parcial). Dente 36 apresenta necrose pulpar confirmada (necessita endodontia e posterior coroa). Dente 46 apresenta cárie proximal (restauração planejada). Dente 47 está restaurado adequadamente. Planejamento multidisciplinar complexo necessário.`,
+  correto:{37:{_w:'im'},35:{_w:'au'},36:{_w:'ca'},36:{c:'co'},46:{l:'rp',r:'rp'},47:{c:'re'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-29", titulo:"Médio — Quadrante anterior com cáries múltiplas",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:2, tempo:4, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente feminina, 37 anos, com cáries em incisivos superiores: dente 11 (cárie mesial e distal), dente 12 (cárie incisal), dente 21 (restauração existente), dente 22 (cárie distal). Histórico de dieta com bebidas ácidas. Radiografia periapical confirma lesões em dentina. Recomendação: restaurações de classe III/IV em 11 e 12, restauração de classe III em 22, manutenção de 21. Orientação nutricional necessária.`,
+  correto:{11:{l:'rp',r:'rp'},12:{c:'rp'},21:{c:'re'},22:{r:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
+},
+
+{
+  id:"OD-30", titulo:"Difícil — Paciente pediátrico com múltiplas ausências decíduas",
+  tipo:"odontograma", modalidade:"odontograma", complexidade:3, tempo:5, area:"Diagnóstico e Odontograma",
+  contexto:`Paciente masculino, 5 anos, com dentição decídua completa comprometida: ausência congênita do dente 52 (incisivo lateral decíduo superior esquerdo), restauração no dente 55 (em bom estado), cáries múltiplas nos dentes 65, 75, 85 (molares decíduos superiores e inferiores). Ausência congênita requer monitoramento de espaço. Cáries requerem restauração preventiva. Prognóstico: acompanhamento periódico de 3 meses e controle de higiene rigoroso pela família.`,
+  correto:{52:{_w:'au'},55:{c:'re'},65:{c:'rp'},75:{c:'rp'},85:{c:'rp'}},
+  competencias:[8,8,8,8,8,8,8,8]
 }
 
 ];

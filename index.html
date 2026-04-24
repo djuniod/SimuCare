@@ -720,6 +720,7 @@
           <option value="agendamento">Agendamento</option>
           <option value="clinico">Caso Clínico</option>
           <option value="materiais">Materiais</option>
+          <option value="odontograma">Odontograma</option>
         </select>
         <select class="filter-select" id="f-area" onchange="renderScenarios()">
           <option value="">Todas as áreas</option>
@@ -862,6 +863,7 @@
                   <option value="agendamento">Agendamento (AG)</option>
                   <option value="materiais">Materiais (MAT)</option>
                   <option value="clinico">Caso Clínico (CC)</option>
+                  <option value="odontograma">Odontograma (OD)</option>
                 </select>
               </div>
               <div class="field"><label>Área</label>
@@ -1480,7 +1482,7 @@ async function enterApp() {
 
 // -- HELPERS --------------------------------------------------------
 function getAllScenarios() {
-  // cenarios.js contém todos os cenários (Agendamento + Materiais + Caso Clínico)
+  // cenarios.js contém todos os cenários (Agendamento + Materiais + Caso Clínico + Odontograma)
   return (window.CENARIOS || []).map(s => {
     // Normaliza modalidade sempre pelo prefixo do ID (fonte de verdade)
     let modalidade = s.modalidade;
@@ -1488,6 +1490,7 @@ function getAllScenarios() {
       if (s.id.startsWith('AG-'))  modalidade = 'agendamento';
       else if (s.id.startsWith('MAT-')) modalidade = 'materiais';
       else if (s.id.startsWith('CC-'))  modalidade = 'clinico';
+      else if (s.id.startsWith('OD-'))  modalidade = 'odontograma';
     }
     if (!modalidade) modalidade = 'clinico';
     return { ...s, modalidade };
@@ -1766,6 +1769,7 @@ function startScenario(id) {
   if (!s) return;
   if (s.modalidade === 'agendamento') startAgendamento(s);
   else if (s.modalidade === 'materiais') startMateriais(s);
+  else if (s.modalidade === 'odontograma') startOdontograma(s);
   else startSim(s);
 }
 
@@ -2767,6 +2771,403 @@ function showResultMateriais(res, m) {
         <h4 style="margin:0 0 16px 0;color:#1f2937">UCs praticadas neste cenário</h4>
         <div style="display:flex;flex-direction:column;gap:12px">
           ${getUcsPrimarias(m).map(uc => {
+            const info = UC_INFO[uc] || { curto: uc, completo: uc };
+            const percent = res.pontuacao || 0;
+            return `
+              <div>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+                  <span style="font-size:13px;font-weight:500;color:#1f2937" title="${info.completo}">${info.curto}</span>
+                  <span style="font-size:13px;font-weight:600;color:#ff8c42">${percent}%</span>
+                </div>
+                <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden">
+                  <div style="height:100%;width:${percent}%;background:linear-gradient(90deg, #1b3a8a, #ff8c42);border-radius:3px"></div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+      <button class="btn-secondary" onclick="showPage('page-dashboard');showScreen('app-screen')" style="width:100%;padding:12px">Ver meu painel</button>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════════════
+//   SIMULAÇÃO - ODONTOGRAMA
+// ════════════════════════════════════════════════════════════════════
+function startOdontograma(od) {
+  state.currentOd = od;
+  state.odTS = {};
+  state.odActiveTool = null;
+  document.getElementById('sim-id-label').textContent = od.id;
+  document.getElementById('sim-title-label').textContent = od.titulo;
+  showScreen('sim-screen');
+  renderOdontogramaScreen();
+}
+
+function renderOdontogramaScreen() {
+  const od = state.currentOd;
+  const ts = state.odTS || {};
+  const activeTool = state.odActiveTool;
+
+  const TOOLS = [
+    {id:'re', nome:'Restauração Existente', cor:'#E24B4A'},
+    {id:'rp', nome:'Restauração a Realizar', cor:'#378ADD'},
+    {id:'ca', nome:'Canal',                  cor:'#EF9F27'},
+    {id:'co', nome:'Coroa',                  cor:'#D4537E'},
+    {id:'im', nome:'Implante',               cor:'#639922'},
+    {id:'au', nome:'Ausente',                cor:'#888780'},
+    {id:'ex', nome:'Exodontia',              cor:'#7F77DD'}
+  ];
+  const TOOL_MAP = {};
+  TOOLS.forEach(function(t){ TOOL_MAP[t.id] = t; });
+  const WHOLE_TOOLS = ['ca','co','im','au','ex'];
+  const isWholeActive = activeTool && WHOLE_TOOLS.indexOf(activeTool) >= 0;
+
+  function getFaceColor(td, face) {
+    if (!td) return '#f9f9f9';
+    if (td._w && TOOL_MAP[td._w]) return TOOL_MAP[td._w].cor;
+    if (td[face] && TOOL_MAP[td[face]]) return TOOL_MAP[td[face]].cor;
+    return '#f9f9f9';
+  }
+
+  function renderTooth(n) {
+    var td  = ts[n] || {};
+    var hasWhole = !!td._w;
+    var S   = 46;
+    var inn = 14;
+    var H   = S / 2;
+    var bg  = hasWhole ? (TOOL_MAP[td._w] ? TOOL_MAP[td._w].cor : '#f9f9f9') : '#f9f9f9';
+    var tc  = hasWhole ? bg : getFaceColor(td, 't');
+    var bc  = hasWhole ? bg : getFaceColor(td, 'b');
+    var lc  = hasWhole ? bg : getFaceColor(td, 'l');
+    var rc  = hasWhole ? bg : getFaceColor(td, 'r');
+    var cc  = hasWhole ? bg : getFaceColor(td, 'c');
+    var cw  = 'onclick="selectToothOD(' + n + ',\'_w\')"';
+    function cf(f) { return (isWholeActive || hasWhole) ? cw : 'onclick="selectToothOD(' + n + ',\'' + f + '\')"'; }
+    var hasMark = hasWhole || td.t || td.b || td.l || td.r || td.c;
+    var borderColor = hasMark ? '#444' : '#ccc';
+    var borderW = hasMark ? 2 : 1;
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:2px">'
+      + '<span style="font-size:9px;font-weight:700;color:#555;line-height:1">' + n + '</span>'
+      + '<svg width="' + S + '" height="' + S + '" style="cursor:pointer;display:block" xmlns="http://www.w3.org/2000/svg">'
+      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="' + bg + '" stroke="#ddd" stroke-width="1" rx="2"/>'
+      + (hasWhole
+          ? '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="transparent" ' + cw + '/>'
+          : '<polygon points="' + inn + ',' + inn + ' ' + (S-inn) + ',' + inn + ' ' + H + ',1" fill="' + tc + '" stroke="#ddd" stroke-width="0.5" ' + cf('t') + ' style="cursor:pointer"/>'
+          + '<polygon points="' + inn + ',' + (S-inn) + ' ' + (S-inn) + ',' + (S-inn) + ' ' + H + ',' + (S-1) + '" fill="' + bc + '" stroke="#ddd" stroke-width="0.5" ' + cf('b') + ' style="cursor:pointer"/>'
+          + '<polygon points="1,' + H + ' ' + inn + ',' + inn + ' ' + inn + ',' + (S-inn) + '" fill="' + lc + '" stroke="#ddd" stroke-width="0.5" ' + cf('l') + ' style="cursor:pointer"/>'
+          + '<polygon points="' + (S-1) + ',' + H + ' ' + (S-inn) + ',' + inn + ' ' + (S-inn) + ',' + (S-inn) + '" fill="' + rc + '" stroke="#ddd" stroke-width="0.5" ' + cf('r') + ' style="cursor:pointer"/>'
+          + '<rect x="' + inn + '" y="' + inn + '" width="' + (S-2*inn) + '" height="' + (S-2*inn) + '" fill="' + cc + '" stroke="#ddd" stroke-width="0.5" ' + cf('c') + ' style="cursor:pointer"/>'
+        )
+      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="none" stroke="' + borderColor + '" stroke-width="' + borderW + '" rx="2" style="pointer-events:none"/>'
+      + '</svg></div>';
+  }
+
+  function renderRow(teeth) {
+    return '<div style="display:flex;gap:3px;justify-content:center;align-items:flex-start;flex-wrap:nowrap">'
+      + teeth.map(function(n){ return renderTooth(n); }).join('') + '</div>';
+  }
+
+  // Does this scenario use deciduous teeth?
+  var correto = od.correto || {};
+  var hasDeciduous = Object.keys(correto).some(function(t){
+    var n = parseInt(t); return n >= 51 && n <= 85;
+  });
+
+  var upperRow    = [18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28];
+  var lowerRow    = [48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+  var upperDecRow = [55,54,53,52,51,61,62,63,64,65];
+  var lowerDecRow = [85,84,83,82,81,71,72,73,74,75];
+
+  var odHTML = '<div style="overflow-x:auto;padding:4px 0"><div style="min-width:740px">'
+    + '<div style="text-align:center;font-size:10px;color:#aaa;margin-bottom:4px">← Q1 (18→11) | Q2 (21→28) →  Superior</div>'
+    + renderRow(upperRow)
+    + '<div style="border-top:2px dashed #d1d5db;margin:6px 0"></div>'
+    + renderRow(lowerRow)
+    + '<div style="text-align:center;font-size:10px;color:#aaa;margin-top:4px">← Q4 (48→41) | Q3 (31→38) →  Inferior</div>'
+    + (hasDeciduous
+        ? '<div style="border-top:2px solid #fde68a;margin:14px 0 6px"></div>'
+        + '<div style="text-align:center;font-size:10px;color:#b45309;font-weight:600;margin-bottom:6px">Dentição Decídua</div>'
+        + '<div style="text-align:center;font-size:10px;color:#aaa;margin-bottom:4px">← Q5 (55→51) | Q6 (61→65) →  Superior</div>'
+        + renderRow(upperDecRow)
+        + '<div style="border-top:1px dashed #d1d5db;margin:6px 0"></div>'
+        + renderRow(lowerDecRow)
+        + '<div style="text-align:center;font-size:10px;color:#aaa;margin-top:4px">← Q8 (85→81) | Q7 (71→75) →  Inferior</div>'
+        : '')
+    + '</div></div>';
+
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in" style="max-width:960px;margin:0 auto">
+      <div class="scenario-phase">Atividade de Odontograma</div>
+      <div class="scenario-title">${od.titulo}</div>
+      <div class="context-box">
+        <div class="context-label">📋 Cenário Clínico</div>
+        <div class="context-text">${formatContextoWithInfo(od.contexto)}</div>
+      </div>
+
+      <div class="ag-section">
+        <h3 style="margin-bottom:8px">Marque os dentes conforme o diagnóstico</h3>
+        <p class="hint" style="margin-bottom:14px">Selecione uma ferramenta e clique na face correta do dente. Para canal, coroa, implante, ausente e exodontia, clique em qualquer parte do dente.</p>
+
+        <!-- Toolbar -->
+        <div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap">
+          ${TOOLS.map(tool => `
+            <button onclick="setOdontogramaTool('${tool.id}')"
+              style="padding:7px 11px;border:2px solid ${tool.cor};border-radius:6px;cursor:pointer;font-weight:600;font-size:12px;
+                     background:${activeTool===tool.id ? tool.cor : 'white'};
+                     color:${activeTool===tool.id ? 'white' : '#333'};transition:all 0.15s">${tool.nome}</button>
+          `).join('')}
+        </div>
+
+        <!-- Odontogram -->
+        ${odHTML}
+
+        <button class="btn-next" style="margin-top:22px;width:100%;padding:14px" onclick="avaliarOdontograma()">Verificar resposta</button>
+      </div>
+    </div>`;
+}
+
+function setOdontogramaTool(toolId) {
+  state.odActiveTool = state.odActiveTool === toolId ? null : toolId;
+  renderOdontogramaScreen();
+}
+
+function selectToothOD(tooth, face) {
+  var tool = state.odActiveTool;
+  if (!tool) return;
+
+  if (!state.odTS) state.odTS = {};
+  if (!state.odTS[tooth]) state.odTS[tooth] = {};
+
+  var WHOLE_TOOLS = ['ca','co','im','au','ex'];
+  // Whole-tool: always apply to _w regardless of clicked face
+  var actualFace = (WHOLE_TOOLS.indexOf(tool) >= 0) ? '_w' : (face || 'c');
+
+  if (actualFace === '_w') {
+    if (state.odTS[tooth]._w === tool) {
+      delete state.odTS[tooth]._w;
+    } else {
+      // Whole-tooth mark replaces everything on this tooth
+      state.odTS[tooth] = {_w: tool};
+    }
+  } else {
+    // Face-based tool (re, rp): clear whole-tooth mark first if present
+    if (state.odTS[tooth]._w) delete state.odTS[tooth]._w;
+    if (state.odTS[tooth][actualFace] === tool) {
+      delete state.odTS[tooth][actualFace];
+    } else {
+      state.odTS[tooth][actualFace] = tool;
+    }
+  }
+
+  renderOdontogramaScreen();
+}
+
+function avaliarOdontograma() {
+  const od = state.currentOd;
+  const userMarks = state.odTS || {};
+  const expectedMarks = od.correto || {};
+
+  let totalExpected = 0;
+  let correctCount = 0;
+  let wrongCount = 0;
+
+  // Count expected marks
+  for (const tooth in expectedMarks) {
+    const expected = expectedMarks[tooth];
+    if (expected._w) {
+      totalExpected++;
+    } else {
+      for (const face in expected) {
+        if (face !== '_w') totalExpected++;
+      }
+    }
+  }
+
+  // Check correct marks
+  for (const tooth in expectedMarks) {
+    const expected = expectedMarks[tooth];
+    if (expected._w) {
+      if (userMarks[tooth] && userMarks[tooth]._w === expected._w) {
+        correctCount++;
+      }
+    } else {
+      for (const face in expected) {
+        if (face !== '_w') {
+          if (userMarks[tooth] && userMarks[tooth][face] === expected[face]) {
+            correctCount++;
+          }
+        }
+      }
+    }
+  }
+
+  // Count wrong marks (user marked something not in expected)
+  for (const tooth in userMarks) {
+    const user = userMarks[tooth];
+    const exp = expectedMarks[tooth];
+
+    if (user._w && (!exp || !exp._w || exp._w !== user._w)) {
+      wrongCount++;
+    }
+
+    for (const face in user) {
+      if (face !== '_w') {
+        if (!exp || !exp[face] || exp[face] !== user[face]) {
+          wrongCount++;
+        }
+      }
+    }
+  }
+
+  // Scoring
+  const baseScore = totalExpected > 0 ? (correctCount / totalExpected) * 100 : 0;
+  const penalty = Math.max(0, wrongCount * 3);
+  const score = Math.max(0, baseScore - penalty);
+  const pontuacao = Math.round(score);
+
+  const competenciasBase = od.competencias || [8,8,8,8,8,8,8,8];
+  const comps = competenciasBase.map(c => parseFloat(((score / 100) * c).toFixed(1)));
+
+  const res = {
+    cenarioId: od.id,
+    titulo: od.titulo,
+    area: od.area || 'Diagnóstico e Odontograma',
+    modalidade: 'odontograma',
+    pontuacao,
+    comps,
+    dados_enviados: {
+      userMarks,
+      expectedMarks,
+      correctCount,
+      totalExpected,
+      wrongCount,
+      lostCount: totalExpected - correctCount
+    },
+    data: new Date().toISOString()
+  };
+
+  saveResult(res);
+  showResultOdontograma(res, od);
+}
+
+function showResultOdontograma(res, od) {
+  const userMarks = res.dados_enviados.userMarks || {};
+  const expectedMarks = od.correto || {};
+
+  const tools = [
+    {id:'re', nome:'Restauração Existente', cor:'#E24B4A'},
+    {id:'rp', nome:'Restauração a Realizar', cor:'#378ADD'},
+    {id:'ca', nome:'Canal', cor:'#EF9F27'},
+    {id:'co', nome:'Coroa', cor:'#D4537E'},
+    {id:'im', nome:'Implante', cor:'#639922'},
+    {id:'au', nome:'Ausente', cor:'#888780'},
+    {id:'ex', nome:'Exodontia', cor:'#7F77DD'}
+  ];
+
+  // Only show teeth that appear in the expected or user marks
+  var relevantTeeth = [];
+  var seenTeeth = {};
+  Object.keys(expectedMarks).forEach(function(t){ if (!seenTeeth[t]){ seenTeeth[t]=1; relevantTeeth.push(parseInt(t)); } });
+  Object.keys(userMarks).forEach(function(t){ if (!seenTeeth[t]){ seenTeeth[t]=1; relevantTeeth.push(parseInt(t)); } });
+  relevantTeeth.sort(function(a,b){ return a-b; });
+
+  var TOOL_MAP_R = {};
+  tools.forEach(function(t){ TOOL_MAP_R[t.id] = t; });
+
+  function resultToothColor(marks, face) {
+    if (!marks) return '#f9f9f9';
+    if (marks._w && TOOL_MAP_R[marks._w]) return TOOL_MAP_R[marks._w].cor;
+    if (marks[face] && TOOL_MAP_R[marks[face]]) return TOOL_MAP_R[marks[face]].cor;
+    return '#f9f9f9';
+  }
+
+  function renderResultTooth(n, expMark, userMark, status) {
+    // status: 'correct', 'wrong', 'missed', 'extra'
+    var borderColors = {correct:'#22c55e', wrong:'#f59e0b', missed:'#ef4444', extra:'#ef4444', none:'#ddd'};
+    var symbols = {correct:'✓', wrong:'≈', missed:'✗', extra:'✕', none:''};
+    var borderColor = borderColors[status] || borderColors.none;
+    var symbol = symbols[status] || '';
+    var sourceMark = expMark || userMark || {};
+    var S = 44, inn = 13, H = S/2;
+    var bg = resultToothColor(sourceMark, 'c');
+    var tc = resultToothColor(sourceMark, 't');
+    var bc = resultToothColor(sourceMark, 'b');
+    var lc = resultToothColor(sourceMark, 'l');
+    var rc = resultToothColor(sourceMark, 'r');
+    var cc = resultToothColor(sourceMark, 'c');
+    var hasWhole = !!(sourceMark._w);
+    return '<div style="display:flex;flex-direction:column;align-items:center;gap:2px">'
+      + '<span style="font-size:9px;font-weight:700;color:#555">' + n + '</span>'
+      + '<div style="position:relative">'
+      + '<svg width="' + S + '" height="' + S + '" xmlns="http://www.w3.org/2000/svg">'
+      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="' + bg + '" stroke="#ddd" stroke-width="1" rx="2"/>'
+      + (hasWhole ? '' :
+          '<polygon points="' + inn + ',' + inn + ' ' + (S-inn) + ',' + inn + ' ' + H + ',1" fill="' + tc + '" stroke="#ddd" stroke-width="0.5"/>'
+        + '<polygon points="' + inn + ',' + (S-inn) + ' ' + (S-inn) + ',' + (S-inn) + ' ' + H + ',' + (S-1) + '" fill="' + bc + '" stroke="#ddd" stroke-width="0.5"/>'
+        + '<polygon points="1,' + H + ' ' + inn + ',' + inn + ' ' + inn + ',' + (S-inn) + '" fill="' + lc + '" stroke="#ddd" stroke-width="0.5"/>'
+        + '<polygon points="' + (S-1) + ',' + H + ' ' + (S-inn) + ',' + inn + ' ' + (S-inn) + ',' + (S-inn) + '" fill="' + rc + '" stroke="#ddd" stroke-width="0.5"/>'
+        + '<rect x="' + inn + '" y="' + inn + '" width="' + (S-2*inn) + '" height="' + (S-2*inn) + '" fill="' + cc + '" stroke="#ddd" stroke-width="0.5"/>'
+        )
+      + '<rect x="1" y="1" width="' + (S-2) + '" height="' + (S-2) + '" fill="none" stroke="' + borderColor + '" stroke-width="2.5" rx="2"/>'
+      + '</svg>'
+      + (symbol ? '<span style="position:absolute;top:-4px;right:-4px;font-size:13px;font-weight:900;color:' + borderColor + ';text-shadow:0 0 2px #fff;line-height:1">' + symbol + '</span>' : '')
+      + '</div></div>';
+  }
+
+  var resultGridHTML = '<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">';
+  relevantTeeth.forEach(function(n) {
+    var exp = expectedMarks[n];
+    var usr = userMarks[n];
+    var status = 'none';
+    if (exp && usr) {
+      status = JSON.stringify(usr) === JSON.stringify(exp) ? 'correct' : 'wrong';
+    } else if (exp && !usr) {
+      status = 'missed';
+    } else if (!exp && usr) {
+      status = 'extra';
+    }
+    resultGridHTML += renderResultTooth(n, exp, usr, status);
+  });
+  resultGridHTML += '</div>';
+  if (relevantTeeth.length === 0) {
+    resultGridHTML = '<p style="color:#888;font-style:italic">Nenhum dente marcado.</p>';
+  }
+
+  const summary = `
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
+      <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:24px;font-weight:700;color:#22c55e">${res.dados_enviados.correctCount}</div>
+        <div style="font-size:12px;color:#4b5563">Acertos</div>
+      </div>
+      <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:24px;font-weight:700;color:#f59e0b">${res.dados_enviados.lostCount}</div>
+        <div style="font-size:12px;color:#4b5563">Faltaram (${res.dados_enviados.totalExpected})</div>
+      </div>
+      <div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:24px;font-weight:700;color:#ef4444">${res.dados_enviados.wrongCount}</div>
+        <div style="font-size:12px;color:#4b5563">Extras</div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('sim-content').innerHTML = `
+    <div class="sim-main fade-in">
+      <div class="scenario-phase">Resultado - Odontograma</div>
+      <div class="scenario-title">${od.titulo}</div>
+      <div style="background:#f0fdf4;border-left:4px solid #22c55e;padding:16px;margin-bottom:20px;border-radius:6px">
+        <div style="font-size:28px;font-weight:700;color:#22c55e">${res.pontuacao}%</div>
+        <div style="color:#4b5563;margin-top:4px">Seu desempenho</div>
+      </div>
+      ${summary}
+      <div style="background:white;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:20px">
+        <h4 style="margin:0 0 12px 0;color:#1f2937">Gabarito (resposta esperada)</h4>
+        ${resultGridHTML}
+      </div>
+      <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px">
+        <h4 style="margin:0 0 16px 0;color:#1f2937">UCs praticadas neste cenário</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          ${getUcsPrimarias(od).map(uc => {
             const info = UC_INFO[uc] || { curto: uc, completo: uc };
             const percent = res.pontuacao || 0;
             return `
