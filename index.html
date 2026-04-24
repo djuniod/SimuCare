@@ -2885,14 +2885,6 @@ function renderOdontogramaScreen() {
   }
 
   // Row with vertical center divider between quadrants
-  function archRow(qLeft, qRight, cellFn) {
-    return '<div style="display:flex;align-items:stretch;gap:0">'
-      +'<div style="display:flex;gap:2px">'+qLeft.map(cellFn).join('')+'</div>'
-      +'<div style="width:2px;background:#666;margin:0 3px;border-radius:1px"></div>'
-      +'<div style="display:flex;gap:2px">'+qRight.map(cellFn).join('')+'</div>'
-      +'</div>';
-  }
-
   var correto = od.correto || {};
   var hasDeciduous = Object.keys(correto).some(function(t){
     var n=parseInt(t); return n>=51&&n<=85;
@@ -2904,13 +2896,27 @@ function renderOdontogramaScreen() {
   var upQ5=[55,54,53,52,51],          upQ6=[61,62,63,64,65];
   var loQ8=[85,84,83,82,81],          loQ7=[71,72,73,74,75];
 
+  var hLine = '<div style="height:3px;background:#555;margin:3px 0;border-radius:1px"></div>';
+  var leftCol = '<div style="display:flex;flex-direction:column;align-items:flex-end">'
+    +(hasDeciduous?'<div style="display:flex;gap:2px;margin-bottom:3px">'+upQ5.map(upperDecCell).join('')+'</div>':'')
+    +'<div style="display:flex;gap:2px">'+upQ1.map(upperCell).join('')+'</div>'
+    +hLine
+    +'<div style="display:flex;gap:2px">'+loQ4.map(lowerCell).join('')+'</div>'
+    +(hasDeciduous?'<div style="display:flex;gap:2px;margin-top:3px">'+loQ8.map(lowerDecCell).join('')+'</div>':'')
+    +'</div>';
+  var rightCol = '<div style="display:flex;flex-direction:column;align-items:flex-start">'
+    +(hasDeciduous?'<div style="display:flex;gap:2px;margin-bottom:3px">'+upQ6.map(upperDecCell).join('')+'</div>':'')
+    +'<div style="display:flex;gap:2px">'+upQ2.map(upperCell).join('')+'</div>'
+    +hLine
+    +'<div style="display:flex;gap:2px">'+loQ3.map(lowerCell).join('')+'</div>'
+    +(hasDeciduous?'<div style="display:flex;gap:2px;margin-top:3px">'+loQ7.map(lowerDecCell).join('')+'</div>':'')
+    +'</div>';
+
   var odHTML = '<div style="overflow-x:auto;padding:6px 0">'
-    +'<div style="display:inline-block;min-width:max-content">'
-    +(hasDeciduous?'<div style="display:flex;justify-content:center;margin-bottom:3px">'+archRow(upQ5,upQ6,upperDecCell)+'</div>':'')
-    +'<div style="display:flex;justify-content:center">'+archRow(upQ1,upQ2,upperCell)+'</div>'
-    +'<div style="height:3px;background:#555;margin:3px 0;border-radius:1px"></div>'
-    +'<div style="display:flex;justify-content:center">'+archRow(loQ4,loQ3,lowerCell)+'</div>'
-    +(hasDeciduous?'<div style="display:flex;justify-content:center;margin-top:3px">'+archRow(loQ8,loQ7,lowerDecCell)+'</div>':'')
+    +'<div style="display:inline-flex;align-items:stretch">'
+    +leftCol
+    +'<div style="width:3px;background:#555;border-radius:1px;flex-shrink:0;margin:0 4px"></div>'
+    +rightCol
     +'</div></div>';
 
   // Context: use structured dentes array if present, else fallback
@@ -4964,20 +4970,26 @@ function renderEditOdSVG() {
   function edUpperD(n){ return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px">'+edTooth(n)+'<span style="font-size:7px;font-weight:700;color:#b45309;line-height:1">'+n+'</span></div>'; }
   function edLowerD(n){ return '<div style="display:flex;flex-direction:column;align-items:center;gap:1px"><span style="font-size:7px;font-weight:700;color:#b45309;line-height:1">'+n+'</span>'+edTooth(n)+'</div>'; }
 
-  function edRow(q1,q2,fn){
-    return '<div style="display:flex;align-items:stretch;gap:0">'
-      +'<div style="display:flex;gap:2px">'+q1.map(fn).join('')+'</div>'
-      +'<div style="width:2px;background:#666;margin:0 3px;border-radius:1px"></div>'
-      +'<div style="display:flex;gap:2px">'+q2.map(fn).join('')+'</div>'
-      +'</div>';
-  }
+  var hL = '<div style="height:3px;background:#555;margin:3px 0;border-radius:1px"></div>';
+  var edLeft = '<div style="display:flex;flex-direction:column;align-items:flex-end">'
+    +'<div style="display:flex;gap:2px;margin-bottom:3px">'+[55,54,53,52,51].map(edUpperD).join('')+'</div>'
+    +'<div style="display:flex;gap:2px">'+[18,17,16,15,14,13,12,11].map(edUpper).join('')+'</div>'
+    +hL
+    +'<div style="display:flex;gap:2px">'+[48,47,46,45,44,43,42,41].map(edLower).join('')+'</div>'
+    +'<div style="display:flex;gap:2px;margin-top:3px">'+[85,84,83,82,81].map(edLowerD).join('')+'</div>'
+    +'</div>';
+  var edRight = '<div style="display:flex;flex-direction:column;align-items:flex-start">'
+    +'<div style="display:flex;gap:2px;margin-bottom:3px">'+[61,62,63,64,65].map(edUpperD).join('')+'</div>'
+    +'<div style="display:flex;gap:2px">'+[21,22,23,24,25,26,27,28].map(edUpper).join('')+'</div>'
+    +hL
+    +'<div style="display:flex;gap:2px">'+[31,32,33,34,35,36,37,38].map(edLower).join('')+'</div>'
+    +'<div style="display:flex;gap:2px;margin-top:3px">'+[71,72,73,74,75].map(edLowerD).join('')+'</div>'
+    +'</div>';
 
-  return '<div style="overflow-x:auto"><div style="display:inline-block;min-width:max-content">'
-    +'<div style="display:flex;justify-content:center;margin-bottom:2px">'+edRow([55,54,53,52,51],[61,62,63,64,65],edUpperD)+'</div>'
-    +'<div style="display:flex;justify-content:center">'+edRow([18,17,16,15,14,13,12,11],[21,22,23,24,25,26,27,28],edUpper)+'</div>'
-    +'<div style="height:3px;background:#555;margin:3px 0;border-radius:1px"></div>'
-    +'<div style="display:flex;justify-content:center">'+edRow([48,47,46,45,44,43,42,41],[31,32,33,34,35,36,37,38],edLower)+'</div>'
-    +'<div style="display:flex;justify-content:center;margin-top:2px">'+edRow([85,84,83,82,81],[71,72,73,74,75],edLowerD)+'</div>'
+  return '<div style="overflow-x:auto"><div style="display:inline-flex;align-items:stretch">'
+    +edLeft
+    +'<div style="width:3px;background:#555;border-radius:1px;flex-shrink:0;margin:0 4px"></div>'
+    +edRight
     +'</div></div>';
 }
 
