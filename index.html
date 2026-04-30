@@ -132,6 +132,14 @@
   .stat-value.orange { color: var(--accent3); }
   .stat-value.teal { color: var(--accent); }
 
+  /* Cards Opção 3 — painel do professor */
+  .stat-card-prof { background: var(--surface); border: 1px solid var(--border); border-left-width: 3px; border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; }
+  .stat-card-prof .stat-value { font-size: 28px; font-weight: 700; }
+
+  /* Avatar aluno — painel professor */
+  .aluno-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; background: #E6F1FB; color: #185FA5; }
+  .aluno-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
   .section-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
   .section-title.with-action { display: flex; justify-content: space-between; align-items: center; }
 
@@ -744,10 +752,22 @@
         <p>Visão geral da turma, desempenho e reflexões dos alunos.</p>
       </div>
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-label">Alunos cadastrados</div><div class="stat-value teal" id="pt-alunos">0</div></div>
-        <div class="stat-card"><div class="stat-label">Turmas ativas</div><div class="stat-value blue" id="pt-turmas">0</div></div>
-        <div class="stat-card"><div class="stat-label">Cenários realizados</div><div class="stat-value green" id="pt-sessoes">0</div></div>
-        <div class="stat-card"><div class="stat-label">Nota média geral</div><div class="stat-value orange" id="pt-media">—</div></div>
+        <div class="stat-card-prof" style="border-left-color:var(--text1)">
+          <div class="stat-label">Alunos cadastrados</div>
+          <div class="stat-value" id="pt-alunos" style="color:var(--text1)">0</div>
+        </div>
+        <div class="stat-card-prof" style="border-left-color:#EF9F27">
+          <div class="stat-label">Turmas ativas</div>
+          <div class="stat-value" id="pt-turmas" style="color:#BA7517">0</div>
+        </div>
+        <div class="stat-card-prof" style="border-left-color:#378ADD">
+          <div class="stat-label">Cenários realizados</div>
+          <div class="stat-value" id="pt-sessoes" style="color:#185FA5">0</div>
+        </div>
+        <div class="stat-card-prof" id="pt-media-card" style="border-left-color:#E24B4A">
+          <div class="stat-label">Nota média geral</div>
+          <div class="stat-value" id="pt-media" style="color:#A32D2D">—</div>
+        </div>
       </div>
       <div class="prof-grid">
         <div class="big-card">
@@ -4442,7 +4462,20 @@ function renderProfDashboard() {
   // Normalizar para 0-10
   const notasNormalizadasProf = todosResult.map(r => normalizarNota(r.pontuacao, r.modalidade));
   const mediaGeral = notasNormalizadasProf.length ? (notasNormalizadasProf.reduce((a,r)=>a+r,0)/notasNormalizadasProf.length).toFixed(1) : '—';
-  document.getElementById('pt-media').textContent = mediaGeral;
+  // Nota média — cor proporcional
+  const mediaEl = document.getElementById('pt-media');
+  const mediaCard = document.getElementById('pt-media-card');
+  mediaEl.textContent = mediaGeral;
+  if (mediaGeral !== '—') {
+    const m = parseFloat(mediaGeral);
+    if (m < 5) {
+      mediaEl.style.color = '#A32D2D'; if (mediaCard) mediaCard.style.borderLeftColor = '#E24B4A';
+    } else if (m <= 7) {
+      mediaEl.style.color = '#854F0B'; if (mediaCard) mediaCard.style.borderLeftColor = '#EF9F27';
+    } else {
+      mediaEl.style.color = '#3B6D11'; if (mediaCard) mediaCard.style.borderLeftColor = '#639922';
+    }
+  }
   // Tabela alunos
   const body = document.getElementById('prof-alunos-body');
   if (!state.alunos.length) {
@@ -4450,13 +4483,32 @@ function renderProfDashboard() {
   } else {
     body.innerHTML = state.alunos.map(al => {
       const rs = getResultsForUser(al.id);
-      const avg = rs.length ? (rs.reduce((a,r)=>a+r.pontuacao,0)/rs.length) : null;
+      const notasNorm = rs.map(r => normalizarNota(r.pontuacao, r.modalidade));
+      const avg = notasNorm.length ? notasNorm.reduce((a,v)=>a+v,0)/notasNorm.length : null;
       const turma = al.turma ? getTurmaNome(al.turma) : null;
+      // Avatar com iniciais
+      const iniciais = (capitalize(al.primeiro||'?')[0] + capitalize(al.sobrenome||'?')[0]).toUpperCase();
+      // Cor da nota proporcional
+      let notaCor = '#6b7280', notaStr = '—';
+      if (avg !== null) {
+        notaStr = avg.toFixed(1);
+        if (avg < 5) notaCor = '#A32D2D';
+        else if (avg <= 7) notaCor = '#854F0B';
+        else notaCor = '#3B6D11';
+      }
       return `<tr>
-        <td class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}</td>
+        <td>
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="aluno-avatar">${iniciais}</div>
+            <div>
+              <div class="td-name">${capitalize(al.primeiro)} ${capitalize(al.sobrenome)}</div>
+              <div class="aluno-sub">${al.formacao || 'ASB'} · ${rs.length} cenário${rs.length !== 1 ? 's' : ''}</div>
+            </div>
+          </div>
+        </td>
         <td>${turma ? `<span class="pill pill-turma">${turma}</span>` : '<span class="pill pill-sem-turma">sem turma</span>'}</td>
         <td class="td-score">${rs.length}</td>
-        <td class="td-score">${avg !== null ? avg.toFixed(1) : '—'}</td>
+        <td class="td-score" style="color:${notaCor};font-weight:700">${notaStr}</td>
         <td><button class="btn-sm" onclick="openAlunoDetail('${al.id}')">Ver</button></td>
       </tr>`;
     }).join('');
@@ -4546,7 +4598,7 @@ function renderTabelaUCProf(ucData) {
     // Bloco de competências do PO SENAC
     const compPOHtml = info.competenciasPO && info.competenciasPO.length
       ? `<div style="margin-bottom:14px;padding:12px;background:#f0f9ff;border:1px solid #bfdbfe;border-radius:8px">
-          <div style="font-size:11px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">📋 Competências do Plano de Orientação SENAC</div>
+          <div style="font-size:11px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">📋 Competências</div>
           ${info.descricaoPO ? `<p style="font-size:12px;color:#374151;margin:0 0 8px 0;font-style:italic">${info.descricaoPO}</p>` : ''}
           <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:4px">
             ${info.competenciasPO.map(comp =>
