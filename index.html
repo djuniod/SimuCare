@@ -550,7 +550,7 @@
         </svg>
       </div>
       <h1>Simu<span>Care</span></h1>
-      <p>Simulador de atendimento odontológico</p>
+      <p>Simulador de Atendimento Odontológico</p>
     </div>
     <div class="tab-switch">
       <button class="tab-btn active" onclick="setLoginTab('aluno')">Aluno</button>
@@ -973,15 +973,123 @@ const sb = window.supabase && SB_URL && SB_KEY
 const UCS_ASB = ['UC1','UC2','UC3'];
 const UCS_TSB = ['UC1','UC2','UC3','UC5','UC6','UC7','UC8','UC9','UC10'];
 const UC_INFO = {
-  UC1:  { curto:'Organizar Ambiente',       completo:'UC1 · Organizar o ambiente de trabalho odontológico' },
-  UC2:  { curto:'Orientar Paciente',        completo:'UC2 · Orientar o paciente sobre higiene bucal' },
-  UC3:  { curto:'Auxiliar Clínico',         completo:'UC3 · Auxiliar na realização do trabalho clínico' },
-  UC5:  { curto:'Ações Educativas',         completo:'UC5 · Ações educativas de saúde bucal' },
-  UC6:  { curto:'Prevenção',                completo:'UC6 · Prevenção da cárie e doença periodontal' },
-  UC7:  { curto:'Radiologia',               completo:'UC7 · Radiologia e fotografia odontológicas' },
-  UC8:  { curto:'Reabilitação Oral',        completo:'UC8 · Auxiliar na reabilitação oral' },
-  UC9:  { curto:'Treinamento ASB',          completo:'UC9 · Treinamento do auxiliar em saúde bucal' },
-  UC10: { curto:'Instrumentação Hospitalar',completo:'UC10 · Instrumentação cirúrgica hospitalar' }
+  UC1: {
+    curto: 'Organizar Ambiente',
+    completo: 'UC1 · Organizar o ambiente de trabalho odontológico',
+    descricaoPO: 'Preparar e organizar o ambiente físico, os materiais e os equipamentos odontológicos, assegurando condições adequadas de biossegurança para a realização dos procedimentos clínicos.',
+    competenciasPO: [
+      'Verificar e preparar equipamentos e instrumentais odontológicos antes de cada atendimento',
+      'Aplicar protocolos de biossegurança e controle de infecção cruzada (EPI, barreiras, esterilização)',
+      'Organizar bandejas e materiais conforme o procedimento a ser realizado',
+      'Realizar o controle e o registro de estoque de materiais e insumos',
+      'Manter a ordem e a higiene do consultório durante e após os atendimentos',
+      'Identificar e manejar resíduos de serviços de saúde de acordo com as normas vigentes'
+    ]
+  },
+  UC2: {
+    curto: 'Orientar Paciente',
+    completo: 'UC2 · Orientar o paciente sobre higiene bucal e saúde oral',
+    descricaoPO: 'Comunicar-se de forma clara e empática com o paciente, orientando sobre cuidados de higiene bucal, preparando-o para o atendimento e acolhendo suas necessidades.',
+    competenciasPO: [
+      'Recepcionar e acolher o paciente com postura ética e humanizada',
+      'Orientar o paciente sobre técnicas de escovação e uso do fio dental',
+      'Esclarecer dúvidas do paciente sobre procedimentos e cuidados pós-operatórios',
+      'Registrar e preencher ficha clínica e documentos administrativos do atendimento',
+      'Identificar sinais de ansiedade ou medo no paciente e aplicar técnicas de tranquilização',
+      'Comunicar ao cirurgião-dentista alterações ou intercorrências no estado do paciente'
+    ]
+  },
+  UC3: {
+    curto: 'Auxiliar Clínico',
+    completo: 'UC3 · Auxiliar na realização do trabalho clínico odontológico',
+    descricaoPO: 'Dar suporte direto ao cirurgião-dentista durante os procedimentos clínicos, garantindo eficiência no trabalho a quatro mãos, antecipando necessidades e mantendo o conforto do paciente.',
+    competenciasPO: [
+      'Realizar a técnica de trabalho a quatro mãos de forma sincronizada com o dentista',
+      'Fazer aspiração, enxugue e afastamento de tecidos durante os procedimentos',
+      'Preparar e transferir materiais e instrumentos conforme solicitado pelo dentista',
+      'Realizar a manipulação de materiais restauradores, cimentos e moldagens conforme protocolo',
+      'Posicionar adequadamente o paciente na cadeira odontológica conforme o procedimento',
+      'Controlar o tempo de trabalho dos materiais dentários durante a manipulação'
+    ]
+  },
+  UC5: {
+    curto: 'Ações Educativas',
+    completo: 'UC5 · Desenvolver ações educativas de saúde bucal na comunidade',
+    descricaoPO: 'Planejar e executar ações de promoção de saúde bucal voltadas a diferentes públicos, contribuindo para a prevenção de doenças e a melhoria da qualidade de vida da população.',
+    competenciasPO: [
+      'Planejar atividades educativas de saúde bucal para diferentes faixas etárias',
+      'Elaborar e utilizar materiais didáticos de apoio para ações educativas',
+      'Realizar demonstrações de higiene bucal em grupos comunitários e escolares',
+      'Articular ações de saúde bucal com outras áreas da saúde (saúde da família, UBS)',
+      'Registrar e avaliar o impacto das ações educativas realizadas',
+      'Identificar fatores de risco para doenças bucais no contexto comunitário'
+    ]
+  },
+  UC6: {
+    curto: 'Prevenção',
+    completo: 'UC6 · Auxiliar em procedimentos de prevenção da cárie e doença periodontal',
+    descricaoPO: 'Auxiliar nos procedimentos preventivos odontológicos, aplicando agentes terapêuticos e realizando técnicas de higiene supervisionada sob responsabilidade do cirurgião-dentista.',
+    competenciasPO: [
+      'Realizar profilaxia dental (polimento coronário) sob supervisão do dentista',
+      'Auxiliar na aplicação tópica de flúor gel, barniz e selantes',
+      'Executar evidenciação de placa bacteriana e orientar remoção',
+      'Auxiliar no controle da doença periodontal (irrigação subgengival, orientações)',
+      'Identificar e registrar índices de placa e sangramento gengival conforme protocolo',
+      'Orientar o paciente sobre dieta cariogênica e fatores de risco para a cárie'
+    ]
+  },
+  UC7: {
+    curto: 'Radiologia',
+    completo: 'UC7 · Auxiliar em radiologia e fotografia odontológicas',
+    descricaoPO: 'Auxiliar na realização de exames radiográficos e fotográficos odontológicos, operando equipamentos conforme as normas de proteção radiológica e os protocolos clínicos.',
+    competenciasPO: [
+      'Aplicar normas de proteção radiológica (dosimetria, aventais de chumbo, distância)',
+      'Posicionar o paciente e o filme/sensor para exames periapicais e panorâmicos',
+      'Processar filmes radiográficos em câmara escura (processamento manual e automático)',
+      'Auxiliar na interpretação de imagens radiográficas para identificação de estruturas',
+      'Realizar fotografias clínicas intraorais e extraorais com protocolo padronizado',
+      'Arquivar e organizar exames radiográficos e fotográficos no prontuário do paciente'
+    ]
+  },
+  UC8: {
+    curto: 'Reabilitação Oral',
+    completo: 'UC8 · Auxiliar na reabilitação oral do paciente',
+    descricaoPO: 'Dar suporte nos procedimentos de reabilitação oral, incluindo próteses, implantes e restaurações estéticas, garantindo qualidade técnica e conforto ao paciente.',
+    competenciasPO: [
+      'Auxiliar na confecção e adaptação de próteses totais e parciais removíveis',
+      'Preparar materiais de moldagem e modelos de estudo conforme protocolo',
+      'Auxiliar em procedimentos protéticos sobre implantes (cicatrizadores, pilares)',
+      'Realizar manutenção e ajuste de próteses sob supervisão do dentista',
+      'Auxiliar em procedimentos restauradores com resinas compostas e cerâmicas',
+      'Orientar o paciente sobre cuidados e higienização de próteses e implantes'
+    ]
+  },
+  UC9: {
+    curto: 'Treinamento ASB',
+    completo: 'UC9 · Planejar e executar treinamento de auxiliares em saúde bucal',
+    descricaoPO: 'Orientar e treinar auxiliares em saúde bucal (ASB) nas técnicas e procedimentos clínicos, contribuindo para a qualificação da equipe de saúde bucal.',
+    competenciasPO: [
+      'Identificar necessidades de capacitação da equipe auxiliar e elaborar plano de treinamento',
+      'Demonstrar técnicas de biossegurança, manipulação de materiais e auxílio clínico',
+      'Avaliar o desempenho do ASB durante procedimentos clínicos e fornecer feedback',
+      'Elaborar materiais instrucionais e protocolos operacionais para a equipe',
+      'Identificar situações de risco e implementar medidas corretivas junto à equipe',
+      'Registrar atividades de treinamento e competências desenvolvidas pelos auxiliares'
+    ]
+  },
+  UC10: {
+    curto: 'Instrumentação Hospitalar',
+    completo: 'UC10 · Auxiliar em instrumentação cirúrgica hospitalar odontológica',
+    descricaoPO: 'Auxiliar em procedimentos cirúrgicos odontológicos em ambiente hospitalar, garantindo a correta instrumentação, assepsia e suporte ao cirurgião conforme protocolos hospitalares.',
+    competenciasPO: [
+      'Aplicar técnicas de paramentação e paramentação cirúrgica (campo estéril)',
+      'Organizar caixas cirúrgicas e bandejas de instrumentais para cirurgias orais',
+      'Realizar a passagem de instrumentos durante procedimentos cirúrgicos com técnica asséptica',
+      'Controlar e registrar materiais cirúrgicos (contagem de compressas, agulhas, instrumentos)',
+      'Identificar e manusear equipamentos de anestesia e monitorização básica',
+      'Aplicar protocolos de descarte e processamento de materiais em ambiente hospitalar'
+    ]
+  }
 };
 
 // Mapeamento automático de área → UCs primárias
@@ -3258,6 +3366,7 @@ function renderFormCriarCenario() {
               <option value="Caso Clínico">Caso Clínico</option>
               <option value="Agendamento">Agendamento</option>
               <option value="Materiais">Materiais</option>
+              <option value="Odontograma">Odontograma</option>
             </select>
           </div>
         </div>
@@ -3400,6 +3509,28 @@ function renderFormCriarCenario() {
           <div id="mat-competencias-sliders" style="background:white;border:1px solid #86efac;border-radius:6px;padding:12px"></div>
           <input type="hidden" id="mat-competencias" value="">
         </div>
+        ` : tipoSelecionado === 'Odontograma' ? `
+        <!-- SEÇÃO: ODONTOGRAMA -->
+        <div style="background:#fef3c7;border:1px solid #fde68a;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 12px 0;color:#92400e">🦷 Dados do Paciente</h4>
+          <input type="text" id="od-paciente" placeholder="Ex: Maria Silva, 42 anos" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:14px" required>
+        </div>
+
+        <!-- SEÇÃO: DENTES (ODONTOGRAMA) -->
+        <div style="background:#f0f9ff;border:1px solid #bfdbfe;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 8px 0;color:#1e40af">🦷 Achados por Dente</h4>
+          <p style="margin:0 0 12px 0;font-size:12px;color:#6b7280">Informe o número de cada dente (FDI) e a descrição do achado clínico. O gabarito é configurado no odontograma abaixo.</p>
+          <div id="od-dentes-list" style="margin-bottom:12px"></div>
+          <button type="button" onclick="adicionarDenteOdontograma()" class="btn-secondary" style="width:100%;padding:8px">+ Adicionar Dente</button>
+        </div>
+
+        <!-- SEÇÃO: GABARITO (ODONTOGRAMA) -->
+        <div style="background:#f5e6ff;border:1px solid #d8b4fe;border-radius:8px;padding:16px;margin-bottom:20px">
+          <h4 style="margin:0 0 8px 0;color:#7c3aed">🎯 Gabarito — Odontograma Correto</h4>
+          <p style="margin:0 0 12px 0;font-size:12px;color:#6b7280">Selecione uma ferramenta e clique nos dentes para definir o gabarito correto.</p>
+          <div id="od-toolbar-criar" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px"></div>
+          <div id="od-svg-criar"></div>
+        </div>
         ` : ''}
 
         <div style="background:#f3f4f6;padding:16px;border-radius:8px;margin-bottom:20px;border-left:4px solid #3b82f6">
@@ -3427,6 +3558,8 @@ function renderFormCriarCenario() {
   } else if (tipoSelecionado === 'Materiais') {
     atualizarListaOpcoesMateriais();
     renderizarSliderCompetenciasMateriais();
+  } else if (tipoSelecionado === 'Odontograma') {
+    inicializarFormOdontograma();
   }
 }
 
@@ -3862,6 +3995,92 @@ function removerImagemCenario() {
   state.cenarioImagem = null;
 }
 
+// ═══════════════════════════════════════════════════════════════════
+// FUNÇÕES PARA FORMULÁRIO DE ODONTOGRAMA (CRIAÇÃO)
+// ═══════════════════════════════════════════════════════════════════
+
+// State para criação de odontograma
+if (!state.odontogramaFormData) {
+  state.odontogramaFormData = { dentes: [], correto: {}, activeTool: null };
+}
+
+const OD_TOOLS_CRIAR = [
+  {id:'re', nome:'Rest. Existente', cor:'#E24B4A'},
+  {id:'rp', nome:'Rest. a Realizar', cor:'#378ADD'},
+  {id:'ca', nome:'Canal',    cor:'#EF9F27'},
+  {id:'co', nome:'Coroa',    cor:'#D4537E'},
+  {id:'im', nome:'Implante', cor:'#639922'},
+  {id:'au', nome:'Ausente',  cor:'#888780'},
+  {id:'ex', nome:'Exodontia',cor:'#7F77DD'}
+];
+
+function inicializarFormOdontograma() {
+  state.odontogramaFormData = { dentes: [], correto: {}, activeTool: null };
+  // Compartilhar estado com o editor existente
+  editOdState.correto = state.odontogramaFormData.correto;
+  editOdState.activeTool = null;
+  renderDentesOdontogramaForm();
+  renderToolbarOdontogramaForm();
+  renderSVGOdontogramaForm();
+}
+
+function adicionarDenteOdontograma() {
+  state.odontogramaFormData.dentes.push({ n: '', descricao: '' });
+  renderDentesOdontogramaForm();
+}
+
+function renderDentesOdontogramaForm() {
+  const container = document.getElementById('od-dentes-list');
+  if (!container) return;
+  container.innerHTML = state.odontogramaFormData.dentes.map((d, i) =>
+    `<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+      <input type="number" placeholder="Nº FDI" value="${d.n}" min="11" max="85"
+        onchange="state.odontogramaFormData.dentes[${i}].n=parseInt(this.value)||0"
+        style="width:70px;border:1px solid #d1d5db;border-radius:6px;padding:8px;font-size:13px">
+      <input type="text" placeholder="Descrição do achado (ex: cárie oclusal a restaurar)"
+        value="${escHtml ? escHtml(d.descricao) : d.descricao}"
+        onchange="state.odontogramaFormData.dentes[${i}].descricao=this.value"
+        style="flex:1;border:1px solid #d1d5db;border-radius:6px;padding:8px;font-size:13px">
+      <button type="button" onclick="removerDenteOdontograma(${i})"
+        style="background:#fee2e2;border:none;border-radius:4px;padding:6px 10px;cursor:pointer;color:#ef4444;font-size:14px">✕</button>
+    </div>`
+  ).join('') || '<p style="color:#9ca3af;font-size:13px;margin:0">Nenhum dente adicionado ainda.</p>';
+}
+
+function removerDenteOdontograma(i) {
+  state.odontogramaFormData.dentes.splice(i, 1);
+  renderDentesOdontogramaForm();
+}
+
+function renderToolbarOdontogramaForm() {
+  const tb = document.getElementById('od-toolbar-criar');
+  if (!tb) return;
+  tb.innerHTML = OD_TOOLS_CRIAR.map(t =>
+    `<button type="button" id="od-criar-btn-${t.id}" onclick="setOdCriarTool('${t.id}')"
+      style="padding:5px 9px;border:2px solid ${t.cor};border-radius:5px;cursor:pointer;font-weight:600;font-size:11px;background:white;color:#333">${t.nome}</button>`
+  ).join('') +
+  `<button type="button" onclick="limparGabaritoOdCriar()"
+    style="padding:5px 9px;border:2px solid #9ca3af;border-radius:5px;cursor:pointer;font-weight:600;font-size:11px;background:white;color:#555">🗑 Limpar</button>`;
+}
+
+function setOdCriarTool(toolId) {
+  // Compartilha o activeTool com editOdState para que selectEditToothOD funcione
+  editOdState.activeTool = editOdState.activeTool === toolId ? null : toolId;
+  refreshEditOd();
+}
+
+function limparGabaritoOdCriar() {
+  // Limpa o objeto correto compartilhado e reinicia
+  Object.keys(editOdState.correto).forEach(k => delete editOdState.correto[k]);
+  refreshEditOd();
+}
+
+function renderSVGOdontogramaForm() {
+  const container = document.getElementById('od-svg-criar');
+  if (!container) return;
+  container.innerHTML = renderEditOdSVG ? renderEditOdSVG() : '<p style="color:#9ca3af">Editor de odontograma não disponível</p>';
+}
+
 function salvarNovoCenario(e, isRascunho = false) {
   e.preventDefault();
   const id = document.getElementById('new-cen-id').value.trim();
@@ -3918,6 +4137,15 @@ function salvarNovoCenario(e, isRascunho = false) {
     if (state.materiaisFormData.opcoes.length === 0) {
       alert('Adicione pelo menos uma opção de material!');
       return;
+    }
+  } else if (tipo === 'Odontograma') {
+    const paciente = document.getElementById('od-paciente')?.value?.trim();
+    if (!paciente) { alert('Informe os dados do paciente!'); return; }
+    if (state.odontogramaFormData.dentes.length === 0) {
+      alert('Adicione pelo menos um dente ao odontograma!'); return;
+    }
+    if (Object.keys(editOdState.correto || {}).length === 0) {
+      alert('Defina o gabarito no odontograma (marque pelo menos um dente)!'); return;
     }
   }
 
@@ -3980,6 +4208,13 @@ function salvarNovoCenario(e, isRascunho = false) {
     };
     // Adicionar competências para materiais
     novoCenario.competenciasRelevantes = state.materiaisFormData.competencias;
+  } else if (tipo === 'Odontograma') {
+    novoCenario.modalidade = 'odontograma';
+    novoCenario.tipo = 'odontograma';
+    novoCenario.paciente = document.getElementById('od-paciente')?.value?.trim() || '';
+    novoCenario.dentes = state.odontogramaFormData.dentes.filter(d => d.n && d.descricao);
+    novoCenario.correto = JSON.parse(JSON.stringify(editOdState.correto || {}));
+    novoCenario.competencias = [8,8,8,8,8,8,8,8];
   }
 
   // Mostrar mensagem
@@ -4306,30 +4541,64 @@ function renderTabelaUCProf(ucData) {
   const rows = itens.map((c, idx) => {
     const nivel = ucNivel(c.pct, c.total);
     const mediaStr = c.total > 0 ? (c.pct / 10).toFixed(1) : '—';
-    const detailRows = c.itens && c.itens.length ? c.itens.map(it => {
-      const nota = it.nota.toFixed(1);
-      const cor = it.nota >= 8.5 ? 'var(--success)' : it.nota >= 6 ? 'var(--warning)' : 'var(--danger)';
-      const data = it.data ? new Date(it.data).toLocaleDateString('pt-BR') : '—';
-      return `<div class="uc-detail-item">
-        <span class="uc-detail-id">${it.cenarioId}</span>
-        <span class="uc-detail-titulo">${it.titulo}</span>
-        <span class="uc-detail-data">${data}</span>
-        <span class="uc-detail-nota" style="color:${cor}">${nota}</span>
-      </div>`;
-    }).join('') : `<div style="font-size:12px;color:var(--text3);padding:6px 0">Nenhum cenário realizado nesta UC ainda.</div>`;
+    const info = c.info || UC_INFO[c.uc] || {};
+
+    // Bloco de competências do PO SENAC
+    const compPOHtml = info.competenciasPO && info.competenciasPO.length
+      ? `<div style="margin-bottom:14px;padding:12px;background:#f0f9ff;border:1px solid #bfdbfe;border-radius:8px">
+          <div style="font-size:11px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">📋 Competências do Plano de Orientação SENAC</div>
+          ${info.descricaoPO ? `<p style="font-size:12px;color:#374151;margin:0 0 8px 0;font-style:italic">${info.descricaoPO}</p>` : ''}
+          <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:4px">
+            ${info.competenciasPO.map(comp =>
+              `<li style="font-size:12px;color:#1e3a5f;line-height:1.4">${comp}</li>`
+            ).join('')}
+          </ul>
+        </div>`
+      : '';
+
+    // Bloco de cenários realizados
+    const cenarioRows = c.itens && c.itens.length
+      ? `<div style="margin-bottom:6px">
+          <div style="font-size:11px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px">📌 Cenários Realizados</div>
+          ${c.itens.map(it => {
+            const nota = it.nota.toFixed(1);
+            const cor = it.nota >= 8.5 ? 'var(--success)' : it.nota >= 6 ? 'var(--warning)' : 'var(--danger)';
+            const bgCor = it.nota >= 8.5 ? '#f0fdf4' : it.nota >= 6 ? '#fffbeb' : '#fef2f2';
+            const data = it.data ? new Date(it.data).toLocaleDateString('pt-BR') : '—';
+            const modTag = it.modalidade === 'agendamento' ? 'AG' : it.modalidade === 'materiais' ? 'MAT' : it.modalidade === 'odontograma' ? 'OD' : 'CC';
+            const modCor = it.modalidade === 'agendamento' ? '#1e40af' : it.modalidade === 'materiais' ? '#be123c' : it.modalidade === 'odontograma' ? '#b45309' : '#065f46';
+            return `<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:${bgCor};border-radius:6px;margin-bottom:4px">
+              <span style="font-size:10px;font-weight:700;color:${modCor};background:white;border:1px solid currentColor;border-radius:3px;padding:1px 4px;flex-shrink:0">${modTag}</span>
+              <span style="font-size:11px;font-weight:600;color:#1f2937;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${it.titulo}">${it.titulo || it.cenarioId}</span>
+              <span style="font-size:10px;color:#6b7280;flex-shrink:0">${data}</span>
+              <span style="font-size:13px;font-weight:700;color:${cor};flex-shrink:0">${nota}</span>
+            </div>`;
+          }).join('')}
+        </div>`
+      : `<div style="padding:10px;background:#f9fafb;border-radius:6px;border:1px dashed #d1d5db">
+          <p style="margin:0;font-size:12px;color:#6b7280;text-align:center">Nenhum cenário realizado nesta UC ainda.</p>
+          <p style="margin:6px 0 0 0;font-size:11px;color:#9ca3af;text-align:center">O aluno verá progresso aqui conforme praticar.</p>
+        </div>`;
+
     return `
       <tr class="uc-row" onclick="toggleUcRow(${idx})">
-        <td><span class="uc-chevron" id="chev-${idx}">▶</span><strong>${c.uc}</strong> <span style="color:var(--text3);font-weight:400">· ${c.info ? c.info.curto : c.uc}</span></td>
+        <td><span class="uc-chevron" id="chev-${idx}">▶</span><strong>${c.uc}</strong> <span style="color:var(--text3);font-weight:400">· ${info.curto || c.uc}</span></td>
         <td>${c.total > 0 ? `${c.total}/${c.totalDisp||'?'}` : `0/${c.totalDisp||'?'}`}</td>
         <td>${mediaStr}</td>
         <td><span class="nivel-badge ${nivel.cls}">${nivel.label}</span></td>
       </tr>
       <tr class="uc-detail-row" id="ucdet-${idx}">
-        <td colspan="4"><div class="uc-detail-inner">${detailRows}</div></td>
+        <td colspan="4">
+          <div class="uc-detail-inner" style="padding:14px">
+            ${compPOHtml}
+            ${cenarioRows}
+          </div>
+        </td>
       </tr>`;
   }).join('');
   return `<div style="margin-bottom:20px">
     <div class="section-title">Desempenho por Competências</div>
+    <p style="font-size:12px;color:var(--text3);margin:-8px 0 12px 0">Clique em qualquer UC para ver as competências do Plano de Orientação e os cenários realizados.</p>
     <table class="uc-table">
       <thead><tr>
         <th>Competência</th>
@@ -4907,15 +5176,28 @@ function addOdDenteRow() {
 }
 
 function refreshEditOd() {
+  // Editor de edição (página editar cenários)
   var container = document.getElementById('edit-od-container');
   if (container) container.innerHTML = renderEditOdSVG();
+  // Editor de criação (página criar cenário)
+  var containerCriar = document.getElementById('od-svg-criar');
+  if (containerCriar) containerCriar.innerHTML = renderEditOdSVG();
   var TOOL_COLORS = {re:'#E24B4A',rp:'#378ADD',ca:'#EF9F27',co:'#D4537E',im:'#639922',au:'#888780',ex:'#7F77DD'};
   Object.keys(TOOL_COLORS).forEach(function(id){
+    // Botões do editor de edição
     var btn = document.getElementById('edit-od-btn-'+id);
-    if (!btn) return;
-    var active = editOdState.activeTool === id;
-    btn.style.background = active ? TOOL_COLORS[id] : 'white';
-    btn.style.color = active ? 'white' : '#333';
+    if (btn) {
+      var active = editOdState.activeTool === id;
+      btn.style.background = active ? TOOL_COLORS[id] : 'white';
+      btn.style.color = active ? 'white' : '#333';
+    }
+    // Botões do editor de criação
+    var btnC = document.getElementById('od-criar-btn-'+id);
+    if (btnC) {
+      var active = editOdState.activeTool === id;
+      btnC.style.background = active ? TOOL_COLORS[id] : 'white';
+      btnC.style.color = active ? 'white' : '#333';
+    }
   });
 }
 
