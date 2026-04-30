@@ -149,14 +149,25 @@
   .notif-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative; padding: 0; }
   .notif-btn:hover { background: var(--bg2); }
   .notif-badge { position: absolute; top: -5px; right: -5px; min-width: 16px; height: 16px; border-radius: 8px; background: #E24B4A; color: white; font-size: 9px; font-weight: 700; display: none; align-items: center; justify-content: center; padding: 0 4px; }
-  .notif-dropdown { position: absolute; right: 0; top: calc(100% + 8px); width: 300px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); z-index: 300; box-shadow: 0 4px 20px rgba(0,0,0,0.12); display: none; }
+  .notif-dropdown { position: absolute; right: 0; top: calc(100% + 8px); width: 320px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); z-index: 300; box-shadow: 0 4px 20px rgba(0,0,0,0.12); display: none; }
   .notif-dropdown.open { display: block; }
   .notif-drop-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; }
-  .notif-drop-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .notif-mark-all { font-size: 11px; font-weight: 500; color: var(--primary); cursor: pointer; background: none; border: none; padding: 0; }
+  .notif-mark-all:hover { text-decoration: underline; }
+  .notif-drop-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--border); transition: background 0.15s; }
   .notif-drop-item:last-child { border-bottom: none; }
-  .notif-drop-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+  .notif-drop-item.lida { opacity: 0.5; }
+  .notif-drop-item.clicavel { cursor: pointer; }
+  .notif-drop-item.clicavel:hover { background: var(--hover); }
+  .notif-drop-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+  .notif-drop-body { flex: 1; min-width: 0; }
   .notif-drop-text { font-size: 12px; color: var(--text1); line-height: 1.4; font-weight: 600; }
-  .notif-drop-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+  .notif-drop-sub { font-size: 11px; color: var(--text3); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .notif-drop-actions { display: flex; align-items: center; gap: 6px; margin-top: 5px; }
+  .notif-link-btn { font-size: 11px; font-weight: 600; color: var(--primary); cursor: pointer; background: none; border: none; padding: 0; text-decoration: none; }
+  .notif-link-btn:hover { text-decoration: underline; }
+  .notif-read-btn { font-size: 10px; color: var(--text3); cursor: pointer; background: none; border: 1px solid var(--border); border-radius: 3px; padding: 1px 5px; line-height: 1.5; }
+  .notif-read-btn:hover { color: var(--text1); border-color: var(--text3); }
   .notif-drop-empty { padding: 16px; text-align: center; font-size: 13px; color: var(--text3); }
 
   .section-title { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
@@ -4524,17 +4535,50 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// --- Estado de notificações lidas (persistido em localStorage) ---
+function getNotifLidas() {
+  try { return new Set(JSON.parse(localStorage.getItem('notifLidas') || '[]')); }
+  catch(e) { return new Set(); }
+}
+function saveNotifLidas(set) {
+  localStorage.setItem('notifLidas', JSON.stringify([...set]));
+}
+function marcarNotifLida(key) {
+  const lidas = getNotifLidas();
+  lidas.add(key);
+  saveNotifLidas(lidas);
+  renderNotificacoes();
+}
+function marcarNotifNaoLida(key) {
+  const lidas = getNotifLidas();
+  lidas.delete(key);
+  saveNotifLidas(lidas);
+  renderNotificacoes();
+}
+function marcarTodasLidas() {
+  const lidas = getNotifLidas();
+  document.querySelectorAll('[data-notif-key]').forEach(el => lidas.add(el.dataset.notifKey));
+  saveNotifLidas(lidas);
+  renderNotificacoes();
+}
+function navegarNotif(pagina) {
+  const dd = document.getElementById('notif-dropdown');
+  if (dd) dd.classList.remove('open');
+  showPage(pagina);
+}
+
 function renderNotificacoes() {
   const wrap = document.getElementById('notif-wrap');
   const badge = document.getElementById('notif-badge');
   const dropdown = document.getElementById('notif-dropdown');
   if (!wrap || !badge || !dropdown) return;
 
-  // Só exibe para professor
   if (!state.user || state.user.tipo !== 'professor') {
     wrap.style.display = 'none'; return;
   }
   wrap.style.display = 'block';
+
+  const lidas = getNotifLidas();
 
   const semTurma = state.alunos.filter(a => !a.turma);
   const semAtividade = state.alunos.filter(a => !(state.resultados[a.id] && state.resultados[a.id].length));
@@ -4545,39 +4589,58 @@ function renderNotificacoes() {
   });
 
   const items = [];
-  if (semTurma.length) items.push({
-    cor: '#EF9F27',
-    texto: `${semTurma.length} aluno${semTurma.length > 1 ? 's' : ''} sem turma atribuída`,
-    sub: semTurma.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ')
-  });
-  if (semAtividade.length) items.push({
-    cor: '#E24B4A',
-    texto: `${semAtividade.length} aluno${semAtividade.length > 1 ? 's' : ''} sem cenários realizados`,
-    sub: semAtividade.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ')
-  });
-  if (baixoDesempenho.length) items.push({
-    cor: '#E24B4A',
-    texto: `${baixoDesempenho.length} aluno${baixoDesempenho.length > 1 ? 's' : ''} com média abaixo de 6`,
-    sub: baixoDesempenho.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ')
-  });
+  if (semTurma.length) {
+    const sub = semTurma.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ');
+    const key = 'semTurma-' + semTurma.map(a=>a.id).sort().join(',');
+    items.push({ key, cor: '#EF9F27',
+      texto: `${semTurma.length} aluno${semTurma.length > 1 ? 's' : ''} sem turma atribuída`,
+      sub, navPage: 'page-alunos', navLabel: 'Gerenciar alunos →'
+    });
+  }
+  if (semAtividade.length) {
+    const sub = semAtividade.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ');
+    const key = 'semAtiv-' + semAtividade.map(a=>a.id).sort().join(',');
+    items.push({ key, cor: '#E24B4A',
+      texto: `${semAtividade.length} aluno${semAtividade.length > 1 ? 's' : ''} sem cenários realizados`,
+      sub
+    });
+  }
+  if (baixoDesempenho.length) {
+    const sub = baixoDesempenho.map(a => capitalize(a.primeiro) + ' ' + capitalize(a.sobrenome)).join(', ');
+    const key = 'baixoDesemp-' + baixoDesempenho.map(a=>a.id).sort().join(',');
+    items.push({ key, cor: '#E24B4A',
+      texto: `${baixoDesempenho.length} aluno${baixoDesempenho.length > 1 ? 's' : ''} com média abaixo de 6`,
+      sub
+    });
+  }
 
-  // Badge
-  badge.textContent = items.length;
-  badge.style.display = items.length > 0 ? 'flex' : 'none';
+  const naoLidas = items.filter(it => !lidas.has(it.key));
+  badge.textContent = naoLidas.length;
+  badge.style.display = naoLidas.length > 0 ? 'flex' : 'none';
 
-  // Conteúdo do dropdown
+  const temNaoLida = naoLidas.length > 0;
   dropdown.innerHTML = `
-    <div class="notif-drop-header">Notificações</div>
-    ${items.length
-      ? items.map(item => `
-        <div class="notif-drop-item">
-          <div class="notif-drop-dot" style="background:${item.cor}"></div>
-          <div>
-            <div class="notif-drop-text">${item.texto}</div>
-            <div class="notif-drop-sub">${item.sub}</div>
+    <div class="notif-drop-header">
+      <span>Notificações</span>
+      ${temNaoLida ? `<button class="notif-mark-all" onclick="marcarTodasLidas()">Marcar todas como lidas</button>` : ''}
+    </div>
+    ${items.length ? items.map(item => {
+      const isLida = lidas.has(item.key);
+      return `<div class="notif-drop-item${isLida ? ' lida' : ''}${item.navPage ? ' clicavel' : ''}" data-notif-key="${item.key}"
+        ${item.navPage ? `onclick="navegarNotif('${item.navPage}')"` : ''}>
+        <div class="notif-drop-dot" style="background:${isLida ? '#aaa' : item.cor}"></div>
+        <div class="notif-drop-body">
+          <div class="notif-drop-text">${item.texto}</div>
+          <div class="notif-drop-sub" title="${item.sub}">${item.sub}</div>
+          <div class="notif-drop-actions" onclick="event.stopPropagation()">
+            ${item.navPage ? `<button class="notif-link-btn" onclick="navegarNotif('${item.navPage}')">${item.navLabel}</button>` : ''}
+            ${isLida
+              ? `<button class="notif-read-btn" onclick="marcarNotifNaoLida('${item.key}')">↩ Reabrir</button>`
+              : `<button class="notif-read-btn" onclick="marcarNotifLida('${item.key}')">✓ Marcar como lida</button>`}
           </div>
-        </div>`).join('')
-      : '<div class="notif-drop-empty">Nenhum alerta no momento</div>'}`;
+        </div>
+      </div>`;
+    }).join('') : '<div class="notif-drop-empty">Nenhum alerta no momento</div>'}`;
 }
 
 function renderProfDashboard() {
@@ -5081,21 +5144,8 @@ function renderAlunosAdmin() {
     return;
   }
 
-  // Mostrar alerta se houver alunos sem turma
-  const alunosSemTurma = state.alunos.filter(a => !a.turma);
-  if (alunosSemTurma.length > 0) {
-    const alertDiv = document.getElementById('alunos-alert');
-    if (alertDiv) {
-      alertDiv.innerHTML = `<div class="alert-card">
-        <h4>⚠️ ${alunosSemTurma.length} aluno(s) sem turma</h4>
-        <p style="margin:0;font-size:12px;color:var(--text2)">Os seguintes alunos ainda não foram atribuídos a uma turma:</p>
-        <div style="margin-top:8px">${alunosSemTurma.map(a => `<div style="font-size:12px;color:var(--text2);margin-bottom:4px">• ${a.primeiro} ${a.sobrenome}</div>`).join('')}</div>
-      </div>`;
-    }
-  } else {
-    const alertDiv = document.getElementById('alunos-alert');
-    if (alertDiv) alertDiv.innerHTML = '';
-  }
+  // Alertas consolidados no sininho — limpar bloco inline
+  if (alertDiv) alertDiv.innerHTML = '';
 
   body.innerHTML = state.alunos.map(al => {
     const rs = getResultsForUser(al.id);
